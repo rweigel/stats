@@ -1,0 +1,2 @@
+# astrostats
+Course notes
