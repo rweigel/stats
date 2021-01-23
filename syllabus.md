@@ -1,6 +1,7 @@
 <p class='title'>
     AstroStats
 </p>
+
 <p class='subtitle'>
     ASTR/PHYS 390/590
 </p>
