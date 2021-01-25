@@ -518,67 +518,75 @@ where k is Boltzmann's constant, and <math>\Omega</math> is the number of micros
 
 ### Permutation
 
-'''An ordered arrangement of objects'''.  Usually relevant in problems "without replacement" and problems where a list of objects is considered different if the order changes.
+**An ordered arrangement of objects**.  Usually relevant in problems "without replacement" and problems where a list of objects is considered different if the order changes.
 
 Example: One red and one blue ball is placed in a container.  The number of permutations of two balls drawn without replacement is 2.
 
 ### Combination
 
-'''A grouping of objects'''.  Usually relevant in problems where some objects are identical or when a re-ordered list of objects is considered as identical the ordered list.
+**A grouping of objects**.  Usually relevant in problems where some objects are identical or when a re-ordered list of objects is considered as identical the ordered list.
 
 Example: One red and one blue ball is placed in a container.  The number of combinations of two balls drawn with replacement is 4.
 
 ### n permute k
 
-The number of ways of ordering <code>k</code> objects from a list of <code>n</code> distinguishable (unique) objects is
-<math>{_nP_k} = \frac{n!}{(n-k)!}=n\cdot (n-1)\cdot ...\cdot (n-k+1)</math>
+The number of ways of ordering `k` objects from a list of `n` distinguishable (unique) objects is
+
+$${_nP_k} = \frac{n!}{(n-k)!}=n\cdot (n-1)\cdot ...\cdot (n-k+1)$$
 
 This quantity is also referred to as "n permute k".
 
 Example:
 
-You have 52 cards.  If you lay out five cards on the table, number of the orderings of 5 cards is <math>\frac{52!}{(52-5)!}</math>.
+You have 52 cards.  If you lay out five cards on the table, number of the orderings of 5 cards is ${52!}/{(52-5)!}$.
 
 ### n choose k
 
-The number of combinations (or subgroups) of <code>k</code> objects that can be created with <code>n</code> distinguishable objects is
+The number of combinations (or subgroups) of $k$ objects that can be created with $n$ distinguishable objects is
 
-<math>{_nC_k} = {n\choose k} = \frac{n!}{k!(n-k)!}</math>
+$${_nC_k} = {n\choose k}\frac{n!}{k!(n-k)!}$$
 
-This quantity is also referred to as "n choose k", or the '''binomial coefficient'''.
+This quantity is also referred to as "n choose k", or the _binomial coefficient_.
 
 Example:
 
 How many ways can you order a list of 5 unique cards?
 
-You have 52 cards.  If you lay out five cards on the table, the number of unique ordered lists ('''permutations''') of 5 cards is
+You have 52 cards.  If you lay out five cards on the table, the number of unique ordered lists (_permutations_) of 5 cards is
 
-<math>\frac{52!}{(52-5)!}</math>.
+$$\frac{52!}{(52-5)!}$$
 
 In most games of cards, how you order you cards in your hand does not matter.   How many unique 5-card hands ('''permutations''') are possible?
 
-<math>\frac{}{}{_5P_1}=5!</math>.
+$$\frac{}{}{_5P_1}=5!$$
 
-So divide the number of unique order lists of cards by 5! to get
+So divide the number of unique order lists of cards by $5!$ to get
 
-<math>\frac{52!}{(52-5)!5!}=\frac{}{}{_{52}C_5}=\frac{_{52}P_5}{5!}</math>.
+$$\frac{52!}{(52-5)!5!}=\frac{}{}{_{52}C_5}=\frac{_{52}P_5}{5!}$$
 
 ----
 
 Note:
-For back-of-the-envelope calculations and <code>n</code> greater than about 15, it is useful to remember [http://en.wikipedia.org/wiki/Stirling%27s_approximation Stirling's approximation], which is used extensively in statistical mechanics
-:<math>\ln n! \approx n\ln n - n\ .</math>
+For back-of-the-envelope calculations and $n$ greater than about 15, it is useful to remember [Stirling's approximation](http://en.wikipedia.org/wiki/Stirling%27s_approximation), which is used extensively in statistical mechanics
+
+$$\ln n! \approx n\ln n - n$$
+
 and remember that
-:<math> e^x \approx 10^{0.4\cdot x}</math>
 
-=== A look ahead ===
+$$e^x \approx 10^{0.4\cdot x}$$
 
-<math>_nC_k</math> appears in the Binomial distribution, which is the "mother of all distributions".  From it we can derive the normal distribution, poisson distribution, etc.
+**A look ahead**
+
+$_nC_k$ appears in the Binomial distribution, which is the "mother of all distributions".  From it we can derive the normal distribution, poisson distribution, etc.
 
 Binomial Theorem
-:<math>(x+y)^n=\sum_{k=0}^n{n \choose k}x^ky^{n-k}\quad\quad\quad</math>, 
+
+$$(x+y)^n=\sum_{k=0}^n{n \choose k}x^ky^{n-k}\quad\quad\quad$$, 
+
 where
-:<math>{n \choose k}=\frac{n!}{k!\,(n-k)!}</math>
+
+$${n \choose k}=\frac{n!}{k!\,(n-k)!}$$
+
 are the binomial coefficients.
 
 
