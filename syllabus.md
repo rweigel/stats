@@ -63,7 +63,6 @@ In the [References](#references) section of this syllabus, many additional refer
 
 ## January 28th
 
-
 * Introductions
 * Brief introduction to course
 * Discussion of topics on syllabus
