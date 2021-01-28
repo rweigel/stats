@@ -51,5 +51,14 @@ Save your answer in a file named `HW1_2.txt` or `HW1_2.pdf`.
 
 ## Histograms
 
+## Central Limit Theorem (590 only)
+
+According to the Central Limit Theorem, the histogram of $\overline{X}$ in Problem 1.1.1a will still be gaussian even if the values in the population are not gaussian distributed.
+
+1. Repeat 1.1.1a using a different distribution for the population.
+2. I have claimed that the histogram of the 10,000 $\overline{X}$ values should be gaussian. Research Q-Q plots and plot a line  on a Q-Q plot for the 10,000 $\overline{X}$ values and a line for a gaussian distribution.
+
+Save your answer in a file named `HW1_4.txt` or `HW1_4.pdf`.
+
 
 
