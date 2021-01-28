@@ -75,8 +75,8 @@ In the [References](#references) section of this syllabus, many additional refer
     * Approximately 1/2 of the students in this class are undergraduates, the other 1/2 are graduates. We did this because this is the first time that the course has been taught. There will be an adjustment period as I figure out how best to handle differentials in experience with statistics, programming, and data analysis.
     * Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.
 *   Python IDEs and [Google Colab](https://colab.research.google.com/) introduction
-*   [Review of Python/NumPy](python#numpy) (and MATLAB, if needed) 
-*   [HW #1 discussion](hw)
+*   [Review of Python/NumPy](python.html#numpy) (and MATLAB, if needed) 
+*   [HW #1 discussion](hw.html)
 
 ## February 4th
 - HW #1 due before class starts
