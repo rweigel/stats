@@ -1,8 +1,7 @@
 # HW 1
 
-This homework involves the Law of Large Numbers, confidence intervals, and the Central Limit Theorem. You do not need to fully understand the statistical theory behind these problems. 
+The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems. 
 
-These problems are intended to primarily be a review of the programming techniques that you will need for this class.
 
 ----
 
@@ -10,12 +9,12 @@ The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample avera
 
 $$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
 
-will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$.
+will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
 
 If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see
 * [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
-* Bulmer, Chapter 6 (see Piazza)
-* DeGroot, Chapter 6 (see Piazza)
+* Bulmer, Chapter 6 ([Piazza](https://piazza.com/gmu/spring2021/ce0c/resources))
+* DeGroot, Chapter 6 ([Piazza](https://piazza.com/gmu/spring2021/ce0c/resources))
 
 ## Law of Large Numbers I
 
@@ -37,28 +36,33 @@ Save your program as `HW1_1a.py`. When I execute your program, I should see a hi
 
 <sup>+</sup> You may explain this using one or more of words, tables, and a plots.
 
-Save your program as `HW1_1b.py`. Save your answers in a file named `HW1_1b.txt` or `HW1_1b.pdf`.
+Save your program as `HW1_1b.py`. Save your answers in a file named `HW1_1b.md` or `HW1_1b.pdf`.
 
 ## Prelude to Hypothesis Testing
 
 This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.
 
-I select $n=100$ men at random from the U.S. population and compute the average of their heights. Using only the techniques used in the previous problem, make a statement about the liklihood that the actual U.S. population average is more than 1 inch larger or smaller than the mean of the $n$ heights.
+I select $n=100$ men at random from the U.S. population and compute the average of their heights. Using only the techniques used in the previous problem, make a statement about the likelihood that the actual U.S. population average is more than 1 inch larger or smaller than the average of the $n$ heights.
 
-Describe the program that you would write to determine the liklihood. If you have done hypothesis testing before, don't use any of it's terminology or techniques.
+Briefly describe a program that you would write to determine the liklihood. If you have done hypothesis testing before, don't use any of it's terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.
 
-Save your answer in a file named `HW1_2.txt` or `HW1_2.pdf`.
+Save your answer in a file named `HW1_2.md` or `HW1_2.pdf`.
 
-## Histograms
+## Basic Concepts in Probability
 
-## Central Limit Theorem (590 only)
+Read Chapter 2.1-2.2 of Devore, 2012 ([PDF available on Piazza](https://piazza.com/gmu/spring2021/ce0c/resources)). 
 
-According to the Central Limit Theorem, the histogram of $\overline{X}$ in Problem 1.1.1a will still be gaussian even if the values in the population are not gaussian distributed.
+1. An experiment involves tossing a coin 3x. What is the sample space of this experiment?
+2. How many of the outcomes in the sample space had two heads? 
+3. Define event $A$ to be that the experiment yields two heads. Define event $B$ to be that the experiment yields two tails. What is $A \cup B$ and $A \cap B$?
 
-1. Repeat 1.1.1a using a different distribution for the population.
-2. I have claimed that the histogram of the 10,000 $\overline{X}$ values should be gaussian. Research Q-Q plots and plot a line  on a Q-Q plot for the 10,000 $\overline{X}$ values and a line for a gaussian distribution.
+Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
 
-Save your answer in a file named `HW1_4.txt` or `HW1_4.pdf`.
+
+
+
+
+
 
 
 
