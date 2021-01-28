@@ -13,7 +13,7 @@
 *   **Instructor**: Bob Weigel
 *   **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
 *   **Office Hour**: Thursday 3:30-4:30 pm.
-*   **Course URL**: [http://bobweigel.net/astro590](http://bobweigel.net/astro590)
+*   **Course URL**: [http://bobweigel.net/astro590](http://rweigel.github.io/astrostats)
 *   **Credits**: 3 (Lecture)
 *   **Prerequisites**:
     *   390: Grade of B or higher in PHYS 251 or permission of instructor;
