@@ -1,0 +1,2761 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>python</title>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.75em%22 font-size=%22100%22>📖</text></svg>">
+  <style>
+    body {
+      display: flex;
+    }
+    
+    #toc {
+      font-size: 85%;
+      width: 20%;
+      min-height: 100%;
+      max-height: 100%;
+      overflow-y: scroll;
+      padding-left: 0.75em ;
+      padding-right: 1em ;
+    }
+    
+    #toc ol {
+      list-style-type: decimal;
+      padding-inline-start: 1em;
+    }
+    
+    #toc a {
+      text-decoration: none;
+    }
+    
+    #display {
+      width: 80%;
+      max-height: 100%;
+      min-height: 100%;
+      overflow-y: scroll;
+      padding-left: 1em;
+      padding-right: 1em;
+      border-left: 1px solid rgb(240,240,240);
+    }
+    
+    .title {
+      text-align: center;
+      font-size: 250%;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 0;
+    }
+    
+    .subtitle {
+      text-align: center;
+      font-size: 150%;
+      font-weight: bold;
+      color: black;
+      margin-top: 0.2em;
+    }
+    
+    .hanchor {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    h1 {
+      color: darkblue;
+      border-bottom: 2px solid darkblue;
+      cursor: arrow;
+    }
+    
+    h2 {
+      border-bottom: 1px solid black;
+    }
+    
+    h3 {
+      border-bottom: 1px dotted black;
+    }
+    
+    ul {
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    
+    /* Fenced code blocks have form <pre><code>...</code></pre> */
+    pre > code {
+      background-color: rgba(0,0,0,0);
+    }
+    
+    code {
+      background-color: rgba(0,0,0,.03);
+      border-radius: 0px;
+    }
+    
+    code.language-Python {
+      background-color: rgba(0,0,0,0);
+    }
+    
+    pre {
+      border-left: 3px solid black;
+      background-color: rgba(0,0,0,.03);
+      padding: 0.5em;
+      margin-left: 1em;
+      margin-right: 1em;
+      line-height: 1.5;
+    }
+    
+    pre.language-Python {
+      border-left: 5px solid blue;
+      background-color: rgba(0,0,0,.03);
+      padding: 0.5em;
+      margin-left: 1em;
+      margin-right: 1em;
+      line-height: 1.5;
+    }
+    
+    /* 
+      A span with class 'katex' wraps all equations. A span with class
+      katex-display wraps block equations and a span with class katex.
+    */
+    .katex { 
+      font-size: inherit !important;
+    }
+    
+    .katex-display {
+      text-align: center;
+      margin: 1em;
+      font-size: 1.1em !important;
+    }
+    
+    @media print {
+    
+      * { overflow: visible !important; } 
+    
+      body, html {
+        margin: 0.5in;
+        color: #000;
+        height: auto;
+        background-color: #fff;
+        border: none;
+        display: inline;
+      }
+    
+      h1,h2,h3,h4,h5,h6 {page-break-before: avoid;}
+    
+      .title {
+        page-break-before: always;
+        margin-top: 0;
+      }
+    
+      #toc {
+        font-size: 100%;
+        margin: 0;
+        width: 100%;
+        overflow-y: hidden;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    
+      #display {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css">
+  </link>
+</head>
+
+<body style="max-height:100%;position:absolute;">
+
+  <div id="toc">
+    <ol>
+      <li><a target="_parent" number="1." raw="# Numerical Calculations" class="tocanchor" href="#numerical-calculations">Numerical Calculations</a></li>
+      <li><a target="_parent" number="2." raw="# Variable Assignment" class="tocanchor" href="#variable-assignment">Variable Assignment</a></li>
+      <li><a target="_parent" number="3." raw="# Data Types" class="tocanchor" href="#data-types">Data Types</a></li>
+      <li><a target="_parent" number="4." raw="# Functions" class="tocanchor" href="#functions">Functions</a></li>
+      <li><a target="_parent" number="5." raw="# Methods" class="tocanchor" href="#methods">Methods</a></li>
+      <li><a target="_parent" number="6." raw="# Modules" class="tocanchor" href="#modules">Modules</a></li>
+      <li><a target="_parent" number="7." raw="# Objects" class="tocanchor" href="#objects">Objects</a></li>
+      <li><a target="_parent" number="8." raw="# Attributes" class="tocanchor" href="#attributes">Attributes</a></li>
+      <li><a target="_parent" number="9." raw="# The print and format functions" class="tocanchor" href="#the-print-and-format-functions">The print and format functions</a></li>
+      <ol>
+        <li><a target="_parent" number="9.1." raw="## Print" class="tocanchor" href="#print">Print</a></li>
+        <li><a target="_parent" number="9.2." raw="## Format" class="tocanchor" href="#format">Format</a></li>
+      </ol>
+      <li><a target="_parent" number="10." raw="# `if` statement" class="tocanchor" href="#if-statement"><code>if</code> statement</a></li>
+      <ol>
+        <li><a target="_parent" number="10.1." raw="## Basic Form" class="tocanchor" href="#basic-form">Basic Form</a></li>
+        <li><a target="_parent" number="10.2." raw="## General Form" class="tocanchor" href="#general-form">General Form</a></li>
+        <li><a target="_parent" number="10.3." raw="## Compound Tests" class="tocanchor" href="#compound-tests">Compound Tests</a></li>
+      </ol>
+      <li><a target="_parent" number="11." raw="# Lists" class="tocanchor" href="#lists">Lists</a></li>
+      <ol>
+        <li><a target="_parent" number="11.1." raw="## Overview" class="tocanchor" href="#overview">Overview</a></li>
+        <li><a target="_parent" number="11.2." raw="## Accessing and Modifying List Elements" class="tocanchor" href="#accessing-and-modifying-list-elements">Accessing and Modifying List Elements</a></li>
+        <ol>
+          <li><a target="_parent" number="11.2.1." raw="### Accessing a Single Element " class="tocanchor" href="#accessing-a-single-element">Accessing a Single Element</a></li>
+          <li><a target="_parent" number="11.2.2." raw="###  Modifying a Single Element" class="tocanchor" href="#modifying-a-single-element">Modifying a Single Element</a></li>
+          <li><a target="_parent" number="11.2.3." raw="###  Accessing Multiple Contiguous Elements (slicing)" class="tocanchor" href="#accessing-multiple-contiguous-elements-slicing-">Accessing Multiple Contiguous Elements (slicing)</a></li>
+          <li><a target="_parent" number="11.2.4." raw="###  Modifying Multiply Contiguous Elements" class="tocanchor" href="#modifying-multiply-contiguous-elements">Modifying Multiply Contiguous Elements</a></li>
+          <li><a target="_parent" number="11.2.5." raw="###  Accessing Multiple Non-Contiguous Elements" class="tocanchor" href="#accessing-multiple-non-contiguous-elements">Accessing Multiple Non-Contiguous Elements</a></li>
+          <li><a target="_parent" number="11.2.6." raw="###  Syntactic Sugar for Accessing Elements" class="tocanchor" href="#syntactic-sugar-for-accessing-elements">Syntactic Sugar for Accessing Elements</a></li>
+        </ol>
+        <li><a target="_parent" number="11.3." raw="## Copy by Value vs. Copy by Reference" class="tocanchor" href="#copy-by-value-vs-copy-by-reference">Copy by Value vs. Copy by Reference</a></li>
+        <li><a target="_parent" number="11.4." raw="## List Methods" class="tocanchor" href="#list-methods">List Methods</a></li>
+        <ol>
+          <li><a target="_parent" number="11.4.1." raw="###  `append`" class="tocanchor" href="#append"><code>append</code></a></li>
+          <li><a target="_parent" number="11.4.2." raw="### `insert`" class="tocanchor" href="#insert"><code>insert</code></a></li>
+          <li><a target="_parent" number="11.4.3." raw="### `reverse`" class="tocanchor" href="#reverse"><code>reverse</code></a></li>
+          <li><a target="_parent" number="11.4.4." raw="###  ```index```" class="tocanchor" href="#index"><code>index</code></a></li>
+          <li><a target="_parent" number="11.4.5." raw="###  ```count```" class="tocanchor" href="#count"><code>count</code></a></li>
+          <li><a target="_parent" number="11.4.6." raw="### ```sort```" class="tocanchor" href="#sort"><code>sort</code></a></li>
+          <li><a target="_parent" number="11.4.7." raw="### ```reverse```" class="tocanchor" href="#reverse"><code>reverse</code></a></li>
+          <li><a target="_parent" number="11.4.8." raw="###  ```copy```" class="tocanchor" href="#copy"><code>copy</code></a></li>
+        </ol>
+      </ol>
+      <li><a target="_parent" number="12." raw="# Iteration " class="tocanchor" href="#iteration">Iteration</a></li>
+      <ol>
+        <li><a target="_parent" number="12.1." raw="## Motivation" class="tocanchor" href="#motivation">Motivation</a></li>
+        <li><a target="_parent" number="12.2." raw="## For Loop Basic Pattern" class="tocanchor" href="#for-loop-basic-pattern">For Loop Basic Pattern</a></li>
+        <li><a target="_parent" number="12.3." raw="## For Loop Basic Pattern" class="tocanchor" href="#for-loop-basic-pattern">For Loop Basic Pattern</a></li>
+        <li><a target="_parent" number="12.4." raw="## Syntax Rules" class="tocanchor" href="#syntax-rules">Syntax Rules</a></li>
+        <li><a target="_parent" number="12.5." raw="## Basic Pattern Example I" class="tocanchor" href="#basic-pattern-example-i">Basic Pattern Example I</a></li>
+        <li><a target="_parent" number="12.6." raw="## Basic Pattern Example II" class="tocanchor" href="#basic-pattern-example-ii">Basic Pattern Example II</a></li>
+        <li><a target="_parent" number="12.7." raw="## For Loop General Pattern" class="tocanchor" href="#for-loop-general-pattern">For Loop General Pattern</a></li>
+        <li><a target="_parent" number="12.8." raw="## General Pattern Example I" class="tocanchor" href="#general-pattern-example-i">General Pattern Example I</a></li>
+        <li><a target="_parent" number="12.9." raw="## General Pattern Example II" class="tocanchor" href="#general-pattern-example-ii">General Pattern Example II</a></li>
+        <li><a target="_parent" number="12.10." raw="## General Pattern Example III" class="tocanchor" href="#general-pattern-example-iii">General Pattern Example III</a></li>
+        <li><a target="_parent" number="12.11." raw="## Populating a List" class="tocanchor" href="#populating-a-list">Populating a List</a></li>
+        <li><a target="_parent" number="12.12." raw="## Populating a List Examples" class="tocanchor" href="#populating-a-list-examples">Populating a List Examples</a></li>
+        <li><a target="_parent" number="12.13." raw="## The `range` function" class="tocanchor" href="#the-range-function">The <code>range</code> function</a></li>
+        <ol>
+          <li><a target="_parent" number="12.13.1." raw="###  Stop Only" class="tocanchor" href="#stop-only">Stop Only</a></li>
+          <li><a target="_parent" number="12.13.2." raw="###  Start and Stop" class="tocanchor" href="#start-and-stop">Start and Stop</a></li>
+          <li><a target="_parent" number="12.13.3." raw="###  Start, Stop, and Step" class="tocanchor" href="#start-stop-and-step">Start, Stop, and Step</a></li>
+        </ol>
+        <li><a target="_parent" number="12.14." raw="## Iteration using `while`" class="tocanchor" href="#iteration-using-while">Iteration using <code>while</code></a></li>
+        <li><a target="_parent" number="12.15." raw="## `break`" class="tocanchor" href="#break"><code>break</code></a></li>
+        <li><a target="_parent" number="12.16." raw="## `continue`" class="tocanchor" href="#continue"><code>continue</code></a></li>
+        <li><a target="_parent" number="12.17." raw="## Problems" class="tocanchor" href="#problems">Problems</a></li>
+        <ol>
+          <li><a target="_parent" number="12.17.1." raw="### Basic pattern" class="tocanchor" href="#basic-pattern">Basic pattern</a></li>
+          <li><a target="_parent" number="12.17.2." raw="###  Basic pattern " class="tocanchor" href="#basic-pattern">Basic pattern</a></li>
+          <li><a target="_parent" number="12.17.3." raw="###  Syntax" class="tocanchor" href="#syntax">Syntax</a></li>
+          <li><a target="_parent" number="12.17.4." raw="###  Syntax" class="tocanchor" href="#syntax">Syntax</a></li>
+          <li><a target="_parent" number="12.17.5." raw="###  Syntax" class="tocanchor" href="#syntax">Syntax</a></li>
+          <li><a target="_parent" number="12.17.6." raw="###  Syntax" class="tocanchor" href="#syntax">Syntax</a></li>
+          <li><a target="_parent" number="12.17.7." raw="###  Syntax with `range`" class="tocanchor" href="#syntax-with-range">Syntax with <code>range</code></a></li>
+          <li><a target="_parent" number="12.17.8." raw="###  Populating a List" class="tocanchor" href="#populating-a-list">Populating a List</a></li>
+          <li><a target="_parent" number="12.17.9." raw="###  Converting Statements to a `for` Loop" class="tocanchor" href="#converting-statements-to-a-for-loop">Converting Statements to a <code>for</code> Loop</a></li>
+          <li><a target="_parent" number="12.17.10." raw="### Converting a `for` Loop to a Sequence of Statements" class="tocanchor" href="#converting-a-for-loop-to-a-sequence-of-statements">Converting a <code>for</code> Loop to a Sequence of Statements</a></li>
+          <li><a target="_parent" number="12.17.11." raw="###  Creating a List with a `for` Loop" class="tocanchor" href="#creating-a-list-with-a-for-loop">Creating a List with a <code>for</code> Loop</a></li>
+          <li><a target="_parent" number="12.17.12." raw="###  Computation using `for` loop" class="tocanchor" href="#computation-using-for-loop">Computation using <code>for</code> loop</a></li>
+          <li><a target="_parent" number="12.17.13." raw="###  Computation using `for` loop" class="tocanchor" href="#computation-using-for-loop">Computation using <code>for</code> loop</a></li>
+          <li><a target="_parent" number="12.17.14." raw="###  Computation using `for` loop" class="tocanchor" href="#computation-using-for-loop">Computation using <code>for</code> loop</a></li>
+          <li><a target="_parent" number="12.17.15." raw="###  Computation using `for` loop" class="tocanchor" href="#computation-using-for-loop">Computation using <code>for</code> loop</a></li>
+        </ol>
+      </ol>
+      <li><a target="_parent" number="13." raw="# Matplotlib" class="tocanchor" href="#matplotlib">Matplotlib</a></li>
+      <ol>
+        <li><a target="_parent" number="13.1." raw="## References" class="tocanchor" href="#references">References</a></li>
+        <li><a target="_parent" number="13.2." raw="## Importing Matplotlib" class="tocanchor" href="#importing-matplotlib">Importing Matplotlib</a></li>
+        <li><a target="_parent" number="13.3." raw="## Plotting List elements" class="tocanchor" href="#plotting-list-elements">Plotting List elements</a></li>
+        <li><a target="_parent" number="13.4." raw="## Annotation" class="tocanchor" href="#annotation">Annotation</a></li>
+        <li><a target="_parent" number="13.5." raw="## Line Color" class="tocanchor" href="#line-color">Line Color</a></li>
+        <li><a target="_parent" number="13.6." raw="## Line Style" class="tocanchor" href="#line-style">Line Style</a></li>
+        <li><a target="_parent" number="13.7." raw="## Marker Style" class="tocanchor" href="#marker-style">Marker Style</a></li>
+        <li><a target="_parent" number="13.8." raw="## Style Combinations" class="tocanchor" href="#style-combinations">Style Combinations</a></li>
+        <li><a target="_parent" number="13.9." raw="## Multiple lines and legends" class="tocanchor" href="#multiple-lines-and-legends">Multiple lines and legends</a></li>
+        <li><a target="_parent" number="13.10." raw="## Axis Tick Numbers" class="tocanchor" href="#axis-tick-numbers">Axis Tick Numbers</a></li>
+        <li><a target="_parent" number="13.11." raw="## Axis Limits" class="tocanchor" href="#axis-limits">Axis Limits</a></li>
+        <li><a target="_parent" number="13.12." raw="## `imshow`" class="tocanchor" href="#imshow"><code>imshow</code></a></li>
+      </ol>
+      <li><a target="_parent" number="14." raw="# datetimes" class="tocanchor" href="#datetimes">datetimes</a></li>
+      <ol>
+        <li><a target="_parent" number="14.1." raw="## Basic Usage" class="tocanchor" href="#basic-usage">Basic Usage</a></li>
+        <li><a target="_parent" number="14.2." raw="## Creating Custom Time Strings" class="tocanchor" href="#creating-custom-time-strings">Creating Custom Time Strings</a></li>
+        <li><a target="_parent" number="14.3." raw="## Time Deltas" class="tocanchor" href="#time-deltas">Time Deltas</a></li>
+        <li><a target="_parent" number="14.4." raw="## Creating a list of `datetimes`" class="tocanchor" href="#creating-a-list-of-datetimes">Creating a list of <code>datetimes</code></a></li>
+        <li><a target="_parent" number="14.5." raw="## Matplotlib and `datetimes`" class="tocanchor" href="#matplotlib-and-datetimes">Matplotlib and <code>datetimes</code></a></li>
+        <li><a target="_parent" number="14.6." raw="## Parsing Custom Time Strings" class="tocanchor" href="#parsing-custom-time-strings">Parsing Custom Time Strings</a></li>
+      </ol>
+      <li><a target="_parent" number="15." raw="# NumPy" class="tocanchor" href="#numpy">NumPy</a></li>
+      <ol>
+        <li><a target="_parent" number="15.1." raw="## Importing" class="tocanchor" href="#importing">Importing</a></li>
+        <li><a target="_parent" number="15.2." raw="## Arrays" class="tocanchor" href="#arrays">Arrays</a></li>
+        <li><a target="_parent" number="15.3." raw="## Array Shape" class="tocanchor" href="#array-shape">Array Shape</a></li>
+        <li><a target="_parent" number="15.4." raw="## Array Size" class="tocanchor" href="#array-size">Array Size</a></li>
+        <li><a target="_parent" number="15.5." raw="## Array dtype" class="tocanchor" href="#array-dtype">Array dtype</a></li>
+        <li><a target="_parent" number="15.6." raw="## Creating Arrays" class="tocanchor" href="#creating-arrays">Creating Arrays</a></li>
+        <li><a target="_parent" number="15.7." raw="## Initializing Arrays" class="tocanchor" href="#initializing-arrays">Initializing Arrays</a></li>
+        <ol>
+          <li><a target="_parent" number="15.7.1." raw="### With NaNs" class="tocanchor" href="#with-nans">With NaNs</a></li>
+          <li><a target="_parent" number="15.7.2." raw="###  With Equally Spaced Values" class="tocanchor" href="#with-equally-spaced-values">With Equally Spaced Values</a></li>
+          <li><a target="_parent" number="15.7.3." raw="###  With Random Numbers" class="tocanchor" href="#with-random-numbers">With Random Numbers</a></li>
+          <ol>
+            <li><a target="_parent" number="15.7.3.1." raw="#### Gaussian (" normal")"="" class="tocanchor" href="#gaussian-normal-">Gaussian (“Normal”)</a></li>
+            <li><a target="_parent" number="15.7.3.2." raw="#### Uniform" class="tocanchor" href="#uniform">Uniform</a></li>
+          </ol>
+        </ol>
+        <li><a target="_parent" number="15.8." raw="## Accessing Elements" class="tocanchor" href="#accessing-elements">Accessing Elements</a></li>
+        <ol>
+          <li><a target="_parent" number="15.8.1." raw="### 1-D" class="tocanchor" href="#1-d">1-D</a></li>
+          <li><a target="_parent" number="15.8.2." raw="### 2-D" class="tocanchor" href="#2-d">2-D</a></li>
+        </ol>
+        <li><a target="_parent" number="15.9." raw="## Modifying Elements" class="tocanchor" href="#modifying-elements">Modifying Elements</a></li>
+        <ol>
+          <li><a target="_parent" number="15.9.1." raw="### 1-D" class="tocanchor" href="#1-d">1-D</a></li>
+          <ol>
+            <li><a target="_parent" number="15.9.1.1." raw="#### With Loop" class="tocanchor" href="#with-loop">With Loop</a></li>
+            <li><a target="_parent" number="15.9.1.2." raw="#### Without Loop" class="tocanchor" href="#without-loop">Without Loop</a></li>
+          </ol>
+          <li><a target="_parent" number="15.9.2." raw="### 2-D" class="tocanchor" href="#2-d">2-D</a></li>
+        </ol>
+        <li><a target="_parent" number="15.10." raw="## Finding Elements" class="tocanchor" href="#finding-elements">Finding Elements</a></li>
+      </ol>
+      <li><a target="_parent" number="16." raw="# Statistics" class="tocanchor" href="#statistics">Statistics</a></li>
+      <ol>
+        <li><a target="_parent" number="16.1." raw="## Histograms" class="tocanchor highlighted" href="#histograms">Histograms</a></li>
+      </ol>
+    </ol>
+  </div>
+  <div id="display">
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="numerical-calculations" number="1." raw="# Numerical Calculations" class="hanchor" href="#numerical-calculations">1. Numerical Calculations</a></h1>
+      <p>The following operations apply to numbers or variables (e.g., <code>a</code>, <code>b</code>) that have been assigned a number.</p>
+      <pre>    a+b     addition
+    a−b     subtraction
+    a*b     multiplication
+    a/b     division
+    a//b    floor division
+    a%b     modulo
+    −a      negation
+    abs(a)  absolute value
+    a**b    exponent (not a^b!)
+</pre>
+
+      <p>There are many other <a href="https://docs.python.org/3/library/math.html">math functions</a> that can be used. To use these functions, you need to <code>import</code> them, e.g.,</p>
+      <pre><code>import math # Import the math module
+math.log10(100) # 2.0</code></pre>
+      <p>The meaning of <code>import</code> will be covered later. For now, think of it as a way of telling Python to add new capabilities.</p>
+      <p>See also</p>
+      <ul>
+        <li>Section 1.4 of <a href="http://greenteapress.com/thinkpython2/thinkpython2.pdf">Think Python</a></li>
+        <li><a href="https://realpython.com/python-operators-expressions/">Real Python</a></li>
+        <li><a href="https://docs.python.org/3/library/math.html">Python 3 Math module documentation</a></li>
+      </ul>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="variable-assignment" number="2." raw="# Variable Assignment" class="hanchor" href="#variable-assignment">2. Variable Assignment</a></h1>
+      <p>In programs, one often assigns values to variables.</p>
+      <pre><code>a = 2
+b = 3
+c = a*b </code></pre>
+      <p>Technically, <code>a=2</code> means</p>
+      <blockquote>
+        <p>The value of 2 is assigned to the variable named <code>a</code></p>
+      </blockquote>
+      <p>or</p>
+      <blockquote>
+        <p>The variable named <code>a</code> was set to 2</p>
+      </blockquote>
+      <p>and <strong>not</strong></p>
+      <blockquote>
+        <p><code>a</code> equals 2</p>
+      </blockquote>
+      <p>To see why “<code>a</code> equals 2” is not correct, consider</p>
+      <pre><code>a = 1
+a = a + 1</code></pre>
+      <p>If one uses algebra on the last line, you will conclude <code>0 = 1</code>!</p>
+      <p>See also</p>
+      <ul>
+        <li><a href="https://wizardforcel.gitbooks.io/sicp-in-python/content/2.html">Section 1.2.4 of Structure and Interpretation of Computer Programs</a></li>
+      </ul>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="data-types" number="3." raw="# Data Types" class="hanchor" href="#data-types">3. Data Types</a></h1>
+      <p>In Python, variables are assigned the values of other variables or the result of calculations involving other variables and values.</p>
+      <pre><code>a = 1
+b = 2
+c = a + 33</code></pre>
+      <p>The numeric data types in Python are <code>int</code>, <code>float</code>, <code>long</code>, and <code>complex</code>. The type of a value or variable determines:</p>
+      <ol>
+        <li>how the value is stored internally as a bit pattern and</li>
+        <li>the limits on the values a variable may take.</li>
+      </ol>
+      <p>Python is unusual in that for most programming languages, the <code>int</code> type has a limit of values that can be represented (e.g., <code>-2147483648</code> to <code>2147483647</code>). In Python, there is no limit, so one can compute <code>2147483647*2147483647</code> and get an answer. In most languages, this statement would generate an error message.</p>
+      <p>The limits on <code>float</code> values are</p>
+      <ul>
+        <li>max/min: <code>+/- 1.7976931348623157e+308</code></li>
+        <li>nearest zero: <code>+/- 2.2250738585072014e-308</code></li>
+        <li><a href="http://nm.mathforcollege.com/blog/machine_epsilon.pdf">epsilon</a> (smallest number such that 1+epsilon &gt; 1): <code>2.2204460492503131e-16 </code></li>
+      </ul>
+      <p>(The above information can be obtained using the commands <code>import sys; sys.float_info</code>.)</p>
+      <p>To test the limits, consider</p>
+      <pre><code>2*1.7976931348623157e+308   # inf
+1.0 + 2.220446049250313e-16 # 1.0000000000000002
+1.0 + 2.220446049250313e-17 # 1.0</code></pre>
+      <p><strong>See also</strong>:</p>
+      <ul>
+        <li>Moler’s lecture notes on <a href="http://pages.cs.wisc.edu/~smoler/x86text/lect.notes/arith.flpt.html">floating point</a> and <a href="http://pages.cs.wisc.edu/~smoler/x86text/lect.notes/arith.int.html">integer</a> arithmetic</li>
+        <li><a href="https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf">What every computer scientists should know about floating-point arithmetic</a></li>
+        <li><a href="https://docs.python.org/3/tutorial/floatingpoint.html">Python 3 documentation on floating point numbers</a></li>
+      </ul>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="functions" number="4." raw="# Functions" class="hanchor" href="#functions">4. Functions</a></h1>
+      <p>A <strong>function</strong> in Python is similar to a function in mathematics. In general, it takes inputs and returns an output.</p>
+      <p>In the following the input is a list and the output is a numeric data type (int, float, etc.) </p>
+      <pre><code>s = sum([1, 2]) # One input. Gives s = 3
+s = sum([1, 2], 10) # Two inputs. Gives s = 13. See help(sum).</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="methods" number="5." raw="# Methods" class="hanchor" href="#methods">5. Methods</a></h1>
+      <p>A <strong>method</strong> is an operation that applies to a certain data structure. It has similarities to <strong>functions</strong>, but the syntax is slightly different:</p>
+      <pre><code>L = [1, 2]
+L.append(99) # Append the value 99 to list L.
+print(L) # [1, 2, 99]</code></pre>
+      <p>The inputs to the operation of <code>append</code> are the list <code>L</code> and the number <code>99</code>. In the above example, the output of the operation of <code>L.append(99)</code> is ignored (because it is not assigned to a variable). The output of the operation can be thought of the modified version of <code>L</code>.</p>
+      <p>The output of a method operation can be assigned to a variable, but often it is not useful</p>
+      <pre><code>L = [1,2]
+x = L.append(99) # Append the value 99 to list L.
+print(L) [1, 2, 99]
+print(type(x)) # NoneType</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="modules" number="6." raw="# Modules" class="hanchor" href="#modules">6. Modules</a></h1>
+      <p>A <strong>module</strong> is a collection of <strong>functions</strong>. In an advanced command line interface such as IPython or Spyder, <em>tab completion</em> can be used to list all of the functions available in a module (e.g., by entering <code>math.</code> and then pressing the <code>TAB</code> key.).</p>
+      <p>There are two ways to import the functions in the module. The standard method is to use <code>import MODULENAME</code> as in</p>
+      <pre><code># Recommended method 1.
+import math # Import the math module
+print(math.log10(100)) # 2.0</code></pre>
+      <p>One advantage of this approach is that you know which module a function being used is from, which makes looking up documentation easier. One disadvantage is that the name of basic function must be preceded by the name of the module, which make the code longer.</p>
+      <p>To avoid having to prefix functions in the math module by <code>math</code>, one can import the functions that will be used using <code>from math import</code> as in</p>
+      <pre><code># Recommended method 2.
+from math import log10 # Import the log10 function
+from math import sin   # Import the sin function
+print(log10(100)) # 2.0
+print(sin(0)) # 0.0</code></pre>
+      <p>All of the functions and attributes of a module can be imported using <code>*</code>:</p>
+      <pre><code># Not recommended
+from math import *
+print(log10(100)) # 2.0
+print(sin(0)) # 0.0</code></pre>
+      <p>The disadvantage of this approach is that you may have defined a variable with the same name as an attribute or function in the <code>math</code> module. This is called a <strong>name collision</strong> or <strong>name conflict</strong>. The problem with the following program is that a reader may see the first import statement, scan down to the last line and expect <code>print(e)</code> to display <code>2.718281828459045</code> because they did not see that <code>e</code> was redefined. For example</p>
+      <pre><code># Not recommended; example of where import * can
+# create confusion.
+from math import *
+# Print the value of e from the math module
+print(e) # 2.718281828459045
+
+# ... many lines of code later
+
+# User-defined variable replaces math module's e
+e = 37.1
+
+# ... many lines of code later
+print(e) # 37.1</code></pre>
+      <p>Sometimes you will see the name used to access functions in a module changed using the import statement. In the following, the import statement indicates that functions and attributes of the math module are accessed by prefixing a function name using <code>m</code> instead of <code>math</code>.</p>
+      <pre><code>import math as m # Not recommended b/c few people do this
+print(m.log10(100)) # 2</code></pre>
+      <p>The choice of a shorter name is dictated by convention that is given in the examples of the documentation for a module. For example, the following are common conventions for importing two popular modules</p>
+      <pre><code>import matplotlib as mpl
+import numpy as np</code></pre>
+      <p>References:</p>
+      <ol>
+        <li><a href="https://docs.python.org/3/tutorial/modules.html">https://docs.python.org/3/tutorial/modules.html</a></li>
+      </ol>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="objects" number="7." raw="# Objects" class="hanchor" href="#objects">7. Objects</a></h1>
+      <p>Thus far, I have used the term <strong>variable</strong>, e.g.,</p>
+      <pre><code># Assign value 1 to variable named a. 
+# a will have an integer data type.
+a = 1 </code></pre>
+      <p>In many programming languages, <strong>variable</strong> is the correct term, but in Python technically what we commonly refer to as variables are <strong>objects</strong>.</p>
+      <pre><code>a = 1 # a is an object of class 'int'
+print(type(a)) # &lt;class 'int'&gt;</code></pre>
+      <p>Every type of object in Python has associated <strong>attributes</strong> and <strong>methods</strong> (covered previously). In Spyder and IPython, the attributes and methods can be seen by entering a variable name followed by a dot and then pressing the tab key (referred to as “tab completion”).</p>
+      <pre><code>a = 1.1 
+# Enter a. and then the TAB key and to see a.as_integer_ratio, a.is_integer, etc.</code></pre>
+      <p>A quick way of determining the attributes and methods associated with an object is to use tab completion and then experiment:</p>
+      <pre><code>a = 0.75
+print(a.as_integer_ratio()) # (3, 4)
+print(a.is_integer()) # False</code></pre>
+      <p>To find documentation for a method that can be used on an object, use <code>help(objname)</code>, e.g.,</p>
+      <pre><code>help(a.is_integer)</code></pre>
+      <p>A Python list object has several methods, one of which is <code>reverse</code>.</p>
+      <pre><code>b = [9, 10] # b is a list object
+b.reverse() # reverse is a method that reverses the order of elements in a list
+print(b) # [10, 9]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="attributes" number="8." raw="# Attributes" class="hanchor" href="#attributes">8. Attributes</a></h1>
+      <p>Some objects and modules have associated attributes. These are usually constants or quantities that are pre-calculated.</p>
+      <pre><code>import math    # Import math module
+print(math.pi) # 3.141592653589793
+print(math.e)  # 2.718281828459045
+</code></pre>
+      <p>A key difference in notation between an attribute and a method is a method does not take arguments.</p>
+      <pre><code>import math        # Import math module
+print(math.pi)     # Correct usage
+print(math.pi())   # Error b/c pi is an attribute and not a method
+print(math.pi(10)) # Error b/c pi is an attribute and not a method</code></pre>
+      <p>In NumPy, the primary data object is called an <code>ndarray</code>, which has attributes that indicate its shape and size.</p>
+      <pre><code>import numpy as np
+
+# Create 2x3 ndarray
+A = np.array([[1, 2, 3],[1, 1, 1]]) 
+print(A)
+# [[1 2 3]
+#  [1 1 1]]
+
+# Use size attribute to find number of elements in A
+print(A.size) # 6
+
+# Use shape attribute to find number of rows and columns in A
+print(A.shape) # (2, 3)
+
+# Use flatten method to create a 1-D ndarray
+B = A.flatten()
+print(B) # [1 2 3 1 1 1]
+print(B.size)  # 6
+print(B.shape) # (6,)</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="the-print-and-format-functions" number="9." raw="# The print and format functions" class="hanchor" href="#the-print-and-format-functions">9. The print and format functions</a></h1>
+      <p>There are several functions that can be used to print output in Python. The most commonly used is <code>print</code>. For basic use, its syntax is easy.</p>
+      <p>There are several unfortunate complications:</p>
+      <ol>
+        <li>Some <code>print</code> statements that worked in Python 2 won’t work in Python 3</li>
+        <li>The recommended way to use the <code>print</code> statement changed from Python 2 to 3</li>
+      </ol>
+      <p>This is unfortunate because <code>print</code> is one of the most commonly used functions introduced to Python beginners.</p>
+      <p>You’ll see this in many older programs</p>
+      <pre><code>print "hello" # Error in Python 3; recommended syntax in Python 2</code></pre>
+      <p>In Python 3, the syntax is </p>
+      <pre><code>print("hello") # Works in Python 2 and 3; recommended syntax in Python 3</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="print" number="9.1." raw="## Print" class="hanchor" href="#print">9.1. Print</a></h2>
+      <p>If <code>var1</code>, <code>var2</code>, … are strings or numeric data types (int, float, etc.), then <code>print(var1, var2, var3, var4, ...)</code> displays them on a single line and separated by spaces. For example,</p>
+      <pre><code>print("Greetings", 1, 13.1, "wow") # Greetings 1 13.1 wow</code></pre>
+      <p><strong>See also</strong>: <a href="https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3/Hello,_World">Hello, World in Python</a></p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="format" number="9.2." raw="## Format" class="hanchor" href="#format">9.2. Format</a></h2>
+      <p>To format the output of <code>print</code>, one needs to apply the method <code>format</code> to a string</p>
+      <p>The statement</p>
+      <pre><code>a = 8
+b = 9
+s = "{0} {1}".format(a, b)
+print(s) # '8 9'</code></pre>
+      <p>replaces <code>{0}</code> with the first argument to <code>format</code> (the <code>a</code>) and <code>{1}</code> with the second argument to <code>format</code> (the <code>b</code>). The curly braces indicate something to be substituted and an integer in the braces indicate which argument to the <code>format</code> function is to be substituted. </p>
+      <p>In contrast to the <code>append</code>method described in <a href="#Methods">Methods</a>, which returns a value that is usally ignored, the <code>format</code> method returns the formatted string.</p>
+      <p>In the following, the value of <code>b</code> is shown twice followed by the value of <code>a</code> twice.</p>
+      <pre><code>a = 8
+b = 9
+s = "{1} {1} {0} {0}".format(a, b)
+print(s) # '9 9 8 8'</code></pre>
+      <p>Often one wants control over how numeric values are displayed. For example, suppose that you only want to display floating point numbers to two decimal places. By default, 16 decimal places are displayed: </p>
+      <pre><code>print("Result =", 1/3)
+# Result = 0.3333333333333333</code></pre>
+      <p>To control how many decimals are shown, use a colon followed by a format specifier after the first number in curly braces:</p>
+      <pre><code>a = 1/3
+print("Result = {0:.2f}".format(a))
+# Result = 0.33
+# is displayed</code></pre>
+      <p>The <code>{0:.2f}</code> is a template that tells Python which number to display and how to display it. <code>{0:.2f}</code> translates to</p>
+      <blockquote>
+        <p>Print the 0th argument passed to <code>format</code> (the variable <code>a</code>) as a floating point (the <code>f</code> indicates this) number with two decimal places (the <code>.2</code> indicates this).</p>
+      </blockquote>
+      <pre><code>a = 1/3
+b = 1/4
+print("a = {0:.2f} b = {1:.3f}".format(a, b))
+# a = 0.33 b = 0.250</code></pre>
+      <p>The code <code>{1:.3f}</code> translates to </p>
+      <blockquote>
+        <p>Print the 1st argument (<code>b</code>) passed to <code>format</code> as a floating point number with three decimal places.</p>
+      </blockquote>
+      <p>The <code>f</code> is a format code. Another common format code is <code>e</code>, which is used to display a number in exponential format:</p>
+      <pre><code>a = 1000*1/3
+print("Result = {0:.2e}".format(a))
+# Result = 3.33e+02
+print("Result = {0:.5e}".format(a))
+# Result = 3.33333e+02</code></pre>
+      <p><strong>See also</strong>:</p>
+      <ul>
+        <li><a href="https://www.python-course.eu/python3_formatted_output.php">Python 3 Formatted Output</a></li>
+        <li><a href="https://pyformat.info/">pyformat.info</a></li>
+      </ul>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="if-statement" number="10." raw="# `if` statement" class="hanchor" href="#if-statement">10. <code>if</code> statement</a></h1>
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="basic-form" number="10.1." raw="## Basic Form" class="hanchor" href="#basic-form">10.1. Basic Form</a></h2>
+      <p>The most basic form of the <code>if</code> statement is</p>
+      <pre><code>if test:
+    statement 1
+    statement 2</code></pre>
+      <p>Which reads “If <code>test</code> is true, evaluate the indented statements”. For example,</p>
+      <pre><code>if 2 &gt; 1:
+  print("test is true")</code></pre>
+      <p><code>test</code> can also be a variable:</p>
+      <pre><code>a = 2 &gt; 1 # a takes on the value True
+if a:
+  print("a is True")</code></pre>
+      <p>Thus far, variables that are strings, numeric, or lists have only been used. In Python, a variable can also be assigned a value of <code>True</code> or <code>False</code> either directly or indirectly.</p>
+      <pre><code>a = True  # Assign directly
+b = 2 &lt; 1 # Assigns value of False indirectly</code></pre>
+      <table>
+        <thead>
+          <tr>
+            <th>Test</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>x &lt; y</td>
+            <td>is x less than y?</td>
+          </tr>
+          <tr>
+            <td>x &gt; y</td>
+            <td>is x greater than y?</td>
+          </tr>
+          <tr>
+            <td>x == y</td>
+            <td>is x equal to y?</td>
+          </tr>
+          <tr>
+            <td>x &lt;= y</td>
+            <td>is x less than or equal to y?</td>
+          </tr>
+          <tr>
+            <td>x &gt;= y</td>
+            <td>is x greater than or equal to y?</td>
+          </tr>
+          <tr>
+            <td>x != y</td>
+            <td>is x not equal to y?</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="general-form" number="10.2." raw="## General Form" class="hanchor" href="#general-form">10.2. General Form</a></h2>
+      <p>A more general form is</p>
+      <pre><code>if test:
+    statement T1
+    statement T2
+    ...
+else:
+    statement F1
+    statement F2
+    ...</code></pre>
+      <p>Which reads “If <code>test</code> is true, evaluate the indented statements immediately following; otherwise, evaluate the indented statements following <code>else</code>“. For example,</p>
+      <pre><code>if 2 &gt; 1:
+  print("2 is greater than 1")
+else:
+  print("2 is not greater than 1")</code></pre>
+      <p>Results in <code>2 is greater than 1</code> being displayed and</p>
+      <pre><code>if 2 &lt; 1:
+  print("2 is less than 1")
+else:
+  print("2 is not less than 1")</code></pre>
+      <p>Results in <code>2 is not less than 1</code> being displayed.</p>
+      <p>The most general form is</p>
+      <pre><code>if testA:
+  # Evaluated if testA is True
+elif testB:
+  # Evaluated if testA is False and TestB is true
+elif testC:
+  # Evaluated if testA and testB are both False and TestC is true
+...
+else:
+  # Evaluated if none of the tests were true</code></pre>
+      <p>The statements associated with the <code>else</code> are called “fall-through” statements.</p>
+      <p>For example, when the following is executed</p>
+      <pre><code>a = 3
+if a &gt; 5:
+  print('A commands')
+elif a &gt; 4:
+  print('B commands')
+elif a &gt; 3:
+  print('C commands')
+else:
+  print('D commands')</code></pre>
+      <p><code>D commands</code> is displayed. If the value of <code>a</code> on the first line is changed to 4, then <code>C commands</code> is displayed.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="compound-tests" number="10.3." raw="## Compound Tests" class="hanchor" href="#compound-tests">10.3. Compound Tests</a></h2>
+      <p>The test in an <code>if</code> statement can be a logical statement involving several test conditions, for example,</p>
+      <pre><code>if (2 &gt; 1) and (3 &gt; 1):
+  print("Both test conditions true")</code></pre>
+      <pre><code>if (2 &gt; 1) or (3 &gt; 1):
+  print("At least one test condition true")</code></pre>
+      <p>Parenthesis can be used to group multiple tests:</p>
+      <pre><code>if (2 &gt; 1 and 3 &gt; 1) or (10 == 11):
+  print("Compound condition is True")</code></pre>
+      <p>As before, the result of a logical test can be assigned to a variable:</p>
+      <pre><code>a = (2 &gt; 1 and 3 &gt; 1) or (10 == 11)
+if a:
+  print("Compound condition is True")</code></pre>
+      <p>Sometimes it is clearer to break the compound test into parts:</p>
+      <pre><code>a = 2 &gt; 1 and 3 &gt; 1
+b = 10 == 11
+if a or b:
+  print("Compound condition is True")</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="lists" number="11." raw="# Lists" class="hanchor" href="#lists">11. Lists</a></h1>
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="overview" number="11.1." raw="## Overview" class="hanchor" href="#overview">11.1. Overview</a></h2>
+      <p>A fundamental data structure (a structure that hold data) in Python is the <strong>list</strong>. A list can store heterogenous elements (elements with different data types).</p>
+      <p>The syntax is</p>
+      <pre><code>a = [1, 2, 5]         # Stores all ints
+b = [1, 'hello', 2.2] # Stores an int, str, and float</code></pre>
+      <p>Adding a space after a comma is a common convention in Python programs. It is not needed, but you should get in the habit of using this convention. People and code “linters” (grammar and spell checkers for code) will complain otherwise.</p>
+      <p>To determine how many elements are in a list, use the <code>len()</code> function, which returns an integer, e.g.,</p>
+      <pre><code>len(a) # 3</code></pre>
+      <p>A related data structure is the <strong>tuple</strong>. Think of it as a list that can’t be changed. Instead being specified with square braces, e.g., <code>a = [1, 2, 3]</code>, it is specified with parentheses, e.g., <code>a = (1, 2, 3)</code>. </p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="accessing-and-modifying-list-elements" number="11.2." raw="## Accessing and Modifying List Elements" class="hanchor" href="#accessing-and-modifying-list-elements">11.2. Accessing and Modifying List Elements</a></h2>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="accessing-a-single-element" number="11.2.1." raw="### Accessing a Single Element " class="hanchor" href="#accessing-a-single-element">11.2.1. Accessing a Single Element</a></h3>
+      <p>To access a single element in a list, use the notation <code>listvar[i]</code>, where <code>listvar</code> is the name of a list variable and <code>i</code> is an integer.</p>
+      <p>Python indices are <strong>zero-based</strong> - the first element’s address is <code>0</code>.</p>
+      <pre><code>a = [0, 11, 22]
+a[0] # 0 (1st element in a)
+a[1] # 11 (2nd element in a)
+a[2] # 22 (3rd element in a)
+a[3] # Error
+len(a) # 3
+a[len(a)-1] # 22 (same as a[2])</code></pre>
+      <p>Python allows <strong>index-wrapping</strong> (negative indexing) - The last element has an index of <code>-1</code>. Larger negative numbers correspond to elements near the start of the array.</p>
+      <pre><code>a = [0, 11, 22]
+# Python's view of a
+#    [   0    11,    22,    0,    11,  22]
+#    a[-3]  a[-2]  a[-1]  a[0]   a[1]  a[2]</code></pre>
+      <pre><code>a = [0, 11, 22]
+a[len(a)-1] # 22 (last element in a)
+a[-1]       # 22 (more compactly reference to last element)
+
+a[len(a)-2] # 11 (second-to-last element in a)
+a[-2]       # 11 (more compactly reference to sencond-to-last element)
+
+a[len(a)-4] # Error
+a[-4]       # Error</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="modifying-a-single-element" number="11.2.2." raw="###  Modifying a Single Element" class="hanchor" href="#modifying-a-single-element">11.2.2. Modifying a Single Element</a></h3>
+      <p>A list element can be modified in the way that you would expect.</p>
+      <pre><code>a = [0, 11, 22]
+a[0] = 99 # a is now [99, 11, 22]
+a[1] = 88 # a is now [99, 88, 22]
+a[5] = 1  # Error b/c a does not have a 6th element.</code></pre>
+      <p>In contrast, if <code>a</code> was defined as a tuple, an error would result when we tried to modified one of its elements:</p>
+      <pre><code>a = (0, 11, 22)
+a[0] = 99 # Error</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="accessing-multiple-contiguous-elements-slicing-" number="11.2.3." raw="###  Accessing Multiple Contiguous Elements (slicing)" class="hanchor" href="#accessing-multiple-contiguous-elements-slicing-">11.2.3. Accessing Multiple Contiguous Elements (slicing)</a></h3>
+      <p>To access multiple elements in a list, the <strong>colon</strong> notation can be used. In Python, use of the colon operator on a list is referred to as “slicing a list”. </p>
+      <p>The main way of extracting a slice from an array is with the syntax</p>
+      <pre><code>listvar[start:stop] # start is inclusive; stop is inclusive!</code></pre>
+      <p>This returns elements <code>start</code>, <code>start + 1</code>, …, <code>stop - 1</code>.</p>
+      <pre><code>a = [0, 11, 22, 33, 44] # Create a list
+b = a[0:3]              # b contains a[0], a[1], a[2]: b = [0, 11, 22]
+b = a[3:5]              # b = [33, 44]
+b = a[3:len(a)]         # b = [33, 44]
+b = a[1:1]              # same as b = a[1]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="modifying-multiply-contiguous-elements" number="11.2.4." raw="###  Modifying Multiply Contiguous Elements" class="hanchor" href="#modifying-multiply-contiguous-elements">11.2.4. Modifying Multiply Contiguous Elements</a></h3>
+      <p>There is not a simple syntax for doing an operation using native Python. That is, setting </p>
+      <pre><code># Does not work
+a = [0, 11, 22, 33, 44]
+a[0:2] = -99 # Set first and second elements to -99</code></pre>
+      <p>The NumPy library allows these types of operations.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="accessing-multiple-non-contiguous-elements" number="11.2.5." raw="###  Accessing Multiple Non-Contiguous Elements" class="hanchor" href="#accessing-multiple-non-contiguous-elements">11.2.5. Accessing Multiple Non-Contiguous Elements</a></h3>
+      <p>A list can be subsetted with gaps between selected elements using the syntax</p>
+      <pre><code># Extract every step element from start through stop-1
+listvar[start:stop:step] </code></pre>
+      <pre><code>a = [0, 11, 22, 33, 44]
+b = a[0:5:2] # b = [0, 22, 44]
+b = a[1:5:1] # same as b = a[1:5]</code></pre>
+      <p>If <code>step</code> is negative, slicing is done in reverse, e.g.,</p>
+      <pre><code>a = [0, 11, 22, 33]
+b = a[0:4,-1] # b = [33, 22, 11, 0]
+b = a[0:4,-2] # b = [33, 11]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="syntactic-sugar-for-accessing-elements" number="11.2.6." raw="###  Syntactic Sugar for Accessing Elements" class="hanchor" href="#syntactic-sugar-for-accessing-elements">11.2.6. Syntactic Sugar for Accessing Elements</a></h3>
+      <p>Syntactic sugar is a term used for shorthand notation for common operations. Like sugar, use sparingly (code that is too terse and clever can be difficult to read).</p>
+      <pre><code>listvar[:stop:step]  # No start given; start = 0 assumed
+listvar[start::step] # No stop given; stop = len(listvar) assumed
+listvar[::step]      # start = 0, stop = len(listvar) assumed</code></pre>
+      <pre><code>a = [11, 12, 13, 14]
+a[:2:1] # [11, 12]
+a[2::1] # [13, 14]
+a[::2]  # [11, 13]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="copy-by-value-vs-copy-by-reference" number="11.3." raw="## Copy by Value vs. Copy by Reference" class="hanchor" href="#copy-by-value-vs-copy-by-reference">11.3. Copy by Value vs. Copy by Reference</a></h2>
+      <p>When a new list variable is defined based on an existing list, changes to the existing list variable will result in changes to the new list. For example,</p>
+      <pre><code>a = [0, 11, 22, 33, 44]
+b = a       # b is a copy-by-reference of a
+b[0] = 88
+print(b[0]) # b[0] is 88, as expected
+a[0] = 99
+print(b[0]) # b[0] is 99!</code></pre>
+      <p>Internally, Python stored <code>b</code> as a statement “b is the same as a”. For very large arrays, this can save memory. For example, if <code>a</code> has 10,000 elements and <code>b=a</code>, then internally Python only needs to allocate memory for the statement “b is the same as a” instead of actually storing 10,000 new values in memory.</p>
+      <p>If you don’t want this a variable to be copied by reference, one can use the notation <code>b = a.copy()</code> or more compactly, <code>b = a[:]</code> to copy by value:</p>
+      <pre><code>a = [0, 11, 22, 33, 44]
+b = a.copy() # b is a copy-by-value of a
+b[0] = 88
+print(b[0])  # b[0] is 88
+a[0] = 99
+print(b[0])  # b[0] is 88</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="list-methods" number="11.4." raw="## List Methods" class="hanchor" href="#list-methods">11.4. List Methods</a></h2>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="append" number="11.4.1." raw="###  `append`" class="hanchor" href="#append">11.4.1. <code>append</code></a></h3>
+      <p><code>listvar.append(val)</code> appends <code>val</code> to the array.</p>
+      <pre><code>a = [1, 2, 3]
+a.append(99)
+print(a) # [1, 2, 3, 99]</code></pre>
+      <p>A common error is to use</p>
+      <pre><code>a = [1, 2, 3]
+b = a.append(99) 
+print(b) # None
+print(a) # [1, 2, 3, 99]</code></pre>
+      <p>and expect <code>b = [1, 2, 3, 99]</code>. </p>
+      <p><code>append</code> can be used to create multi-dimensional lists</p>
+      <pre><code>a = []             # Create an empty list
+a.append([11, 22]) # a = [[11, 22]]
+a.append([33, 44]) # a = [[11, 22], [33, 44]]
+a[0][0] # 11
+a[0][1] # 22
+a[1][0] # 33
+a[1][1] # 44</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="insert" number="11.4.2." raw="### `insert`" class="hanchor" href="#insert">11.4.2. <code>insert</code></a></h3>
+      <p><code>listvar.insert(i, val)</code> inserts value <code>val</code> before element <code>i</code> in <code>listvar</code>.</p>
+      <pre><code>a = [0, 11, 22, 33]
+a.insert(1,55) # a = [0, 55, 11, 22, 33]</code></pre>
+      <p>Caution: if the value of <code>i</code> is larger than <code>len(listvar)</code>, Python assumes you meant <code>i = len(listvar)</code>. This can lead to code that runs without error that produces unexpected results.</p>
+      <p>In the following, </p>
+      <pre><code>a = [0, 11, 22, 33]
+a.insert(99, -7) # a = [0, 11, 22, 33, -7]</code></pre>
+      <p><code>a.insert(99,3)</code> means insert <code>-7</code> before the 99th element in <code>a</code>. This does not sound sensical because <code>a</code> has only four elements, but Python allows it.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="reverse" number="11.4.3." raw="### `reverse`" class="hanchor" href="#reverse">11.4.3. <code>reverse</code></a></h3>
+      <p><code>listvar.reverse()</code> reverses the elements in <code>listvar</code></p>
+      <pre><code>a = [0, 11, 22, 33]
+a.reverse() # a = [33, 22, 11 ,0]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="index" number="11.4.4." raw="###  ```index```" class="hanchor" href="#index">11.4.4. <code>index</code></a></h3>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="count" number="11.4.5." raw="###  ```count```" class="hanchor" href="#count">11.4.5. <code>count</code></a></h3>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="sort" number="11.4.6." raw="### ```sort```" class="hanchor" href="#sort">11.4.6. <code>sort</code></a></h3>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="reverse" number="11.4.7." raw="### ```reverse```" class="hanchor" href="#reverse">11.4.7. <code>reverse</code></a></h3>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="copy" number="11.4.8." raw="###  ```copy```" class="hanchor" href="#copy">11.4.8. <code>copy</code></a></h3>
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="iteration" number="12." raw="# Iteration " class="hanchor" href="#iteration">12. Iteration</a></h1>
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="motivation" number="12.1." raw="## Motivation" class="hanchor" href="#motivation">12.1. Motivation</a></h2>
+      <p>Almost all simulation of physical models requires repeating calculations. </p>
+      <p>In computing, ‘’’iteration’’’ means “repeat calculation”. Simulating a model of a physical system usually requires ‘’’iteration’’’.</p>
+      <p>For example, suppose the population of the number of rabbits on an island doubles every year and the population was initially <code>10</code> rabbits. The population in year <code>2</code> could be computed by entering</p>
+      <pre><code>P = 10   # Assign to a variable named P the value 10.
+P = 2*P  # Assign to a variable named P the previous value of P times 2.</code></pre>
+      <p>To compute the population in year 5, the following could be entered</p>
+      <pre><code>P = 10   # Year 1
+P = 2*P  # Year 2
+P = 2*P  # Year 3
+P = 2*P  # Year 4
+P = 2*P  # Year 5</code></pre>
+      <p>The command <code>P = 2*P</code> has been repeated four times. Recall that Python ignores everything after and including the <code>#</code></p>
+      <p>Suppose that you want to compute the population in year <code>1000</code> and don’t want to type all the commands required to do the computation. There are several types of short-hand syntax for ‘’’iteration’’’. The most commonly used is the <code>for</code> loop syntax. (In programming, the word “loop” means repeat). The <code>while</code> loop can also be used for ‘’’iteration’’’. The key task in programming with ‘’’iteration’’’ is finding the parts of the program that can be repeated and re-written using short-hand syntax.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="for-loop-basic-pattern" number="12.2." raw="## For Loop Basic Pattern" class="hanchor" href="#for-loop-basic-pattern">12.2. For Loop Basic Pattern</a></h2>
+      <p>A <code>for</code> loop is short-hand syntax that allows you to re-write a set of statements as something that (usually) requires fewer lines.</p>
+      <p>{| border=”0” cellpadding=”2” width=”100%” align=”left”
+        |-
+        |style=”vertical-align:top” width=”220px” |
+        Long-hand pattern:</p>
+      <pre><code>P = 2*P
+P = 2*P
+P = 2*P
+P = 2*P</code></pre>
+      <p>|style=”vertical-align:top”|
+        Short-hand using <code>for loop</code>:</p>
+      <pre><code>for i in [0,1,2,3]: # Line A.
+  P = 2*P           # Line B.</code></pre>
+      <p>|}</p>
+      <p>The lines in this statement are interpreted as:</p>
+      <ul>
+        <li>Line A: Set an ‘’’index variable’’’ <code>i</code> to the first value in the array <code>[0,1,2,3]</code>. Note that an index variable does not always have to be <code>i</code>. As long as it is a valid variable, it can be used as an index variable. For example, <code>m, n, b1, J, etc.</code> would all be valid names for an index variable. </li>
+        <li>Line B: Do the computation <code>P = 2*P</code>. If all of the possible values of <code>i</code> in the list <code>[0,1,2,3]</code> have been used, continue to the next unindented line. Otherwise, repeat line B. again with the next value of <code>i</code> in the list (which is <code>1</code>).</li>
+      </ul>
+      <p>In this example, there was only one indented line after the <code>for</code> line. This is not required. Later, there will be multiple indented lines.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="for-loop-basic-pattern" number="12.3." raw="## For Loop Basic Pattern" class="hanchor" href="#for-loop-basic-pattern">12.3. For Loop Basic Pattern</a></h2>
+      <p>This is an example of replacing a basic pattern with a <code>for</code> loop. Note that the first line does not fit the pattern and cannot be shortened.</p>
+      <p>{| border=”0” cellpadding=”2” width=”100%” align=”left”
+        |-
+        |style=”vertical-align:top” width=”220px” |
+        Original program:</p>
+      <pre><code>P = 10
+P = 2*P
+P = 2*P
+P = 2*P
+P = 2*P</code></pre>
+      <p>|style=”vertical-align:top”|
+        Shorthand using <code>for loop</code>:</p>
+      <pre><code>P = 10
+for i in [1,2,3,4]:
+  P = 2*P</code></pre>
+      <p>|}</p>
+      <p>What will happen if you replace <code>i in [0,1,2,3]</code> with <code>i in [7,8,9,10]</code> or <code>i in [1,3,5,7]</code>?</p>
+      <p>In this case, you will get the same result. The indented part (the ‘’’body’’’ of the <code>for</code> loop) after the <code>for</code> line is repeated as many times as there are numbers in the list associated with <code>i</code>. Because the body of the <code>for</code> loop does not reference the index variable <code>i</code>, it does not matter what for numbers are in the square brackets, only that there are four numbers.</p>
+      <p>As we will see, if the body of the <code>for</code> loop includes a reference to <code>i</code>, the result will depend on the list associated with the index variable.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="syntax-rules" number="12.4." raw="## Syntax Rules" class="hanchor" href="#syntax-rules">12.4. Syntax Rules</a></h2>
+      <ul>
+        <li>The code after the <code>for</code> line that is to be iterated must be indented.</li>
+        <li>The <code>for</code> statement must be lower case.</li>
+        <li>The line that starts with <code>for</code> must end with a semicolon. The most common syntax error is due to the missing semicolon.</li>
+      </ul>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="basic-pattern-example-i" number="12.5." raw="## Basic Pattern Example I" class="hanchor" href="#basic-pattern-example-i">12.5. Basic Pattern Example I</a></h2>
+      <p>{| border=”0” cellpadding=”2” width=”100%” align=”left”
+        |-
+        |style=”vertical-align:top” width=”33%” |
+        Original program:</p>
+      <pre><code>x = 10
+x = x + 1
+x = x + 1
+x = x + 1
+x = x + 1
+x = x + 13</code></pre>
+      <p>|style=”vertical-align:top” width=”33%” |
+        The middle <code>x=x+1</code> statements are repeated four times, so they can be re-written using a <code>for</code> loop:</p>
+      <pre><code>x = 10
+for i in [0,1,2,3]:
+  x = x+1
+x = x + 13</code></pre>
+      <p>|style=”vertical-align:top” width=”33%” |
+        This will give the same result:</p>
+      <pre><code>x = 10
+for i in [1,5,10,20]:
+ x = x+1
+end
+x = x + 13</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="basic-pattern-example-ii" number="12.6." raw="## Basic Pattern Example II" class="hanchor" href="#basic-pattern-example-ii">12.6. Basic Pattern Example II</a></h2>
+      <p>{| border=”0” cellpadding=”2” width=”100%” align=”left”
+        |-
+        |style=”vertical-align:top” width=”33%” |
+        Original program:</p>
+      <pre><code>a = 0
+z = a+1
+a = z+1
+z = a+1
+a = z+1</code></pre>
+      <p>|style=”vertical-align:top” width=”30%” |
+        In this case, there are pairs of repeated lines, so there are two lines in the body of the <code>for</code> loop: </p>
+      <pre><code>a = 0
+for i in [1,2]:
+  z = a+1
+  a = z+1</code></pre>
+      <p>|style=”vertical-align:top “ width=”33%” |
+        A change in values of list associated with the index variable will give the same result:</p>
+      <pre><code>a = 0
+for i in [99,101]:
+  z = a+1
+  a = z+1</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="for-loop-general-pattern" number="12.7." raw="## For Loop General Pattern" class="hanchor" href="#for-loop-general-pattern">12.7. For Loop General Pattern</a></h2>
+      <p>Thus far, we have used the number of values between the square brackets as an indicator of how many times the repeated part should be repeated. What is actually happening when we enter</p>
+      <pre><code>for i in [1,2]
+  P = 2*P
+end</code></pre>
+      <p>is that Python is executing the commands</p>
+      <pre><code> i = 1
+ P = 2*P
+ i = 2
+ P = 2*P</code></pre>
+      <p>That is, prior to executing the commands in the body of the <code>for</code> loop, Python is assigning a value to the ‘’’index variable’’’. </p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="general-pattern-example-i" number="12.8." raw="## General Pattern Example I" class="hanchor" href="#general-pattern-example-i">12.8. General Pattern Example I</a></h2>
+      <p>The set of commands on the left are equivalent to the set of commands on the right.
+        {| border=”0” cellpadding=”2” width=”100%” align=”left”
+        |-
+        |style=”vertical-align:top” width=”50%”|</p>
+      <pre><code>for i in [1,2,3,4]:
+  a = i*i</code></pre>
+      <p>|style=”vertical-align:top”|</p>
+      <pre><code>i = 1
+a = i*i
+i = 2
+a = i*i
+i = 3
+a = i*i
+i = 4
+a = i*i</code></pre>
+      <p>|}</p>
+      <p>The set of commands on the left are equivalent to the set of commands on the right. Note that because the index variable <code>i</code> appears in the body of the <code>for</code> loop, their actual values matter; a different set of four numbers in the list associated with <code>i</code> will give differents values for <code>a</code>.
+        {| border=”0” cellpadding=”2” width=”100%” align=”left”
+        |-
+        |style=”vertical-align:top” width=”50%”|</p>
+      <pre><code>for i in [10,11,12,14]:
+  a = i*i</code></pre>
+      <p>|style=”vertical-align:top”|</p>
+      <pre><code>i = 10
+a = i*i
+i = 11
+a = i*i
+i = 12
+a = i*i
+i = 14
+a = i*i</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="general-pattern-example-ii" number="12.9." raw="## General Pattern Example II" class="hanchor" href="#general-pattern-example-ii">12.9. General Pattern Example II</a></h2>
+      <p>In this example, the first two lines do not fit a pattern, but the rest follows the pattern of an index variable being assigned a value and then a statement using the index variable.
+        {| border=”0” cellpadding=”2” width=”100%” align=”left”
+        |-
+        |style=”vertical-align:top” width=”50%” |</p>
+      <pre><code>i = 1
+a = 13
+i = 2
+a = i*i
+i = 3
+a = i*i
+i = 4
+a = i*i</code></pre>
+      <p>|style=”vertical-align:top”|</p>
+      <pre><code>i = 1
+a = 13
+for i = [2,3,4]
+  a = i*i</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="general-pattern-example-iii" number="12.10." raw="## General Pattern Example III" class="hanchor" href="#general-pattern-example-iii">12.10. General Pattern Example III</a></h2>
+      <p>In this example, only the part after the first two lines fits the basic pattern and the repeated part takes up two lines. That is, the statements</p>
+      <pre><code>a = i*i
+a = a+1</code></pre>
+      <p>are repeated three times.</p>
+      <p>{| border=”0” cellpadding=”2” width=”100%” align=”left”
+        |-
+        |style=”vertical-align:top” width=”50%” |</p>
+      <pre><code>i = 1
+a = 13
+i = 2
+a = i*i
+a = a+1
+i = 3
+a = i*i
+a = a+1
+i = 4
+a = a+1
+a = i*i</code></pre>
+      <p>|style=”vertical-align:top”|</p>
+      <pre><code>i = 1
+a = 13
+for i in [2,3,4]:
+  a = i*i
+  a = a+1</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="populating-a-list" number="12.11." raw="## Populating a List" class="hanchor" href="#populating-a-list">12.11. Populating a List</a></h2>
+      <p>The index variable can be used to populate elements of a list:</p>
+      <pre><code>A = [] # Declare A to be a list variable
+for i in [0,1,2]:
+  A.append(i*i) # Append result of i*i calc to end of A
+print(A) # [0, 1, 4]</code></pre>
+      <p>is the same as</p>
+      <pre><code>A = [0*0, 1*1, 2*2]
+print(A)</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="populating-a-list-examples" number="12.12." raw="## Populating a List Examples" class="hanchor" href="#populating-a-list-examples">12.12. Populating a List Examples</a></h2>
+      <p>‘’’Problem:’’’ Create the list <code>A = [2,3,4,5]</code> and then display it</p>
+      <p>‘’’Answer:’’’ </p>
+      <pre><code>A = [] # Declare A to be a list variable
+for i in [2,3,4,5]:
+  A.append(i)
+print(A)</code></pre>
+      <p>‘’’Problem:’’’ Create the lists <code>A = [2,3,4,5]</code> and <code>B = [0,1,2,3]</code> and then display them.</p>
+      <p>‘’’Answer:’’’ </p>
+      <p>In this problem, <code>A</code> and <code>B</code> each have four elements. We could create them using two <code>for</code> loops</p>
+      <pre><code>A = []
+for i in [2,3,4,5]:
+  A.append(i)
+print(A)
+B = []
+for i in [0,1,2,3]:
+  B.append(i)
+print(A)
+print(B)</code></pre>
+      <p>In general, code with fewer loops will run faster. So it is more efficient to use</p>
+      <pre><code>A = []
+B = []
+for i in [0,1,2,3]:
+  A.append(i+2)
+  B.append(i)
+print(A)
+print(B)</code></pre>
+      <p>‘’’Problem:’’’ Create the array <code>A = [5,4,3,2,1]</code> using <code>for i in [0,1,2,3,4]:</code></p>
+      <p>‘’’Answer:’’’ </p>
+      <pre><code>A = []
+for i in [0,1,2,3,4]:
+  A.append(5-i)
+print(A) # [5, 4, 3, 2, 1]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="the-range-function" number="12.13." raw="## The `range` function" class="hanchor" href="#the-range-function">12.13. The <code>range</code> function</a></h2>
+      <p>The notation</p>
+      <pre><code>for i in [0,1,2,3,4]:</code></pre>
+      <p>is acceptable, but most often instead of specifying an list of values for the index variable, the <code>range</code> function is used. This is especially useful when the list would need to be very long.</p>
+      <p>Instead of writing:</p>
+      <pre><code>for in [0,1,2,3,4,5,6,7,8,9]:</code></pre>
+      <p>we can write:</p>
+      <pre><code>for i in range(10)</code></pre>
+      <p>which is read, “Start at 0 and increment in steps of 1. Stop at 10-1.”.</p>
+      <p>The range function can be used to start counting at a number other than zero and can also be used to count in steps.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="stop-only" number="12.13.1." raw="###  Stop Only" class="hanchor" href="#stop-only">12.13.1. Stop Only</a></h3>
+      <pre><code>for i in range(stop): # Equiv. to for i in [0, 1, ..., stop-1]</code></pre>
+      <p>For example,</p>
+      <pre><code>for i in range(3): # range(3) -&gt; [0, 1, 2]
+  print("i =", i)</code></pre>
+      <p>will print</p>
+      <pre><code>i = 0
+i = 1
+i = 2</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="start-and-stop" number="12.13.2." raw="###  Start and Stop" class="hanchor" href="#start-and-stop">12.13.2. Start and Stop</a></h3>
+      <pre><code>for i in range(start, stop):</code></pre>
+      <p>is equivalent to</p>
+      <pre><code>for i in [start, start+1, start+2, ..., stop-1]:</code></pre>
+      <p>For example,</p>
+      <pre><code>for i in range(3, 6): # range(3, 6) -&gt; [3, 4, 5]
+  print("i =", i)</code></pre>
+      <p>will print</p>
+      <pre><code>i = 3
+i = 4
+i = 5</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="start-stop-and-step" number="12.13.3." raw="###  Start, Stop, and Step" class="hanchor" href="#start-stop-and-step">12.13.3. Start, Stop, and Step</a></h3>
+      <pre><code>for i in range(start, stop, step):
+# Equiv. to for i in [start, start+step, start+2*step, stop-1]:</code></pre>
+      <p>is equivalent to</p>
+      <pre><code>for i in [start, start+step, start+2*step, ..., stop-1]:</code></pre>
+      <p>For example,</p>
+      <pre><code>for i in range(3, 9, 2):
+  print("i =", i)</code></pre>
+      <p>will print</p>
+      <pre><code>i = 3
+i = 5
+i = 7</code></pre>
+      <p><code>step</code> can be a negative number provided that <code>stop &lt;= start</code></p>
+      <pre><code>for i in range(9, 0, -2):
+  print("i =", i)</code></pre>
+      <p>will print</p>
+      <pre><code>i = 9
+i = 7
+i = 5
+i = 3
+i = 1</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="iteration-using-while" number="12.14." raw="## Iteration using `while`" class="hanchor" href="#iteration-using-while">12.14. Iteration using <code>while</code></a></h2>
+      <p>A second method of repeating commands involves the use of the <code>while</code> statement. The loop executes as long as the test condition is true. The general syntax is</p>
+      <pre><code>while test:
+  Commands</code></pre>
+      <p>In the following example, the commands <code>P=1.1*P</code> and <code>i = i+1</code> are repeated provided that <code>P</code> is less than 1000. The last line of the program displays the last value of <code>P</code>.</p>
+      <pre><code>i = 0
+P = 100
+while (P &lt; 1000):
+  P = 1.1*P;
+  i = i+1;
+print("Final value of P =", P)
+print("Final value of i =", i)</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="break" number="12.15." raw="## `break`" class="hanchor" href="#break">12.15. <code>break</code></a></h2>
+      <p>The <code>break</code> command can be used to terminate the execution of a <code>while</code> or <code>for</code> loop. In the following program, the value of <code>i</code> is checked before it is printed out. If <code>i &gt; 10</code>, execution of the loop terminates. The result is the numbers 0, 1, …, 10 are printed.</p>
+      <pre><code>for i in range(100):
+  if i &gt; 10:
+    break
+  print(i)
+print("Done with loop")</code></pre>
+      <p>The result is that the following is displayed.</p>
+      <pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Done with loop</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="continue" number="12.16." raw="## `continue`" class="hanchor" href="#continue">12.16. <code>continue</code></a></h2>
+      <p>The continue statement can be used to block the execution of code that follows it in the body of a <code>for</code> or <code>while</code> loop. For example</p>
+      <pre><code>for i in range(20):
+  if i &lt; 10:
+    continue # Don't execute following lines if i &lt; 10
+  print("i = ", i)</code></pre>
+      <p>The result is that the following is displayed.</p>
+      <pre><code>10
+11
+12
+13
+14
+15
+16
+17
+18
+19</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="problems" number="12.17." raw="## Problems" class="hanchor" href="#problems">12.17. Problems</a></h2>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="basic-pattern" number="12.17.1." raw="### Basic pattern" class="hanchor" href="#basic-pattern">12.17.1. Basic pattern</a></h3>
+      <p>Can any part of the following be re-written using a <code>for</code> loop?</p>
+      <pre><code>b = 1
+b = b+1
+b = b+1
+b = b+1</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |
+        The line <code>b = b+1</code> is repeated three times, so these three lines can be re-written using a <code>for</code> loop.
+        |}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="basic-pattern" number="12.17.2." raw="###  Basic pattern " class="hanchor" href="#basic-pattern">12.17.2. Basic pattern</a></h3>
+      <p>Can any part of the following be re-written using a <code>for</code> loop?</p>
+      <pre><code>b = 1
+b = b+1
+c = 2*b
+b = b+1
+c = 2*b
+b = b+1
+c = 2*b</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |
+        The two lines <code>b = b+1</code> and <code>c = 2*b</code> appear three times. These two lines could be placed in a <code>for</code> loop.
+        |}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="syntax" number="12.17.3." raw="###  Syntax" class="hanchor" href="#syntax">12.17.3. Syntax</a></h3>
+      <p>What is the syntax error i each of the following <code>for</code> loops?</p>
+      <pre><code>for i = [1,2]:
+  a = i</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” | Answer
+        |-
+        |
+        The line <code>for i = [1,2]</code> should be <code>for i in [1,2]</code>.
+        |}</p>
+      <pre><code>for i in [1,2]:
+a = i</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” | Answer
+        |-
+        |
+        The <code>for</code> has no body. Execution of this code will lead to an error “IndentationError: expected an indented block”.
+        |}</p>
+      <pre><code>for j in [1,2,3]:
+  c = a + j</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” | Answer
+        |-
+        |
+        The variable <code>a</code> was never defined.
+        |}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="syntax" number="12.17.4." raw="###  Syntax" class="hanchor" href="#syntax">12.17.4. Syntax</a></h3>
+      <p>Are these two sets of commands equivalent?</p>
+      <pre><code>i = 1
+b = 3+i
+i = 2
+b = 4+i</code></pre>
+      <pre><code>for i in [1,2]:
+  b = 3+i</code></pre>
+      <details>
+        <summary>Answer</summary>
+        These two sets of commands are not equivalent. To make them equivalent, the statements on the left should have read:
+        ```Python
+        i = 1
+        b = 3+i
+        i = 2
+        b = 3+i
+        ```
+      </details>
+
+
+
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="syntax" number="12.17.5." raw="###  Syntax" class="hanchor" href="#syntax">12.17.5. Syntax</a></h3>
+      <p>What will happen when these commands are executed?</p>
+      <pre><code>for i in [3,4]:
+  b = 3+i
+  print(i, b)</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |
+        The following will be displayed</p>
+      <pre><code>3 6
+4 7</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="syntax" number="12.17.6." raw="###  Syntax" class="hanchor" href="#syntax">12.17.6. Syntax</a></h3>
+      <p>What will happen when these commands are executed?</p>
+      <pre><code>b = 0
+for i in [3,4]:
+  print(i, b)
+  b = 3+i
+  print(i, b)</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <pre><code>3 0
+3 6
+4 6
+4 7</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="syntax-with-range" number="12.17.7." raw="###  Syntax with `range`" class="hanchor" href="#syntax-with-range">12.17.7. Syntax with <code>range</code></a></h3>
+      <p>What will happen when these commands are executed?</p>
+      <pre><code>for i in range(3):
+  print(i)</code></pre>
+      <p>What will happen when these commands are executed?</p>
+      <pre><code>for i in range(3, 6, 1):
+  print(i)</code></pre>
+      <p>What will happen when these commands are executed?</p>
+      <pre><code>for i in range(1, 10, 2):
+  print(i)</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="populating-a-list" number="12.17.8." raw="###  Populating a List" class="hanchor" href="#populating-a-list">12.17.8. Populating a List</a></h3>
+      <p>What will be displayed when the following programs are executed. If an error message is displayed, describe the reason for the error.</p>
+      <pre><code>A = []
+for k in [9, 10, 11]:
+  A.append(k+1)
+print(A)</code></pre>
+      <pre><code>A = []
+B = []
+for k in [9, 10, 11]:
+  B.append(k)
+  A.append(B[k-9])
+print(A)  
+print(B)</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="converting-statements-to-a-for-loop" number="12.17.9." raw="###  Converting Statements to a `for` Loop" class="hanchor" href="#converting-statements-to-a-for-loop">12.17.9. Converting Statements to a <code>for</code> Loop</a></h3>
+      <p>Rewrite the last four lines in the following using a <code>for</code> loop.</p>
+      <pre><code>A = [1,2,3,4]
+A[0] = A[0] + 0
+A[1] = A[1] + 1
+A[2] = A[2] + 2
+A[3] = A[3] + 3</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <pre><code>A = [1,2,3,4]
+for i in range(4):
+  A[i] = A[i] + i</code></pre>
+      <p>|}</p>
+      <p>Predict what will be printed when the following lines are executed.</p>
+      <p>Rewrite the last four lines in the following using a <code>for</code> loop. </p>
+      <pre><code>A = [1, 2, 3, 4]
+B = [11, 12, 13, 14, 15]
+A[0] = A[0] + B[1]
+A[1] = A[1] + B[2]
+A[2] = A[2] + B[3]
+A[3] = A[3] + B[4]
+print(A)</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <pre><code>A = [1, 2, 3, 4]
+B = [11, 12, 13, 14, 15]
+for i in range(4):
+  A[i] = A[i] + B[i+1]</code></pre>
+      <p>|}</p>
+      <p>Predict what will be printed when the following lines are executed.</p>
+      <p>Rewrite the last four lines in the following using a <code>for</code> loop. </p>
+      <pre><code>A = [11, 12, 13, 14, 15]
+A[0] = A[0] + A[1]
+A[1] = A[1] + A[2]
+A[2] = A[2] + A[3]
+A[3] = A[3] + A[4]
+print(A)</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <ol>
+        <li><code>[23, 25, 27, 29, 15]</code> is printed.</li>
+      </ol>
+      <p>2.</p>
+      <pre><code>A = [11, 12, 13, 14, 15]
+for i in range(4):
+  A[i] = A[i] + A[i+1]
+print(A)</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="converting-a-for-loop-to-a-sequence-of-statements" number="12.17.10." raw="### Converting a `for` Loop to a Sequence of Statements" class="hanchor" href="#converting-a-for-loop-to-a-sequence-of-statements">12.17.10. Converting a <code>for</code> Loop to a Sequence of Statements</a></h3>
+      <p>Re-write the repeated commands using a <code>for</code> loop.</p>
+      <pre><code>b = 1.0
+b = b + b*0.1
+b = b + b*0.1
+b = b + b*0.1
+b = b + b*0.1
+print(b)</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <pre><code>b = 1.0
+for i in range(4):
+  b = b + b*0.1
+print(b)</code></pre>
+      <p>|}</p>
+      <p>Re-write the repeated lines with <code>append</code> using a <code>for</code> loop.</p>
+      <pre><code>A = [11, 12, 13, 14]
+B = [20, 21, 22, 23]
+C = []
+C.append(A[1] + B[0])
+C.append(A[2] + B[1])
+C.append(A[3] + B[2])
+print(C)</code></pre>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <pre><code>A = [11, 12, 13, 14]
+B = [20, 21, 22, 23]
+C = []
+for i in range(0, 3): # or for in [0, 1, 2]
+  C.append(A[i+1] + B[i])
+print(C)</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="creating-a-list-with-a-for-loop" number="12.17.11." raw="###  Creating a List with a `for` Loop" class="hanchor" href="#creating-a-list-with-a-for-loop">12.17.11. Creating a List with a <code>for</code> Loop</a></h3>
+      <p>Create the list <code>A = [9, 10, 11, 12]</code> using a <code>for</code> loop.</p>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <pre><code>A = []
+for i in range(0, 4):
+  A.append(i + 9)
+print(A)</code></pre>
+      <p>or</p>
+      <pre><code>A = []
+for i in range(9, 13):
+  A.append(i)
+print(A)</code></pre>
+      <p>|}</p>
+      <p>Create the list <code>A = [9, 12, 15, 18, 21, 24]</code> using a <code>for</code> loop.</p>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <pre><code>A = []
+for i in range(9, 25, 3):
+  A.append(i)
+print(A)</code></pre>
+      <p>|}</p>
+      <p>Create the list <code>A = [9, 6, 3, 0]</code> using a <code>for</code> loop.</p>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <pre><code>A = []
+for i in range(0, 4):
+  A.append(9-i*3)
+print(A)</code></pre>
+      <p>or</p>
+      <pre><code>A = []
+for i in range(9, 0, -3):
+  A.append(i)
+print(A)</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="computation-using-for-loop" number="12.17.12." raw="###  Computation using `for` loop" class="hanchor" href="#computation-using-for-loop">12.17.12. Computation using <code>for</code> loop</a></h3>
+      <p>Write a <code>for</code> loop that adds all of the elements in a list of arbitrary length. Do not use the <code>sum</code> function.</p>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <p>Without a <code>for</code> loop, an algorithm is</p>
+      <pre><code>A = [11,12,13,14]
+s = A[0] # s is sum variable
+s = s + A[1]
+s = s + A[2]
+s = s + A[3]</code></pre>
+      <pre><code>A = [11,12,13,14]
+s = 0 # sum variable
+for i in range(len(A)):
+  s = s + A[i]
+print(s)</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="computation-using-for-loop" number="12.17.13." raw="###  Computation using `for` loop" class="hanchor" href="#computation-using-for-loop">12.17.13. Computation using <code>for</code> loop</a></h3>
+      <p>Write a <code>for</code> loop that computes the sum of the squares of all elements in an array. For example, if the array is A = [1,2,3,4,5], the sum should be 1 + 4 + 9 + 16 + 25 = 55. Do not use the functions <code>sum</code> function or functions from external libraries (i.e., no <code>import</code> statements).</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="computation-using-for-loop" number="12.17.14." raw="###  Computation using `for` loop" class="hanchor" href="#computation-using-for-loop">12.17.14. Computation using <code>for</code> loop</a></h3>
+      <p>An object travels at a constant velocity of 10 m/s. Create a list named <code>x</code> that contains the position of the object at times (t=0, 0.1, 0.2, …, 2.0) seconds. Use a <code>for</code> loop for the computation of the elements of <code>x</code>. Assume the initial position is (x=0). When executed, your program should display the values of <code>t</code> and <code>x</code> in the form</p>
+      <pre>time position
+0.0 0.0
+0.1 1.1
+0.2 2.2
+...
+2.0 22.0
+</pre>
+
+      <p>with the <code>...</code> replaced with values for <code>t=0.2</code> to <code>2.0</code>.</p>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |
+        For more complex problems, it is often easier to write a solution without a for loop before attempting to write a solution using a for loop.</p>
+      <pre><code># Without a list or a for loop for first few steps
+t = 0    # Initial time
+x = 0.0  # Initial position
+v = 11.0 # Object's velocity
+print('time position')
+print('{0:.1f} {1:.1f}'.format(t,x))
+
+t = 0.1
+x = v*t
+print('{0:.1f} {1:.1f}'.format(t,x))
+
+t = 0.2
+x = v*t
+print('{0:.1f} {1:.1f}'.format(t,x))
+
+t = 0.2
+x = v*t
+print('{0:.1f} {1:.1f}'.format(t,x))</code></pre>
+      <pre><code># With a list but no for loop for first few steps
+t = 0    # Initial time
+x = [0.0]  # Initial position
+v = 11.0 # Object's velocity
+
+print('time position')
+print('{0:.1f} {1:.1f}'.format(t,x[0]))
+
+t = 0.1
+x.append(v*t) # Appended array element is position at time t
+print('{0:.1f} {1:.1f}'.format(t,x[1]))
+
+t = 0.2
+x.append(v*t)
+print('{0:.1f} {1:.1f}'.format(t,x[2]))</code></pre>
+      <pre><code># With a list and for loop
+v = 11;
+x = []
+print('time position')
+for i in range(0, 21):
+    t = i/10  # t will have values of 0.0, 0.1, ..., 2.0
+    x.append(v*t)
+    print('{0:.1f} {1:.1f}'.format(t,x[i]))</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="computation-using-for-loop" number="12.17.15." raw="###  Computation using `for` loop" class="hanchor" href="#computation-using-for-loop">12.17.15. Computation using <code>for</code> loop</a></h3>
+      <p>Your bank balance grows by an amount of 5% compounded on the last day of each year. Your initial deposit is $100. </p>
+      <p>Create a list named <code>b</code> that contains balance at the end of each year after compounding. Use a <code>for</code> loop for the computation of the elements of <code>b</code>. When executed, your program should display the year and balance.</p>
+      <pre>year balance
+1    105.0
+2    110.2
+...
+9    155.1
+</pre>
+
+      <p>with the <code>...</code> replaced with values for years 1-8.</p>
+      <p>{| class=”wikitable collapsible collapsed”
+        ! align=”left” |&nbsp;Answer
+        |-
+        |</p>
+      <p>For more complex problems, it is often easier to write a solution without a <code>for</code> loop before attempting to write a solution using a <code>for</code> loop.</p>
+      <pre><code># Without a list or a for loop for first 4 years
+r = 0.05 # Interest rate
+b = 100  # Initial account balance
+
+print('year balance')
+y = 1
+b = b + b*0.05 # Balance at end of year 1 (after compounding)
+print('{0}    {1:.1f}'.format(y, b))
+
+y = 2
+b = b + b*0.05 # Balance at end of year 2 (after compounding)
+print('{0}    {1:.1f}'.format(y, b))
+
+y = 3
+b = b + b*0.05 # Balance at end of year 3 (after compounding)
+print('{0}    {1:.1f}'.format(y, b))
+
+y = 4
+b = b + b*0.05 # Balance at end of year 4 (after compounding)
+print('{0}    {1:.1f}'.format(y, b))</code></pre>
+      <pre><code># With a list but no for loop for first 4 years
+
+r = 0.05  # Interest rate
+b = [100] # List of balances
+
+print('year balance')
+
+y = 1
+b.append(b[y-1] + b[y-1]*r) # Append new balance to array
+print('{0}    {1:.1f}'.format(y, b[y]))
+
+y = 2
+b.append(b[y-1] + b[y-1]*r) # Append new balance to array
+print('{0}    {1:.1f}'.format(y, b[y]))
+
+y = 3
+b.append(b[y-1] + b[y-1]*r) # Append new balance to array
+print('{0}    {1:.1f}'.format(y, b[y]))
+
+y = 4
+b.append(b[y-1] + b[y-1]*r) # Append new balance to array
+print('{0}    {1:.1f}'.format(y, b[y]))</code></pre>
+      <pre><code># With list and for loop
+r = 0.05  # Interest rate
+b = [100] # List of balances
+
+print('year balance')
+for y in range(1,11):
+    b.append(b[y-1] + b[y-1]*r) # Append new balance to array
+    print('{0}    {1:.1f}'.format(y, b[y]))</code></pre>
+      <p>|}</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="matplotlib" number="13." raw="# Matplotlib" class="hanchor" href="#matplotlib">13. Matplotlib</a></h1>
+      <p>Matplotlib is the most commonly used Python plotting package. There are many other Python packages for plotting and many of them build on the basic functionality of Matplotlib (e.g., Seaborn and Bokeh).</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="references" number="13.1." raw="## References" class="hanchor" href="#references">13.1. References</a></h2>
+      <ul>
+        <li><a href="http://matplotlib.org/users/beginner.html">http://matplotlib.org/users/beginner.html</a></li>
+        <li><a href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.legend">http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.legend</a></li>
+      </ul>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="importing-matplotlib" number="13.2." raw="## Importing Matplotlib" class="hanchor" href="#importing-matplotlib">13.2. Importing Matplotlib</a></h2>
+      <p>The start of any Python program where Matplotlib plot commands are used must start with</p>
+      <pre><code>import matplotlib.pyplot as plt</code></pre>
+      <p>where the only optional part is <code>plt</code>, which declares the namespace of all Matplotlib methods. All calls to Matplotlib plotting methods must be prefixed by <code>plt.</code>. (Sometimes authors will use <code>mpl</code> instead of <code>plt</code>.)</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="plotting-list-elements" number="13.3." raw="## Plotting List elements" class="hanchor" href="#plotting-list-elements">13.3. Plotting List elements</a></h2>
+      <p>In Python, line plots are created using the <code>plot</code> function prefixed by the module declared in the import command (here I am using <code>plt</code>).</p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1 , 4, 16, 32] # Create list
+plt.plot(y) # Plot list. x-values assumed to be [0, 1, 2, 3]
+plt.show()  # Optional when using IPython interpreter</code></pre>
+      <p>Note that if this script is called from the command line, no plot will be shown unless <code>show()</code> is called. Also note that when using the IPython interpreter, you can have the plots show up in a separate window by executing the command <code>%matplotlib qt</code>. To have the plots show up in the IPython console, enter <code>%matplotlib inline</code>. These are not regular Python commands - only IPython will understand them.</p>
+      <img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_I.py.png" width="500px">
+
+      <p>The <code>plt.plot(y)</code> command caused a plot of the elements of <code>y</code> to be shown with the values in <code>y</code> on the y-axis. The x-axis values were assumed to be <code>[0, 1, 2, 3]</code>. The above commands are equivalent to </p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+x = [0, 1, 2, 3]
+plt.plot(x, y)
+plt.show()</code></pre>
+      <img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_I.py.png" width="500px">
+
+      <p><code>plot</code> method.</p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+x = [10, 20 , 30, 40]
+plt.plot(x, y)
+plt.show()</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="annotation" number="13.4." raw="## Annotation" class="hanchor" href="#annotation">13.4. Annotation</a></h2>
+      <p>To add a grid, use <code>grid()</code> after the plot command. To add axis labels and a title, use <code>xlabel</code>, <code>ylabel</code>, and <code>title</code></p>
+      <pre><code>import matplotlib.pylab as plt
+y = [1, 4, 16, 32]
+x = [1, 2, 3, 4]
+plt.plot(x, y)
+plt.grid()
+plt.xlabel('Time [seconds]');
+plt.ylabel('Height [meters]');
+plt.title('Experiment 1 results');
+plt.show()</code></pre>
+      <img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IV.py.png" width="500px">
+
+      <p>Matplotlib labels can be specified using TeX strings (this may code may not work, most likely due to a needed package not being installed – do a web search on the error message to figure out how to install the missing package). For example</p>
+      <pre><code># See above if this results in an error message.
+import matplotlib.pylab as plt
+y = [1, 4, 16, 32]
+x = [1, 2, 3, 4]
+plt.plot(x, y)
+plt.grid()
+plt.xlabel('Time [seconds]');
+plt.ylabel('Height [meters]');
+plt.title(r'$\mathbf{A}=3\hat{\mathbf{x}} + 4\hat{\mathbf{y}}; E=mc^2$')
+plt.show()</code></pre>
+      <p>See <a href="https://matplotlib.org/3.1.0/gallery/text_labels_and_annotations/tex_demo.html">Matplotlib Gallery</a> for additional information.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="line-color" number="13.5." raw="## Line Color" class="hanchor" href="#line-color">13.5. Line Color</a></h2>
+      <p>A line color may be specified when calling the <code>plot</code> function. This set of commands will create a red line. Enter <code>help(plt.plot)</code> on the command line to see a table of all possible color abbreviations.</p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+plt.plot(y, 'r')       # Red line; 'g' would produce green line
+plt.plot(y, color='r') # Same result using alternative syntax
+plt.show()</code></pre>
+      <img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_V.py.png" width="500px">
+
+      <p>Colors that do not have an associated abbreviation may be used by specifying a list of red, green, and blue intensity values. This set of commands will create a gray line.</p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+# 100% red intensity, 0% green, 0% blue
+plt.plot(y, color=[1, 0, 0]) 
+# Mixture of 50% red intensity, 50% green, and 50% blue
+plt.plot(y, color=[0.5, 0.5, 0.5]) 
+plt.show()</code></pre>
+      <p>To find a special color, I usually do a search on, e.g., “rgb values for periwinkle”. Doing this, I find
+        <code>RGB: 204, 204, 255</code>, which is translated to intensity fractions by dividing each number by <code>255</code>, so I would use <code>color=[204/255, 204/255, 255/255]</code>.
+      </p>
+      <img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VI.py.png" width="500px">
+
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="line-style" number="13.6." raw="## Line Style" class="hanchor" href="#line-style">13.6. Line Style</a></h2>
+      <p>By default, the points in <code>y</code> are connected with solid lines. Line styles options are
+        <code>solid</code>, <code>dashed</code>, <code>dashdot</code>, <code>dotted</code> or their corresponding short-hand strings of <code>-</code>, <code>:</code>, <code>-.</code>, <code>--</code> can also be used.
+      </p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+plt.plot(y, '-', linewidth=5)
+# or
+plt.plot(y, linestyle='solid', linewidth=5) </code></pre>
+      <img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_X.py.png" width="500px">
+
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="marker-style" number="13.7." raw="## Marker Style" class="hanchor" href="#marker-style">13.7. Marker Style</a></h2>
+      <p>Instead of drawing connected lines, markers can be drawn at points. See <code>help(plt.plot)</code> for a table of possible markers.</p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32];
+plt.plot(y, '*') # Stars
+#plt.plot(y, 'o') # Circles
+plt.show()</code></pre>
+      <p>
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VII.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VII.py.png|width=400px|expire=1</a></imgc>
+      </p>
+      <p>Marker colors may be specified using the same syntax as the line color</p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+plt.plot(y, '*', color=[0.5, 0.5, 0.5]) # Gray stars
+plt.show()</code></pre>
+      <p>
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VIII.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VIII.py.png|width=400px|expire=1</a></imgc>
+      </p>
+      <p>The marker size may be specified using <code>markersize</code> keyword</p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+plt.plot(y, '*', markersize=10)
+plt.show()</code></pre>
+      <p>|style=”vertical-align:top”|
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IX.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IX.py.png|width=400px|expire=1</a></imgc>
+      </p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="style-combinations" number="13.8." raw="## Style Combinations" class="hanchor" href="#style-combinations">13.8. Style Combinations</a></h2>
+      <p>Multiple styles may be specified. For example, to create a red solid line, use <code>r-</code></p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+plt.plot(y, 'r-', linewidth=3)</code></pre>
+      <p>
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XII.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XII.py.png|width=400px|expire=1</a></imgc>
+      </p>
+      <p>To create a red solid line that connects points in <code>y</code> and to show stars at the points, use <code>r*-</code></p>
+      <pre><code>import matplotlib.pyplot as plt
+y = [1, 4, 16, 32]
+plt.plot(y, 'r*-', linewidth=3, markersize=10)
+# or (a bit easier to read)
+plt.plot(y, color='r', linestyle='solid', 
+         marker='*', linewidth=3, markersize=10)</code></pre>
+      <p>
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XIII.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XIII.py.png|width=400px|expire=1</a></imgc>
+      </p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="multiple-lines-and-legends" number="13.9." raw="## Multiple lines and legends" class="hanchor" href="#multiple-lines-and-legends">13.9. Multiple lines and legends</a></h2>
+      <p>To create a legend, use <code>legend</code>:</p>
+      <pre><code>import matplotlib.pyplot as plt
+A = [1.0, 4.0, 16.0, 32.0]
+B = [1.1, 4.4, 16.9, 32.9]
+l1, = plt.plot(A, 'b')
+l2, = plt.plot(B, 'r')
+plt.legend(['A', 'B'])
+plt.show()</code></pre>
+      <p>
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XV.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XV.py.png|width=400px|expire=1</a></imgc>
+      </p>
+      <p>To set the legend location, use the <code>loc</code> keyword. See <code>help(plt.legend)</code> or [<a href="https://matplotlib.org/users/legend_guide.html%5D">https://matplotlib.org/users/legend_guide.html]</a> for other options:</p>
+      <pre><code>import matplotlib.pyplot as plt
+A = [1, 4, 16, 32]
+B = [1.1, 4.4, 16.9, 32.9]
+l1, = plt.plot(A, 'b')
+l2, = plt.plot(B, 'r')
+plt.legend(['A', 'B'], loc='upper left')
+plt.show()</code></pre>
+      <p>
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVI.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVI.py.png|width=400px|expire=1</a></imgc>
+      </p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="axis-tick-numbers" number="13.10." raw="## Axis Tick Numbers" class="hanchor" href="#axis-tick-numbers">13.10. Axis Tick Numbers</a></h2>
+      <p>In the previous example, Matplotlib chose to label the values in 0.5 increments. This is not a good default for the plotted list - all of the x-values are integers. Use <code>xticks</code> and <code>yticks</code> to specify the tick labels to show.</p>
+      <pre><code>import matplotlib.pyplot as plt
+A = [1, 4, 16, 32]
+plt.plot(A, 'r*-', linewidth=3, markersize=10)
+plt.xticks([0,1,2,3])
+plt.show()</code></pre>
+      <p>To modify the y-position labels, use <code>yticks</code> instead of <code>xticks</code>.</p>
+      <p>
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVII.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVII.py.png|width=400px|expire=1</a></imgc>
+      </p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="axis-limits" number="13.11." raw="## Axis Limits" class="hanchor" href="#axis-limits">13.11. Axis Limits</a></h2>
+      <p>In the previous examples, only part of the first and last markers were shown. To expand the axis limits so the full markers are shown, use <code>plt.xlim()</code></p>
+      <pre><code>import matplotlib.pyplot as plt
+A = [1, 4, 16, 32]
+plt.plot(A, 'r*-', linewidth=3, markersize=10)
+plt.xticks([0, 1, 2, 3])
+plt.xlim([-0.1, 3.1])
+plt.show()</code></pre>
+      <p>To modify the y-axis limits, use <code>ylim</code>.</p>
+      <p>
+        <imgc>url=<a href="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVIII.py.png%7Cwidth=400px%7Cexpire=1">https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVIII.py.png|width=400px|expire=1</a></imgc>
+      </p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="imshow" number="13.12." raw="## `imshow`" class="hanchor" href="#imshow">13.12. <code>imshow</code></a></h2>
+      <p>The following program demonstrates how a matrix can be plotted.</p>
+      <pre><code>#from matplotlib import cm
+import numpy as np
+
+# Create matrix to plot
+z = np.array([[0, 1], [2, 3]])
+print(z)
+
+# Open a new figure
+plt.figure()
+
+# Create a colormap with 4 colors from white to black.
+cmap = plt.get_cmap('Greys', 4)
+
+# Plot the matrix z
+im = plt.imshow(z, cmap=cmap)
+
+# Set labels
+plt.xlabel('column')
+plt.ylabel('row')
+
+# Set x- an y-ticks to be integers
+plt.gca().set_xticks([0, 1])
+plt.gca().set_yticks([0, 1])
+
+# Show colorbar
+cb = plt.colorbar()
+
+# Set colorbar axis label
+#cb.set_label('z') # Next to colorbar axis numbers
+cb.ax.set_title('z') # Top of colorbar
+
+# Set colorbar limits so colors are centered on integers
+plt.clim(-0.5, 3.5)
+
+# Set colorbar ticks
+#cb.set_ticks([0, 1])
+
+# dpi=300 (dots per inch) saves a higher resolution image than the default
+# bbox_inches='tight' removes extra whitespace surrounding plot
+plt.savefig('HW11_3_imshow.png', dpi=300, bbox_inches='tight')</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="datetimes" number="14." raw="# datetimes" class="hanchor" href="#datetimes">14. datetimes</a></h1>
+      <p>If you get an error related to “utc datetime.timezone”, remove <code>tzinfo=timezone.utc</code>. For example modify</p>
+      <pre><code>t1 = datetime(1970, 1, 1, 
+              hour=0, minute=0, second=0, 
+              microsecond=0, tzinfo=timezone.utc)</code></pre>
+      <p>to be</p>
+      <pre><code> t1 = datetime(1970, 1, 1, 
+              hour=0, minute=0, second=0, 
+              microsecond=0)</code></pre>
+      <p>A <code>datetime</code> object is used to store dates and times. The <code>datetime</code> object methods allow a given <code>datetime</code> to be manipulated.</p>
+      <p>The advantage of using <code>datetime</code>s is</p>
+      <ol>
+        <li>One can do math on them, e.g., find the number of days, hours, minutes, seconds between two dates.</li>
+        <li>A time that is stored as a <code>datetime</code> can be easily rendered in different ways, e.g., “2019-01-01” or “2019-001”.</li>
+        <li>When a list of <code>datetime</code>s is passed to Matplotlib’s plot function, it will automatically use date labels on the axes.</li>
+      </ol>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="basic-usage" number="14.1." raw="## Basic Usage" class="hanchor" href="#basic-usage">14.1. Basic Usage</a></h2>
+      <p>In the following a datetime object <code>t1</code> is created using the <code>datetime</code> function. The name of the module is <code>datetime</code> and one of the functions is <code>datetime</code> and the type of an object created by the function <code>datetime</code> is … <code>datetime</code>.</p>
+      <pre><code>from datetime import datetime, timedelta, timezone
+
+# Basic method for creating a datetime object
+# Everything after the day (third argument) is optional
+t1 = datetime(1970, 1, 1, 
+              hour=0, minute=0, second=0, 
+              microsecond=0, tzinfo=timezone.utc)
+
+# Number of seconds since 1970-01-01 UTC
+# (called the "POSIX Epoch")
+print(t1.timestamp()) # 0.0
+
+# Print timestamp in ISO 8601 format. 
+# The +00:00 is the time zone offset.
+print(t1.isoformat()) # 1970-01-01T00:00:00+00:00
+
+t1 = datetime(1970, 1, 1, 
+              hour=0, minute=30, second=0, 
+              microsecond=0, tzinfo=timezone.utc)
+
+# Number of seconds since 1970-01-01 UTC
+print(t1.timestamp()) # 1800.0</code></pre>
+      <p>I recommend always specifying the timezone as UTC unless you are dealing with local times. When all timezones are not UTC, you may run into surprises when the differences between two <code>datetimes</code>s is computed. See [<a href="https://docs.python.org/3/library/datetime.html%5D">https://docs.python.org/3/library/datetime.html]</a>.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="creating-custom-time-strings" number="14.2." raw="## Creating Custom Time Strings" class="hanchor" href="#creating-custom-time-strings">14.2. Creating Custom Time Strings</a></h2>
+      <p>The <code>format</code> method used on strings has codes such as <code>d</code>, <code>f</code>, and <code>e</code> for representing a number as an integer, floating point number, or number in scientific notation. For example,</p>
+      <pre><code>print("{0:f}".format(1.1)) # 1.100000</code></pre>
+      <p>Similarly, the method <code>strftime</code> has specifiers for specifying how a date and time should be displayed. See [<a href="https://www.programiz.com/python-programming/datetime/strftime%5D">https://www.programiz.com/python-programming/datetime/strftime]</a> for a full list of specifiers.</p>
+      <pre><code>from datetime import datetime, timedelta, timezone
+
+t1 = datetime(2019, 10, 23, 
+              hour=1, minute=2, second=3, 
+              microsecond=4, tzinfo=timezone.utc)
+
+# Print timestamp using custom format
+# See https://www.programiz.com/python-programming/datetime/strftime
+# for list of codes
+print(t1.strftime('%Y-%m-%d')) # 2019-10-23
+print(t1.strftime('%m/%d/%Y')) # 10/23/2019
+print(t1.strftime('%Y-%j'))    # 2019-296 (%j = day of year)
+print(t1.strftime('%Y-%m-%d @ %H:%M:%S.%f')) # 2019-10-23 @ 01:02:03.000004</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="time-deltas" number="14.3." raw="## Time Deltas" class="hanchor" href="#time-deltas">14.3. Time Deltas</a></h2>
+      <p>A <code>timedelta</code> object represents the difference between two <code>datetime</code>s.</p>
+      <p><code>timedelta</code> objects can be created using the <code>timedelta</code> function, e.g.,</p>
+      <pre><code>from datetime import datetime, timedelta, timezone
+
+# Create a timedelta object
+dt = timedelta(days=1, seconds=0, microseconds=0)
+
+# Print information
+print(dt.days)            # 1
+print(dt.seconds)         # 0
+print(dt.microseconds)    # 0
+print(dt.total_seconds()) # 86400.0</code></pre>
+      <p><code>timedelta</code> objects can be computed using two <code>datetime</code> objects, e.g.,</p>
+      <pre><code>from datetime import datetime, timedelta, timezone
+
+t1 = datetime(2019, 10, 23, 
+            hour=0, minute=0, second=0, 
+            microsecond=0, tzinfo=timezone.utc)
+
+t2 = datetime(2020, 10, 23, 
+            hour=0, minute=0, second=23, 
+            microsecond=0, tzinfo=timezone.utc)
+
+dt = t2 - t1
+
+# Print information
+print(dt.days)            # 366
+print(dt.seconds)         # 23
+print(dt.microseconds)    # 0
+print(dt.total_seconds()) # 31622423.0</code></pre>
+      <p>A <code>timedelta</code> can be added or subtracted from a <code>datetime</code>.</p>
+      <pre><code>from datetime import datetime, timedelta, timezone
+
+# Create a base datetime
+t1 = datetime(2019, 10, 23, 
+            hour=0, minute=0, second=0, 
+            microsecond=0, tzinfo=timezone.utc)
+
+print(t1.isoformat()) # 2019-10-23T00:00:00+00:00
+
+dt = timedelta(days=1, seconds=44, microseconds=0)
+
+# Add an increment to base datetime
+t2 = t1 + dt
+print(t2.isoformat()) # 2019-10-24T00:00:44+00:00</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="creating-a-list-of-datetimes" number="14.4." raw="## Creating a list of `datetimes`" class="hanchor" href="#creating-a-list-of-datetimes">14.4. Creating a list of <code>datetimes</code></a></h2>
+      <p>Create a list with 10 datetime objects with a spacing of 1 day.</p>
+      <pre><code>from datetime import datetime, timedelta, timezone
+
+t1 = datetime(2019, 10, 23, 
+            hour=0, minute=0, second=0, 
+            microsecond=0, tzinfo=timezone.utc)
+
+# Create a list with 10 datetime objects with a spacing of 1 day
+dt = timedelta(days=1)
+T = []
+for i in range(10):
+    t = t1 + i*dt
+    T.append(t)
+    # Display what was appended in string format
+    ts = t.isoformat()
+    print(ts)
+print(T)
+'''
+2019-10-23T00:00:00+00:00
+2019-10-24T00:00:00+00:00
+2019-10-25T00:00:00+00:00
+2019-10-26T00:00:00+00:00
+2019-10-27T00:00:00+00:00
+2019-10-28T00:00:00+00:00
+2019-10-29T00:00:00+00:00
+2019-10-30T00:00:00+00:00
+2019-10-31T00:00:00+00:00
+2019-11-01T00:00:00+00:00
+[datetime.datetime(2019, 10, 23, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 10, 24, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 10, 25, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 10, 26, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 10, 27, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 10, 28, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 10, 29, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 10, 30, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 10, 31, 0, 0, tzinfo=datetime.timezone.utc),
+ datetime.datetime(2019, 11, 1, 0, 0, tzinfo=datetime.timezone.utc)]
+'''</code></pre>
+      <p>In the previous example, we used <code>range(10)</code>. A more likely use-case is that a start and stop <code>datetime</code> will be known, in which case the argument to <code>range</code> is better calculated from the difference between the start and stop <code>datetime</code>s.</p>
+      <pre><code>from datetime import datetime, timedelta, timezone
+
+to = datetime(2015, 1, 12, tzinfo=timezone.utc)
+tf = datetime(2015, 2, 13, tzinfo=timezone.utc)
+dt_span = tf - to
+dt = timedelta(days=1)
+T = []
+for i in range(dt_span.days):
+    t = to + i*dt
+    T.append(t)
+    # Display what was added in string format
+    ts = t.isoformat()
+    print(ts)
+"""
+2015-01-12T00:00:00
+2015-01-13T00:00:00
+2015-01-14T00:00:00
+2015-01-15T00:00:00
+...
+2015-02-08T00:00:00
+2015-02-09T00:00:00
+2015-02-10T00:00:00
+2015-02-11T00:00:00
+2015-02-12T00:00:00
+"""</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="matplotlib-and-datetimes" number="14.5." raw="## Matplotlib and `datetimes`" class="hanchor" href="#matplotlib-and-datetimes">14.5. Matplotlib and <code>datetimes</code></a></h2>
+      <p>Matplotlib will label any axis with <code>datetime</code> objects using a formatted string.</p>
+      <pre><code>from datetime import datetime, timedelta, timezone
+
+to = datetime(2015, 1, 12, tzinfo=timezone.utc)
+dt = timedelta(days=1)
+T = []
+y = []
+for i in range(10):
+    t = to + i*dt
+    T.append(t)
+    y.append(i)
+
+from matplotlib import pyplot as plt
+plt.plot(T, y, '.')</code></pre>
+      <p>Matplotlib is often not good at choosing how to label a time axis. Typically one needs to search for examples of how to modify them, e.g., [<a href="https://matplotlib.org/3.1.1/gallery/recipes/common_date_problems.html%5D">https://matplotlib.org/3.1.1/gallery/recipes/common_date_problems.html]</a> or use a library that adds functionality to Matplotlib such as [Seaborn](<a href="https://matplotlib.org/3.1.1/gallery/recipes">https://matplotlib.org/3.1.1/gallery/recipes</a> common_date_problems.html) or <a href="https://bokeh.org/">Bokeh</a>.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="parsing-custom-time-strings" number="14.6." raw="## Parsing Custom Time Strings" class="hanchor" href="#parsing-custom-time-strings">14.6. Parsing Custom Time Strings</a></h2>
+      <p>Quite often, one will have a list of time strings that need to be converted into a <code>datetime</code> object. The <code>datetime</code> module does not know how to do this unless the string is in the standard ISO 8601 format. However, most date and time strings you will encounter are not in this standard format. (The Pandas library has a function that can guess the format.)</p>
+      <pre><code>from datetime import datetime
+
+# Date given in Year-DOY (DOY = day of year, aka "Julian Day")
+# This is a common format in astronomy-related data
+t1 = datetime.strptime('1999-004', '%Y-%j')
+print(t1.isoformat()) # 1999-01-04T00:00:00
+
+# String in standard US format
+t1 = datetime.strptime('10/31/2019', '%m/%d/%Y')
+print(t1.isoformat()) # 2019-10-31T00:00:00
+
+# Same date as above but in format used in other parts of the world
+t1 = datetime.strptime('31/10/2019', '%m/%d/%Y')
+print(t1.isoformat()) # 2019-10-31T00:00:00</code></pre>
+      <p>Convert a list of date and time strings to a list of <code>datetime</code> objects.</p>
+      <pre><code>from datetime import datetime
+
+T_strings = ['1999-001', '1999-002', '1999-003']
+T_objects = []
+for ts in T_strings:
+    t = datetime.strptime(ts, '%Y-%j')
+    T_objects.append(t)
+    print(t.isoformat())
+"""
+1999-01-01T00:00:00
+1999-01-02T00:00:00
+1999-01-03T00:00:00
+"""</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="numpy" number="15." raw="# NumPy" class="hanchor" href="#numpy">15. NumPy</a></h1>
+      <p>See also <a href="https://www.amazon.com/Numerical-Python-Scientific-Applications-Matplotlib/dp/1484242459">Numerical Python: Scientific Computing and Data Science Applications with Numpy, SciPy and Matplotlib</a></p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="importing" number="15.1." raw="## Importing" class="hanchor" href="#importing">15.1. Importing</a></h2>
+      <p>At the start of any program that uses NumPy, import it using <code>import numpy as np</code>, e.g., </p>
+      <pre><code>import numpy as np
+print(np.pi) # Prefix Numpy usage with np</code></pre>
+      <p>As with <a href="#Matplotlib">Matplotlib’s</a> import statement, the last string, in this case <code>np</code>, can vary</p>
+      <pre><code>import numpy as npy # Sometimes npy used instead of np
+print(npy.pi) # Prefix Numpy usage with npy</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="arrays" number="15.2." raw="## Arrays" class="hanchor" href="#arrays">15.2. Arrays</a></h2>
+      <p>The general-purpose data structure in NumPy is the <code>ndarray</code> (as in N-dimensional array). It is an analog to the Python list. </p>
+      <p>Whereas a list can contain values with different data types, a NumPy ndarray can only contain values with a single data type.</p>
+      <p>To review, a Python list can be created using the square bracket notation</p>
+      <pre><code>L = [1, 2.1, 'zz'] # List with a mix of data types - int, float, and string
+dir(L) # List all methods of L</code></pre>
+      <p>The <code>dir</code> command lists all of the methods that apply to a list object such as <code>append</code>. (Ignore the ones that start with underscores for now.)</p>
+      <p>There are many ways to create a NumPy ndarray; the most basic uses the function <code>array</code> with an argument of a list.</p>
+      <pre><code>import numpy as np
+L = [1, 2, 3]
+A = np.array(L) # Converts list L to a NumPy ndarray
+type(A) # numpy.ndarray
+dir(A) # List all methods of A</code></pre>
+      <p>The list of methods and attributes displayed for the ndarray object <code>A</code> is much longer and contains mathematical operations such as <code>dot</code>, <code>min</code>, and <code>max</code>. Three of the key attributes that you will use are <code>shape</code>, <code>size</code>, and <code>dtype</code>:</p>
+      <pre><code>import numpy as np
+A = np.array([1, 2, 3])
+print(A.shape) # (3, ) # Notation explained below
+print(A.size)  # 3
+print(A.dtype) # int64</code></pre>
+      <p>A key restriction on a ndarray is that all elements are of the same data type. This is the reason that a ndarray can have a method <code>max</code> and <code>min</code> and why ndarrays can be multiplied and added. If a list contained strings and numbers, these operations are ill-defined.</p>
+      <pre><code>import numpy as np
+A = np.array([1, 2, 3])
+print(L.max()) # Error b/c what is the max of 1, 2, and 'zz'?
+# Error msg is "list object has no attribute 'max'".  
+
+# This works as expected.
+print(A.max()) # 3</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="array-shape" number="15.3." raw="## Array Shape" class="hanchor" href="#array-shape">15.3. Array Shape</a></h2>
+      <p>The shape of a ndarray is the number of rows and columns and additional dimensions. </p>
+      <pre><code>import numpy as np
+M = np.array([[1, 2, 3], [3, 4, 5]]) # Create ndarray from list of lists
+print(M)
+print(M.shape) # (2, 3) - two rows, three columns</code></pre>
+      <p>The shape of NumPy ndarray is a tuple, not a list. Because tuples cannot be modified, this serves as a hint that an operation such as <code>s = M.shape; s[0] = 9</code> cannot be used to change the size of an array.</p>
+      <p>Going back to the first example, the trailing comma in the shape of <code>(3, )</code> needs to be explained.</p>
+      <pre><code>A = np.array([1, 2, 3])
+print(A)
+print(A.shape) # (3, )</code></pre>
+      <p>Based on the matrix example, where <code>M.shape = (2, 3)</code>, one may have expected <code>A.shape</code> to be <code>(3)</code> instead of <code>(3, )</code>. The short explanation is that the <code>(3, )</code> can generally be interpreted as meaning the same as <code>(3)</code> and the trailing comma can be ignored.</p>
+      <details>
+        <summary>Long answer</summary>
+        The trailing comma is returned in the tuple for the shape of a 1-D array because
+
+        <ol>
+          <li>a tuple with one element such as <code>(3)</code> is the same thing as <code>3</code> in Python and</li>
+          <li>code that uses NumPy is simpler if <code>A.shape</code> is always a tuple.</li>
+        </ol>
+        <p>To see point 1., consider</p>
+        <pre><code>t = (3)
+print(type(t)) # int
+print(t[0]) # Error
+len(t) # Error
+
+t = (3, )
+print(type(t)) # tuple
+print(t[0]) # 3
+len(t) # 1</code></pre>
+        <p>As a compromise, the unintuitive notation <code>(3, )</code> is used for the shape of 1-D NumPy arrays (and single-element tuples in general). The existence of the comma tells Python that the quantity in parenthesis is actually meant to be a tuple.</p>
+        <p>See also [<a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences%5D">https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences]</a>.</p>
+        <p>The reason that the Python interpreter can’t conclude <code>(3)</code> is a tuple is in math operations is it is acceptable to wrap a number in parenthesis and so I expect <code>(3)*1</code> to mean <code>3*1</code> and not a tuple times a scalar.</p>
+
+
+
+      </details>
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="array-size" number="15.4." raw="## Array Size" class="hanchor" href="#array-size">15.4. Array Size</a></h2>
+      <p>The size of an array is simply the number of elements. For example, a (3\times 2) array has (3\cdot 2) elements</p>
+      <pre><code>import numpy as np
+M = np.array([[1, 2, 3], [3, 4, 5]])
+print(M.size) # 6</code></pre>
+      <p>The size of an array could also be computed from the product of the elements in the <code>shape</code> tuple:</p>
+      <pre><code>import numpy as np
+M = np.array([[1, 2, 3], [3, 4, 5]])
+N = M.size    # N = 6 
+s = M.shape   # s = (3, 2)
+N = s[0]*s[1] # N = 6
+
+M = np.array([M, M]) # Create a 3-D array
+N = M.size           # N = 12 
+s = M.shape          # s = (3, 2, 2)
+N = s[0]*s[1]*s[2]   # N = 12</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="array-dtype" number="15.5." raw="## Array dtype" class="hanchor" href="#array-dtype">15.5. Array dtype</a></h2>
+      <p>Every NumPy array has a data type attribute <code>dtype</code> that indicates how the numbers are stored internally. When the <code>np.array</code> function is used to convert a list to a NumPy array, the chosen dtype depends on the elements in the list.</p>
+      <pre><code>import numpy as np
+A = np.array([1, 2, 3])
+print(A.dtype) # int32
+
+A = np.array([1., 2., 3.])
+print(A.dtype) # float64</code></pre>
+      <p>The data type can be explicitly set using the <code>dtype</code> keyword.</p>
+      <pre><code>import numpy as np
+A = np.array([1, 2, 3], dtype=np.float64)
+print(A.dtype) # float64</code></pre>
+      <p>There are many other possible <code>dtype</code>s – see the <a href="https://docs.scipy.org/doc/numpy/user/basics.types.html">NumPy documentation</a>. In general, using <code>np.float64</code> is the safest choice.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="creating-arrays" number="15.6." raw="## Creating Arrays" class="hanchor" href="#creating-arrays">15.6. Creating Arrays</a></h2>
+      <p>See also <a href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html">NumPy array creation</a>.</p>
+      <p>The three most common functions for creating arrays are <code>zeros</code>, <code>ones</code>, and <code>zeros</code>.</p>
+      <p><code>zeros</code> creates an array of a given size with all elements set to 0.</p>
+      <pre><code>import numpy as np
+A = np.zeros((3,4)) # default is dtype=np.float64
+# or
+A = np.zeros((3,4), dtype=np.float64)
+print(A)
+#[[0. 0. 0. 0.]
+# [0. 0. 0. 0.]
+# [0. 0. 0. 0.]]</code></pre>
+      <p><code>ones</code> creates an array of a given size with all elements set to 1.</p>
+      <pre><code>import numpy as np
+A = np.ones((3,4)) # default is dtype=np.float64
+# or
+# A = np.ones((3,4), dtype=np.float64)
+print(A)
+#[[1. 1. 1. 1.]
+# [1. 1. 1. 1.]
+# [1. 1. 1. 1.]]</code></pre>
+      <p><code>empty</code> creates an array of a given size with arbitrary values. The advantage of using this function is that it is faster than <code>ones</code> and <code>zeros</code> – when an array is created using <code>zeros</code> or <code>ones</code>, the program needs to do two things (1) find memory to store the array values and (2) set all of the values. With <code>empty</code>, step (2) is skipped and the values that appear depend on what was located in the allocated memory slots previously.</p>
+      <pre><code>import numpy as np
+A = np.empty((3, 4)) # default is dtype=np.float64
+# or
+# A = np.empty((3, 4), dtype=np.float64)
+print(A) # Ouptut will vary</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="initializing-arrays" number="15.7." raw="## Initializing Arrays" class="hanchor" href="#initializing-arrays">15.7. Initializing Arrays</a></h2>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="with-nans" number="15.7.1." raw="### With NaNs" class="hanchor" href="#with-nans">15.7.1. With NaNs</a></h3>
+      <p>Arrays can be initialized with values other than zero and one. Probably the safest approach is to start with an <code>ndarray</code> of all NaN (Not-a-Number) values:</p>
+      <pre><code>import numpy as np
+A = (np.nan)*np.empty((3, )) # Multiply each element by NaN.
+print(A)
+# [nan nan nan]</code></pre>
+      <p>The motivation for initialization with NaNs is that coding errors become more obvious. The following program intends to set a value to each element in an array and then print the sum, but there is an error so that the last value is never set. When executed, the sum <code>nan</code> is printed:</p>
+      <pre><code>import numpy as np
+A = (np.nan)*np.empty((4, ))
+for i in range(len(A)-1): # Error is that this should be len(A)
+    A[i] = i
+print(np.sum(A)) # nan - you know something went wrong</code></pre>
+      <p>In contrast, if the values of <code>A</code> were initialized to zero, this coding error may not have been noticed:</p>
+      <pre><code>import numpy as np
+A = np.zeros((4, ))
+for i in range(len(A)-1): # Error is that this should be len(A)
+    A[i] = i
+print(np.sum(A)) # 3, but should be 7</code></pre>
+      <p>There are <a href="https://stackoverflow.com/questions/1704823/initializing-numpy-matrix-to-something-other-than-zero-or-one">other initialization methods</a> that should be considered if execution speed is a concern, e.g.,</p>
+      <pre><code>import numpy as np
+A = np.empty((3, )) # Multiply each element by NaN.
+A[:] = numpy.nan # Set each element to NaN
+# or
+# A = np.full((3, ), np.nan)
+# or
+# A = np.empty((3, )) 
+# A.fill(numpy.nan)</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="with-equally-spaced-values" number="15.7.2." raw="###  With Equally Spaced Values" class="hanchor" href="#with-equally-spaced-values">15.7.2. With Equally Spaced Values</a></h3>
+      <p>The functions <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html"><code>arange</code></a> and <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html"><code>linspace</code></a> are both used to create an 1-D <code>ndarray</code> with equally spaced values. </p>
+      <p>Either of the two functions can be used to create arrays with equally spaced values, but the NumPy documentation recommends that</p>
+      <ul>
+        <li><code>arange</code> should only be used to create an ndarray with integer values, e.g., <code>[1., 2., 3.]</code></li>
+        <li><code>linspace</code> should be used to create an ndarray with non-integer values, e.g., <code>[0.1, 0.2, 0.]</code></li>
+      </ul>
+      <p>Important:</p>
+      <ul>
+        <li>stop values are exclusive for arange (last value is stop-1)</li>
+        <li>stop values are inclusive for linspace (last value is stop)</li>
+      </ul>
+      <p><code>arange</code></p>
+      <ol>
+        <li><code>arange(stop)</code> Gives <code>[0, 1, ..., stop-1]</code></li>
+        <li><code>arange(start, stop)</code> Gives <code>[start, start+1, ..., stop-1]</code>. <code>stop &gt; start</code> is required to give non-empty result</li>
+        <li><code>arange(start, stop, step)</code> When <code>step</code> is given, <code>start</code> and/or <code>stop</code> can be negative, as can <code>step</code>.</li>
+      </ol>
+      <pre><code>print(np.arange(5))        # [0 1 2 3 4]
+
+print(np.arange(2, 5))     # [2 3 4]
+print(np.arange(-2, 3))    # [-2 -1 0 1 2]
+print(np.arange(-5, -1))   # [-5 -4 -3 -2]
+
+print(np.arange(1, 6, 2))    # [1 3 5]
+print(np.arange(6, 1, -2))   # [6 4 2]
+print(np.arange(0, -10, -2)) # [6 4 2]
+print(np.arange(-6, -9, -1)) # [-6 -7 -8]</code></pre>
+      <p><code>linspace</code></p>
+      <ol>
+        <li><code>linspace(start, stop)</code> Gives 50 equally spaced values with a first value of <code>start</code> and last value of <code>stop</code>.</li>
+        <li><code>linspace(start, stop, num)</code> Gives <code>num</code> equally spaced values with a first value of <code>start</code> and last value of <code>stop</code>.</li>
+      </ol>
+      <pre><code>print(np.linspace(0, 1, 5))  # [0.   0.25 0.5  0.75 1.]
+print(0.25*np.arange(0, 5))  # [0.   0.25 0.5  0.75 1.]
+
+print(np.linspace(0, 5, 5))  # [0. 1.25 2.5 3.75 5.]
+
+print(np.linspace(0, 5, 6))  # [0. 1. 2. 3. 4. 5.]
+
+print(np.linspace(0, -5, 6)) # [0. -1. -2. -3. -4. -5.]</code></pre>
+      <p><strong>Example</strong></p>
+      <pre><code># Create B = [0, 0.1, 0.2, 0.3, 0.4, 0.5] using a for loop
+B = np.zeros(6)
+for i in range(len(B)):
+    B[i] = i/10
+print(B)
+
+# Create B = [0, 0.1, 0.2, 0.3, 0.4, 0.5] using linspace and arange
+B = 0.1*np.linspace(0, 5, 6)
+# or
+B = np.linspace(0, 0.5, 6)
+# or
+B = 0.1*np.arange(0, 6)</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="with-random-numbers" number="15.7.3." raw="###  With Random Numbers" class="hanchor" href="#with-random-numbers">15.7.3. With Random Numbers</a></h3>
+      <p>See also <a href="https://docs.scipy.org/doc/numpy-1.15.1/reference/routines.random.html">NumPy random documentation</a>.</p>
+      <p>Sometimes one wants to use an array in which its values are based on a draw from a statistical distribution, such as a uniform or Gaussian (“normal”) distribution.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h4><a target="_parent" name="gaussian-normal-" number="15.7.3.1." raw="#### Gaussian (" normal")"="" class="hanchor" href="#gaussian-normal-">15.7.3.1. Gaussian (“Normal”)</a></h4>
+      <p><code>randn</code> and <code>random.normal</code></p>
+      <p>To create a 100-element array with numbers drawn by selecting a random floating point value from a Gaussian (“normal”) distribution with a mean of 1.0 and standard deviation of 1.0, use <code>randn</code>:</p>
+      <pre><code>A = np.random.randn(100)
+print(np.mean(A)) # Should be close to 0.0
+print(np.std(A)) # Should be close to 1.0</code></pre>
+      <p>More generally, use <code>np.random.normal(mean, std, size=N)</code> to generate an array of size <code>N</code> with values drawn from a Gaussian with mean of <code>mean</code> and standard deviation of <code>std</code>.</p>
+      <pre><code>mu = 100
+std = 10
+n = 200
+np.random.normal(mu, std, size=n)</code></pre>
+      <p>Multidimensional arrays can also be created</p>
+      <pre><code>A = np.random.randn(3, 4)
+print(A.shape) # (3, 4)</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h4><a target="_parent" name="uniform" number="15.7.3.2." raw="#### Uniform" class="hanchor" href="#uniform">15.7.3.2. Uniform</a></h4>
+      <p><code>rand</code> and <code>randint</code></p>
+      <p>To create a 100-element array with numbers drawn by selecting a random floating point in the half-open interval [0, 1.0), use <code>rand</code>:</p>
+      <pre><code>A = np.random.rand(100)
+print(np.mean(A)) # Should be close to 0.5</code></pre>
+      <p><code>randint</code></p>
+      <p>To create a 100-element array with numbers drawn by randomly selecting an integer in a specified range, use <code>randint</code>.</p>
+      <pre><code>A = np.random.randint(0, 101, (100, )) # Possible values are 0, 1, ..., 1000
+print(np.mean(A)) # Should be close to 50.0</code></pre>
+      <p>Multidimensional arrays can also be created</p>
+      <pre><code>A = np.random.rand(3, 4)
+print(A.shape) # (3, 4)
+
+A = np.random.randint(0, 101, (3, 4))
+print(A.shape) # (3, 4)</code></pre>
+      <p>The way in which the shape of the array is specified for <code>randint</code> differs from <code>rand</code> and <code>randn</code>. The following all create a <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mi>M</mi>
+                  <mo>×</mo>
+                  <mi>N</mi>
+                  <mo>×</mo>
+                  <mi>L</mi>
+                </mrow>
+                <annotation encoding="application/x-tex">M\times N\times L</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">L</span></span></span></span> array with random numbers</p>
+      <pre><code>M = 3
+N = 4
+L = 5
+A = np.random.rand(M, N, L)
+A = np.random.randn(M, N, L)
+A = np.random.randint(0, 101, (M, N, L))</code></pre>
+      <p>In the case of <code>randint</code>, the shape of the desired array is specified using a tuple.</p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="accessing-elements" number="15.8." raw="## Accessing Elements" class="hanchor" href="#accessing-elements">15.8. Accessing Elements</a></h2>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="1-d" number="15.8.1." raw="### 1-D" class="hanchor" href="#1-d">15.8.1. 1-D</a></h3>
+      <p>For 1-D NumPy <code>ndarray</code>s, the syntax is similar to that for lists</p>
+      <pre><code>import numpy as np
+A = [11,12,13]
+x = np.array(A)
+
+print(A[0])
+# 11
+print(x[0])
+# 11
+
+print(A[0:2])
+# [11, 12]
+print(x[0:2])
+# [11 12]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="2-d" number="15.8.2." raw="### 2-D" class="hanchor" href="#2-d">15.8.2. 2-D</a></h3>
+      <p>For 2-D and higher dimensions, NumPy uses a different syntax than that used for Python lists. To access element <code>i, j</code> of a NumPy <code>ndarray</code> <code>A</code>, use <code>A[i, j]</code>. This syntax will not work for a 2-D list.</p>
+      <pre><code>import numpy as np
+
+# Create a 2-D NumPy ndarray
+x = np.array([[11,12,13],[14,15,16]])
+print(x)
+#[[11 12 13]
+# [14 15 16]]
+print(x.shape) # (2, 3)
+
+print(x[0,0]) # row 0, col 0
+# 11
+
+print(x[0,1]) # row 0, col 1
+# 12
+
+x[0,1] = 99
+print(x)
+#[[11 99 13]
+# [14 15 16]]</code></pre>
+      <p>A common programming pattern is to iterate over each element in a matrix and print out its value.</p>
+      <pre><code>import numpy as np
+x = np.array([[11,12,13],[14,15,16]])
+print(x)
+#[[11 12 13]
+# [14 15 16]]
+
+print('i j x[i,j]') # print header
+# x.shape = (2, 3), so
+# x.shape[0] = 2
+# x.shape[1] = 3
+for i in range(x.shape[0]): # iterate over rows
+    for j in range(x.shape[1]): # iterate over columns
+        print("{0:d} {1:d} {2:d}".format(i, j, x[i,j]))
+print(x)
+
+# i j x[i,j]
+# 0 0 11
+# 0 1 99
+# 0 2 13
+# 1 0 14
+# 1 1 15
+# 1 2 16</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="modifying-elements" number="15.9." raw="## Modifying Elements" class="hanchor" href="#modifying-elements">15.9. Modifying Elements</a></h2>
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="1-d" number="15.9.1." raw="### 1-D" class="hanchor" href="#1-d">15.9.1. 1-D</a></h3>
+    </div>
+    <div contenteditable="false" class="section">
+      <h4><a target="_parent" name="with-loop" number="15.9.1.1." raw="#### With Loop" class="hanchor" href="#with-loop">15.9.1.1. With Loop</a></h4>
+      <p>The syntax for modifying a 1-D NumPy <code>ndarray</code>s is similar to that was used for lists:</p>
+      <pre><code>import numpy as np
+t = np.zeros(5)
+for i in range(5):
+    t[i] = i
+print(t) # [0. 1. 2. 3. 4.]</code></pre>
+      <p>The above can be compared with the method that would be used to create and modify <code>t</code> using lists.</p>
+      <pre><code># Create a list
+t = []
+for i in range(5):
+    t.append(0)
+print(t)
+# [0, 0, 0, 0, 0]
+
+# Modify an existing list
+for i in range(5):
+    t[i] = i
+print(t)
+# [0, 1, 2, 3, 4]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h4><a target="_parent" name="without-loop" number="15.9.1.2." raw="#### Without Loop" class="hanchor" href="#without-loop">15.9.1.2. Without Loop</a></h4>
+      <pre><code>import numpy as np
+
+a = np.array([1,2,3,4,5,6,7,8,9,10], dtype=np.float)
+
+a[0:3] = 99 # Set value of elements 0, 1, 2 to 99
+print(a)    # [99. 99. 99.  4.  5.  6.  7.  8.  9. 10.]
+
+a[ a &gt;= 99 ] = np.nan # Replace 99s with np.nan
+
+print(a)    # [nan nan nan  4.  5.  6.  7.  8.  9. 10.]
+
+print(np.nansum(a))</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h3><a target="_parent" name="2-d" number="15.9.2." raw="### 2-D" class="hanchor" href="#2-d">15.9.2. 2-D</a></h3>
+      <pre><code>import numpy as np
+
+A = np.array([[1,2,3],[4,5,6]], dtype=np.float)
+
+print(A.size)   # 6
+print(A.shape)  # (2, 3)
+
+A[0,1:3] = 99   # Set values in row 0, columns 1 and 2 to 99
+
+print(A)
+
+# [[ 1. 99. 99.]
+# [ 4.  5.  6.]]</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="finding-elements" number="15.10." raw="## Finding Elements" class="hanchor" href="#finding-elements">15.10. Finding Elements</a></h2>
+      <p>An example of finding elements is</p>
+      <pre><code>import numpy as np
+A = np.array([1,2,3,4,5])
+idx = A &lt; 3
+print(idx)      # [True True False False False]
+B = A[idx]
+print(B)        # [1 2]</code></pre>
+      <p>If only the number of elements in <code>A</code> that match the constraint is desired, any of the following can be used</p>
+      <pre><code>N = np.sum(idx)             # True is treated as 1, False as 0
+N = len(idx[idx == True])
+N = len(B)</code></pre>
+      <p>The above is equivalent to the following</p>
+      <pre><code>import numpy as np
+A = np.array([1,2,3,4,5])
+idx = np.empty(np.shape(A), dtype=np.bool)
+B = []
+for i in range(A.size):
+    if A[i] &lt; 3:
+        B.append(A[i])
+        idx[i] = True
+    else:
+        idx[i] = False
+
+B = np.array(B)
+
+print(idx)      # [True True False False False]
+print(B)        # [1 2]
+print(len(B))   # 2</code></pre>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h1><a target="_parent" name="statistics" number="16." raw="# Statistics" class="hanchor" href="#statistics">16. Statistics</a></h1>
+      <p>See also <a href="https://realpython.com/python-statistics/">Real Python’s Statistics Page</a></p>
+
+    </div>
+    <div contenteditable="false" class="section">
+      <h2><a target="_parent" name="histograms" number="16.1." raw="## Histograms" class="hanchor highlighted" href="#histograms">16.1. Histograms</a></h2>
+      <p>See also <a href="https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html">Matplotlib’s documentation on the histogram function</a></p>
+      <p>The syntax for the histogram function in Matplotlib is demonstrated in this example.</p>
+      <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+mu = 80
+sigma = 7
+n = 2000
+x = np.random.normal(mu, sigma, size=n)
+
+
+# Default; Should almost never use. Default bin choices are usually poor.
+plt.hist(x)
+
+# Expected peak is at 80. Create bins with edges at 45, 47, ..., 113
+# so that centers are at 46, 48, ..., 80, ..., 112
+plt.figure()
+bins = np.arange(45,115,2)
+print(bins)
+plt.grid(axis='y')
+plt.hist(x, bins=bins)
+plt.title('$\mu= %.2f$, $n=%d$, $\overline{X} = $ %.2f' % (mu, n, np.mean(x)))
+plt.xlabel('$X$')
+plt.ylabel('# in bin')</code></pre>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
