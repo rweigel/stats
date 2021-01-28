@@ -82,13 +82,9 @@ In the [References](#references) section of this syllabus, many additional refer
 - [HW #1](hw#hw-1) due before class starts
 - [HW #1](hw#hw-1) discussion
 - Basic Concepts in Probability
-- [HW #2](hw#hw-2) comments; due before the next class starts.
-   
+
 ## February 11th
-- [HW #2](hw#hw-2) due before class starts
-- [HW #2](hw#hw-2) discussion
 - Bayes' Theorem Applications
-- [HW #3](hw#hw-3) comments; due before the next class starts.
 
 ## February 18th
 

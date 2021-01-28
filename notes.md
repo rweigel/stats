@@ -608,6 +608,8 @@ Statistical methods are a fundamental part of the modeling process. Two extremes
 
 ## Overview of statistical fallacies
 
+The Equiprobabability Bias: https://pubmed.ncbi.nlm.nih.gov/25674192/
+
 https://www.geckoboard.com/best-practice/statistical-fallacies/
 https://www.realclearscience.com/articles/2017/04/05/common_statistical_fallacies_and_paradoxes_110241.html
 https://flowingdata.com/2012/05/03/common-statistical-fallacies/

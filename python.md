@@ -1,6 +1,6 @@
 # Numerical Calculations
 
-The following operations apply to numbers or variables (e.g., <code>a</code>, <code>b</code>) that have been assigned a number.
+The following operations apply to numbers or variables (e.g., `a`, `b`) that have been assigned a number.
 
 <pre>
     a+b 	addition
@@ -14,7 +14,7 @@ The following operations apply to numbers or variables (e.g., <code>a</code>, <c
     a**b    exponent (not a^b!)
 </pre>
 
-There are many other [math functions](https://docs.python.org/3/library/math.html) that can be used. To use these functions, you need to <code>import</code> them, e.g.,
+There are many other [math functions](https://docs.python.org/3/library/math.html) that can be used. To use these functions, you need to `import` them, e.g.,
 
 ```Python
 import math # Import the math module
@@ -38,7 +38,7 @@ b = 3
 c = a*b 
 ```
 
-Technically, <code>a=2</code> means
+Technically, `a=2` means
 
 > The value of 2 is assigned to the variable named `a`
 
@@ -50,14 +50,14 @@ and **not**
 
 > `a` equals 2
 
-To see why "<code>a</code> equals 2" is not correct, consider
+To see why "`a` equals 2" is not correct, consider
 
 ```Python
 a = 1
 a = a + 1
 ```
 
-If one uses algebra on the last line, you will conclude <code>0 = 1</code>!
+If one uses algebra on the last line, you will conclude `0 = 1`!
 
 See also
 * [Section 1.2.4 of Structure and Interpretation of Computer Programs](https://wizardforcel.gitbooks.io/sicp-in-python/content/2.html)
@@ -72,14 +72,14 @@ b = 2
 c = a + 33
 ```
 
-The numeric data types in Python are <code>int</code>, <code>float</code>, <code>long</code>, and <code>complex</code>. The type of a value or variable determines:
+The numeric data types in Python are `int`, `float`, `long`, and `complex`. The type of a value or variable determines:
 
 1. how the value is stored internally as a bit pattern and
 2. the limits on the values a variable may take.
 
-Python is unusual in that for most programming languages, the <code>int</code> type has a limit of values that can be represented (e.g., `-2147483648` to `2147483647`). In Python, there is no limit, so one can compute  `2147483647*2147483647` and get an answer. In most languages, this statement would generate an error message.
+Python is unusual in that for most programming languages, the `int` type has a limit of values that can be represented (e.g., `-2147483648` to `2147483647`). In Python, there is no limit, so one can compute  `2147483647*2147483647` and get an answer. In most languages, this statement would generate an error message.
 
-The limits on <code>float</code> values are
+The limits on `float` values are
 * max/min: `+/- 1.7976931348623157e+308`
 * nearest zero: `+/- 2.2250738585072014e-308`
 * [epsilon](http://nm.mathforcollege.com/blog/machine_epsilon.pdf) (smallest number such that 1+epsilon > 1): `2.2204460492503131e-16 `
@@ -311,7 +311,7 @@ print("hello") # Works in Python 2 and 3; recommended syntax in Python 3
 
 ## Print
 
-If <code>var1</code>, <code>var2</code>, ... are strings or numeric data types (int, float, etc.), then `print(var1, var2, var3, var4, ...)` displays them on a single line and separated by spaces. For example,
+If `var1`, `var2`, ... are strings or numeric data types (int, float, etc.), then `print(var1, var2, var3, var4, ...)` displays them on a single line and separated by spaces. For example,
 
 ```Python
 print("Greetings", 1, 13.1, "wow") # Greetings 1 13.1 wow
@@ -321,7 +321,7 @@ print("Greetings", 1, 13.1, "wow") # Greetings 1 13.1 wow
 
 ## Format
 
-To format the output of <code>print</code>, one needs to apply the method <code>format</code> to a string
+To format the output of `print`, one needs to apply the method `format` to a string
 
 The statement
 
@@ -332,11 +332,11 @@ s = "{0} {1}".format(a, b)
 print(s) # '8 9'
 ```
 
-replaces <code>{0}</code> with the first argument to <code>format</code> (the <code>a</code>) and <code>{1}</code> with the second argument to <code>format</code> (the <code>b</code>). The curly braces indicate something to be substituted and an integer in the braces indicate which argument to the <code>format</code> function is to be substituted. 
+replaces `{0}` with the first argument to `format` (the `a`) and `{1}` with the second argument to `format` (the `b`). The curly braces indicate something to be substituted and an integer in the braces indicate which argument to the `format` function is to be substituted. 
 
-In contrast to the <code>append</code>method described in [Methods](#Methods), which returns a value that is usally ignored, the <code>format</code> method returns the formatted string.
+In contrast to the `append`method described in [Methods](#Methods), which returns a value that is usally ignored, the `format` method returns the formatted string.
 
-In the following, the value of <code>b</code> is shown twice followed by the value of <code>a</code> twice.
+In the following, the value of `b` is shown twice followed by the value of `a` twice.
 
 ```Python
 a = 8
@@ -363,7 +363,7 @@ print("Result = {0:.2f}".format(a))
 
 The `{0:.2f}` is a template that tells Python which number to display and how to display it. `{0:.2f}` translates to
 
-> Print the 0th argument passed to <code>format</code> (the variable `a`) as a floating point (the `f` indicates this) number with two decimal places (the `.2` indicates this).
+> Print the 0th argument passed to `format` (the variable `a`) as a floating point (the `f` indicates this) number with two decimal places (the `.2` indicates this).
 
 ```Python
 a = 1/3
@@ -376,7 +376,7 @@ The code `{1:.3f}` translates to
 
 > Print the 1st argument (`b`) passed to `format` as a floating point number with three decimal places.
 
-The <code>f</code> is a format code. Another common format code is <code>e</code>, which is used to display a number in exponential format:
+The `f` is a format code. Another common format code is `e`, which is used to display a number in exponential format:
 
 ```Python
 a = 1000*1/3
@@ -404,14 +404,14 @@ if test:
 	statement 2
 ```
 
-Which reads "If <code>test</code> is true, evaluate the indented statements". For example,
+Which reads "If `test` is true, evaluate the indented statements". For example,
 
 ```Python
 if 2 > 1:
   print("test is true")
 ```
 
-<code>test</code> can also be a variable:
+`test` can also be a variable:
 
 ```Python
 a = 2 > 1 # a takes on the value True
@@ -419,7 +419,7 @@ if a:
   print("a is True")
 ```
 
-Thus far, variables that are strings, numeric, or lists have only been used. In Python, a variable can also be assigned a value of <code>True</code> or <code>False</code> either directly or indirectly.
+Thus far, variables that are strings, numeric, or lists have only been used. In Python, a variable can also be assigned a value of `True` or `False` either directly or indirectly.
 
 ```Python
 a = True  # Assign directly
@@ -451,7 +451,7 @@ else:
 	...
 ```
 
-Which reads "If <code>test</code> is true, evaluate the indented statements immediately following; otherwise, evaluate the indented statements following <code>else</code>". For example,
+Which reads "If `test` is true, evaluate the indented statements immediately following; otherwise, evaluate the indented statements following `else`". For example,
 
 ```Python
 if 2 > 1:
@@ -460,7 +460,7 @@ else:
   print("2 is not greater than 1")
 ```
 
-Results in <code>2 is greater than 1</code> being displayed and
+Results in `2 is greater than 1` being displayed and
 
 ```Python
 if 2 < 1:
@@ -469,7 +469,7 @@ else:
   print("2 is not less than 1")
 ```
 
-Results in <code>2 is not less than 1</code> being displayed.
+Results in `2 is not less than 1` being displayed.
 
 The most general form is
 
@@ -485,7 +485,7 @@ else:
   # Evaluated if none of the tests were true
 ```
 
-The statements associated with the <code>else</code> are called "fall-through" statements.
+The statements associated with the `else` are called "fall-through" statements.
 
 For example, when the following is executed
 
@@ -501,11 +501,11 @@ else:
   print('D commands')
 ```
 
-<code>D commands</code> is displayed. If the value of <code>a</code> on the first line is changed to 4, then <code>C commands</code> is displayed.
+`D commands` is displayed. If the value of `a` on the first line is changed to 4, then `C commands` is displayed.
 
 ## Compound Tests
 
-The test in an <code>if</code> statement can be a logical statement involving several test conditions, for example,
+The test in an `if` statement can be a logical statement involving several test conditions, for example,
 
 ```Python
 if (2 > 1) and (3 > 1):
@@ -556,7 +556,7 @@ b = [1, 'hello', 2.2] # Stores an int, str, and float
 
 Adding a space after a comma is a common convention in Python programs. It is not needed, but you should get in the habit of using this convention. People and code "linters" (grammar and spell checkers for code) will complain otherwise.
 
-To determine how many elements are in a list, use the <code>len()</code> function, which returns an integer, e.g.,
+To determine how many elements are in a list, use the `len()` function, which returns an integer, e.g.,
 
 ```Python
 len(a) # 3
@@ -614,7 +614,7 @@ a[1] = 88 # a is now [99, 88, 22]
 a[5] = 1  # Error b/c a does not have a 6th element.
 ```
 
-In contrast, if <code>a</code> was defined as a tuple, an error would result when we tried to modified one of its elements:
+In contrast, if `a` was defined as a tuple, an error would result when we tried to modified one of its elements:
 
 ```Python
 a = (0, 11, 22)
@@ -771,11 +771,11 @@ a = [0, 11, 22, 33]
 a.insert(99, -7) # a = [0, 11, 22, 33, -7]
 ```
 
-<code>a.insert(99,3)</code> means insert <code>-7</code> before the 99th element in <code>a</code>. This does not sound sensical because <code>a</code> has only four elements, but Python allows it.
+`a.insert(99,3)` means insert `-7` before the 99th element in `a`. This does not sound sensical because `a` has only four elements, but Python allows it.
 
 ### `reverse`
 
-<code>listvar.reverse()</code> reverses the elements in <code>listvar</code>
+`listvar.reverse()` reverses the elements in `listvar`
 
 ```Python
 a = [0, 11, 22, 33]
@@ -800,7 +800,7 @@ Almost all simulation of physical models requires repeating calculations.
 
 In computing, '''iteration''' means "repeat calculation".  Simulating a model of a physical system usually requires '''iteration'''.
 
-For example, suppose the population of the number of rabbits on an island doubles every year and the population was initially <code>10</code> rabbits.  The population in year <code>2</code> could be computed by entering
+For example, suppose the population of the number of rabbits on an island doubles every year and the population was initially `10` rabbits.  The population in year `2` could be computed by entering
 
 ```Python
 P = 10   # Assign to a variable named P the value 10.
@@ -816,13 +816,13 @@ P = 2*P  # Year 4
 P = 2*P  # Year 5
 ```
 
-The command <code>P = 2*P</code> has been repeated four times.  Recall that Python ignores everything after and including the <code>#</code>
+The command `P = 2*P` has been repeated four times.  Recall that Python ignores everything after and including the `#`
 
-Suppose that you want to compute the population in year <code>1000</code> and don't want to type all the commands required to do the computation.  There are several types of short-hand syntax for '''iteration'''.  The most commonly used is the <code>for</code> loop syntax.  (In programming, the word "loop" means repeat).  The <code>while</code> loop can also be used for '''iteration'''.  The key task in programming with '''iteration''' is finding the parts of the program that can be repeated and re-written using short-hand syntax.
+Suppose that you want to compute the population in year `1000` and don't want to type all the commands required to do the computation.  There are several types of short-hand syntax for '''iteration'''.  The most commonly used is the `for` loop syntax.  (In programming, the word "loop" means repeat).  The `while` loop can also be used for '''iteration'''.  The key task in programming with '''iteration''' is finding the parts of the program that can be repeated and re-written using short-hand syntax.
 
 ## For Loop Basic Pattern
 
-A <code>for</code> loop is short-hand syntax that allows you to re-write a set of statements as something that (usually) requires fewer lines.
+A `for` loop is short-hand syntax that allows you to re-write a set of statements as something that (usually) requires fewer lines.
 
 {| border="0" cellpadding="2" width="100%" align="left"
 |-
@@ -835,7 +835,7 @@ P = 2*P
 P = 2*P
 ``` 
 |style="vertical-align:top"|
-Short-hand using <code>for loop</code>:
+Short-hand using `for loop`:
 ```Python
 for i in [0,1,2,3]: # Line A.
   P = 2*P           # Line B.
@@ -843,14 +843,14 @@ for i in [0,1,2,3]: # Line A.
 |}
 
 The lines in this statement are interpreted as:
-* Line A: Set an '''index variable''' <code>i</code> to the first value in the array <code>[0,1,2,3]</code>. Note that an index variable does not always have to be <code>i</code>. As long as it is a valid variable, it can be used as an index variable. For example, <code>m, n, b1, J, etc.</code> would all be valid names for an index variable. 
-* Line B: Do the computation <code>P = 2*P</code>. If all of the possible values of <code>i</code> in the list <code>[0,1,2,3]</code> have been used, continue to the next unindented line.  Otherwise, repeat line B. again with the next value of <code>i</code> in the list (which is <code>1</code>).
+* Line A: Set an '''index variable''' `i` to the first value in the array `[0,1,2,3]`. Note that an index variable does not always have to be `i`. As long as it is a valid variable, it can be used as an index variable. For example, `m, n, b1, J, etc.` would all be valid names for an index variable. 
+* Line B: Do the computation `P = 2*P`. If all of the possible values of `i` in the list `[0,1,2,3]` have been used, continue to the next unindented line.  Otherwise, repeat line B. again with the next value of `i` in the list (which is `1`).
 
-In this example, there was only one indented line after the <code>for</code> line. This is not required.  Later, there will be multiple indented lines.
+In this example, there was only one indented line after the `for` line. This is not required.  Later, there will be multiple indented lines.
 
 ## For Loop Basic Pattern
 
-This is an example of replacing a basic pattern with a <code>for</code> loop. Note that the first line does not fit the pattern and cannot be shortened.
+This is an example of replacing a basic pattern with a `for` loop. Note that the first line does not fit the pattern and cannot be shortened.
 
 {| border="0" cellpadding="2" width="100%" align="left"
 |-
@@ -864,7 +864,7 @@ P = 2*P
 P = 2*P
 ```
 |style="vertical-align:top"|
-Shorthand using <code>for loop</code>:
+Shorthand using `for loop`:
 ```Python
 P = 10
 for i in [1,2,3,4]:
@@ -872,17 +872,17 @@ for i in [1,2,3,4]:
 ```
 |}
 
-What will happen if you replace <code>i in [0,1,2,3]</code> with <code>i in [7,8,9,10]</code> or <code>i in [1,3,5,7]</code>?
+What will happen if you replace `i in [0,1,2,3]` with `i in [7,8,9,10]` or `i in [1,3,5,7]`?
 
-In this case, you will get the same result. The indented part (the '''body''' of the <code>for</code> loop) after the <code>for</code> line is repeated as many times as there are numbers in the list associated with <code>i</code>.  Because the body of the <code>for</code> loop does not reference the index variable <code>i</code>, it does not matter what for numbers are in the square brackets, only that there are four numbers.
+In this case, you will get the same result. The indented part (the '''body''' of the `for` loop) after the `for` line is repeated as many times as there are numbers in the list associated with `i`.  Because the body of the `for` loop does not reference the index variable `i`, it does not matter what for numbers are in the square brackets, only that there are four numbers.
 
-As we will see, if the body of the <code>for</code> loop includes a reference to <code>i</code>, the result will depend on the list associated with the index variable.
+As we will see, if the body of the `for` loop includes a reference to `i`, the result will depend on the list associated with the index variable.
 
 ## Syntax Rules
 
-* The code after the <code>for</code> line that is to be iterated must be indented.
-* The <code>for</code> statement must be lower case.
-* The line that starts with <code>for</code> must end with a semicolon. The most common syntax error is due to the missing semicolon.
+* The code after the `for` line that is to be iterated must be indented.
+* The `for` statement must be lower case.
+* The line that starts with `for` must end with a semicolon. The most common syntax error is due to the missing semicolon.
 
 ## Basic Pattern Example I
 
@@ -899,7 +899,7 @@ x = x + 1
 x = x + 13
 ```
 |style="vertical-align:top"  width="33%" |
-The middle <code>x=x+1</code> statements are repeated four times, so they can be re-written using a <code>for</code> loop:
+The middle `x=x+1` statements are repeated four times, so they can be re-written using a `for` loop:
 ```Python
 x = 10
 for i in [0,1,2,3]:
@@ -931,7 +931,7 @@ z = a+1
 a = z+1
 ```
 |style="vertical-align:top"  width="30%" |
-In this case, there are pairs of repeated lines, so there are two lines in the body of the <code>for</code> loop: 
+In this case, there are pairs of repeated lines, so there are two lines in the body of the `for` loop: 
 ```Python
 a = 0
 for i in [1,2]:
@@ -967,7 +967,7 @@ is that Python is executing the commands
  P = 2*P
 ```
 
-That is, prior to executing the commands in the body of the <code>for</code> loop, Python is assigning a value to the '''index variable'''. 
+That is, prior to executing the commands in the body of the `for` loop, Python is assigning a value to the '''index variable'''. 
 
 ## General Pattern Example I
 
@@ -992,7 +992,7 @@ a = i*i
 ```
 |}
 
-The set of commands on the left are equivalent to the set of commands on the right. Note that because the index variable <code>i</code> appears in the body of the <code>for</code> loop, their actual values matter; a different set of four numbers in the list associated with <code>i</code> will give differents values for <code>a</code>.
+The set of commands on the left are equivalent to the set of commands on the right. Note that because the index variable `i` appears in the body of the `for` loop, their actual values matter; a different set of four numbers in the list associated with `i` will give differents values for `a`.
 {| border="0" cellpadding="2" width="100%" align="left"
 |-
 |style="vertical-align:top" width="50%"|
@@ -1093,7 +1093,7 @@ print(A)
 
 ## Populating a List Examples
 
-'''Problem:''' Create the list <code>A = [2,3,4,5]</code> and then display it
+'''Problem:''' Create the list `A = [2,3,4,5]` and then display it
 
 '''Answer:''' 
 
@@ -1104,11 +1104,11 @@ for i in [2,3,4,5]:
 print(A)
 ```
 
-'''Problem:''' Create the lists <code>A = [2,3,4,5]</code> and <code>B = [0,1,2,3]</code> and then display them.
+'''Problem:''' Create the lists `A = [2,3,4,5]` and `B = [0,1,2,3]` and then display them.
 
 '''Answer:''' 
 
-In this problem, <code>A</code> and <code>B</code> each have four elements. We could create them using two <code>for</code> loops
+In this problem, `A` and `B` each have four elements. We could create them using two `for` loops
 
 ```Python
 A = []
@@ -1134,7 +1134,7 @@ print(A)
 print(B)
 ```
  
-'''Problem:''' Create the array <code>A = [5,4,3,2,1]</code> using <code>for i in [0,1,2,3,4]:</code>
+'''Problem:''' Create the array `A = [5,4,3,2,1]` using `for i in [0,1,2,3,4]:`
 
 '''Answer:''' 
 ```Python
@@ -1144,7 +1144,7 @@ for i in [0,1,2,3,4]:
 print(A) # [5, 4, 3, 2, 1]
 ```
 
-## The <code>range</code> function
+## The `range` function
 
 The notation
 
@@ -1152,7 +1152,7 @@ The notation
 for i in [0,1,2,3,4]:
 ```
 
-is acceptable, but most often instead of specifying an list of values for the index variable, the <code>range</code> function is used. This is especially useful when the list would need to be very long.
+is acceptable, but most often instead of specifying an list of values for the index variable, the `range` function is used. This is especially useful when the list would need to be very long.
 
 Instead of writing:
 
@@ -1246,7 +1246,7 @@ i = 5
 i = 7
 ```
 
-<code>step</code> can be a negative number provided that <code>stop <= start</code>
+`step` can be a negative number provided that `stop <= start`
 
 ```Python
 for i in range(9, 0, -2):
@@ -1263,16 +1263,16 @@ i = 3
 i = 1
 ```
 
-## Iteration using <code>while</code>
+## Iteration using `while`
 
-A second method of repeating commands involves the use of the <code>while</code> statement.  The loop executes as long as the test condition is true. The general syntax is
+A second method of repeating commands involves the use of the `while` statement.  The loop executes as long as the test condition is true. The general syntax is
 
 ```Python
 while test:
   Commands
 ```
 
-In the following example, the commands <code>P=1.1*P</code> and <code>i = i+1</code> are repeated provided that <code>P</code> is less than 1000.  The last line of the program displays the last value of <code>P</code>.
+In the following example, the commands `P=1.1*P` and `i = i+1` are repeated provided that `P` is less than 1000.  The last line of the program displays the last value of `P`.
 
 ```Python
 i = 0
@@ -1284,9 +1284,9 @@ print("Final value of P =", P)
 print("Final value of i =", i)
 ```
 
-## <code>break</code>
+## `break`
 
-The <code>break</code> command can be used to terminate the execution of a <code>while</code> or <code>for</code> loop. In the following program, the value of <code>i</code> is checked before it is printed out. If <code>i > 10</code>, execution of the loop terminates. The result is the numbers 0, 1, ..., 10 are printed.
+The `break` command can be used to terminate the execution of a `while` or `for` loop. In the following program, the value of `i` is checked before it is printed out. If `i > 10`, execution of the loop terminates. The result is the numbers 0, 1, ..., 10 are printed.
 
 ```Python
 for i in range(100):
@@ -1313,9 +1313,9 @@ The result is that the following is displayed.
 Done with loop
 ```
 
-## <code>continue</code>
+## `continue`
 
-The continue statement can be used to block the execution of code that follows it in the body of a <code>for</code> or <code>while</code> loop. For example
+The continue statement can be used to block the execution of code that follows it in the body of a `for` or `while` loop. For example
 
 ```Python
 for i in range(20):
@@ -1343,7 +1343,7 @@ The result is that the following is displayed.
 
 ### Basic pattern
 
-Can any part of the following be re-written using a <code>for</code> loop?
+Can any part of the following be re-written using a `for` loop?
 ```Python
 b = 1
 b = b+1
@@ -1355,12 +1355,12 @@ b = b+1
 ! align="left" |&nbsp;Answer
 |-
 |
-The line <code>b = b+1</code> is repeated three times, so these three lines can be re-written using a <code>for</code> loop.
+The line `b = b+1` is repeated three times, so these three lines can be re-written using a `for` loop.
 |}
 
 ###  Basic pattern 
 
-Can any part of the following be re-written using a <code>for</code> loop?
+Can any part of the following be re-written using a `for` loop?
 
 ```Python
 b = 1
@@ -1376,12 +1376,12 @@ c = 2*b
 ! align="left" |&nbsp;Answer
 |-
 |
-The two lines <code>b = b+1</code> and <code>c = 2*b</code> appear three times. These two lines could be placed in a <code>for</code> loop.
+The two lines `b = b+1` and `c = 2*b` appear three times. These two lines could be placed in a `for` loop.
 |}
 
 ###  Syntax
 
-What is the syntax error i each of the following <code>for</code> loops?
+What is the syntax error i each of the following `for` loops?
 
 ```Python
 for i = [1,2]:
@@ -1392,7 +1392,7 @@ for i = [1,2]:
 ! align="left" | Answer
 |-
 |
-The line <code>for i = [1,2]</code> should be <code>for i in [1,2]</code>.
+The line `for i = [1,2]` should be `for i in [1,2]`.
 |}
 
 ```Python
@@ -1404,7 +1404,7 @@ a = i
 ! align="left" | Answer
 |-
 |
-The <code>for</code> has no body. Execution of this code will lead to an error "IndentationError: expected an indented block".
+The `for` has no body. Execution of this code will lead to an error "IndentationError: expected an indented block".
 |}
 
 ```Python
@@ -1416,7 +1416,7 @@ for j in [1,2,3]:
 ! align="left" | Answer
 |-
 |
-The variable <code>a</code> was never defined.
+The variable `a` was never defined.
 |}
 
 ###  Syntax
@@ -1494,7 +1494,7 @@ for i in [3,4]:
 ```
 |}
 
-###  Syntax with <code>range</code>
+###  Syntax with `range`
 
 What will happen when these commands are executed?
 ```Python
@@ -1535,9 +1535,9 @@ print(A)
 print(B)
 ```
 
-###  Converting Statements to a <code>for</code> Loop
+###  Converting Statements to a `for` Loop
 
-Rewrite the last four lines in the following using a <code>for</code> loop.
+Rewrite the last four lines in the following using a `for` loop.
 
 ```Python
 A = [1,2,3,4]
@@ -1559,7 +1559,7 @@ for i in range(4):
 
 Predict what will be printed when the following lines are executed.
 
-Rewrite the last four lines in the following using a <code>for</code> loop. 
+Rewrite the last four lines in the following using a `for` loop. 
 
 ```Python
 A = [1, 2, 3, 4]
@@ -1585,7 +1585,7 @@ for i in range(4):
 
 Predict what will be printed when the following lines are executed.
 
-Rewrite the last four lines in the following using a <code>for</code> loop. 
+Rewrite the last four lines in the following using a `for` loop. 
 
 ```Python
 A = [11, 12, 13, 14, 15]
@@ -1600,7 +1600,7 @@ print(A)
 ! align="left" |&nbsp;Answer
 |-
 |
-1. <code>[23, 25, 27, 29, 15]</code> is printed.
+1. `[23, 25, 27, 29, 15]` is printed.
 
 2.
 ```Python
@@ -1611,9 +1611,9 @@ print(A)
 ```
 |}
 
-### Converting a <code>for</code> Loop to a Sequence of Statements
+### Converting a `for` Loop to a Sequence of Statements
 
-Re-write the repeated commands using a <code>for</code> loop.
+Re-write the repeated commands using a `for` loop.
 
 ```Python
 b = 1.0
@@ -1636,7 +1636,7 @@ print(b)
 ```
 |}
 
-Re-write the repeated lines with <code>append</code> using a <code>for</code> loop.
+Re-write the repeated lines with `append` using a `for` loop.
 
 ```Python
 A = [11, 12, 13, 14]
@@ -1662,9 +1662,9 @@ print(C)
 ```
 |}
 
-###  Creating a List with a <code>for</code> Loop
+###  Creating a List with a `for` Loop
 
-Create the list <code>A = [9, 10, 11, 12]</code> using a <code>for</code> loop.
+Create the list `A = [9, 10, 11, 12]` using a `for` loop.
 
 {| class="wikitable collapsible collapsed"
 ! align="left" |&nbsp;Answer
@@ -1686,7 +1686,7 @@ print(A)
 
 |}
 
-Create the list <code>A = [9, 12, 15, 18, 21, 24]</code> using a <code>for</code> loop.
+Create the list `A = [9, 12, 15, 18, 21, 24]` using a `for` loop.
 
 {| class="wikitable collapsible collapsed"
 ! align="left" |&nbsp;Answer
@@ -1700,7 +1700,7 @@ print(A)
 ```
 |}
 
-Create the list <code>A = [9, 6, 3, 0]</code> using a <code>for</code> loop.
+Create the list `A = [9, 6, 3, 0]` using a `for` loop.
 
 {| class="wikitable collapsible collapsed"
 ! align="left" |&nbsp;Answer
@@ -1723,16 +1723,16 @@ print(A)
 ```
 |}
 
-###  Computation using <code>for</code> loop
+###  Computation using `for` loop
 
-Write a <code>for</code> loop that adds all of the elements in a list of arbitrary length. Do not use the <code>sum</code> function.
+Write a `for` loop that adds all of the elements in a list of arbitrary length. Do not use the `sum` function.
 
 {| class="wikitable collapsible collapsed"
 ! align="left" |&nbsp;Answer
 |-
 |
 
-Without a <code>for</code> loop, an algorithm is
+Without a `for` loop, an algorithm is
 ```Python
 A = [11,12,13,14]
 s = A[0] # s is sum variable
@@ -1750,13 +1750,13 @@ print(s)
 ```
 |}
 
-###  Computation using <code>for</code> loop
+###  Computation using `for` loop
 
-Write a <code>for</code> loop that computes the sum of the squares of all elements in an array.  For example, if the array is A = [1,2,3,4,5], the sum should be 1 + 4 + 9 + 16 + 25 = 55.  Do not use the functions <code>sum</code> function or functions from external libraries (i.e., no <code>import</code> statements).
+Write a `for` loop that computes the sum of the squares of all elements in an array.  For example, if the array is A = [1,2,3,4,5], the sum should be 1 + 4 + 9 + 16 + 25 = 55.  Do not use the functions `sum` function or functions from external libraries (i.e., no `import` statements).
 
-###  Computation using <code>for</code> loop
+###  Computation using `for` loop
 
-An object travels at a constant velocity of 10 m/s. Create a list named <code>x</code> that contains the position of the object at times \(t=0, 0.1, 0.2, ..., 2.0\) seconds. Use a <code>for</code> loop for the computation of the elements of <code>x</code>. Assume the initial position is \(x=0\). When executed, your program should display the values of <code>t</code> and <code>x</code> in the form
+An object travels at a constant velocity of 10 m/s. Create a list named `x` that contains the position of the object at times \(t=0, 0.1, 0.2, ..., 2.0\) seconds. Use a `for` loop for the computation of the elements of `x`. Assume the initial position is \(x=0\). When executed, your program should display the values of `t` and `x` in the form
 
 <pre>
 time position
@@ -1767,7 +1767,7 @@ time position
 2.0 22.0
 </pre>
 
-with the <code>...</code> replaced with values for <code>t=0.2</code> to <code>2.0</code>.
+with the `...` replaced with values for `t=0.2` to `2.0`.
 
 {| class="wikitable collapsible collapsed"
 ! align="left" |&nbsp;Answer
@@ -1826,11 +1826,11 @@ for i in range(0, 21):
 ```
 |}
 
-###  Computation using <code>for</code> loop
+###  Computation using `for` loop
 
 Your bank balance grows by an amount of 5% compounded on the last day of each year.  Your initial deposit is $100.  
 
-Create a list named <code>b</code> that contains balance at the end of each year after compounding. Use a <code>for</code> loop for the computation of the elements of <code>b</code>. When executed, your program should display the year and balance.
+Create a list named `b` that contains balance at the end of each year after compounding. Use a `for` loop for the computation of the elements of `b`. When executed, your program should display the year and balance.
 
 <pre>
 year balance
@@ -1840,14 +1840,14 @@ year balance
 9    155.1
 </pre>
 
-with the <code>...</code> replaced with values for years 1-8.
+with the `...` replaced with values for years 1-8.
 
 {| class="wikitable collapsible collapsed"
 ! align="left" |&nbsp;Answer
 |-
 |
 
-For more complex problems, it is often easier to write a solution without a <code>for</code> loop before attempting to write a solution using a <code>for</code> loop.
+For more complex problems, it is often easier to write a solution without a `for` loop before attempting to write a solution using a `for` loop.
 
 ```Python
 # Without a list or a for loop for first 4 years
@@ -1926,11 +1926,11 @@ The start of any Python program where Matplotlib plot commands are used must sta
 import matplotlib.pyplot as plt
 ```
 
-where the only optional part is <code>plt</code>, which declares the namespace of all Matplotlib methods.  All calls to Matplotlib plotting methods must be prefixed by <code>plt.</code>. (Sometimes authors will use <code>mpl</code> instead of <code>plt</code>.)
+where the only optional part is `plt`, which declares the namespace of all Matplotlib methods.  All calls to Matplotlib plotting methods must be prefixed by `plt.`. (Sometimes authors will use `mpl` instead of `plt`.)
 
-## Plotting list elements
+## Plotting List elements
 
-In Python, line plots are created using the <code>plot</code> function prefixed by the module declared in the import command (here I am using <code>plt</code>).
+In Python, line plots are created using the `plot` function prefixed by the module declared in the import command (here I am using `plt`).
 
 ```Python
 import matplotlib.pyplot as plt
@@ -1939,12 +1939,11 @@ plt.plot(y) # Plot list. x-values assumed to be [0, 1, 2, 3]
 plt.show()  # Optional when using IPython interpreter
 ```
 
-Note that if this script is called from the command line, no plot will be shown unless <code>show()</code> is called. Also note that when using the IPython interpreter, you can have the plots show up in a separate window by executing the command <code>%matplotlib qt</code>. To have the plots show up in the IPython console, enter <code>%matplotlib inline</code>. These are not regular Python commands - only IPython will understand them.
+Note that if this script is called from the command line, no plot will be shown unless `show()` is called. Also note that when using the IPython interpreter, you can have the plots show up in a separate window by executing the command `%matplotlib qt`. To have the plots show up in the IPython console, enter `%matplotlib inline`. These are not regular Python commands - only IPython will understand them.
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_I.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_I.py.png" width="500px"/>
 
-
-The <code>plt.plot(y)</code> command caused a plot of the elements of <code>y</code> to be shown with the values in <code>y</code> on the y-axis.  The x-axis values were assumed to be <code>[0, 1, 2, 3]</code>.  The above commands are equivalent to 
+The `plt.plot(y)` command caused a plot of the elements of `y` to be shown with the values in `y` on the y-axis.  The x-axis values were assumed to be `[0, 1, 2, 3]`.  The above commands are equivalent to 
 
 ```Python
 import matplotlib.pyplot as plt
@@ -1954,9 +1953,9 @@ plt.plot(x, y)
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_I.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_I.py.png" width="500px"/>
 
-<code>plot</code> method.
+`plot` method.
 
 ```Python
 import matplotlib.pyplot as plt
@@ -1968,7 +1967,7 @@ plt.show()
 
 ## Annotation
 
-To add a grid, use <code>grid()</code> after the plot command. To add axis labels and a title, use <code>xlabel</code>, <code>ylabel</code>, and <code>title</code>
+To add a grid, use `grid()` after the plot command. To add axis labels and a title, use `xlabel`, `ylabel`, and `title`
 
 ```Python
 import matplotlib.pylab as plt
@@ -1982,7 +1981,9 @@ plt.title('Experiment 1 results');
 plt.show()
 ```
 
-Matplotlib labels can be specified using TeX strings (this may code may not work, most likely due to a needed package not being installed - do a Google search on the error message to figure out how to install the missing package). For example
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IV.py.png" width="500px"/>
+
+Matplotlib labels can be specified using TeX strings (this may code may not work, most likely due to a needed package not being installed -- do a web search on the error message to figure out how to install the missing package). For example
 
 ```Python
 # See above if this results in an error message.
@@ -1997,13 +1998,11 @@ plt.title(r'$\mathbf{A}=3\hat{\mathbf{x}} + 4\hat{\mathbf{y}}; E=mc^2$')
 plt.show()
 ```
 
-See [https://matplotlib.org/3.1.0/gallery/text_labels_and_annotations/tex_demo.html]
-
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IV.py.png|width=400px|expire=1</imgc>
+See [Matplotlib Gallery](https://matplotlib.org/3.1.0/gallery/text_labels_and_annotations/tex_demo.html) for additional information.
 
 ## Line Color
 
-A line color may be specified when calling the <code>plot</code> function. This set of commands will create a red line. Enter <code>help(plt.plot)</code> on the command line to see a table of all possible color abbreviations.
+A line color may be specified when calling the `plot` function. This set of commands will create a red line. Enter `help(plt.plot)` on the command line to see a table of all possible color abbreviations.
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2013,7 +2012,7 @@ plt.plot(y, color='r') # Same result using alternative syntax
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_V.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_V.py.png" width="500px"/>
 
 Colors that do not have an associated abbreviation may be used by specifying a list of red, green, and blue intensity values. This set of commands will create a gray line.
 
@@ -2028,14 +2027,14 @@ plt.show()
 ```
 
 To find a special color, I usually do a search on, e.g., "rgb values for periwinkle". Doing this, I find
-<code>RGB: 204, 204, 255</code>, which is translated to intensity fractions by dividing each number by <code>255</code>, so I would use <code>color=[204/255, 204/255, 255/255]</code>.
+`RGB: 204, 204, 255`, which is translated to intensity fractions by dividing each number by `255`, so I would use `color=[204/255, 204/255, 255/255]`.
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VI.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VI.py.png" width="500px"/>
 
 ## Line Style
 
-By default, the points in <code>y</code> are connected with solid lines. Line styles options are
-<code>solid</code>, <code>dashed</code>, <code>dashdot</code>, <code>dotted</code> or their corresponding short-hand strings of <code>-</code>, <code>:</code>, <code>-.</code>, <code>--</code> can also be used.
+By default, the points in `y` are connected with solid lines. Line styles options are
+`solid`, `dashed`, `dashdot`, `dotted` or their corresponding short-hand strings of `-`, `:`, `-.`, `--` can also be used.
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2045,11 +2044,11 @@ plt.plot(y, '-', linewidth=5)
 plt.plot(y, linestyle='solid', linewidth=5) 
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_X.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_X.py.png" width="500px"/>
 
 ## Marker Style
 
-Instead of drawing connected lines, markers can be drawn at points. See <code>help(plt.plot)</code> for a table of possible markers.
+Instead of drawing connected lines, markers can be drawn at points. See `help(plt.plot)` for a table of possible markers.
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2072,7 +2071,7 @@ plt.show()
 
 <imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VIII.py.png|width=400px|expire=1</imgc>
 
-The marker size may be specified using <code>markersize</code> keyword
+The marker size may be specified using `markersize` keyword
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2085,7 +2084,7 @@ plt.show()
 
 ## Style Combinations
 
-Multiple styles may be specified.  For example, to create a red solid line, use <code>r-</code>
+Multiple styles may be specified.  For example, to create a red solid line, use `r-`
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2095,7 +2094,7 @@ plt.plot(y, 'r-', linewidth=3)
 
 <imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XII.py.png|width=400px|expire=1</imgc>
 
-To create a red solid line that connects points in <code>y</code> and to show stars at the points, use <code>r*-</code>
+To create a red solid line that connects points in `y` and to show stars at the points, use `r*-`
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2110,7 +2109,7 @@ plt.plot(y, color='r', linestyle='solid',
 
 ## Multiple lines and legends
 
-To create a legend, use <code>legend</code>:
+To create a legend, use `legend`:
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2124,7 +2123,7 @@ plt.show()
 
 <imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XV.py.png|width=400px|expire=1</imgc>
 
-To set the legend location, use the <code>loc</code> keyword. See <code>help(plt.legend)</code> or [https://matplotlib.org/users/legend_guide.html] for other options:
+To set the legend location, use the `loc` keyword. See `help(plt.legend)` or [https://matplotlib.org/users/legend_guide.html] for other options:
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2140,7 +2139,7 @@ plt.show()
 
 ## Axis Tick Numbers
 
-In the previous example, Matplotlib chose to label the values in 0.5 increments.  This is not a good default for the plotted list - all of the x-values are integers. Use <code>xticks</code> and <code>yticks</code> to specify the tick labels to show.
+In the previous example, Matplotlib chose to label the values in 0.5 increments.  This is not a good default for the plotted list - all of the x-values are integers. Use `xticks` and `yticks` to specify the tick labels to show.
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2150,13 +2149,13 @@ plt.xticks([0,1,2,3])
 plt.show()
 ```
 
-To modify the y-position labels, use <code>yticks</code> instead of <code>xticks</code>.
+To modify the y-position labels, use `yticks` instead of `xticks`.
 
 <imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVII.py.png|width=400px|expire=1</imgc>
 
 ## Axis Limits
 
-In the previous examples, only part of the first and last markers were shown. To expand the axis limits so the full markers are shown, use <code>plt.xlim()</code>
+In the previous examples, only part of the first and last markers were shown. To expand the axis limits so the full markers are shown, use `plt.xlim()`
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2167,7 +2166,7 @@ plt.xlim([-0.1, 3.1])
 plt.show()
 ```
 
-To modify the y-axis limits, use <code>ylim</code>.
+To modify the y-axis limits, use `ylim`.
 
 <imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVIII.py.png|width=400px|expire=1</imgc>
 
@@ -2220,7 +2219,7 @@ plt.savefig('HW11_3_imshow.png', dpi=300, bbox_inches='tight')
 
 # datetimes
 
-If you get an error related to "utc datetime.timezone", remove <code>tzinfo=timezone.utc</code>. For example modify
+If you get an error related to "utc datetime.timezone", remove `tzinfo=timezone.utc`. For example modify
 
 ```Python
 t1 = datetime(1970, 1, 1, 
@@ -2236,17 +2235,17 @@ to be
               microsecond=0)
 ```
 
-A <code>datetime</code> object is used to store dates and times. The <code>datetime</code> object methods allow a given <code>datetime</code> to be manipulated.
+A `datetime` object is used to store dates and times. The `datetime` object methods allow a given `datetime` to be manipulated.
 
-The advantage of using <code>datetime</code>s is
+The advantage of using `datetime`s is
 
 1. One can do math on them, e.g., find the number of days, hours, minutes, seconds between two dates.
-2. A time that is stored as a <code>datetime</code> can be easily rendered in different ways, e.g., "2019-01-01" or "2019-001".
-3. When a list of <code>datetime</code>s is passed to Matplotlib's plot function, it will automatically use date labels on the axes.
+2. A time that is stored as a `datetime` can be easily rendered in different ways, e.g., "2019-01-01" or "2019-001".
+3. When a list of `datetime`s is passed to Matplotlib's plot function, it will automatically use date labels on the axes.
 
 ## Basic Usage
 
-In the following a datetime object <code>t1</code> is created using the <code>datetime</code> function. The name of the module is <code>datetime</code> and one of the functions is <code>datetime</code> and the type of an object created by the function <code>datetime</code> is ... <code>datetime</code>.
+In the following a datetime object `t1` is created using the `datetime` function. The name of the module is `datetime` and one of the functions is `datetime` and the type of an object created by the function `datetime` is ... `datetime`.
 
 ```Python
 from datetime import datetime, timedelta, timezone
@@ -2273,17 +2272,17 @@ t1 = datetime(1970, 1, 1,
 print(t1.timestamp()) # 1800.0
 ```
 
-I recommend always specifying the timezone as UTC unless you are dealing with local times. When all timezones are not UTC, you may run into surprises when the differences between two <code>datetimes</code>s is computed. See [https://docs.python.org/3/library/datetime.html].
+I recommend always specifying the timezone as UTC unless you are dealing with local times. When all timezones are not UTC, you may run into surprises when the differences between two `datetimes`s is computed. See [https://docs.python.org/3/library/datetime.html].
 
 ## Creating Custom Time Strings
 
-The <code>format</code> method used on strings has codes such as <code>d</code>, <code>f</code>, and <code>e</code> for representing a number as an integer, floating point number, or number in scientific notation. For example,
+The `format` method used on strings has codes such as `d`, `f`, and `e` for representing a number as an integer, floating point number, or number in scientific notation. For example,
 
 ```Python
 print("{0:f}".format(1.1)) # 1.100000
 ```
 
-Similarly, the method <code>strftime</code> has specifiers for specifying how a date and time should be displayed. See [https://www.programiz.com/python-programming/datetime/strftime] for a full list of specifiers.
+Similarly, the method `strftime` has specifiers for specifying how a date and time should be displayed. See [https://www.programiz.com/python-programming/datetime/strftime] for a full list of specifiers.
 
 ```Python
 from datetime import datetime, timedelta, timezone
@@ -2303,9 +2302,9 @@ print(t1.strftime('%Y-%m-%d @ %H:%M:%S.%f')) # 2019-10-23 @ 01:02:03.000004
 
 ## Time Deltas
 
-A <code>timedelta</code> object represents the difference between two <code>datetime</code>s.
+A `timedelta` object represents the difference between two `datetime`s.
 
-<code>timedelta</code> objects can be created using the <code>timedelta</code> function, e.g.,
+`timedelta` objects can be created using the `timedelta` function, e.g.,
 
 ```Python
 from datetime import datetime, timedelta, timezone
@@ -2406,7 +2405,7 @@ print(T)
 '''
 ```
 
-In the previous example, we used <code>range(10)</code>. A more likely use-case is that a start and stop `datetime` will be known, in which case the argument to <code>range</code> is better calculated from the difference between the start and stop `datetime`s.
+In the previous example, we used `range(10)`. A more likely use-case is that a start and stop `datetime` will be known, in which case the argument to `range` is better calculated from the difference between the start and stop `datetime`s.
 
 ```Python
 from datetime import datetime, timedelta, timezone
@@ -2436,9 +2435,9 @@ for i in range(dt_span.days):
 """
 ```
 
-## Matplotlib and <code>datetimes</code>
+## Matplotlib and `datetimes`
 
-Matplotlib will label any axis with <code>datetime</code> objects using a formatted string.
+Matplotlib will label any axis with `datetime` objects using a formatted string.
 
 ```Python
 from datetime import datetime, timedelta, timezone
@@ -2460,7 +2459,7 @@ Matplotlib is often not good at choosing how to label a time axis. Typically one
 
 ## Parsing Custom Time Strings
 
-Quite often, one will have a list of time strings that need to be converted into a <code>datetime</code> object. The <code>datetime</code> module does not know how to do this unless the string is in the standard ISO 8601 format. However, most date and time strings you will encounter are not in this standard format. (The Pandas library has a function that can guess the format.)
+Quite often, one will have a list of time strings that need to be converted into a `datetime` object. The `datetime` module does not know how to do this unless the string is in the standard ISO 8601 format. However, most date and time strings you will encounter are not in this standard format. (The Pandas library has a function that can guess the format.)
 
 ```Python
 from datetime import datetime
@@ -2479,7 +2478,7 @@ t1 = datetime.strptime('31/10/2019', '%m/%d/%Y')
 print(t1.isoformat()) # 2019-10-31T00:00:00
 ```
 
-Convert a list of date and time strings to a list of <code>datetime</code> objects.
+Convert a list of date and time strings to a list of `datetime` objects.
 
 ```Python
 from datetime import datetime
@@ -2499,18 +2498,18 @@ for ts in T_strings:
 
 # NumPy
 
-See also [https://www.amazon.com/Numerical-Python-Scientific-Applications-Matplotlib/dp/1484242459]
+See also [Numerical Python: Scientific Computing and Data Science Applications with Numpy, SciPy and Matplotlib](https://www.amazon.com/Numerical-Python-Scientific-Applications-Matplotlib/dp/1484242459)
 
 ## Importing
 
-At the start of any program that uses NumPy, import it using <code>import numpy as np</code>, e.g., 
+At the start of any program that uses NumPy, import it using `import numpy as np`, e.g., 
 
 ```Python
 import numpy as np
 print(np.pi) # Prefix Numpy usage with np
 ```
 
-As with [[Notes#Matplotlib|Matplotlib's]] import statement, the last string, in this case <code>np</code>, can vary
+As with [Matplotlib's](#Matplotlib) import statement, the last string, in this case `np`, can vary
 
 ```Python
 import numpy as npy # Sometimes npy used instead of np
@@ -2519,7 +2518,7 @@ print(npy.pi) # Prefix Numpy usage with npy
 
 ## Arrays
 
-The general-purpose data structure in NumPy is the '''ndarray''' (as in N-dimensional array). It is an analog to the Python list. 
+The general-purpose data structure in NumPy is the `ndarray` (as in N-dimensional array). It is an analog to the Python list. 
 
 Whereas a list can contain values with different data types, a NumPy ndarray can only contain values with a single data type.
 
@@ -2530,9 +2529,9 @@ L = [1, 2.1, 'zz'] # List with a mix of data types - int, float, and string
 dir(L) # List all methods of L
 ```
 
-The <code>dir</code> command lists all of the methods that apply to a list object such as <code>append</code>. (Ignore the ones that start with underscores for now.)
+The `dir` command lists all of the methods that apply to a list object such as `append`. (Ignore the ones that start with underscores for now.)
 
-There are many ways to create a NumPy ndarray; the most basic uses the function <code>array</code> with an argument of a list.
+There are many ways to create a NumPy ndarray; the most basic uses the function `array` with an argument of a list.
 
 ```Python
 import numpy as np
@@ -2542,7 +2541,7 @@ type(A) # numpy.ndarray
 dir(A) # List all methods of A
 ```
 
-The list of methods and attributes displayed for the ndarray object <code>A</code> is much longer and contains mathematical operations such as <code>dot</code>, <code>min</code>, and <code>max</code>. Three of the key attributes that you will use are <code>shape</code>, <code>size</code>, and <code>dtype</code>:
+The list of methods and attributes displayed for the ndarray object `A` is much longer and contains mathematical operations such as `dot`, `min`, and `max`. Three of the key attributes that you will use are `shape`, `size`, and `dtype`:
 
 ```Python
 import numpy as np
@@ -2552,7 +2551,7 @@ print(A.size)  # 3
 print(A.dtype) # int64
 ```
 
-A key restriction on a ndarray is that all elements are of the same data type. This is the reason that a ndarray can have a method <code>max</code> and <code>min</code> and why ndarrays can be multiplied and added. If a list contained strings and numbers, these operations are ill-defined.
+A key restriction on a ndarray is that all elements are of the same data type. This is the reason that a ndarray can have a method `max` and `min` and why ndarrays can be multiplied and added. If a list contained strings and numbers, these operations are ill-defined.
 
 ```Python
 import numpy as np
@@ -2575,9 +2574,9 @@ print(M)
 print(M.shape) # (2, 3) - two rows, three columns
 ```
 
-The shape of NumPy ndarray is a tuple, not a list. Because tuples cannot be modified, this serves as a hint that an operation such as <code>s = M.shape; s[0] = 9</code> cannot be used to change the size of an array.
+The shape of NumPy ndarray is a tuple, not a list. Because tuples cannot be modified, this serves as a hint that an operation such as `s = M.shape; s[0] = 9` cannot be used to change the size of an array.
 
-Going back to the first example, the trailing comma in the shape of <code>(3, )</code> needs to be explained.
+Going back to the first example, the trailing comma in the shape of `(3, )` needs to be explained.
 
 ```Python
 A = np.array([1, 2, 3])
@@ -2585,7 +2584,7 @@ print(A)
 print(A.shape) # (3, )
 ```
 
-Based on the matrix example, where <code>M.shape = (2, 3)</code>, one may have expected <code>A.shape</code> to be <code>(3)</code> instead of <code>(3, )</code>. The short explanation is that the <code>(3, )</code> can generally be interpreted as meaning the same as <code>(3)</code> and the trailing comma can be ignored.
+Based on the matrix example, where `M.shape = (2, 3)`, one may have expected `A.shape` to be `(3)` instead of `(3, )`. The short explanation is that the `(3, )` can generally be interpreted as meaning the same as `(3)` and the trailing comma can be ignored.
 
 {| class="wikitable collapsible collapsed"
 ! align="left" |&nbsp;Long answer
@@ -2593,8 +2592,8 @@ Based on the matrix example, where <code>M.shape = (2, 3)</code>, one may have e
 |
 The trailing comma is returned in the tuple for the shape of a 1-D array because 
 
-1. a tuple with one element such as <code>(3)</code> is the same thing as <code>3</code> in Python and
-2. code that uses NumPy is simpler if <code>A.shape</code> is always a tuple.
+1. a tuple with one element such as `(3)` is the same thing as `3` in Python and
+2. code that uses NumPy is simpler if `A.shape` is always a tuple.
 
 To see point 1., consider
 ```Python
@@ -2609,11 +2608,11 @@ print(t[0]) # 3
 len(t) # 1
 ```
 
-As a compromise, the unintuitive notation <code>(3, )</code> is used for the shape of 1-D NumPy arrays (and single-element tuples in general). The existence of the comma tells Python that the quantity in parenthesis is actually meant to be a tuple.
+As a compromise, the unintuitive notation `(3, )` is used for the shape of 1-D NumPy arrays (and single-element tuples in general). The existence of the comma tells Python that the quantity in parenthesis is actually meant to be a tuple.
 
 See also [https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences].
 
-The reason that the Python interpreter can't conclude <code>(3)</code> is a tuple is in math operations is it is acceptable to wrap a number in parenthesis and so I expect <code>(3)*1</code> to mean <code>3*1</code> and not a tuple times a scalar.
+The reason that the Python interpreter can't conclude `(3)` is a tuple is in math operations is it is acceptable to wrap a number in parenthesis and so I expect `(3)*1` to mean `3*1` and not a tuple times a scalar.
 |}
 
 ## Array Size
@@ -2626,7 +2625,7 @@ M = np.array([[1, 2, 3], [3, 4, 5]])
 print(M.size) # 6
 ```
 
-The size of an array could also be computed from the product of the elements in the <code>shape</code> tuple:
+The size of an array could also be computed from the product of the elements in the `shape` tuple:
 
 ```Python
 import numpy as np
@@ -2643,7 +2642,7 @@ N = s[0]*s[1]*s[2]   # N = 12
 
 ## Array dtype
 
-Every NumPy array has a data type attribute <code>dtype</code> that indicates how the numbers are stored internally. When the <code>np.array</code> function is used to convert a list to a NumPy array, the chosen dtype depends on the elements in the list.
+Every NumPy array has a data type attribute `dtype` that indicates how the numbers are stored internally. When the `np.array` function is used to convert a list to a NumPy array, the chosen dtype depends on the elements in the list.
 
 ```Python
 import numpy as np
@@ -2654,7 +2653,7 @@ A = np.array([1., 2., 3.])
 print(A.dtype) # float64
 ```
 
-The data type can be explicitly set using the <code>dtype</code> keyword.
+The data type can be explicitly set using the `dtype` keyword.
 
 ```Python
 import numpy as np
@@ -2662,15 +2661,15 @@ A = np.array([1, 2, 3], dtype=np.float64)
 print(A.dtype) # float64
 ```
 
-There are many other possible <code>dtype</code>s [https://docs.scipy.org/doc/numpy/user/basics.types.html]. In general, using <code>np.float64</code> is the safest choice.
+There are many other possible `dtype`s [https://docs.scipy.org/doc/numpy/user/basics.types.html]. In general, using `np.float64` is the safest choice.
 
 ## Creating Arrays
 
-See also [https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html].
+See also [NumPy array creation](https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html).
 
-The three most common functions for creating arrays are <code>zeros</code>, <code>ones</code>, and <code>zeros</code>.
+The three most common functions for creating arrays are `zeros`, `ones`, and `zeros`.
 
-<code>zeros</code> creates an array of a given size with all elements set to 0.
+`zeros` creates an array of a given size with all elements set to 0.
 
 ```Python
 import numpy as np
@@ -2683,7 +2682,7 @@ print(A)
 # [0. 0. 0. 0.]]
 ```
 
-<code>ones</code> creates an array of a given size with all elements set to 1.
+`ones` creates an array of a given size with all elements set to 1.
 
 ```Python
 import numpy as np
@@ -2696,7 +2695,7 @@ print(A)
 # [1. 1. 1. 1.]]
 ```
 
-<code>empty</code> creates an array of a given size with arbitrary values. The advantage of using this function is that it will execute faster - when an array is created using <code>zeros</code> or <code>ones</code>, the program needs to do two things (1) find memory to store the array values and (2) set all of the values. With <code>empty</code>, step (2) is skipped and the values that appear depend on what was located in the allocated memory slots previously.
+`empty` creates an array of a given size with arbitrary values. The advantage of using this function is that it is faster than `ones` and `zeros` -- when an array is created using `zeros` or `ones`, the program needs to do two things (1) find memory to store the array values and (2) set all of the values. With `empty`, step (2) is skipped and the values that appear depend on what was located in the allocated memory slots previously.
 
 ```Python
 import numpy as np
@@ -2708,7 +2707,9 @@ print(A) # Ouptut will vary
 
 ## Initializing Arrays
 
-With NaNs ### Arrays can be initialized with values other than zero and one. Probably the safest approach is to start with an ndarray of all NaN (Not-a-Number) values:
+### With NaNs
+
+Arrays can be initialized with values other than zero and one. Probably the safest approach is to start with an ndarray of all NaN (Not-a-Number) values:
 
 ```Python
 import numpy as np
@@ -2717,7 +2718,7 @@ print(A)
 # [nan nan nan]
 ```
 
-The motivation for initialization with NaNs is that coding errors become more obvious. The following program intends to set a value to each element in an array and then print the sum, but there is an error so that the last value is never set. When executed, the sum <code>nan</code> is printed:
+The motivation for initialization with NaNs is that coding errors become more obvious. The following program intends to set a value to each element in an array and then print the sum, but there is an error so that the last value is never set. When executed, the sum `nan` is printed:
 
 ```Python
 import numpy as np
@@ -2727,7 +2728,7 @@ for i in range(len(A)-1): # Error is that this should be len(A)
 print(np.sum(A)) # nan - you know something went wrong
 ```
 
-In contrast, if the values of <code>A</code> were initialized to zero, this coding error may not have been noticed:
+In contrast, if the values of `A` were initialized to zero, this coding error may not have been noticed:
 
 ```Python
 import numpy as np
@@ -2752,20 +2753,20 @@ A[:] = numpy.nan # Set each element to NaN
 
 ###  With Equally Spaced Values
 
-The functions <code>arange</code> [https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html] and <code>linspace</code> [https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html] are both used to create an 1-D ndarray with equally spaced values. 
+The functions `arange` [https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html] and `linspace` [https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html] are both used to create an 1-D ndarray with equally spaced values. 
 
 Either of the two functions can be used to create arrays with equally spaced values, but the NumPy documentation recommends that
-* <code>arange</code> should only be used to create an ndarray with integer values, e.g., <code>[1., 2., 3.]</code>
-* <code>linspace</code> should be used to create an ndarray with non-integer values, e.g., <code>[0.1, 0.2, 0.]</code>
+* `arange` should only be used to create an ndarray with integer values, e.g., `[1., 2., 3.]`
+* `linspace` should be used to create an ndarray with non-integer values, e.g., `[0.1, 0.2, 0.]`
 
 Important:
 * stop values are exclusive for arange (last value is stop-1)
 * stop values are inclusive for linspace (last value is stop)
 
-<code>arange</code>
-1. <code>arange(stop)</code> Gives <code>[0, 1, ..., stop-1]</code>
-2. <code>arange(start, stop)</code> Gives <code>[start, start+1, ..., stop-1]</code>. <code>stop > start</code> is required to give non-empty result
-3. <code>arange(start, stop, step)</code> When <code>step</code> is given, <code>start</code> and/or <code>stop</code> can be negative, as can <code>step</code>.
+`arange`
+1. `arange(stop)` Gives `[0, 1, ..., stop-1]`
+2. `arange(start, stop)` Gives `[start, start+1, ..., stop-1]`. `stop > start` is required to give non-empty result
+3. `arange(start, stop, step)` When `step` is given, `start` and/or `stop` can be negative, as can `step`.
 
 ```Python
 print(np.arange(5))        # [0 1 2 3 4]
@@ -2780,9 +2781,9 @@ print(np.arange(0, -10, -2)) # [6 4 2]
 print(np.arange(-6, -9, -1)) # [-6 -7 -8]
 ```
 
-<code>linspace</code>
-1. <code>linspace(start, stop)</code> Gives 50 equally spaced values with a first value of <code>start</code> and last value of <code>stop</code>.
-2. <code>linspace(start, stop, num)</code> Gives <code>num</code> equally spaced values with a first value of <code>start</code> and last value of <code>stop</code>.
+`linspace`
+1. `linspace(start, stop)` Gives 50 equally spaced values with a first value of `start` and last value of `stop`.
+2. `linspace(start, stop, num)` Gives `num` equally spaced values with a first value of `start` and last value of `stop`.
 
 ```Python
 print(np.linspace(0, 1, 5))  # [0.   0.25 0.5  0.75 1.]
@@ -2813,18 +2814,15 @@ B = 0.1*np.arange(0, 6)
 
 ###  With Random Numbers
 
-See also [https://docs.scipy.org/doc/numpy-1.15.1/reference/routines.random.html].
+See also [NumPy random documentation](https://docs.scipy.org/doc/numpy-1.15.1/reference/routines.random.html).
 
 Sometimes one wants to use an array in which its values are based on a draw from a statistical distribution, such as a uniform or Gaussian ("normal") distribution.
 
-To create a 100-element array with numbers drawn by selecting a random floating point in the half-open interval [0, 1.0), use <code>rand</code>:
+#### Gaussian ("Normal")
 
-```Python
-A = np.random.rand(100)
-print(np.mean(A)) # Should be close to 0.5
-```
+`randn` and `random.normal`
 
-To create a 100-element array with numbers drawn by selecting a random floating point value from a Gaussian ("normal") distribution with a mean of 1.0 and standard deviation of 1.0, use <code>randn</code>:
+To create a 100-element array with numbers drawn by selecting a random floating point value from a Gaussian ("normal") distribution with a mean of 1.0 and standard deviation of 1.0, use `randn`:
 
 ```Python
 A = np.random.randn(100)
@@ -2832,7 +2830,36 @@ print(np.mean(A)) # Should be close to 0.0
 print(np.std(A)) # Should be close to 1.0
 ```
 
-To create a 100-element array with numbers drawn by randomly selecting an integer in a specified range, use <code>randint</code>.
+More generally, use `np.random.normal(mean, std, size=N)` to generate an array of size `N` with values drawn from a Gaussian with mean of `mean` and standard deviation of `std`.
+
+```Python
+mu = 100
+std = 10
+n = 200
+np.random.normal(mu, std, size=n)
+```
+
+Multidimensional arrays can also be created
+
+```Python
+A = np.random.randn(3, 4)
+print(A.shape) # (3, 4)
+```
+
+#### Uniform
+
+`rand` and `randint`
+
+To create a 100-element array with numbers drawn by selecting a random floating point in the half-open interval [0, 1.0), use `rand`:
+
+```Python
+A = np.random.rand(100)
+print(np.mean(A)) # Should be close to 0.5
+```
+
+`randint`
+ 
+To create a 100-element array with numbers drawn by randomly selecting an integer in a specified range, use `randint`.
 
 ```Python
 A = np.random.randint(0, 101, (100, )) # Possible values are 0, 1, ..., 1000
@@ -2845,14 +2872,11 @@ Multidimensional arrays can also be created
 A = np.random.rand(3, 4)
 print(A.shape) # (3, 4)
 
-A = np.random.randn(3, 4)
-print(A.shape) # (3, 4)
-
 A = np.random.randint(0, 101, (3, 4))
 print(A.shape) # (3, 4)
 ```
 
-The way in which the shape of the array is specified for <code>randint</code> differs from <code>rand</code> and <code>randn</code>. The following all create a \(M\times N\times L\) array with random numbers
+The way in which the shape of the array is specified for `randint` differs from `rand` and `randn`. The following all create a $M\times N\times L$ array with random numbers
 
 ```Python
 M = 3
@@ -2863,9 +2887,9 @@ A = np.random.randn(M, N, L)
 A = np.random.randint(0, 101, (M, N, L))
 ```
 
-In the case of <code>randint</code>, the shape of the desired array is specified using a tuple.
+In the case of `randint`, the shape of the desired array is specified using a tuple.
 
-## Accessing and Modifying Elements
+## Accessing Elements
 
 ### 1-D
 
@@ -2887,40 +2911,9 @@ print(x[0:2])
 # [11 12]
 ```
 
-The syntax for modifying NumPy `ndarray`s is similar to that was used for lists:
-
-```Python
-import numpy as np
-t = np.zeros(5)
-for i in range(5):
-    t[i] = i
-print(t)
-# [0. 1. 2. 3. 4.]
-```
-
-The above example is not how you would use NumPy to create the <code>t</code> ndarray. There is a function for creating an array called <code>np.linspace</code> that would be used so that a <code>for</code> loop is not needed.
-
-The above can be compared with the method that would be used to create <code>t</code> using lists.
-
-```Python
-# List method 1
-t = []
-for i in range(5):
-    t.append(i)
-print(t)
-# [0, 1, 2, 3, 4]
-
-# List method 2. - Modify an existing list
-t = [0, 0, 0, 0, 0]
-for i in range(5):
-    t[i] = i
-print(t)
-# [0, 1, 2, 3, 4]
-```
-
 ### 2-D
 
-For 2-D and higher dimensions, NumPy uses a different syntax. To access element <code>i, j</code> of a NumPy `ndarray` <code>A</code>, use <code>A[i, j]</code>. This syntax will not work for a 2-D list.
+For 2-D and higher dimensions, NumPy uses a different syntax than that used for Python lists. To access element `i, j` of a NumPy `ndarray` `A`, use `A[i, j]`. This syntax will not work for a 2-D list.
 
 ```Python
 import numpy as np
@@ -2971,11 +2964,61 @@ print(x)
 # 1 2 16
 ```
 
+## Modifying Elements
+
+### 1-D
+
+The syntax for modifying a 1-D NumPy `ndarray`s is similar to that was used for lists:
+
+```Python
+import numpy as np
+t = np.zeros(5)
+for i in range(5):
+    t[i] = i
+print(t) # [0. 1. 2. 3. 4.]
+
+# Same as above but without a for loop
+t = np.lispace(0,5)
+print(t) # [0. 1. 2. 3. 4.]
+```
+
+The above can be compared with the method that would be used to create and modify `t` using lists.
+
+```Python
+# Create a list
+t = []
+for i in range(5):
+    t.append(0)
+print(t)
+# [0, 0, 0, 0, 0]
+
+# Modify an existing list
+for i in range(5):
+    t[i] = i
+print(t)
+# [0, 1, 2, 3, 4]
+```
+
+### 2-D
+
+## Finding Elements
+
+
 # Statistics
 
-https://realpython.com/python-statistics/
+See also [Real Python's Statistics Page](https://realpython.com/python-statistics/)
 
-# Sampling
+## Histograms
+
+
+
+# HW 1 preliminaries
+
+## Drawing values from a distribution
+
+## Plotting histograms
+
+## Finding values
 
 See [[F19/Sampling]].
 
@@ -2999,10 +3042,3 @@ See [[File_IO]].
 # Regression
 
 See [[Regression]].
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTc3OTYwMTYsMTQyODMzNTYwMSwtMT
-k1NTQ2MDgwMSwxOTk1OTk4NDgxLDE5OTE0NzE1NTYsMTU1MDA5
-MTc4OCwtMjA4OTYxNDYxMSwxMzgzMTA2NjQ1LDY5OTI2Njc1NS
-wxMzMyMDQwNDgxLC0xODQzOTExOTA5XX0=
--->

@@ -1,16 +1,3 @@
-# HW 1 preliminaries
-
-## Drawing values from a distribution
-
-## Plotting histograms
-
-## Finding values
-
-## File naming conventions
-
-## Making sure I can run your code
-
-
 # HW 1
 
 This homework involves the Law of Large Numbers, confidence intervals, and the Central Limit Theorem. You do not need to fully understand the statistical theory behind these problems. 
@@ -25,10 +12,10 @@ $$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
 
 will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$.
 
-For a more formal definition of the Law of Large Numbers and proofs, see
-* [Orloff and Bloom, Class 6]
-* [Bulmer, Chapter 6]
-* [DeGroot Chapter 6]
+If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see
+* [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
+* Bulmer, Chapter 6 (see Piazza)
+* DeGroot, Chapter 6 (see Piazza)
 
 ## Law of Large Numbers I
 
@@ -61,4 +48,8 @@ I select $n=100$ men at random from the U.S. population and compute the average 
 Describe the program that you would write to determine the liklihood. If you have done hypothesis testing before, don't use any of it's terminology or techniques.
 
 Save your answer in a file named `HW1_2.txt` or `HW1_2.pdf`.
+
+## Histograms
+
+
 
