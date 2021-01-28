@@ -23,7 +23,7 @@
 # Motivation
 
 *   Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.
-*   Many of our graduate students are working on data-intensive research problems.
+*   Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.
 *   Many BS, MS, and PhD students have not had a traditional statistics course as an undergraduate.
 
 # Methods of Instruction
@@ -32,7 +32,7 @@
 * You will be asked to participate in class discussions during class and on Piazza. Talking and writing about statistics will help you understand statistics.
 * Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solution during class and for other students to comment.
 *   I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
-    *  As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analysis and presents results.
+    *  As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.
 
 # Programming
 
