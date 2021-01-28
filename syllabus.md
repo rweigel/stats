@@ -76,11 +76,11 @@ In the [References](#references) section of this syllabus, many additional refer
 *   Discussion of Chapter 1 of Wall and Jenkins
 *   Python IDEs and [Google Colab](https://colab.research.google.com/) introduction
 *   Review of Python
-*   [HW #1](hw#hw-1) comments; due before the next class starts.
+*   HW #1 comments; due before the next class starts.
 
 ## February 4th
-- [HW #1](hw#hw-1) due before class starts
-- [HW #1](hw#hw-1) discussion
+- HW #1 due before class starts
+- HW #1 discussion
 - Basic Concepts in Probability
 
 ## February 11th
