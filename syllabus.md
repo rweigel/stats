@@ -30,7 +30,7 @@
 
 * In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.
 * You will be asked to participate in class discussions during class and on Piazza. Talking and writing about statistics will help you understand statistics.
-* Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solution during class and for other students to comment.
+* Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.
 *   I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
     *  As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.
 
@@ -65,14 +65,14 @@ In the [References](#references) section of this syllabus, many additional refer
 
 * Introductions
 * Brief introduction to course
-* Discussion of topics on syllabus
+* Discussion of topics on the syllabus
 * **Course Logistics**; I will go over the following on the first day of class. You do not need to do anything before then.
     * Make sure that you can log on to Piazza. You should have received an email from Piazza before the start of the first class.
     * Create a GitHub account with your GMU username (the name in your email address, lowercase) and a repository named `astrostats` (lowercase). Give `rweigel` read/write permissions. If you already have a GitHub user id and would like to use it, send me it.
     * During class discussion, I will ask you to turn on your webcam. Please let me know if you have an issue with this (e.g., you are working in a room with a family in the background or are calling in from a locker room).
 *   **Course comments**
     * Approximately 1/2 of the students in this class are undergraduates, the other 1/2 are graduates. We did this because this is the first time that the course has been taught. There will be an adjustment period as I figure out how best to handle differentials in experience with statistics, programming, and data analysis.
-    * Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students doing research in astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.
+    * Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.
 *   Discussion of Chapter 1 of Wall and Jenkins
 *   Python IDEs and [Google Colab](https://colab.research.google.com/) introduction
 *   Review of Python
@@ -82,13 +82,9 @@ In the [References](#references) section of this syllabus, many additional refer
 - [HW #1](hw#hw-1) due before class starts
 - [HW #1](hw#hw-1) discussion
 - Basic Concepts in Probability
-- [HW #2](hw#hw-2) comments; due before the next class starts.
-   
+
 ## February 11th
-- [HW #2](hw#hw-2) due before class starts
-- [HW #2](hw#hw-2) discussion
 - Bayes' Theorem Applications
-- [HW #3](hw#hw-3) comments; due before the next class starts.
 
 ## February 18th
 
@@ -217,7 +213,7 @@ If you have a disability and need academic accommodations, please contact Disabi
 
 ## Diversity and Inclusion
 
-We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age and ability. We encourage all members of the learning environment to engage with the material personally, but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at https://universitypolicy.gmu.edu/policies/non-discrimination-policy/.
+We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at https://universitypolicy.gmu.edu/policies/non-discrimination-policy/.
 
 ## Communication
 
