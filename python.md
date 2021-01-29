@@ -3054,7 +3054,7 @@ N = len(B)
 
 The above is equivalent to the following
 
-```
+```Python
 import numpy as np
 A = np.array([1,2,3,4,5])
 idx = np.empty(np.shape(A), dtype=np.bool)
@@ -3073,9 +3073,27 @@ print(B)        # [1 2]
 print(len(B))   # 2
 ```
 
+Alternatively, `np.where` can be used. The syntax is
+
+```
+np.where(condition, value if condition true, value if condition false)
+```
+
+The problem solved earlier using `np.where` is
+
+```Python
+import numpy as np
+A = np.array([1, 2, 3, 4, 5])
+B = np.where( A < 3, 1, 0)
+# In locations where A  < 3, B will have the value of 1
+# In locations where A >= 3, B will have the value of 0
+print(B)        # [1,1,0,0,0]
+print(sum(B))   # 2
+```
+
 # Statistics
 
-See also [Real Python's Statistics Page](https://realpython.com/python-statistics/)
+See also [Real Python's Statistics Page](https://realpython.com/python-statistics/) and [Random Number Generators](https://www.math.utah.edu/~alfeld/Random/Random.html).
 
 ## Histograms
 
@@ -3087,8 +3105,8 @@ The syntax for the histogram function in Matplotlib is demonstrated in this exam
 import matplotlib.pyplot as plt
 import numpy as np
 
-mu = 80
-sigma = 7
+mu = 80.
+sigma = 7.
 n = 2000
 x = np.random.normal(mu, sigma, size=n)
 
