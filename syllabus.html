@@ -262,7 +262,7 @@
         <li> <strong>Instructor</strong>: Bob Weigel</li>
         <li> <strong>Email</strong>: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></li>
         <li> <strong>Office Hour</strong>: Thursday 3:30-4:30 pm.</li>
-        <li> <strong>Course URL</strong>: <a href="http://bobweigel.net/astro590">http://bobweigel.net/astro590</a></li>
+        <li> <strong>Course URL</strong>: <a href="http://rweigel.github.io/astrostats">http://bobweigel.net/astro590</a></li>
         <li> <strong>Credits</strong>: 3 (Lecture)</li>
         <li><strong>Prerequisites</strong>:<ul>
             <li> 390: Grade of B or higher in PHYS 251 or permission of instructor;</li>
@@ -287,6 +287,7 @@
       <h1><a name="methods-of-instruction" number="3." raw="# Methods of Instruction" class="hanchor" href="#methods-of-instruction">3. Methods of Instruction</a></h1>
       <ul>
         <li>In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.</li>
+        <li>I usually have you do a reading and basic follow-up problems before I discuss a topic in class. I find content that I present “sticks” if students have experiemented with the concepts before I discuss them.</li>
         <li>You will be asked to participate in class discussions during class and on Piazza. Talking and writing about statistics will help you understand statistics.</li>
         <li>Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.</li>
         <li>I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.<ul>
@@ -310,7 +311,7 @@
       <p>Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | <a href="https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492">Amazon</a> | <a href="https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html">Author’s web page</a> |</p>
       <p>This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I’ll typically provide two references that explain the background material.</p>
       <p>Two general references on statistics that I highly recommend are</p>
-      <ol start="65">
+      <ol start="66">
         <li>Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in and parsimonious manner. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for ~$5.00.</li>
         <li>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors. | <a href="https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527">Amazon</a> |</li>
       </ol>
@@ -348,11 +349,32 @@
             <li>Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.</li>
           </ul>
         </li>
-        <li> Discussion of Chapter 1 of Wall and Jenkins</li>
         <li> Python IDEs and <a href="https://colab.research.google.com/">Google Colab</a> introduction</li>
         <li> Review of Python</li>
-        <li> <a href="hw.html#hw-1">HW #1</a> comments; due before the next class starts.</li>
+        <li> <a href="python.html#numpy">Review of Python/NumPy</a> (and MATLAB, if needed) </li>
+        <li> <a href="hw.html">HW #1</a> discussion</li>
       </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </div>
@@ -363,8 +385,6 @@
         <li>HW #1 discussion</li>
         <li>Basic Concepts in Probability</li>
       </ul>
-
-
 
     </div>
     <div class="section">
@@ -420,7 +440,7 @@
     </div>
     <div class="section">
       <h2><a name="python" number="8.1." raw="## Python" class="hanchor" href="#python">8.1. Python</a></h2>
-      <ol start="153">
+      <ol start="154">
         <li>NumPy</li>
         <li>Random number generators</li>
         <li>Data Visualization</li>
@@ -429,7 +449,7 @@
     </div>
     <div class="section">
       <h2><a name="basic-concepts-in-probability" number="8.2." raw="## Basic Concepts in Probability" class="hanchor" href="#basic-concepts-in-probability">8.2. Basic Concepts in Probability</a></h2>
-      <ol start="161">
+      <ol start="162">
         <li>Mathematical, Frequentist, and Bayesian probabilities</li>
         <li>Conditional probability</li>
         <li>Bayes’ theorem</li>
@@ -441,7 +461,7 @@
     </div>
     <div class="section">
       <h2><a name="elements-of-statistics" number="8.3." raw="## Elements of Statistics" class="hanchor" href="#elements-of-statistics">8.3. Elements of Statistics</a></h2>
-      <ol start="172">
+      <ol start="173">
         <li>Expectation, mean, variance, and bias</li>
         <li>Random variables, distributions, quantiles, mean, variance</li>
         <li>Joint distributions, covariance, correlation, independence</li>
@@ -453,7 +473,7 @@
     </div>
     <div class="section">
       <h2><a name="hypothesis-tests" number="8.4." raw="## Hypothesis Tests" class="hanchor" href="#hypothesis-tests">8.4. Hypothesis Tests</a></h2>
-      <ol start="183">
+      <ol start="184">
         <li>Frequentist</li>
         <li>Bayesian</li>
         <li>Bootstrap and Jackknife</li>
@@ -462,7 +482,7 @@
     </div>
     <div class="section">
       <h2><a name="parameter-estimation-basic" number="8.5." raw="## Parameter Estimation - Basic" class="hanchor" href="#parameter-estimation-basic">8.5. Parameter Estimation - Basic</a></h2>
-      <ol start="191">
+      <ol start="192">
         <li>Least-squares</li>
         <li>Maximum likelihood</li>
       </ol>
@@ -470,7 +490,7 @@
     </div>
     <div class="section">
       <h2><a name="parameter-estimation-advanced" number="8.6." raw="## Parameter Estimation - Advanced" class="hanchor" href="#parameter-estimation-advanced">8.6. Parameter Estimation - Advanced</a></h2>
-      <ol start="198">
+      <ol start="199">
         <li>Linear models</li>
         <li>Nonlinear models</li>
         <li>The EMCEE Markov chain Monte Carlo Python library</li>
@@ -484,7 +504,7 @@
     </div>
     <div class="section">
       <h2><a name="general" number="9.1." raw="## General" class="hanchor" href="#general">9.1. General</a></h2>
-      <ol start="210">
+      <ol start="211">
         <li>Principles of Statistics, M.G. Bulmer - A short Dover book that covers fundamental statistical topics in and parsimonious manner. Available on Amazon for $3.00.</li>
         <li>Many of the topics covered in this course are covered in the MIT OCW course <a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/">Introduction to Probability and Statistics</a>. </li>
         <li>Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg - Covers basics of uncertainty and error analysis at Freshman physics lab level. Very good but very expensive (&gt; $100 on Amazon).</li>
@@ -498,7 +518,7 @@
     </div>
     <div class="section">
       <h2><a name="bayes" number="9.2." raw="## Bayes" class="hanchor" href="#bayes">9.2. Bayes</a></h2>
-      <ol start="223">
+      <ol start="224">
         <li>Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students. </li>
         <li>Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas</li>
         <li>Bayes’ Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone</li>
@@ -512,7 +532,7 @@
     </div>
     <div class="section">
       <h2><a name="astronomy" number="9.3." raw="## Astronomy  " class="hanchor" href="#astronomy">9.3. Astronomy</a></h2>
-      <ol start="236">
+      <ol start="237">
         <li>Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</li>
         <li>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, <a href="https://arxiv.org/abs/1710.06068">https://arxiv.org/abs/1710.06068</a></li>
         <li>Bayesian Methods for the Physical Sciences: Learning from Examples in Astronomy and Physics (2015), S. Andreon and B. Weaver.</li>
@@ -525,7 +545,7 @@
     </div>
     <div class="section">
       <h2><a name="software" number="9.4." raw="## Software" class="hanchor" href="#software">9.4. Software</a></h2>
-      <ol start="248">
+      <ol start="249">
         <li><a href="http://greenteapress.com/thinkstats2/html/thinkstats2010.html">Think Stats</a> - A free book that demonstrates standard statistical calculations in Python.</li>
         <li><a href="https://arxiv.org/pdf/1202.3665.pdf">EMCEE Overview</a>
           <a href="https://emcee.readthedocs.io/en/stable/">EMCEE software documentation</a>
@@ -553,7 +573,8 @@
     </div>
     <div class="section">
       <h2><a name="communication" number="10.4." raw="## Communication" class="hanchor" href="#communication">10.4. Communication</a></h2>
-      <p>Students must use their MasonLive email account to receive important University information, including communications related to this course. I will not respond to messages sent from or send messages to a non-Mason email address.</p>
+      <p>If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. </p>
+      <p>If you need to send communicate with me about something private, please send it to <code>rweigel@gmu.edu</code> from your MasonLive email address.</p>
 
     </div>
     <div class="section">

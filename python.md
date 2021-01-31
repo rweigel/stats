@@ -2586,10 +2586,8 @@ print(A.shape) # (3, )
 
 Based on the matrix example, where `M.shape = (2, 3)`, one may have expected `A.shape` to be `(3)` instead of `(3, )`. The short explanation is that the `(3, )` can generally be interpreted as meaning the same as `(3)` and the trailing comma can be ignored.
 
-{| class="wikitable collapsible collapsed"
-! align="left" |&nbsp;Long answer
-|-
-|
+<details>
+<summary>Long answer</summary>
 The trailing comma is returned in the tuple for the shape of a 1-D array because 
 
 1. a tuple with one element such as `(3)` is the same thing as `3` in Python and
@@ -2613,7 +2611,7 @@ As a compromise, the unintuitive notation `(3, )` is used for the shape of 1-D N
 See also [https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences].
 
 The reason that the Python interpreter can't conclude `(3)` is a tuple is in math operations is it is acceptable to wrap a number in parenthesis and so I expect `(3)*1` to mean `3*1` and not a tuple times a scalar.
-|}
+</summary>
 
 ## Array Size
 
@@ -2661,7 +2659,7 @@ A = np.array([1, 2, 3], dtype=np.float64)
 print(A.dtype) # float64
 ```
 
-There are many other possible `dtype`s [https://docs.scipy.org/doc/numpy/user/basics.types.html]. In general, using `np.float64` is the safest choice.
+There are many other possible `dtype`s -- see the [NumPy documentation](https://docs.scipy.org/doc/numpy/user/basics.types.html). In general, using `np.float64` is the safest choice.
 
 ## Creating Arrays
 
@@ -2709,7 +2707,7 @@ print(A) # Ouptut will vary
 
 ### With NaNs
 
-Arrays can be initialized with values other than zero and one. Probably the safest approach is to start with an ndarray of all NaN (Not-a-Number) values:
+Arrays can be initialized with values other than zero and one. Probably the safest approach is to start with an `ndarray` of all NaN (Not-a-Number) values:
 
 ```Python
 import numpy as np
@@ -2738,7 +2736,7 @@ for i in range(len(A)-1): # Error is that this should be len(A)
 print(np.sum(A)) # 3, but should be 7
 ```
 
-There are other initialization methods that should be considered if execution speed is a concern [https://stackoverflow.com/questions/1704823/initializing-numpy-matrix-to-something-other-than-zero-or-one], e.g.,
+There are [other initialization methods](https://stackoverflow.com/questions/1704823/initializing-numpy-matrix-to-something-other-than-zero-or-one) that should be considered if execution speed is a concern, e.g.,
 
 ```Python
 import numpy as np
@@ -2753,7 +2751,7 @@ A[:] = numpy.nan # Set each element to NaN
 
 ###  With Equally Spaced Values
 
-The functions `arange` [https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html] and `linspace` [https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html] are both used to create an 1-D ndarray with equally spaced values. 
+The functions [`arange`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) and [`linspace`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html) are both used to create an 1-D `ndarray` with equally spaced values. 
 
 Either of the two functions can be used to create arrays with equally spaced values, but the NumPy documentation recommends that
 * `arange` should only be used to create an ndarray with integer values, e.g., `[1., 2., 3.]`
@@ -2796,7 +2794,8 @@ print(np.linspace(0, 5, 6))  # [0. 1. 2. 3. 4. 5.]
 print(np.linspace(0, -5, 6)) # [0. -1. -2. -3. -4. -5.]
 ```
 
-'''Example'''
+**Example**
+
 ```Python
 # Create B = [0, 0.1, 0.2, 0.3, 0.4, 0.5] using a for loop
 B = np.zeros(6)
@@ -2968,6 +2967,8 @@ print(x)
 
 ### 1-D
 
+#### With Loop
+
 The syntax for modifying a 1-D NumPy `ndarray`s is similar to that was used for lists:
 
 ```Python
@@ -2975,10 +2976,6 @@ import numpy as np
 t = np.zeros(5)
 for i in range(5):
     t[i] = i
-print(t) # [0. 1. 2. 3. 4.]
-
-# Same as above but without a for loop
-t = np.lispace(0,5)
 print(t) # [0. 1. 2. 3. 4.]
 ```
 
@@ -2999,46 +2996,132 @@ print(t)
 # [0, 1, 2, 3, 4]
 ```
 
+#### Without Loop
+
+```
+import numpy as np
+
+a = np.array([1,2,3,4,5,6,7,8,9,10], dtype=np.float)
+
+a[0:3] = 99 # Set value of elements 0, 1, 2 to 99
+print(a)    # [99. 99. 99.  4.  5.  6.  7.  8.  9. 10.]
+
+a[ a >= 99 ] = np.nan # Replace 99s with np.nan
+
+print(a)    # [nan nan nan  4.  5.  6.  7.  8.  9. 10.]
+
+print(np.nansum(a))
+```
+
 ### 2-D
+
+```
+import numpy as np
+
+A = np.array([[1,2,3],[4,5,6]], dtype=np.float)
+
+print(A.size)   # 6
+print(A.shape)  # (2, 3)
+
+A[0,1:3] = 99   # Set values in row 0, columns 1 and 2 to 99
+
+print(A)
+
+# [[ 1. 99. 99.]
+# [ 4.  5.  6.]]
+```
 
 ## Finding Elements
 
+An example of finding elements is
+
+```Python
+import numpy as np
+A = np.array([1,2,3,4,5])
+idx = A < 3
+print(idx)      # [True True False False False]
+B = A[idx]
+print(B)        # [1 2]
+```
+
+If only the number of elements in `A` that match the constraint is desired, any of the following can be used
+
+```Python
+N = np.sum(idx)             # True is treated as 1, False as 0
+N = len(idx[idx == True])
+N = len(B)
+```
+
+The above is equivalent to the following
+
+```Python
+import numpy as np
+A = np.array([1,2,3,4,5])
+idx = np.empty(np.shape(A), dtype=np.bool)
+B = []
+for i in range(A.size):
+    if A[i] < 3:
+        B.append(A[i])
+        idx[i] = True
+    else:
+        idx[i] = False
+
+B = np.array(B)
+
+print(idx)      # [True True False False False]
+print(B)        # [1 2]
+print(len(B))   # 2
+```
+
+Alternatively, `np.where` can be used. The syntax is
+
+```
+np.where(condition, value if condition true, value if condition false)
+```
+
+The problem solved earlier using `np.where` is
+
+```Python
+import numpy as np
+A = np.array([1, 2, 3, 4, 5])
+B = np.where( A < 3, 1, 0)
+# In locations where A  < 3, B will have the value of 1
+# In locations where A >= 3, B will have the value of 0
+print(B)        # [1,1,0,0,0]
+print(sum(B))   # 2
+```
 
 # Statistics
 
-See also [Real Python's Statistics Page](https://realpython.com/python-statistics/)
+See also [Real Python's Statistics Page](https://realpython.com/python-statistics/) and [Random Number Generators](https://www.math.utah.edu/~alfeld/Random/Random.html).
 
 ## Histograms
 
+See also [Matplotlib's documentation on the histogram function](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
+
+The syntax for the histogram function in Matplotlib is demonstrated in this example.
+
+```Python
+import matplotlib.pyplot as plt
+import numpy as np
+
+mu = 80.
+sigma = 7.
+n = 2000
+x = np.random.normal(mu, sigma, size=n)
 
 
-# HW 1 preliminaries
+# Default; Should almost never use. Default bin choices are usually poor.
+plt.hist(x)
 
-## Drawing values from a distribution
-
-## Plotting histograms
-
-## Finding values
-
-See [[F19/Sampling]].
-
-# Forward Euler
-
-See [[Forward_Euler]].
-
-# Runge Kutta
-
-See [[Runge_Kutta]].
-
-# Numerical Integration
-
-See [[Numerical_Integration]].
-
-# File IO
-
-See [[File_IO]].
-
-
-# Regression
-
-See [[Regression]].
+# Expected peak is at 80. Create bins with edges at 45, 47, ..., 113
+# so that centers are at 46, 48, ..., 80, ..., 112
+plt.figure()
+bins = np.arange(45,115,2)
+print(bins)
+plt.grid(axis='y')
+plt.hist(x, bins=bins)
+plt.title('$\mu= %.2f$, $n=%d$, $\overline{X} = $ %.2f' % (mu, n, np.mean(x)))
+plt.xlabel('$X$')
+plt.ylabel('# in bin')
+```

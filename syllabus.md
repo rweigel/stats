@@ -13,7 +13,7 @@
 *   **Instructor**: Bob Weigel
 *   **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
 *   **Office Hour**: Thursday 3:30-4:30 pm.
-*   **Course URL**: [http://bobweigel.net/astro590](http://bobweigel.net/astro590)
+*   **Course URL**: [http://bobweigel.net/astro590](http://rweigel.github.io/astrostats)
 *   **Credits**: 3 (Lecture)
 *   **Prerequisites**:
     *   390: Grade of B or higher in PHYS 251 or permission of instructor;
@@ -31,6 +31,7 @@
 # Methods of Instruction
 
 * In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.
+* I usually have you do a reading and basic follow-up problems before I discuss a topic in class. I find content that I present "sticks" if students have experiemented with the concepts before I discuss them.
 * You will be asked to participate in class discussions during class and on Piazza. Talking and writing about statistics will help you understand statistics.
 * Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.
 *   I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
@@ -75,10 +76,10 @@ In the [References](#references) section of this syllabus, many additional refer
 *   **Course comments**
     * Approximately 1/2 of the students in this class are undergraduates, the other 1/2 are graduates. We did this because this is the first time that the course has been taught. There will be an adjustment period as I figure out how best to handle differentials in experience with statistics, programming, and data analysis.
     * Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.
-*   Discussion of Chapter 1 of Wall and Jenkins
 *   Python IDEs and [Google Colab](https://colab.research.google.com/) introduction
 *   Review of Python
-*   [HW #1](hw.html#hw-1) comments; due before the next class starts.
+*   [Review of Python/NumPy](python.html#numpy) (and MATLAB, if needed) 
+*   [HW #1](hw.html) discussion
 
 ## February 4th
 - [HW #1](hw.html#hw-1) due before class starts
@@ -219,7 +220,9 @@ We seek to create a learning environment that fosters respect for people across 
 
 ## Communication
 
-Students must use their MasonLive email account to receive important University information, including communications related to this course. I will not respond to messages sent from or send messages to a non-Mason email address.
+If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. 
+
+If you need to send communicate with me about something private, please send it to `rweigel@gmu.edu` from your MasonLive email address.
 
 ## University Resources
 
