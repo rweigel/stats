@@ -20,6 +20,8 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
+**Homeworks** [HW1](hw.html#hw-1)
+
 # Motivation
 
 *   Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.
@@ -76,10 +78,10 @@ In the [References](#references) section of this syllabus, many additional refer
 *   Discussion of Chapter 1 of Wall and Jenkins
 *   Python IDEs and [Google Colab](https://colab.research.google.com/) introduction
 *   Review of Python
-*   HW #1 comments; due before the next class starts.
+*   [HW #1](hw.html#hw-1) comments; due before the next class starts.
 
 ## February 4th
-- HW #1 due before class starts
+- [HW #1](hw.html#hw-1) due before class starts
 - HW #1 discussion
 - Basic Concepts in Probability
 
@@ -200,7 +202,7 @@ The following references are not needed for this course, but you may find them u
 1. [Think Stats](http://greenteapress.com/thinkstats2/html/thinkstats2010.html) - A free book that demonstrates standard statistical calculations in Python.
 1. [EMCEE Overview](https://arxiv.org/pdf/1202.3665.pdf)
  [EMCEE software documentation](https://emcee.readthedocs.io/en/stable/)
- 
+
 # General Policies
 
 ## Academic Integrity
