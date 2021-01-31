@@ -80,7 +80,13 @@ In the [References](#references) section of this syllabus, many additional refer
 *   Review of Python
 *   [Review of Python/NumPy](python.html#numpy) (and MATLAB, if needed) 
 *   [HW #1](hw.html) discussion
-
+*   **Follow-up-notes**
+    1.  The recording is at https://www.youtube.com/watch?v=yxFzL_TD900 In the future, I'll provide a link to a zoom page. This week I had to do it differently because I had to trim off conversations I had after class. 
+    2. A student mentioned `np.where` as an option for finding elements in an `ndarray`. I don't recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I've added an example of its use in my [Python notes](https://rweigel.github.io/astrostats/python.html#finding-elements).
+    3. In the HW, I ask for you to provide written solutions in a `.md` or `.pdf` file. `.md` is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click "Create File", then enter, for example, `HW1_1b.md` and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I'll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.
+    4. I expect that students may encounter issues submitting their first assignment to GitHub. If you have any issues, meet with me before or after class. I won't count assignments as late if you contacted me about a submission issue.
+    5. In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. The [lecture notes](https://www.math.utah.edu/~alfeld/Random/Random.htm) by A. Feld explains the basics of random number generation using very simple algorithms. On HW1, **do not** use `np.random.seed` as I did in class. I'll explain more about when you want to use it the next time that we meet.
+    6. I still can't think of the error I encountered when I created an array using `x = np.array([1,2,3])`, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because `x` is an integer array, show us during the next class period.    
 ## February 4th
 - [HW #1](hw.html#hw-1) due before class starts
 - HW #1 discussion

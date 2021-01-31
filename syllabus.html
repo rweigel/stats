@@ -192,7 +192,7 @@
 
   <div id="toc">
     <ol>
-      <li><a number="1." raw="# Course Information" class="tocanchor highlighted" href="#course-information">Course Information</a></li>
+      <li><a number="1." raw="# Course Information" class="tocanchor" href="#course-information">Course Information</a></li>
       <li><a number="2." raw="# Motivation" class="tocanchor" href="#motivation">Motivation</a></li>
       <li><a number="3." raw="# Methods of Instruction" class="tocanchor" href="#methods-of-instruction">Methods of Instruction</a></li>
       <li><a number="4." raw="# Programming" class="tocanchor" href="#programming">Programming</a></li>
@@ -200,7 +200,7 @@
       <li><a number="6." raw="# Evaluation" class="tocanchor" href="#evaluation">Evaluation</a></li>
       <li><a number="7." raw="# Weekly Schedule" class="tocanchor" href="#weekly-schedule">Weekly Schedule</a></li>
       <ol>
-        <li><a number="7.1." raw="## January 28th" class="tocanchor" href="#january-28th">January 28th</a></li>
+        <li><a number="7.1." raw="## January 28th" class="tocanchor highlighted" href="#january-28th">January 28th</a></li>
         <li><a number="7.2." raw="## February 4th" class="tocanchor" href="#february-4th">February 4th</a></li>
         <li><a number="7.3." raw="## February 11th" class="tocanchor" href="#february-11th">February 11th</a></li>
         <li><a number="7.4." raw="## February 18th" class="tocanchor" href="#february-18th">February 18th</a></li>
@@ -255,7 +255,7 @@
 
     </div>
     <div class="section">
-      <h1><a name="course-information" number="1." raw="# Course Information" class="hanchor highlighted" href="#course-information">1. Course Information</a></h1>
+      <h1><a name="course-information" number="1." raw="# Course Information" class="hanchor" href="#course-information">1. Course Information</a></h1>
       <ul>
         <li> <strong>Day and Time</strong>: Thursday from 4:30 - 7:10 pm</li>
         <li> <strong>Location</strong>: Online</li>
@@ -311,7 +311,7 @@
       <p>Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | <a href="https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492">Amazon</a> | <a href="https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html">Author’s web page</a> |</p>
       <p>This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I’ll typically provide two references that explain the background material.</p>
       <p>Two general references on statistics that I highly recommend are</p>
-      <ol start="66">
+      <ol>
         <li>Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in and parsimonious manner. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for ~$5.00.</li>
         <li>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors. | <a href="https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527">Amazon</a> |</li>
       </ol>
@@ -332,7 +332,7 @@
       <h1><a name="weekly-schedule" number="7." raw="# Weekly Schedule" class="hanchor" href="#weekly-schedule">7. Weekly Schedule</a></h1>
     </div>
     <div class="section">
-      <h2><a name="january-28th" number="7.1." raw="## January 28th" class="hanchor" href="#january-28th">7.1. January 28th</a></h2>
+      <h2><a name="january-28th" number="7.1." raw="## January 28th" class="hanchor highlighted" href="#january-28th">7.1. January 28th</a></h2>
       <ul>
         <li>Introductions</li>
         <li>Brief introduction to course</li>
@@ -353,11 +353,190 @@
         <li> Review of Python</li>
         <li> <a href="python.html#numpy">Review of Python/NumPy</a> (and MATLAB, if needed) </li>
         <li> <a href="hw.html">HW #1</a> discussion</li>
+        <li><strong>Follow-up-notes</strong>
+          <ol>
+            <li> The recording is at <a href="https://www.youtube.com/watch?v=yxFzL_TD900">https://www.youtube.com/watch?v=yxFzL_TD900</a> In the future, I’ll provide a link to a zoom page. This week I had to do it differently because I had to trim off conversations I had after class. </li>
+            <li>A student mentioned <code>np.where</code> as an option for finding elements in an <code>ndarray</code>. I don’t recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I’ve added an example of its use in my <a href="https://rweigel.github.io/astrostats/python.html#finding-elements">Python notes</a>.</li>
+            <li>In the HW, I ask for you to provide written solutions in a <code>.md</code> or <code>.pdf</code> file. <code>.md</code> is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click “Create File”, then enter, for example, <code>HW1_1b.md</code> and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I’ll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.</li>
+            <li>I expect that students may encounter issues submitting their first assignment to GitHub. If you have any issues, meet with me before or after class. I won’t count assignments as late if you contacted me about a submission issue.</li>
+            <li>In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. The <a href="https://www.math.utah.edu/~alfeld/Random/Random.htm">lecture notes</a> by A. Feld explains the basics of random number generation using very simple algorithms. On HW1, <strong>do not</strong> use <code>np.random.seed</code> as I did in class. I’ll explain more about when you want to use it the next time that we meet.</li>
+            <li>I still can’t think of the error I encountered when I created an array using <code>x = np.array([1,2,3])</code>, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because <code>x</code> is an integer array, show us during the next class period. </li>
+          </ol>
+        </li>
       </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
     <div class="section">
       <h2><a name="february-4th" number="7.2." raw="## February 4th" class="hanchor" href="#february-4th">7.2. February 4th</a></h2>
+
+
+
       <ul>
         <li><a href="hw.html#hw-1">HW #1</a> due before class starts</li>
         <li>HW #1 discussion</li>
@@ -418,7 +597,7 @@
     </div>
     <div class="section">
       <h2><a name="python" number="8.1." raw="## Python" class="hanchor" href="#python">8.1. Python</a></h2>
-      <ol start="154">
+      <ol>
         <li>NumPy</li>
         <li>Random number generators</li>
         <li>Data Visualization</li>
@@ -427,7 +606,7 @@
     </div>
     <div class="section">
       <h2><a name="basic-concepts-in-probability" number="8.2." raw="## Basic Concepts in Probability" class="hanchor" href="#basic-concepts-in-probability">8.2. Basic Concepts in Probability</a></h2>
-      <ol start="162">
+      <ol>
         <li>Mathematical, Frequentist, and Bayesian probabilities</li>
         <li>Conditional probability</li>
         <li>Bayes’ theorem</li>
@@ -439,7 +618,7 @@
     </div>
     <div class="section">
       <h2><a name="elements-of-statistics" number="8.3." raw="## Elements of Statistics" class="hanchor" href="#elements-of-statistics">8.3. Elements of Statistics</a></h2>
-      <ol start="173">
+      <ol>
         <li>Expectation, mean, variance, and bias</li>
         <li>Random variables, distributions, quantiles, mean, variance</li>
         <li>Joint distributions, covariance, correlation, independence</li>
@@ -451,7 +630,7 @@
     </div>
     <div class="section">
       <h2><a name="hypothesis-tests" number="8.4." raw="## Hypothesis Tests" class="hanchor" href="#hypothesis-tests">8.4. Hypothesis Tests</a></h2>
-      <ol start="184">
+      <ol>
         <li>Frequentist</li>
         <li>Bayesian</li>
         <li>Bootstrap and Jackknife</li>
@@ -460,7 +639,7 @@
     </div>
     <div class="section">
       <h2><a name="parameter-estimation-basic" number="8.5." raw="## Parameter Estimation - Basic" class="hanchor" href="#parameter-estimation-basic">8.5. Parameter Estimation - Basic</a></h2>
-      <ol start="192">
+      <ol>
         <li>Least-squares</li>
         <li>Maximum likelihood</li>
       </ol>
@@ -468,7 +647,7 @@
     </div>
     <div class="section">
       <h2><a name="parameter-estimation-advanced" number="8.6." raw="## Parameter Estimation - Advanced" class="hanchor" href="#parameter-estimation-advanced">8.6. Parameter Estimation - Advanced</a></h2>
-      <ol start="199">
+      <ol>
         <li>Linear models</li>
         <li>Nonlinear models</li>
         <li>The EMCEE Markov chain Monte Carlo Python library</li>
@@ -482,7 +661,7 @@
     </div>
     <div class="section">
       <h2><a name="general" number="9.1." raw="## General" class="hanchor" href="#general">9.1. General</a></h2>
-      <ol start="211">
+      <ol>
         <li>Principles of Statistics, M.G. Bulmer - A short Dover book that covers fundamental statistical topics in and parsimonious manner. Available on Amazon for $3.00.</li>
         <li>Many of the topics covered in this course are covered in the MIT OCW course <a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/">Introduction to Probability and Statistics</a>. </li>
         <li>Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg - Covers basics of uncertainty and error analysis at Freshman physics lab level. Very good but very expensive (&gt; $100 on Amazon).</li>
@@ -496,7 +675,7 @@
     </div>
     <div class="section">
       <h2><a name="bayes" number="9.2." raw="## Bayes" class="hanchor" href="#bayes">9.2. Bayes</a></h2>
-      <ol start="224">
+      <ol>
         <li>Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students. </li>
         <li>Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas</li>
         <li>Bayes’ Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone</li>
@@ -510,7 +689,7 @@
     </div>
     <div class="section">
       <h2><a name="astronomy" number="9.3." raw="## Astronomy  " class="hanchor" href="#astronomy">9.3. Astronomy</a></h2>
-      <ol start="237">
+      <ol>
         <li>Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</li>
         <li>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, <a href="https://arxiv.org/abs/1710.06068">https://arxiv.org/abs/1710.06068</a></li>
         <li>Bayesian Methods for the Physical Sciences: Learning from Examples in Astronomy and Physics (2015), S. Andreon and B. Weaver.</li>
@@ -523,7 +702,7 @@
     </div>
     <div class="section">
       <h2><a name="software" number="9.4." raw="## Software" class="hanchor" href="#software">9.4. Software</a></h2>
-      <ol start="249">
+      <ol>
         <li><a href="http://greenteapress.com/thinkstats2/html/thinkstats2010.html">Think Stats</a> - A free book that demonstrates standard statistical calculations in Python.</li>
         <li><a href="https://arxiv.org/pdf/1202.3665.pdf">EMCEE Overview</a>
           <a href="https://emcee.readthedocs.io/en/stable/">EMCEE software documentation</a>
