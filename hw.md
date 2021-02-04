@@ -2,7 +2,6 @@
 
 The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems. 
 
-
 ----
 
 The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
@@ -24,7 +23,13 @@ If you are interested, for a more formal definition of the Law of Large Numbers 
 2. Compute $\overline{X}$.
 3. Repeat 1. and 2. $10,000$ times and plot a histogram of $\overline{X}$.
 
-Save your program as `HW1_1a.py`. When I execute your program, I should see a histogram with $\overline{X}$ displayed in the title.
+Save your program as `HW1_1a.py`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title.
+
+<details>
+ See <a href="hws/HW1a.py">HW1a.py</a>.
+ <summary>Answer</summary>
+    <img src="../hws/figures/HW1a.svg"/>
+</details>
 
 ### b
 
@@ -34,7 +39,7 @@ Save your program as `HW1_1a.py`. When I execute your program, I should see a hi
 4. How does $\epsilon$ depend on $n$? <sup>+</sup>
 5. How does your answer change if the distribution changes?
 
-<sup>+</sup> You may explain this using one or more of words, tables, and a plots.
+<sup>+</sup> You may explain this using one or more of words, tables, and plots.
 
 Save your program as `HW1_1b.py`. Save your answers in a file named `HW1_1b.md` or `HW1_1b.pdf`.
 
@@ -44,9 +49,21 @@ This problem is a prelude to the frequentist interpretation of probability and h
 
 I select $n=100$ men at random from the U.S. population and compute the average of their heights. Using only the techniques used in the previous problem, make a statement about the likelihood that the actual U.S. population average is more than 1 inch larger or smaller than the average of the $n$ heights.
 
-Briefly describe a program that you would write to determine the liklihood. If you have done hypothesis testing before, don't use any of it's terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.
+Briefly describe a program that you would write to determine the likelihood. If you have done hypothesis testing before, don't use any of its terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.
 
 Save your answer in a file named `HW1_2.md` or `HW1_2.pdf`.
+
+<details>
+ <summary>Answer</summary>
+
+In this problem, a single sample of $n=100$ was used to compute an average, $\overline{X}_o$ and standard deviation $s_o$. We do not know the population average $\mu$ but want to make a statement (or "inference") about it.
+
+Now do many (say 10,000) experiments of drawing a sample of $100$ values from a gaussian distribution with mean $\overline{X}_o$ and sample standard deviation $s_o$. That is, assume that the actual unknown population distribution has a mean and standard deviation that is equal to that from the sample.
+
+The percentage of $10,000$ experiments that had an $\overline{X}$ that was one inch larger or smaller than $\overline{X}_o$ is our estimate of the likelihood.
+
+The above is the basic process of inferential statistics. However, instead of doing a simulation of 10,000 experiments, one can use a table to look up the expected percentage when an infinite number of experiments are performed.
+</details>
 
 ## Basic Concepts in Probability
 
@@ -57,12 +74,5 @@ Read Chapter 2.1-2.2 of Devore, 2012 ([PDF available on Piazza](https://piazza.c
 3. Define event $A$ to be that the experiment yields two heads. Define event $B$ to be that the experiment yields two tails. What is $A \cup B$ and $A \cap B$?
 
 Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
-
-
-
-
-
-
-
 
 

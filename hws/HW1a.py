@@ -29,9 +29,10 @@ plt.figure()
 # Choose bins so symmetric about 0
 bins = np.arange(-0.425,0.425,0.05)
 print(bins)
-plt.grid(axis='y')
+plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
 plt.hist(Xbar, bins=bins)
 plt.title('$\mu= 0$, $n=%d$, $mean(\overline{X}) = $ %.2g' % (Ne, np.mean(Xbar)))
 plt.xlabel('$\overline{X}$')
 plt.ylabel('# in bin')
 
+plt.savefig("figures/HW1a.svg", format="svg", transparent=True)

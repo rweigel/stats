@@ -8,6 +8,9 @@
   <style>
     body {
       display: flex;
+      height: 100%;
+      overflow: hidden;
+      min-width: 50%;
     }
     
     #toc {
@@ -18,6 +21,7 @@
       overflow-y: scroll;
       padding-left: 0.75em ;
       padding-right: 1em ;
+      font-family: "Open Sans";
     }
     
     #toc ol {
@@ -37,6 +41,10 @@
       padding-left: 1em;
       padding-right: 1em;
       border-left: 1px solid rgb(240,240,240);
+    }
+    
+    #display {
+      font-family: "Open Sans";
     }
     
     .title {
@@ -83,6 +91,14 @@
       text-decoration: none;
     }
     
+    code {
+      font-size: 1.20em;
+    }
+    
+    pre {
+      font-size: 1.2em;
+    }
+    
     /* Fenced code blocks have form <pre><code>...</code></pre> */
     pre > code {
       background-color: rgba(0,0,0,0);
@@ -95,6 +111,7 @@
     
     code.language-Python {
       background-color: rgba(0,0,0,0);
+      font-size: 1.0em;
     }
     
     pre {
@@ -108,13 +125,21 @@
     
     pre.language-Python {
       border-left: 5px solid blue;
-      background-color: rgba(0,0,0,.03);
+      /* background-color: rgba(0,0,0,.03); */
       padding: 0.5em;
       margin-left: 1em;
       margin-right: 1em;
       line-height: 1.5;
     }
     
+    details > summary {
+      font-weight: bold;
+    }
+    
+    details[open] {
+      border: 1px solid black;
+      padding: 1em;
+    }    
     /* 
       A span with class 'katex' wraps all equations. A span with class
       katex-display wraps block equations and a span with class katex.
@@ -166,6 +191,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css">
   </link>
 </head>
@@ -174,12 +200,12 @@
 
   <div id="toc">
     <ol>
-      <li><a target="_parent" number="1." raw="# HW 1" class="tocanchor" href="#hw-1">HW 1</a></li>
+      <li><a target="_parent" number="1." raw="# HW 1" class="tocanchor highlighted" href="#hw-1">HW 1</a></li>
       <ol>
         <li><a target="_parent" number="1.1." raw="## Law of Large Numbers I" class="tocanchor" href="#law-of-large-numbers-i">Law of Large Numbers I</a></li>
         <ol>
           <li><a target="_parent" number="1.1.1." raw="### a" class="tocanchor" href="#a">a</a></li>
-          <li><a target="_parent" number="1.1.2." raw="### b" class="tocanchor highlighted" href="#b">b</a></li>
+          <li><a target="_parent" number="1.1.2." raw="### b" class="tocanchor" href="#b">b</a></li>
         </ol>
         <li><a target="_parent" number="1.2." raw="## Prelude to Hypothesis Testing" class="tocanchor" href="#prelude-to-hypothesis-testing">Prelude to Hypothesis Testing</a></li>
         <li><a target="_parent" number="1.3." raw="## Basic Concepts in Probability" class="tocanchor" href="#basic-concepts-in-probability">Basic Concepts in Probability</a></li>
@@ -188,7 +214,7 @@
   </div>
   <div id="display">
     <div contenteditable="false" class="section">
-      <h1><a target="_parent" name="hw-1" number="1." raw="# HW 1" class="hanchor" href="#hw-1">1. HW 1</a></h1>
+      <h1><a target="_parent" name="hw-1" number="1." raw="# HW 1" class="hanchor highlighted" href="#hw-1">1. HW 1</a></h1>
       <p>The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems. </p>
       <hr>
       <p>The Law of Large Numbers tells us that as <span class="katex"><span class="katex-mathml"><math>
@@ -319,174 +345,6 @@
         <li>DeGroot, Chapter 6 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">Piazza</a>)</li>
       </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
     <div contenteditable="false" class="section">
       <h2><a target="_parent" name="law-of-large-numbers-i" number="1.1." raw="## Law of Large Numbers I" class="hanchor" href="#law-of-large-numbers-i">1.1. Law of Large Numbers I</a></h2>
@@ -567,7 +425,7 @@
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span></span></span></span></span></span></span></span>.</li>
       </ol>
-      <p>Save your program as <code>HW1_1a.py</code>. When I execute your program, I should see a histogram with <span class="katex"><span class="katex-mathml"><math>
+      <p>Save your program as <code>HW1_1a.py</code>. When I execute your program, I should see a histogram with <em><strong>the average of</strong></em> <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mover accent="true">
@@ -582,10 +440,16 @@
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.7633300000000001em;vertical-align:0em;"></span><span class="base"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                             <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                           </svg></span></span></span></span></span></span></span></span></span> displayed in the title.</p>
+      <details>
+        See <a href="hws/HW1a.py">HW1a.py</a>.
+        <summary>Answer</summary>
+        <img src="../hws/figures/HW1a.svg">
+      </details>
+
 
     </div>
     <div contenteditable="false" class="section">
-      <h3><a target="_parent" name="b" number="1.1.2." raw="### b" class="hanchor highlighted" href="#b">1.1.2. b</a></h3>
+      <h3><a target="_parent" name="b" number="1.1.2." raw="### b" class="hanchor" href="#b">1.1.2. b</a></h3>
       <ol>
         <li>For <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -726,7 +590,7 @@
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span>? <sup>+</sup></li>
         <li>How does your answer change if the distribution changes?</li>
       </ol>
-      <p><sup>+</sup> You may explain this using one or more of words, tables, and a plots.</p>
+      <p><sup>+</sup> You may explain this using one or more of words, tables, and plots.</p>
       <p>Save your program as <code>HW1_1b.py</code>. Save your answers in a file named <code>HW1_1b.md</code> or <code>HW1_1b.pdf</code>.</p>
 
     </div>
@@ -752,8 +616,141 @@
                 <annotation encoding="application/x-tex">n</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> heights.</p>
-      <p>Briefly describe a program that you would write to determine the liklihood. If you have done hypothesis testing before, don’t use any of it’s terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.</p>
+      <p>Briefly describe a program that you would write to determine the likelihood. If you have done hypothesis testing before, don’t use any of its terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.</p>
       <p>Save your answer in a file named <code>HW1_2.md</code> or <code>HW1_2.pdf</code>.</p>
+      <details>
+        <summary>Answer</summary>
+
+        <p>In this problem, a single sample of <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>n</mi>
+                    <mo>=</mo>
+                    <mn>1</mn>
+                    <mn>0</mn>
+                    <mn>0</mn>
+                  </mrow>
+                  <annotation encoding="application/x-tex">n=100</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span> was used to compute an average, <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mover accent="true">
+                        <mrow>
+                          <mi>X</mi>
+                        </mrow>
+                        <mo stretchy="true">‾</mo>
+                      </mover>
+                      <mi>o</mi>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\overline{X}_o</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.9133300000000001em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                                <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                              </svg></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and standard deviation <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mi>s</mi>
+                      <mi>o</mi>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">s_o</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>. We do not know the population average <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>μ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> but want to make a statement (or “inference”) about it.</p>
+        <p>Now do many (say 10,000) experiments of drawing a sample of <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mn>1</mn>
+                    <mn>0</mn>
+                    <mn>0</mn>
+                  </mrow>
+                  <annotation encoding="application/x-tex">100</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span> values from a gaussian distribution with mean <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mover accent="true">
+                        <mrow>
+                          <mi>X</mi>
+                        </mrow>
+                        <mo stretchy="true">‾</mo>
+                      </mover>
+                      <mi>o</mi>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\overline{X}_o</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.9133300000000001em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                                <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                              </svg></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and sample standard deviation <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mi>s</mi>
+                      <mi>o</mi>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">s_o</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>. That is, assume that the actual unknown population distribution has a mean and standard deviation that is equal to that from the sample.</p>
+        <p>The percentage of <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mn>1</mn>
+                    <mn>0</mn>
+                    <mo separator="true">,</mo>
+                    <mn>0</mn>
+                    <mn>0</mn>
+                    <mn>0</mn>
+                  </mrow>
+                  <annotation encoding="application/x-tex">10,000</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span> experiments that had an <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mover accent="true">
+                      <mrow>
+                        <mi>X</mi>
+                      </mrow>
+                      <mo stretchy="true">‾</mo>
+                    </mover>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\overline{X}</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.7633300000000001em;vertical-align:0em;"></span><span class="base"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                              <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                            </svg></span></span></span></span></span></span></span></span></span> that was one inch larger or smaller than <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mover accent="true">
+                        <mrow>
+                          <mi>X</mi>
+                        </mrow>
+                        <mo stretchy="true">‾</mo>
+                      </mover>
+                      <mi>o</mi>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\overline{X}_o</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.9133300000000001em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                                <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                              </svg></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> is our estimate of the likelihood.</p>
+        <p>The above is the basic process of inferential statistics. However, instead of doing a simulation of 10,000 experiments, one can use a table to look up the expected percentage when an infinite number of experiments are performed.</p>
+      </details>
+
 
     </div>
     <div contenteditable="false" class="section">
