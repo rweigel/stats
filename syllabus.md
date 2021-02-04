@@ -13,7 +13,7 @@
 *   **Instructor**: Bob Weigel
 *   **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
 *   **Office Hour**: Thursday 3:30-4:30 pm.
-*   **Course URL**: [http://bobweigel.net/astro590](http://rweigel.github.io/astrostats)
+*   **Course URL**: [http://rweigel.github.io/astrostats](http://rweigel.github.io/astrostats)
 *   **Credits**: 3 (Lecture)
 *   **Prerequisites**:
     *   390: Grade of B or higher in PHYS 251 or permission of instructor;
@@ -89,7 +89,7 @@ In the [References](#references) section of this syllabus, many additional refer
     6. I still can't think of the error I encountered when I created an array using `x = np.array([1,2,3])`, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because `x` is an integer array, show us during the next class period.    
 ## February 4th
 - [HW #1](hw.html#hw-1) due before class starts
-- HW #1 discussion
+- HW #1 discussion - Although I'll discuss some of the statistical theory behind the answers, we won't cover it for a few weeks. So if it does not fully make sense, don't worry. Fully digesting the theory requires seeing and working with a few times.
 - Basic Concepts in Probability
 
 ## February 11th
