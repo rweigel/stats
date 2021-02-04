@@ -20,6 +20,8 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
+**Homeworks**: [HW1](hw.html#hw-1)
+
 # Motivation
 
 *   Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.
@@ -75,6 +77,7 @@ In the [References](#references) section of this syllabus, many additional refer
     * Approximately 1/2 of the students in this class are undergraduates, the other 1/2 are graduates. We did this because this is the first time that the course has been taught. There will be an adjustment period as I figure out how best to handle differentials in experience with statistics, programming, and data analysis.
     * Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.
 *   Python IDEs and [Google Colab](https://colab.research.google.com/) introduction
+*   Review of Python
 *   [Review of Python/NumPy](python.html#numpy) (and MATLAB, if needed) 
 *   [HW #1 discussion](hw.html)
 *   Follow-up notes:
@@ -86,7 +89,7 @@ In the [References](#references) section of this syllabus, many additional refer
     6.  I still can't think of the error I encountered when I created an array using `x = np.array([1,2,3])`, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because `x` is an integer array, show us during the next class period. 
 
 ## February 4th
-- HW #1 due before class starts
+- [HW #1](hw.html#hw-1) due before class starts
 - HW #1 discussion
 - Basic Concepts in Probability
 
@@ -207,7 +210,7 @@ The following references are not needed for this course, but you may find them u
 1. [Think Stats](http://greenteapress.com/thinkstats2/html/thinkstats2010.html) - A free book that demonstrates standard statistical calculations in Python.
 1. [EMCEE Overview](https://arxiv.org/pdf/1202.3665.pdf)
  [EMCEE software documentation](https://emcee.readthedocs.io/en/stable/)
- 
+
 # General Policies
 
 ## Academic Integrity
