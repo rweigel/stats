@@ -58,11 +58,14 @@ Read Chapter 2.1-2.2 of Devore, 2012 ([PDF available on Piazza](https://piazza.c
 
 Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
 
+# HW 2
 
+## Counting
 
+1. By hand, solve problem 38. in Chapter 2. of Devore.
+2. Use Python to check your answer by simulating many experiments in which 3 bulbs are randomly selected and then computing the ratios requested in parts a.--d. of the problem statement. This will not be an exact answer, but as you increase the number of experiments, this approximate answer should become closer to your answers found by hand. 
+## Bayes' Theorem
 
+2% of people age 50--60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?
 
-
-
-
-
+Draw diagrams and be prepared to explain your answer to the class. If you do not know how to solve this analytically, come up with a simulation to give an approximate answer.

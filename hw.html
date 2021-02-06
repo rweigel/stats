@@ -8,6 +8,7 @@
   <style>
     body {
       display: flex;
+      min-width: 50%;
     }
     
     #toc {
@@ -18,6 +19,7 @@
       overflow-y: scroll;
       padding-left: 0.75em ;
       padding-right: 1em ;
+      font-family: "Open Sans";
     }
     
     #toc ol {
@@ -37,6 +39,10 @@
       padding-left: 1em;
       padding-right: 1em;
       border-left: 1px solid rgb(240,240,240);
+    }
+    
+    #display {
+      font-family: "Open Sans";
     }
     
     .title {
@@ -86,15 +92,18 @@
     /* Fenced code blocks have form <pre><code>...</code></pre> */
     pre > code {
       background-color: rgba(0,0,0,0);
+      font-size: 1.25em;
     }
     
     code {
       background-color: rgba(0,0,0,.03);
       border-radius: 0px;
+      font-size: 1.2em;
     }
     
     code.language-Python {
       background-color: rgba(0,0,0,0);
+      font-size: 1.2em;
     }
     
     pre {
@@ -108,7 +117,7 @@
     
     pre.language-Python {
       border-left: 5px solid blue;
-      background-color: rgba(0,0,0,.03);
+      /* background-color: rgba(0,0,0,.03); */
       padding: 0.5em;
       margin-left: 1em;
       margin-right: 1em;
@@ -166,32 +175,37 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css">
   </link>
 </head>
 
 <body style="max-height:100%;position:absolute;">
-
   <div id="toc">
     <ol>
-      <li><a target="_parent" number="1." raw="# HW 1" class="tocanchor" href="#hw-1">HW 1</a></li>
+      <li><a number="1" raw="# HW 1" class="tocanchor" href="#hw-1">HW 1</a></li>
       <ol>
-        <li><a target="_parent" number="1.1." raw="## Law of Large Numbers I" class="tocanchor" href="#law-of-large-numbers-i">Law of Large Numbers I</a></li>
+        <li><a number="1.1" raw="## Law of Large Numbers I" class="tocanchor" href="#law-of-large-numbers-i">Law of Large Numbers I</a></li>
         <ol>
-          <li><a target="_parent" number="1.1.1." raw="### a" class="tocanchor" href="#a">a</a></li>
-          <li><a target="_parent" number="1.1.2." raw="### b" class="tocanchor highlighted" href="#b">b</a></li>
+          <li><a number="1.1.1" raw="### a" class="tocanchor" href="#a">a</a></li>
+          <li><a number="1.1.2" raw="### b" class="tocanchor" href="#b">b</a></li>
         </ol>
-        <li><a target="_parent" number="1.2." raw="## Prelude to Hypothesis Testing" class="tocanchor" href="#prelude-to-hypothesis-testing">Prelude to Hypothesis Testing</a></li>
-        <li><a target="_parent" number="1.3." raw="## Basic Concepts in Probability" class="tocanchor" href="#basic-concepts-in-probability">Basic Concepts in Probability</a></li>
+        <li><a number="1.2" raw="## Prelude to Hypothesis Testing" class="tocanchor" href="#prelude-to-hypothesis-testing">Prelude to Hypothesis Testing</a></li>
+        <li><a number="1.3" raw="## Basic Concepts in Probability" class="tocanchor" href="#basic-concepts-in-probability">Basic Concepts in Probability</a></li>
+      </ol>
+      <li><a number="2" raw="# HW 2" class="tocanchor" href="#hw-2">HW 2</a></li>
+      <ol>
+        <li><a number="2.1" raw="## Counting" class="tocanchor" href="#counting">Counting</a></li>
+        <li><a number="2.2" raw="## Bayes' Theorem" class="tocanchor" href="#bayes-theorem">Bayes’ Theorem</a></li>
       </ol>
     </ol>
   </div>
   <div id="display">
-    <div contenteditable="false" class="section">
-      <h1><a target="_parent" name="hw-1" number="1." raw="# HW 1" class="hanchor" href="#hw-1">1. HW 1</a></h1>
-      <p>The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems. </p>
+    <div class="section">
+      <h1 lo="101933" lf="101934"><a name="hw-1" number="1" raw="# HW 1" class="hanchor" href="#hw-1">1 HW 1</a></h1>
+      <p lo="3" lf="3">The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems. </p>
       <hr>
-      <p>The Law of Large Numbers tells us that as <span class="katex"><span class="katex-mathml"><math>
+      <p lo="8" lf="8">The Law of Large Numbers tells us that as <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>n</mi>
@@ -201,7 +215,7 @@
                 <annotation encoding="application/x-tex">n\rightarrow \infty</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">∞</span></span></span></span> the sample average defined by</p>
-      <p><span class="katex katex-display" style="display: block" raw="\displaystyle \overline{X}=\frac{1}{n}\sum_{i=1}^n X_i"><span class="katex-mathml"><math>
+      <p lo="10" lf="10"><span class="katex katex-display" style="display: block" raw="\displaystyle \overline{X}=\frac{1}{n}\sum_{i=1}^n X_i"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -242,7 +256,7 @@
                           </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">n</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span></p>
-      <p>will be near the population average <span class="katex"><span class="katex-mathml"><math>
+      <p lo="12" lf="12">will be near the population average <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>μ</mi>
@@ -312,187 +326,18 @@
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:1.01333em;vertical-align:-0.25em;"></span><span class="base"><span class="mord">∣</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                             <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                           </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">μ</span><span class="mord">∣</span></span></span></span> is smaller that a certain value.</p>
-      <p>If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see</p>
+      <p lo="14" lf="14">If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see</p>
       <ul>
         <li><a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf">Orloff and Bloom, Reading 6b</a></li>
         <li>Bulmer, Chapter 6 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">Piazza</a>)</li>
         <li>DeGroot, Chapter 6 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">Piazza</a>)</li>
       </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
-    <div contenteditable="false" class="section">
-      <h2><a target="_parent" name="law-of-large-numbers-i" number="1.1." raw="## Law of Large Numbers I" class="hanchor" href="#law-of-large-numbers-i">1.1. Law of Large Numbers I</a></h2>
+    <div class="section">
+      <h2 lo="101953" lf="101954"><a name="law-of-large-numbers-i" number="1.1" raw="## Law of Large Numbers I" class="hanchor" href="#law-of-large-numbers-i">1.1 Law of Large Numbers I</a></h2>
     </div>
-    <div contenteditable="false" class="section">
-      <h3><a target="_parent" name="a" number="1.1.1." raw="### a" class="hanchor" href="#a">1.1.1. a</a></h3>
+    <div class="section">
+      <h3 lo="101955" lf="101956"><a name="a" number="1.1.1" raw="### a" class="hanchor" href="#a">1.1.1 a</a></h3>
       <ol>
         <li>Draw <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -567,7 +412,7 @@
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span></span></span></span></span></span></span></span>.</li>
       </ol>
-      <p>Save your program as <code>HW1_1a.py</code>. When I execute your program, I should see a histogram with <span class="katex"><span class="katex-mathml"><math>
+      <p lo="31" lf="31">Save your program as <code>HW1_1a.py</code>. When I execute your program, I should see a histogram with <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mover accent="true">
@@ -582,10 +427,9 @@
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.7633300000000001em;vertical-align:0em;"></span><span class="base"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                             <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                           </svg></span></span></span></span></span></span></span></span></span> displayed in the title.</p>
-
     </div>
-    <div contenteditable="false" class="section">
-      <h3><a target="_parent" name="b" number="1.1.2." raw="### b" class="hanchor highlighted" href="#b">1.1.2. b</a></h3>
+    <div class="section">
+      <h3 lo="101965" lf="101966"><a name="b" number="1.1.2" raw="### b" class="hanchor" href="#b">1.1.2 b</a></h3>
       <ol>
         <li>For <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -726,14 +570,13 @@
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span>? <sup>+</sup></li>
         <li>How does your answer change if the distribution changes?</li>
       </ol>
-      <p><sup>+</sup> You may explain this using one or more of words, tables, and a plots.</p>
-      <p>Save your program as <code>HW1_1b.py</code>. Save your answers in a file named <code>HW1_1b.md</code> or <code>HW1_1b.pdf</code>.</p>
-
+      <p lo="43" lf="43"><sup>+</sup> You may explain this using one or more of words, tables, and a plots.</p>
+      <p lo="45" lf="45">Save your program as <code>HW1_1b.py</code>. Save your answers in a file named <code>HW1_1b.md</code> or <code>HW1_1b.pdf</code>.</p>
     </div>
-    <div contenteditable="false" class="section">
-      <h2><a target="_parent" name="prelude-to-hypothesis-testing" number="1.2." raw="## Prelude to Hypothesis Testing" class="hanchor" href="#prelude-to-hypothesis-testing">1.2. Prelude to Hypothesis Testing</a></h2>
-      <p>This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.</p>
-      <p>I select <span class="katex"><span class="katex-mathml"><math>
+    <div class="section">
+      <h2 lo="101979" lf="101980"><a name="prelude-to-hypothesis-testing" number="1.2" raw="## Prelude to Hypothesis Testing" class="hanchor" href="#prelude-to-hypothesis-testing">1.2 Prelude to Hypothesis Testing</a></h2>
+      <p lo="49" lf="49">This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.</p>
+      <p lo="51" lf="51">I select <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>n</mi>
@@ -752,13 +595,12 @@
                 <annotation encoding="application/x-tex">n</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> heights.</p>
-      <p>Briefly describe a program that you would write to determine the liklihood. If you have done hypothesis testing before, don’t use any of it’s terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.</p>
-      <p>Save your answer in a file named <code>HW1_2.md</code> or <code>HW1_2.pdf</code>.</p>
-
+      <p lo="53" lf="53">Briefly describe a program that you would write to determine the liklihood. If you have done hypothesis testing before, don’t use any of it’s terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.</p>
+      <p lo="55" lf="55">Save your answer in a file named <code>HW1_2.md</code> or <code>HW1_2.pdf</code>.</p>
     </div>
-    <div contenteditable="false" class="section">
-      <h2><a target="_parent" name="basic-concepts-in-probability" number="1.3." raw="## Basic Concepts in Probability" class="hanchor" href="#basic-concepts-in-probability">1.3. Basic Concepts in Probability</a></h2>
-      <p>Read Chapter 2.1-2.2 of Devore, 2012 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">PDF available on Piazza</a>). </p>
+    <div class="section">
+      <h2 lo="101989" lf="101990"><a name="basic-concepts-in-probability" number="1.3" raw="## Basic Concepts in Probability" class="hanchor" href="#basic-concepts-in-probability">1.3 Basic Concepts in Probability</a></h2>
+      <p lo="59" lf="59">Read Chapter 2.1-2.2 of Devore, 2012 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">PDF available on Piazza</a>). </p>
       <ol>
         <li>An experiment involves tossing a coin 3x. What is the sample space of this experiment?</li>
         <li>How many of the outcomes in the sample space had two heads? </li>
@@ -796,11 +638,24 @@
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">A</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>?</li>
       </ol>
-      <p>Save your answers in a file named <code>HW1_3a.md</code> or <code>HW1_3a.pdf</code>.</p>
-
+      <p lo="67" lf="67">Save your answers in a file named <code>HW1_3a.md</code> or <code>HW1_3a.pdf</code>.</p>
+    </div>
+    <div class="section">
+      <h1 lo="102001" lf="102002"><a name="hw-2" number="2" raw="# HW 2" class="hanchor" href="#hw-2">2 HW 2</a></h1>
+    </div>
+    <div class="section">
+      <h2 lo="102003" lf="102004"><a name="counting" number="2.1" raw="## Counting" class="hanchor" href="#counting">2.1 Counting</a></h2>
+      <ol>
+        <li>By hand, solve problem 38. in Chapter 2. of Devore.</li>
+        <li>Use Python to check your answer by simulating many experiments in which 3 bulbs are randomly selected and then computing the ratios requested in parts a.–d. of the problem statement. This will not be an exact answer, but as you increase the number of experiments, this approximate answer should become closer to your answers found by hand. </li>
+      </ol>
+    </div>
+    <div class="section">
+      <h2 lo="102010" lf="102011"><a name="bayes-theorem" number="2.2" raw="## Bayes' Theorem" class="hanchor" href="#bayes-theorem">2.2 Bayes’ Theorem</a></h2>
+      <p lo="82123" lf="82123">2% of people age 50–60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?</p>
+      <p lo="99554" lf="99554">Draw diagrams and be prepared to explain your answer to the class. If you do not know how to solve this analytically, come up with a simulation to give an approximate answer.</p>
     </div>
   </div>
-
 </body>
 
 </html>
