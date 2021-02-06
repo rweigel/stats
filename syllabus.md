@@ -94,6 +94,7 @@ In the [References](#references) section of this syllabus, many additional refer
 - Basic Concepts in Probability
 
 ## February 11th
+- [HW #2](hw.html#hw-2) due before class starts
 - Bayes' Theorem Applications
 
 ## February 18th
