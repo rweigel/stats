@@ -1,10 +1,6 @@
-<p class='title'>
-    AstroStats
-</p>
+<p class='title'>AstroStats</p>
 
-<p class='subtitle'>
-    ASTR/PHYS 390/590
-</p>
+<p class='subtitle'>ASTR/PHYS 390/590</p>
 
 # Course Information
 
@@ -12,7 +8,7 @@
 *   **Location**: Online
 *   **Instructor**: Bob Weigel
 *   **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
-*   **Office Hour**: Thursday 3:30-4:30 pm.
+*   **Office Hour**: Thursday 3:30-4:30 pm
 *   **Course URL**: [http://rweigel.github.io/astrostats](http://rweigel.github.io/astrostats)
 *   **Credits**: 3 (Lecture)
 *   **Prerequisites**:
@@ -20,7 +16,7 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
-**Homeworks**: [1](hw.html#hw-1) |  [2](hw.html#hw-2)
+**Homeworks**: [HW1](hw.html#hw-1)
 
 # Motivation
 
@@ -93,7 +89,6 @@ In the [References](#references) section of this syllabus, many additional refer
 - The Discord server is up. You can ask questions there as an alternative to Piazza. If you want to meet with me, we can meet on either Discord or Zoom (it is a little easier to initiate a meeting on Discord, but Discord is not offically sanctioned by GMU).
 - We will continue to meet for class and office hours on Zoom. Don't worry about missing somthing important on Discord. I'll post it on the course web page.
 - Extended discussion of [HW #1](hw.html#hw-1)
-- HW #1 discussion - Although I'll discuss some of the statistical theory behind the answers, we won't cover it for a few weeks. So if it does not fully make sense, don't worry. Fully digesting the theory requires seeing and working with a few times.
 - Basic Concepts in Probability
 - Follow-up notes
     * If ambiguity or error in a problem statement, **please** post a question on Piazza or Discord! 
@@ -103,7 +98,6 @@ In the [References](#references) section of this syllabus, many additional refer
     * I am working on posting my solutions to HW1 and also posting HW2. I expect to have HW2 posted by Saturday at noon, which is about a day later than I planned (I typically post the next HW a day after class because I often modify what I planned to assign based on what happened in class). I'll update the [course page](https://rweigel.github.io/astrostats/) and make a Piazza post when I have posted HW2.
 
 ## February 11th
-- [HW #2](hw.html#hw-2) due before class starts
 - Bayes' Theorem Applications
 
 ## February 18th
