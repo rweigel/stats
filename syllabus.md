@@ -16,7 +16,7 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
-**Homeworks**: [HW1](hw.html#hw-1)
+**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2)
 
 # Motivation
 
