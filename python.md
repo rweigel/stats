@@ -2,22 +2,22 @@
 
 The following operations apply to numbers or variables (e.g., `a`, `b`) that have been assigned a number.
 
-<pre>
-    a+b 	addition
-    a−b 	subtraction
-    a*b 	multiplication
-    a/b 	division
-    a//b    floor division
-    a%b 	modulo
-    −a      negation
-    abs(a)  absolute value
-    a**b    exponent (not a^b!)
-</pre>
+```
+a+b 	addition
+a−b 	subtraction
+a*b 	multiplication
+a/b 	division
+a//b    floor division
+a%b 	modulo
+−a      negation
+abs(a)  absolute value
+a**b    exponent (not a^b!)
+```
 
 There are many other [math functions](https://docs.python.org/3/library/math.html) that can be used. To use these functions, you need to `import` them, e.g.,
 
 ```Python
-import math # Import the math module
+import math     # Import the math module
 math.log10(100) # 2.0
 ```
 
