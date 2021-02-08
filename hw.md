@@ -30,9 +30,10 @@ If you are interested, for a more formal definition of the Law of Large Numbers 
 Save your program as `HW1_1a.py`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title.
 
 <details>
- See <a href="hws/HW1a.py">HW1a.py</a>.
+ See <a href="hws/HW1a.
+ py">HW1a.py</a>.
  <summary>Answer</summary>
-    <img src="../hws/figures/HW1a.svg"/>
+    <img src="hws/figures/HW1a.svg"/>
 </details>
 
 ### b
@@ -75,7 +76,8 @@ Read Chapter 2.1-2.2 of Devore, 2012 ([PDF available on Piazza](https://piazza.c
 
 1. An experiment involves tossing a coin 3x. What is the sample space of this experiment?
 2. How many of the outcomes in the sample space had two heads? 
-3. Define event $A$ to be that the experiment yields two heads. Define event $B$ to be that the experiment yields two tails. What is $A \cup B$ and $A \cap B$?
+3. Define event $A$ to be that the experiment yields two heads. Define event $B$ to be that the experiment yields two tails.
+4. What is $A \cup B$ and $A \cap B$?
 
 Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
 
