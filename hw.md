@@ -8,10 +8,6 @@ The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample avera
 
 $$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
 
-Standard error
-
-$$[\overline{X}-s/\sqrt{n},\overline{X}+s/\sqrt{n}]$$
-
 will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
 
 If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see
@@ -29,11 +25,13 @@ If you are interested, for a more formal definition of the Law of Large Numbers 
 
 Save your program as `HW1_1a.py`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title.
 
+**Answer**
+
+See <a href="hws/HW1_1a.py">HW1_1a.py</a>.Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.<br/>
+<img src="hws/figures/HW1_1a.svg"/>
+
 <details>
- See <a href="hws/HW1a.
- py">HW1a.py</a>.
  <summary>Answer</summary>
-    <img src="hws/figures/HW1a.svg"/>
 </details>
 
 ### b
@@ -47,6 +45,17 @@ Save your program as `HW1_1a.py`. When I execute your program, I should see a hi
 <sup>+</sup> You may explain this using one or more of words, tables, and plots.
 
 Save your program as `HW1_1b.py`. Save your answers in a file named `HW1_1b.md` or `HW1_1b.pdf`.
+
+<details>
+ <summary>Answer</summary>
+See <a href="hws/HW1_1b.py">HW1_1b.py</a>.Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.<br/>
+<img src="hws/figures/HW1_1a.svg"/>
+</details>
+
+**Answer**
+
+<img src="hws/figures/HW1_1b2.svg"/>
+<img src="hws/figures/HW1_1b4.svg"/>
 
 ## Prelude to Hypothesis Testing
 
