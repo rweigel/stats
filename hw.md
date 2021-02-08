@@ -2,7 +2,6 @@
 
 The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.
 
-
 ----
 
 The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
