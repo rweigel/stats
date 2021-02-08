@@ -90,8 +90,16 @@ In the [References](#references) section of this syllabus, many additional refer
 
 ## February 4th
 - [HW #1](hw.html#hw-1) due before class starts
-- HW #1 discussion
+- The Discord server is up. You can ask questions there as an alternative to Piazza. If you want to meet with me, we can meet on either Discord or Zoom (it is a little easier to initiate a meeting on Discord, but Discord is not offically sanctioned by GMU).
+- We will continue to meet for class and office hours on Zoom. Don't worry about missing somthing important on Discord. I'll post it on the course web page.
+- Extended discussion of [HW #1](hw.html#hw-1)
 - Basic Concepts in Probability
+- Follow-up notes
+    * If ambiguity or error in a problem statement, **please** post a question on Piazza or Discord! 
+    * The recording is on my [Zoom page](https://gmu.zoom.us/rec/share/Fqvgv9j-bH5vpC7JLoJ8o5ABF-1OUbPXzVOPF3mu442nwAby3fWwlUybSzEpZvH-.B3rl8OT1FN2X965N).
+    * When I go through your assignments, I may move your HWs out of a subdirectory to remind you to not do that. I want everyone's repository to contain the same structure and file names so that my automation software for pulling and pushing works.
+    * When I was discussing the combination problem for the number of unique license plates that could be created given stickers with the numbers 0-9 assuming that license plates with the same set of numbers in any order are treated as not-unique, I wrote down as an example "899 = 989 = 998" are equivalent. These three are not options because a number is repeated. I should have written, "For example, 123 and all permutations are equivalent license plates". In spite of this mistake, someone gave the correct answer - that there are 3! permutations of any three numbers, so if the number of possible license plates is 9!/7! assuming the order of the numbers matters, then the number of possible license plates is 9!/(7!3!) assuming license plates with the same numbers in any order are equivalent.
+    * I am working on posting my solutions to HW1 and also posting HW2. I expect to have HW2 posted by Saturday at noon, which is about a day later than I planned (I typically post the next HW a day after class because I often modify what I planned to assign based on what happened in class). I'll update the [course page](https://rweigel.github.io/astrostats/) and make a Piazza post when I have posted HW2.
 
 ## February 11th
 - Bayes' Theorem Applications
