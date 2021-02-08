@@ -8,6 +8,10 @@ The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample avera
 
 $$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
 
+Standard error
+
+$$[\overline{X}-s/\sqrt{n},\overline{X}+s/\sqrt{n}]$$
+
 will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
 
 If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see
