@@ -60,7 +60,6 @@ Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
 
 # HW 2
 
-
 ## Counting
 
 1. By hand, solve problem 38. in Chapter 2. of Devore. See Piazza for a copy of this chapter. (Save as `HW2_1_1.pdf` or `HW2_1_1.md`)
