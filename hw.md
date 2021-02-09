@@ -27,7 +27,8 @@ Save your program as `HW1_1a.py`. When I execute your program, I should see a hi
 
 **Answer**
 
-See <a href="hws/HW1_1a.py">HW1_1a.py</a>.Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.<br/>
+See <a href="hws/HW1_1a.py">HW1_1a.py</a>.Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.
+
 <img src="hws/figures/HW1_1a.svg"/>
 
 <details>
