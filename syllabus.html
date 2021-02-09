@@ -3,11 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <title> AstroStats </title>
-  <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.75em%22 font-size=%22100%22>📖</text></svg>">
+  <title>AstroStats</title>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
   <style>
     body {
       display: flex;
+      height: 100%;
+      overflow: hidden;
       min-width: 50%;
     }
     
@@ -89,6 +91,14 @@
       text-decoration: none;
     }
     
+    code {
+      font-size: 1.20em;
+    }
+    
+    pre {
+      font-size: 1.2em;
+    }
+    
     /* Fenced code blocks have form <pre><code>...</code></pre> */
     pre > code {
       background-color: rgba(0,0,0,0);
@@ -113,6 +123,7 @@
       margin-left: 1em;
       margin-right: 1em;
       line-height: 1.5;
+      overflow-x: scroll;
     }
     
     pre.language-Python {
@@ -124,6 +135,14 @@
       line-height: 1.5;
     }
     
+    details > summary {
+      font-weight: bold;
+    }
+    
+    details[open] {
+      border: 1px solid black;
+      padding: 1em;
+    }    
     /* 
       A span with class 'katex' wraps all equations. A span with class
       katex-display wraps block equations and a span with class katex.
@@ -172,18 +191,16 @@
         padding-left: 0;
         padding-right: 0;
         border: none;
+        overflow-wrap: break-word;
       }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css">
-  </link>
 </head>
 
-<body style="max-height:100%;position:absolute;">
+<body style="max-height:100%;position:fixed;">
   <div id="toc">
     <ol>
-      <li><a number="1" raw="# Course Information" class="tocanchor highlighted" href="#course-information">Course Information</a></li>
+      <li><a number="1" raw="# Course Information" class="tocanchor" href="#course-information">Course Information</a></li>
       <li><a number="2" raw="# Motivation" class="tocanchor" href="#motivation">Motivation</a></li>
       <li><a number="3" raw="# Methods of Instruction" class="tocanchor" href="#methods-of-instruction">Methods of Instruction</a></li>
       <li><a number="4" raw="# Programming" class="tocanchor" href="#programming">Programming</a></li>
@@ -235,17 +252,17 @@
   </div>
   <div id="display">
     <div class="section">
-      <p class="title"> AstroStats </p>
-      <p class="subtitle"> ASTR/PHYS 390/590 </p>
+      <p class="title">AstroStats</p>
+      <p class="subtitle">ASTR/PHYS 390/590</p>
     </div>
     <div class="section">
-      <h1 lo="9" lf="10"><a name="course-information" number="1" raw="# Course Information" class="hanchor highlighted" href="#course-information">1 Course Information</a></h1>
+      <h1 lo="632" lf="633"><a name="course-information" number="1" raw="# Course Information" class="hanchor" href="#course-information">1 Course Information</a></h1>
       <ul>
         <li> <strong>Day and Time</strong>: Thursday from 4:30 - 7:10 pm</li>
         <li> <strong>Location</strong>: Online</li>
         <li> <strong>Instructor</strong>: Bob Weigel</li>
         <li> <strong>Email</strong>: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></li>
-        <li> <strong>Office Hour</strong>: Thursday 3:30-4:30 pm.</li>
+        <li> <strong>Office Hour</strong>: Thursday 3:30-4:30 pm</li>
         <li> <strong>Course URL</strong>: <a href="http://rweigel.github.io/astrostats">http://rweigel.github.io/astrostats</a></li>
         <li> <strong>Credits</strong>: 3 (Lecture)</li>
         <li><strong>Prerequisites</strong>:<ul>
@@ -255,10 +272,10 @@
         </li>
         <li> <strong>Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.</li>
       </ul>
-      <p lo="27" lf="27"><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a></p>
+      <p lo="23" lf="23"><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a></p>
     </div>
     <div class="section">
-      <h1 lo="29" lf="30"><a name="motivation" number="2" raw="# Motivation" class="hanchor" href="#motivation">2 Motivation</a></h1>
+      <h1 lo="652" lf="653"><a name="motivation" number="2" raw="# Motivation" class="hanchor" href="#motivation">2 Motivation</a></h1>
       <ul>
         <li> Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.</li>
         <li> Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.</li>
@@ -266,7 +283,7 @@
       </ul>
     </div>
     <div class="section">
-      <h1 lo="37" lf="38"><a name="methods-of-instruction" number="3" raw="# Methods of Instruction" class="hanchor" href="#methods-of-instruction">3 Methods of Instruction</a></h1>
+      <h1 lo="660" lf="661"><a name="methods-of-instruction" number="3" raw="# Methods of Instruction" class="hanchor" href="#methods-of-instruction">3 Methods of Instruction</a></h1>
       <ul>
         <li>In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.</li>
         <li>I usually have you do a reading and basic follow-up problems before I discuss a topic in class. I find content that I present “sticks” if students have experiemented with the concepts before I discuss them.</li>
@@ -279,7 +296,7 @@
       </ul>
     </div>
     <div class="section">
-      <h1 lo="51" lf="52"><a name="programming" number="4" raw="# Programming" class="hanchor" href="#programming">4 Programming</a></h1>
+      <h1 lo="674" lf="675"><a name="programming" number="4" raw="# Programming" class="hanchor" href="#programming">4 Programming</a></h1>
       <ul>
         <li>Any programming language may be used for homework and the final project. I will write my solutions in Python.</li>
         <li>I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my <a href="python">notes for PHYS 251</a>.</li>
@@ -287,18 +304,18 @@
       </ul>
     </div>
     <div class="section">
-      <h1 lo="59" lf="60"><a name="textbook" number="5" raw="# Textbook" class="hanchor" href="#textbook">5 Textbook</a></h1>
-      <p lo="61" lf="61">Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | <a href="https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492">Amazon</a> | <a href="https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html">Author’s web page</a> |</p>
-      <p lo="63" lf="63">This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I’ll typically provide two references that explain the background material.</p>
-      <p lo="65" lf="65">Two general references on statistics that I highly recommend are</p>
+      <h1 lo="682" lf="683"><a name="textbook" number="5" raw="# Textbook" class="hanchor" href="#textbook">5 Textbook</a></h1>
+      <p lo="57" lf="57">Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | <a href="https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492">Amazon</a> | <a href="https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html">Author’s web page</a> |</p>
+      <p lo="59" lf="59">This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I’ll typically provide two references that explain the background material.</p>
+      <p lo="61" lf="61">Two general references on statistics that I highly recommend are</p>
       <ol>
         <li>Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in and parsimonious manner. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for ~$5.00.</li>
         <li>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors. | <a href="https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527">Amazon</a> |</li>
       </ol>
-      <p lo="71" lf="71">In the <a href="#references">References</a> section of this syllabus, many additional references and resources are listed.</p>
+      <p lo="67" lf="67">In the <a href="#references">References</a> section of this syllabus, many additional references and resources are listed.</p>
     </div>
     <div class="section">
-      <h1 lo="73" lf="74"><a name="evaluation" number="6" raw="# Evaluation" class="hanchor" href="#evaluation">6 Evaluation</a></h1>
+      <h1 lo="696" lf="697"><a name="evaluation" number="6" raw="# Evaluation" class="hanchor" href="#evaluation">6 Evaluation</a></h1>
       <ul>
         <li> <strong>Homework</strong>: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts.</li>
         <li> <strong>Midterm</strong>: 30% - In-class and hand-written.</li>
@@ -307,10 +324,10 @@
       </ul>
     </div>
     <div class="section">
-      <h1 lo="82" lf="83"><a name="weekly-schedule" number="7" raw="# Weekly Schedule" class="hanchor" href="#weekly-schedule">7 Weekly Schedule</a></h1>
+      <h1 lo="705" lf="706"><a name="weekly-schedule" number="7" raw="# Weekly Schedule" class="hanchor" href="#weekly-schedule">7 Weekly Schedule</a></h1>
     </div>
     <div class="section">
-      <h2 lo="84" lf="85"><a name="january-28th" number="7.1" raw="## January 28th" class="hanchor" href="#january-28th">7.1 January 28th</a></h2>
+      <h2 lo="707" lf="708"><a name="january-28th" number="7.1" raw="## January 28th" class="hanchor" href="#january-28th">7.1 January 28th</a></h2>
       <ul>
         <li>Introductions</li>
         <li>Brief introduction to course</li>
@@ -343,64 +360,73 @@
       </ul>
     </div>
     <div class="section">
-      <h2 lo="123" lf="123"><a name="february-4th" number="7.2" raw="## February 4th" class="hanchor" href="#february-4th">7.2 February 4th</a></h2>
+      <h2 lo="746" lf="746"><a name="february-4th" number="7.2" raw="## February 4th" class="hanchor" href="#february-4th">7.2 February 4th</a></h2>
       <ul>
         <li><a href="hw.html#hw-1">HW #1</a> due before class starts</li>
-        <li>HW #1 discussion - Although I’ll discuss some of the statistical theory behind the answers, we won’t cover it for a few weeks. So if it does not fully make sense, don’t worry. Fully digesting the theory requires seeing and working with a few times.</li>
+        <li>The Discord server is up. You can ask questions there as an alternative to Piazza. If you want to meet with me, we can meet on either Discord or Zoom (it is a little easier to initiate a meeting on Discord, but Discord is not offically sanctioned by GMU).</li>
+        <li>We will continue to meet for class and office hours on Zoom. Don’t worry about missing somthing important on Discord. I’ll post it on the course web page.</li>
+        <li>Extended discussion of <a href="hw.html#hw-1">HW #1</a></li>
         <li>Basic Concepts in Probability</li>
+        <li>Follow-up notes<ul>
+            <li>If ambiguity or error in a problem statement, <strong>please</strong> post a question on Piazza or Discord! </li>
+            <li>The recording is on my <a href="https://gmu.zoom.us/rec/share/Fqvgv9j-bH5vpC7JLoJ8o5ABF-1OUbPXzVOPF3mu442nwAby3fWwlUybSzEpZvH-.B3rl8OT1FN2X965N">Zoom page</a>.</li>
+            <li>When I go through your assignments, I may move your HWs out of a subdirectory to remind you to not do that. I want everyone’s repository to contain the same structure and file names so that my automation software for pulling and pushing works.</li>
+            <li>When I was discussing the combination problem for the number of unique license plates that could be created given stickers with the numbers 0-9 assuming that license plates with the same set of numbers in any order are treated as not-unique, I wrote down as an example “899 = 989 = 998” are equivalent. These three are not options because a number is repeated. I should have written, “For example, 123 and all permutations are equivalent license plates”. In spite of this mistake, someone gave the correct answer - that there are 3! permutations of any three numbers, so if the number of possible license plates is 9!/7! assuming the order of the numbers matters, then the number of possible license plates is 9!/(7!3!) assuming license plates with the same numbers in any order are equivalent.</li>
+            <li>I am working on posting my solutions to HW1 and also posting HW2. I expect to have HW2 posted by Saturday at noon, which is about a day later than I planned (I typically post the next HW a day after class because I often modify what I planned to assign based on what happened in class). I’ll update the <a href="https://rweigel.github.io/astrostats/">course page</a> and make a Piazza post when I have posted HW2.</li>
+          </ul>
+        </li>
       </ul>
     </div>
     <div class="section">
-      <h2 lo="130" lf="130"><a name="february-11th" number="7.3" raw="## February 11th" class="hanchor" href="#february-11th">7.3 February 11th</a></h2>
+      <h2 lo="768" lf="768"><a name="february-11th" number="7.3" raw="## February 11th" class="hanchor" href="#february-11th">7.3 February 11th</a></h2>
       <ul>
-        <li><a href="hw.html#hw-2">HW #2</a> due before class starts</li>
         <li>Bayes’ Theorem Applications</li>
       </ul>
     </div>
     <div class="section">
-      <h2 lo="136" lf="137"><a name="february-18th" number="7.4" raw="## February 18th" class="hanchor" href="#february-18th">7.4 February 18th</a></h2>
+      <h2 lo="773" lf="774"><a name="february-18th" number="7.4" raw="## February 18th" class="hanchor" href="#february-18th">7.4 February 18th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="138" lf="139"><a name="february-25th" number="7.5" raw="## February 25th" class="hanchor" href="#february-25th">7.5 February 25th</a></h2>
+      <h2 lo="775" lf="776"><a name="february-25th" number="7.5" raw="## February 25th" class="hanchor" href="#february-25th">7.5 February 25th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="140" lf="141"><a name="march-4th" number="7.6" raw="## March 4th" class="hanchor" href="#march-4th">7.6 March 4th</a></h2>
+      <h2 lo="777" lf="778"><a name="march-4th" number="7.6" raw="## March 4th" class="hanchor" href="#march-4th">7.6 March 4th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="142" lf="143"><a name="march-11th" number="7.7" raw="## March 11th" class="hanchor" href="#march-11th">7.7 March 11th</a></h2>
+      <h2 lo="779" lf="780"><a name="march-11th" number="7.7" raw="## March 11th" class="hanchor" href="#march-11th">7.7 March 11th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="144" lf="145"><a name="march-18th" number="7.8" raw="## March 18th" class="hanchor" href="#march-18th">7.8 March 18th</a></h2>
+      <h2 lo="781" lf="782"><a name="march-18th" number="7.8" raw="## March 18th" class="hanchor" href="#march-18th">7.8 March 18th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="146" lf="147"><a name="march-25th" number="7.9" raw="## March 25th" class="hanchor" href="#march-25th">7.9 March 25th</a></h2>
+      <h2 lo="783" lf="784"><a name="march-25th" number="7.9" raw="## March 25th" class="hanchor" href="#march-25th">7.9 March 25th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="148" lf="149"><a name="april-1st" number="7.10" raw="## April 1st" class="hanchor" href="#april-1st">7.10 April 1st</a></h2>
+      <h2 lo="785" lf="786"><a name="april-1st" number="7.10" raw="## April 1st" class="hanchor" href="#april-1st">7.10 April 1st</a></h2>
     </div>
     <div class="section">
-      <h2 lo="150" lf="151"><a name="april-8th" number="7.11" raw="## April 8th" class="hanchor" href="#april-8th">7.11 April 8th</a></h2>
+      <h2 lo="787" lf="788"><a name="april-8th" number="7.11" raw="## April 8th" class="hanchor" href="#april-8th">7.11 April 8th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="152" lf="153"><a name="april-15th" number="7.12" raw="## April 15th" class="hanchor" href="#april-15th">7.12 April 15th</a></h2>
+      <h2 lo="789" lf="790"><a name="april-15th" number="7.12" raw="## April 15th" class="hanchor" href="#april-15th">7.12 April 15th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="154" lf="155"><a name="april-22nd" number="7.13" raw="## April 22nd" class="hanchor" href="#april-22nd">7.13 April 22nd</a></h2>
+      <h2 lo="791" lf="792"><a name="april-22nd" number="7.13" raw="## April 22nd" class="hanchor" href="#april-22nd">7.13 April 22nd</a></h2>
     </div>
     <div class="section">
-      <h2 lo="156" lf="157"><a name="april-29th" number="7.14" raw="## April 29th" class="hanchor" href="#april-29th">7.14 April 29th</a></h2>
+      <h2 lo="793" lf="794"><a name="april-29th" number="7.14" raw="## April 29th" class="hanchor" href="#april-29th">7.14 April 29th</a></h2>
     </div>
     <div class="section">
-      <h2 lo="158" lf="159"><a name="may-6th" number="7.15" raw="## May 6th" class="hanchor" href="#may-6th">7.15 May 6th</a></h2>
-      <p lo="160" lf="160">Thursday, May 6th from 4:30 – 7:10 pm</p>
-      <p lo="162" lf="162">Final exam (<a href="https://registrar.gmu.edu/wp-content/uploads/Spring-2021-Final-Exam-Schedule.pdf">full schedule</a>)</p>
+      <h2 lo="795" lf="796"><a name="may-6th" number="7.15" raw="## May 6th" class="hanchor" href="#may-6th">7.15 May 6th</a></h2>
+      <p lo="170" lf="170">Thursday, May 6th from 4:30 – 7:10 pm</p>
+      <p lo="172" lf="172">Final exam (<a href="https://registrar.gmu.edu/wp-content/uploads/Spring-2021-Final-Exam-Schedule.pdf">full schedule</a>)</p>
     </div>
     <div class="section">
-      <h1 lo="164" lf="165"><a name="topics" number="8" raw="# Topics" class="hanchor" href="#topics">8 Topics</a></h1>
-      <p lo="166" lf="166">The topics listed below are covered in Chapters 2-7 of the textbook. Supplementary references and notes will be provided as-needed.</p>
+      <h1 lo="801" lf="802"><a name="topics" number="8" raw="# Topics" class="hanchor" href="#topics">8 Topics</a></h1>
+      <p lo="176" lf="176">The topics listed below are covered in Chapters 2-7 of the textbook. Supplementary references and notes will be provided as-needed.</p>
     </div>
     <div class="section">
-      <h2 lo="168" lf="169"><a name="python" number="8.1" raw="## Python" class="hanchor" href="#python">8.1 Python</a></h2>
+      <h2 lo="805" lf="806"><a name="python" number="8.1" raw="## Python" class="hanchor" href="#python">8.1 Python</a></h2>
       <ol>
         <li>NumPy</li>
         <li>Random number generators</li>
@@ -408,7 +434,7 @@
       </ol>
     </div>
     <div class="section">
-      <h2 lo="176" lf="177"><a name="basic-concepts-in-probability" number="8.2" raw="## Basic Concepts in Probability" class="hanchor" href="#basic-concepts-in-probability">8.2 Basic Concepts in Probability</a></h2>
+      <h2 lo="813" lf="814"><a name="basic-concepts-in-probability" number="8.2" raw="## Basic Concepts in Probability" class="hanchor" href="#basic-concepts-in-probability">8.2 Basic Concepts in Probability</a></h2>
       <ol>
         <li>Mathematical, Frequentist, and Bayesian probabilities</li>
         <li>Conditional probability</li>
@@ -419,7 +445,7 @@
       </ol>
     </div>
     <div class="section">
-      <h2 lo="187" lf="188"><a name="elements-of-statistics" number="8.3" raw="## Elements of Statistics" class="hanchor" href="#elements-of-statistics">8.3 Elements of Statistics</a></h2>
+      <h2 lo="824" lf="825"><a name="elements-of-statistics" number="8.3" raw="## Elements of Statistics" class="hanchor" href="#elements-of-statistics">8.3 Elements of Statistics</a></h2>
       <ol>
         <li>Expectation, mean, variance, and bias</li>
         <li>Random variables, distributions, quantiles, mean, variance</li>
@@ -430,7 +456,7 @@
       </ol>
     </div>
     <div class="section">
-      <h2 lo="198" lf="199"><a name="hypothesis-tests" number="8.4" raw="## Hypothesis Tests" class="hanchor" href="#hypothesis-tests">8.4 Hypothesis Tests</a></h2>
+      <h2 lo="835" lf="836"><a name="hypothesis-tests" number="8.4" raw="## Hypothesis Tests" class="hanchor" href="#hypothesis-tests">8.4 Hypothesis Tests</a></h2>
       <ol>
         <li>Frequentist</li>
         <li>Bayesian</li>
@@ -438,14 +464,14 @@
       </ol>
     </div>
     <div class="section">
-      <h2 lo="206" lf="207"><a name="parameter-estimation-basic" number="8.5" raw="## Parameter Estimation - Basic" class="hanchor" href="#parameter-estimation-basic">8.5 Parameter Estimation - Basic</a></h2>
+      <h2 lo="843" lf="844"><a name="parameter-estimation-basic" number="8.5" raw="## Parameter Estimation - Basic" class="hanchor" href="#parameter-estimation-basic">8.5 Parameter Estimation - Basic</a></h2>
       <ol>
         <li>Least-squares</li>
         <li>Maximum likelihood</li>
       </ol>
     </div>
     <div class="section">
-      <h2 lo="213" lf="214"><a name="parameter-estimation-advanced" number="8.6" raw="## Parameter Estimation - Advanced" class="hanchor" href="#parameter-estimation-advanced">8.6 Parameter Estimation - Advanced</a></h2>
+      <h2 lo="850" lf="851"><a name="parameter-estimation-advanced" number="8.6" raw="## Parameter Estimation - Advanced" class="hanchor" href="#parameter-estimation-advanced">8.6 Parameter Estimation - Advanced</a></h2>
       <ol>
         <li>Linear models</li>
         <li>Nonlinear models</li>
@@ -453,11 +479,11 @@
       </ol>
     </div>
     <div class="section">
-      <h1 lo="221" lf="222"><a name="references" number="9" raw="# References" class="hanchor" href="#references">9 References</a></h1>
-      <p lo="223" lf="223">The following references are not needed for this course, but you may find them useful for alternative explanations of topics in the textbook.</p>
+      <h1 lo="858" lf="859"><a name="references" number="9" raw="# References" class="hanchor" href="#references">9 References</a></h1>
+      <p lo="233" lf="233">The following references are not needed for this course, but you may find them useful for alternative explanations of topics in the textbook.</p>
     </div>
     <div class="section">
-      <h2 lo="225" lf="226"><a name="general" number="9.1" raw="## General" class="hanchor" href="#general">9.1 General</a></h2>
+      <h2 lo="862" lf="863"><a name="general" number="9.1" raw="## General" class="hanchor" href="#general">9.1 General</a></h2>
       <ol>
         <li>Principles of Statistics, M.G. Bulmer - A short Dover book that covers fundamental statistical topics in and parsimonious manner. Available on Amazon for $3.00.</li>
         <li>Many of the topics covered in this course are covered in the MIT OCW course <a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/">Introduction to Probability and Statistics</a>. </li>
@@ -470,7 +496,7 @@
       </ol>
     </div>
     <div class="section">
-      <h2 lo="238" lf="239"><a name="bayes" number="9.2" raw="## Bayes" class="hanchor" href="#bayes">9.2 Bayes</a></h2>
+      <h2 lo="875" lf="876"><a name="bayes" number="9.2" raw="## Bayes" class="hanchor" href="#bayes">9.2 Bayes</a></h2>
       <ol>
         <li>Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students. </li>
         <li>Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas</li>
@@ -483,7 +509,7 @@
       </ol>
     </div>
     <div class="section">
-      <h2 lo="251" lf="252"><a name="astronomy" number="9.3" raw="## Astronomy  " class="hanchor" href="#astronomy">9.3 Astronomy</a></h2>
+      <h2 lo="888" lf="889"><a name="astronomy" number="9.3" raw="## Astronomy  " class="hanchor" href="#astronomy">9.3 Astronomy</a></h2>
       <ol>
         <li>Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</li>
         <li>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, <a href="https://arxiv.org/abs/1710.06068">https://arxiv.org/abs/1710.06068</a></li>
@@ -495,7 +521,7 @@
       </ol>
     </div>
     <div class="section">
-      <h2 lo="263" lf="264"><a name="software" number="9.4" raw="## Software" class="hanchor" href="#software">9.4 Software</a></h2>
+      <h2 lo="900" lf="901"><a name="software" number="9.4" raw="## Software" class="hanchor" href="#software">9.4 Software</a></h2>
       <ol>
         <li><a href="http://greenteapress.com/thinkstats2/html/thinkstats2010.html">Think Stats</a> - A free book that demonstrates standard statistical calculations in Python.</li>
         <li><a href="https://arxiv.org/pdf/1202.3665.pdf">EMCEE Overview</a>
@@ -504,27 +530,27 @@
       </ol>
     </div>
     <div class="section">
-      <h1 lo="272" lf="273"><a name="general-policies" number="10" raw="# General Policies" class="hanchor" href="#general-policies">10 General Policies</a></h1>
+      <h1 lo="909" lf="910"><a name="general-policies" number="10" raw="# General Policies" class="hanchor" href="#general-policies">10 General Policies</a></h1>
     </div>
     <div class="section">
-      <h2 lo="274" lf="275"><a name="academic-integrity" number="10.1" raw="## Academic Integrity" class="hanchor" href="#academic-integrity">10.1 Academic Integrity</a></h2>
-      <p lo="276" lf="276">Any instance of cheating or plagiarism is a violation of the Honor Code Pledge and will result in a score of zero on the exam or paper and referral to the Honor Committee. The website for the Office of Academic Integrity is <a href="https://oai.gmu.edu/">https://oai.gmu.edu/</a>.</p>
+      <h2 lo="911" lf="912"><a name="academic-integrity" number="10.1" raw="## Academic Integrity" class="hanchor" href="#academic-integrity">10.1 Academic Integrity</a></h2>
+      <p lo="286" lf="286">Any instance of cheating or plagiarism is a violation of the Honor Code Pledge and will result in a score of zero on the exam or paper and referral to the Honor Committee. The website for the Office of Academic Integrity is <a href="https://oai.gmu.edu/">https://oai.gmu.edu/</a>.</p>
     </div>
     <div class="section">
-      <h2 lo="278" lf="279"><a name="disability" number="10.2" raw="## Disability" class="hanchor" href="#disability">10.2 Disability</a></h2>
-      <p lo="280" lf="280">If you have a disability and need academic accommodations, please contact Disability Services. Their website is <a href="https://ds.gmu.edu/">https://ds.gmu.edu/</a>. All academic accommodations must be arranged through Disability Services.</p>
+      <h2 lo="915" lf="916"><a name="disability" number="10.2" raw="## Disability" class="hanchor" href="#disability">10.2 Disability</a></h2>
+      <p lo="290" lf="290">If you have a disability and need academic accommodations, please contact Disability Services. Their website is <a href="https://ds.gmu.edu/">https://ds.gmu.edu/</a>. All academic accommodations must be arranged through Disability Services.</p>
     </div>
     <div class="section">
-      <h2 lo="282" lf="283"><a name="diversity-and-inclusion" number="10.3" raw="## Diversity and Inclusion" class="hanchor" href="#diversity-and-inclusion">10.3 Diversity and Inclusion</a></h2>
-      <p lo="284" lf="284">We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at <a href="https://universitypolicy.gmu.edu/policies/non-discrimination-policy/">https://universitypolicy.gmu.edu/policies/non-discrimination-policy/</a>.</p>
+      <h2 lo="919" lf="920"><a name="diversity-and-inclusion" number="10.3" raw="## Diversity and Inclusion" class="hanchor" href="#diversity-and-inclusion">10.3 Diversity and Inclusion</a></h2>
+      <p lo="294" lf="294">We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at <a href="https://universitypolicy.gmu.edu/policies/non-discrimination-policy/">https://universitypolicy.gmu.edu/policies/non-discrimination-policy/</a>.</p>
     </div>
     <div class="section">
-      <h2 lo="286" lf="287"><a name="communication" number="10.4" raw="## Communication" class="hanchor" href="#communication">10.4 Communication</a></h2>
-      <p lo="288" lf="288">If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. </p>
-      <p lo="290" lf="290">If you need to send communicate with me about something private, please send it to <code>rweigel@gmu.edu</code> from your MasonLive email address.</p>
+      <h2 lo="923" lf="924"><a name="communication" number="10.4" raw="## Communication" class="hanchor" href="#communication">10.4 Communication</a></h2>
+      <p lo="298" lf="298">If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. </p>
+      <p lo="300" lf="300">If you need to send communicate with me about something private, please send it to <code>rweigel@gmu.edu</code> from your MasonLive email address.</p>
     </div>
     <div class="section">
-      <h2 lo="292" lf="293"><a name="university-resources" number="10.5" raw="## University Resources" class="hanchor" href="#university-resources">10.5 University Resources</a></h2>
+      <h2 lo="929" lf="930"><a name="university-resources" number="10.5" raw="## University Resources" class="hanchor" href="#university-resources">10.5 University Resources</a></h2>
       <ul>
         <li>Learning Services <a href="https://learningservices.gmu.edu/">https://learningservices.gmu.edu/</a></li>
         <li>Student Support and Advocacy Center <a href="https://ssac.gmu.edu/">https://ssac.gmu.edu/</a></li>

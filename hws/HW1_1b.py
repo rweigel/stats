@@ -36,12 +36,20 @@ for n in Ns:
     i = i + 1
 
 plt.figure()
-plt.grid(which='both', color=(0.9, 0.9, 0.9))
+plt.grid(which='minor', color=(0.9, 0.9, 0.9))
+plt.grid(which='major', color=(0.2, 0.2, 0.2))
 plt.loglog(Ns, F, marker=".")
 plt.xlabel('n')
 plt.title('Fraction of %d $\overline{X}$s in range [-0.01,0.01]' % Ne)
+plt.savefig("figures/HW1_1b2.png", format="png", transparent=True)
+plt.savefig("figures/HW1_1b2.svg", format="svg", transparent=True)
 
 # 3
+Ns = 100    # Number of samples per experiment
+Ne = 10000  # Number of expriments
+X = np.random.randn(Ns, Ne)
+Xbar = np.mean(X, axis=0) # Compute average of each column
+
 flast = np.nan
 for eps in np.arange(np.min(Xbar), np.max(Xbar), 0.01):
     idx = np.abs(Xbar) < eps
@@ -51,7 +59,7 @@ for eps in np.arange(np.min(Xbar), np.max(Xbar), 0.01):
     if f >= 0.99 and flast < 0.99:
         # Could use linear interpolation to get better estimate
         print('Fraction between [-%.4g,%.4g] = %.4g' % (eps, eps, f)) 
-        # Fraction between [-0.08646,0.08646] = 0.9937
+        # Fraction between [-0.258,0.258] = 0.9901
         break
     flast = f
 
@@ -68,7 +76,7 @@ Eps = np.zeros(Ns.shape)
 
 i = 0
 for n in Ns:
-    X = np.random.randn(n, Ne)
+    X = 10*np.random.randn(n, Ne)
     #X = np.random.uniform(-1.0, 1.0, size=(n,Ne))
     Xbar = np.mean(X, axis=0) # Compute average of each column
 
@@ -95,7 +103,12 @@ plt.loglog(Ns, Eps, marker=".")
 plt.xlabel('$n$ values used for each $\overline{X}$ calculation')
 plt.ylabel('$\epsilon$')
 plt.title('99% of $\overline{X}s$ in range [-$\epsilon$,$\epsilon$]')
+plt.savefig("figures/HW1_1b4.png", format="png", transparent=True)
+plt.savefig("figures/HW1_1b4.svg", format="svg", transparent=True)
 
 # 5
 
-"""If a distribution is selected that has a zero mean, the general trend is the same."""
+"""
+If a distribution is selected that has a zero mean, the general trend
+is the same. This is expected based on the Central Limit Theorem.
+"""

@@ -8,6 +8,9 @@
   <style>
     body {
       display: flex;
+      height: 100%;
+      overflow: hidden;
+      min-width: 50%;
     }
     
     #toc {
@@ -18,6 +21,7 @@
       overflow-y: scroll;
       padding-left: 0.75em ;
       padding-right: 1em ;
+      font-family: "Open Sans";
     }
     
     #toc ol {
@@ -37,6 +41,10 @@
       padding-left: 1em;
       padding-right: 1em;
       border-left: 1px solid rgb(240,240,240);
+    }
+    
+    #display {
+      font-family: "Open Sans";
     }
     
     .title {
@@ -83,6 +91,14 @@
       text-decoration: none;
     }
     
+    code {
+      font-size: 1.20em;
+    }
+    
+    pre {
+      font-size: 1.2em;
+    }
+    
     /* Fenced code blocks have form <pre><code>...</code></pre> */
     pre > code {
       background-color: rgba(0,0,0,0);
@@ -95,6 +111,7 @@
     
     code.language-Python {
       background-color: rgba(0,0,0,0);
+      font-size: 1.0em;
     }
     
     pre {
@@ -108,13 +125,21 @@
     
     pre.language-Python {
       border-left: 5px solid blue;
-      background-color: rgba(0,0,0,.03);
+      /* background-color: rgba(0,0,0,.03); */
       padding: 0.5em;
       margin-left: 1em;
       margin-right: 1em;
       line-height: 1.5;
     }
     
+    details > summary {
+      font-weight: bold;
+    }
+    
+    details[open] {
+      border: 1px solid black;
+      padding: 1em;
+    }    
     /* 
       A span with class 'katex' wraps all equations. A span with class
       katex-display wraps block equations and a span with class katex.
@@ -166,6 +191,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css">
   </link>
 </head>
@@ -176,7 +202,7 @@
     <ol>
       <li><a target="_parent" number="1." raw="# Basic Concepts in Probability" class="tocanchor" href="#basic-concepts-in-probability">Basic Concepts in Probability</a></li>
       <ol>
-        <li><a target="_parent" number="1.1." raw="## Probability Interpretation" class="tocanchor" href="#probability-interpretation">Probability Interpretation</a></li>
+        <li><a target="_parent" number="1.1." raw="## Probability Interpretation" class="tocanchor highlighted" href="#probability-interpretation">Probability Interpretation</a></li>
         <ol>
           <li><a target="_parent" number="1.1.1." raw="### Classical " class="tocanchor" href="#classical">Classical</a></li>
           <li><a target="_parent" number="1.1.2." raw="### Frequentist" class="tocanchor" href="#frequentist">Frequentist</a></li>
@@ -216,7 +242,7 @@
       <h1><a target="_parent" name="basic-concepts-in-probability" number="1." raw="# Basic Concepts in Probability" class="hanchor" href="#basic-concepts-in-probability">1. Basic Concepts in Probability</a></h1>
     </div>
     <div contenteditable="false" class="section">
-      <h2><a target="_parent" name="probability-interpretation" number="1.1." raw="## Probability Interpretation" class="hanchor" href="#probability-interpretation">1.1. Probability Interpretation</a></h2>
+      <h2><a target="_parent" name="probability-interpretation" number="1.1." raw="## Probability Interpretation" class="hanchor highlighted" href="#probability-interpretation">1.1. Probability Interpretation</a></h2>
       <p>In the following, minimal definitions of the three dominant types of probability are given. Although it is useful to know these definitions, in practice, they are not critical for making interpretations and conclusions.</p>
       <p>Most of the work in this course will involve the estimation of uncertainty and making conclusions using both Frequentist and Bayesian methods.</p>
       <p>For an extended discussion see [DeGroot and Schervish, Chapter 1.2].</p>
