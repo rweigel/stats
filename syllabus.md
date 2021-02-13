@@ -98,9 +98,16 @@ In the [References](#references) section of this syllabus, many additional refer
     * I am working on posting my solutions to HW1 and also posting HW2. I expect to have HW2 posted by Saturday at noon, which is about a day later than I planned (I typically post the next HW a day after class because I often modify what I planned to assign based on what happened in class). I'll update the [course page](https://rweigel.github.io/astrostats/) and make a Piazza post when I have posted HW2.
 
 ## February 11th
-- Bayes' Theorem Applications
+
+*   [HW #1](hw.html#hw-1) notes based on grading.
+    * Discuss W.M.'s solution.
+*   Discord - Justin's timing experiment and Nasser's question
+*   [HW #2](hw.html#hw-2) due before class starts
+*   Discuss HW #2 solutions 
+*   In-class work on problems related to HW #2 and HW #3
 
 ## February 18th
+*   [HW #3](hw.html#hw-3) due before class starts
 
 ## February 25th
 
