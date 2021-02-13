@@ -199,7 +199,7 @@ Do this using counting techniques with an explanation at the level that I used t
 2. A supply of 10 stickers, one for each digit: $10\cdot 9\cdot 8 = 10!/7!$;
 3. Same as 2., but also a license plate with the same three numbers as another license plate (but in a different order) being counted as the same license plate: $10!/(7!3!) = {10 \choose 3}$. 
 
-You do not need to use a license plate/sticker analogy -- use whatever you need to in order to explain the equation at a fundamental level. Save your answer as <code>HW3_1.pdf</code> or <code>HW3_1.md</code> and be prepared to explain your answer to the class.
+You do not need to use a license plate/sticker analogy -- use whatever you need to explain the equation at a fundamental level. Save your answer as <code>HW3_1.pdf</code> or <code>HW3_1.md</code> and be prepared to explain your answer to the class.
 
 ## Bayes' Rule Derivation and Terminology
 
@@ -215,16 +215,16 @@ $P(B\text{ and }A)$ means the same thing as $P(A\text{ and }B)$ (mathematically,
 
 $$P(B)P(A|B)=P(A)P(B|A)$$
 
-Bayes' theorem ("theorem", rule", and "law" are all used, seemingly arbitrarily) is
+Bayes' theorem ("theorem", "rule", and "law" are all used, seemingly arbitrarily) is
 
 $$P(A|B)=P(B|A)\frac{P(A)}{P(B)}$$
 
 In this form,
 
 - $P(A|B)$ is called the posterior. It is a probability that we compute after (**post**) consideration of the other probabilities.
-- $P(B|A)$ is called the likelihood (this is poor choice of name)
+- $P(B|A)$ is called the likelihood (this is a poor choice of name)
 - $P(A)$ is called the prior. If $B$ and $A$ are independent, then $P(A|B)=P(A)$, so $P(A)$ is the probability **prior** to knowing any relationship between $A$ and $B$.
-- $P(B)$ is called a normalizing factor [Wall and Jenkins, p26] or, when $B$ is evidence and $A$ is a hypothesis, then $P(B)$ is also referred to the evidence.
+- $P(B)$ is called a normalizing factor [Wall and Jenkins, p26] or, when $B$ is evidence and $A$ is a hypothesis, $P(B)$ is also referred to as the evidence.
 
 Another form of Bayes' theorem, valid when the events $A_j$ are mutually exclusive and exhaustive, has the denominator re-written using the law of total probability, which is
 
@@ -242,10 +242,10 @@ Come up with your own basic explanation/justification for the Law of Total Proba
 
 **References**
 
-All of the following references describe the problem covered in this HW problem (see Piazza for PDFs). I've attempted to write this problem in a way that you won't need to study these reference and I recommend attempting to solve this problem before reading them.
+All of the following references describe the problem covered in this HW problem (see Piazza for PDFs). I've attempted to write this problem in a way that you won't need to study these references and I recommend attempting to solve this problem before reading them.
 
 * Silva 2006, Chapter 2.1. In this problem, I am walking you through the steps needed to create Figures 1. and 2. This book uses a somewhat unconventional notation by explicitly including the variable $I$. You can safely ignore it in the equations written.
-* The coin tossing experiment is covered at a basic level in Chapters 1 and 4 of Stone.
+* The coin-tossing experiment is covered at a basic level in Chapters 1 and 4 of Stone.
 * A much more mathematically advanced description of this problem is given in Liu and Wasserman 2014.
 
 ----
@@ -263,15 +263,15 @@ $$P(\theta|\mathcal{D})=P(\mathcal{D}|\theta)\frac{P(\theta)}{P(\mathcal{D})}$$
 
 Suppose that we don't know what $\theta$ is -- we are given a coin from a machine and we don't know if the machine produces a fair coin or not.
 
-A typical Bayesian inference problem seeks to assign a probability of $\theta$ given a set of measurements (data). That is, to assign a value to $P(\theta|\mathcal{D})$. In class, I discussed the case where we only had one or two measurements from coin tosses, that is, $\mathcal{D}=[H]$, and $\mathcal{D}=[H,T]$, respectively. In this problem, you will consider these two cases in detail.
+A typical Bayesian inference problem seeks to assign a probability of $\theta$ given a set of measurements (data). That is, to assign a value to $P(\theta|\mathcal{D})$. In class, I discussed the case where we only had one or two measurements from coin tosses, that is, $\mathcal{D}=[H]$, and $\mathcal{D}=[H, T]$, respectively. In this problem, you will consider these two cases in detail.
 
 For $\mathcal{D}=[H]$,
 
-1.  Use the equation in problem 3.1 to compute the probability of $\mathcal{D}$ given a probability of heads. That is, find an expression for the liklihood term $P(\mathcal{D}|\theta)$, which will be a function that depends on $\theta$.
+1.  Use the equation in problem 3.1 to compute the probability of $\mathcal{D}$ given a probability of heads. That is, find an expression for the likelihood term $P(\mathcal{D}|\theta)$, which will be a function that depends on $\theta$.
 
 The $P(\theta)$ term in Bayes theorem above is the so-called prior. Assume you are an alien and know nothing about coin manufacturing machines and have never seen a coin tossed. In this case, based on your lack of subjective prior knowledge, you would say all values of $\theta$ are equally likely and thus $P(\theta)=c$, where $c$ is a constant.
 
-2.  In class, I mentioned that we often don't need to worry about the term $P(\mathcal{D})$ because it is a constant that will "cancel". To elaborate, we are often interested in a ratio of probabilities such as $P(\theta_1|\mathcal{D})/P(\theta_2|\mathcal{D})$. For example, given a sequence of coin tosses from a coin manufactured by a new machine, we would want to know the ratio of the probability that a coin has a probability of heads of $\theta_1$ to the ratio that the probability of heads is $\theta_2$. However, it is sometimes useful to compute this term expliclity. In this case, the law of total probability can be used:
+2.  In class, I mentioned that we often don't need to worry about the term $P(\mathcal{D})$ because it is a constant that will "cancel". To elaborate, we are often interested in a ratio of probabilities such as $P(\theta_1|\mathcal{D})/P(\theta_2|\mathcal{D})$. For example, given a sequence of coin tosses from a coin manufactured by a new machine, we would want to know the ratio of the probability that a coin has a probability of heads of $\theta_1$ to the ratio that the probability of heads is $\theta_2$. However, it is sometimes useful to compute this term explicitly. In this case, the law of total probability can be used:
     $$P(\mathcal{D})=\int_0^1P(\theta)P(\mathcal{D}|\theta)d\theta$$
     Compute $P(\mathcal{D})$ in terms of $c$.
 
@@ -279,9 +279,10 @@ The $P(\theta)$ term in Bayes theorem above is the so-called prior. Assume you a
 
 4.  Repeat parts 1.-3. for $\mathcal{D}=[H,T]$.
 
-5.  You are not an alien. Suppose your subjective judgement is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $P(\theta) \propto e^{(\theta-0.5)^2/0.1}$. Using this, plot $P(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
+5.  You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $P(\theta) \propto e^{(\theta-0.5)^2/0.1}$. Using this, plot $P(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
 
 Save your answers in a file named `HW3_3.pdf` or `HW3_3.md`.
+
 
 
 
