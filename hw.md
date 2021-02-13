@@ -281,7 +281,7 @@ The $P(\theta)$ term in Bayes theorem above is the so-called prior. Assume you a
 
 5.  You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $P(\theta) \propto e^{(\theta-0.5)^2/0.1}$. Using this, plot $P(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
 
-Save your answers in a file named `HW3_3.pdf` or `HW3_3.md`.
+Save your answers in a file named `HW3_3.pdf` or `HW3_3.md`. Save your code in a file named `HW3_3.py`.
 
 
 
