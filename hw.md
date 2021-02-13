@@ -240,6 +240,20 @@ Come up with your own basic explanation/justification for the Law of Total Proba
 
 ## Bayes' Rule for Statistical Inference
 
+**References**
+
+All of the following references describe the problem covered in this HW problem (see Piazza for PDFs). I've attempted to write this problem in a way that you won't need to study these reference and I recommend attempting to solve this problem before reading them.
+
+* Silva 2006, Chapter 2.1. In this problem, I am walking you through the steps needed to create Figures 1. and 2. This book uses a somewhat unconventional notation by explicitly including the variable $I$. You can safely ignore it in the equations written.
+* The coin tossing experiment is covered at a basic level in Chapters 1 and 4 of Stone.
+* A much more mathematically advanced description of this problem is given in Liu and Wasserman 2014.
+
+----
+
+**I don't expect you to be able to solve these problems without questions! Please be active on Piazza and Discord.**
+
+----
+
 Let $\theta$ be a parameter, such as a length, or, as considered in this problem, a probability. For example, suppose a computer program is created that prints an $H$ with probability $\theta$ and a $T$ with probability $1-\theta$ or a coin is manufactured so that the probability of heads is exactly $\theta$. 
 
 Let $\mathcal{D}$ be data from an experiment, for example the results of coin flips, e.g., $\mathcal{D}=[H,T,H,T]$. 
