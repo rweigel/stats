@@ -6,13 +6,6 @@
   <title>hw</title>
   <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
   <style>
-    body {
-      display: flex;
-      height: 100%;
-      overflow: hidden;
-      min-width: 50%;
-    }
-    
     #toc {
       font-size: 85%;
       width: 20%;
@@ -41,9 +34,6 @@
       padding-left: 1em;
       padding-right: 1em;
       border-left: 1px solid rgb(240,240,240);
-    }
-    
-    #display {
       font-family: "Open Sans";
     }
     
@@ -120,7 +110,6 @@
     
     pre.language-Python {
       border-left: 5px solid blue;
-      /* background-color: rgba(0,0,0,.03); */
       padding: 0.5em;
       margin-left: 1em;
       margin-right: 1em;
@@ -190,38 +179,47 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" />
 </head>
 
-<body style="max-height:100%;position:fixed;">
+<body style="display: flex;min-width: 50%;max-height:100%;position:fixed;">
   <div id="toc">
     <ol>
-      <li><a number="1" raw="# HW 1" class="tocanchor" href="#hw-1">HW 1</a></li>
+      <li><a number="1" href="#hw-1">HW 1</a></li>
       <ol>
-        <li><a number="1.1" raw="## Law of Large Numbers I" class="tocanchor" href="#law-of-large-numbers-i">Law of Large Numbers I</a></li>
-        <ol>
-          <li><a number="1.1.1" raw="### a" class="tocanchor" href="#a">a</a></li>
-          <li><a number="1.1.2" raw="### b" class="tocanchor" href="#b">b</a></li>
+        <li><a number="1.1" href="#law-of-large-numbers-i">Law of Large Numbers I</a></li>
+        <ol style="display: none;">
+          <li><a number="1.1.1" href="#a">a</a></li>
+          <li><a number="1.1.2" href="#b">b</a></li>
         </ol>
-        <li><a number="1.2" raw="## Prelude to Hypothesis Testing" class="tocanchor" href="#prelude-to-hypothesis-testing">Prelude to Hypothesis Testing</a></li>
-        <li><a number="1.3" raw="## Basic Concepts in Probability" class="tocanchor" href="#basic-concepts-in-probability">Basic Concepts in Probability</a></li>
+        <li><a number="1.2" href="#prelude-to-hypothesis-testing">Prelude to Hypothesis Testing</a></li>
+        <li><a number="1.3" href="#basic-concepts-in-probability">Basic Concepts in Probability</a></li>
       </ol>
-      <li><a number="2" raw="# HW 2" class="tocanchor" href="#hw-2">HW 2</a></li>
+      <li><a number="2" href="#hw-2">HW 2</a></li>
       <ol>
-        <li><a number="2.1" raw="## Counting" class="tocanchor" href="#counting">Counting</a></li>
-        <li><a number="2.2" raw="## Bayes' Theorem" class="tocanchor" href="#bayes-theorem">Bayes’ Theorem</a></li>
+        <li><a number="2.1" href="#counting">Counting</a></li>
+        <li><a number="2.2" href="#bayes-theorem">Bayes’ Theorem</a></li>
       </ol>
-      <li><a number="3" raw="# HW 3" class="tocanchor" href="#hw-3">HW 3</a></li>
+      <li><a number="3" href="#hw-3">HW 3</a></li>
       <ol>
-        <li><a number="3.1" raw="## Exact answer for coin flips" class="tocanchor" href="#exact-answer-for-coin-flips">Exact answer for coin flips</a></li>
-        <li><a number="3.2" raw="## Bayes' Rule Derivation and Terminology" class="tocanchor" href="#bayes-rule-derivation-and-terminology">Bayes’ Rule Derivation and Terminology</a></li>
-        <li><a number="3.3" raw="## Bayes' Rule for Statistical Inference" class="tocanchor" href="#bayes-rule-for-statistical-inference">Bayes’ Rule for Statistical Inference</a></li>
+        <li><a number="3.1" href="#exact-answer-for-coin-flips">Exact answer for coin flips</a></li>
+        <li><a number="3.2" href="#bayes-rule-derivation-and-terminology">Bayes’ Rule Derivation and Terminology</a></li>
+        <li><a number="3.3" href="#bayes-rule-for-statistical-inference">Bayes’ Rule for Statistical Inference</a></li>
+      </ol>
+      <li><a number="4" href="#hw-4">HW 4</a></li>
+      <ol>
+        <li><a number="4.1" href="#reading">Reading</a></li>
+        <li><a number="4.2" href="#bernoulli-trials">Bernoulli Trials</a></li>
+        <li><a number="4.3" href="#the-poisson-distribution">The Poisson Distribution</a></li>
+        <li><a number="4.4" href="#solar-flare-data-590-only-">Solar Flare Data (590 only)</a></li>
       </ol>
     </ol>
   </div>
   <div id="display">
     <div class="section">
-      <h1 lo="3103651" lf="3103652"><a name="hw-1" number="1" raw="# HW 1" class="hanchor" href="#hw-1">1 HW 1</a></h1>
-      <p lo="3" lf="3">The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.</p>
+    </div>
+    <div class="section">
+      <h1><a name="hw-1" number="1" class="hanchor" href="#hw-1">1 HW 1</a></h1>
+      <p>The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.</p>
       <hr>
-      <p lo="7" lf="7">The Law of Large Numbers tells us that as <span class="katex"><span class="katex-mathml"><math>
+      <p>The Law of Large Numbers tells us that as <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>n</mi>
@@ -231,7 +229,7 @@
                 <annotation encoding="application/x-tex">n\rightarrow \infty</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">∞</span></span></span></span> the sample average defined by</p>
-      <p lo="9" lf="9"><span class="katex katex-display" style="display: block" raw="\displaystyle \overline{X}=\frac{1}{n}\sum_{i=1}^n X_i"><span class="katex-mathml"><math>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -272,7 +270,7 @@
                           </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">n</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span></p>
-      <p lo="11" lf="11">will be near the population average <span class="katex"><span class="katex-mathml"><math>
+      <p>will be near the population average <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>μ</mi>
@@ -342,7 +340,7 @@
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:1.01333em;vertical-align:-0.25em;"></span><span class="base"><span class="mord">∣</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                             <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                           </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">μ</span><span class="mord">∣</span></span></span></span> is smaller that a certain value.</p>
-      <p lo="13" lf="13">If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see</p>
+      <p>If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see</p>
       <ul>
         <li><a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf">Orloff and Bloom, Reading 6b</a></li>
         <li>Bulmer, Chapter 6 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">Piazza</a>)</li>
@@ -350,10 +348,10 @@
       </ul>
     </div>
     <div class="section">
-      <h2 lo="3103670" lf="3103671"><a name="law-of-large-numbers-i" number="1.1" raw="## Law of Large Numbers I" class="hanchor" href="#law-of-large-numbers-i">1.1 Law of Large Numbers I</a></h2>
+      <h2><a name="law-of-large-numbers-i" number="1.1" class="hanchor" href="#law-of-large-numbers-i">1.1 Law of Large Numbers I</a></h2>
     </div>
     <div class="section">
-      <h3 lo="3103672" lf="3103673"><a name="a" number="1.1.1" raw="### a" class="hanchor" href="#a">1.1.1 a</a></h3>
+      <h3><a name="a" number="1.1.1" class="hanchor" href="#a">1.1.1 a</a></h3>
       <ol>
         <li>Draw <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -428,7 +426,7 @@
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span></span></span></span></span></span></span></span>.</li>
       </ol>
-      <p lo="30" lf="30">Save your program as <code>HW1_1a.py</code>. When I execute your program, I should see a histogram with <em><strong>the average of</strong></em> <span class="katex"><span class="katex-mathml"><math>
+      <p>Save your program as <code len="11">HW1_1a.py</code>. When I execute your program, I should see a histogram with <em><strong>the average of</strong></em> <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mover accent="true">
@@ -443,12 +441,13 @@
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.7633300000000001em;vertical-align:0em;"></span><span class="base"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                             <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                           </svg></span></span></span></span></span></span></span></span></span> displayed in the title.</p>
-      <p lo="32" lf="32"><strong>Answer</strong></p>
-      <p lo="34" lf="34">See <a href="hws/HW1_1a.py">HW1_1a.py</a>. Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.</p>
-      <img src="hws/figures/HW1_1a.svg">
+      <p><strong>Answer</strong></p>
+      <p>See <a href="hws/HW1_1a.py">HW1_1a.py</a>. Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.</p>
+      <p><img src="hws/figures/HW1_1a.svg">
+      </p>
     </div>
     <div class="section">
-      <h3 lo="3103688" lf="3103689"><a name="b" number="1.1.2" raw="### b" class="hanchor" href="#b">1.1.2 b</a></h3>
+      <h3><a name="b" number="1.1.2" class="hanchor" href="#b">1.1.2 b</a></h3>
       <ol>
         <li>For <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -513,7 +512,8 @@
                   </mrow>
                   <annotation encoding="application/x-tex">n</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span>? <sup>+</sup></li>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span>? <p><sup></sup></p> +<p></p>
+        </li>
         <li>For <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
@@ -586,13 +586,15 @@
                   </mrow>
                   <annotation encoding="application/x-tex">n</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span>? <sup>+</sup></li>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span>? <p><sup></sup></p> +<p></p>
+        </li>
         <li>How does your answer change if the distribution changes?</li>
       </ol>
-      <p lo="48" lf="48"><sup>+</sup> You may explain this using one or more of words, tables, and plots.</p>
-      <p lo="50" lf="50">Save your program as <code>HW1_1b.py</code>. Save your answers in a file named <code>HW1_1b.md</code> or <code>HW1_1b.pdf</code>.</p>
-      <p lo="32" lf="32"><strong>Answer</strong></p>
-      <p lo="54" lf="54">See <a href="hws/HW1_1b.py">HW1_1b.py</a></p>
+      <p></p>
+      <p><sup></sup></p> +<p></p> You may explain this using one or more of words, tables, and plots.<p></p>
+      <p>Save your program as <code len="11">HW1_1b.py</code>. Save your answers in a file named <code len="11">HW1_1b.md</code> or <code len="12">HW1_1b.pdf</code>.</p>
+      <p><strong>Answer</strong></p>
+      <p>See <a href="hws/HW1_1b.py">HW1_1b.py</a></p>
       <ol>
         <li> 7.6%</li>
         <li>The following plot shows the dependence. As <span class="katex"><span class="katex-mathml"><math>
@@ -634,9 +636,11 @@
                   </mrow>
                   <annotation encoding="application/x-tex">[-0.01, 0.01]</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">[</span><span class="mord">−</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">1</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">1</span><span class="mclose">]</span></span></span></span>. <img src="hws/figures/HW1_1b2.svg"></li>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">[</span><span class="mord">−</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">1</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">1</span><span class="mclose">]</span></span></span></span>.<p> <img src="hws/figures/HW1_1b2.svg"></p>
+        </li>
         <li> 25.8%</li>
-        <li>The following plot shows the dependence. <img src="hws/figures/HW1_1b4.svg"></li>
+        <li>The following plot shows the dependence.<p> <img src="hws/figures/HW1_1b4.svg"></p>
+        </li>
         <li> I accepted any answer to this question as it was not interpreted correctly. By “distribution”, I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
@@ -665,7 +669,7 @@
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.7633300000000001em;vertical-align:0em;"></span><span class="base"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                            </svg></span></span></span></span></span></span></span></span></span> is still Gaussian. In <a href="hws/HW1_1a.py">HW1_1a.py</a>, there is a line with <code>np.random.uniform</code> commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the <span class="katex"><span class="katex-mathml"><math>
+                            </svg></span></span></span></span></span></span></span></span></span> is still Gaussian. In <a href="hws/HW1_1a.py">HW1_1a.py</a>, there is a line with <code len="19">np.random.uniform</code> commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>n</mi>
@@ -690,9 +694,9 @@
       </ol>
     </div>
     <div class="section">
-      <h2 lo="3103718" lf="3103719"><a name="prelude-to-hypothesis-testing" number="1.2" raw="## Prelude to Hypothesis Testing" class="hanchor" href="#prelude-to-hypothesis-testing">1.2 Prelude to Hypothesis Testing</a></h2>
-      <p lo="70" lf="70">This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.</p>
-      <p lo="72" lf="72">I select <span class="katex"><span class="katex-mathml"><math>
+      <h2><a name="prelude-to-hypothesis-testing" number="1.2" class="hanchor" href="#prelude-to-hypothesis-testing">1.2 Prelude to Hypothesis Testing</a></h2>
+      <p>This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.</p>
+      <p>I select <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>n</mi>
@@ -711,10 +715,10 @@
                 <annotation encoding="application/x-tex">n</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> heights.</p>
-      <p lo="74" lf="74">Briefly describe a program that you would write to determine the likelihood. If you have done hypothesis testing before, don’t use any of its terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.</p>
-      <p lo="76" lf="76">Save your answer in a file named <code>HW1_2.md</code> or <code>HW1_2.pdf</code>.</p>
-      <p lo="32" lf="32"><strong>Answer</strong></p>
-      <p lo="80" lf="80">In this problem, a single sample of <span class="katex"><span class="katex-mathml"><math>
+      <p>Briefly describe a program that you would write to determine the likelihood. If you have done hypothesis testing before, don’t use any of its terminology or techniques. I am only interested in hearing ideas that you have about how the approach used in the previous problem could be used to give an answer.</p>
+      <p>Save your answer in a file named <code len="10">HW1_2.md</code> or <code len="11">HW1_2.pdf</code>.</p>
+      <p><strong>Answer</strong></p>
+      <p>In this problem, a single sample of <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>n</mi>
@@ -760,7 +764,7 @@
                 <annotation encoding="application/x-tex">\mu</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> but want to make a statement (or “inference”) about it.</p>
-      <p lo="82" lf="82">Now do many (say 10,000) experiments of drawing a sample of <span class="katex"><span class="katex-mathml"><math>
+      <p>Now do many (say 10,000) experiments of drawing a sample of <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mn>1</mn>
@@ -797,7 +801,7 @@
                 <annotation encoding="application/x-tex">s_o</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>. That is, assume that the actual unknown population distribution has a mean and standard deviation that is equal to that from the sample.</p>
-      <p lo="84" lf="84">The percentage of <span class="katex"><span class="katex-mathml"><math>
+      <p>The percentage of <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mn>1</mn>
@@ -841,11 +845,11 @@
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.9133300000000001em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> is our estimate of the likelihood.</p>
-      <p lo="86" lf="86">The above is the basic process of inferential statistics. However, instead of doing a simulation of 10,000 experiments, one can use a table to look up the expected percentage when an infinite number of experiments are performed.</p>
+      <p>The above is the basic process of inferential statistics. However, instead of doing a simulation of 10,000 experiments, one can use a table to look up the expected percentage when an infinite number of experiments are performed.</p>
     </div>
     <div class="section">
-      <h2 lo="3103738" lf="3103739"><a name="basic-concepts-in-probability" number="1.3" raw="## Basic Concepts in Probability" class="hanchor" href="#basic-concepts-in-probability">1.3 Basic Concepts in Probability</a></h2>
-      <p lo="90" lf="90">Read Chapter 2.1-2.2 of Devore, 2012 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">PDF available on Piazza</a>). </p>
+      <h2><a name="basic-concepts-in-probability" number="1.3" class="hanchor" href="#basic-concepts-in-probability">1.3 Basic Concepts in Probability</a></h2>
+      <p>Read Chapter 2.1-2.2 of Devore, 2012 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">PDF available on Piazza</a>). </p>
       <ol>
         <li>An experiment involves tossing a coin 3x. What is the sample space of this experiment?</li>
         <li>How many of the outcomes in the sample space had two heads? </li>
@@ -883,11 +887,11 @@
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">A</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span>?</li>
       </ol>
-      <p lo="98" lf="98">Save your answers in a file named <code>HW1_3a.md</code> or <code>HW1_3a.pdf</code>.</p>
-      <p lo="32" lf="32"><strong>Answer</strong></p>
+      <p>Save your answers in a file named <code len="11">HW1_3a.md</code> or <code len="12">HW1_3a.pdf</code>.</p>
+      <p><strong>Answer</strong></p>
       <ol>
         <li>
-          <p lo="124" lf="124">The sample space has 8 elements (<span class="katex"><span class="katex-mathml"><math>
+          <p>The sample space has 8 elements (<span class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <msup>
@@ -898,7 +902,7 @@
                     <annotation encoding="application/x-tex">2^3</annotation>
                   </semantics>
                 </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span>). This list can be found using a tree diagram as shown below.</p>
-          <pre lo="3103775" lf="3103791"><code>        H   =&gt; HHH
+          <pre><code>        H   =&gt; HHH
     H -
         T   =&gt; HHT
 H -        
@@ -916,7 +920,7 @@ T -
 </code></pre>
         </li>
         <li>
-          <p lo="142" lf="142"><span class="katex"><span class="katex-mathml"><math>
+          <p><span class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mn>3</mn>
@@ -973,7 +977,7 @@ T -
                 </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord">3</span><span class="mclose">!</span><span class="mord">/</span><span class="mord">2</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">3</span></span></span></span>.</p>
         </li>
         <li>
-          <p lo="142" lf="142">By inspection of the list from 1., <span class="katex"><span class="katex-mathml"><math>
+          <p>By inspection of the list from 1., <span class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mi>A</mi>
@@ -998,72 +1002,309 @@ T -
                 </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="base"><span class="mord mathit">A</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∩</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">∅</span></span></span></span>.</p>
         </li>
       </ol>
+      <p>In the above, I assumed “experiement yields two heads” to mean “the experiment yielded exactly two heads” and not “the experiement yielded two or more heads”.</p>
     </div>
     <div class="section">
-      <h1 lo="3103794" lf="3103795"><a name="hw-2" number="2" raw="# HW 2" class="hanchor" href="#hw-2">2 HW 2</a></h1>
+      <h1><a name="hw-2" number="2" class="hanchor" href="#hw-2">2 HW 2</a></h1>
     </div>
     <div class="section">
-      <h2 lo="3103796" lf="3103797"><a name="counting" number="2.1" raw="## Counting" class="hanchor" href="#counting">2.1 Counting</a></h2>
+      <h2><a name="counting" number="2.1" class="hanchor" href="#counting">2.1 Counting</a></h2>
       <ol>
-        <li>By hand, solve problem 38. in Chapter 2. of Devore. See Piazza for a copy of this chapter. (Save as <code>HW2_1_1.pdf</code> or <code>HW2_1_1.md</code>)</li>
-        <li>Use Python to check your answer by simulating many experiments in which 3 bulbs are randomly selected and then computing the ratios requested in parts a.–d. of the problem statement. This will not be an exact answer, but as you increase the number of experiments, this approximate answer should become closer to your answers found by hand. (Save as <code>HW2_1_2.py</code>)</li>
+        <li>By hand, solve problem 38. in Chapter 2. of Devore. See Piazza for a copy of this chapter. (Save as <code len="13">HW2_1_1.pdf</code> or <code len="12">HW2_1_1.md</code>)</li>
+        <li>Use Python to check your answer by simulating many experiments in which 3 bulbs are randomly selected and then computing the ratios requested in parts a.–d. of the problem statement. This will not be an exact answer, but as you increase the number of experiments, this approximate answer should become closer to your answers found by hand. (Save as <code len="12">HW2_1_2.py</code>)</li>
       </ol>
-      <p lo="153" lf="153"><em>Update</em>: Technically parts a.-c. ask for drawing three bulbs, so the inclusion of part d in the above does not make sense. So just use the simulation to check your answers to parts a.-c., but you are encouraged to use a simulation to check your answer to part d.</p>
-      <p lo="32" lf="32"><strong>Answer</strong></p>
-      <ol>
-        <li>
-          <p lo="164" lf="164"> &nbsp;&nbsp;&nbsp;<span class="katex"><span class="katex-mathml"><math>
-                  <semantics>
-                    <mrow>
-                      <mstyle scriptlevel="0" displaystyle="true">
-                        <mfrac>
-                          <mrow>
-                            <mn>3</mn>
-                            <mo>(</mo>
-                            <mn>6</mn>
-                            <mo>⋅</mo>
-                            <mn>5</mn>
-                            <mo>⋅</mo>
-                            <mn>4</mn>
-                            <mo>+</mo>
-                            <mn>6</mn>
-                            <mo>⋅</mo>
-                            <mn>5</mn>
-                            <mo>⋅</mo>
-                            <mn>5</mn>
-                            <mo>)</mo>
-                          </mrow>
-                          <mrow>
-                            <mn>1</mn>
-                            <mn>5</mn>
-                            <mo>!</mo>
-                            <mn>1</mn>
-                            <mn>4</mn>
-                            <mo>!</mo>
-                            <mn>1</mn>
-                            <mn>3</mn>
-                            <mo>!</mo>
-                          </mrow>
-                        </mfrac>
-                      </mstyle>
-                    </mrow>
-                    <annotation encoding="application/x-tex">\displaystyle \frac{3(6\cdot 5\cdot 4 + 6\cdot 5\cdot 5)}{15!14!13!}</annotation>
-                  </semantics>
-                </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.113em;vertical-align:-0.686em;"></span><span class="base"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">5</span><span class="mclose">!</span><span class="mord">1</span><span class="mord">4</span><span class="mclose">!</span><span class="mord">1</span><span class="mord">3</span><span class="mclose">!</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                                  <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span><span class="mopen">(</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
-        </li>
-        <li>
-          <p lo="165" lf="165">See <a href="hws/HW2_1_2.py">HW2_1_2.py</a></p>
-        </li>
+      <p><em>Update</em>: Technically parts a.-c. ask for drawing three bulbs, so the inclusion of part d in the above does not make sense. So just use the simulation to check your answers to parts a.-c., but you are encouraged to use a simulation to check your answer to part d.</p>
+      <p><strong>Answer</strong></p>
+      <p>A box in a certain supply room contains four 40-W light-bulbs, five 60-W bulbs, and six 75-W bulbs. Suppose that three bulbs are randomly selected.</p>
+      <p>a. What is the probability that exactly two of the selected bulbs are rated at 75-W?</p>
+      <p>Consider the number of ways of getting <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mo>[</mo>
+                  <mn>7</mn>
+                  <mn>5</mn>
+                  <mo separator="true">,</mo>
+                  <mn>7</mn>
+                  <mn>5</mn>
+                  <mo separator="true">,</mo>
+                  <mn>4</mn>
+                  <mn>0</mn>
+                  <mo>]</mo>
+                </mrow>
+                <annotation encoding="application/x-tex">[75,75,40]</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">[</span><span class="mord">7</span><span class="mord">5</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">7</span><span class="mord">5</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mclose">]</span></span></span></span>. It is <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mn>6</mn>
+                  <mo>⋅</mo>
+                  <mn>5</mn>
+                  <mo>⋅</mo>
+                  <mn>4</mn>
+                </mrow>
+                <annotation encoding="application/x-tex">6\cdot 5\cdot 4</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span></span></span></span>. There are three ways to order this list, so the total number of ways of getting two 75s and one 40 is <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mn>3</mn>
+                  <mo>(</mo>
+                  <mn>6</mn>
+                  <mo>⋅</mo>
+                  <mn>5</mn>
+                  <mo>⋅</mo>
+                  <mn>4</mn>
+                  <mo>)</mo>
+                </mrow>
+                <annotation encoding="application/x-tex">3(6\cdot 5\cdot 4)</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord">3</span><span class="mopen">(</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mclose">)</span></span></span></span>. From similar reasoning, it follows that the number of ways of getting <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mo>[</mo>
+                  <mn>7</mn>
+                  <mn>5</mn>
+                  <mo separator="true">,</mo>
+                  <mn>7</mn>
+                  <mn>5</mn>
+                  <mo separator="true">,</mo>
+                  <mn>4</mn>
+                  <mn>0</mn>
+                  <mo>]</mo>
+                </mrow>
+                <annotation encoding="application/x-tex">[75,75,40]</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">[</span><span class="mord">7</span><span class="mord">5</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">7</span><span class="mord">5</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mclose">]</span></span></span></span> in any order is <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mn>3</mn>
+                  <mo>(</mo>
+                  <mn>6</mn>
+                  <mo>⋅</mo>
+                  <mn>5</mn>
+                  <mo>⋅</mo>
+                  <mn>5</mn>
+                  <mo>)</mo>
+                </mrow>
+                <annotation encoding="application/x-tex">3(6\cdot 5\cdot 5)</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord">3</span><span class="mopen">(</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mclose">)</span></span></span></span>. The total probability is thus</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mstyle scriptlevel="0" displaystyle="true">
+                    <mstyle scriptlevel="0" displaystyle="true">
+                      <mfrac>
+                        <mrow>
+                          <mn>3</mn>
+                          <mo>(</mo>
+                          <mn>6</mn>
+                          <mo>⋅</mo>
+                          <mn>5</mn>
+                          <mo>⋅</mo>
+                          <mn>4</mn>
+                          <mo>+</mo>
+                          <mn>6</mn>
+                          <mo>⋅</mo>
+                          <mn>5</mn>
+                          <mo>⋅</mo>
+                          <mn>5</mn>
+                          <mo>)</mo>
+                        </mrow>
+                        <mrow>
+                          <mn>1</mn>
+                          <mn>5</mn>
+                          <mo>⋅</mo>
+                          <mn>1</mn>
+                          <mn>4</mn>
+                          <mo>⋅</mo>
+                          <mn>1</mn>
+                          <mn>3</mn>
+                        </mrow>
+                      </mfrac>
+                      <mo>≈</mo>
+                      <mn>0</mn>
+                      <mi mathvariant="normal">.</mi>
+                      <mn>2</mn>
+                      <mn>9</mn>
+                      <mn>7</mn>
+                    </mstyle>
+                  </mstyle>
+                </mrow>
+                <annotation encoding="application/x-tex">\displaystyle \displaystyle \frac{3(6\cdot 5\cdot 4 + 6\cdot 5\cdot 5)}{15\cdot 14\cdot 13}\approx 0.297</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.113em;vertical-align:-0.686em;"></span><span class="base"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">3</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                              <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                            </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">3</span><span class="mopen">(</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">2</span><span class="mord">9</span><span class="mord">7</span></span></span></span></p>
+      <p>b. What is the probability that all three of the selected bulbs have the same rating?</p>
+      <p>The number of ways of getting “three of a kind” is the number of ways of getting three 75s plus the number of ways of getting three 60s plus the number of ways of getting three 40s, which is</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mstyle scriptlevel="0" displaystyle="true">
+                    <mn>6</mn>
+                    <mo>⋅</mo>
+                    <mn>5</mn>
+                    <mo>⋅</mo>
+                    <mn>4</mn>
+                    <mo>+</mo>
+                    <mn>5</mn>
+                    <mo>⋅</mo>
+                    <mn>4</mn>
+                    <mo>⋅</mo>
+                    <mn>3</mn>
+                    <mo>+</mo>
+                    <mn>4</mn>
+                    <mo>⋅</mo>
+                    <mn>3</mn>
+                    <mo>⋅</mo>
+                    <mn>2</mn>
+                  </mstyle>
+                </mrow>
+                <annotation encoding="application/x-tex">\displaystyle 6\cdot 5\cdot 4 + 5\cdot 4\cdot 3 + 4\cdot 3 \cdot 2</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base"><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">3</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">3</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">2</span></span></span></span></p>
+      <p>The requested probability is thus</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mstyle scriptlevel="0" displaystyle="true">
+                    <mfrac>
+                      <mrow>
+                        <mn>6</mn>
+                        <mo>⋅</mo>
+                        <mn>5</mn>
+                        <mo>⋅</mo>
+                        <mn>4</mn>
+                        <mo>+</mo>
+                        <mn>5</mn>
+                        <mo>⋅</mo>
+                        <mn>4</mn>
+                        <mo>⋅</mo>
+                        <mn>3</mn>
+                        <mo>+</mo>
+                        <mn>4</mn>
+                        <mo>⋅</mo>
+                        <mn>3</mn>
+                        <mo>⋅</mo>
+                        <mn>2</mn>
+                      </mrow>
+                      <mrow>
+                        <mn>1</mn>
+                        <mn>5</mn>
+                        <mo>⋅</mo>
+                        <mn>1</mn>
+                        <mn>4</mn>
+                        <mo>⋅</mo>
+                        <mn>1</mn>
+                        <mn>3</mn>
+                      </mrow>
+                    </mfrac>
+                    <mo>≈</mo>
+                    <mn>0</mn>
+                    <mi mathvariant="normal">.</mi>
+                    <mn>0</mn>
+                    <mn>7</mn>
+                    <mn>5</mn>
+                  </mstyle>
+                </mrow>
+                <annotation encoding="application/x-tex">\displaystyle \frac{6\cdot 5\cdot 4 + 5\cdot 4\cdot 3 + 4\cdot 3 \cdot 2}{15\cdot 14\cdot 13}\approx 0.075</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.32144em;"></span><span class="strut bottom" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="base"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">3</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                              <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                            </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">3</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">3</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">7</span><span class="mord">5</span></span></span></span></p>
+      <p>c. What is the probability that one bulb of each type is selected?</p>
+      <p>The number of ways of getting <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mo>[</mo>
+                  <mn>7</mn>
+                  <mn>5</mn>
+                  <mo separator="true">,</mo>
+                  <mn>6</mn>
+                  <mn>0</mn>
+                  <mo separator="true">,</mo>
+                  <mn>4</mn>
+                  <mn>0</mn>
+                  <mo>]</mo>
+                </mrow>
+                <annotation encoding="application/x-tex">[75,60,40]</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">[</span><span class="mord">7</span><span class="mord">5</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">6</span><span class="mord">0</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mclose">]</span></span></span></span> is <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mn>6</mn>
+                  <mo>⋅</mo>
+                  <mn>5</mn>
+                  <mo>⋅</mo>
+                  <mn>4</mn>
+                </mrow>
+                <annotation encoding="application/x-tex">6\cdot 5\cdot 4</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span></span></span></span>. There are <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mrow>
+                    <mn>3</mn>
+                    <mo>⋅</mo>
+                    <mn>2</mn>
+                  </mrow>
+                  <mo>=</mo>
+                  <mn>6</mn>
+                </mrow>
+                <annotation encoding="application/x-tex">{3\cdot 2}=6</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord">3</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">2</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">6</span></span></span></span> arrangements of this list.</p>
+      <p>The requested probability is thus</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mstyle scriptlevel="0" displaystyle="true">
+                    <mfrac>
+                      <mrow>
+                        <mn>6</mn>
+                        <mo>(</mo>
+                        <mn>6</mn>
+                        <mo>⋅</mo>
+                        <mn>5</mn>
+                        <mo>⋅</mo>
+                        <mn>4</mn>
+                        <mo>)</mo>
+                      </mrow>
+                      <mrow>
+                        <mn>1</mn>
+                        <mn>5</mn>
+                        <mo>⋅</mo>
+                        <mn>1</mn>
+                        <mn>4</mn>
+                        <mo>⋅</mo>
+                        <mn>1</mn>
+                        <mn>3</mn>
+                      </mrow>
+                    </mfrac>
+                    <mo>≈</mo>
+                    <mn>0</mn>
+                    <mi mathvariant="normal">.</mi>
+                    <mn>2</mn>
+                    <mn>6</mn>
+                  </mstyle>
+                </mrow>
+                <annotation encoding="application/x-tex">\displaystyle \frac{6(6\cdot 5\cdot 4)}{15\cdot 14\cdot 13}\approx 0.26</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.113em;vertical-align:-0.686em;"></span><span class="base"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">3</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                              <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                            </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">6</span><span class="mopen">(</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">5</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">2</span><span class="mord">6</span></span></span></span></p>
+      <p>d. Suppose now that bulbs are to be selected one by one until a 75-W bulb is found. What is the probability that it is necessary to examine at least 6 bulbs?</p>
+      <ol start="2">
+        <li>See <a href="hws/HW2_1_2.py">HW2_1_2.py</a></li>
       </ol>
     </div>
     <div class="section">
-      <h2 lo="3103814" lf="3103815"><a name="bayes-theorem" number="2.2" raw="## Bayes' Theorem" class="hanchor" href="#bayes-theorem">2.2 Bayes’ Theorem</a></h2>
-      <p lo="169" lf="169">2% of people age 50–60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?</p>
-      <p lo="171" lf="171">Draw diagrams and be prepared to explain your answer to the class. If you do not know how to solve this analytically, come up with a simulation to give an approximate answer.</p>
-      <p lo="173" lf="173">(Save as <code>HW2_2.pdf</code> or <code>HW2_2.md</code>)</p>
-      <p lo="32" lf="32"><strong>Answer</strong></p>
+      <h2><a name="bayes-theorem" number="2.2" class="hanchor" href="#bayes-theorem">2.2 Bayes’ Theorem</a></h2>
+      <p>2% of people age 50–60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?</p>
+      <p>Draw diagrams and be prepared to explain your answer to the class. If you do not know how to solve this analytically, come up with a simulation to give an approximate answer.</p>
+      <p>(Save as <code len="11">HW2_2.pdf</code> or <code len="10">HW2_2.md</code>)</p>
+      <p><strong>Answer</strong></p>
       <ul>
         <li> <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -1166,7 +1407,7 @@ T -
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.771331em;"></span><span class="strut bottom" style="height:1.021331em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord">∣</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mclose">?</span></span></span></span> (probability of cancer given +Test)</li>
       </ul>
-      <p lo="187" lf="187">We can’t apply Bayes’ rule<br><span class="katex katex-display" style="display: block" raw="\displaystyle P(C) = P(T^+)\frac{P(C|T^+)}{P(T^+|C)}"><span class="katex-mathml"><math>
+      <p>We can’t apply Bayes’ rule<br><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1213,8 +1454,8 @@ T -
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.448331em;"></span><span class="strut bottom" style="height:2.384331em;vertical-align:-0.936em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.448331em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.697331em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord">∣</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
-      <p lo="190" lf="190">rewritten as</p>
-      <p lo="192" lf="192"><span class="katex katex-display" style="display: block" raw="\displaystyle P(C|T^+)=\frac{P(C)\cdot P(T^+|C)}{P(T^+)}"><span class="katex-mathml"><math>
+      <p>rewritten as</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1262,7 +1503,7 @@ T -
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.448331em;"></span><span class="strut bottom" style="height:2.384331em;vertical-align:-0.936em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord">∣</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.448331em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.697331em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
-      <p lo="194" lf="194">immediately, because we need <span class="katex"><span class="katex-mathml"><math>
+      <p>immediately, because we need <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>P</mi>
@@ -1275,7 +1516,7 @@ T -
                 </mrow>
                 <annotation encoding="application/x-tex">P(T^+)</annotation>
               </semantics>
-            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.771331em;"></span><span class="strut bottom" style="height:1.021331em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>. To get this, first compute the number of patients that get a positive colon cancer test<br><span class="katex katex-display" style="display: block" raw="\displaystyle n_{T^+}=n_{C}P(T^+|C)+n_{N}P(T^+|N)"><span class="katex-mathml"><math>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.771331em;"></span><span class="strut bottom" style="height:1.021331em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>. To get this, first compute the number of patients that get a positive colon cancer test<br><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1319,7 +1560,7 @@ T -
                 <annotation encoding="application/x-tex">\displaystyle n_{T^+}=n_{C}P(T^+|C)+n_{N}P(T^+|N)</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.821331em;"></span><span class="strut bottom" style="height:1.071331em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.341865em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7026642857142857em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.07153em;">C</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span></p>
-      <p lo="197" lf="197">where <span class="katex"><span class="katex-mathml"><math>
+      <p>where <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <msub>
@@ -1336,7 +1577,7 @@ T -
                 </mrow>
                 <annotation encoding="application/x-tex">X</annotation>
               </semantics>
-            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>. Divide through by the total number of patients to get<br><span class="katex katex-display" style="display: block" raw="\displaystyle P(T^+)=P(C)P(T^+|C)+P(N)P(T^+|N)"><span class="katex-mathml"><math>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>. Divide through by the total number of patients to get<br><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1380,8 +1621,8 @@ T -
                 <annotation encoding="application/x-tex">\displaystyle P(T^+)=P(C)P(T^+|C)+P(N)P(T^+|N)</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.821331em;"></span><span class="strut bottom" style="height:1.071331em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span></p>
-      <p lo="200" lf="200">then</p>
-      <p lo="202" lf="202"><span class="katex katex-display" style="display: block" raw="\displaystyle P(C|T^+)\frac{}{}=\frac{P(C)\cdot P(T^+|C)}{P(C)P(T^+|C)+P(N)P(T^+|N)}"><span class="katex-mathml"><math>
+      <p>then</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1455,8 +1696,8 @@ T -
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.448331em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.697331em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.697331em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.771331em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
-      <p lo="204" lf="204">inserting numbers gives</p>
-      <p lo="206" lf="206"><span class="katex katex-display" style="display: block" raw="\displaystyle P(C|T^+) = \frac{0.02\cdot 0.8}{0.02\cdot 0.8+0.98 \cdot 0.096} = 0.145"><span class="katex-mathml"><math>
+      <p>inserting numbers gives</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1516,7 +1757,7 @@ T -
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.32144em;"></span><span class="strut bottom" style="height:2.09077em;vertical-align:-0.7693300000000001em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord">∣</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">2</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">8</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">9</span><span class="mord">8</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">9</span><span class="mord">6</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">2</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">8</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span><span class="mord">4</span><span class="mord">5</span></span></span></span></p>
-      <p lo="208" lf="208">So the probability of actually having colon cancer given a postive test is about <span class="katex"><span class="katex-mathml"><math>
+      <p>So the probability of actually having colon cancer given a postive test is about <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mn>1</mn>
@@ -1528,10 +1769,73 @@ T -
                 <annotation encoding="application/x-tex">14.5\%</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="base"><span class="mord">1</span><span class="mord">4</span><span class="mord">.</span><span class="mord">5</span><span class="mord">%</span></span></span></span>. </p>
-      <p lo="210" lf="210">(Often students report their answer to many more than 2 significant digits. How would you calculate the appropriate number of significant digits and the uncertainty in your reported answer, based on the numbers given?)</p>
-      <p lo="212" lf="212"><strong>Alternative Answer</strong></p>
-      <p lo="214" lf="214">To explain this calculation to someone, I would say:</p>
-      <p lo="216" lf="216">Out of <span class="katex"><span class="katex-mathml"><math>
+      <p>(Often students report their answer to many more than 2 significant digits. How would you calculate the appropriate number of significant digits and the uncertainty in your reported answer, based on the numbers given?)</p>
+      <p><strong>Alternative Approach I</strong></p>
+      <p>The information given can be summarized in the following table. The first row contains the true positives (TPs) and false positives (FPs). For a population of 1000, there will be 20 people that have cancer, and 980 that do not. Of the 20 that have cancer, 16 will test positive. Of the 980 that do not have cancer, <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mn>9</mn>
+                  <mn>8</mn>
+                  <mn>0</mn>
+                  <mo>⋅</mo>
+                  <mn>0</mn>
+                  <mi mathvariant="normal">.</mi>
+                  <mn>9</mn>
+                  <mn>6</mn>
+                  <mo>=</mo>
+                  <mn>9</mn>
+                  <mn>4</mn>
+                </mrow>
+                <annotation encoding="application/x-tex">980\cdot 0.96=94</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">9</span><span class="mord">8</span><span class="mord">0</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">9</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">9</span><span class="mord">4</span></span></span></span> will test positive.</p>
+      <pre><code>      Have Cancer (20)    Don't Have Cancer (980)
+T^+   16 (TP)             94 (FP)
+T^-   4 (FN)</code></pre>
+      <p>The marginal probability of having cancer given a positive test is the fraction of the true positives to the false positives.</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mstyle scriptlevel="0" displaystyle="true">
+                    <mi>P</mi>
+                    <mo>(</mo>
+                    <mi>C</mi>
+                    <mi mathvariant="normal">∣</mi>
+                    <msup>
+                      <mi>T</mi>
+                      <mo>+</mo>
+                    </msup>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <mfrac>
+                      <mrow>
+                        <mn>1</mn>
+                        <mn>6</mn>
+                      </mrow>
+                      <mrow>
+                        <mn>1</mn>
+                        <mn>6</mn>
+                        <mo>+</mo>
+                        <mn>9</mn>
+                        <mn>4</mn>
+                      </mrow>
+                    </mfrac>
+                    <mo>=</mo>
+                    <mn>0</mn>
+                    <mi mathvariant="normal">.</mi>
+                    <mn>1</mn>
+                    <mn>4</mn>
+                    <mn>5</mn>
+                  </mstyle>
+                </mrow>
+                <annotation encoding="application/x-tex">\displaystyle P(C|T^+) = \frac{16}{16+94} = 0.145</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.32144em;"></span><span class="strut bottom" style="height:2.09077em;vertical-align:-0.7693300000000001em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mord">∣</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.821331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">9</span><span class="mord">4</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                              <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                            </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">6</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span><span class="mord">4</span><span class="mord">5</span></span></span></span></p>
+      <p><strong>Alternative Approach II</strong></p>
+      <p>To explain this calculation to someone, I would say:</p>
+      <p>Out of <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mn>1</mn>
@@ -1579,7 +1883,7 @@ T -
                 <annotation encoding="application/x-tex">(80\%)</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">(</span><span class="mord">8</span><span class="mord">0</span><span class="mord">%</span><span class="mclose">)</span></span></span></span> will have a positive test, the other four will have a negative test.</p>
-      <p lo="218" lf="218">This leaves 980 without cancer. However, <span class="katex"><span class="katex-mathml"><math>
+      <p>This leaves 980 without cancer. However, <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mn>9</mn>
@@ -1598,7 +1902,7 @@ T -
                 <annotation encoding="application/x-tex">980\cdot 0.096 = 94</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">9</span><span class="mord">8</span><span class="mord">0</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">9</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">9</span><span class="mord">4</span></span></span></span> of these cancer–free people will still have a positive test. This is a large number of false positives!</p>
-      <p lo="220" lf="220">If you received a positive test, you are one of the checked boxes. The number of checked boxes is <span class="katex"><span class="katex-mathml"><math>
+      <p>If you received a positive test, you are one of the checked boxes. The number of checked boxes is <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mn>9</mn>
@@ -1649,17 +1953,18 @@ T -
                 <annotation encoding="application/x-tex">14</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord">4</span></span></span></span> chance.</p>
-      <img src="hws/figures/HW2_2.png" style="width:100%">
-      <p lo="225" lf="225">See also <a href="http://library.mpib-berlin.mpg.de/ft/gg/GG_How_1995.pdf">How to Improve Bayesian Reasoning Without Instruction: Frequency Formats</a> for a discussion on how to explain problems involving Bayesian reasoning.</p>
+      <p><img src="hws/figures/HW2_2.png" style="width:100%">
+      </p>
+      <p>See also <a href="http://library.mpib-berlin.mpg.de/ft/gg/GG_How_1995.pdf">How to Improve Bayesian Reasoning Without Instruction: Frequency Formats</a> for a discussion on how to explain problems involving Bayesian reasoning.</p>
     </div>
     <div class="section">
-      <h1 lo="3103873" lf="3103874"><a name="hw-3" number="3" raw="# HW 3" class="hanchor" href="#hw-3">3 HW 3</a></h1>
+      <h1><a name="hw-3" number="3" class="hanchor" href="#hw-3">3 HW 3</a></h1>
     </div>
     <div class="section">
-      <h2 lo="3103875" lf="3103876"><a name="exact-answer-for-coin-flips" number="3.1" raw="## Exact answer for coin flips" class="hanchor" href="#exact-answer-for-coin-flips">3.1 Exact answer for coin flips</a></h2>
-      <p lo="2507920" lf="2507920">In HW 1.3, you considered the question of the probability of getting two heads when flipping a fair coin 3x. This question was easily answered by explicitly writing out the sample space (the set of all possible outcomes) using a tree diagram and counting the number of outcomes with two heads.</p>
-      <p lo="33292" lf="33292">Write out the sample space for four flips of a fair coin using a tree diagram and then by inspection of the diagram determine the probability of getting two heads.</p>
-      <p lo="2511029" lf="2511029">Next, inspect the sample space and provide an argument for why, if the probability of heads is <span class="katex"><span class="katex-mathml"><math>
+      <h2><a name="exact-answer-for-coin-flips" number="3.1" class="hanchor" href="#exact-answer-for-coin-flips">3.1 Exact answer for coin flips</a></h2>
+      <p>In HW 1.3, you considered the question of the probability of getting two heads when flipping a fair coin 3x. This question was easily answered by explicitly writing out the sample space (the set of all possible outcomes) using a tree diagram and counting the number of outcomes with two heads.</p>
+      <p>Write out the sample space for four flips of a fair coin using a tree diagram and then by inspection of the diagram determine the probability of getting exactly two heads.</p>
+      <p>Next, inspect the sample space and provide an argument for why, if the probability of heads is <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>θ</mi>
@@ -1681,7 +1986,7 @@ T -
                 <annotation encoding="application/x-tex">N</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> tosses is</p>
-      <p lo="2517241" lf="2517241"><span class="katex katex-display" style="display: block" raw="\displaystyle P(k)={N \choose k}(1-\theta)^{N-k}\theta^k"><span class="katex-mathml"><math>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1725,7 +2030,7 @@ T -
                 <annotation encoding="application/x-tex">\displaystyle P(k)={N \choose k}(1-\theta)^{N-k}\theta^k</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.45em;"></span><span class="strut bottom" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603299999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span><span class="mbin mtight">−</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span></p>
-      <p lo="2517933" lf="2517933">Do this using counting techniques with an explanation at the level that I used to explain the number of possible license plates of length three using only numbers. I used this example to give answers to the number of 3-digit license plates that could be formed using stickers with a digit (0-9) on them under three different constraints:</p>
+      <p>Do this using counting techniques with an explanation at the level that I used to explain the number of possible license plates of length three using only numbers. I used this example to give answers to the number of 3-digit license plates that could be formed using stickers with a digit (0-9) on them under three different constraints:</p>
       <ol>
         <li>An infinite supply of stickers: <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -1793,12 +2098,15 @@ T -
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8951079999999999em;"></span><span class="strut bottom" style="height:1.245118em;vertical-align:-0.35001em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mclose">!</span><span class="mord">/</span><span class="mopen">(</span><span class="mord">7</span><span class="mclose">!</span><span class="mord">3</span><span class="mclose">!</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8951079999999999em;"><span style="top:-2.3550000000000004em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.144em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span></span></span>. </li>
       </ol>
-      <p lo="3086203" lf="3086203">You do not need to use a license plate/sticker analogy – use whatever you need to explain the equation at a fundamental level. Save your answer as <code>HW3_1.pdf</code> or <code>HW3_1.md</code> and be prepared to explain your answer to the class.</p>
+      <p>You do not need to use a license plate/sticker analogy – use whatever you need to explain the equation at a fundamental level. Save your answer as </p>
+      <p><code></code></p><code> HW3_1.pdf</code>
+      <p><code></code></p> or <p><code></code></p><code> HW3_1.md</code>
+      <p><code></code></p> and be prepared to explain your answer to the class.<p></p>
     </div>
     <div class="section">
-      <h2 lo="3103895" lf="3103896"><a name="bayes-rule-derivation-and-terminology" number="3.2" raw="## Bayes' Rule Derivation and Terminology" class="hanchor" href="#bayes-rule-derivation-and-terminology">3.2 Bayes’ Rule Derivation and Terminology</a></h2>
-      <p lo="367" lf="367">You only need the law of multiplication to derive Bayes’ theorem. The law of multiplication is</p>
-      <p lo="369" lf="369"><span class="katex katex-display" style="display: block" raw="\displaystyle P(A\text{ and }B)=P(A)P(B|A)"><span class="katex-mathml"><math>
+      <h2><a name="bayes-rule-derivation-and-terminology" number="3.2" class="hanchor" href="#bayes-rule-derivation-and-terminology">3.2 Bayes’ Rule Derivation and Terminology</a></h2>
+      <p>You only need the law of multiplication to derive Bayes’ theorem. The law of multiplication is</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1824,7 +2132,7 @@ T -
                 <annotation encoding="application/x-tex">\displaystyle P(A\text{ and }B)=P(A)P(B|A)</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mord text"><span class="mord">&nbsp;and&nbsp;</span></span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mord mathit">A</span><span class="mclose">)</span></span></span></span></p>
-      <p lo="373" lf="373">The labels <span class="katex"><span class="katex-mathml"><math>
+      <p>The labels <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>A</mi>
@@ -1839,7 +2147,7 @@ T -
                 <annotation encoding="application/x-tex">B</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> are arbitrary. Swapping them gives:</p>
-      <p lo="375" lf="375"><span class="katex katex-display" style="display: block" raw="\displaystyle P(B\text{ and }A)=P(B)P(A|B)"><span class="katex-mathml"><math>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1865,7 +2173,7 @@ T -
                 <annotation encoding="application/x-tex">\displaystyle P(B\text{ and }A)=P(B)P(A|B)</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord text"><span class="mord">&nbsp;and&nbsp;</span></span><span class="mord mathit">A</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span></p>
-      <p lo="2545518" lf="2545518"><span class="katex"><span class="katex-mathml"><math>
+      <p><span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>P</mi>
@@ -1899,7 +2207,7 @@ T -
                 <annotation encoding="application/x-tex">A\text{ and }B</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">A</span><span class="mord text"><span class="mord">&nbsp;and&nbsp;</span></span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> is commutative). Equating the above two equations gives</p>
-      <p lo="379" lf="379"><span class="katex katex-display" style="display: block" raw="\displaystyle P(B)P(A|B)=P(A)P(B|A)"><span class="katex-mathml"><math>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1929,8 +2237,8 @@ T -
                 <annotation encoding="application/x-tex">\displaystyle P(B)P(A|B)=P(A)P(B|A)</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mord mathit">A</span><span class="mclose">)</span></span></span></span></p>
-      <p lo="3086219" lf="3086219">Bayes’ theorem (“theorem”, “rule”, and “law” are all used, seemingly arbitrarily) is</p>
-      <p lo="383" lf="383"><span class="katex katex-display" style="display: block" raw="\displaystyle P(A|B)=P(B|A)\frac{P(A)}{P(B)}"><span class="katex-mathml"><math>
+      <p>Bayes’ theorem (“theorem”, “rule”, and “law” are all used, seemingly arbitrarily) is</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -1968,7 +2276,7 @@ T -
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.363em;vertical-align:-0.936em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mord mathit">A</span><span class="mclose">)</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
-      <p lo="385" lf="385">In this form,</p>
+      <p>In this form,</p>
       <ul>
         <li><span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -2098,7 +2406,7 @@ T -
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span> is also referred to as the evidence.</li>
       </ul>
-      <p lo="137387" lf="137387">Another form of Bayes’ theorem, valid when the events <span class="katex"><span class="katex-mathml"><math>
+      <p>Another form of Bayes’ theorem, valid when the events <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <msub>
@@ -2109,7 +2417,7 @@ T -
                 <annotation encoding="application/x-tex">A_j</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span></span></span></span> are mutually exclusive and exhaustive, has the denominator re-written using the law of total probability, which is</p>
-      <p lo="152614" lf="152614"><span class="katex katex-display" style="display: block" raw="\displaystyle P(B) = \sum_{j=1}^kP(A_j)P(B|A_j)."><span class="katex-mathml"><math>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -2149,8 +2457,8 @@ T -
                 <annotation encoding="application/x-tex">\displaystyle P(B) = \sum_{j=1}^kP(A_j)P(B|A_j).</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.8361130000000006em;"></span><span class="strut bottom" style="height:3.2498900000000006em;vertical-align:-1.4137769999999998em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8361130000000006em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4137769999999998em;"></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mclose">)</span><span class="mord">.</span></span></span></span></p>
-      <p lo="151311" lf="151311">In this case, Bayes’ theorem is</p>
-      <p lo="164798" lf="164798"><span class="katex katex-display" style="display: block" raw="\displaystyle P(A_j|B)=P(B|A_j)\frac{P(A_j)}{\sum_{j=1}^kP(A_j)P(B|A_j)}."><span class="katex-mathml"><math>
+      <p>In this case, Bayes’ theorem is</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -2219,7 +2527,7 @@ T -
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.741826em;vertical-align:-1.314826em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mclose">)</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.120992em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mclose">)</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.314826em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">.</span></span></span></span></p>
-      <p lo="2207173" lf="2207173">In class, a student noted that the equation <span class="katex"><span class="katex-mathml"><math>
+      <p>In class, a student noted that the equation <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>P</mi>
@@ -2280,12 +2588,15 @@ T -
                 <annotation encoding="application/x-tex">P(A\text{ and }B)=P(A)P(B|A)</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mord text"><span class="mord">&nbsp;and&nbsp;</span></span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mord mathit">A</span><span class="mclose">)</span></span></span></span> by inspection.</p>
-      <p lo="2626150" lf="2626150">Come up with your own basic explanation/justification for the Law of Total Probability in a spirit similar to my dart-tossing example. Save your answer as <code>HW3_2.pdf</code> or <code>HW3_2.md</code> and be prepared to explain your answer to the class.</p>
+      <p>Come up with your own basic explanation/justification for the Law of Total Probability in a spirit similar to my dart-tossing example. Save your answer as </p>
+      <p><code></code></p><code> HW3_2.pdf</code>
+      <p><code></code></p> or <p><code></code></p><code> HW3_2.md</code>
+      <p><code></code></p> and be prepared to explain your answer to the class.<p></p>
     </div>
     <div class="section">
-      <h2 lo="3103934" lf="3103935"><a name="bayes-rule-for-statistical-inference" number="3.3" raw="## Bayes' Rule for Statistical Inference" class="hanchor" href="#bayes-rule-for-statistical-inference">3.3 Bayes’ Rule for Statistical Inference</a></h2>
-      <p lo="2879959" lf="2879959"><strong>References</strong></p>
-      <p lo="3086248" lf="3086248">All of the following references describe the problem covered in this HW problem (see Piazza for PDFs). I’ve attempted to write this problem in a way that you won’t need to study these references and I recommend attempting to solve this problem before reading them.</p>
+      <h2><a name="bayes-rule-for-statistical-inference" number="3.3" class="hanchor" href="#bayes-rule-for-statistical-inference">3.3 Bayes’ Rule for Statistical Inference</a></h2>
+      <p><strong>References</strong></p>
+      <p>All of the following references describe the problem covered in this HW problem (see Piazza for PDFs). I’ve attempted to write this problem in a way that you won’t need to study these references and I recommend attempting to solve this problem before reading them.</p>
       <ul>
         <li>Silva 2006, Chapter 2.1. In this problem, I am walking you through the steps needed to create Figures 1. and 2. This book uses a somewhat unconventional notation by explicitly including the variable <span class="katex"><span class="katex-mathml"><math>
                 <semantics>
@@ -2299,9 +2610,9 @@ T -
         <li>A much more mathematically advanced description of this problem is given in Liu and Wasserman 2014.</li>
       </ul>
       <hr>
-      <p lo="3083211" lf="3083211"><strong>I don’t expect you to be able to solve these problems without questions! Please be active on Piazza and Discord.</strong></p>
+      <p><strong>I don’t expect you to be able to solve these problems without questions! Please be active on Piazza and Discord.</strong></p>
       <hr>
-      <p lo="2626497" lf="2626497">Let <span class="katex"><span class="katex-mathml"><math>
+      <p>Let <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>θ</mi>
@@ -2346,7 +2657,7 @@ T -
                 <annotation encoding="application/x-tex">\theta</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span>. </p>
-      <p lo="2630954" lf="2630954">Let <span class="katex"><span class="katex-mathml"><math>
+      <p>Let <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mrow>
@@ -2375,7 +2686,7 @@ T -
                 <annotation encoding="application/x-tex">\mathcal{D}=[H,T,H,T]</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mclose">]</span></span></span></span>. With these variables, Bayes’ theorem is</p>
-      <p lo="712708" lf="712708"><span class="katex katex-display" style="display: block" raw="\displaystyle P(\theta|\mathcal{D})=P(\mathcal{D}|\theta)\frac{P(\theta)}{P(\mathcal{D})}"><span class="katex-mathml"><math>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mstyle scriptlevel="0" displaystyle="true">
@@ -2419,7 +2730,7 @@ T -
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.427em;"></span><span class="strut bottom" style="height:2.363em;vertical-align:-0.936em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                             </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
-      <p lo="2378614" lf="2378614">Suppose that we don’t know what <span class="katex"><span class="katex-mathml"><math>
+      <p>Suppose that we don’t know what <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>θ</mi>
@@ -2427,7 +2738,7 @@ T -
                 <annotation encoding="application/x-tex">\theta</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> is – we are given a coin from a machine and we don’t know if the machine produces a fair coin or not.</p>
-      <p lo="3086271" lf="3086271">A typical Bayesian inference problem seeks to assign a probability of <span class="katex"><span class="katex-mathml"><math>
+      <p>A typical Bayesian inference problem seeks to assign a probability of <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>θ</mi>
@@ -2477,7 +2788,7 @@ T -
                 <annotation encoding="application/x-tex">\mathcal{D}=[H, T]</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mclose">]</span></span></span></span>, respectively. In this problem, you will consider these two cases in detail.</p>
-      <p lo="2393453" lf="2393453">For <span class="katex"><span class="katex-mathml"><math>
+      <p>For <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mrow>
@@ -2524,7 +2835,7 @@ T -
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span>.</li>
       </ol>
-      <p lo="2454869" lf="2454869">The <span class="katex"><span class="katex-mathml"><math>
+      <p>The <span class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>P</mi>
@@ -2563,7 +2874,7 @@ T -
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">c</span></span></span></span> is a constant.</p>
       <ol start="2">
         <li>
-          <p lo="3086291" lf="3086291">In class, I mentioned that we often don’t need to worry about the term <span class="katex"><span class="katex-mathml"><math>
+          <p>In class, I mentioned that we often don’t need to worry about the term <span class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mi>P</mi>
@@ -2624,7 +2935,7 @@ T -
                     </mrow>
                     <annotation encoding="application/x-tex">\theta_2</annotation>
                   </semantics>
-                </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>. However, it is sometimes useful to compute this term explicitly. In this case, the law of total probability can be used: <span class="katex katex-display" style="display: block" raw="\displaystyle P(\mathcal{D})=\int_0^1P(\theta)P(\mathcal{D}|\theta)d\theta"><span class="katex-mathml"><math>
+                </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>. However, it is sometimes useful to compute this term explicitly. In this case, the law of total probability can be used: <span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mstyle scriptlevel="0" displaystyle="true">
@@ -2680,7 +2991,7 @@ T -
                 </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">c</span></span></span></span>.</p>
         </li>
         <li>
-          <p lo="2459722" lf="2459722"> Plot of <span class="katex"><span class="katex-mathml"><math>
+          <p> Plot of <span class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mi>P</mi>
@@ -2704,7 +3015,7 @@ T -
                 </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span>.</p>
         </li>
         <li>
-          <p lo="2399693" lf="2399693"> Repeat parts 1.-3. for <span class="katex"><span class="katex-mathml"><math>
+          <p> Repeat parts 1.-3. for <span class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mrow>
@@ -2722,7 +3033,7 @@ T -
                 </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mclose">]</span></span></span></span>.</p>
         </li>
         <li>
-          <p lo="3086296" lf="3086296"> You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, <span class="katex"><span class="katex-mathml"><math>
+          <p> You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, <span class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mi>P</mi>
@@ -2791,7 +3102,380 @@ T -
                 </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mclose">]</span></span></span></span>.</p>
         </li>
       </ol>
-      <p lo="3103988" lf="3103988">Save your answers in a file named <code>HW3_3.pdf</code> or <code>HW3_3.md</code>. Save your code in a file named <code>HW3_3.py</code>.</p>
+      <p>Save your answers in a file named <code len="11">HW3_3.pdf</code> or <code len="10">HW3_3.md</code>. Save your code in a file named <code len="10">HW3_3.py</code>.</p>
+    </div>
+    <div class="section">
+      <h1><a name="hw-4" number="4" class="hanchor" href="#hw-4">4 HW 4</a></h1>
+    </div>
+    <div class="section">
+      <h2><a name="reading" number="4.1" class="hanchor" href="#reading">4.1 Reading</a></h2>
+      <p>Read chapter 2.4 of the textbook (titled “Probability Distributions” in the second edition) and also chapter 3 of Devore (see the “Resources” link on Piazza for Devore).</p>
+    </div>
+    <div class="section">
+      <h2><a name="bernoulli-trials" number="4.2" class="hanchor" href="#bernoulli-trials">4.2 Bernoulli Trials</a></h2>
+      <p>A Bernoulli Trial has </p>
+      <ul>
+        <li>two possible outcomes;</li>
+        <li>the probability of “success” is <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>p</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">p</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span></span></span></span> and the probability of “failure” is <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mn>1</mn>
+                    <mo>−</mo>
+                    <mi>p</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">1-p</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord">1</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">p</span></span></span></span>;</li>
+        <li>these probabilities don’t change</li>
+      </ul>
+      <p>For <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mi>N</mi>
+                </mrow>
+                <annotation encoding="application/x-tex">N</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> trials, the probability of <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mi>k</mi>
+                </mrow>
+                <annotation encoding="application/x-tex">k</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> successes is represented by the Binomial distribution:</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mstyle scriptlevel="0" displaystyle="true">
+                    <mi>P</mi>
+                    <mo>(</mo>
+                    <mi>k</mi>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <mrow>
+                      <mrow>
+                        <mo fence="true">(</mo>
+                        <mfrac linethickness="0px">
+                          <mrow>
+                            <mi>N</mi>
+                          </mrow>
+                          <mrow>
+                            <mi>k</mi>
+                          </mrow>
+                        </mfrac>
+                        <mo fence="true">)</mo>
+                      </mrow>
+                    </mrow>
+                    <msup>
+                      <mi>p</mi>
+                      <mi>k</mi>
+                    </msup>
+                    <mo>(</mo>
+                    <mn>1</mn>
+                    <mo>−</mo>
+                    <mi>p</mi>
+                    <msup>
+                      <mo>)</mo>
+                      <mi>k</mi>
+                    </msup>
+                  </mstyle>
+                </mrow>
+                <annotation encoding="application/x-tex">\displaystyle P(k)={N \choose k}p^k(1-p)^k</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.45em;"></span><span class="strut bottom" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603299999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">p</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span></p>
+      <p>See also Devore, Chapter 3.4 where an experiment that conforms to the Bernoulli Trial constraints is referred to as a “Binomial Experiment”.</p>
+      <ol>
+        <li> Use a random number generator to simulate 10,000 Binomial Experiments with <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>N</mi>
+                    <mo>=</mo>
+                    <mn>1</mn>
+                    <mn>0</mn>
+                    <mn>0</mn>
+                  </mrow>
+                  <annotation encoding="application/x-tex">N=100</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span> trials and <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>p</mi>
+                    <mo>=</mo>
+                    <mn>0</mn>
+                    <mi mathvariant="normal">.</mi>
+                    <mn>4</mn>
+                  </mrow>
+                  <annotation encoding="application/x-tex">p=0.4</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">4</span></span></span></span> and then plot <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>P</mi>
+                    <mo>(</mo>
+                    <mi>k</mi>
+                    <mo>)</mo>
+                  </mrow>
+                  <annotation encoding="application/x-tex">P(k)</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span>. (You’ll have to research how exactly to “use a random number generator” to do this”.) On the same axes, plot <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>P</mi>
+                    <mo>(</mo>
+                    <mi>k</mi>
+                    <mo>)</mo>
+                  </mrow>
+                  <annotation encoding="application/x-tex">P(k)</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> expected from the equation above using the given <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>N</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">N</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>p</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">p</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span></span></span></span>. </li>
+        <li> Suppose <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>p</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">p</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span></span></span></span> follows the rule: “If two trials in a row are a success, the probability of success on the next trial increases by 10%; otherwise, the probability of success is <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>p</mi>
+                    <mo>=</mo>
+                    <mn>0</mn>
+                    <mi mathvariant="normal">.</mi>
+                    <mn>4</mn>
+                  </mrow>
+                  <annotation encoding="application/x-tex">p=0.4</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">p</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">4</span></span></span></span>”. Plot <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>P</mi>
+                    <mo>(</mo>
+                    <mi>k</mi>
+                    <mo>)</mo>
+                  </mrow>
+                  <annotation encoding="application/x-tex">P(k)</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> on the same axes as for part 1.</li>
+      </ol>
+      <p>Save your code as <code len="10">HW4_2.py</code> and save the plot as <code len="11">HW4_2.pdf</code>. Be prepared to provide a justification in class for any differences between the two cases.</p>
+      <p>A follow-up question that I’ll ask is if based on the two plots you can conclude that the second plot does not satisfy the constraints of a Binomial Experiment. Later in the semester, formal ways of answering this question will be covered. For now, I just want to hear your ideas about how you would approach the problem.</p>
+    </div>
+    <div class="section">
+      <h2><a name="the-poisson-distribution" number="4.3" class="hanchor" href="#the-poisson-distribution">4.3 The Poisson Distribution</a></h2>
+      <p>In class, I mentioned that the Poisson distribution can be derived as a limit of the Binomial distribution. This is also discussed in Devore 3.6. </p>
+      <p>If</p>
+      <ol>
+        <li> in a sufficiently short amount of time, <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi mathvariant="normal">Δ</mi>
+                    <mi>t</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\Delta t</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord">Δ</span><span class="mord mathit">t</span></span></span></span>, only 0 or 1 event can occur (two or more simultaneous events are impossible);</li>
+        <li> the probability of exactly 1 event occurring in <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi mathvariant="normal">Δ</mi>
+                    <mi>t</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\Delta t</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord">Δ</span><span class="mord mathit">t</span></span></span></span> is equal to <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>λ</mi>
+                    <mi mathvariant="normal">Δ</mi>
+                    <mi>t</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\lambda \Delta t</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">λ</span><span class="mord">Δ</span><span class="mord mathit">t</span></span></span></span>, where <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>λ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\lambda</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">λ</span></span></span></span> is a constant; and</li>
+        <li> any non-overlapping intervals of length <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi mathvariant="normal">Δ</mi>
+                    <mi>t</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\Delta t</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord">Δ</span><span class="mord mathit">t</span></span></span></span> are independent Bernoulli trials,</li>
+      </ol>
+      <p>the probability of <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mi>k</mi>
+                </mrow>
+                <annotation encoding="application/x-tex">k</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> events occurring in the time interval <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mi>t</mi>
+                  <mo>=</mo>
+                  <mi>N</mi>
+                  <mi mathvariant="normal">Δ</mi>
+                  <mi>t</mi>
+                </mrow>
+                <annotation encoding="application/x-tex">t=N\Delta t</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">t</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord">Δ</span><span class="mord mathit">t</span></span></span></span> is</p>
+      <p><span class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mstyle scriptlevel="0" displaystyle="true">
+                    <mi>P</mi>
+                    <mo>(</mo>
+                    <mi>k</mi>
+                    <mo>)</mo>
+                    <mo>=</mo>
+                    <mfrac>
+                      <mrow>
+                        <mo>(</mo>
+                        <mi>λ</mi>
+                        <mi>t</mi>
+                        <msup>
+                          <mo>)</mo>
+                          <mi>k</mi>
+                        </msup>
+                        <msup>
+                          <mi>e</mi>
+                          <mrow>
+                            <mo>−</mo>
+                            <mi>λ</mi>
+                            <mi>t</mi>
+                          </mrow>
+                        </msup>
+                      </mrow>
+                      <mrow>
+                        <mi>k</mi>
+                        <mo>!</mo>
+                      </mrow>
+                    </mfrac>
+                  </mstyle>
+                </mrow>
+                <annotation encoding="application/x-tex">\displaystyle P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.526108em;"></span><span class="strut bottom" style="height:2.212108em;vertical-align:-0.686em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.526108em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">!</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                              <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                            </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathit">λ</span><span class="mord mathit">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathit mtight">λ</span><span class="mord mathit mtight">t</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+      <p>for sufficiently large <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mi>N</mi>
+                </mrow>
+                <annotation encoding="application/x-tex">N</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>.</p>
+      <p>Use a random number generator to create a dataset that simulates the following result. Every hour, the number of x-ray flares is tabulated. It is found that over <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mn>1</mn>
+                  <mn>0</mn>
+                  <mn>0</mn>
+                  <mn>0</mn>
+                </mrow>
+                <annotation encoding="application/x-tex">1000</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span> days, <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mn>9</mn>
+                  <mn>0</mn>
+                  <mn>0</mn>
+                </mrow>
+                <annotation encoding="application/x-tex">900</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">9</span><span class="mord">0</span><span class="mord">0</span></span></span></span> flares occurred so that the average probability of a flare in a given hour is <span class="katex"><span class="katex-mathml"><math>
+              <semantics>
+                <mrow>
+                  <mn>9</mn>
+                  <mn>0</mn>
+                  <mn>0</mn>
+                  <mi mathvariant="normal">/</mi>
+                  <mo>(</mo>
+                  <mn>1</mn>
+                  <mn>0</mn>
+                  <mn>0</mn>
+                  <mn>0</mn>
+                  <mo>⋅</mo>
+                  <mn>2</mn>
+                  <mn>4</mn>
+                  <mo>)</mo>
+                </mrow>
+                <annotation encoding="application/x-tex">900/(1000\cdot 24)</annotation>
+              </semantics>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord">9</span><span class="mord">0</span><span class="mord">0</span><span class="mord">/</span><span class="mopen">(</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">2</span><span class="mord">4</span><span class="mclose">)</span></span></span></span>.</p>
+      <ol>
+        <li> Plot the probability of <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>k</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">k</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> flare events occurring <strong>per day</strong> for your simulated dataset. Also, plot <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>P</mi>
+                    <mo>(</mo>
+                    <mi>k</mi>
+                    <mo>)</mo>
+                  </mrow>
+                  <annotation encoding="application/x-tex">P(k)</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> expected from the equation above using the value of <span class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>λ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\lambda</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">λ</span></span></span></span> computed based on the problem description.</li>
+        <li> From your dataset, derive a new dataset that is the time between flares and plot a histogram of the time between flares.</li>
+      </ol>
+    </div>
+    <div class="section">
+      <h2><a name="solar-flare-data-590-only-" number="4.4" class="hanchor" href="#solar-flare-data-590-only-">4.4 Solar Flare Data (590 only)</a></h2>
+      <p>Only students registered in the graduate-level course (PHYS 590 or ASTR 590) need to turn in this assignment.</p>
+      <p>The zip file <a href="https://piazza.com/gmu/spring2021/ce0c/resources">SOLAR_FLARES.zip</a> contains the time of solar flares in an ASCII file named <code len="10">xray.txt</code>; this is the only file that you will need for this problem. See the README file for information on how this file was created if you are interested.</p>
+      <p>Plot the probability distribution of the number of solar flares per day using <code len="10">xray.txt</code>.</p>
+      <ol>
+        <li> Is the probability distribution similar to that expected from a Binomial Experiment or the Poisson distribution? If so, plot the equation for a Binomial Experiment and/or the Poisson distribution on the same axes as the histogram.</li>
+        <li> Is the probability density of the time between solar flares similar to the probability density of the exponential distribution (see 4.4 of Devore).</li>
+        <li> Do the data conform to the constraints of a Binomial Experiment or the assumptions for the Poisson distribution?</li>
+      </ol>
+      <p>Save any code or plots that you use to answer these questions in files with the prefix <code len="7">HW4_4</code>. Be prepared to discuss your results in class.</p>
     </div>
   </div>
 </body>

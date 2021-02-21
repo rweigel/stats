@@ -109,6 +109,8 @@ Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
 2. $3$ by inspection of the table above. Also, suppose that we have three unique coins $T$, $H_1$, and $H_2$. There are $3!$ unique permutations. If we drop the subscripts, then the number of unique permutations is divided by 2. So $3!/2=3$.
 3. By inspection of the list from 1., $A \cup B = 6$ and  $A \cap B = \emptyset$.
 
+In the above, I assumed "experiement yields two heads" to mean "the experiment yielded exactly two heads" and not "the experiement yielded two or more heads".
+
 # HW 2
 
 ## Counting
@@ -120,13 +122,40 @@ _Update_: Technically parts a.-c. ask for drawing three bulbs, so the inclusion 
 
 **Answer**
 
-1.  &nbsp;&nbsp;&nbsp;$\displaystyle \frac{3(6\cdot 5\cdot 4 + 6\cdot 5\cdot 5)}{15!14!13!}$
+A box in a certain supply room contains four 40-W light-bulbs, five 60-W bulbs, and six 75-W bulbs. Suppose that three bulbs are randomly selected.
+
+a.  What is the probability that exactly two of the selected bulbs are rated at 75-W?
+
+Consider the number of ways of getting $[75,75,40]$. It is
+$6\cdot 5\cdot 4$. There are three ways to order this list, so the total number of ways of getting two 75s and one 40 is $3(6\cdot 5\cdot 4)$. From similar reasoning, it follows that the number of ways of getting $[75,75,40]$ in any order is $3(6\cdot 5\cdot 5)$. The total probability is thus
+
+$$\displaystyle \frac{3(6\cdot 5\cdot 4 + 6\cdot 5\cdot 5)}{15\cdot 14\cdot 13}\approx 0.297$$
+
+b.  What is the probability that all three of the selected bulbs have the same rating?
+
+The number of ways of getting "three of a kind" is the number of ways of getting three 75s plus the number of ways of getting three 60s plus the number of ways of getting three 40s, which is
+
+$$6\cdot 5\cdot 4 + 5\cdot 4\cdot 3 + 4\cdot 3 \cdot 2$$
+
+The requested probability is thus
+
+$$\frac{6\cdot 5\cdot 4 + 5\cdot 4\cdot 3 + 4\cdot 3 \cdot 2}{15\cdot 14\cdot 13}\approx 0.075$$
+
+c.  What is the probability that one bulb of each type is selected?
+
+The number of ways of getting $[75,60,40]$ is $6\cdot 5\cdot 4$. There are ${3\cdot 2}=6$ arrangements of this list.
+
+The requested probability is thus
+
+$$\frac{6(6\cdot 5\cdot 4)}{15\cdot 14\cdot 13}\approx 0.26$$
+
+d. Suppose now that bulbs are to be selected one by one until a 75-W bulb is found. What is the probability that it is necessary to examine at least 6 bulbs?
 
 2. See [HW2_1_2.py](hws/HW2_1_2.py)
 
 ## Bayes' Theorem
 
-2% of people age 50--60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?
+2% of people age 50--60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?
 
 Draw diagrams and be prepared to explain your answer to the class. If you do not know how to solve this analytically, come up with a simulation to give an approximate answer.
 
@@ -165,7 +194,19 @@ So the probability of actually having colon cancer given a postive test is about
 
 (Often students report their answer to many more than 2 significant digits.  How would you calculate the appropriate number of significant digits and the uncertainty in your reported answer, based on the numbers given?)
 
-**Alternative Answer**
+**Alternative Approach I**
+
+The information given can be summarized in the following table. The first row contains the true positives (TPs) and false positives (FPs). For a population of 1000, there will be 20 people that have cancer, and 980 that do not. Of the 20 that have cancer, 16 will test positive. Of the 980 that do not have cancer, $980\cdot 0.96=94$ will test positive.
+
+          Have Cancer (20)    Don't Have Cancer (980)
+    T^+   16 (TP)             94 (FP)
+    T^-   4 (FN)
+
+The marginal probability of having cancer given a positive test is the fraction of the true positives to the false positives.
+
+$$P(C|T^+) = \frac{16}{16+94} = 0.145$$
+
+**Alternative Approach II**
 
 To explain this calculation to someone, I would say:
 
@@ -187,7 +228,7 @@ Frequency Formats](http://library.mpib-berlin.mpg.de/ft/gg/GG_How_1995.pdf) for 
 
 In HW 1.3, you considered the question of the probability of getting two heads when flipping a fair coin 3x. This question was easily answered by explicitly writing out the sample space (the set of all possible outcomes) using a tree diagram and counting the number of outcomes with two heads.
 
-Write out the sample space for four flips of a fair coin using a tree diagram and then by inspection of the diagram determine the probability of getting two heads.
+Write out the sample space for four flips of a fair coin using a tree diagram and then by inspection of the diagram determine the probability of getting exactly two heads.
 
 Next, inspect the sample space and provide an argument for why, if the probability of heads is $\theta$, then the probability of $k$ heads in $N$ tosses is
 
@@ -282,6 +323,71 @@ The $P(\theta)$ term in Bayes theorem above is the so-called prior. Assume you a
 5.  You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $P(\theta) \propto e^{(\theta-0.5)^2/0.1}$. Using this, plot $P(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
 
 Save your answers in a file named `HW3_3.pdf` or `HW3_3.md`. Save your code in a file named `HW3_3.py`.
+
+
+# HW 4
+
+## Reading
+
+Read chapter 2.4 of the textbook (titled "Probability Distributions" in the second edition) and also chapter 3 of Devore (see the "Resources" link on Piazza for Devore).
+
+## Bernoulli Trials
+
+A Bernoulli Trial has 
+
+* two possible outcomes;
+* the probability of "success" is $p$ and the probability of "failure" is $1-p$;
+* these probabilities don't change
+
+For $N$ trials, the probability of $k$ successes is represented by the Binomial distribution:
+
+$$P(k)={N \choose k}p^k(1-p)^k$$
+
+See also Devore, Chapter 3.4 where an experiment that conforms to the Bernoulli Trial constraints is referred to as a "Binomial Experiment".
+
+1.  Use a random number generator to simulate 10,000 Binomial Experiments with $N=100$ trials and $p=0.4$ and then plot $P(k)$. (You'll have to research how exactly to "use a random number generator" to do this".) On the same axes, plot $P(k)$ expected from the equation above using the given $N$ and $p$. 
+2.  Suppose $p$ follows the rule: "If two trials in a row are a success, the probability of success on the next trial increases by 10%; otherwise, the probability of success is $p=0.4$". Plot $P(k)$ on the same axes as for part 1.
+
+Save your code as `HW4_2.py` and save the plot as `HW4_2.pdf`. Be prepared to provide a justification in class for any differences between the two cases.
+
+A follow-up question that I'll ask is if based on the two plots you can conclude that the second plot does not satisfy the constraints of a Binomial Experiment. Later in the semester, formal ways of answering this question will be covered. For now, I just want to hear your ideas about how you would approach the problem.
+
+## The Poisson Distribution
+
+In class, I mentioned that the Poisson distribution can be derived as a limit of the Binomial distribution. This is also discussed in Devore 3.6. 
+
+If
+
+1.  in a sufficiently short amount of time, $\Delta t$, only 0 or 1 event can occur (two or more simultaneous events are impossible);
+2.  the probability of exactly 1 event occurring in $\Delta t$ is equal to $\lambda \Delta t$, where $\lambda$ is a constant; and
+3.  any non-overlapping intervals of length $\Delta t$ are independent Bernoulli trials,
+
+the probability of $k$ events occurring in the time interval $t=N\Delta t$ is
+
+$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
+
+for sufficiently large $N$.
+
+Use a random number generator to create a dataset that simulates the following result. Every hour, the number of x-ray flares is tabulated. It is found that over $1000$ days, $900$ flares occurred so that the average probability of a flare in a given hour is $900/(1000\cdot 24)$.
+
+1.  Plot the probability of $k$ flare events occurring **per day** for your simulated dataset. Also, plot $P(k)$ expected from the equation above using the value of $\lambda$ computed based on the problem description.
+2.  From your dataset, derive a new dataset that is the time between flares and plot a histogram of the time between flares.
+
+## Solar Flare Data (590 only)
+
+Only students registered in the graduate-level course (PHYS 590 or ASTR 590) need to turn in this assignment.
+
+The zip file [SOLAR_FLARES.zip](https://piazza.com/gmu/spring2021/ce0c/resources) contains the time of solar flares in an ASCII file named `xray.txt`; this is the only file that you will need for this problem. See the README file for information on how this file was created if you are interested.
+
+Plot the probability distribution of the number of solar flares per day using `xray.txt`.
+
+1.  Is the probability distribution similar to that expected from a Binomial Experiment or the Poisson distribution? If so, plot the equation for a Binomial Experiment and/or the Poisson distribution on the same axes as the histogram.
+2.  Is the probability density of the time between solar flares similar to the probability density of the exponential distribution (see 4.4 of Devore).
+3.  Do the data conform to the constraints of a Binomial Experiment or the assumptions for the Poisson distribution?
+
+Save any code or plots that you use to answer these questions in files with the prefix `HW4_4`. Be prepared to discuss your results in class.
+
+
 
 
 
