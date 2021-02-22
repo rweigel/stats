@@ -341,7 +341,7 @@ A Bernoulli Trial has
 
 For $N$ trials, the probability of $k$ successes is represented by the Binomial distribution:
 
-$$P(k)={N \choose k}p^k(1-p)^k$$
+$$P(k)={N \choose k}p^k(1-p)^{N-k}$$
 
 See also Devore, Chapter 3.4 where an experiment that conforms to the Bernoulli Trial constraints is referred to as a "Binomial Experiment".
 
