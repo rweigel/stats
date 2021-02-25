@@ -27,7 +27,7 @@ Save your program as `HW1_1a.py`. When I execute your program, I should see a hi
 
 **Answer**
 
-See [HW1_1a.py](hws/HW1_1a.py). Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.
+See [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py). Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.
 
 <img src="hws/figures/HW1_1a.svg"/>
 
@@ -45,7 +45,7 @@ Save your program as `HW1_1b.py`. Save your answers in a file named `HW1_1b.md` 
 
 **Answer**
 
-See [HW1_1b.py](hws/HW1_1b.py)
+See [HW1_1b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1b.py)
 
 1.  7.6%
 2.  The following plot shows the dependence. As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
@@ -53,7 +53,7 @@ See [HW1_1b.py](hws/HW1_1b.py)
 3.  25.8%
 4.  The following plot shows the dependence.
     <img src="hws/figures/HW1_1b4.svg"/>
-5.  I accepted any answer to this question as it was not interpreted correctly. By "distribution", I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed, the distribution of $\overline{X}$ is still Gaussian. In [HW1_1a.py](hws/HW1_1a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
+5.  I accepted any answer to this question as it was not interpreted correctly. By "distribution", I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed, the distribution of $\overline{X}$ is still Gaussian. In [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
 
 ## Prelude to Hypothesis Testing
 
@@ -151,7 +151,7 @@ $$\frac{6(6\cdot 5\cdot 4)}{15\cdot 14\cdot 13}\approx 0.26$$
 
 d. Suppose now that bulbs are to be selected one by one until a 75-W bulb is found. What is the probability that it is necessary to examine at least 6 bulbs?
 
-2. See [HW2_1_2.py](hws/HW2_1_2.py)
+2. See [HW2_1_2.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_1_2.py)
 
 ## Bayes' Theorem
 
@@ -240,8 +240,17 @@ Do this using counting techniques with an explanation at the level that I used t
 2. A supply of 10 stickers, one for each digit: $10\cdot 9\cdot 8 = 10!/7!$;
 3. Same as 2., but also a license plate with the same three numbers as another license plate (but in a different order) being counted as the same license plate: $10!/(7!3!) = {10 \choose 3}$. 
 
-You do not need to use a license plate/sticker analogy -- use whatever you need to explain the equation at a fundamental level. Save your answer as <code>HW3_1.pdf</code> or <code>HW3_1.md</code> and be prepared to explain your answer to the class.
+You do not need to use a license plate/sticker analogy -- use whatever you need to explain the equation at a fundamental level. Save your answer as `HW3_1.pdf` or `HW3_1.md` and be prepared to explain your answer to the class.
 
+**Answer**
+
+There are a number of ways of answering this that I went over in class that are outlined below. 
+
+1. Start with $\theta=0.5$ and explain the ${N \choose k}$ and then state that the probability is ${N \choose k}$ divided by the number of possible sequences, which is $2^N$.
+2. The case with $\theta\ne 0.5$ can be explained by a tree diagram with weights of $\theta$ and $1-\theta$ associated with each branch. The total probability of a path along a branch is the product of the branch weights (due to the product rule).
+
+Based on the responses in class, I think most students understand the justification for this equation. I encourage you to always have an explanation like those described in class for any equation that you encounter. This invaribly makes explaining complex problems easier because you have a starting problem to build on.
+ 
 ## Bayes' Rule Derivation and Terminology
 
 You only need the law of multiplication to derive Bayes' theorem. The law of multiplication is
@@ -278,6 +287,12 @@ $$P(A_j|B)=P(B|A_j)\frac{P(A_j)}{\sum_{j=1}^kP(A_j)P(B|A_j)}\.$$
 In class, a student noted that the equation $P(A\text{ and }B)=P(A)P(B|A)$ was not intuitively obvious and I gave an example to justify the equation that involved throwing darts at two overlapping circles labeled $A$ and $B$; then I drew 10 dots corresponding to dart tosses and computed each term in the equation $P(A\text{ and }B)=P(A)P(B|A)$ by inspection.
 
 Come up with your own basic explanation/justification for the Law of Total Probability in a spirit similar to my dart-tossing example. Save your answer as <code>HW3_2.pdf</code> or <code>HW3_2.md</code> and be prepared to explain your answer to the class.
+
+**Answer**
+
+The responses to this question were not quite what I was looking for -- many students did not address the "exhaustive and exclusive" requirement.
+
+My answer involved a square dartboard with partitions labeled $A_j$. Region $B$ was a shape that enclosed parts of at least two $A_j$ regions. Based on this diagram, it is fairly straightforward to see how the Law of Total Probability is related to geometric areas. This is something that is considered also in the book by Stone referenced in the next problem.
 
 ## Bayes' Rule for Statistical Inference
 
@@ -324,12 +339,71 @@ The $P(\theta)$ term in Bayes theorem above is the so-called prior. Assume you a
 
 Save your answers in a file named `HW3_3.pdf` or `HW3_3.md`. Save your code in a file named `HW3_3.py`.
 
+**Answer**
+
+As discussed in class and on Discord, I used sloppy notation for the Law of Total Probability. When $\theta$ is a parameter that can take on discrete values only, the Law of Total Proability is
+
+$$P(\mathcal{D})=\sum_\theta P(\theta)P(\mathcal{D}|\theta)$$
+
+When $\theta$ is a continuous parameter, replace $P(\theta)$ with $p(\theta)d\theta$ and integrate instead of sum
+
+$$P(\mathcal{D})=\int_\theta p(\theta)d\theta P(\mathcal{D}|\theta)$$
+
+where the $p(\theta)$ is a probability density, for which $\int_{\theta}p(\theta)=1$. To see the difference between the two, think back to my answer for the Law of Total Probability in the previous problem. Instead of a finite number of $A_j$, use an infinite number of areas of width $dA$ and associated probability of $p(A)dA$.
+
+----
+
+1.  In general, $P(\mathcal{D}|\theta)={N\choose k}\theta^k(1-\theta)^{N-k}$. With $N=1$ and $k=1$, $P(\mathcal{D}|\theta)=\theta$. This makes sense -- if $\theta=0$, the probability of getting $\mathcal{D}=[H]$ is zero; if $\theta=1$, the probability is 1.
+
+2.  If $p(\theta)=c$, then by $\int_0^1p(\theta)d\theta=1$, $c=1$. Thus,
+
+    $$P(\mathcal{D})=\int_0^1p(\theta)P(\mathcal{D}|\theta)d\theta=\frac{1}{2}$$
+
+    ($c/2$ is also acceptable given the problem statement.)
+
+3.  Inserting $P(\mathcal{D}|\theta)=\theta$, $P(\theta)=p(\theta)d\theta$, and $P(\mathcal{D})=1/2$ into
+
+    $$P(\theta|\mathcal{D})=P(\mathcal{D}|\theta)\frac{P(\theta)}{P(\mathcal{D})}$$
+
+    gives
+
+    $$P(\theta|\mathcal{D})=2\theta d\theta$$
+
+    or, in terms of a probability density, using $P(\theta|\mathcal{D})=p(\theta|\mathcal{D})d\theta$
+
+    $$p(\theta|\mathcal{D})=2\theta$$
+
+    Note that $\int_0^1 p(\theta|\mathcal{D})d\theta=1$ as expected based on inspection of Bayes' rule with the denominator written using the Law of Total Probability:
+
+    $$P(\theta|\mathcal{D})=P(\mathcal{D}|\theta)\frac{P(\theta)}{P(\mathcal{D})}=\frac{P(\mathcal{D}|\theta)p(\theta)d\theta}{\int_{0}^1P(\mathcal{D}|\theta)p(\theta)d\theta}$$
+
+    The plot is simply $2\theta$. The main thing to get out of this is the interpretation. We discussed in class why this curve is counterintuitive -- unlike the alien, we have subjective experience that tells us that most coins have $\theta\simeq 0.5$. However, we have not included this experience into our calculations.
+
+4.  In general, $P(\mathcal{D}|\theta)={N\choose k}\theta^k(1-\theta)^{N-k}$. With $N=2$ and $k=1$, $P(\mathcal{D}|\theta)=2\theta(1-\theta)$. This makes sense -- if $\theta=0$ or $\theta=1$, the probability of getting $\mathcal{D}=[H,T]$ is zero according to this equation. The maximum of $P(\mathcal{D}|\theta)$ is at $0.5$, as expected -- we are most likely to get $\mathcal{D}=[H,T]$ if $\theta=0.5$. The final result is $p(\theta|\mathcal{D})=6\theta(1-\theta)$.
+
+5.  If $P(\theta) \propto e^{(\theta-0.5)^2/0.1}$, then $p(\theta) \propto e^{(\theta-0.5)^2/0.1}$. To make this a proper probability density, the normalization constant is needed. We want
+
+    $$1 = \int_0^1 Ce^{(\theta-0.5)^2/0.1}d\theta$$
+
+    Using an integration table or [Wolfram Alpha](https://www.wolframalpha.com/input/?i=integrate+e%5E%28%28x-a%29%5E2%2Fb%29+from+0+to+1), one can find this constant. In practice, this constant is not needed because we are generally interested in the shape of the curve of $p(\theta|\mathcal{D})$, so that we only need to compute the right-hand side of 
+
+    $$p(\theta|\mathcal{D}) \propto P(\mathcal{D}|\theta)p(\theta)$$
+
+    without regard to the proportionality constant. There are several things that you should observe. First, the Gaussian prior modifies the curve for $p(\theta|\mathcal{D})$ so that it has more weight near $0.5$ in comparison to the flat prior of $p(\theta)=const$. If the prior was a delta function centered at $0.5$, $p(\theta|\mathcal{D})$ will be independent of $\mathcal{D}$. In Silva 2006, Figure 2.1. shows how $p(\theta|\mathcal{D})$ changes as more trial results are added to $\mathcal{D}$. As the number of results in $\mathcal{D}$ increases, $p(\theta|\mathcal{D})$ becomes sharply peaked at the value $\theta=0.25$, which was used to generate $\mathcal{D}$.
+
+    <img src="hws/figures/HW3_3-Fig_2.1_Stone.png"/>
+    
+    In Figure 2.2, $p(\theta|\mathcal{D})$ is shown for a uniform prior (solid line), a Gaussian prior centered on $\theta=0.5$ (dashed line), and a U-shaped prior (dotted line). As the number of results in $\mathcal{D}$ increases, $p(\theta|\mathcal{D})$ for all three priors becomes sharply peaked around $\theta=0.25$, which was used to generate $\mathcal{D}$.
+
+    <img src="hws/figures/HW3_3-Fig_2.2_Stone.png"/>    
+
+    A key conclusion is that as the number of results in $\mathcal{D}$ increases, the influence of the prior decreases.
 
 # HW 4
 
 ## Reading
 
-Read chapter 2.4 of the textbook (titled "Probability Distributions" in the second edition) and also chapter 3 of Devore (see the "Resources" link on Piazza for Devore).
+Read chapter 2.4 of the textbook (titled "Probability Distributions" in the second edition) and also chapter 3 of Devore (see the ["Resources"](https://piazza.com/gmu/spring2021/ce0c/resources) link on Piazza for Devore).
 
 ## Bernoulli Trials
 
@@ -351,6 +425,21 @@ See also Devore, Chapter 3.4 where an experiment that conforms to the Bernoulli 
 Save your code as `HW4_2.py` and save the plot as `HW4_2.pdf`. Be prepared to provide a justification in class for any differences between the two cases.
 
 A follow-up question that I'll ask is if based on the two plots you can conclude that the second plot does not satisfy the constraints of a Binomial Experiment. Later in the semester, formal ways of answering this question will be covered. For now, I just want to hear your ideas about how you would approach the problem.
+
+**Answer**
+
+There was discussion on Discord about how the probability is to be changes. When writing the problem, I had in mind that the probability was either $0.4$ or $0.44$. But I think the problem statement is best interpreted as meaning that the $p$ can continue to grow by 10%.
+
+The motivation for allowing $p$ to vary is that often you'll have a data set that does not quite conform to a certain set of assumptions. It is often useful to model the non--conformity to get an idea for how the non--conformity will change the results. In this problem, the varition in $p$ models "persistence". The most common form of persistence is that high--temperature days tend to follow high--temperature days. That is, the probability of a day having a high--temperature is larger if the previous day had a high temperature.
+
+There are several other points to discuss:
+
+1.  How do we know if the simulation values are significantly different than the values from the formula? Could you determine this using concepts covered in previous HW problems? (We'll cover how to do this formally later.)
+2.  The distribution looks Gaussian. How different from a Gaussian is it?
+
+My code is at [HW4_2.py](https://github.com/rweigel/astrostats/tree/main/hws/HW4_2.py)
+
+<img src="hws/figures/HW4_2.svg"/>
 
 ## The Poisson Distribution
 

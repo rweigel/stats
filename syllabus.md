@@ -16,7 +16,7 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
-**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3)
+**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4)
 
 # Motivation
 
@@ -107,9 +107,20 @@ In the [References](#references) section of this syllabus, many additional refer
 *   In-class work on problems related to HW #2 and HW #3
 
 ## February 18th
+
 *   [HW #3](hw.html#hw-3) due before class starts
+*   Discuss HW #3 solutions
+*   In-class work on problems related to HW #3
+*   From this point on, I'll be covering topics in the order that they appear and Wall and Jenkins. Up until now, the problems have been mostly about programming techniques that you'll need. The problems did not require knowledge of statistics, but you'll want to think back to these problems as the results and their interpretation will be important.
 
 ## February 25th
+
+*   [HW #4](hw.html#hw-4) due before class starts
+*   I've written up my notes from our discussion of HW #3. I've also added additional details on problem 3.3 regarding probability densities and the interpretation of the the posterior.
+*   Discuss question on Discord about `np.vectorize`.
+*   Discussion of problems 4.2 and 4.3.
+*   Discussion of reading.
+*   Discussion of problem 4.4.   
 
 ## March 4th
 
