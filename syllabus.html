@@ -11,7 +11,7 @@
       width: 20%;
       min-height: 100%;
       max-height: 100%;
-      overflow-y: auto;
+      overflow-y: scroll;
       padding-left: 0.75em ;
       padding-right: 1em ;
       font-family: "Open Sans";
@@ -30,7 +30,7 @@
       width: 80%;
       max-height: 100%;
       min-height: 100%;
-      overflow-y: auto;
+      overflow-y: scroll;
       padding-left: 1em;
       padding-right: 1em;
       border-left: 1px solid rgb(240,240,240);
@@ -181,7 +181,7 @@
 <body style="display: flex;min-width: 50%;max-height:100%;position:fixed;">
   <div id="toc">
     <ol>
-      <li><a number="1" href="#course-information">Course Information</a></li>
+      <li><a number="1" href="#course-information" class="highlighted">Course Information</a></li>
       <li><a number="2" href="#motivation">Motivation</a></li>
       <li><a number="3" href="#methods-of-instruction">Methods of Instruction</a></li>
       <li><a number="4" href="#programming">Programming</a></li>
@@ -193,7 +193,7 @@
         <li><a number="7.2" href="#february-4th">February 4th</a></li>
         <li><a number="7.3" href="#february-11th">February 11th</a></li>
         <li><a number="7.4" href="#february-18th">February 18th</a></li>
-        <li><a number="7.5" href="#february-25th" class="highlighted">February 25th</a></li>
+        <li><a number="7.5" href="#february-25th">February 25th</a></li>
         <li><a number="7.6" href="#march-4th">March 4th</a></li>
         <li><a number="7.7" href="#march-11th">March 11th</a></li>
         <li><a number="7.8" href="#march-18th">March 18th</a></li>
@@ -233,11 +233,15 @@
   </div>
   <div id="display">
     <div class="section">
+      <p></p>
       <p class="title">AstroStats</p>
+      <p></p>
+      <p></p>
       <p class="subtitle">ASTR/PHYS 390/590</p>
+      <p></p>
     </div>
     <div class="section">
-      <h1><a name="course-information" number="1" class="hanchor" href="#course-information">1 Course Information</a></h1>
+      <h1><a name="course-information" number="1" class="hanchor highlighted" href="#course-information">1 Course Information</a></h1>
       <ul>
         <li> <strong>Day and Time</strong>: Thursday from 4:30 - 7:10 pm</li>
         <li> <strong>Location</strong>: Online</li>
@@ -253,7 +257,7 @@
         </li>
         <li> <strong>Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.</li>
       </ul>
-      <p><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a></p>
+      <p><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a></p>
     </div>
     <div class="section">
       <h1><a name="motivation" number="2" class="hanchor" href="#motivation">2 Motivation</a></h1>
@@ -315,7 +319,7 @@
         <li>Discussion of topics on the syllabus</li>
         <li><strong>Course Logistics</strong>; I will go over the following on the first day of class. You do not need to do anything before then.<ul>
             <li>Make sure that you can log on to Piazza. You should have received an email from Piazza before the start of the first class.</li>
-            <li>Create a GitHub account with your GMU username (the name in your email address, lowercase) and a repository named <code len="12">astrostats</code> (lowercase). Give <code len="9">rweigel</code> read/write permissions. If you already have a GitHub user id and would like to use it, send me it.</li>
+            <li>Create a GitHub account with your GMU username (the name in your email address, lowercase) and a repository named <code>astrostats</code> (lowercase). Give <code>rweigel</code> read/write permissions. If you already have a GitHub user id and would like to use it, send me it.</li>
             <li>During class discussion, I will ask you to turn on your webcam. Please let me know if you have an issue with this (e.g., you are working in a room with a family in the background or are calling in from a locker room).</li>
           </ul>
         </li>
@@ -331,11 +335,11 @@
         <li> <a href="hw.html">HW #1 discussion</a></li>
         <li>Follow-up notes:<ol>
             <li> The recording is at <a href="https://www.youtube.com/watch?v=yxFzL_TD900">https://www.youtube.com/watch?v=yxFzL_TD900</a> In the future, I’ll provide a link to a Zoom page. This week I had to do it differently because I had to trim off conversations I had after class.</li>
-            <li> W.M. mentioned <code len="10">np.where</code> as an option for finding elements in an <code len="9">ndarray</code>. I don’t recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I’ve added an example of its use on my <a href="https://rweigel.github.io/astrostats/python.html#finding-elements">Python notes page</a>.</li>
-            <li> In the HW, I ask for you to provide written solutions in a <code len="5">.md</code> or <code len="6">.pdf</code> file. <code len="5">.md</code> is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click “Create File”, then enter, for example, <code len="11">HW1_1b.md</code> and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I’ll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.</li>
+            <li> W.M. mentioned <code>np.where</code> as an option for finding elements in an <code>ndarray</code>. I don’t recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I’ve added an example of its use on my <a href="https://rweigel.github.io/astrostats/python.html#finding-elements">Python notes page</a>.</li>
+            <li> In the HW, I ask for you to provide written solutions in a <code>.md</code> or <code>.pdf</code> file. <code>.md</code> is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click “Create File”, then enter, for example, <code>HW1_1b.md</code> and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I’ll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.</li>
             <li> I expect that students may encounter issues submitting their first assignment to GitHub. If you have any issues, meet with me before or after class. I won’t count assignments as late if you contacted me about a submission issue.</li>
-            <li> In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. I found a site that explains the basics of random number generation using very simple algorithms; see <a href="https://www.math.utah.edu/~alfeld/Random/Random.html">Peter Alfeld’s Random Number Generator notes</a>. On HW1, <strong>do not</strong> use <code len="16">np.random.seed</code> as I did in class. I’ll explain more about when you want to use it the next time that we meet.</li>
-            <li> I still can’t think of the error I encountered when I created an array using <code len="23">x = np.array([1,2,3])</code>, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because <code len="3">x</code> is an integer array, show us during the next class period. </li>
+            <li> In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. I found a site that explains the basics of random number generation using very simple algorithms; see <a href="https://www.math.utah.edu/~alfeld/Random/Random.html">Peter Alfeld’s Random Number Generator notes</a>. On HW1, <strong>do not</strong> use <code>np.random.seed</code> as I did in class. I’ll explain more about when you want to use it the next time that we meet.</li>
+            <li> I still can’t think of the error I encountered when I created an array using <code>x = np.array([1,2,3])</code>, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because <code>x</code> is an integer array, show us during the next class period. </li>
           </ol>
         </li>
       </ul>
@@ -381,11 +385,11 @@
       </ul>
     </div>
     <div class="section">
-      <h2 class="active"><a name="february-25th" number="7.5" class="hanchor highlighted" href="#february-25th">7.5 February 25th</a></h2>
+      <h2><a name="february-25th" number="7.5" class="hanchor" href="#february-25th">7.5 February 25th</a></h2>
       <ul>
         <li> <a href="hw.html#hw-4">HW #4</a> due before class starts</li>
         <li> I’ve written up my notes from our discussion of HW #3. I’ve also added additional details on problem 3.3 regarding probability densities and the interpretation of the the posterior.</li>
-        <li> Discuss question on Discord about <code len="14">np.vectorize</code>.</li>
+        <li> Discuss question on Discord about <code>np.vectorize</code>.</li>
         <li> Discussion of problems 4.2 and 4.3.</li>
         <li> Discussion of reading.</li>
         <li> Discussion of problem 4.4. </li>
@@ -549,7 +553,7 @@
     <div class="section">
       <h2><a name="communication" number="10.4" class="hanchor" href="#communication">10.4 Communication</a></h2>
       <p>If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. </p>
-      <p>If you need to send communicate with me about something private, please send it to <code len="17">rweigel@gmu.edu</code> from your MasonLive email address.</p>
+      <p>If you need to send communicate with me about something private, please send it to <code>rweigel@gmu.edu</code> from your MasonLive email address.</p>
     </div>
     <div class="section">
       <h2><a name="university-resources" number="10.5" class="hanchor" href="#university-resources">10.5 University Resources</a></h2>
