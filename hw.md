@@ -480,9 +480,11 @@ Save any code or plots that you use to answer these questions in files with the 
 
 # HW 5
 
-**Descriptive Statistics and Expectation Values**
+##  Reading
 
-See also ... and ...
+Read Chapter 3 of Wall and Jenkins
+
+##  Expectation Values
 
 A summary (or descriptive) statistic is a quantity that summarize an aspect of a collection of data. Examples include the mean and standard deviation. Descriptive statistics are always based on a computation done on a **sample** (subset) of the population of data. 
 Definitions
@@ -523,8 +525,9 @@ An example of a biased sample statistic is
 
 $$S_{b}^2 = \frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2$$
 
-1.  Show that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$ and repeating $N=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values and in the title display their average and variance.
-2.  (**590 only**) Show that $E[S^2_b]=\sigma^2(n-1)/n$.
+1.  Show that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$ and repeating $N=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values and in the title display their average and variance. Save your code as `HW5_2_1.py` and plot as `HW5_2_1.pdf`.
+2.  (**590 only**) Show that $E[S^2_b]=\sigma^2(n-1)/n$. Save your answer in a file named `HW5_2_2.pdf`.
+
 
 
 
