@@ -52,6 +52,7 @@ x_lim = [np.min(n) - 0.5, np.max(n) + 0.5]
 plt.figure()
 plt.grid(axis='y', color='k')
 plt.plot(P,'k*')
+plt.hist(n,bins=bin_edges,density=True)
 hist = np.histogram(n, bins=bin_edges)
 plt.step(bin_centers, hist[0]/np.sum(hist[0]), where='mid')
 

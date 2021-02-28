@@ -49,9 +49,11 @@ See [HW1_1b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1b.py)
 
 1.  7.6%
 2.  The following plot shows the dependence. As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
+
     <img src="hws/figures/HW1_1b2.svg"/>
 3.  25.8%
 4.  The following plot shows the dependence.
+  
     <img src="hws/figures/HW1_1b4.svg"/>
 5.  I accepted any answer to this question as it was not interpreted correctly. By "distribution", I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed, the distribution of $\overline{X}$ is still Gaussian. In [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
 
@@ -475,6 +477,54 @@ Plot the probability distribution of the number of solar flares per day using `x
 3.  Do the data conform to the constraints of a Binomial Experiment or the assumptions for the Poisson distribution?
 
 Save any code or plots that you use to answer these questions in files with the prefix `HW4_4`. Be prepared to discuss your results in class.
+
+# HW 5
+
+**Descriptive Statistics and Expectation Values**
+
+See also ... and ...
+
+A summary (or descriptive) statistic is a quantity that summarize an aspect of a collection of data. Examples include the mean and standard deviation. Descriptive statistics are always based on a computation done on a **sample** (subset) of the population of data. 
+Definitions
+
+* **Population** - "All" of the data is called the population. A population can be finite or infinite. An example of a finite population is all US citizens. An example of an infinite population are values from a continuous probability density function.
+* **Sample statistic** - a computation based on a sample from a population that gives an estimate of the equivalent value that would be obtained if the same computation was performed on the population.
+
+It is important that sample statistics are **unbiased**. If we compute a sample statistic based on a sample from a population and repeat this process many times we want the average of the sample statisic to be equal to the corresponding population statistic.
+
+An example of an unbiased sample statistic is the average,
+
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i\$$
+
+Suppose we have a list of 1000 numbers with a mean $\mu$. If we draw $n=100$ numbers at random, compute the average $\overline{X}_1$ and repeat $N\rightarrow \infty$ times, the average of these averages, will be $\mu$, the population average. Mathematically, this is
+
+$$
+\lim_{N\rightarrow \infty} \frac{1}{N}\sum_{i=1}^N\overline{X}_i = \mu
+$$
+
+The distribution of the $\overline{X}_i$ values is called the **sampling distribution**.
+
+The general definition of the expectation operator $E[\cdot]$ is,
+
+$$E \left[X\right] = \sum_{\text{all }x}xP(x)
+$$
+
+or
+
+$$
+E\left[X\right] = \int_{x}xp(x)dx
+$$
+
+By definition, $\mu=E\left[X\right]$. That is $\mu$ is the average of $X$ over the population. The variance of a population is defined as
+
+$$\sigma^2=E\left[(X-\mu)^2\right]$$
+
+An example of a biased sample statistic is
+
+$$S_{b}^2 = \frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2$$
+
+1.  Show that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$ and repeating $N=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values and in the title display their average and variance.
+2.  (**590 only**) Show that $E[S^2_b]=\sigma^2(n-1)/n$.
 
 
 
