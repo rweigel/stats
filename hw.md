@@ -487,10 +487,11 @@ Read Chapter 3 of Wall and Jenkins
 ##  Expectation Values
 
 A summary (or descriptive) statistic is a quantity that summarize an aspect of a collection of data. Examples include the mean and standard deviation. Descriptive statistics are always based on a computation done on a **sample** (subset) of the population of data. 
+
 Definitions
 
 * **Population** - "All" of the data is called the population. A population can be finite or infinite. An example of a finite population is all US citizens. An example of an infinite population are values from a continuous probability density function.
-* **Sample statistic** - a computation based on a sample from a population that gives an estimate of the equivalent value that would be obtained if the same computation was performed on the population.
+* **Sample statistic** - a computation based on a sample from a population that gives an estimate of the equivalent value that would be obtained if the same computation was performed on the population. (Devore p214)
 
 It is important that sample statistics are **unbiased**. If we compute a sample statistic based on a sample from a population and repeat this process many times we want the average of the sample statisic to be equal to the corresponding population statistic.
 
@@ -504,7 +505,7 @@ $$
 \lim_{N\rightarrow \infty} \frac{1}{N}\sum_{i=1}^N\overline{X}_i = \mu
 $$
 
-The distribution of the $\overline{X}_i$ values is called the **sampling distribution**.
+The distribution of the $\overline{X}_i$ values is called the **sampling distribution** (Devore p214)
 
 The general definition of the expectation operator $E[\cdot]$ is,
 
@@ -528,14 +529,227 @@ $$S_{b}^2 = \frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2$$
 1.  Show that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$ and repeating $N=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values and in the title display their average and variance. Save your code as `HW5_2_1.py` and plot as `HW5_2_1.pdf`.
 2.  (**590 only**) Show that $E[S^2_b]=\sigma^2(n-1)/n$. Save your answer in a file named `HW5_2_2.pdf`.
 
+**Answer**:
+
+See also page 245 of Devore.
+
+$$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
+
+$$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i^2-2X_i\overline{X}+\overline{X}^2) \right]$$
+
+$$E[S_{b}^2] = \frac{1}{n} \left(n E\left[ X^2 \right] - 2E\left[ \overline{X}\sum_{i=1}^nX_i \right] + n E\left[ \overline{X}^2 \right]\right)$$
+
+The middle term is
+
+$$2E\left[\overline{X} \sum_{i=1}^nX_i\right]=2\overline{X} \sum_{i=1}^nE\left[X_i\right]=2n\overline{X}^2$$
+
+because $E[X_i]=\overline{X}$. This allows the simplification
+
+$$E[S_{b}^2] = E\left[X^2 \right] - E\left[ \overline{X}^2 \right]$$
+
+The first term can be re-written using
+
+$$E\left[X^2\right]=\mu^2+\sigma^2$$
+
+because 
+
+$$\sigma^2 \equiv E\left[(X-\mu)^2\right],$$
+
+which can be rewritten as
+
+$$\sigma^2 = E\left[X^2\right]-\mu^2$$
+
+giving
+
+$$E\left[X^2\right]=\mu^2+\sigma^2$$
+
+The second term requires evaluation of
+
+$$E\left[\overline{X}^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]$$
+
+The term in $[\text{ }]$ expands to
+
+$X_1^2+X_1(X_2+X_3+...)+$
+
+$X_2^2+X_2(X_3+X_4+...)+$
+
+$...$
+
+$X_n^2+X_n(X_1+X_2+...)$
+
+Let $X^\prime=X-\mu$ and note that
+
+$E\left[X^\prime\right]=0$, 
+
+$E\left[X^\prime_iX^{\prime}_j\right]=0 \quad(i\ne j)$, and 
+
+$E\left[X^{\prime 2}\right]=\sigma^2$.
+
+The argument in $[\text{ }]$ is now
+
+$(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...)+$
+
+$(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...)+$
+
+$...$
+
+$(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...)$
+
+There are $n$ terms of the form $E[(X^{\prime}_i+\mu)^2]$ that evaluate to $\sigma^2+\mu^2$ because
+
+$$E\left[(X^{\prime}_i+\mu)^2\right]=E\left[ (X^{\prime}_i)^2 + 2X^{\prime}_i\mu + \mu^2 \right] = \sigma^2+0+\mu^2$$
+
+There are $n$ terms of the form
+
+$$(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu)+...$$
+
+that have expectation value of $\mu^2(n-1)$. Thus,
+
+$$E\left[\overline{X}^2\right]=\frac{1}{n^2}\left[n(\sigma^2+n\mu^2)+n\mu^2(n-1)\right]=\sigma^2/n+\mu^2$$
+
+Substituting the values for $E[X^2]$ and $E[\overline{X}^2]$ the evaluated above gives the result
+
+$$E[S_{b}^2] = E\left[ X^2 \right] - E\left[ \overline{X}^2 \right] =\mu^2+\sigma^2-\left( \sigma^2/n+\mu^2\right) = \frac{n-1}{n}\sigma^2$$
+
+with the interpretation that the $S_b$ is downward biased by a factor of $(n-1)/n$.
+
+# Review
+
+## Overview
+
+Thus far, we have considered several problems related to
+
+$\overline{X}_1=X_1 + ... + X_n$
+
+$...$
+
+$\overline{X}_{\infty}=X_1 + ... + X_n$
+
+where $n$ is the **number of samples** and in place of $\infty$ we have been using $10,000$ in numerical experiments.
+
+The $X_i$ values are **random samples** from a **probability distribution** with **expectation values** for the mean and variance of $E[X]=\mu$ and $E[(X-\mu)^2]=\sigma^2$.
+
+The probability distribution of the $\overline{X}$s is called the **sampling distribution**.
+
+## Definitions
+
+**Sampling distribution**
+
+**Expectation values**
+
+**Random samples**
+
+**Law of Large Numbers**
+
+**Central Limit Theorem**
+
+**Probability distribution**
+
+- Discrete (aka probability mass function) or Continuous (aka probability density function).
+
+Discrete distributions used thus far
+
+- Binomial Distribution follows from Bernoulii Trials
+- Poisson Distribution is limiting case of Binomial Distribution (requires $n\gg 1$ and valid for $kp\ll 1$ and $k/n\ll 1$) (did derivation in class).
+- The Exponential Distribution (aka "Waiting Time Distribution)" is the distribution of the time between successes (aka "events") in a Poisson-distributed variable (derivation is not trivial).
+- Normal or Gaussian distribution is limiting case of Binomial Distribution (and Poisson Distribution, but not Exponential distribution)
+
+Although it would seem that almost everything ends up Gaussian, the fact is that this is true only for large $n$. When $n$ is greater than about $30$, the Gaussian distribution is usually applicable, although sometimes you will need to rigorously justify the use of a Gaussian distribution.
+
+Three key distributions are
+
+-   The "Standard Normal"
+
+    $$z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+
+    If $X$ is a random variable from a Normal probability distribution with mean $\mu$ and standard deviation $\sigma$, then the histogram of $\overline{X}$ will ... **for any $n$**.
+
+    If $X$ is a random variable from _almost any_ probability distribution with mean $\mu$ and standard deviation $\sigma$, then the histogram of $\overline{X}$ will ... **when $n\rightarrow \infty$** (due to the Central Limit Theorem).
+    
+    A standardized variable will have a histogram that is centered on the origin and has a standard deviation of unity.
+    
+    Note that we could first standardize the $X_i$ values according to $X^{\prime} = (X-\mu)/\sigma$. Note the omission of the $\sqrt{n}$ in this case. Then the histogram of $X^{\prime}$ is normalized and to standardize $\overline{X}^{\prime}$, we would only need $z=(\overline{X}-1)/(1/\sqrt{n})$. 
+
+-   The "Student $t$" distribution is the **sampling distribution** of the quantity
+
+    $$t = \frac{\overline{X}-\mu}{S/\sqrt{n}}$$
+
+    _assuming_ $X$ is a Gaussian distributed random variable. The complicating factor is the $S$ in the denominator. Both the numerator and denominator will vary from sample to sample and so we expect that the histogram of 
+
+    $$\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+    
+    to be "fatter" or have "fatter tails" than
+
+    $$\frac{\overline{X}-\mu}{S/\sqrt{n}}$$    
+    
+    The $t$ distribution is actually a family of distributions that depend on $n$ and so "$t$ distribution" is ambiguous. We usually discuss "a $t$ distribution with $\nu$" degrees of freedom, where $\nu \equiv n-1$.
+
+-   The Chi-square ($\chi^2$) distribution is the **sampling distribution** of the quantity $e$ 
+
+    $e^2_1 = X_1^2 + ... + X_n^2$
+
+    $...$
+
+    $e^2_{\infty} = X_1^2 + ... + X_n^2$
+
+    _assuming_ the $X_i$ are Gaussian distributed random variables.
+
+    Similar to the "$t$ distribution", the "$\chi^2$ distribution" is actually a family of distributions that depend on $n$.
+    
+    We use the $\chi^2$ distribution deriving error bars and confidence intervals for mean-square errors and power spectra.
+
+-   Sometimes we do not know the **sampling distribution**. We can use the **boostrap** method to derive it using data from a sample. Suppose we don't know that $X$ is Gaussian distributed. The we don't know how
+   
+ $$e^2_1 = X_1^2 + ... + X_n^2$$
+
+    will be distributed. We "bootrap" a sampling distribution by drawing $n$ values from the list $[X_1,...X_n]$ with replacement and computing $e^\*_1$. We repeat $10,000$ times. The distribution of $e^{\*}$ is a good approximation to the unknown sampling distribution of $e$.
+
+# Bootstrapping a Sampling Distribution
+
+# Point Estimators
+
+# Confidence Intervals
+
+# Credible Intervals
 
 
+HW 1
 
+1.1 LoLN - X_bar computed with large N approaches gaussian independent of distribution of values in X_bar. Gaussian has width of approximately sigma/sqrt(N). The 1/sqrt(N) was inferred from plots.
 
+1.2 We can use result from 1.1 to make statements about what would happen if we did many experiements and then assign "confidence" is claims.
 
+1.3 Basic terminolgy needed in 2.1.
 
+HW 2
 
+2.1 Basic counting problem and practice solving numerically.
 
+2.2 Bayes Theorem - on visualizing terms in Bayes' theorem.
+
+HW 3
+
+3.1 - A generalization of 1.3
+
+3.2 - Visualization of Bayes' rule terms
+
+3.3 - Using Bayes' rule
+
+-- Error: Discuss difference between PMF and probability distribution
+
+HW 4
+
+4.2 Lead in to Poisson
+
+4.3 Poisson problem
+
+4.4 Solar flare data
+
+HW 5
+
+Expectation values and bias
+
+When N is small LoLN does not quite apply. Get a sampling distribution.
 
 
 
