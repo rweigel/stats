@@ -464,6 +464,26 @@ Use a random number generator to create a dataset that simulates the following r
 1.  Plot the probability of $k$ flare events occurring **per day** for your simulated dataset. Also, plot $P(k)$ expected from the equation above using the value of $\lambda$ computed based on the problem description.
 2.  From your dataset, derive a new dataset that is the time between flares and plot a histogram of the time between flares.
 
+**Answer**
+
+There were quite a few questions about this problem. It may make more sense to derive it without reference to time and then insert the time dependence at the end. 
+
+If $p$ is the prob. of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
+
+$$P(k)=\frac{(p\frac{t}{\Delta t})^k e^{-p \frac{t}{\Delta t}}}{k!}$$
+
+Next, using the definition $t\equiv N\Delta t$,
+
+$$P(k)=\frac{(p N)^k e^{-p N}}{k!}$$
+
+The interpretation is that if the probability of a success in a trial is $p$, then the probability of $k$ successes in $N$ trials is $P(k)$. 
+
+A common use case for this equation is when an event takes a certain amount of time $\Delta t$ to occur (e.g., a hurricane or large solar flare). In this case, it makes sense to define a rate parameter which is the number events per unit time, which is $\lambda=p/\Delta t$, where $p$ is the probability of an event in $\Delta t$. This variable corresponds with how we would describe the probability of an event, e.g., on average 0.01 hurricanes occur per day or in 100 days, 1 hurricane will occur.
+
+It also make sense to talk not about the number of "trials", but rather the number of $\Delta t$s, where each $\Delta t$ corresponds to a trial. In this case, we can define a time as $t=N\Delta t$. This definition allows us to say "given 0.01 hurricanes occur per day, what is the probability that 2 hurricanes occur in a month".
+
+Note that the the Poisson distribution is a good approximation of the Binomial distribution if $N\gg 1$ and is valid for $kp\ll 1$ and $k/N\ll 1$.
+
 ## Solar Flare Data (590 only)
 
 Only students registered in the graduate-level course (PHYS 590 or ASTR 590) need to turn in this assignment.
@@ -507,12 +527,12 @@ $$
 
 The distribution of the $\overline{X}_i$ values is called the **sampling distribution** (Devore p214)
 
-The general definition of the expectation operator $E[\cdot]$ is,
+The general definition of the expectation operator $E[\cdot]$ is, for discrete $x$,
 
 $$E \left[X\right] = \sum_{\text{all }x}xP(x)
 $$
 
-or
+or, for continuous $x,$
 
 $$
 E\left[X\right] = \int_{x}xp(x)dx
@@ -535,37 +555,60 @@ See also page 245 of Devore.
 
 $$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
 
+expanding the square gives
+
 $$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i^2-2X_i\overline{X}+\overline{X}^2) \right]$$
 
-$$E[S_{b}^2] = \frac{1}{n} \left(n E\left[ X^2 \right] - 2E\left[ \overline{X}\sum_{i=1}^nX_i \right] + n E\left[ \overline{X}^2 \right]\right)$$
+or, equivalently,
 
-The middle term is
+$$I.\qquad E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\frac{2}{n}\sum_{i=1}^nX_i\overline{X}+\frac{1}{n}\sum_{i=1}^n\overline{X}^2 \right]$$
 
-$$2E\left[\overline{X} \sum_{i=1}^nX_i\right]=2\overline{X} \sum_{i=1}^nE\left[X_i\right]=2n\overline{X}^2$$
+The second term in the square braces in equation $I.$ is
 
-because $E[X_i]=\overline{X}$. This allows the simplification
+$$\frac{2}{n}\sum_{i=1}^nX_i\overline{X}=2\overline{X}\left(\frac{1}{n}\sum_{i=1}^nX_i\right)=2\overline{X}^2$$
 
-$$E[S_{b}^2] = E\left[X^2 \right] - E\left[ \overline{X}^2 \right]$$
+where the definition $\overline{X}\equiv (1/n)\sum_{i=1}^nX_i$ was used.
 
-The first term can be re-written using
+The third term is 
+$$\frac{1}{n}\sum_{i=1}^n\overline{X}^2=\frac{1}{n}n\overline{X}^2=\overline{X}^2$$
+
+Therefore, the second and third terms combine to be $-2\overline{X}^2+\overline{X}^2=-\overline{X}^2$ and Equation $I.$ simplifies to
+
+$$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\overline{X}^2\right]$$
+
+Distributing the $E$ gives
+
+$$II.\qquad E[S_{b}^2] =\frac{1}{n}\sum_{i=1}^nE\left[X_i^2\right]-E\left[\overline{X}^2\right]$$
+
+Both of the terms in the above equation can be re-written using $\mu$, $\sigma$, and $n$.
+
+Noting that $E[Y_i]$ and $E[Y]$ are equivalent, the expectation in the first term can be re-written using
 
 $$E\left[X^2\right]=\mu^2+\sigma^2$$
 
-because 
+which follows from the definition
 
 $$\sigma^2 \equiv E\left[(X-\mu)^2\right],$$
 
 which can be rewritten as
 
-$$\sigma^2 = E\left[X^2\right]-\mu^2$$
+$$\sigma^2 = E\left[X^2-2\mu X+\mu^2\right] = E\left[X^2\right]-2\mu E[X]+E[\mu^2]$$
+
+Using the definition $\mu \equiv E[X]$, this is
+
+$$\sigma^2 = E[X^2]-\mu^2$$
 
 giving
 
 $$E\left[X^2\right]=\mu^2+\sigma^2$$
 
-The second term requires evaluation of
+Therefore, the first term in equation $II.$ is
 
-$$E\left[\overline{X}^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]$$
+$$\frac{1}{n}\sum_{i=1}^n E\left[ X_i^2 \right]=\frac{1}{n}\sum_{i=1}^n (\mu^2+\sigma^2)=\frac{1}{n}n(\mu^2+\sigma^2)=\mu^2+\sigma^2$$
+
+The second term in equation $II.$, $E[\overline{X}^2]$, requires evaluation of
+
+$$E\left[\overline{X}^2\right]=E\left[\left(\frac{1}{n}\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]$$
 
 The term in $[\text{ }]$ expands to
 
@@ -599,13 +642,23 @@ There are $n$ terms of the form $E[(X^{\prime}_i+\mu)^2]$ that evaluate to $\sig
 
 $$E\left[(X^{\prime}_i+\mu)^2\right]=E\left[ (X^{\prime}_i)^2 + 2X^{\prime}_i\mu + \mu^2 \right] = \sigma^2+0+\mu^2$$
 
-There are $n$ terms of the form
+There are $n$ terms of the a form similar to
 
-$$(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu)+...$$
+$$(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...)$$
 
-that have expectation value of $\mu^2(n-1)$. Thus,
+or
 
-$$E\left[\overline{X}^2\right]=\frac{1}{n^2}\left[n(\sigma^2+n\mu^2)+n\mu^2(n-1)\right]=\sigma^2/n+\mu^2$$
+$$X^{\prime}_1(X^{\prime}_2+X^{\prime}_3+...)+\mu(\mu + \mu + ...)$$
+
+In the second parenthesis, there are $n-1$ $\mu$ terms. Using this and multiplying through the terms in the first set of parenthesis by $X_1^\prime$ gives
+
+$$X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...\mu(n-1)\mu$$
+
+$$E\big[X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...+\mu^2(n-1)\big]$$
+
+Becuase $E[X_i^\prime X_j^\prime] = 0$, we are left with
+
+$$E\left[\overline{X}^2\right]=\frac{1}{n^2}\left[n(\sigma^2+\mu^2)+n\mu^2(n-1)\right]=\sigma^2/n+\mu^2$$
 
 Substituting the values for $E[X^2]$ and $E[\overline{X}^2]$ the evaluated above gives the result
 
@@ -658,13 +711,13 @@ Although it would seem that almost everything ends up Gaussian, the fact is that
 
 Three key distributions are
 
--   The "Standard Normal"
+-   The "Standard Normal" is the **sampling distribution** of the quantity
 
     $$z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
 
-    If $X$ is a random variable from a Normal probability distribution with mean $\mu$ and standard deviation $\sigma$, then the histogram of $\overline{X}$ will ... **for any $n$**.
+    Constraint: $X$ is a random variable from a Normal probability distribution with mean $\mu$ and standard deviation $\sigma$.
 
-    If $X$ is a random variable from _almost any_ probability distribution with mean $\mu$ and standard deviation $\sigma$, then the histogram of $\overline{X}$ will ... **when $n\rightarrow \infty$** (due to the Central Limit Theorem).
+    If $X$ is a random variable from _almost any_ probability distribution with mean $\mu$ and standard deviation $\sigma$, the sampling distribution of $z$ is the Standard Normal.
     
     A standardized variable will have a histogram that is centered on the origin and has a standard deviation of unity.
     
@@ -674,17 +727,21 @@ Three key distributions are
 
     $$t = \frac{\overline{X}-\mu}{S/\sqrt{n}}$$
 
-    _assuming_ $X$ is a Gaussian distributed random variable. The complicating factor is the $S$ in the denominator. Both the numerator and denominator will vary from sample to sample and so we expect that the histogram of 
+    where
+    
+    $$S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X-\overline{X})^2}$$
 
-    $$\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+    Constraint: $X$ is a Gaussian--distributed random variable. Both the numerator and denominator will vary from sample to sample and so we expect that the histogram of 
+
+    $$z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
     
     to be "fatter" or have "fatter tails" than
 
-    $$\frac{\overline{X}-\mu}{S/\sqrt{n}}$$    
+    $$t=\frac{\overline{X}-\mu}{S/\sqrt{n}}$$    
     
     The $t$ distribution is actually a family of distributions that depend on $n$ and so "$t$ distribution" is ambiguous. We usually discuss "a $t$ distribution with $\nu$" degrees of freedom, where $\nu \equiv n-1$.
 
--   The Chi-square ($\chi^2$) distribution is the **sampling distribution** of the quantity $e$ 
+-   The Chi-square ($\chi^2$) distribution is the **sampling distribution** of the quantity $e$ (think "error") 
 
     $e^2_1 = X_1^2 + ... + X_n^2$
 
@@ -692,13 +749,15 @@ Three key distributions are
 
     $e^2_{\infty} = X_1^2 + ... + X_n^2$
 
-    _assuming_ the $X_i$ are Gaussian distributed random variables.
+    Constraint: $X$ is a Gaussian--distributed random variables.
 
-    Similar to the "$t$ distribution", the "$\chi^2$ distribution" is actually a family of distributions that depend on $n$.
+    Similar to the $t$ distribution, the $\chi^2$ distribution is actually a family of distributions that depend on $n$.
     
     We use the $\chi^2$ distribution deriving error bars and confidence intervals for mean-square errors and power spectra.
 
--   Sometimes we do not know the **sampling distribution**. We can use the **boostrap** method to derive it using data from a sample. Suppose we don't know that $X$ is Gaussian distributed. The we don't know how
+-   Often we do not know the **sampling distribution**; in the examples given above, there was a severe constraint on the distribution of $X$. In general, given an arbitrary distribution of $X$ and an arbitrary statistic derived from it, we don't know the sampling distribution of the statistic.
+
+    We can use the **boostrap** method to derive a **sampling distribution** using data from a single sample. Suppose we don't know that $X$ is Gaussian distributed. The we don't know how
    
  $$e^2_1 = X_1^2 + ... + X_n^2$$
 
@@ -706,7 +765,11 @@ Three key distributions are
 
 # Bootstrapping a Sampling Distribution
 
+page 251 of Devore
+
 # Point Estimators
+
+Chapter 6 of Devore.
 
 # Confidence Intervals
 
