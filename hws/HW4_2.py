@@ -16,9 +16,13 @@ P = np.empty(Nt)
 for k in range(Nt):
     P[k] = nCk(Nt, k)*(1-po)**(Nt-k)*po**k
 
+##############################################################################
+# Solution without using np.random.binomial()
+##############################################################################
+
 n  = np.empty(Ne)
 n2 = np.empty(Ne)
-for j in range(n.size):   # Loop over experiments
+for j in range(n.size):    # Loop over experiments
     k  = 0                 # Number of heads in experiment
     k2 = 0                 # Number of heads in experiment
     p  = np.empty(Nt)
@@ -67,4 +71,9 @@ plt.legend(['Binomial Formula','Experiment 1. p=0.4','Experiment 2. p varies'])
 
 plt.savefig("figures/HW4_2.png", format="png", transparent=True)
 plt.savefig("figures/HW4_2.svg", format="svg", transparent=True)
+
+##############################################################################
+# Solution using np.random.binomial()
+##############################################################################
+
     

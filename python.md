@@ -2890,6 +2890,20 @@ In the case of `randint`, the shape of the desired array is specified using a tu
 
 ## Accessing Elements
 
+TODO: Cover indexing vs. slicing.
+
+```Python
+import numpy as np
+A = np.array([11,12,13])
+x = A[[0,1]] # x is new array
+y = A[0:2]   # y is reference to elements 0 and 1 of x
+
+x[0] = 99
+print(A)    # [11 12 13]
+y[0] = 99
+print(A)    # [99 12 13]
+```
+
 ### 1-D
 
 For 1-D NumPy `ndarray`s, the syntax is similar to that for lists

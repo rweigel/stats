@@ -124,6 +124,9 @@ In the [References](#references) section of this syllabus, many additional refer
 
 ## March 4th
 
+* Discussion of [HW #5](hw.html#hw-5)
+* Discussion of [elements of statistics](notes.html#statistics)
+
 ## March 11th
 
 ## March 18th

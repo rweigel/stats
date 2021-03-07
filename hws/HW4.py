@@ -7,16 +7,9 @@ Created on Wed Mar  3 16:34:38 2021
 """
 import numpy as np
 
-x = np.random.binomial(24000, 9/240)
-
-# Inpect every 24 values, count number of 1s
-
-# 1000 rows like
-
-# 0 0 0 0 0 1 0 0 => Nevents = 1
-# 0 1 0 0 0 1 0 0 => Nevents = 2
-# ...
-# 0 0 0 0 0 0 1 0 => Nevents = 1
+Ne = 10000
+n = 10
+x = np.random.randn((Ne,n))
 
 
 

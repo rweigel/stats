@@ -549,9 +549,16 @@ $$S_{b}^2 = \frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2$$
 1.  Show that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$ and repeating $N=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values and in the title display their average and variance. Save your code as `HW5_2_1.py` and plot as `HW5_2_1.pdf`.
 2.  (**590 only**) Show that $E[S^2_b]=\sigma^2(n-1)/n$. Save your answer in a file named `HW5_2_2.pdf`.
 
-**Answer**:
 
-See also page 245 of Devore.
+**Answer to 1.**:
+
+My code is at [HW5_2.py](https://github.com/rweigel/astrostats/tree/main/hws/HW5_2.py)
+
+<img src="hws/figures/HW5_2.svg"/>
+
+**Answer to 2.**:
+
+Page 245 of Devore has a briefer proof, which is described at the end of this answer.
 
 $$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
 
@@ -576,7 +583,7 @@ Therefore, the second and third terms combine to be $-2\overline{X}^2+\overline{
 
 $$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\overline{X}^2\right]$$
 
-Distributing the $E$ gives
+Distributing the $E$ to each of the two terms and moving the $E$ inside the sum (both steps use $E[X+Y]=E[X]+E[Y]$) gives
 
 $$II.\qquad E[S_{b}^2] =\frac{1}{n}\sum_{i=1}^nE\left[X_i^2\right]-E\left[\overline{X}^2\right]$$
 
@@ -594,7 +601,7 @@ which can be rewritten as
 
 $$\sigma^2 = E\left[X^2-2\mu X+\mu^2\right] = E\left[X^2\right]-2\mu E[X]+E[\mu^2]$$
 
-Using the definition $\mu \equiv E[X]$, this is
+Using the definition $\mu \equiv E[X]$, this simplifies to
 
 $$\sigma^2 = E[X^2]-\mu^2$$
 
@@ -606,11 +613,15 @@ Therefore, the first term in equation $II.$ is
 
 $$\frac{1}{n}\sum_{i=1}^n E\left[ X_i^2 \right]=\frac{1}{n}\sum_{i=1}^n (\mu^2+\sigma^2)=\frac{1}{n}n(\mu^2+\sigma^2)=\mu^2+\sigma^2$$
 
-The second term in equation $II.$, $E[\overline{X}^2]$, requires evaluation of
+The second term in equation $II.$, $E[\overline{X}^2]$, can be rewritten
 
 $$E\left[\overline{X}^2\right]=E\left[\left(\frac{1}{n}\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]$$
 
-The term in $[\text{ }]$ expands to
+The square of the sum,
+
+$$\left(\sum_{i=1}^nX_i\right)^2=(X_1+X_2+...)(X_1+X_2+...)$$
+
+expands to 
 
 $X_1^2+X_1(X_2+X_3+...)+$
 
@@ -628,7 +639,7 @@ $E\left[X^\prime_iX^{\prime}_j\right]=0 \quad(i\ne j)$, and
 
 $E\left[X^{\prime 2}\right]=\sigma^2$.
 
-The argument in $[\text{ }]$ is now
+The above set of equations can now be written as 
 
 $(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...)+$
 
@@ -640,7 +651,7 @@ $(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...)$
 
 There are $n$ terms of the form $E[(X^{\prime}_i+\mu)^2]$ that evaluate to $\sigma^2+\mu^2$ because
 
-$$E\left[(X^{\prime}_i+\mu)^2\right]=E\left[ (X^{\prime}_i)^2 + 2X^{\prime}_i\mu + \mu^2 \right] = \sigma^2+0+\mu^2$$
+$$E\left[(X^{\prime}_i+\mu)^2\right]=E\left[ X^{\prime 2}_i + 2X^{\prime}_i\mu + \mu^2 \right] = \sigma^2+0+\mu^2$$
 
 There are $n$ terms of the a form similar to
 
@@ -654,165 +665,135 @@ In the second parenthesis, there are $n-1$ $\mu$ terms. Using this and multiplyi
 
 $$X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...\mu(n-1)\mu$$
 
-$$E\big[X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...+\mu^2(n-1)\big]$$
+Becuase $E[X_i^\prime X_j^\prime] = 0$, 
 
-Becuase $E[X_i^\prime X_j^\prime] = 0$, we are left with
+$$E\big[X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...+\mu^2(n-1)\big]=\mu^2(n-1)$$
 
-$$E\left[\overline{X}^2\right]=\frac{1}{n^2}\left[n(\sigma^2+\mu^2)+n\mu^2(n-1)\right]=\sigma^2/n+\mu^2$$
+so finally we can conclude that
 
-Substituting the values for $E[X^2]$ and $E[\overline{X}^2]$ the evaluated above gives the result
+$$E\left[\overline{X}^2\right]=\frac{1}{n^2}\left[n(\sigma^2+\mu^2)+n\mu^2(n-1)\right]=\mu^2+\sigma^2/n$$
 
-$$E[S_{b}^2] = E\left[ X^2 \right] - E\left[ \overline{X}^2 \right] =\mu^2+\sigma^2-\left( \sigma^2/n+\mu^2\right) = \frac{n-1}{n}\sigma^2$$
+In summary, we have shown that $E[X^2]=\mu^2+\sigma^2$ and $E[\overline{X}^2]=\mu^2+\sigma^2/n$. As a result, Equation $II.$ simplifies to
 
-with the interpretation that the $S_b$ is downward biased by a factor of $(n-1)/n$.
+$$E[S_{b}^2] = E\left[ X^2 \right] - E\left[ \overline{X}^2 \right] =\mu^2+\sigma^2-\left( \mu^2+\sigma^2/n\right) = \sigma^2-\sigma^2 /n$$
 
-# Review
+or,
 
-## Overview
+$$E[S_{b}^2] = \frac{n-1}{n}\sigma^2$$
 
-Thus far, we have considered several problems related to
+with the interpretation that $S_b^2$ is downward biased by a factor of $(n-1)/n$.
 
-$\overline{X}_1=X_1 + ... + X_n$
+This equation makes sense in one limit - suppose we draw a single sample from a distribution with variance $\sigma^2$. $S_b^2$ will always be zero, which is less than $\sigma^2$ for any nonzero $\sigma$.
 
-$...$
+It follows from the calculation above that an unbiased estimate of the variance of a population is
 
-$\overline{X}_{\infty}=X_1 + ... + X_n$
+$$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
 
-where $n$ is the **number of samples** and in place of $\infty$ we have been using $10,000$ in numerical experiments.
+because $E[S^2]=\sigma^2$. Recall that in contrast, an unbiased estimate of $\mu$ is
 
-The $X_i$ values are **random samples** from a **probability distribution** with **expectation values** for the mean and variance of $E[X]=\mu$ and $E[(X-\mu)^2]=\sigma^2$.
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
 
-The probability distribution of the $\overline{X}$s is called the **sampling distribution**.
+which has $n$ and not $n-1$.
 
-## Definitions
+Note that when $n=1$, $S^2$ is $0/0$, which indeterminate; this makes sense as -- we don't expect to be able to estimate the variance of a population with only one sample.
 
-**Sampling distribution**
+----
 
-**Expectation values**
+Devore on pg 245 starts with the observation that for any random variable $Y$, its variance, $V(Y)$ can be written 
 
-**Random samples**
+$$V(Y)=E[Y^2]-(E[Y])^2$$
 
-**Law of Large Numbers**
+or
 
-**Central Limit Theorem**
+$$A.\qquad E[Y^2]=V(Y)+(E[Y])^2$$
 
-**Probability distribution**
+which is stated without proof. The formula is given on page 112, but a proof is not given.
 
-- Discrete (aka probability mass function) or Continuous (aka probability density function).
+Next, he states that it follows from the definition
 
-Discrete distributions used thus far
+$$S^2 = \frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
 
-- Binomial Distribution follows from Bernoulii Trials
-- Poisson Distribution is limiting case of Binomial Distribution (requires $n\gg 1$ and valid for $kp\ll 1$ and $k/n\ll 1$) (did derivation in class).
-- The Exponential Distribution (aka "Waiting Time Distribution)" is the distribution of the time between successes (aka "events") in a Poisson-distributed variable (derivation is not trivial).
-- Normal or Gaussian distribution is limiting case of Binomial Distribution (and Poisson Distribution, but not Exponential distribution)
+that
 
-Although it would seem that almost everything ends up Gaussian, the fact is that this is true only for large $n$. When $n$ is greater than about $30$, the Gaussian distribution is usually applicable, although sometimes you will need to rigorously justify the use of a Gaussian distribution.
+$$S^2 = \frac{1}{n-1}\left[\sum_{i=1}^nX_i^2-\frac{1}{n}\left(\sum_{i=1}^nX_i\right)^2\right]$$
 
-Three key distributions are
+Taking the expectation and moving it inside of the sum for the first term gives
 
--   The "Standard Normal" is the **sampling distribution** of the quantity
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^nE[X_i^2]-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
 
-    $$z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X$ is $E[X^2]=V(X)+(E[X])^2=\sigma^2+\mu^2$. Using this, the above equation can be re-written as
 
-    Constraint: $X$ is a random variable from a Normal probability distribution with mean $\mu$ and standard deviation $\sigma$.
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
 
-    If $X$ is a random variable from _almost any_ probability distribution with mean $\mu$ and standard deviation $\sigma$, the sampling distribution of $z$ is the Standard Normal.
-    
-    A standardized variable will have a histogram that is centered on the origin and has a standard deviation of unity.
-    
-    Note that we could first standardize the $X_i$ values according to $X^{\prime} = (X-\mu)/\sigma$. Note the omission of the $\sqrt{n}$ in this case. Then the histogram of $X^{\prime}$ is normalized and to standardize $\overline{X}^{\prime}$, we would only need $z=(\overline{X}-1)/(1/\sqrt{n})$. 
+Using equation $A.$ again, which is $E[Y^2]=V(Y)+(E[Y])^2$, this time with $Y=\sum_{i=1}^n X_i$ gives
 
--   The "Student $t$" distribution is the **sampling distribution** of the quantity
+$$E\left[\left(\sum_{i=1}^n X_i\right)^2\right]=V\left(\sum_{i=1}^n X_i\right)+\left(E\left[\sum_{i=1}^n X_i\right]\right)^2=n\sigma^2+(n\mu)^2$$
 
-    $$t = \frac{\overline{X}-\mu}{S/\sqrt{n}}$$
+so now
 
-    where
-    
-    $$S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X-\overline{X})^2}$$
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}\left[n\sigma^2+(n\mu)^2\right]\right)$$
 
-    Constraint: $X$ is a Gaussian--distributed random variable. Both the numerator and denominator will vary from sample to sample and so we expect that the histogram of 
+or
 
-    $$z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
-    
-    to be "fatter" or have "fatter tails" than
+$$E[S^2] = \frac{1}{n-1}\left(n(\sigma^2+\mu^2)-\frac{1}{n}(n\sigma^2+n^2\mu^2)\right)=\sigma^2$$
 
-    $$t=\frac{\overline{X}-\mu}{S/\sqrt{n}}$$    
-    
-    The $t$ distribution is actually a family of distributions that depend on $n$ and so "$t$ distribution" is ambiguous. We usually discuss "a $t$ distribution with $\nu$" degrees of freedom, where $\nu \equiv n-1$.
+# HW 6
 
--   The Chi-square ($\chi^2$) distribution is the **sampling distribution** of the quantity $e$ (think "error") 
+## Bootstraping a Sampling Distribution
 
-    $e^2_1 = X_1^2 + ... + X_n^2$
+Background Reading: Devore pages 251--252 (see [Piazza](https://piazza.com/gmu/spring2021/ce0c/resources)) and [my notes](notes.html#key-distributions).
 
-    $...$
+1.  Draw $n=10$ values from a Gaussian distribution with $\mu=1$ and $\sigma=1$. Compute the test statistic $Y = \sum_{i=1}^n X_i^2$. Repeat this $10,000$ times. The probability density of these $N=10,000$ values is an approximation of the sampling distribution of $Y$ (if $N=\infty$, it would not be an approximation). This approximate distribution is also called a "parametric bootstrap" distribution -- the "parametric" means that we know the sampling distribution of $X$.
 
-    $e^2_{\infty} = X_1^2 + ... + X_n^2$
+If we don't know the distribution of $X$, we can't use the parametric bootstrap to get the sampling distribution of $Y$. However, we can use the non--parametric bootstrap to obtain an approximation of the sampling distribution of $Y$ by drawing $n$ values with replacement from the list of $n$ measurements, computing $Y^{\*}_1$, and then repeating this $10,000$ times. The distribution of 10,000 $Y^{\*}$ values is a good approximation to the unknown sampling distribution of $Y$.
 
-    Constraint: $X$ is a Gaussian--distributed random variables.
+2.  Suppose your $n$ measurements were `[-0.546, -0.406, -0.115, -1.262, -1.386, -0.448,  0.829,  0.799, -1.100, 0.385]`. Compute $Y$. Next, draw $n$ values from this with replacement and compute $Y$ and call it $Y^*_1$. Repeat this process $B=10,000$ times and compute the probability density of $Y^{*}$.
 
-    Similar to the $t$ distribution, the $\chi^2$ distribution is actually a family of distributions that depend on $n$.
-    
-    We use the $\chi^2$ distribution deriving error bars and confidence intervals for mean-square errors and power spectra.
+3.  Compare the two probability densities using a scatter plot. If `Y` is an array of the $10,000$ values from part 1. and `Ystar` is an array of the $10,000$ values from part 2., then `np.histogram` can be used as follows.
 
--   Often we do not know the **sampling distribution**; in the examples given above, there was a severe constraint on the distribution of $X$. In general, given an arbitrary distribution of $X$ and an arbitrary statistic derived from it, we don't know the sampling distribution of the statistic.
+    ```Python
+    # bin_edges = ... (do this yourself)
+    pdf = np.histogram(Y, bins=bin_edges, density=True)
+    pdf_star = np.histogram(Ystar, bins=bin_edges, density=True)
+    plt.plot(pdf, pdf_star, '.')
+    ```
 
-    We can use the **boostrap** method to derive a **sampling distribution** using data from a single sample. Suppose we don't know that $X$ is Gaussian distributed. The we don't know how
-   
- $$e^2_1 = X_1^2 + ... + X_n^2$$
+    Be prepared to answer questions about the interpretation of this plot.
 
-    will be distributed. We "bootrap" a sampling distribution by drawing $n$ values from the list $[X_1,...X_n]$ with replacement and computing $e^\*_1$. We repeat $10,000$ times. The distribution of $e^{\*}$ is a good approximation to the unknown sampling distribution of $e$.
+Save your code in a file named `HW6_1.py`. When executed, the scatter plot should be shown.
 
-# Bootstrapping a Sampling Distribution
+## Confidence Intervals when Sampling Distribution Known
 
-page 251 of Devore
+Background reading: Chapter 7 of Devore and [my notes](notes.html#key-distributions).
 
-# Point Estimators
+The simplest problem for computing a confidence interval is
 
-Chapter 6 of Devore.
+1.  $n$ values are drawn from a Gaussian distribution;
+2.  the population standard deviation, $\sigma$, is known;
+3.  the statistic for which to compute a confidence interval is the mean. 
 
-# Confidence Intervals
+When $\sigma$ is not known (which is usually the case), we still know the sampling distribution of $\overline{X}$. However, for small $n$, it is not Gaussian -- it is $t_{n-1}$--distributed.
 
-# Credible Intervals
+----
 
+Draw $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$. Compute the 95% confidence interval for the mean
 
-HW 1
+1. using Equation 7.4 of Devore, and
+2. using Equation 7.15 of Devore;
 
-1.1 LoLN - X_bar computed with large N approaches gaussian independent of distribution of values in X_bar. Gaussian has width of approximately sigma/sqrt(N). The 1/sqrt(N) was inferred from plots.
+The confidence intervals for 1. and 2. are easy to compute because we know the sampling distribution. In the following, you are going to assume that you did not know the sampling distribution and derive it with a simulation.
 
-1.2 We can use result from 1.1 to make statements about what would happen if we did many experiements and then assign "confidence" is claims.
+3. Verify your answer for 1. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$ times. Compute $10,000$ confidence intervals. What fraction of these confidence intervals included $\mu$?
+4.  Verify your answer for 2. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$. Compute $10,000$ confidence intervals. What fraction of these confidence intervals included $\mu$?
 
-1.3 Basic terminolgy needed in 2.1.
+5.  Suppose some parameter $a$ was computed and its 95% confidence interval is $[0.9, 1.1]$. What is wrong with the claim "the probability that $a$ is in the range $[0.9, 1.1]$ is 0.95"? (Hint - see pages 270--271 of Devore).
 
-HW 2
+Save the code for your answer in a file named `HW6_2.py`. When executed, the code should display the probability density of the sampling distribution along with $\overline{X}$ and its 95% confidence interval in the title.
 
-2.1 Basic counting problem and practice solving numerically.
+## Confidence Interval when Sampling Distribution is not Known
 
-2.2 Bayes Theorem - on visualizing terms in Bayes' theorem.
+(**590 only**)
 
-HW 3
+Given the measurements $[-0.54603241, -0.40652794, -0.11570264, -1.26244673, -1.38616981, -0.44812319,  0.82880132,  0.79937713, -1.098357,  0.38530288]$, compute the 95% confidence interval for $\mu$ by creating a non-parametric bootstrap sampling distribution.
 
-3.1 - A generalization of 1.3
-
-3.2 - Visualization of Bayes' rule terms
-
-3.3 - Using Bayes' rule
-
--- Error: Discuss difference between PMF and probability distribution
-
-HW 4
-
-4.2 Lead in to Poisson
-
-4.3 Poisson problem
-
-4.4 Solar flare data
-
-HW 5
-
-Expectation values and bias
-
-When N is small LoLN does not quite apply. Get a sampling distribution.
-
-
-
+Save the code for your answer in a file named `HW6_3.py`. When executed, the code should display the probability density of the non--parametric bootstrap sampling distribution along with $\overline{X}$ and the 95% confidence for $\mu$ in the title. Be prepared to discuss the interpretation of this plot.
