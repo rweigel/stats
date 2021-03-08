@@ -788,7 +788,7 @@ The confidence intervals for 1. and 2. are easy to compute because we know the s
 
 5.  Suppose some parameter $a$ was computed and its 95% confidence interval is $[0.9, 1.1]$. What is wrong with the claim "the probability that $a$ is in the range $[0.9, 1.1]$ is 0.95"? (Hint - see pages 270--271 of Devore).
 
-Save the code for your answer in a file named `HW6_2.py`. When executed, the code should display the probability density of the sampling distribution along with $\overline{X}$ and its 95% confidence interval in the title.
+Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for for 3. and 4. along with $\overline{X}$ and its 95% confidence interval from 1. and 2., respectively, in the title.
 
 ## Confidence Interval when Sampling Distribution is not Known
 
