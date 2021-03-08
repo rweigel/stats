@@ -383,9 +383,9 @@ where the $p(\theta)$ is a probability density, for which $\int_{\theta}p(\theta
 
 4.  In general, $P(\mathcal{D}|\theta)={N\choose k}\theta^k(1-\theta)^{N-k}$. With $N=2$ and $k=1$, $P(\mathcal{D}|\theta)=2\theta(1-\theta)$. This makes sense -- if $\theta=0$ or $\theta=1$, the probability of getting $\mathcal{D}=[H,T]$ is zero according to this equation. The maximum of $P(\mathcal{D}|\theta)$ is at $0.5$, as expected -- we are most likely to get $\mathcal{D}=[H,T]$ if $\theta=0.5$. The final result is $p(\theta|\mathcal{D})=6\theta(1-\theta)$.
 
-5.  If $P(\theta) \propto e^{(\theta-0.5)^2/0.1}$, then $p(\theta) \propto e^{(\theta-0.5)^2/0.1}$. To make this a proper probability density, the normalization constant is needed. We want
+5.  If $P(\theta) \propto e^{-(\theta-0.5)^2/0.1}$, then $p(\theta) \propto e^{-(\theta-0.5)^2/0.1}$. To make this a proper probability density, the normalization constant is needed. We want
 
-    $$1 = \int_0^1 Ce^{(\theta-0.5)^2/0.1}d\theta$$
+    $$1 = \int_0^1 Ce^{-(\theta-0.5)^2/0.1}d\theta$$
 
     Using an integration table or [Wolfram Alpha](https://www.wolframalpha.com/input/?i=integrate+e%5E%28%28x-a%29%5E2%2Fb%29+from+0+to+1), one can find this constant. In practice, this constant is not needed because we are generally interested in the shape of the curve of $p(\theta|\mathcal{D})$, so that we only need to compute the right-hand side of 
 
@@ -439,7 +439,7 @@ There are several other points to discuss:
 1.  How do we know if the simulation values are significantly different than the values from the formula? Could you determine this using concepts covered in previous HW problems? (We'll cover how to do this formally later.)
 2.  The distribution looks Gaussian. How different from a Gaussian is it?
 
-My code is at [HW4_2.py](https://github.com/rweigel/astrostats/tree/main/hws/HW4_2.py)
+My code is at [HW4_2.py](https://github.com/rweigel/astrostats/tree/main/hws/HW4_2.py). I solve the problem in two ways. In the first, I use a uniform probability distribution to generate a trial result with the given probabilities of success. In the second solution, I use `np.random.binomial()` to generate the trial results.
 
 <img src="hws/figures/HW4_2.svg"/>
 
@@ -753,8 +753,8 @@ If we don't know the distribution of $X$, we can't use the parametric bootstrap 
 
     ```Python
     # bin_edges = ... (do this yourself)
-    pdf = np.histogram(Y, bins=bin_edges, density=True)
-    pdf_star = np.histogram(Ystar, bins=bin_edges, density=True)
+    pdf, _ = np.histogram(Y, bins=bin_edges, density=True)
+    pdf_star, _ = np.histogram(Ystar, bins=bin_edges, density=True)
     plt.plot(pdf, pdf_star, '.')
     ```
 
