@@ -12,9 +12,10 @@
       position: fixed;
       min-height: 100%;
       max-height: 100%;
+      overflow-x: hidden;
       overflow-y: auto;
       padding-left: 0.75em ;
-      padding-right: 1em ;
+      padding-right: 1em;
       font-family: "Open Sans";
     }
     
@@ -29,9 +30,10 @@
     
     #display {
       width: 100%;
-      margin-left: 16em;
+      margin-left: 14em;
       max-height: 100%;
       min-height: 100%;
+      overflow-x: hidden;
       overflow-y: auto;
       padding-left: 1em;
       padding-right: 1em;
@@ -185,7 +187,7 @@
 <body style="display: flex;min-width: 50%;max-height:100%;">
   <div id="toc">
     <ol>
-      <li><a number="1" href="#hw-1">HW 1</a></li>
+      <li><a number="1" href="#hw-1" class="">HW 1</a></li>
       <ol>
         <li><a number="1.1" href="#law-of-large-numbers-i">Law of Large Numbers I</a></li>
         <ol style="display: none;">
@@ -220,9 +222,9 @@
       </ol>
       <li><a number="6" href="#hw-6">HW 6</a></li>
       <ol>
-        <li><a number="6.1" href="#bootstraping-a-sampling-distribution">Bootstraping a Sampling Distribution</a></li>
-        <li><a number="6.2" href="#confidence-intervals-when-sampling-distribution-known" class="">Confidence Intervals when Sampling Distribution Known</a></li>
-        <li><a number="6.3" href="#confidence-interval-when-sampling-distribution-is-not-known" class="highlighted">Confidence Interval when Sampling Distribution is not Known</a></li>
+        <li><a number="6.1" href="#bootstraping-a-sampling-distribution" class="highlighted">Bootstraping a Sampling Distribution</a></li>
+        <li><a number="6.2" href="#confidence-intervals-when-sampling-distribution-known">Confidence Intervals when Sampling Distribution Known</a></li>
+        <li><a number="6.3" href="#confidence-interval-when-sampling-distribution-is-not-known" class="">Confidence Interval when Sampling Distribution is not Known</a></li>
       </ol>
     </ol>
   </div>
@@ -230,8 +232,8 @@
     <div class="section">
     </div>
     <div class="section">
-      <h1><a name="hw-1" number="1" class="hanchor" href="#hw-1">1 HW 1</a></h1>
-      <p>The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.</p>
+      <h1 class=""><a name="hw-1" number="1" class="hanchor" href="#hw-1">1 HW 1</a></h1>
+      <p class="">The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.</p>
       <hr>
       <p>The Law of Large Numbers tells us that as <span len="21" class="katex"><span class="katex-mathml"><math>
               <semantics>
@@ -8827,10 +8829,10 @@ T^-   4 (FN)</code></pre>
       <h1><a name="hw-6" number="6" class="hanchor" href="#hw-6">6 HW 6</a></h1>
     </div>
     <div class="section">
-      <h2><a name="bootstraping-a-sampling-distribution" number="6.1" class="hanchor" href="#bootstraping-a-sampling-distribution">6.1 Bootstraping a Sampling Distribution</a></h2>
+      <h2 class=""><a name="bootstraping-a-sampling-distribution" number="6.1" class="hanchor highlighted" href="#bootstraping-a-sampling-distribution">6.1 Bootstraping a Sampling Distribution</a></h2>
       <p>Background Reading: Devore pages 251–252 (see <a href="https://piazza.com/gmu/spring2021/ce0c/resources">Piazza</a>) and <a href="notes.html#key-distributions">my notes</a>.</p>
       <ol>
-        <li> Draw <span len="6" class="katex"><span class="katex-mathml"><math>
+        <li class=""> Draw <span len="6" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>n</mi>
@@ -9030,7 +9032,7 @@ T^-   4 (FN)</code></pre>
                     </mrow>
                     <annotation encoding="application/x-tex">n</annotation>
                   </semantics>
-                </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> values from this with replacement and compute <span len="3" class="katex"><span class="katex-mathml"><math>
+                </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> values from the measurements with replacement and compute <span len="3" class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mi>Y</mi>
@@ -9110,7 +9112,7 @@ plt.plot(pdf, pdf_star, <span class="hljs-string">'.'</span>)</code></pre>
       <p>Save your code in a file named <code>HW6_1.py</code>. When executed, the scatter plot should be shown.</p>
     </div>
     <div class="section">
-      <h2 class="active"><a name="confidence-intervals-when-sampling-distribution-known" number="6.2" class="hanchor" href="#confidence-intervals-when-sampling-distribution-known">6.2 Confidence Intervals when Sampling Distribution Known</a></h2>
+      <h2><a name="confidence-intervals-when-sampling-distribution-known" number="6.2" class="hanchor" href="#confidence-intervals-when-sampling-distribution-known">6.2 Confidence Intervals when Sampling Distribution Known</a></h2>
       <p>Background reading: Chapter 7 of Devore and <a href="notes.html#key-distributions">my notes</a>.</p>
       <p>The simplest problem for computing a confidence interval is</p>
       <ol>
@@ -9403,7 +9405,7 @@ plt.plot(pdf, pdf_star, <span class="hljs-string">'.'</span>)</code></pre>
                           </svg></span></span></span></span></span></span></span></span></span> and its 95% confidence interval from 1. and 2., respectively, in the title.</p>
     </div>
     <div class="section">
-      <h2 class=""><a name="confidence-interval-when-sampling-distribution-is-not-known" number="6.3" class="hanchor highlighted" href="#confidence-interval-when-sampling-distribution-is-not-known">6.3 Confidence Interval when Sampling Distribution is not Known</a></h2>
+      <h2><a name="confidence-interval-when-sampling-distribution-is-not-known" number="6.3" class="hanchor" href="#confidence-interval-when-sampling-distribution-is-not-known">6.3 Confidence Interval when Sampling Distribution is not Known</a></h2>
       <p>(<strong>590 only</strong>)</p>
       <p>Given the measurements <span len="130" class="katex"><span class="katex-mathml"><math>
               <semantics>
