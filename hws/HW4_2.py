@@ -56,19 +56,21 @@ x_lim = [np.min([np.min(n1), np.min(n2)]) - 0.5,
 
 plt.figure()
 plt.grid(axis='y', color='k')
-plt.plot(P, 'k*')
+
 plt.hist(n1, bins=bin_edges, density=True)
 hist1 = np.histogram(n1, bins=bin_edges)
-plt.step(bin_centers, hist1[0]/np.sum(hist1[0]), where='mid')
+plt.step(bin_centers, hist1[0]/np.sum(hist1[0]), where='mid', color='k')
 
 hist2 = np.histogram(n2, bins=bin_edges)
-plt.step(bin_centers, hist2[0]/np.sum(hist2[0]), where='mid')
+plt.step(bin_centers, hist2[0]/np.sum(hist2[0]), where='mid', color='r')
+
+plt.bar(np.arange(len(P)), P)
 
 plt.xlabel('# heads in experiment')
 plt.ylabel('P of # heads in experiment')
 plt.title('# trials/experiment = {0:d}; # experiments = {1:d}'.format(Nt, Ne))
 plt.xlim(x_lim)
-plt.legend(['Binomial Formula','Experiment 1. p=0.4','Experiment 2. p varies'])
+plt.legend(['Experiment 1. p=0.4','Experiment 2. p varies','Binomial Formula'])
 
 plt.savefig("figures/HW4_2.png", format="png", transparent=True)
 plt.savefig("figures/HW4_2.svg", format="svg", transparent=True)
@@ -94,16 +96,20 @@ for j in range(n1.size):  # Loop over experiments
 
 plt.figure()
 plt.grid(axis='y', color='k')
-plt.plot(P, 'k*')
-plt.hist(n1, bins=bin_edges, density=True)
+
 hist1 = np.histogram(n1, bins=bin_edges)
-plt.step(bin_centers, hist1[0]/np.sum(hist1[0]), where='mid')
+plt.step(bin_centers, hist1[0]/np.sum(hist1[0]), where='mid', color='k')
 
 hist2 = np.histogram(n2, bins=bin_edges)
-plt.step(bin_centers, hist2[0]/np.sum(hist2[0]), where='mid')
+plt.step(bin_centers, hist2[0]/np.sum(hist2[0]), where='mid', color='r')
+
+plt.bar(np.arange(len(P)), P)
 
 plt.xlabel('# heads in experiment')
 plt.ylabel('P of # heads in experiment')
 plt.title('# trials/experiment = {0:d}; # experiments = {1:d}'.format(Nt, Ne))
 plt.xlim(x_lim)
-plt.legend(['Binomial Formula','Experiment 1. p=0.4','Experiment 2. p varies'])
+plt.legend(['Experiment 1. p=0.4','Experiment 2. p varies','Binomial Formula'])
+
+plt.savefig('figures/HW4_2.svg', transparent=True)
+plt.savefig('figures/HW4_2.png', transparent=True)

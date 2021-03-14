@@ -6,7 +6,7 @@ The first two problems of this homework are intended to primarily be a review of
 
 The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
 
-$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
+$$\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$$
 
 will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
 
@@ -90,6 +90,7 @@ Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
 **Answer**
 
 1. The sample space has 8 elements ($2^3$). This list can be found using a tree diagram as shown below.
+
     ```
             H   => HHH
         H -
@@ -430,7 +431,7 @@ A follow-up question that I'll ask is if based on the two plots you can conclude
 
 **Answer**
 
-There was discussion on Discord about how the probability is to be changes. When writing the problem, I had in mind that the probability was either $0.4$ or $0.44$. But I think the problem statement is best interpreted as meaning that the $p$ can continue to grow by 10%.
+There was discussion on Discord about how the probability is to be changed. When writing the problem, I had in mind that the probability was either $0.4$ or $0.44$. But I think the problem statement is best interpreted as meaning that the $p$ can continue to grow by 10%.
 
 The motivation for allowing $p$ to vary is that often you'll have a data set that does not quite conform to a certain set of assumptions. It is often useful to model the non--conformity to get an idea for how the non--conformity will change the results. In this problem, the varition in $p$ models "persistence". The most common form of persistence is that high--temperature days tend to follow high--temperature days. That is, the probability of a day having a high--temperature is larger if the previous day had a high temperature.
 
@@ -468,7 +469,7 @@ Use a random number generator to create a dataset that simulates the following r
 
 There were quite a few questions about this problem. It may make more sense to derive it without reference to time and then insert the time dependence at the end. 
 
-If $p$ is the prob. of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
+If $p$ is the probability of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
 
 $$P(k)=\frac{(p\frac{t}{\Delta t})^k e^{-p \frac{t}{\Delta t}}}{k!}$$
 
@@ -484,6 +485,10 @@ It also make sense to talk not about the number of "trials", but rather the numb
 
 Note that the the Poisson distribution is a good approximation of the Binomial distribution if $N\gg 1$ and is valid for $kp\ll 1$ and $k/N\ll 1$.
 
+My code is at [HW4_3.py](https://github.com/rweigel/astrostats/tree/main/hws/HW4_3.py).
+
+<img src="hws/figures/HW4_3.svg"/>
+
 ## Solar Flare Data (590 only)
 
 Only students registered in the graduate-level course (PHYS 590 or ASTR 590) need to turn in this assignment.
@@ -493,10 +498,28 @@ The zip file [SOLAR_FLARES.zip](https://piazza.com/gmu/spring2021/ce0c/resources
 Plot the probability distribution of the number of solar flares per day using `xray.txt`.
 
 1.  Is the probability distribution similar to that expected from a Binomial Experiment or the Poisson distribution? If so, plot the equation for a Binomial Experiment and/or the Poisson distribution on the same axes as the histogram.
-2.  Is the probability density of the time between solar flares similar to the probability density of the exponential distribution (see 4.4 of Devore).
+2.  Is the probability density of the time between solar flares similar to the probability density of the exponential distribution (see 4.4 of Devore)?
 3.  Do the data conform to the constraints of a Binomial Experiment or the assumptions for the Poisson distribution?
 
 Save any code or plots that you use to answer these questions in files with the prefix `HW4_4`. Be prepared to discuss your results in class.
+
+**Comments**
+
+These data were considered in [Wheatland, 2000](https://iopscience.iop.org/article/10.1086/312739). The fit to both a binomial and Poisson distribution is poor. (I was glad to see that several students also plotted the binomial distribution because of concern that the assumptions Poisson approximation was not satisfied.) This is somewhat expected given that the probability that a flare occured in a given hour depends on whether a flare occured in the previous hour. From the data, I find (see [HW4_4.py](https://github.com/rweigel/astrostats/tree/main/hws/HW4_4.py))
+
+$P(F_t)=0.27$
+
+$P(F_t|F_{t-1})=0.08$, meaning that a flare is the least likely to occur in a given hour if one occured in the previous hour.
+
+$P(F_t|\overline{F}_{t-1})=0.19$
+
+$P(\overline{F}\_t|\overline{F}_{t-1})=0.54$
+
+$P(\overline{F}\_t|F_{t-1})=0.19$
+
+where $F_t$ indicates a flare in hour $t$ and $\overline{F}_t$ indicates no flare. The binomial distribution requires that these probabilities are all the same, which is clearly not the case. In addition, multiple flares occured in the same hour. If we define an event as a single flare, then the data are not consistent with the assumption that in each $\Delta t$, only one event can occur. (We can work around this by defining an event as when one or more flares occured in a given hour.)
+
+In writing the rule for the previous problem, I had mis-remembered the above result. That is, I had recalled that $P(F_t|\overline{F}_{t-1}) > P(F_t|F_{t-1})$, which is opposite to what was observed.
 
 # HW 5
 
@@ -699,15 +722,15 @@ Note that when $n=1$, $S^2$ is $0/0$, which indeterminate; this makes sense as -
 
 ----
 
-Devore on pg 245 starts with the observation that for any random variable $Y$, its variance, $V(Y)$ can be written 
+Devore on pg 245 starts with the observation that for the variance of random variable $Y$, $V(Y)$, can be written 
 
 $$V(Y)=E[Y^2]-(E[Y])^2$$
 
-or
+or, rearranging,
 
-$$A.\qquad E[Y^2]=V(Y)+(E[Y])^2$$
+$$A.\qquad E[Y^2]=V(Y)+(E[Y])^2,$$
 
-which is stated without proof. The formula is given on page 112, but a proof is not given.
+which is stated without proof. The formula is also given on page 112, but a proof is not given.
 
 Next, he states that it follows from the definition
 
@@ -715,13 +738,13 @@ $$S^2 = \frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
 
 that
 
-$$S^2 = \frac{1}{n-1}\left[\sum_{i=1}^nX_i^2-\frac{1}{n}\left(\sum_{i=1}^nX_i\right)^2\right]$$
+$$S^2 = \frac{1}{n-1}\left[\sum_{i=1}^nX_i^2-\frac{1}{n}\left(\sum_{i=1}^nX_i\right)^2\right].$$
 
-Taking the expectation and moving it inside of the sum for the first term gives
+Taking the expectation and moving it inside of the sum in the first term gives
 
 $$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^nE[X_i^2]-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
 
-Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X$ is $E[X^2]=V(X)+(E[X])^2=\sigma^2+\mu^2$. Using this, the above equation can be re-written as
+Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X$ is $E[X^2]=V(X)+(E[X])^2=\sigma^2+\mu^2$ using the definitions of $\sigma$ and $\mu$. Using this, the above equation can be re-written as
 
 $$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
 
@@ -762,6 +785,20 @@ If we don't know the distribution of $X$, we can't use the parametric bootstrap 
 
 Save your code in a file named `HW6_1.py`. When executed, the scatter plot should be shown.
 
+**Answer**
+
+As noted in the extensive discussion on Discord, the results are difficult to interpret. The reason is that the given $n$ measurements were drawn from a distribution with $\mu=0$ and not $\mu=1$. In [HW6_1.py](hws/HW6_1.py) and in the figures below, I used a set of $n$ measurements drawn from a distribution with $\mu=1$.
+
+Based on this plot, we can conclude that the non-parametric bootstrap provides a sampling distribution that has a standard deviation that is similar to that of the parametric bootstrap. For $N\rightarrow \infty$, the parametric bootstrap distribution will approach the actual sampling distribution.
+
+In general, you will use the non-parametric bootstrap to determine a confidence interval when the sampling distribution of the measurements is not known. In fact, this is the motivation for the non-parametric bootstrap. Oftwen we don't know the sampling distribution (but almost as often, we assume to to be Gaussian or some other analytic equation). The advantage of the non-parametric bootstrap is that this assumption is not needed.
+
+<img src="hws/figures/HW6_1a.svg"/>
+
+[A useful discussion on comparing histograms.](https://stats.stackexchange.com/questions/7400/how-to-assess-the-similarity-of-two-histograms)
+
+<img src="hws/figures/HW6_1b.svg"/>
+
 ## Confidence Intervals when Sampling Distribution Known
 
 Background reading: Chapter 7 of Devore and [my notes](notes.html#key-distributions).
@@ -785,15 +822,80 @@ The confidence intervals for 1. and 2. are easy to compute because we know the s
 
 3. Verify your answer for 1. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$ times. Compute $10,000$ confidence intervals. What fraction of these confidence intervals included $\mu$?
 4.  Verify your answer for 2. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$. Compute $10,000$ confidence intervals. What fraction of these confidence intervals included $\mu$?
-
 5.  Suppose some parameter $a$ was computed and its 95% confidence interval is $[0.9, 1.1]$. What is wrong with the claim "the probability that $a$ is in the range $[0.9, 1.1]$ is 0.95"? (Hint - see pages 270--271 of Devore).
 
-Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for for 3. and 4. along with $\overline{X}$ and its 95% confidence interval from 1. and 2., respectively, in the title.
+Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95% confidence interval from 1. and 2., respectively, in the title.
+
+**Answer**
+
+Equation 7.4 is a confidence interval for large $n$ and values from any distribution:
+
+$$\left(\overline{x}-1.96\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}-1.96\cdot\frac{s}{\sqrt{n}}\right)$$
+
+Equation 7.15 is a confidence interval for any $n$ and is technically valid only for values drawn from a Gaussian distribution:
+
+$$\left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)$$
 
 ## Confidence Interval when Sampling Distribution is not Known
 
 (**590 only**)
 
-Given the measurements $[-0.54603241, -0.40652794, -0.11570264, -1.26244673, -1.38616981, -0.44812319,  0.82880132,  0.79937713, -1.098357,  0.38530288]$, compute the 95% confidence interval for $\mu$ by creating a non-parametric bootstrap sampling distribution.
+Given the measurements
+
+```
+[-0.546, -0.406, -0.115, -1.262, -1.3861,
+ -0.448,  0.829,  0.799, -1.098,  0.385]
+```
+
+compute the 95% confidence interval for $\mu$ by creating a non-parametric bootstrap sampling distribution.
 
 Save the code for your answer in a file named `HW6_3.py`. When executed, the code should display the probability density of the non--parametric bootstrap sampling distribution along with $\overline{X}$ and the 95% confidence for $\mu$ in the title. Be prepared to discuss the interpretation of this plot.
+
+# HW 7
+
+References:
+
+* Chapter 5.1 of Wall and Jenkins
+* Chapter 8.1, 8.2, and 8.4 of Devore
+* [Hypothesis testing playlist by Foltz on YouTube](https://www.youtube.com/playlist?list=PLIeGtxpvyG-IZRHcZcOy12jp7ywuRbE7l).
+
+The terminology and concepts that you should be familiar following review of the references inlcude
+
+1.  A "standardized" test statistic
+2.  Null and alternative Hypotheses
+2.  Type I and Type II errors; $\alpha$ and $\beta$
+3.  The difference between rejecting a null hypothesis and mathematical statements. For example "the null hypotheis that $\mu\ne 0$ is rejected" vs. the mathematical statement "$\mu\ne 0$".
+4.  Rejection region
+
+## A Test on a Population Mean
+
+In example 8.6 of Devore, a sample of $n=9$ systems yielded an activation temperature of $131.08$. The distribution of activation times was known (somehow) to be normal with a standard deviation of $1.5$.
+
+The following program draws samples from a normal population with $\mu=130.0$ and $\sigma=1.5$. With the random seed set, the sample mean is $130.08$.
+
+```Python
+import numpy as np
+np.random.seed(877)
+x = np.random.normal(130.0, 1.5, size=9)
+print(np.mean(x)) # 131.08
+```
+
+Suppose you were given the values of `x` that results from executing this code, but you did not know the population standard deviation $\sigma$ (that is, you did not know the code used to generate the list of 9 numbers). You were only told that the values in `x` were drawn from a Normal distribution. In this case, the appropriate test is given as Case II on page 314--315 of Devore.
+
+Test the same hypothesis as that in Example 8.6 using the list of 9 values in `x` that results from executing the above code.
+
+Save your answer in a file named `HW7_1.pdf`. Your answer should include the same steps as in Example 8.6 but using the Case II equations.
+
+## $\beta$ and sample size determination
+
+(**590 only**)
+
+In this problem, you are to devise a simulation to help you understand statements about Type II errors. In the past, I've given you simulations to execute to better understand statistical concepts. In this problem, I want you to devise and implement the simulation.
+
+After Example 8.6 in Devore, there are several paragraphs where mathematical statements are made and several equations are given.
+
+Develop and implement a numerical experiement that tests any of these claims or experiments. Base your experiment on Example 8.6 (in the sense that those who read this example will easily see how your experiment applies to it.)
+
+Feel free to ask for feedback on a proposed experiment on Discord before attempting to implement it.
+
+Save your answers in a files named `HW7_2.pdf` and `HW7_2.py` (or the extension of the programming language used). Make sure that your plots have enough annotations so that when they are shown to the class, it is clear what was done to create the plot. Also add a caption if the annotations are not sufficient.
