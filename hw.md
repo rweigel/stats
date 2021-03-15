@@ -871,7 +871,7 @@ The terminology and concepts that you should be familiar following review of the
 
 In example 8.6 of Devore, a sample of $n=9$ systems yielded an activation temperature of $131.08$. The distribution of activation times was known (somehow) to be normal with a standard deviation of $1.5$.
 
-The following program draws samples from a normal population with $\mu=130.0$ and $\sigma=1.5$. With the random seed set, the sample mean is $130.08$.
+The following program draws samples from a normal population with $\mu=130.0$ and $\sigma=1.5$. With the random seed set, the sample mean is $131.08$.
 
 ```Python
 import numpy as np
