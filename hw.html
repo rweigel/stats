@@ -238,7 +238,7 @@
       </ol>
       <li><a number="7" href="#hw-7">HW 7</a></li>
       <ol>
-        <li><a number="7.1" href="#a-test-on-a-population-mean" class="">A Test on a Population Mean</a></li>
+        <li><a number="7.1" href="#a-test-on-a-population-mean" class="highlighted">A Test on a Population Mean</a></li>
         <li><a number="7.2" href="#-beta-and-sample-size-determination"><span len="7" class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
@@ -10042,7 +10042,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
       </ol>
     </div>
     <div class="section">
-      <h2><a name="a-test-on-a-population-mean" number="7.1" class="hanchor" href="#a-test-on-a-population-mean">7.1 A Test on a Population Mean</a></h2>
+      <h2><a name="a-test-on-a-population-mean" number="7.1" class="hanchor highlighted" href="#a-test-on-a-population-mean">7.1 A Test on a Population Mean</a></h2>
       <p>In example 8.6 of Devore, a sample of <span len="5" class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
@@ -10115,14 +10115,14 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
 np.random.seed(<span class="hljs-number">877</span>)
 x = np.random.normal(<span class="hljs-number">130.0</span>, <span class="hljs-number">1.5</span>, size=<span class="hljs-number">9</span>)
 print(np.mean(x)) <span class="hljs-comment"># 131.08</span></code></pre>
-      <p>Suppose you were given the values of <code>x</code> that results from executing this code, but you did not know the population standard deviation <span len="8" class="katex"><span class="katex-mathml"><math>
+      <p class="active">Suppose you were given the values of <code>x</code> that results from executing this code, but you did not know the population standard deviation <span len="8" class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>σ</mi>
                 </mrow>
                 <annotation encoding="application/x-tex">\sigma</annotation>
               </semantics>
-            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span> (that is, you did not know the code used to generate the list of 9 numbers). You were only told that the values in <code>x</code> were drawn from a Normal distribution. In this case, the appropriate test is given as Case II on page 314–315 of Devore.</p>
+            </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span> (that is, you did not know the code used to generate the list of 9 numbers). You were only told that the values in <code>x</code> were drawn from a Normal distribution. In this case, the <em>equations given</em> <strike>appropriate test is given as Case II</strike> on page 314–315 of Devore. (See <a href="https://discord.com/channels/806626538782064670/806626538782064673/821087920302587925">Discord discussion</a>).</p>
       <p>Test the same hypothesis as that in Example 8.6 using the list of 9 values in <code>x</code> that results from executing the above code.</p>
       <p>Save your answer in a file named <code>HW7_1.pdf</code>. Your answer should include the same steps as in Example 8.6 but using the Case II equations.</p>
     </div>
@@ -10136,11 +10136,11 @@ print(np.mean(x)) <span class="hljs-comment"># 131.08</span></code></pre>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05278em;">β</span></span></span></span> and sample size determination</a></h2>
       <p>(<strong>590 only</strong>)</p>
-      <p>In this problem, you are to devise a simulation to help you understand statements about Type II errors. In the past, I’ve given you simulations to execute to better understand statistical concepts. In this problem, I want you to devise and implement the simulation.</p>
+      <p class="">In this problem, you are to devise a simulation to help you understand statements about Type II errors. In the past, I’ve given you simulations to execute to better understand statistical concepts. In this problem, I want you to devise and implement the simulation.</p>
       <p>After Example 8.6 in Devore, there are several paragraphs where mathematical statements are made and several equations are given.</p>
       <p class="">Develop and implement a numerical experiement that tests any of these claims or experiments. Base your experiment on Example 8.6 (in the sense that those who read this example will easily see how your experiment applies to it.)</p>
-      <p class="">Feel free to ask for feedback on a proposed experiment on Discord before attempting to implement it.</p>
-      <p class="active">Save your answers in a files named <code>HW7_2.pdf</code> and <code>HW7_2.py</code> (or the extension of the programming language used). Make sure that your plots have enough annotations so that when they are shown to the class, it is clear what was done to create the plot. Also add a caption if the annotations are not sufficient.</p>
+      <p>Feel free to ask for feedback on a proposed experiment on Discord before attempting to implement it.</p>
+      <p>Save your answers in a files named <code>HW7_2.pdf</code> and <code>HW7_2.py</code> (or the extension of the programming language used). Make sure that your plots have enough annotations so that when they are shown to the class, it is clear what was done to create the plot. Also add a caption if the annotations are not sufficient.</p>
     </div>
   </div>
 </body>
