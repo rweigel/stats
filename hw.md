@@ -874,10 +874,9 @@ In example 8.6 of Devore, a sample of $n=9$ systems yielded an activation temper
 The following program draws samples from a normal population with $\mu=130.0$ and $\sigma=1.5$. With the random seed set, the sample mean is $131.08$.
 
 ```Python
-import numpy as np
-np.random.seed(877)
+np.random.seed(623)
 x = np.random.normal(130.0, 1.5, size=9)
-print(np.mean(x)) # 131.08
+print(np.mean(x)) #131.0812930740811
 ```
 
 Suppose you were given the values of `x` that results from executing this code, but you did not know the population standard deviation $\sigma$ (that is, you did not know the code used to generate the list of 9 numbers). You were only told that the values in `x` were drawn from a Normal distribution. In this case, the _equations given_ <strike>appropriate test is given as Case II</strike> on page 314--315 of Devore. (See [Discord discussion](https://discord.com/channels/806626538782064670/806626538782064673/821087920302587925)).

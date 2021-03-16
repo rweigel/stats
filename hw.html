@@ -200,7 +200,7 @@
       <li><a number="1" href="#hw-1">HW 1</a></li>
       <ol>
         <li><a number="1.1" href="#law-of-large-numbers-i">Law of Large Numbers I</a></li>
-        <ol style="display: none;">
+        <ol>
           <li><a number="1.1.1" href="#a">a</a></li>
           <li><a number="1.1.2" href="#b">b</a></li>
         </ol>
@@ -10043,7 +10043,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
     </div>
     <div class="section">
       <h2><a name="a-test-on-a-population-mean" number="7.1" class="hanchor highlighted" href="#a-test-on-a-population-mean">7.1 A Test on a Population Mean</a></h2>
-      <p class="">In example 8.6 of Devore, a sample of <span len="5" class="katex"><span class="katex-mathml"><math>
+      <p>In example 8.6 of Devore, a sample of <span len="5" class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>n</mi>
@@ -10074,7 +10074,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                 <annotation encoding="application/x-tex">1.5</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord">.</span><span class="mord">5</span></span></span></span>.</p>
-      <p class="active">The following program draws samples from a normal population with <span len="11" class="katex"><span class="katex-mathml"><math>
+      <p>The following program draws samples from a normal population with <span len="11" class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>μ</mi>
@@ -10111,11 +10111,10 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                 <annotation encoding="application/x-tex">131.08</annotation>
               </semantics>
             </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord">3</span><span class="mord">1</span><span class="mord">.</span><span class="mord">0</span><span class="mord">8</span></span></span></span>.</p>
-      <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
-np.random.seed(<span class="hljs-number">877</span>)
+      <pre class="language-Python"><code class="language-Python">np.random.seed(<span class="hljs-number">623</span>)
 x = np.random.normal(<span class="hljs-number">130.0</span>, <span class="hljs-number">1.5</span>, size=<span class="hljs-number">9</span>)
-print(np.mean(x)) <span class="hljs-comment"># 131.08</span></code></pre>
-      <p class="">Suppose you were given the values of <code>x</code> that results from executing this code, but you did not know the population standard deviation <span len="8" class="katex"><span class="katex-mathml"><math>
+print(np.mean(x)) <span class="hljs-comment">#131.0812930740811</span></code></pre>
+      <p>Suppose you were given the values of <code>x</code> that results from executing this code, but you did not know the population standard deviation <span len="8" class="katex"><span class="katex-mathml"><math>
               <semantics>
                 <mrow>
                   <mi>σ</mi>
@@ -10136,9 +10135,9 @@ print(np.mean(x)) <span class="hljs-comment"># 131.08</span></code></pre>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05278em;">β</span></span></span></span> and sample size determination</a></h2>
       <p>(<strong>590 only</strong>)</p>
-      <p class="">In this problem, you are to devise a simulation to help you understand statements about Type II errors. In the past, I’ve given you simulations to execute to better understand statistical concepts. In this problem, I want you to devise and implement the simulation.</p>
+      <p>In this problem, you are to devise a simulation to help you understand statements about Type II errors. In the past, I’ve given you simulations to execute to better understand statistical concepts. In this problem, I want you to devise and implement the simulation.</p>
       <p>After Example 8.6 in Devore, there are several paragraphs where mathematical statements are made and several equations are given.</p>
-      <p class="">Develop and implement a numerical experiement that tests any of these claims or experiments. Base your experiment on Example 8.6 (in the sense that those who read this example will easily see how your experiment applies to it.)</p>
+      <p>Develop and implement a numerical experiement that tests any of these claims or experiments. Base your experiment on Example 8.6 (in the sense that those who read this example will easily see how your experiment applies to it.)</p>
       <p>Feel free to ask for feedback on a proposed experiment on Discord before attempting to implement it.</p>
       <p>Save your answers in a files named <code>HW7_2.pdf</code> and <code>HW7_2.py</code> (or the extension of the programming language used). Make sure that your plots have enough annotations so that when they are shown to the class, it is clear what was done to create the plot. Also add a caption if the annotations are not sufficient.</p>
     </div>
