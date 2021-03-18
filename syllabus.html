@@ -119,6 +119,16 @@
       margin-right: 1em;
       line-height: 1.5;
     }
+    .ace_line_group {
+      border: 1px solid rgb(0,0,0,0);
+      margin-top: -2px;
+    }
+    .line-number {
+      float: right;
+      font-size: 10%;
+      margin-top: 2em;
+      margin-left:2em;
+    }
     
     details > summary {
       font-weight: bold;
@@ -127,7 +137,34 @@
     details[open] {
       border: 1px solid black;
       padding: 1em;
-    }    
+    }
+    
+    /* https://gist.github.com/andyferra/2554919 */
+    table {
+      padding: 0; }
+      table tr {
+        border-top: 1px solid #cccccc;
+        background-color: white;
+        margin: 0;
+        padding: 0; }
+        table tr:nth-child(2n) {
+          background-color: #f8f8f8; }
+        table tr th {
+          font-weight: bold;
+          border: 1px solid #cccccc;
+          text-align: left;
+          margin: 0;
+          padding: 6px 13px; }
+        table tr td {
+          border: 1px solid #cccccc;
+          text-align: left;
+          margin: 0;
+          padding: 6px 13px; }
+        table tr th :first-child, table tr td :first-child {
+          margin-top: 0; }
+        table tr th :last-child, table tr td :last-child {
+          margin-bottom: 0; }
+    
     /* 
       A span with class 'katex' wraps all equations. A span with class
       katex-display wraps block equations and a span with class katex.
@@ -186,7 +223,7 @@
 <body style="display: flex;min-width: 50%;max-height:100%;">
   <div id="toc">
     <ol>
-      <li><a number="1" href="#course-information" class="highlighted">Course Information</a></li>
+      <li><a number="1" href="#course-information">Course Information</a></li>
       <li><a number="2" href="#motivation">Motivation</a></li>
       <li><a number="3" href="#methods-of-instruction">Methods of Instruction</a></li>
       <li><a number="4" href="#programming">Programming</a></li>
@@ -199,10 +236,10 @@
         <li><a number="7.3" href="#february-11th">February 11th</a></li>
         <li><a number="7.4" href="#february-18th">February 18th</a></li>
         <li><a number="7.5" href="#february-25th">February 25th</a></li>
-        <li><a number="7.6" href="#march-4th" class="">March 4th</a></li>
-        <li><a number="7.7" href="#march-11th" class="">March 11th</a></li>
-        <li><a number="7.8" href="#march-18th" class="">March 18th</a></li>
-        <li><a number="7.9" href="#march-25th">March 25th</a></li>
+        <li><a number="7.6" href="#march-4th">March 4th</a></li>
+        <li><a number="7.7" href="#march-11th">March 11th</a></li>
+        <li><a number="7.8" href="#march-18th" class="highlighted">March 18th</a></li>
+        <li><a number="7.9" href="#march-25th" class="">March 25th</a></li>
         <li><a number="7.10" href="#april-1st">April 1st</a></li>
         <li><a number="7.11" href="#april-8th">April 8th</a></li>
         <li><a number="7.12" href="#april-15th">April 15th</a></li>
@@ -242,7 +279,7 @@
       <p class="subtitle">ASTR/PHYS 390/590</p>
     </div>
     <div class="section">
-      <h1 class=""><a name="course-information" number="1" class="hanchor highlighted" href="#course-information">1 Course Information</a></h1>
+      <h1><a name="course-information" number="1" class="hanchor" href="#course-information">1 Course Information</a></h1>
       <ul>
         <li> <strong>Day and Time</strong>: Thursday from 4:30 - 7:10 pm</li>
         <li> <strong>Location</strong>: Online</li>
@@ -258,7 +295,7 @@
         </li>
         <li> <strong>Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.</li>
       </ul>
-      <p class="active"><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a>| <a href="hw.html#hw-7">7</a></p>
+      <p><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="hw.html#hw-7">7</a></p>
     </div>
     <div class="section">
       <h1><a name="motivation" number="2" class="hanchor" href="#motivation">2 Motivation</a></h1>
@@ -400,14 +437,14 @@
       <h2><a name="march-4th" number="7.6" class="hanchor" href="#march-4th">7.6 March 4th</a></h2>
       <ul>
         <li>Discussion of <a href="hw.html#hw-5">HW #5</a></li>
-        <li class="">Discussion of <a href="notes.html#statistics">elements of statistics</a></li>
+        <li>Discussion of <a href="notes.html#statistics">elements of statistics</a></li>
       </ul>
     </div>
     <div class="section">
       <h2><a name="march-11th" number="7.7" class="hanchor" href="#march-11th">7.7 March 11th</a></h2>
       <ul>
         <li>Discussion of <a href="hw.html#hw-6">HW #6</a></li>
-        <li class="">Discussion of <span len="3" class="katex"><span class="katex-mathml"><math>
+        <li>Discussion of <span len="3" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>P</mi>
@@ -415,21 +452,24 @@
                   <annotation encoding="application/x-tex">P</annotation>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>s (probability mass functions), pdfs (probability density functions), and their generation in Python</li>
-        <li class="">Discussion of degrees–of–freedom</li>
-        <li class="">Discuss absolute paths in code</li>
+        <li>Discussion of degrees–of–freedom</li>
+        <li>Discuss absolute paths in code</li>
       </ul>
     </div>
     <div class="section">
-      <h2 class=""><a name="march-18th" number="7.8" class="hanchor" href="#march-18th">7.8 March 18th</a></h2>
+      <h2><a name="march-18th" number="7.8" class="hanchor highlighted" href="#march-18th">7.8 March 18th</a></h2>
       <ul>
-        <li><a href="hw.html#hw-7">HW #7</a> due</li>
-        <li class="">Mid-term assigned</li>
+        <li class="active"><a href="hw.html#hw-7">HW #7</a> due</li>
+        <li>Discuss PA’s HW5.1 soln.</li>
+        <li>Discuss plot labels, <code>np.round</code>, and <code>format</code>.</li>
+        <li>Discuss number of decimals in numbers.</li>
+        <li><a href="midterm.html#midterm">Midterm</a> assigned</li>
       </ul>
     </div>
     <div class="section">
-      <h2><a name="march-25th" number="7.9" class="hanchor" href="#march-25th">7.9 March 25th</a></h2>
+      <h2 class=""><a name="march-25th" number="7.9" class="hanchor" href="#march-25th">7.9 March 25th</a></h2>
       <ul>
-        <li>Mid-term due</li>
+        <li><a href="midterm.html#midterm">Midterm</a> due before class</li>
       </ul>
     </div>
     <div class="section">

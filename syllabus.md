@@ -16,7 +16,7 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
-**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6)| [7](hw.html#hw-7)
+**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7)
 
 # Motivation
 
@@ -137,10 +137,13 @@ In the [References](#references) section of this syllabus, many additional refer
 ## March 18th
 
 * [HW #7](hw.html#hw-7) due
-* Mid-term assigned
+* Discuss PA's HW5.1 soln.
+* Discuss plot labels, `np.round`, and `format`.
+* Discuss number of decimals in numbers.
+* [Midterm](midterm.html#midterm) assigned
 
 ## March 25th
-* Mid-term due
+* [Midterm](midterm.html#midterm) due before class
 
 ## April 1st
 
