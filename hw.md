@@ -956,9 +956,9 @@ Save your code as `Midterm_Part_I.py`. When executed, a plot should appear for p
 
     Be prepared to explain the derivation of the equation for $b$ in class. (But you do not need to turn anything in.)
 
-Save your answers for parts 7. and 8. as `Midterm_Part_II.pdf`. 
-
 8.  In part 5., $B$ values for $a$ and $b$ were computed. Use the values to test the claim that the errors in the estimate $a$ and $b$, given by $a-\alpha$ and $b-\beta$, respectively, are not independent. (Take an observational/experimental approach to answering this question.)
+
+Save your answers for parts 6.-8. as `Midterm_Part_II.pdf`. 
 
 Save your code for part 8. as `Midterm_Part_II.py`.
 
