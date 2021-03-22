@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 n = 9
-mu_act = 132.0
+mu_act = 132
 mu_o   = 130.0 # Hypothesized
 sigma  = 1.5
 N = 10000
@@ -10,7 +10,7 @@ N = 10000
 zt = 2.58 # z_0.005 (two-tailed)
 #zt = 2.33 # z_0.01
 
-# Ho: Data are draw from Gaussian with mu_o = 130.
+# Ho: Data are drawn from Gaussian with mu_o = 130.
 # Reject if |z| > zt
 # Don't reject if |z| < zt
 
@@ -29,6 +29,24 @@ I = np.where(np.abs(zI) > zt)[0]
 print('P(type I)  = 0.0100 (exact)')
 print('P(type I)  = %.4f (simulation)' % (I.size/N))
 
+z = np.linspace(-4, 4, 100)
+std_normal = (1/np.sqrt(2*np.pi))*np.exp( -z**2/2. )
+
+fig, ax = plt.subplots()
+plt.plot(z, std_normal, 'k', label='Null hypothesis distribution (exact)')
+plt.hist(zI, bins=z, density=True, alpha=0.5, label='Null distribution (bootstrapped)')
+plt.plot((-zt, zt), (0.01, 0.01), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
+plt.xlabel('$z$')
+plt.ylabel('pdf')
+plt.xlim([-3, 3])
+plt.ylim([0,0.6])
+
+#handles, labels = plt.gca().get_legend_handles_labels()
+# https://stackoverflow.com/questions/22263807/how-is-order-of-items-in-matplotlib-legend-determined
+#order = [0,2,1]
+#plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order])
+
+
 T = np.linspace(128, 134, 100)
 normal = (1/(sigma/np.sqrt(n))/np.sqrt(2*np.pi))*np.exp( -(T-mu_o)**2/(2*(sigma/np.sqrt(n))**2) )
 
@@ -39,7 +57,7 @@ if True:
     plt.hist(xbarI, bins=T, density=True, alpha=0.5, label='Null distribution (bootstrapped)')
     #rp = Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.03, color='k', alpha=0.4, hatch='//', label='Do not reject if $\overline{T}$ in this range')
     #ax.add_patch(rp)
-    plt.plot((xbar_tl, xbar_tu), (0.01, 0.01), color='r', lw=2, label='Do not reject if $\overline{T}$ in this range')
+    plt.plot((xbar_tl, xbar_tu), (0.01, 0.01), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
     #ax.add_patch(p1)
     plt.xlabel('$\overline{T}$ [degrees]')
     plt.ylabel('pdf')
@@ -71,7 +89,7 @@ if True:
     #plt.ylim([0,400])
     ax.add_patch(Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.00, color=(0,1,0,0.5)))
     ax.legend(['Null hypothesis distribution (exact)',
-               'Do not reject if $\overline{T}$ in this range',
+               'Do not reject null if $\overline{T}$ in this range',
                'Simulated data - non-rejected',
                'Simulated data - rejected'],
               loc='upper right')
