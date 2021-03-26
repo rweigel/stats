@@ -1917,6 +1917,7 @@ Matplotlib is the most commonly used Python plotting package. There are many oth
 
 * http://matplotlib.org/users/beginner.html
 * http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.legend
+* 
 
 ## Importing Matplotlib
 
@@ -2611,7 +2612,7 @@ As a compromise, the unintuitive notation `(3, )` is used for the shape of 1-D N
 See also [https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences].
 
 The reason that the Python interpreter can't conclude `(3)` is a tuple is in math operations is it is acceptable to wrap a number in parenthesis and so I expect `(3)*1` to mean `3*1` and not a tuple times a scalar.
-</summary>
+</details>
 
 ## Array Size
 
@@ -2711,7 +2712,7 @@ Arrays can be initialized with values other than zero and one. Probably the safe
 
 ```Python
 import numpy as np
-A = (np.nan)*np.empty((3, )) # Multiply each element by NaN.
+A = np.full((3, ), np.nan) 
 print(A)
 # [nan nan nan]
 ```
@@ -2720,7 +2721,7 @@ The motivation for initialization with NaNs is that coding errors become more ob
 
 ```Python
 import numpy as np
-A = (np.nan)*np.empty((4, ))
+A = np.full((4, ), np.nan)
 for i in range(len(A)-1): # Error is that this should be len(A)
     A[i] = i
 print(np.sum(A)) # nan - you know something went wrong
@@ -2749,6 +2750,8 @@ A[:] = numpy.nan # Set each element to NaN
 # A.fill(numpy.nan)
 ```
 
+See also [this StackOverflow question](https://stackoverflow.com/questions/1704823/create-numpy-matrix-filled-with-nans).
+
 ###  With Equally Spaced Values
 
 The functions [`arange`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) and [`linspace`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html) are both used to create an 1-D `ndarray` with equally spaced values. 
@@ -2762,6 +2765,7 @@ Important:
 * stop values are inclusive for linspace (last value is stop)
 
 `arange`
+
 1. `arange(stop)` Gives `[0, 1, ..., stop-1]`
 2. `arange(start, stop)` Gives `[start, start+1, ..., stop-1]`. `stop > start` is required to give non-empty result
 3. `arange(start, stop, step)` When `step` is given, `start` and/or `stop` can be negative, as can `step`.
@@ -2784,8 +2788,8 @@ print(np.arange(-6, -9, -1)) # [-6 -7 -8]
 2. `linspace(start, stop, num)` Gives `num` equally spaced values with a first value of `start` and last value of `stop`.
 
 ```Python
-print(np.linspace(0, 1, 5))  # [0.   0.25 0.5  0.75 1.]
-print(0.25*np.arange(0, 5))  # [0.   0.25 0.5  0.75 1.]
+print(np.linspace(0, 1, 5))  # [0. 0.25 0.5  0.75 1.]
+print(0.25*np.arange(0, 5))  # [0. 0.25 0.5  0.75 1.]
 
 print(np.linspace(0, 5, 5))  # [0. 1.25 2.5 3.75 5.]
 
@@ -3087,13 +3091,13 @@ print(B)        # [1 2]
 print(len(B))   # 2
 ```
 
-Alternatively, `np.where` can be used. The syntax is
+Alternatively, [`np.where`](https://numpy.org/doc/stable/reference/generated/numpy.where.html) can be used. The syntax is
 
-```
-np.where(condition, value if condition true, value if condition false)
-```
 
-The problem solved earlier using `np.where` is
+`np.where(` _`condition`_, _`value if condition true`_, _`value if condition false`_)
+
+
+The problem solved earlier using [`np.where`](https://numpy.org/doc/stable/reference/generated/numpy.where.html) is
 
 ```Python
 import numpy as np
@@ -3103,6 +3107,24 @@ B = np.where( A < 3, 1, 0)
 # In locations where A >= 3, B will have the value of 0
 print(B)        # [1,1,0,0,0]
 print(sum(B))   # 2
+```
+
+Compound conditions can be evaluated using [`np.logical_and()`](https://numpy.org/doc/stable/reference/generated/numpy.logical_and.html). For example, to find elements in `A` in the range `[2,4]`
+
+```Python
+import numpy as np
+A = np.array([1, 2, 3, 4, 5])
+B = np.where(np.logical_and( A >= 2, A <= 4), 1, 0)
+print(B) # [0 1 1 1 0]
+```
+
+To return the indices, use [`np.nonzero()`](https://numpy.org/doc/stable/reference/generated/numpy.nonzero.html), e.g.,
+
+```Python
+import numpy as np
+A = np.array([1, 2, 3, 4, 5])
+B = np.asarray( A > 2).nonzero()[0]
+print(B) # array([2, 3, 4])
 ```
 
 # Statistics

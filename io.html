@@ -1,0 +1,1031 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>io</title>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
+  <style>
+    #toc {
+      font-size: 85%;
+      width: 15em;
+      position: fixed;
+      min-height: 100%;
+      max-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-left: 0.75em ;
+      padding-right: 1em;
+      font-family: "Open Sans";
+    }
+    
+    #toc ol {
+      list-style-type: decimal;
+      padding-inline-start: 1em;
+    }
+    
+    #toc a {
+      text-decoration: none;
+    }
+    
+    #display {
+      width: 100%;
+      margin-left: 14em;
+      max-height: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-left: 1em;
+      padding-right: 1em;
+      border-left: 1px solid rgb(240,240,240);
+      font-family: "Open Sans";
+    }
+    
+    .title {
+      text-align: center;
+      font-size: 250%;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 0;
+    }
+    
+    .subtitle {
+      text-align: center;
+      font-size: 150%;
+      font-weight: bold;
+      color: black;
+      margin-top: 0.2em;
+    }
+    
+    .hanchor {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    h1 {
+      color: darkblue;
+      border-bottom: 2px solid darkblue;
+      cursor: arrow;
+    }
+    
+    h2 {
+      border-bottom: 1px solid black;
+    }
+    
+    h3 {
+      border-bottom: 1px dotted black;
+    }
+    
+    ul {
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    
+    /* Fenced code blocks have form <pre><code>...</code></pre> */
+    pre > code {
+      background-color: rgba(0,0,0,0);
+      font-size: 1.25em;
+    }
+    
+    code {
+      background-color: rgba(0,0,0,.03);
+      border-radius: 0px;
+      font-size: 1.2em;
+    }
+    
+    code.language-Python {
+      background-color: rgba(0,0,0,0);
+      font-size: 1.2em;
+    }
+    
+    pre {
+      border-left: 3px solid black;
+      background-color: rgba(0,0,0,.03);
+      padding: 0.5em;
+      margin-left: 1em;
+      margin-right: 1em;
+      line-height: 1.5;
+      overflow-x: scroll;
+    }
+    
+    pre.language-Python {
+      border-left: 5px solid blue;
+      padding: 0.5em;
+      margin-left: 1em;
+      margin-right: 1em;
+      line-height: 1.5;
+    }
+    
+    details > summary {
+      font-weight: bold;
+    }
+    
+    details[open] {
+      border: 1px solid black;
+      padding: 1em;
+    }    
+    /* 
+      A span with class 'katex' wraps all equations. A span with class
+      katex-display wraps block equations and a span with class katex.
+    */
+    .katex { 
+      font-size: inherit !important;
+    }
+    
+    .katex-display {
+      text-align: center;
+      margin: 1em;
+      font-size: 1.1em !important;
+    }
+    
+    @media print {
+    
+      * { overflow: visible !important; } 
+    
+      body, html {
+        margin: 0.5in;
+        color: #000;
+        height: auto;
+        background-color: #fff;
+        border: none;
+        display: inline;
+      }
+    
+      h1,h2,h3,h4,h5,h6 {page-break-before: avoid;}
+    
+      .title {
+        page-break-before: always;
+        margin-top: 0;
+      }
+    
+      #toc {
+        font-size: 100%;
+        margin: 0;
+        width: 100%;
+        overflow-y: hidden;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    
+      #display {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+        overflow-wrap: break-word;
+      }
+    }
+  </style>
+  <link id="hljs-css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+</head>
+
+<body style="display: flex;min-width: 50%;max-height:100%;">
+  <div id="toc">
+    <ol>
+      <li><a number="1" href="#writing-files">Writing Files</a></li>
+      <ol>
+        <li><a number="1.1" href="#one-line">One Line</a></li>
+        <li><a number="1.2" href="#multiple-lines">Multiple Lines</a></li>
+        <li><a number="1.3" href="#multiple-files-with-multiple-lines">Multiple Files with Multiple Lines</a></li>
+        <li><a number="1.4" href="#multiple-figures">Multiple Figures</a></li>
+        <li><a number="1.5" href="#the-csv-module" class="">The <code>csv</code> module</a></li>
+        <li><a number="1.6" href="#numpy-savetxt"><code>numpy.savetxt</code></a></li>
+        <li><a number="1.7" href="#pandas-to_csv"><code>pandas.to_csv</code></a></li>
+      </ol>
+      <li><a number="2" href="#reading-files">Reading Files</a></li>
+      <ol>
+        <li><a number="2.1" href="#read-and-seek"><code>read</code> and <code>seek</code></a></li>
+        <li><a number="2.2" href="#readline"><code>readline</code></a></li>
+        <li><a number="2.3" href="#readlines"><code>readlines</code></a></li>
+        <li><a number="2.4" href="#the-csv-module" class="">The <code>csv</code> module</a></li>
+        <li><a number="2.5" href="#numpy-genfromtext" class=""><code>numpy.genfromtext</code></a></li>
+        <li><a number="2.6" href="#pandas-read_csv"><code>pandas.read_csv</code></a></li>
+      </ol>
+      <li><a number="3" href="#problems">Problems</a></li>
+      <ol>
+        <li><a number="3.1" href="#basic-csv-file" class="">Basic CSV File</a></li>
+        <li><a number="3.2" href="#write-many-log-files">Write Many Log Files</a></li>
+        <li><a number="3.3" href="#read-ssn-file-using-readlines">Read SSN File Using <code>readlines</code></a></li>
+        <li><a number="3.4" href="#read-ssn-file-using-csv-module">Read SSN File Using CSV Module</a></li>
+        <li><a number="3.5" href="#read-ssn-file-using-datetime-objects" class="highlighted">Read SSN File using <code>datetime</code> Objects</a></li>
+        <li><a number="3.6" href="#extra-credit-i">Extra Credit I</a></li>
+        <li><a number="3.7" href="#extra-credit-ii">Extra Credit II</a></li>
+        <li><a number="3.8" href="#write-one-file">Write One File</a></li>
+        <li><a number="3.9" href="#write-many-log-files">Write Many Log Files</a></li>
+        <li><a number="3.10" href="#write-many-images">Write Many Images</a></li>
+        <li><a number="3.11" href="#read-and-seek"><code>read</code> and <code>seek</code></a></li>
+        <li><a number="3.12" href="#readlines" class=""><code>readlines</code></a></li>
+      </ol>
+    </ol>
+  </div>
+  <div id="display">
+    <div class="section">
+      <p>See also</p>
+      <ul>
+        <li><a href="https://realpython.com/read-write-files-python/">https://realpython.com/read-write-files-python/</a></li>
+        <li><a href="https://www.geeksforgeeks.org/reading-writing-text-files-python/">https://www.geeksforgeeks.org/reading-writing-text-files-python/</a></li>
+      </ul>
+      <p>File Input (reading) and Output (writing)</p>
+    </div>
+    <div class="section">
+      <h1><a name="writing-files" number="1" class="hanchor" href="#writing-files">1 Writing Files</a></h1>
+    </div>
+    <div class="section">
+      <h2><a name="one-line" number="1.1" class="hanchor" href="#one-line">1.1 One Line</a></h2>
+      <p>Write one line to a file:</p>
+      <pre class="language-Python"><code class="language-Python">file = <span class="hljs-built_in">open</span>(<span class="hljs-string">"file1line.txt"</span>, <span class="hljs-string">"w"</span>)
+file.write(<span class="hljs-string">"Line 1"</span>)
+file.close()</code></pre>
+      <p>Look at the file size – it should be 6 bytes. Each character requires one byte of storage.</p>
+      <p>The following does the same as above using a the “context manager” approach. The key differences are that the file does not need to be closed and if an error occurs when trying to open the file, the file is closed.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Preferred method</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file1line.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file:
+    file.write(<span class="hljs-string">"Line 1"</span>)</code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="multiple-lines" number="1.2" class="hanchor" href="#multiple-lines">1.2 Multiple Lines</a></h2>
+      <p>Write multiple lines to a file. The string <code>\n</code> is a special code that starts a new line.</p>
+      <pre class="language-Python"><code class="language-Python">file = <span class="hljs-built_in">open</span>(<span class="hljs-string">"file10lines.txt"</span>, <span class="hljs-string">"w"</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+    file.write(<span class="hljs-string">"Line {0:d}\n"</span>.<span class="hljs-built_in">format</span>(i))
+file.close()</code></pre>
+      <p>Same as above using a “context manager”.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file10lines.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file:
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+        file.write(<span class="hljs-string">"Line {0:d}\n"</span>.<span class="hljs-built_in">format</span>(i))</code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="multiple-files-with-multiple-lines" number="1.3" class="hanchor" href="#multiple-files-with-multiple-lines">1.3 Multiple Files with Multiple Lines</a></h2>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+    <span class="hljs-comment"># Note the 02d used in the following line.</span>
+    fname = <span class="hljs-string">"multifile_{0:02d}.txt"</span>.<span class="hljs-built_in">format</span>(j)
+    print(<span class="hljs-string">"Writing"</span>, fname)
+    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(fname, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file:
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+            file.write(<span class="hljs-string">"Line {0:d}\n"</span>.<span class="hljs-built_in">format</span>(i))
+    print(<span class="hljs-string">"Wrote"</span>, fname)</code></pre>
+      <p>Here I have introduced the format code <code>02d</code> in place of <code>d</code>. </p>
+      <p>The <code>02</code> means that the number should take up two spaces and any blank spaces should be replaced with zeros.</p>
+      <pre class="language-Python"><code class="language-Python">print(<span class="hljs-string">"{0:02d}"</span>.<span class="hljs-built_in">format</span>(<span class="hljs-number">9</span>))  <span class="hljs-comment"># 09</span>
+print(<span class="hljs-string">"{0:02d}"</span>.<span class="hljs-built_in">format</span>(<span class="hljs-number">10</span>)) <span class="hljs-comment"># 10</span></code></pre>
+      <p>This is done so the files appear in order when listed by a file explorer.</p>
+    </div>
+    <div class="section">
+      <h2><a name="multiple-figures" number="1.4" class="hanchor" href="#multiple-figures">1.4 Multiple Figures</a></h2>
+      <p>First attempt.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+x = np.arange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+y = x**<span class="hljs-number">2</span>
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(x)):
+    plt.plot(x[<span class="hljs-number">0</span>:i], y[<span class="hljs-number">0</span>:i])
+    plt.xlabel(<span class="hljs-string">'x'</span>)
+    plt.ylabel(<span class="hljs-string">'y'</span>)
+    plt.legend([<span class="hljs-string">'$y=x^2$'</span>])
+    plt.draw()
+    fname = <span class="hljs-string">"animate_{0:02d}.png"</span>.<span class="hljs-built_in">format</span>(i)
+    print(<span class="hljs-string">"Writing"</span>, fname)
+    plt.savefig(fname, dpi=<span class="hljs-number">300</span>)
+    print(<span class="hljs-string">"Wrote"</span>, fname)</code></pre>
+      <p>In the first attempt, when <code>i=0</code>, nothing is plotted. This can be corrected by modifying the indices. In addition, the labels were rendered on every iteration, which can slow down an animation. </p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+x = np.arange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+y = x**<span class="hljs-number">2</span>
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(x)-<span class="hljs-number">1</span>):
+    plt.plot(x[<span class="hljs-number">0</span>:i+<span class="hljs-number">1</span>], y[<span class="hljs-number">0</span>:i+<span class="hljs-number">1</span>], <span class="hljs-string">'k-'</span>, marker=<span class="hljs-string">'.'</span>)
+    <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+        plt.xlabel(<span class="hljs-string">'x'</span>)
+        plt.ylabel(<span class="hljs-string">'y'</span>)
+        plt.legend([<span class="hljs-string">'$y=x^2$'</span>])
+        plt.xlim([<span class="hljs-number">0</span>, <span class="hljs-number">8</span>])
+        plt.ylim([<span class="hljs-number">0</span>, <span class="hljs-number">70</span>])
+        plt.grid()
+    plt.draw()
+    fname = <span class="hljs-string">"animate_{0:02d}.png"</span>.<span class="hljs-built_in">format</span>(i)
+    print(<span class="hljs-string">"Writing"</span>, fname)
+    plt.savefig(fname, dpi=<span class="hljs-number">300</span>)
+    print(<span class="hljs-string">"Wrote"</span>, fname)</code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="the-csv-module" number="1.5" class="hanchor" href="#the-csv-module">1.5 The <code>csv</code> module</a></h2>
+    </div>
+    <div class="section">
+      <h2><a name="numpy-savetxt" number="1.6" class="hanchor" href="#numpy-savetxt">1.6 <code>numpy.savetxt</code></a></h2>
+    </div>
+    <div class="section">
+      <h2><a name="pandas-to_csv" number="1.7" class="hanchor" href="#pandas-to_csv">1.7 <code>pandas.to_csv</code></a></h2>
+    </div>
+    <div class="section">
+      <h1><a name="reading-files" number="2" class="hanchor" href="#reading-files">2 Reading Files</a></h1>
+      <ul>
+        <li><a href="https://www.geeksforgeeks.org/reading-writing-text-files-python/">https://www.geeksforgeeks.org/reading-writing-text-files-python/</a></li>
+        <li><a href="https://janakiev.com/blog/csv-in-python/">https://janakiev.com/blog/csv-in-python/</a></li>
+        <li><a href="https://www.geeksforgeeks.org/working-csv-files-python/">https://www.geeksforgeeks.org/working-csv-files-python/</a></li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2><a name="read-and-seek" number="2.1" class="hanchor" href="#read-and-seek">2.1 <code>read</code> and <code>seek</code></a></h2>
+      <p>The <code>read</code> method reads a given number of bytes from a file. By default, the bytes are assumed to be formatted as ASCII.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"Line 1\nLine 2"</span>)
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    a = file.read(<span class="hljs-number">1</span>) <span class="hljs-comment"># Read first byte</span>
+    b = file.read(<span class="hljs-number">1</span>) <span class="hljs-comment"># Read second byte</span>
+    c = file.read(<span class="hljs-number">2</span>) <span class="hljs-comment"># Read 3-4th byte</span>
+
+print(a) <span class="hljs-comment"># L</span>
+print(b) <span class="hljs-comment"># i</span>
+print(c) <span class="hljs-comment"># ne</span></code></pre>
+      <p>The <code>seek</code> method jumps a given number of bytes in a file so that the next read starts on the next byte.</p>
+      <p>This function is useful for extracting a small part from a large file - one does not need to read the entire file or loop through all rows in a file.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"Line 1\nLine 2"</span>)
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    file.seek(<span class="hljs-number">3</span>) <span class="hljs-comment"># Move to just after 4th byte</span>
+    a = file.read(<span class="hljs-number">1</span>) <span class="hljs-comment"># Read 4th byte</span>
+    b = file.read(<span class="hljs-number">2</span>) <span class="hljs-comment"># Read 5th and 6th byte</span>
+print(a) <span class="hljs-comment"># e</span>
+print(b) <span class="hljs-comment">#  1</span></code></pre>
+      <p>The most basic pattern for reading a file in any programming language is</p>
+      <ol>
+        <li>Loop through each byte</li>
+        <li>Accumulate bytes</li>
+        <li>If a pattern is found store accumulated bytes</li>
+        <li>Restart accumulation and then repeat steps 3. and 4. until the end of the file</li>
+      </ol>
+      <p>The following program reads each byte in a file and appends it to <code>s</code>. It also displays <code>Found newline</code> when a newline character is found.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"Line 1\nLine 2"</span>)
+
+s = <span class="hljs-string">""</span> <span class="hljs-comment"># Will contain full string</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    tmp = file.read(<span class="hljs-number">1</span>)      <span class="hljs-comment"># Read 1st byte</span>
+    <span class="hljs-keyword">while</span> tmp:              <span class="hljs-comment"># Loop until end of file</span>
+        <span class="hljs-keyword">if</span> tmp <span class="hljs-keyword">is</span> <span class="hljs-string">"\n"</span>:     <span class="hljs-comment"># Check byte contents</span>
+            print(<span class="hljs-string">'Found newline'</span>)
+        s = s + tmp         <span class="hljs-comment"># Append byte to previous bytes</span>
+        tmp = file.read(<span class="hljs-number">1</span>)  <span class="hljs-comment"># Read next byte</span>
+
+print(s) 
+<span class="hljs-comment"># Line 1</span>
+<span class="hljs-comment"># Line 2</span></code></pre>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"Line 1\nLine 2"</span>)
+
+s = <span class="hljs-string">""</span> <span class="hljs-comment"># Will contain full string</span>
+lines = []
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    tmp = file.read(<span class="hljs-number">1</span>)      <span class="hljs-comment"># Read 1st byte</span>
+    <span class="hljs-keyword">while</span> tmp:              <span class="hljs-comment"># Loop until end of file</span>
+        <span class="hljs-keyword">if</span> tmp <span class="hljs-keyword">is</span> <span class="hljs-string">"\n"</span>:     <span class="hljs-comment"># Check byte contents</span>
+            lines.append(s) <span class="hljs-comment"># If newline found put it in lines list</span>
+            s = <span class="hljs-string">""</span>          <span class="hljs-comment"># Reset accumulator</span>
+        <span class="hljs-keyword">else</span>:
+            s = s + tmp     <span class="hljs-comment"># Append byte to previous bytes</span>
+        tmp = file.read(<span class="hljs-number">1</span>)  <span class="hljs-comment"># Read next byte</span>
+
+<span class="hljs-comment"># If the last character in the file is not a newline, then lines.append(s)</span>
+<span class="hljs-comment"># will not be executed. This catches that case.</span>
+<span class="hljs-keyword">if</span> tmp <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-string">"\n"</span>:
+    lines.append(s)
+
+print(lines) <span class="hljs-comment"># ['Line 1', 'Line 2']</span></code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="readline" number="2.2" class="hanchor" href="#readline">2.2 <code>readline</code></a></h2>
+      <p>Reading a file byte-by-byte is inefficient and requires many lines of code. The <code>readline</code> and <code>readlines</code> method are generally the first methods you should attempt to use when reading any text file.</p>
+      <p>In general, <code>readline</code> should be used when only a few lines of the file are to be read or when you want to do an operation on each line that is read.</p>
+      <p>The following program reads each line into a list named <code>lines</code>.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"Line 1\nLine 2"</span>)
+
+lines = []
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    line = file.readline()      <span class="hljs-comment"># Read one line</span>
+    <span class="hljs-keyword">while</span> line:                 <span class="hljs-comment"># Loop until end of file</span>
+        lines.append(line)      <span class="hljs-comment"># Append line to lines list</span>
+        line = file.readline()  <span class="hljs-comment"># Read next line</span>
+
+print(lines) <span class="hljs-comment"># ['Line 1\n', 'Line 2']</span></code></pre>
+      <p>As an example of operating on each line, the following program removes the newline character (if found) from each line read.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"Line 1\nLine 2"</span>)
+
+lines = []
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    line = file.readline()      <span class="hljs-comment"># Read one line</span>
+    <span class="hljs-keyword">while</span> line:                 <span class="hljs-comment"># Loop until end of file</span>
+        line = line.replace(<span class="hljs-string">"\n"</span>, <span class="hljs-string">""</span>) <span class="hljs-comment"># Replace newline with nothing</span>
+        line = line.replace(<span class="hljs-string">"L"</span>, <span class="hljs-string">"l"</span>) <span class="hljs-comment"># Replace L with l</span>
+        lines.append(line)      <span class="hljs-comment"># Append line to lines list</span>
+        line = file.readline()  <span class="hljs-comment"># Read next line</span>
+
+print(lines) <span class="hljs-comment"># ['line 1', 'line 2']</span></code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="readlines" number="2.3" class="hanchor" href="#readlines">2.3 <code>readlines</code></a></h2>
+      <p>In general, one wants to read the entire contents of a file into a list and then loop over the contents of a list and modify the elements in a list. This may be faster than doing the operation and file reading in the same loop.</p>
+      <p>The basic syntax is</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"Line 1\nLine 2"</span>)
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    lines = file.readlines() <span class="hljs-comment"># Read all lines into a list</span>
+
+print(lines) <span class="hljs-comment"># ['Line 1\n', 'Line 2']</span></code></pre>
+      <p>Next, consider a typical data file, in which the first line contains the names of the columns and the subsequent lines are data. The first step is to read the file and inspect the generated list.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"a b\n1 2\n3 4"</span>)
+
+<span class="hljs-comment"># Read file and inspect list</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    lines = file.readlines()
+print(lines) <span class="hljs-comment"># ['a b\n', '1  2\n', '3  4']</span></code></pre>
+      <p>Next, we want to create a list for the contents of each column. First, we experiment with the first data line</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"a b\n1 2\n3 4"</span>)
+
+<span class="hljs-comment"># Read file</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file: lines = file.readlines()
+
+a = []
+b = []
+print(lines[<span class="hljs-number">1</span>])         <span class="hljs-comment"># Print second line in file (first data line)</span>
+line = lines[<span class="hljs-number">1</span>].split() <span class="hljs-comment"># Split second line on whitespace </span>
+print(line)
+a.append(<span class="hljs-built_in">float</span>(line[<span class="hljs-number">0</span>])) <span class="hljs-comment"># Store first column value in list a</span>
+b.append(<span class="hljs-built_in">float</span>(line[<span class="hljs-number">1</span>])) <span class="hljs-comment"># Store second column value in list b</span>
+print(a) <span class="hljs-comment"># [1.0]</span>
+print(b) <span class="hljs-comment"># [1.0]</span></code></pre>
+      <p>Finally, we loop through entire file contents.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"a b\n1 2\n3 4"</span>)
+
+<span class="hljs-comment"># Read file</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file: lines = file.readlines()
+
+<span class="hljs-comment"># Loop through entire list returned by readlines</span>
+a = []
+b = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(lines)): <span class="hljs-comment"># </span>
+    print(lines[i])      <span class="hljs-comment"># Display line for debugging</span>
+    l = lines[i].split() <span class="hljs-comment"># Split on whitespace</span>
+    print(l)             <span class="hljs-comment"># Display split line for debugging</span>
+    a.append(<span class="hljs-built_in">float</span>(l[<span class="hljs-number">0</span>])) <span class="hljs-comment"># Store first element of l in list a</span>
+    b.append(<span class="hljs-built_in">float</span>(l[<span class="hljs-number">1</span>])) <span class="hljs-comment"># Store second element of l in list a</span>
+
+h = lines[<span class="hljs-number">0</span>].split() <span class="hljs-comment"># Extract first line of file and split</span>
+
+print(h[<span class="hljs-number">0</span>]) <span class="hljs-comment"># Use header information to display first column's name</span>
+print(a)    <span class="hljs-comment"># [1.0, 3.0]</span>
+print(h[<span class="hljs-number">1</span>]) <span class="hljs-comment"># Use header information to display second column's name</span>
+print(b)    <span class="hljs-comment"># [2.0, 4.0]</span></code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="the-csv-module" number="2.4" class="hanchor" href="#the-csv-module">2.4 The <code>csv</code> module</a></h2>
+      <p>In the previous example, we had to split each row on whitespace. The <code>csv</code> module can do this automatically (and much more).</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-comment"># Create file to read</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: file.write(<span class="hljs-string">"a b\n1 2\n3 4"</span>)
+
+<span class="hljs-keyword">import</span> csv
+rows = []
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"file.txt"</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:     
+    csvreader = csv.reader(file, delimiter = <span class="hljs-string">' '</span>, skipinitialspace=<span class="hljs-literal">True</span>)
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> csvreader: 
+        rows.append(row) 
+print(rows) <span class="hljs-comment"># [['a', 'b'], ['1', '2'], ['3', '4']]</span>
+
+a = []
+b = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(rows)):
+    a.append(<span class="hljs-built_in">float</span>(rows[i][<span class="hljs-number">0</span>]))
+    b.append(<span class="hljs-built_in">float</span>(rows[i][<span class="hljs-number">1</span>]))
+print(a) <span class="hljs-comment"># [1.0, 3.0]</span>
+print(b) <span class="hljs-comment"># [2.0, 4.0]</span></code></pre>
+      <p>Note that a more efficient way of extracting the columns is to use the <code>asarray</code> method from NumPy.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-comment"># rows[1:] is all rows except first.</span>
+<span class="hljs-comment"># dtype=np.float tells NumPy the type of data</span>
+<span class="hljs-comment"># the elements should be converted to</span>
+A = np.asarray(rows[<span class="hljs-number">1</span>:], dtype=np.<span class="hljs-built_in">float</span>) 
+print(A)
+<span class="hljs-comment"># A is now a NumPy array and we can slice on columns.</span>
+a = A[:,<span class="hljs-number">0</span>] <span class="hljs-comment"># Extract first column of A</span>
+b = A[:,<span class="hljs-number">1</span>] <span class="hljs-comment"># Extract second column of A</span>
+print(a) <span class="hljs-comment"># [1. 3.]</span>
+print(b) <span class="hljs-comment"># [2. 4.]</span></code></pre>
+    </div>
+    <div class="section">
+      <h2 class=""><a name="numpy-genfromtext" number="2.5" class="hanchor" href="#numpy-genfromtext">2.5 <code>numpy.genfromtext</code></a></h2>
+    </div>
+    <div class="section">
+      <h2><a name="pandas-read_csv" number="2.6" class="hanchor" href="#pandas-read_csv">2.6 <code>pandas.read_csv</code></a></h2>
+    </div>
+    <div class="section">
+      <h1><a name="problems" number="3" class="hanchor" href="#problems">3 Problems</a></h1>
+    </div>
+    <div class="section">
+      <h2><a name="basic-csv-file" number="3.1" class="hanchor" href="#basic-csv-file">3.1 Basic CSV File</a></h2>
+      <p>Write a program that creates the following file named <code>HW8_1.csv</code> exactly</p>
+      <pre>t [s], x [m], y [m]
+0,  1.0, 2.0
+10, 2.0, 4.0
+20, 3.0, 6.0
+30, 4.0, 8.0
+40, 5.0, 10.0
+50, 6.0, 12.0
+</pre>
+      <p>Write a program that reads <code>HW8_1.csv</code> and plots on the same axes <code>x</code> vs. <code>t</code> and <code>y</code> vs. <code>t</code>. Include units on your axis labels.</p>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python">t = [<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>]
+x = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+y = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>, <span class="hljs-number">12</span>]
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'HW8_1.csv'</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file:
+    file.write(<span class="hljs-string">'t [s], x [m], y [m]\n'</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(t)):
+        <span class="hljs-comment"># Extra space on first data line was not intentional.</span>
+        <span class="hljs-comment"># I accepted answer without extra space. Here is one</span>
+        <span class="hljs-comment"># way to insert it.</span>
+        pad = <span class="hljs-string">''</span>
+        <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+            pad = <span class="hljs-string">' '</span>
+        file.write(<span class="hljs-string">'{0:d}, {1:s}{2:.1f}, {3:.1f}\n'</span>
+                   .<span class="hljs-built_in">format</span>(t[i], pad, x[i], y[i]))
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'HW8_1.csv'</span>, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    lines = file.readlines()
+
+t = []
+x = []
+y = []    
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(lines)):
+    line = lines[i].split(<span class="hljs-string">','</span>)
+    t.append(<span class="hljs-built_in">int</span>(line[<span class="hljs-number">0</span>]))
+    x.append(<span class="hljs-built_in">float</span>(line[<span class="hljs-number">1</span>]))
+    y.append(<span class="hljs-built_in">float</span>(line[<span class="hljs-number">2</span>]))
+
+<span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+
+plt.plot(t, x)
+plt.plot(t, y)
+plt.xlabel(<span class="hljs-string">'t [s]'</span>)
+plt.legend([<span class="hljs-string">'x [m]'</span>, <span class="hljs-string">'y [m]'</span>])
+plt.grid()</code></pre>
+      </details>
+    </div>
+    <div class="section">
+      <h2><a name="write-many-log-files" number="3.2" class="hanchor" href="#write-many-log-files">3.2 Write Many Log Files</a></h2>
+      <p>Write a program that creates files with dates as names according to</p>
+      <pre><code> 20191023.csv
+ 20191024.csv
+ ...
+ 20191121.csv</code></pre>
+      <p>Each file should have the timestamp for all minutes in a day as the first column and the minute of the day as the second column. </p>
+      <p>For example, the first file <code>20191024.csv</code> should have 1440 lines</p>
+      <pre><code> 2019-10-23T00:00, 0
+ 2019-10-23T00:01, 1
+ ...
+ 2019-10-23T23:59, 1439</code></pre>
+      <p>The last file <code>20191121.csv</code> should have</p>
+      <pre><code> 2019-11-21T00:00, 0
+ 2019-11-21T00:01, 1
+ ...
+ 2019-11-21T23:59, 1439</code></pre>
+      <p>Save your program as <code>HW8_2.py</code> and upload it to Bitbucket. When executed, I should see the requested files generated.</p>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">23</span>, <span class="hljs-number">32</span>):
+    fname = <span class="hljs-string">"201910{0:02d}.csv"</span>.<span class="hljs-built_in">format</span>(d)
+    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(fname, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file:
+        i = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> h <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">24</span>):
+            <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">60</span>):
+                file.write(<span class="hljs-string">"2019-10-{0:02d}T{1:02d}:{2:02d}, {3:d}\n"</span>
+                           .<span class="hljs-built_in">format</span>(d, h, m, i))
+                i = i + <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">22</span>):
+    fname = <span class="hljs-string">"201911{0:02d}.csv"</span>.<span class="hljs-built_in">format</span>(d)
+    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(fname, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file:
+        i = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> h <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">24</span>):
+            <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">60</span>):
+                file.write(<span class="hljs-string">"2019-10-{0:02d}T{1:02d}:{2:02d}, {3:d}\n"</span>
+                           .<span class="hljs-built_in">format</span>(d, h, m, i))
+                i = i + <span class="hljs-number">1</span></code></pre>
+      </details>
+    </div>
+    <div class="section">
+      <h2><a name="read-ssn-file-using-readlines" number="3.3" class="hanchor" href="#read-ssn-file-using-readlines">3.3 Read SSN File Using <code>readlines</code></a></h2>
+      <p>Download the file [<a href="http://www.sidc.be/silso/DATA/SN_d_tot_V2.0.txt">http://www.sidc.be/silso/DATA/SN_d_tot_V2.0.txt</a> SN_d_tot_V2.0.txt] from [<a href="http://www.sidc.be/silso/datafiles%5D">http://www.sidc.be/silso/datafiles]</a>. Information about the contents of the file is given at <a href="http://www.sidc.be/silso/datafiles">http://www.sidc.be/silso/datafiles</a> and <a href="http://www.sidc.be/silso/infosndtot">http://www.sidc.be/silso/infosndtot</a>.</p>
+      <ol>
+        <li>
+          <p>Use the <code>readlines</code> method to read the decimal day-of-year and sunspot number columns (columns 4 and 5) into lists named <code>ddy</code> and <code>ssn</code></p>
+        </li>
+        <li>
+          <p>Plot <code>ssn</code> versus <code>ddy</code>.</p>
+        </li>
+        <li>
+          <p>Compute the mean and std of <code>ssn</code> excluding invalid values (indicated by <code>ssn=-1</code> as per the documentation).</p>
+        </li>
+      </ol>
+      <p>Save your program as <code>HW8_3.py</code> and upload it to Bitbucket. When executed, I should see the requested plot and a print statement of the form</p>
+      <p> SSN mean = X, SSN std = Y, Number of valid values = Z</p>
+      <p>Where <code>X</code> and <code>Y</code> are printed with one significant figure and <code>Z</code> is printed as an integer.</p>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> path
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+
+<span class="hljs-comment"># Download and save file from web if not found</span>
+file = <span class="hljs-string">'SN_d_tot_V2.0.txt'</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> path.exists(file):
+    url = <span class="hljs-string">'http://www.sidc.be/silso/DATA/SN_d_tot_V2.0.txt'</span>
+    urllib.request.urlretrieve(url, file)
+
+<span class="hljs-comment"># Read as CSV file</span>
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> file:
+    lines = file.readlines() <span class="hljs-comment"># Read all lines into a list</span>
+
+ddy = []
+ssn = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(lines)): <span class="hljs-comment"># </span>
+    <span class="hljs-comment">#print(lines[i])      # Display line for debugging</span>
+    l = lines[i].split() <span class="hljs-comment"># Split on whitespace</span>
+    <span class="hljs-comment"># print(l)             # Display split line for debugging</span>
+    <span class="hljs-comment"># If ssn (5th column) is not -1, store it</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">float</span>(l[<span class="hljs-number">5</span>]) != -<span class="hljs-number">1</span>:
+        ddy.append(<span class="hljs-built_in">float</span>(l[<span class="hljs-number">3</span>])) <span class="hljs-comment"># Store 4th column</span>
+        ssn.append(<span class="hljs-built_in">float</span>(l[<span class="hljs-number">4</span>])) <span class="hljs-comment"># Store 5th column</span>
+
+Nr = <span class="hljs-built_in">len</span>(lines)-<span class="hljs-built_in">len</span>(ssn)
+print(<span class="hljs-string">'Number removed: {0:d}; Fraction removed: {1:.2f}'</span>
+      .<span class="hljs-built_in">format</span>(Nr, Nr/<span class="hljs-built_in">len</span>(lines)))
+
+<span class="hljs-comment"># Convert to numpy ndarray. Could also do calculation in loop w/o NumPy</span>
+<span class="hljs-comment"># Problem statement said one significant figure, but should have said one</span>
+<span class="hljs-comment"># decimal place. Both answers accepted.</span>
+ssn = np.asarray(ssn)
+print(<span class="hljs-string">'SSN mean = {0:.1e}, SSN std = {1:.1e}, Number of valid values = {2:d}'</span>
+      .<span class="hljs-built_in">format</span>(np.mean(ssn), np.std(ssn), <span class="hljs-built_in">len</span>(ssn)))
+<span class="hljs-comment"># Problem statement should have asked for two decimal places ...</span>
+print(<span class="hljs-string">'SSN mean = {0:.2f}, SSN std = {1:.2f}, Number of valid values = {2:d}'</span>
+      .<span class="hljs-built_in">format</span>(np.mean(ssn), np.std(ssn), <span class="hljs-built_in">len</span>(ssn)))      
+<span class="hljs-comment"># SSN mean = 82.95, SSN std = 77.25, Number of valid values = 70471</span>
+plt.plot(ddy, ssn)</code></pre>
+      </details>
+    </div>
+    <div class="section">
+      <h2><a name="read-ssn-file-using-csv-module" number="3.4" class="hanchor" href="#read-ssn-file-using-csv-module">3.4 Read SSN File Using CSV Module</a></h2>
+      <p>Use the <code>csv</code> module to read the decimal day-of-year and sunspot number columns and then plot <code>ssn</code> vs. <code>ddy</code>. Save your program as <code>HW8_4.py</code> and upload it to Bitbucket. When executed, I should see the requested plot.</p>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">import</span> csv
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+
+<span class="hljs-comment"># Download and save file from web</span>
+url = <span class="hljs-string">'http://www.sidc.be/silso/DATA/SN_d_tot_V2.0.txt'</span>
+urllib.request.urlretrieve(url, <span class="hljs-string">'SN_d_tot_V2.0.txt'</span>)
+
+<span class="hljs-comment"># Method #1: Read file contents into list then loop through list</span>
+<span class="hljs-comment"># and populate ddn and ssn lists.</span>
+rows = []
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"SN_d_tot_V2.0.txt"</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:
+    csvreader = csv.reader(file, delimiter= <span class="hljs-string">' '</span>, skipinitialspace = <span class="hljs-literal">True</span>)   
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> csvreader: 
+        rows.append(row) 
+
+ssn = []
+ddn = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(rows)):
+    ddn.append(<span class="hljs-built_in">float</span>(rows[i][<span class="hljs-number">3</span>]))
+    ssn.append(<span class="hljs-built_in">float</span>(rows[i][<span class="hljs-number">4</span>]))
+
+plt.plot(ddn, ssn)
+plt.xlabel(<span class="hljs-string">'Year'</span>)
+plt.ylabel(<span class="hljs-string">'SSN'</span>)
+plt.grid()
+
+
+<span class="hljs-comment"># Method #2 read each row and populate ddn and ssn lists as each row is read</span>
+rows = []
+ssn = []
+ddn = []
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"SN_d_tot_V2.0.txt"</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:
+    csvreader = csv.reader(file, delimiter= <span class="hljs-string">' '</span>, skipinitialspace = <span class="hljs-literal">True</span>)   
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> csvreader: 
+        ddn.append(<span class="hljs-built_in">float</span>(row[<span class="hljs-number">3</span>]))
+        ssn.append(<span class="hljs-built_in">float</span>(row[<span class="hljs-number">4</span>]))
+
+<span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+
+plt.plot(ddn, ssn)
+plt.xlabel(<span class="hljs-string">'Year'</span>)
+plt.ylabel(<span class="hljs-string">'SSN'</span>)
+plt.grid()</code></pre>
+      </details>
+    </div>
+    <div class="section">
+      <h2><a name="read-ssn-file-using-datetime-objects" number="3.5" class="hanchor highlighted" href="#read-ssn-file-using-datetime-objects">3.5 Read SSN File using <code>datetime</code> Objects</a></h2>
+      <p>For background information on <code>datetime</code> objects, see [[Notes#datetimes|datetimes]].</p>
+      <p>In the previous problem, you plotted the ssn versus the fractional day-of-year. In this problem, use the first three columns to create a list named <code>t</code> containing <code>datetime</code> objects. Then plot <code>ssn</code> versus <code>t</code>.</p>
+      <p>If done correctly, printing the first two values of <code>t</code> using <code>print(t[0:2])</code> should result in</p>
+      <p class=""><code>[datetime.datetime(1818, 1, 1, 0, 0), datetime.datetime(1818, 1, 2, 0, 0)]</code></p>
+      <p>which shows that the list <code>t</code> contains datetime objects.</p>
+      <p class="active">Save your program as <code>HW8_5.py</code> and upload it to Bitbucket. When executed, I should see the requested plot.</p>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> path
+<span class="hljs-keyword">import</span> csv
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+<span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+
+<span class="hljs-comment"># Download and save file from web if not found</span>
+file = <span class="hljs-string">'SN_d_tot_V2.0.txt'</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> path.exists(file):
+    url = <span class="hljs-string">'http://www.sidc.be/silso/DATA/SN_d_tot_V2.0.txt'</span>
+    urllib.request.urlretrieve(url, file)
+
+<span class="hljs-comment"># Read as CSV file</span>
+rows = []
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"SN_d_tot_V2.0.txt"</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:
+    csvreader = csv.reader(file, delimiter= <span class="hljs-string">' '</span>, skipinitialspace = <span class="hljs-literal">True</span>)   
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> csvreader: 
+        rows.append(row) 
+
+ssn = []
+t = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(rows)):
+    y = <span class="hljs-built_in">int</span>(rows[i][<span class="hljs-number">0</span>])
+    m = <span class="hljs-built_in">int</span>(rows[i][<span class="hljs-number">1</span>])
+    d = <span class="hljs-built_in">int</span>(rows[i][<span class="hljs-number">2</span>])
+    t.append(datetime(y, m, d))
+    ssn.append(<span class="hljs-built_in">float</span>(rows[i][<span class="hljs-number">4</span>]))
+
+<span class="hljs-comment"># Notice that when you zoom in at the month level, the date values</span>
+<span class="hljs-comment"># on the x-axis are correct. Compare this with the previous case where</span>
+<span class="hljs-comment"># only ddn was plotted.    </span>
+plt.plot(t, ssn)
+plt.xlabel(<span class="hljs-string">'Year'</span>)
+plt.ylabel(<span class="hljs-string">'SSN'</span>)
+plt.grid()</code></pre>
+      </details>
+    </div>
+    <div class="section">
+      <h2><a name="extra-credit-i" number="3.6" class="hanchor" href="#extra-credit-i">3.6 Extra Credit I</a></h2>
+      <p>Re-do the problem of creating many log files using the <code>datetime</code> module. However,</p>
+      <ol>
+        <li>Do not use a format statement to generate the timestamps and</li>
+        <li>Have at most one <code>for</code> or <code>while</code> loop</li>
+      </ol>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime, timedelta
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">genlines</span>(<span class="hljs-params">d</span>):</span>
+    t = np.arange(d, d+dt, dtype=<span class="hljs-string">'datetime64[m]'</span>)
+    x = np.arange(<span class="hljs-number">1440</span>)
+    ts = np.datetime_as_string(t, unit=<span class="hljs-string">'m'</span>)
+    dtype = [(<span class="hljs-string">'Time'</span>, (np.str_, <span class="hljs-number">16</span>)), (<span class="hljs-string">'x'</span>, np.int32)]
+    data = np.zeros(ts.size, dtype=dtype)
+    data[<span class="hljs-string">'Time'</span>] = ts
+    data[<span class="hljs-string">'x'</span>] = x
+    <span class="hljs-keyword">return</span> data
+
+t1 = datetime(<span class="hljs-number">2019</span>, <span class="hljs-number">10</span>, <span class="hljs-number">23</span>)
+t2 = datetime(<span class="hljs-number">2019</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>)
+
+dt = t2 - t1
+n = dt.days
+dt = timedelta(days=<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):
+    d = t1 + i*dt
+    ds = d.isoformat()
+    fname = ds[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>].replace(<span class="hljs-string">"-"</span>, <span class="hljs-string">""</span>) + <span class="hljs-string">".csv"</span>
+    lines = genlines(d)
+    np.savetxt(fname, lines, fmt=<span class="hljs-string">'%s, %d'</span>, delimiter=<span class="hljs-string">','</span>)</code></pre>
+      </details>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python">minutes_per_day= 1440
+
+from datetime import datetime, timedelta
+
+ti = datetime(2020, 10, 23, hour=0, minute=0)
+tf = datetime(2020, 11, 22, hour=0, minute=0)
+
+t_current = ti
+#print(t_current)
+
+dt_minutes = timedelta(days=0, hours=0, minutes=1)
+
+counter_time = 0
+num_of_days = 0
+
+while ( (counter_time &lt;= minutes_per_day) and (t_current &lt; tf) ):        
+    if (counter_time == 0):
+        fname = t_current.strftime('%Y%m%d.csv')
+        print(fname)
+        file = open(fname, "w")        
+        print("Writing #1",t_current.isoformat())
+        file.write(t_current.isoformat())
+        file.write(',')
+        file.write(str(counter_time))
+        file.write('\n')
+        counter_time = counter_time + 1            
+    if (counter_time &gt; 0):        
+        t_current = t_current + dt_minutes
+        file.write(t_current.isoformat())
+        file.write(',')
+        file.write(str(counter_time))
+        file.write('\n')
+        counter_time = counter_time + 1            
+    if (counter_time == minutes_per_day):
+        counter_time = 0        
+        num_of_days = num_of_days + 1
+        t_current = t_current + dt_minutes
+        file.close()    
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;b&gt;Answer&lt;/b&gt;&lt;/summary&gt;
+
+```Python
+from datetime import datetime, timedelta, timezone
+t1 = datetime(2019, 10, 23, 
+              hour=0, minute=0, second=0, 
+              microsecond=0, tzinfo=timezone.utc)
+t2 = datetime(2019, 11, 21, 
+              hour=23, minute=59, second=0, 
+              microsecond=0, tzinfo=timezone.utc)
+dt = timedelta(minutes=1, seconds=0, microseconds=0)
+mins=0
+while t1&lt;=t2:
+      filename=t1.strftime('%Y%m%d.csv')#filename
+      with open(filename, "a") as file:
+           ts=t1.strftime('%Y-%m-%dT%H:%M, ')+str(mins)+'\n' 
+           file.write(ts)
+           t1=t1+dt
+           if t1.hour==0 and t1.minute==0:
+              mins=0
+           else:
+              mins=mins+1</code></pre>
+      </details>
+    </div>
+    <div class="section">
+      <h2><a name="extra-credit-ii" number="3.7" class="hanchor" href="#extra-credit-ii">3.7 Extra Credit II</a></h2>
+      <p>Write a program to read and plot the content of the files generated in the previous problem. Then plot the contents using only one <code>plot</code> statement. When executed, I should see a plot similar to the one shown below.</p>
+      <img src="https://raw.githubusercontent.com/rweigel/513/master/Hw1.1_RungeKatta54.png">
+      <p>[[Image:HW8_ECII.png|500px]]</p>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime, timedelta
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+
+t1 = datetime(<span class="hljs-number">2019</span>, <span class="hljs-number">10</span>, <span class="hljs-number">23</span>)
+t2 = datetime(<span class="hljs-number">2019</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>)
+
+dt = t2 - t1
+n = dt.days
+dt = timedelta(days=<span class="hljs-number">1</span>)
+dtype = [(<span class="hljs-string">'Time'</span>, (np.str_, <span class="hljs-number">16</span>)), (<span class="hljs-string">'x'</span>, np.int32)]
+
+x = []
+t = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):
+    d = t1 + i*dt
+    ds = d.isoformat()
+    fname = ds[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>].replace(<span class="hljs-string">"-"</span>, <span class="hljs-string">""</span>) + <span class="hljs-string">".csv"</span>
+    data = np.genfromtxt(fname, dtype=dtype, delimiter=<span class="hljs-string">','</span>)
+    t.append(np.array(data[<span class="hljs-string">'Time'</span>], dtype=<span class="hljs-string">'datetime64'</span>))
+    x.append(data[<span class="hljs-string">'x'</span>])
+
+plt.plot(np.array(t).flatten(), np.array(x).flatten())</code></pre>
+      </details>
+      <details>
+        <summary><b>Answer</b></summary>
+        <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> csv
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime, timedelta, timezone
+t = []
+ssn = []
+dat =[]
+t1 = datetime(<span class="hljs-number">2019</span>, <span class="hljs-number">10</span>, <span class="hljs-number">23</span>, 
+              hour=<span class="hljs-number">0</span>, minute=<span class="hljs-number">0</span>, second=<span class="hljs-number">0</span>, 
+              microsecond=<span class="hljs-number">0</span>)
+t2 = datetime(<span class="hljs-number">2019</span>, <span class="hljs-number">11</span>, <span class="hljs-number">21</span>, 
+              hour=<span class="hljs-number">23</span>, minute=<span class="hljs-number">59</span>, second=<span class="hljs-number">0</span>, 
+              microsecond=<span class="hljs-number">0</span>)
+dt = timedelta(days=<span class="hljs-number">1</span>)
+mins=<span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> t1&lt;=t2:
+    filename=t1.strftime(<span class="hljs-string">'%Y%m%d.csv'</span>)<span class="hljs-comment">#filenamewith open("20191024.csv", 'r') as file:     </span>
+    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> file:
+        csvreader = csv.reader(file, delimiter = <span class="hljs-string">','</span>, skipinitialspace=<span class="hljs-literal">True</span>)
+        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> csvreader: 
+             dat=[] 
+             dat2=[] 
+             dat3=[]
+             dat=row[<span class="hljs-number">0</span>].split(<span class="hljs-string">"-"</span>,<span class="hljs-number">3</span>)
+             dat2=dat[<span class="hljs-number">2</span>].split(<span class="hljs-string">"T"</span>, <span class="hljs-number">1</span>)
+             dat3=dat2[<span class="hljs-number">1</span>].split(<span class="hljs-string">":"</span>,<span class="hljs-number">1</span>)
+             t1=datetime(<span class="hljs-built_in">int</span>(dat[<span class="hljs-number">0</span>]), <span class="hljs-built_in">int</span>(dat[<span class="hljs-number">1</span>]), <span class="hljs-built_in">int</span>(dat2[<span class="hljs-number">0</span>]), <span class="hljs-built_in">int</span>(dat3[<span class="hljs-number">0</span>]), <span class="hljs-built_in">int</span>(dat3[<span class="hljs-number">1</span>]))
+             t.append(t1)
+             ssn.append(<span class="hljs-built_in">float</span>(row[<span class="hljs-number">1</span>]))
+        t1=t1+dt
+plt.plot(t, ssn, <span class="hljs-string">'-'</span>, linewidth=<span class="hljs-number">1</span>)
+plt.xlabel(<span class="hljs-string">'Date'</span>)
+plt.ylabel(<span class="hljs-string">'Number of Seconds'</span>)
+plt.grid()
+plt.title(<span class="hljs-string">'Seconds per day'</span>)</code></pre>
+      </details>
+    </div>
+    <div class="section">
+      <h2><a name="write-one-file" number="3.8" class="hanchor" href="#write-one-file">3.8 Write One File</a></h2>
+      <p>Write a program that creates the following file named <code>a.csv</code> <em>exactly</em></p>
+      <pre><code>0, 1.0
+1, 2.0
+2, 3.0
+4, 4.0
+5, 5.0
+6, 6.0</code></pre>
+      <p>Before checking the file size, predict what it will be.</p>
+      <hr>
+      <p>Write a program that creates the following file named <code>b.csv</code> <em>exactly</em></p>
+      <pre><code>t, x, y
+0, 1.0, 11.00
+1, 2.0, 12.00
+2, 3.0, 13.00
+4, 4.0, 14.00
+5, 5.0, 15.00
+6, 6.0, 16.00</code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="write-many-log-files" number="3.9" class="hanchor" href="#write-many-log-files">3.9 Write Many Log Files</a></h2>
+      <p>Write a program that creates files with dates as names according to</p>
+      <pre><code> 20191023.csv
+ 20191024.csv
+ ...
+ 20191121.csv</code></pre>
+      <p>Each file should have the timestamp for all minutes in a day as the first column and the minute of the day as the second column. </p>
+      <p>For example, the first file <code>20191024.csv</code> should have 1440 lines</p>
+      <pre class="language-Python"><code class="language-Python"> <span class="hljs-number">2019</span>-<span class="hljs-number">10</span>-23T00:<span class="hljs-number">00</span>, <span class="hljs-number">0</span>
+ <span class="hljs-number">2019</span>-<span class="hljs-number">10</span>-23T00:01, <span class="hljs-number">1</span>
+ ...
+ <span class="hljs-number">2019</span>-<span class="hljs-number">10</span>-23T23:<span class="hljs-number">59</span>, <span class="hljs-number">1439</span></code></pre>
+      <p>The last file <code>20191121.csv</code> should have</p>
+      <pre class="language-Python"><code class="language-Python"> <span class="hljs-number">2019</span>-<span class="hljs-number">11</span>-21T00:<span class="hljs-number">00</span>, <span class="hljs-number">0</span>
+ <span class="hljs-number">2019</span>-<span class="hljs-number">11</span>-21T00:01, <span class="hljs-number">1</span>
+ ...
+ <span class="hljs-number">2019</span>-<span class="hljs-number">11</span>-21T23:<span class="hljs-number">59</span>, <span class="hljs-number">1439</span></code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="write-many-images" number="3.10" class="hanchor" href="#write-many-images">3.10 Write Many Images</a></h2>
+      <p>Write a program that creates an animation of a sine wave over one period. There should be a total of 24 frames and each frame should have a new point.</p>
+    </div>
+    <div class="section">
+      <h2><a name="read-and-seek" number="3.11" class="hanchor" href="#read-and-seek">3.11 <code>read</code> and <code>seek</code></a></h2>
+      <p>The following program creates 10 files. Write a program that reads the 9th byte of each file and stores them in a list named <code>L</code>.</p>
+      <pre class="language-Python"><code class="language-Python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"{0:d}.txt"</span>.<span class="hljs-built_in">format</span>(i), <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> file: 
+        file.write(<span class="hljs-string">"12345678"</span> + <span class="hljs-built_in">str</span>(i))</code></pre>
+      <p>Do this using only the <code>read</code> (and optionally <code>seek</code>) function (e.g., not <code>readline</code> or <code>readlines</code>, etc.)</p>
+      <p>The last line of your program should be <code>print(L)</code> and should result in the display</p>
+      <pre><code> ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']</code></pre>
+    </div>
+    <div class="section">
+      <h2><a name="readlines" number="3.12" class="hanchor" href="#readlines">3.12 <code>readlines</code></a></h2>
+      <p>Download the file [<a href="http://www.sidc.be/silso/DATA/SN_d_tot_V2.0.txt">http://www.sidc.be/silso/DATA/SN_d_tot_V2.0.txt</a> SN_d_tot_V2.0.txt] from [<a href="http://www.sidc.be/silso/datafiles%5D">http://www.sidc.be/silso/datafiles]</a>. Information about the contents of the file is given at <a href="http://www.sidc.be/silso/datafiles">http://www.sidc.be/silso/datafiles</a> and <a href="http://www.sidc.be/silso/infosndtot">http://www.sidc.be/silso/infosndtot</a>.</p>
+      <ol>
+        <li>Use the <code>readlines</code> method to read the decimal day-of-year and sunspot number columns (columns 4 and 5) into lists named <code>ddy</code> and <code>ssn</code></li>
+        <li>Use the <code>csv</code> module to read the decimal day-of-year and sunspot number columns (columns 4 and 5).</li>
+      </ol>
+      <p>Plot <code>ssn</code> versus <code>ddy</code>.</p>
+      <p class="">Optional: Do this using [<a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.genfromtxt.html">https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.genfromtxt.html</a> <code>genfromtxt</code>]. Do not hand-edit the data file.</p>
+    </div>
+  </div>
+</body>
+
+</html>

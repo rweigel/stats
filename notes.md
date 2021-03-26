@@ -1,6 +1,4 @@
-# Statistics
-
-## Overview
+# Overview
 
 Thus far, we have considered several problems related to
 
@@ -14,7 +12,7 @@ where $n$ is the **number of samples** and in place of $\infty$ we have been usi
 
 You have done several experiments using this approach, and I've informally introduced terminology. We are at the point in this course where you are familiar with the computations and have a rough idea of the terminology. In the following, more formal and specific definitions are introduced. Although I've avoided introducing too much terminology up to now so that you could focus on the computations, from this point forward, I'll want you to try to properly use the terminology.
 
-## Definitions
+# Definitions
 
 In the experiments done in the homework, the $X_i$ values are **random samples** from a **probability distribution** with **expectation values** for the mean and variance defined by $E[X]\equiv\mu$ and $E[(X-\mu)^2]\equiv\sigma^2$.
 
@@ -39,6 +37,12 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
     An example probability mass function that we've used is $P(0)=0.5$, $P(1)=0.5$, which can be used to simulate the outcome of a fair coin toss, where $x=0$ represents tails and $x=1$ represents heads. The Binomial Distribution is another discrete probability distribution.
 
     To compute a probability mass function from a histogram, scale the histogram heights by the total number of observations.
+
+    ```Python
+    # src=code/pmf.py
+    ```
+    
+    <img src="code/figures/pmf.svg"/>
 
     **2\. Continuous**
 
@@ -112,7 +116,7 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
     The Law of Large Numbers tells use that if we require $\overline{X}$ to fall in range that we specify around $\mu$ with a probability that we specify, we can find an $n$ value to satisfy our requirement. The central limit theorem says that for large $n$, $\overline{X}$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma$. With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
 
-## Key Distributions
+# Key Distributions
 
 Discrete distributions used thus far
 

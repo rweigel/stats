@@ -824,17 +824,30 @@ The confidence intervals for 1. and 2. are easy to compute because we know the s
 4.  Verify your answer for 2. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$. Compute $10,000$ confidence intervals. What fraction of these confidence intervals included $\mu$?
 5.  Suppose some parameter $a$ was computed and its 95% confidence interval is $[0.9, 1.1]$. What is wrong with the claim "the probability that $a$ is in the range $[0.9, 1.1]$ is 0.95"? (Hint - see pages 270--271 of Devore).
 
-Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95% confidence interval from 1. and 2., respectively, in the title.
+Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95\% confidence interval from 1. and 2., respectively, in the title.
 
 **Answer**
 
-Equation 7.4 is a confidence interval for large $n$ and values from any distribution:
+Equation 7.4 is the 95\% confidence interval for the average of $n$ values from a Gaussian distribution with a known standard deviation $\sigma$:
 
-$$\left(\overline{x}-1.96\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}-1.96\cdot\frac{s}{\sqrt{n}}\right)$$
+$$\left(\overline{x}-1.96\cdot\frac{\sigma}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}+1.96\cdot\frac{\sigma}{\sqrt{n}}\right)$$
 
-Equation 7.15 is a confidence interval for any $n$ and is technically valid only for values drawn from a Gaussian distribution:
 
-$$\left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)$$
+Equation 7.15 is the 95\% confidence interval for the average of $n$ values drawn from a Gaussian distribution:
+
+$$\left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}+t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)$$
+
+Note that $n$ does not need to be large for this equation to apply. Both equations only require that the $n$ values are drawn from a Gaussian distribution. In this problem, you compared the confidence intervals using both equations. Because the conditions for each equation to apply were satisfied, we expect the the simulations in 3. and 4. to show that 95\% of the confidence intervals contained $\mu$. This is perhaps not expected --if you run repeat the expriment a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But now always. The histogram of the error bar widths is shown in the following. Based on this diagram, the result from the simulations still seems unexpected. The error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.
+
+To explain the simulation results, we need $\mu$ to fall outside of the CI from Equation 7.15 more often when the CI from 7.15 is smaller than that from 7.4 than when the CI from 7.15 is larger than that from 7.4. This could explain why even though the CI from 7.15 is on average larger, it traps $\mu$ as frequently.
+
+the error bar widths from Equation 2. are larger than that from Equation 1. How then could these error bars overlap $\mu$ the same percentage of time? There are two factors that determine if $\mu$ will be in the confidence interval (1) the width of the confidence interval and (2) center of the confidence interval.
+
+The answers to parts 1.--4. are in the following figures, which were created using  [HW6_2.py](hws/HW6_2.py). The title in the first plot has the answers to parts 1. and 3.; the title in the second plot has the answers to parts 2. and 4.
+
+<img src="hws/figures/HW6_2_3.svg"/>
+
+<img src="hws/figures/HW6_2_4.svg"/>
 
 ## Confidence Interval when Sampling Distribution is not Known
 
@@ -847,9 +860,17 @@ Given the measurements
  -0.448,  0.829,  0.799, -1.098,  0.385]
 ```
 
-compute the 95% confidence interval for $\mu$ by creating a non-parametric bootstrap sampling distribution.
+compute the 95\% confidence interval for $\mu$ by creating a non-parametric bootstrap sampling distribution.
 
-Save the code for your answer in a file named `HW6_3.py`. When executed, the code should display the probability density of the non--parametric bootstrap sampling distribution along with $\overline{X}$ and the 95% confidence for $\mu$ in the title. Be prepared to discuss the interpretation of this plot.
+Save the code for your answer in a file named `HW6_3.py`. When executed, the code should display the probability density of the non--parametric bootstrap sampling distribution along with $\overline{X}$ and the 95\% confidence for $\mu$ in the title. Be prepared to discuss the interpretation of this plot.
+
+**Answer**
+
+See [HW6_3.py](hws/HW6_3.py). In the legend, $\hat{\mu}$ is used to represent the average of the $\overline{X}^*$ values and $\overline{X}$ to represent the average of the given measurements. As a check, I computed a confidence interval using equation 7.15. Thus, confidence intervals were computed using the non-parametric bootstrap and a standard freqentist parametric method.
+
+I used two methods because the number of measurements is smaller than what is typically recommended for the parametric bootstrap. Equation 7.15 is not ideal either - this equation requires the measurements to be drawn from a Gaussian. However, we are only given a set of measurements and we don't know if it is appropriate to assume they were drawn from a Gaussian (often this is assumed). This situation, where the assumptions for a given statistical method are not satisfied or not known to be satisfied, is common. This is why I recommend always using at least two methods.
+ 
+<img src="hws/figures/HW6_3.svg"/>
 
 # HW 7
 
@@ -962,3 +983,14 @@ Save your answers for parts 6.-8. as `Midterm_Part_II.pdf`.
 
 Save your code for part 8. as `Midterm_Part_II.py`.
 
+**Answer**
+
+$$\frac{b - \beta}{s_b}\ \sim\ t_{n - 2}$$
+
+where
+
+$$s_{b} = \sqrt{\frac{\frac{1}{n - 2}\sum_{i=1}^n(y_i-\hat{y}\_i)^2 }{{ \sum^n\_{i=1}} (x_i-\overline{x})^2}}$$
+
+and
+
+$$\hat{y}_i=bx_i + a$$

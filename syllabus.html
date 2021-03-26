@@ -6,12 +6,16 @@
   <title>AstroStats</title>
   <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
   <style>
+    body {
+      background-color: rgb(240,240,240);
+    }
+    
     #toc {
       font-size: 85%;
       width: 15em;
       position: fixed;
-      min-height: 100%;
-      max-height: 100%;
+      min-height: 95%;
+      max-height: 95%;
       overflow-x: hidden;
       overflow-y: auto;
       padding-left: 0.75em ;
@@ -76,7 +80,22 @@
       border-bottom: 1px dotted black;
     }
     
-    ul {
+    h1,h2,h3,h4,h5,h6 {
+      width: 95%;
+    }
+    
+    .block pre {
+      width: 95%;
+    }
+    
+    .block ul {
+      width: 95%;
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+    
+    .block ol {
+      width: 95%;
       margin-left: 1em;
       padding-left: 1em;
     }
@@ -123,12 +142,86 @@
       border: 1px solid rgb(0,0,0,0);
       margin-top: -2px;
     }
+    
+    .block {
+      display: flex;
+    }
+    
+    li > div {
+      display: flex;
+    }
+    
+    p {
+        width: 95%;
+        display: block;
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+      }
+    
+    li {
+      width: 100%;
+    }
+    
+    li .block p {
+        width: 95%;
+        display: block;
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+      }
+    
+    li .block:first-of-type p {
+        width: 95%;
+        display: block;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+      }
+    
+    
+    h1 + .line-number {margin-block-start: 20em;}
+    h2 + .line-number {margin-block-start: 15em;}
+    h3 + .line-number {margin-block-start: 15em;}
+    h4 + .line-number {margin-block-start: 15em;}
+    h5 + .line-number {margin-block-start: 15em;}
+    h6 + .line-number {margin-block-start: 15em;}
+    
+    p + .line-number {
+      margin-block-start: 0.5em;
+    }
+    
+    li > div > p  + div.line-number {
+      margin-block-start: 0em;
+    }
+    
     .line-number {
       float: right;
       font-size: 10%;
-      margin-top: 2em;
-      margin-left:2em;
+      width:5%;
+      text-align: right;
     }
+    
+    .blockquote + div.line-number {
+      margin-top: 1rem;
+    }
+    
+    .blockquote {
+      width: 95%;
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    
+    pre code {
+      width: 95%;
+    }
+    pre .line-number {
+      float: right;
+      font-size: 80%;
+      width:5%;
+      text-align: right;
+    }
+    
     
     details > summary {
       font-weight: bold;
@@ -238,8 +331,8 @@
         <li><a number="7.5" href="#february-25th">February 25th</a></li>
         <li><a number="7.6" href="#march-4th">March 4th</a></li>
         <li><a number="7.7" href="#march-11th">March 11th</a></li>
-        <li><a number="7.8" href="#march-18th" class="highlighted">March 18th</a></li>
-        <li><a number="7.9" href="#march-25th" class="">March 25th</a></li>
+        <li><a number="7.8" href="#march-18th">March 18th</a></li>
+        <li><a number="7.9" href="#march-25th">March 25th</a></li>
         <li><a number="7.10" href="#april-1st">April 1st</a></li>
         <li><a number="7.11" href="#april-8th">April 8th</a></li>
         <li><a number="7.12" href="#april-15th">April 15th</a></li>
@@ -260,6 +353,10 @@
       <ol>
         <li><a number="9.1" href="#general">General</a></li>
         <li><a number="9.2" href="#bayes">Bayes</a></li>
+        <ol>
+          <li><a number="9.2.1" href="#general">General</a></li>
+          <li><a number="9.2.2" href="#credible-intervals">Credible Intervals</a></li>
+        </ol>
         <li><a number="9.3" href="#astronomy">Astronomy</a></li>
         <li><a number="9.4" href="#software">Software</a></li>
       </ol>
@@ -279,354 +376,1140 @@
       <p class="subtitle">ASTR/PHYS 390/590</p>
     </div>
     <div class="section">
-      <h1><a name="course-information" number="1" class="hanchor" href="#course-information">1 Course Information</a></h1>
-      <ul>
-        <li> <strong>Day and Time</strong>: Thursday from 4:30 - 7:10 pm</li>
-        <li> <strong>Location</strong>: Online</li>
-        <li> <strong>Instructor</strong>: Bob Weigel</li>
-        <li> <strong>Email</strong>: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></li>
-        <li> <strong>Office Hour</strong>: Thursday 3:30-4:30 pm</li>
-        <li> <strong>Course URL</strong>: <a href="http://rweigel.github.io/astrostats">http://rweigel.github.io/astrostats</a></li>
-        <li> <strong>Credits</strong>: 3 (Lecture)</li>
-        <li><strong>Prerequisites</strong>:<ul>
-            <li> 390: Grade of B or higher in PHYS 251 or permission of instructor;</li>
-            <li> 590: Enrollment in a COS or VSE graduate program.</li>
-          </ul>
-        </li>
-        <li> <strong>Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.</li>
-      </ul>
-      <p><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="hw.html#hw-7">7</a></p>
+      <div class="block">
+        <h1><a name="course-information" number="1" class="hanchor" href="#course-information">1 Course Information</a></h1>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p> <strong>Day and Time</strong>: Thursday from 4:30 - 7:10 pm</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Location</strong>: Online</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Instructor</strong>: Bob Weigel</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Email</strong>: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Office Hour</strong>: Thursday 3:30-4:30 pm</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Course URL</strong>: <a href="http://rweigel.github.io/astrostats">http://rweigel.github.io/astrostats</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Credits</strong>: 3 (Lecture)</p>
+            </div>
+          </li>
+          <li><strong>Prerequisites</strong>:<div class="block">
+              <ul>
+                <li>
+                  <div class="block">
+                    <p> 390: Grade of B or higher in PHYS 251 or permission of instructor;</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p> 590: Enrollment in a COS or VSE graduate program.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="block">
+        <p><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="hw.html#hw-7">7</a></p>
+      </div>
+      <div class="block">
+        <p><a href="hw.html#midterm">Midterm</a></p>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="motivation" number="2" class="hanchor" href="#motivation">2 Motivation</a></h1>
-      <ul>
-        <li> Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.</li>
-        <li> Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.</li>
-        <li> Many BS, MS, and PhD students have not had a traditional statistics course as an undergraduate.</li>
-      </ul>
+      <div class="block">
+        <h1><a name="motivation" number="2" class="hanchor" href="#motivation">2 Motivation</a></h1>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p> Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Many BS, MS, and PhD students have not had a traditional statistics course as an undergraduate.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="methods-of-instruction" number="3" class="hanchor" href="#methods-of-instruction">3 Methods of Instruction</a></h1>
-      <ul>
-        <li>In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.</li>
-        <li>I usually have you do a reading and basic follow-up problems before I discuss a topic in class. I find content that I present “sticks” if students have experiemented with the concepts before I discuss them.</li>
-        <li>You will be asked to participate in class discussions during class and on Piazza. Talking and writing about statistics will help you understand statistics.</li>
-        <li>Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.</li>
-        <li>I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.<ul>
-            <li> As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.</li>
-          </ul>
-        </li>
-      </ul>
+      <div class="block">
+        <h1><a name="methods-of-instruction" number="3" class="hanchor" href="#methods-of-instruction">3 Methods of Instruction</a></h1>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p>In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>I usually have you do a reading and basic follow-up problems before I discuss a topic in class. I find content that I present “sticks” if students have experiemented with the concepts before I discuss them.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>You will be asked to participate in class discussions during class and on Piazza. Talking and writing about statistics will help you understand statistics.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.</p>
+            </div>
+          </li>
+          <li>I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.<div class="block">
+              <ul>
+                <li>
+                  <div class="block">
+                    <p> As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="programming" number="4" class="hanchor" href="#programming">4 Programming</a></h1>
-      <ul>
-        <li>Any programming language may be used for homework and the final project. I will write my solutions in Python.</li>
-        <li>I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my <a href="python">notes for PHYS 251</a>.</li>
-        <li> I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.</li>
-      </ul>
+      <div class="block">
+        <h1><a name="programming" number="4" class="hanchor" href="#programming">4 Programming</a></h1>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p>Any programming language may be used for homework and the final project. I will write my solutions in Python.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my <a href="python">notes for PHYS 251</a>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="textbook" number="5" class="hanchor" href="#textbook">5 Textbook</a></h1>
-      <p>Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | <a href="https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492">Amazon</a> | <a href="https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html">Author’s web page</a> |</p>
-      <p>This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I’ll typically provide two references that explain the background material.</p>
-      <p>Two general references on statistics that I highly recommend are</p>
-      <ol>
-        <li>Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in and parsimonious manner. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for ~$5.00.</li>
-        <li>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors. | <a href="https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527">Amazon</a> |</li>
-      </ol>
-      <p>In the <a href="#references">References</a> section of this syllabus, many additional references and resources are listed.</p>
+      <div class="block">
+        <h1><a name="textbook" number="5" class="hanchor" href="#textbook">5 Textbook</a></h1>
+      </div>
+      <div class="block">
+        <p>Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | <a href="https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492">Amazon</a> | <a href="https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html">Author’s web page</a> |</p>
+      </div>
+      <div class="block">
+        <p>This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I’ll typically provide two references that explain the background material.</p>
+      </div>
+      <div class="block">
+        <p>Two general references on statistics that I highly recommend are</p>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in and parsimonious manner. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for ~$5.00.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors. | <a href="https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527">Amazon</a> |</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p>In the <a href="#references">References</a> section of this syllabus, many additional references and resources are listed.</p>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="evaluation" number="6" class="hanchor" href="#evaluation">6 Evaluation</a></h1>
-      <ul>
-        <li> <strong>Homework</strong>: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts.</li>
-        <li> <strong>Midterm</strong>: 30% - In-class and hand-written.</li>
-        <li> <strong>Final project</strong>: 30% - Students registered in 590 students will have an extra part for the final project.</li>
-        <li> <strong>Final course</strong>: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, &lt; 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).</li>
-      </ul>
+      <div class="block">
+        <h1><a name="evaluation" number="6" class="hanchor" href="#evaluation">6 Evaluation</a></h1>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p> <strong>Homework</strong>: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Midterm</strong>: 30% - In-class and hand-written.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Final project</strong>: 30% - Students registered in 590 students will have an extra part for the final project.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <strong>Final course</strong>: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, &lt; 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="weekly-schedule" number="7" class="hanchor" href="#weekly-schedule">7 Weekly Schedule</a></h1>
+      <div class="block">
+        <h1><a name="weekly-schedule" number="7" class="hanchor" href="#weekly-schedule">7 Weekly Schedule</a></h1>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="january-28th" number="7.1" class="hanchor" href="#january-28th">7.1 January 28th</a></h2>
-      <ul>
-        <li>Introductions</li>
-        <li>Brief introduction to course</li>
-        <li>Discussion of topics on the syllabus</li>
-        <li><strong>Course Logistics</strong>; I will go over the following on the first day of class. You do not need to do anything before then.<ul>
-            <li>Make sure that you can log on to Piazza. You should have received an email from Piazza before the start of the first class.</li>
-            <li>Create a GitHub account with your GMU username (the name in your email address, lowercase) and a repository named <code>astrostats</code> (lowercase). Give <code>rweigel</code> read/write permissions. If you already have a GitHub user id and would like to use it, send me it.</li>
-            <li>During class discussion, I will ask you to turn on your webcam. Please let me know if you have an issue with this (e.g., you are working in a room with a family in the background or are calling in from a locker room).</li>
-          </ul>
-        </li>
-        <li><strong>Course comments</strong>
-          <ul>
-            <li>Approximately 1/2 of the students in this class are undergraduates, the other 1/2 are graduates. We did this because this is the first time that the course has been taught. There will be an adjustment period as I figure out how best to handle differentials in experience with statistics, programming, and data analysis.</li>
-            <li>Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.</li>
-          </ul>
-        </li>
-        <li> Python IDEs and <a href="https://colab.research.google.com/">Google Colab</a> introduction</li>
-        <li> Review of Python</li>
-        <li> <a href="python.html#numpy">Review of Python/NumPy</a> (and MATLAB, if needed) </li>
-        <li> <a href="hw.html">HW #1 discussion</a></li>
-        <li>Follow-up notes:<ol>
-            <li> The recording is at <a href="https://www.youtube.com/watch?v=yxFzL_TD900">https://www.youtube.com/watch?v=yxFzL_TD900</a> In the future, I’ll provide a link to a Zoom page. This week I had to do it differently because I had to trim off conversations I had after class.</li>
-            <li> W.M. mentioned <code>np.where</code> as an option for finding elements in an <code>ndarray</code>. I don’t recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I’ve added an example of its use on my <a href="https://rweigel.github.io/astrostats/python.html#finding-elements">Python notes page</a>.</li>
-            <li> In the HW, I ask for you to provide written solutions in a <code>.md</code> or <code>.pdf</code> file. <code>.md</code> is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click “Create File”, then enter, for example, <code>HW1_1b.md</code> and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I’ll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.</li>
-            <li> I expect that students may encounter issues submitting their first assignment to GitHub. If you have any issues, meet with me before or after class. I won’t count assignments as late if you contacted me about a submission issue.</li>
-            <li> In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. I found a site that explains the basics of random number generation using very simple algorithms; see <a href="https://www.math.utah.edu/~alfeld/Random/Random.html">Peter Alfeld’s Random Number Generator notes</a>. On HW1, <strong>do not</strong> use <code>np.random.seed</code> as I did in class. I’ll explain more about when you want to use it the next time that we meet.</li>
-            <li> I still can’t think of the error I encountered when I created an array using <code>x = np.array([1,2,3])</code>, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because <code>x</code> is an integer array, show us during the next class period. </li>
-          </ol>
-        </li>
-      </ul>
+      <div class="block">
+        <h2><a name="january-28th" number="7.1" class="hanchor" href="#january-28th">7.1 January 28th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p>Introductions</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Brief introduction to course</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discussion of topics on the syllabus</p>
+            </div>
+          </li>
+          <li><strong>Course Logistics</strong>; I will go over the following on the first day of class. You do not need to do anything before then.<div class="block">
+              <ul>
+                <li>
+                  <div class="block">
+                    <p>Make sure that you can log on to Piazza. You should have received an email from Piazza before the start of the first class.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>Create a GitHub account with your GMU username (the name in your email address, lowercase) and a repository named <code>astrostats</code> (lowercase). Give <code>rweigel</code> read/write permissions. If you already have a GitHub user id and would like to use it, send me it.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>During class discussion, I will ask you to turn on your webcam. Please let me know if you have an issue with this (e.g., you are working in a room with a family in the background or are calling in from a locker room).</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><strong>Course comments</strong>
+            <div class="block">
+              <ul>
+                <li>
+                  <div class="block">
+                    <p>Approximately 1/2 of the students in this class are undergraduates, the other 1/2 are graduates. We did this because this is the first time that the course has been taught. There will be an adjustment period as I figure out how best to handle differentials in experience with statistics, programming, and data analysis.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Python IDEs and <a href="https://colab.research.google.com/">Google Colab</a> introduction</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Review of Python</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <a href="python.html#numpy">Review of Python/NumPy</a> (and MATLAB, if needed) </p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <a href="hw.html">HW #1 discussion</a></p>
+            </div>
+          </li>
+          <li>Follow-up notes:<div class="block">
+              <ol>
+                <li>
+                  <div class="block">
+                    <p> The recording is at <a href="https://www.youtube.com/watch?v=yxFzL_TD900">https://www.youtube.com/watch?v=yxFzL_TD900</a> In the future, I’ll provide a link to a Zoom page. This week I had to do it differently because I had to trim off conversations I had after class.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p> W.M. mentioned <code>np.where</code> as an option for finding elements in an <code>ndarray</code>. I don’t recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I’ve added an example of its use on my <a href="https://rweigel.github.io/astrostats/python.html#finding-elements">Python notes page</a>.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p> In the HW, I ask for you to provide written solutions in a <code>.md</code> or <code>.pdf</code> file. <code>.md</code> is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click “Create File”, then enter, for example, <code>HW1_1b.md</code> and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I’ll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p> I expect that students may encounter issues submitting their first assignment to GitHub. If you have any issues, meet with me before or after class. I won’t count assignments as late if you contacted me about a submission issue.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p> In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. I found a site that explains the basics of random number generation using very simple algorithms; see <a href="https://www.math.utah.edu/~alfeld/Random/Random.html">Peter Alfeld’s Random Number Generator notes</a>. On HW1, <strong>do not</strong> use <code>np.random.seed</code> as I did in class. I’ll explain more about when you want to use it the next time that we meet.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p> I still can’t think of the error I encountered when I created an array using <code>x = np.array([1,2,3])</code>, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because <code>x</code> is an integer array, show us during the next class period. </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="february-4th" number="7.2" class="hanchor" href="#february-4th">7.2 February 4th</a></h2>
-      <ul>
-        <li><a href="hw.html#hw-1">HW #1</a> due before class starts</li>
-        <li>The Discord server is up. You can ask questions there as an alternative to Piazza. If you want to meet with me, we can meet on either Discord or Zoom (it is a little easier to initiate a meeting on Discord, but Discord is not offically sanctioned by GMU).</li>
-        <li>We will continue to meet for class and office hours on Zoom. Don’t worry about missing somthing important on Discord. I’ll post it on the course web page.</li>
-        <li>Extended discussion of <a href="hw.html#hw-1">HW #1</a></li>
-        <li>Basic Concepts in Probability</li>
-        <li>Follow-up notes<ul>
-            <li>If ambiguity or error in a problem statement, <strong>please</strong> post a question on Piazza or Discord! </li>
-            <li>The recording is on my <a href="https://gmu.zoom.us/rec/share/Fqvgv9j-bH5vpC7JLoJ8o5ABF-1OUbPXzVOPF3mu442nwAby3fWwlUybSzEpZvH-.B3rl8OT1FN2X965N">Zoom page</a>.</li>
-            <li>When I go through your assignments, I may move your HWs out of a subdirectory to remind you to not do that. I want everyone’s repository to contain the same structure and file names so that my automation software for pulling and pushing works.</li>
-            <li>When I was discussing the combination problem for the number of unique license plates that could be created given stickers with the numbers 0-9 assuming that license plates with the same set of numbers in any order are treated as not-unique, I wrote down as an example “899 = 989 = 998” are equivalent. These three are not options because a number is repeated. I should have written, “For example, 123 and all permutations are equivalent license plates”. In spite of this mistake, someone gave the correct answer - that there are 3! permutations of any three numbers, so if the number of possible license plates is 9!/7! assuming the order of the numbers matters, then the number of possible license plates is 9!/(7!3!) assuming license plates with the same numbers in any order are equivalent.</li>
-            <li>I am working on posting my solutions to HW1 and also posting HW2. I expect to have HW2 posted by Saturday at noon, which is about a day later than I planned (I typically post the next HW a day after class because I often modify what I planned to assign based on what happened in class). I’ll update the <a href="https://rweigel.github.io/astrostats/">course page</a> and make a Piazza post when I have posted HW2.</li>
-          </ul>
-        </li>
-      </ul>
+      <div class="block">
+        <h2><a name="february-4th" number="7.2" class="hanchor" href="#february-4th">7.2 February 4th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p><a href="hw.html#hw-1">HW #1</a> due before class starts</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>The Discord server is up. You can ask questions there as an alternative to Piazza. If you want to meet with me, we can meet on either Discord or Zoom (it is a little easier to initiate a meeting on Discord, but Discord is not offically sanctioned by GMU).</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>We will continue to meet for class and office hours on Zoom. Don’t worry about missing somthing important on Discord. I’ll post it on the course web page.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Extended discussion of <a href="hw.html#hw-1">HW #1</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Basic Concepts in Probability</p>
+            </div>
+          </li>
+          <li>Follow-up notes<div class="block">
+              <ul>
+                <li>
+                  <div class="block">
+                    <p>If ambiguity or error in a problem statement, <strong>please</strong> post a question on Piazza or Discord! </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>The recording is on my <a href="https://gmu.zoom.us/rec/share/Fqvgv9j-bH5vpC7JLoJ8o5ABF-1OUbPXzVOPF3mu442nwAby3fWwlUybSzEpZvH-.B3rl8OT1FN2X965N">Zoom page</a>.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>When I go through your assignments, I may move your HWs out of a subdirectory to remind you to not do that. I want everyone’s repository to contain the same structure and file names so that my automation software for pulling and pushing works.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>When I was discussing the combination problem for the number of unique license plates that could be created given stickers with the numbers 0-9 assuming that license plates with the same set of numbers in any order are treated as not-unique, I wrote down as an example “899 = 989 = 998” are equivalent. These three are not options because a number is repeated. I should have written, “For example, 123 and all permutations are equivalent license plates”. In spite of this mistake, someone gave the correct answer - that there are 3! permutations of any three numbers, so if the number of possible license plates is 9!/7! assuming the order of the numbers matters, then the number of possible license plates is 9!/(7!3!) assuming license plates with the same numbers in any order are equivalent.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>I am working on posting my solutions to HW1 and also posting HW2. I expect to have HW2 posted by Saturday at noon, which is about a day later than I planned (I typically post the next HW a day after class because I often modify what I planned to assign based on what happened in class). I’ll update the <a href="https://rweigel.github.io/astrostats/">course page</a> and make a Piazza post when I have posted HW2.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="february-11th" number="7.3" class="hanchor" href="#february-11th">7.3 February 11th</a></h2>
-      <ul>
-        <li><a href="hw.html#hw-1">HW #1</a> notes based on grading.<ul>
-            <li>Discuss W.M.’s solution.</li>
-          </ul>
-        </li>
-        <li> Discord - Justin’s timing experiment and Nasser’s question</li>
-        <li> <a href="hw.html#hw-2">HW #2</a> due before class starts</li>
-        <li> Discuss HW #2 solutions </li>
-        <li> In-class work on problems related to HW #2 and HW #3</li>
-      </ul>
+      <div class="block">
+        <h2><a name="february-11th" number="7.3" class="hanchor" href="#february-11th">7.3 February 11th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li><a href="hw.html#hw-1">HW #1</a> notes based on grading.<div class="block">
+              <ul>
+                <li>
+                  <div class="block">
+                    <p>Discuss W.M.’s solution.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Discord - Justin’s timing experiment and Nasser’s question</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> <a href="hw.html#hw-2">HW #2</a> due before class starts</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Discuss HW #2 solutions </p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> In-class work on problems related to HW #2 and HW #3</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="february-18th" number="7.4" class="hanchor" href="#february-18th">7.4 February 18th</a></h2>
-      <ul>
-        <li> <a href="hw.html#hw-3">HW #3</a> due before class starts</li>
-        <li> Discuss HW #3 solutions</li>
-        <li> In-class work on problems related to HW #3</li>
-        <li> From this point on, I’ll be covering topics in the order that they appear and Wall and Jenkins. Up until now, the problems have been mostly about programming techniques that you’ll need. The problems did not require knowledge of statistics, but you’ll want to think back to these problems as the results and their interpretation will be important.</li>
-      </ul>
+      <div class="block">
+        <h2><a name="february-18th" number="7.4" class="hanchor" href="#february-18th">7.4 February 18th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p> <a href="hw.html#hw-3">HW #3</a> due before class starts</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Discuss HW #3 solutions</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> In-class work on problems related to HW #3</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> From this point on, I’ll be covering topics in the order that they appear and Wall and Jenkins. Up until now, the problems have been mostly about programming techniques that you’ll need. The problems did not require knowledge of statistics, but you’ll want to think back to these problems as the results and their interpretation will be important.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="february-25th" number="7.5" class="hanchor" href="#february-25th">7.5 February 25th</a></h2>
-      <ul>
-        <li> <a href="hw.html#hw-4">HW #4</a> due before class starts</li>
-        <li> I’ve written up my notes from our discussion of HW #3. I’ve also added additional details on problem 3.3 regarding probability densities and the interpretation of the the posterior.</li>
-        <li> Discuss question on Discord about <code>np.vectorize</code>.</li>
-        <li> Discussion of problems 4.2 and 4.3.</li>
-        <li> Discussion of reading.</li>
-        <li> Discussion of problem 4.4. </li>
-      </ul>
+      <div class="block">
+        <h2><a name="february-25th" number="7.5" class="hanchor" href="#february-25th">7.5 February 25th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p> <a href="hw.html#hw-4">HW #4</a> due before class starts</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> I’ve written up my notes from our discussion of HW #3. I’ve also added additional details on problem 3.3 regarding probability densities and the interpretation of the the posterior.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Discuss question on Discord about <code>np.vectorize</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Discussion of problems 4.2 and 4.3.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Discussion of reading.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p> Discussion of problem 4.4. </p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="march-4th" number="7.6" class="hanchor" href="#march-4th">7.6 March 4th</a></h2>
-      <ul>
-        <li>Discussion of <a href="hw.html#hw-5">HW #5</a></li>
-        <li>Discussion of <a href="notes.html#statistics">elements of statistics</a></li>
-      </ul>
+      <div class="block">
+        <h2><a name="march-4th" number="7.6" class="hanchor" href="#march-4th">7.6 March 4th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p>Discussion of <a href="hw.html#hw-5">HW #5</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discussion of <a href="notes.html#statistics">elements of statistics</a></p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="march-11th" number="7.7" class="hanchor" href="#march-11th">7.7 March 11th</a></h2>
-      <ul>
-        <li>Discussion of <a href="hw.html#hw-6">HW #6</a></li>
-        <li>Discussion of <span len="3" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>P</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">P</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>s (probability mass functions), pdfs (probability density functions), and their generation in Python</li>
-        <li>Discussion of degrees–of–freedom</li>
-        <li>Discuss absolute paths in code</li>
-      </ul>
+      <div class="block">
+        <h2><a name="march-11th" number="7.7" class="hanchor" href="#march-11th">7.7 March 11th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p>Discussion of <a href="hw.html#hw-6">HW #6</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discussion of <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>P</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">P</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>s (probability mass functions), pdfs (probability density functions), and their generation in Python</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discussion of degrees–of–freedom</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discuss absolute paths in code</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="march-18th" number="7.8" class="hanchor highlighted" href="#march-18th">7.8 March 18th</a></h2>
-      <ul>
-        <li class="active"><a href="hw.html#hw-7">HW #7</a> due</li>
-        <li>Discuss PA’s HW5.1 soln.</li>
-        <li>Discuss plot labels, <code>np.round</code>, and <code>format</code>.</li>
-        <li>Discuss number of decimals in numbers.</li>
-        <li><a href="midterm.html#midterm">Midterm</a> assigned</li>
-      </ul>
+      <div class="block">
+        <h2><a name="march-18th" number="7.8" class="hanchor" href="#march-18th">7.8 March 18th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p><a href="hw.html#hw-7">HW #7</a> due</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discuss PA’s HW5.1 soln.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discuss plot labels, <code>np.round</code>, and <code>format</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discuss number of decimals in numbers.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><a href="midterm.html#midterm">Midterm</a> assigned</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2 class=""><a name="march-25th" number="7.9" class="hanchor" href="#march-25th">7.9 March 25th</a></h2>
-      <ul>
-        <li><a href="midterm.html#midterm">Midterm</a> due before class</li>
-      </ul>
+      <div class="block">
+        <h2><a name="march-25th" number="7.9" class="hanchor" href="#march-25th">7.9 March 25th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p><a href="midterm.html#midterm">Midterm</a> due before class</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Discuss <code>np.full((3, ), np.nan)</code></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>General observations on HW6</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="april-1st" number="7.10" class="hanchor" href="#april-1st">7.10 April 1st</a></h2>
+      <div class="block">
+        <h2><a name="april-1st" number="7.10" class="hanchor" href="#april-1st">7.10 April 1st</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li class="active">
+            <div class="block">
+              <p>Discuss <a href="http://articles.adsabs.harvard.edu//full/1990ApJ...364..104I/0000104.000.html">paper</a> on alternatives to ordinary least squares (OLS)</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="april-8th" number="7.11" class="hanchor" href="#april-8th">7.11 April 8th</a></h2>
+      <div class="block">
+        <h2><a name="april-8th" number="7.11" class="hanchor" href="#april-8th">7.11 April 8th</a></h2>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="april-15th" number="7.12" class="hanchor" href="#april-15th">7.12 April 15th</a></h2>
+      <div class="block">
+        <h2><a name="april-15th" number="7.12" class="hanchor" href="#april-15th">7.12 April 15th</a></h2>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="april-22nd" number="7.13" class="hanchor" href="#april-22nd">7.13 April 22nd</a></h2>
+      <div class="block">
+        <h2><a name="april-22nd" number="7.13" class="hanchor" href="#april-22nd">7.13 April 22nd</a></h2>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="april-29th" number="7.14" class="hanchor" href="#april-29th">7.14 April 29th</a></h2>
+      <div class="block">
+        <h2><a name="april-29th" number="7.14" class="hanchor" href="#april-29th">7.14 April 29th</a></h2>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="may-6th" number="7.15" class="hanchor" href="#may-6th">7.15 May 6th</a></h2>
-      <p>Thursday, May 6th from 4:30 – 7:10 pm</p>
-      <p>Final exam (<a href="https://registrar.gmu.edu/wp-content/uploads/Spring-2021-Final-Exam-Schedule.pdf">full schedule</a>)</p>
+      <div class="block">
+        <h2><a name="may-6th" number="7.15" class="hanchor" href="#may-6th">7.15 May 6th</a></h2>
+      </div>
+      <div class="block">
+        <p>Thursday, May 6th from 4:30 – 7:10 pm</p>
+      </div>
+      <div class="block">
+        <p>Final exam (<a href="https://registrar.gmu.edu/wp-content/uploads/Spring-2021-Final-Exam-Schedule.pdf">full schedule</a>)</p>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="topics" number="8" class="hanchor" href="#topics">8 Topics</a></h1>
-      <p>The topics listed below are covered in Chapters 2-7 of the textbook. Supplementary references and notes will be provided as-needed.</p>
+      <div class="block">
+        <h1><a name="topics" number="8" class="hanchor" href="#topics">8 Topics</a></h1>
+      </div>
+      <div class="block">
+        <p>The topics listed below are covered in Chapters 2-7 of the textbook. Supplementary references and notes will be provided as-needed.</p>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="python" number="8.1" class="hanchor" href="#python">8.1 Python</a></h2>
-      <ol>
-        <li>NumPy</li>
-        <li>Random number generators</li>
-        <li>Data Visualization</li>
-      </ol>
+      <div class="block">
+        <h2><a name="python" number="8.1" class="hanchor" href="#python">8.1 Python</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>NumPy</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Random number generators</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Data Visualization</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="basic-concepts-in-probability" number="8.2" class="hanchor" href="#basic-concepts-in-probability">8.2 Basic Concepts in Probability</a></h2>
-      <ol>
-        <li>Mathematical, Frequentist, and Bayesian probabilities</li>
-        <li>Conditional probability</li>
-        <li>Bayes’ theorem</li>
-        <li>Counting - permutations and combinations</li>
-        <li>Probability distributions</li>
-        <li>Overview of statistical fallacies</li>
-      </ol>
+      <div class="block">
+        <h2><a name="basic-concepts-in-probability" number="8.2" class="hanchor" href="#basic-concepts-in-probability">8.2 Basic Concepts in Probability</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Mathematical, Frequentist, and Bayesian probabilities</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Conditional probability</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Bayes’ theorem</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Counting - permutations and combinations</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Probability distributions</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Overview of statistical fallacies</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="elements-of-statistics" number="8.3" class="hanchor" href="#elements-of-statistics">8.3 Elements of Statistics</a></h2>
-      <ol>
-        <li>Expectation, mean, variance, and bias</li>
-        <li>Random variables, distributions, quantiles, mean, variance</li>
-        <li>Joint distributions, covariance, correlation, independence</li>
-        <li>The law of large numbers</li>
-        <li>Central limit theorem</li>
-        <li>Bootstrapping</li>
-      </ol>
+      <div class="block">
+        <h2><a name="elements-of-statistics" number="8.3" class="hanchor" href="#elements-of-statistics">8.3 Elements of Statistics</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Expectation, mean, variance, and bias</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Random variables, distributions, quantiles, mean, variance</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Joint distributions, covariance, correlation, independence</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>The law of large numbers</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Central limit theorem</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Bootstrapping</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="hypothesis-tests" number="8.4" class="hanchor" href="#hypothesis-tests">8.4 Hypothesis Tests</a></h2>
-      <ol>
-        <li>Frequentist</li>
-        <li>Bayesian</li>
-        <li>Bootstrap and Jackknife</li>
-      </ol>
+      <div class="block">
+        <h2><a name="hypothesis-tests" number="8.4" class="hanchor" href="#hypothesis-tests">8.4 Hypothesis Tests</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Frequentist</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Bayesian</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Bootstrap and Jackknife</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="parameter-estimation-basic" number="8.5" class="hanchor" href="#parameter-estimation-basic">8.5 Parameter Estimation - Basic</a></h2>
-      <ol>
-        <li>Least-squares</li>
-        <li>Maximum likelihood</li>
-      </ol>
+      <div class="block">
+        <h2><a name="parameter-estimation-basic" number="8.5" class="hanchor" href="#parameter-estimation-basic">8.5 Parameter Estimation - Basic</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Least-squares</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Maximum likelihood</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="parameter-estimation-advanced" number="8.6" class="hanchor" href="#parameter-estimation-advanced">8.6 Parameter Estimation - Advanced</a></h2>
-      <ol>
-        <li>Linear models</li>
-        <li>Nonlinear models</li>
-        <li>The EMCEE Markov chain Monte Carlo Python library</li>
-      </ol>
+      <div class="block">
+        <h2><a name="parameter-estimation-advanced" number="8.6" class="hanchor" href="#parameter-estimation-advanced">8.6 Parameter Estimation - Advanced</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Linear models</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Nonlinear models</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>The EMCEE Markov chain Monte Carlo Python library</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="references" number="9" class="hanchor" href="#references">9 References</a></h1>
-      <p>The following references are not needed for this course, but you may find them useful for alternative explanations of topics in the textbook.</p>
+      <div class="block">
+        <h1><a name="references" number="9" class="hanchor" href="#references">9 References</a></h1>
+      </div>
+      <div class="block">
+        <p>The following references are not needed for this course, but you may find them useful for alternative explanations of topics in the textbook.</p>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="general" number="9.1" class="hanchor" href="#general">9.1 General</a></h2>
-      <ol>
-        <li>Principles of Statistics, M.G. Bulmer - A short Dover book that covers fundamental statistical topics in and parsimonious manner. Available on Amazon for $3.00.</li>
-        <li>Many of the topics covered in this course are covered in the MIT OCW course <a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/">Introduction to Probability and Statistics</a>. </li>
-        <li>Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg - Covers basics of uncertainty and error analysis at Freshman physics lab level. Very good but very expensive (&gt; $100 on Amazon).</li>
-        <li>Statistical Methods in Experimental Physics, F. James - A standard reference that you should have a copy of.</li>
-        <li>Statistics, D. Freedman, R. Pisani, and R. Purves - A basic introduction to statistics with many examples and extended discussion of topics.</li>
-        <li>Probability for the Enthusiastic Beginner, D. Morin - A very basic introduction to probability.</li>
-        <li>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore - A commonly used textbook for upper-division engineering and science majors.</li>
-        <li>Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed) – Similar in scope and coverage of Devore. </li>
-      </ol>
+      <div class="block">
+        <h2><a name="general" number="9.1" class="hanchor" href="#general">9.1 General</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Principles of Statistics, M.G. Bulmer - A short Dover book that covers fundamental statistical topics in and parsimonious manner. Available on Amazon for $3.00.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Many of the topics covered in this course are covered in the MIT OCW course <a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/">Introduction to Probability and Statistics</a>. </p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg - Covers basics of uncertainty and error analysis at Freshman physics lab level. Very good but very expensive (&gt; $100 on Amazon).</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Statistical Methods in Experimental Physics, F. James - A standard reference that you should have a copy of.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Statistics, D. Freedman, R. Pisani, and R. Purves - A basic introduction to statistics with many examples and extended discussion of topics.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Probability for the Enthusiastic Beginner, D. Morin - A very basic introduction to probability.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore - A commonly used textbook for upper-division engineering and science majors.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed) – Similar in scope and coverage of Devore. </p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="bayes" number="9.2" class="hanchor" href="#bayes">9.2 Bayes</a></h2>
-      <ol>
-        <li>Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students. </li>
-        <li>Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas</li>
-        <li>Bayes’ Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone</li>
-        <li>Comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom</li>
-        <li>Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D’Agostini</li>
-        <li>Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov [link]</li>
-        <li>Data Analysis - A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling</li>
-        <li>The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman – This is a classic book on Machine Learning/Statistical Learning.</li>
-      </ol>
+      <div class="block">
+        <h2><a name="bayes" number="9.2" class="hanchor" href="#bayes">9.2 Bayes</a></h2>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="astronomy" number="9.3" class="hanchor" href="#astronomy">9.3 Astronomy</a></h2>
-      <ol>
-        <li>Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</li>
-        <li>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, <a href="https://arxiv.org/abs/1710.06068">https://arxiv.org/abs/1710.06068</a></li>
-        <li>Bayesian Methods for the Physical Sciences: Learning from Examples in Astronomy and Physics (2015), S. Andreon and B. Weaver.</li>
-        <li>Bayesian Models for Astrophysical Data: Using R, JAGS, Python, and Stan, J.M. Hilbe, R.S. de Souza, and E.E.O. Ishida.</li>
-        <li>Modern Statistical Methods for Astronomy: With R Applications (2012), E.D. Feigelson and G.J. Babu.</li>
-        <li>Statistics, Data Mining, and Machine Learning in Astronomy: A Practical Python Guide for the Analysis of Survey Data, Željko Ivezic, Andrew J. Connolly, Jacob T VanderPlas, and Alexander Gray.</li>
-        <li>Computational Bayesian Statistics: An Introduction (2019), M. Antónia Amaral Turkman, Carlos Daniel Paulino, Peter Müller.</li>
-      </ol>
+      <div class="block">
+        <h3><a name="general" number="9.2.1" class="hanchor" href="#general">9.2.1 General</a></h3>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes’ rule.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas (<a href="https://arxiv.org/pdf/1411.5018.pdf">arxiv.org/pdf/<wbr>1411.5018.pdf</a>).</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Bayes’ Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom (<a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf">MIT18<wbr>_05S14<wbr>_Reading20.pdf</a>)</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D’Agostini</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov [link]</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Data Analysis - A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman – This is a classic book on Machine Learning/Statistical Learning.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p><a href="http://www.stat.columbia.edu/~gelman/research/published/Cook_Software_Validation.pdf">http://www.stat.columbia.edu/~gelman/research/published/Cook_Software_Validation.pdf</a></p>
+      </div>
+      <div class="block">
+        <p><a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011WR011289">https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011WR011289</a></p>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="software" number="9.4" class="hanchor" href="#software">9.4 Software</a></h2>
-      <ol>
-        <li><a href="http://greenteapress.com/thinkstats2/html/thinkstats2010.html">Think Stats</a> - A free book that demonstrates standard statistical calculations in Python.</li>
-        <li><a href="https://arxiv.org/pdf/1202.3665.pdf">EMCEE Overview</a>
-          <a href="https://emcee.readthedocs.io/en/stable/">EMCEE software documentation</a>
-        </li>
-      </ol>
+      <div class="block">
+        <h3><a name="credible-intervals" number="9.2.2" class="hanchor" href="#credible-intervals">9.2.2 Credible Intervals</a></h3>
+      </div>
+      <div class="block">
+        <p>In the following references, the terms “Bayesian Intervals”, “Bayesian Confidence Intervals”, and “Credible Intervals” are used to mean the same thing.</p>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p>The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>. This is not an easy read as a first introduction. The following references provide a more introductory explanation.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">https://link.springer.com/article/10.3758/s13423-016-1221-4</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><a href="https://arxiv.org/pdf/1411.5018.pdf">https://arxiv.org/pdf/1411.5018.pdf</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><a href="http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/">A blog post by VanderPlas</a> goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approach.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><a href="http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf">Levy 2012</a> is also a good .</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Credible intervals are described by the authors of the easystatsR package <a href="https://easystats.github.io/bayestestR/articles/credible_interval.html">easystats.github.io</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><a href="https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/">https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/</a></p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
-      <h1><a name="general-policies" number="10" class="hanchor" href="#general-policies">10 General Policies</a></h1>
+      <div class="block">
+        <h2><a name="astronomy" number="9.3" class="hanchor" href="#astronomy">9.3 Astronomy</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, <a href="https://arxiv.org/abs/1710.06068">https://arxiv.org/abs/1710.06068</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Bayesian Methods for the Physical Sciences: Learning from Examples in Astronomy and Physics (2015), S. Andreon and B. Weaver.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Bayesian Models for Astrophysical Data: Using R, JAGS, Python, and Stan, J.M. Hilbe, R.S. de Souza, and E.E.O. Ishida.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Modern Statistical Methods for Astronomy: With R Applications (2012), E.D. Feigelson and G.J. Babu.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Statistics, Data Mining, and Machine Learning in Astronomy: A Practical Python Guide for the Analysis of Survey Data, Željko Ivezic, Andrew J. Connolly, Jacob T VanderPlas, and Alexander Gray.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Computational Bayesian Statistics: An Introduction (2019), M. Antónia Amaral Turkman, Carlos Daniel Paulino, Peter Müller.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="academic-integrity" number="10.1" class="hanchor" href="#academic-integrity">10.1 Academic Integrity</a></h2>
-      <p>Any instance of cheating or plagiarism is a violation of the Honor Code Pledge and will result in a score of zero on the exam or paper and referral to the Honor Committee. The website for the Office of Academic Integrity is <a href="https://oai.gmu.edu/">https://oai.gmu.edu/</a>.</p>
+      <div class="block">
+        <h2><a name="software" number="9.4" class="hanchor" href="#software">9.4 Software</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p><a href="http://greenteapress.com/thinkstats2/html/thinkstats2010.html">Think Stats</a> - A free book that demonstrates standard statistical calculations in Python.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><a href="https://arxiv.org/pdf/1202.3665.pdf">EMCEE Overview</a>
+                <a href="https://emcee.readthedocs.io/en/stable/">EMCEE software documentation</a>
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="disability" number="10.2" class="hanchor" href="#disability">10.2 Disability</a></h2>
-      <p>If you have a disability and need academic accommodations, please contact Disability Services. Their website is <a href="https://ds.gmu.edu/">https://ds.gmu.edu/</a>. All academic accommodations must be arranged through Disability Services.</p>
+      <div class="block">
+        <h1><a name="general-policies" number="10" class="hanchor" href="#general-policies">10 General Policies</a></h1>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="diversity-and-inclusion" number="10.3" class="hanchor" href="#diversity-and-inclusion">10.3 Diversity and Inclusion</a></h2>
-      <p>We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at <a href="https://universitypolicy.gmu.edu/policies/non-discrimination-policy/">https://universitypolicy.gmu.edu/policies/non-discrimination-policy/</a>.</p>
+      <div class="block">
+        <h2><a name="academic-integrity" number="10.1" class="hanchor" href="#academic-integrity">10.1 Academic Integrity</a></h2>
+      </div>
+      <div class="block">
+        <p>Any instance of cheating or plagiarism is a violation of the Honor Code Pledge and will result in a score of zero on the exam or paper and referral to the Honor Committee. The website for the Office of Academic Integrity is <a href="https://oai.gmu.edu/">https://oai.gmu.edu/</a>.</p>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="communication" number="10.4" class="hanchor" href="#communication">10.4 Communication</a></h2>
-      <p>If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. </p>
-      <p>If you need to send communicate with me about something private, please send it to <code>rweigel@gmu.edu</code> from your MasonLive email address.</p>
+      <div class="block">
+        <h2><a name="disability" number="10.2" class="hanchor" href="#disability">10.2 Disability</a></h2>
+      </div>
+      <div class="block">
+        <p>If you have a disability and need academic accommodations, please contact Disability Services. Their website is <a href="https://ds.gmu.edu/">https://ds.gmu.edu/</a>. All academic accommodations must be arranged through Disability Services.</p>
+      </div>
     </div>
     <div class="section">
-      <h2><a name="university-resources" number="10.5" class="hanchor" href="#university-resources">10.5 University Resources</a></h2>
-      <ul>
-        <li>Learning Services <a href="https://learningservices.gmu.edu/">https://learningservices.gmu.edu/</a></li>
-        <li>Student Support and Advocacy Center <a href="https://ssac.gmu.edu/">https://ssac.gmu.edu/</a></li>
-        <li>Counseling and Psychological Services <a href="https://caps.gmu.edu/">https://caps.gmu.edu/</a></li>
-      </ul>
+      <div class="block">
+        <h2><a name="diversity-and-inclusion" number="10.3" class="hanchor" href="#diversity-and-inclusion">10.3 Diversity and Inclusion</a></h2>
+      </div>
+      <div class="block">
+        <p>We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at <a href="https://universitypolicy.gmu.edu/policies/non-discrimination-policy/">https://universitypolicy.gmu.edu/policies/non-discrimination-policy/</a>.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="communication" number="10.4" class="hanchor" href="#communication">10.4 Communication</a></h2>
+      </div>
+      <div class="block">
+        <p>If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. </p>
+      </div>
+      <div class="block">
+        <p>If you need to send communicate with me about something private, please send it to <code>rweigel@gmu.edu</code> from your MasonLive email address.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="university-resources" number="10.5" class="hanchor" href="#university-resources">10.5 University Resources</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p>Learning Services <a href="https://learningservices.gmu.edu/">https://learningservices.gmu.edu/</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Student Support and Advocacy Center <a href="https://ssac.gmu.edu/">https://ssac.gmu.edu/</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Counseling and Psychological Services <a href="https://caps.gmu.edu/">https://caps.gmu.edu/</a></p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </body>

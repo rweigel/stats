@@ -18,6 +18,9 @@
 
 **Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7)
 
+
+[Midterm](hw.html#midterm)
+
 # Motivation
 
 *   Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.
@@ -143,9 +146,15 @@ In the [References](#references) section of this syllabus, many additional refer
 * [Midterm](midterm.html#midterm) assigned
 
 ## March 25th
+
 * [Midterm](midterm.html#midterm) due before class
+* Discuss `np.full((3, ), np.nan)`
+* General observations on HW6
+ 
 
 ## April 1st
+
+* Discuss [paper](http://articles.adsabs.harvard.edu//full/1990ApJ...364..104I/0000104.000.html) on alternatives to ordinary least squares (OLS)
 
 ## April 8th
 
@@ -223,14 +232,32 @@ The following references are not needed for this course, but you may find them u
 
 ## Bayes
 
-1. Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students. 
-2. Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas
+### General
+
+1. Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes' rule.
+2. Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas ([arxiv.org/pdf/<wbr>1411.5018.pdf](https://arxiv.org/pdf/1411.5018.pdf)).
 3. Bayes' Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone
-4. Comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom
+4. Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom ([MIT18<wbr>_05S14<wbr>_Reading20.pdf](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf))
 5. Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D'Agostini
 6. Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov [link]
 7. Data Analysis - A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling
 8. The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman -- This is a classic book on Machine Learning/Statistical Learning.
+
+http://www.stat.columbia.edu/~gelman/research/published/Cook_Software_Validation.pdf
+
+https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011WR011289
+
+### Credible Intervals
+
+In the following references, the terms "Bayesian Intervals", "Bayesian Confidence Intervals", and "Credible Intervals" are used to mean the same thing.
+
+* The primary reference is  [Jaynes 1976]( https://bayes.wustl.edu/etj/articles/confidence.pdf). This is not an easy read as a first introduction. The following references provide a more introductory explanation.
+* https://link.springer.com/article/10.3758/s13423-016-1221-4
+* https://arxiv.org/pdf/1411.5018.pdf
+* [A blog post by VanderPlas](http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/) goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approach.
+* [Levy 2012](http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf) is also a good .
+* Credible intervals are described by the authors of the easystatsR package [easystats.github.io](https://easystats.github.io/bayestestR/articles/credible_interval.html)
+* https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/
 
 ## Astronomy  
 

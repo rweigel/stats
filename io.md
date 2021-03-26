@@ -623,7 +623,7 @@ In the previous problem, you plotted the ssn versus the fractional day-of-year. 
 
 If done correctly, printing the first two values of <code>t</code> using <code>print(t[0:2])</code> should result in
 
- [datetime.datetime(1818, 1, 1, 0, 0), datetime.datetime(1818, 1, 2, 0, 0)]
+    [datetime.datetime(1818, 1, 1, 0, 0), datetime.datetime(1818, 1, 2, 0, 0)]
 
 which shows that the list <code>t</code> contains datetime objects.
 
