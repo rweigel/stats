@@ -12,7 +12,7 @@
     
     #toc {
       font-size: 85%;
-      width: 15em;
+      width: 14em;
       position: fixed;
       min-height: 95%;
       max-height: 95%;
@@ -20,6 +20,7 @@
       overflow-y: auto;
       padding-left: 0.75em ;
       padding-right: 1em;
+      margin-right: 1em;
       font-family: "Open Sans";
     }
     
@@ -34,7 +35,7 @@
     
     #display {
       width: 100%;
-      margin-left: 14em;
+      margin-left: 15em;
       max-height: 100%;
       min-height: 100%;
       overflow-x: hidden;
@@ -81,28 +82,34 @@
     }
     
     h1,h2,h3,h4,h5,h6 {
-      width: 95%;
+      width: 100%;
     }
     
-    .block pre {
-      width: 95%;
-    }
-    
-    .block ul {
-      width: 95%;
+    #display .block pre {
+      width: 100%;
       margin-left: 1em;
       padding-left: 1em;
     }
     
-    .block ol {
-      width: 95%;
+    #display .block ul {
+      width: 100%;
       margin-left: 1em;
       padding-left: 1em;
     }
     
+    #display .block ol {
+      width: 100%;
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+    
+    /*
     a {
-      text-decoration: none;
+        color: inherit;
+        text-decoration-style: dotted;
+        text-decoration-thickness: 1px;
     }
+    */
     
     /* Fenced code blocks have form <pre><code>...</code></pre> */
     pre > code {
@@ -138,44 +145,39 @@
       margin-right: 1em;
       line-height: 1.5;
     }
-    .ace_line_group {
-      border: 1px solid rgb(0,0,0,0);
-      margin-top: -2px;
-    }
     
     .block {
       display: flex;
     }
     
-    li > div {
+    #display li > div {
       display: flex;
     }
     
     p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0.5em;
         margin-block-end: 0.5em;
       }
     
-    li {
+    #display li {
       width: 100%;
     }
     
     li .block p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0.5em;
         margin-block-end: 0.5em;
       }
     
     li .block:first-of-type p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0em;
         margin-block-end: 0em;
       }
-    
     
     h1 + .line-number {margin-block-start: 20em;}
     h2 + .line-number {margin-block-start: 15em;}
@@ -188,15 +190,18 @@
       margin-block-start: 0.5em;
     }
     
-    li > div > p  + div.line-number {
-      margin-block-start: 0em;
+    .block > div.linenumber {
+      margin-block-start: -0.5em;
+    }
+    
+    ul ul + .line-number {
+      display: none;
     }
     
     .line-number {
       float: right;
+      white-space: nowrap;
       font-size: 10%;
-      width:5%;
-      text-align: right;
     }
     
     .blockquote + div.line-number {
@@ -204,7 +209,7 @@
     }
     
     .blockquote {
-      width: 95%;
+      width: 100%;
       display: block;
       margin-top: 1em;
       margin-bottom: 1em;
@@ -213,15 +218,14 @@
     }
     
     pre code {
-      width: 95%;
+      width: 100%;
     }
     pre .line-number {
       float: right;
       font-size: 80%;
-      width:5%;
+      width: 5%;
       text-align: right;
     }
-    
     
     details > summary {
       font-weight: bold;
@@ -321,7 +325,7 @@
       <ol>
         <li><a number="1.1" href="#law-of-large-numbers-i">Law of Large Numbers I</a></li>
         <ol>
-          <li><a number="1.1.1" href="#a">a</a></li>
+          <li><a number="1.1.1" href="#a" class="highlighted">a</a></li>
           <li><a number="1.1.2" href="#b">b</a></li>
         </ol>
         <li><a number="1.2" href="#prelude-to-hypothesis-testing">Prelude to Hypothesis Testing</a></li>
@@ -353,8 +357,8 @@
       <li><a number="6" href="#hw-6">HW 6</a></li>
       <ol>
         <li><a number="6.1" href="#bootstraping-a-sampling-distribution">Bootstraping a Sampling Distribution</a></li>
-        <li><a number="6.2" href="#confidence-intervals-when-sampling-distribution-known" class="">Confidence Intervals when Sampling Distribution Known</a></li>
-        <li><a number="6.3" href="#confidence-interval-when-sampling-distribution-is-not-known" class="highlighted">Confidence Interval when Sampling Distribution is not Known</a></li>
+        <li><a number="6.2" href="#confidence-intervals-when-sampling-distribution-known">Confidence Intervals when Sampling Distribution Known</a></li>
+        <li><a number="6.3" href="#confidence-interval-when-sampling-distribution-is-not-known">Confidence Interval when Sampling Distribution is not Known</a></li>
       </ol>
       <li><a number="7" href="#hw-7">HW 7</a></li>
       <ol>
@@ -539,7 +543,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="a" number="1.1.1" class="hanchor" href="#a">1.1.1 a</a></h3>
+        <h3><a name="a" number="1.1.1" class="hanchor highlighted" href="#a">1.1.1 a</a></h3>
       </div>
       <div class="block">
         <ol>
@@ -596,7 +600,7 @@
                                   </svg></span></span></span></span></span></span></span></span></span>.</p>
             </div>
           </li>
-          <li>
+          <li class="active">
             <div class="block">
               <p>Repeat 1. and 2. <span len="8" class="katex"><span class="katex-mathml"><math>
                       <semantics>
@@ -652,7 +656,9 @@
       <div class="block">
         <p>See <a href="https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py">HW1_1a.py</a>. Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.</p>
       </div>
-      <img src="hws/figures/HW1_1a.svg">
+      <div class="block">
+        <img src="hws/figures/HW1_1a.svg">
+      </div>
     </div>
     <div class="section">
       <div class="block">
@@ -882,7 +888,9 @@
                       </semantics>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mopen">[</span><span class="mord">−</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">1</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">1</span><span class="mclose">]</span></span></span></span>.</p>
             </div>
-            <img src="hws/figures/HW1_1b2.svg">
+            <div class="block">
+              <img src="hws/figures/HW1_1b2.svg">
+            </div>
           </li>
           <li>
             <div class="block">
@@ -893,7 +901,9 @@
             <div class="block">
               <p>The following plot shows the dependence.</p>
             </div>
-            <img src="hws/figures/HW1_1b4.svg">
+            <div class="block">
+              <img src="hws/figures/HW1_1b4.svg">
+            </div>
           </li>
           <li>
             <div class="block">
@@ -2375,7 +2385,9 @@
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord">4</span></span></span></span> chance.</p>
       </div>
-      <img src="hws/figures/HW2_2.png" style="width:100%">
+      <div class="block">
+        <img src="hws/figures/HW2_2.png" style="width:100%">
+      </div>
       <div class="block">
         <p>See also <a href="http://library.mpib-berlin.mpg.de/ft/gg/GG_How_1995.pdf">How to Improve Bayesian Reasoning Without Instruction: Frequency Formats</a> for a discussion on how to explain problems involving Bayesian reasoning.</p>
       </div>
@@ -5002,7 +5014,9 @@
                       </semantics>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span>.</p>
             </div>
-            <img src="hws/figures/HW3_3-Fig_2.1_Stone.png">
+            <div class="block">
+              <img src="hws/figures/HW3_3-Fig_2.1_Stone.png">
+            </div>
             <div class="block">
               <p> In Figure 2.2, <span len="23" class="katex"><span class="katex-mathml"><math>
                       <semantics>
@@ -5075,7 +5089,9 @@
                       </semantics>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span>.</p>
             </div>
-            <img src="hws/figures/HW3_3-Fig_2.2_Stone.png">
+            <div class="block">
+              <img src="hws/figures/HW3_3-Fig_2.2_Stone.png">
+            </div>
             <div class="block">
               <p> A key conclusion is that as the number of results in <span len="13" class="katex"><span class="katex-mathml"><math>
                       <semantics>
@@ -5386,7 +5402,9 @@
       <div class="block">
         <p>My code is at <a href="https://github.com/rweigel/astrostats/tree/main/hws/HW4_2.py">HW4_2.py</a>. I solve the problem in two ways. In the first, I use a uniform probability distribution to generate a trial result with the given probabilities of success. In the second solution, I use <code>np.random.binomial()</code> to generate the trial results.</p>
       </div>
-      <img src="hws/figures/HW4_2.svg">
+      <div class="block">
+        <img src="hws/figures/HW4_2.svg">
+      </div>
     </div>
     <div class="section">
       <div class="block">
@@ -5898,7 +5916,9 @@
       <div class="block">
         <p>My code is at <a href="https://github.com/rweigel/astrostats/tree/main/hws/HW4_3.py">HW4_3.py</a>.</p>
       </div>
-      <img src="hws/figures/HW4_3.svg">
+      <div class="block">
+        <img src="hws/figures/HW4_3.svg">
+      </div>
     </div>
     <div class="section">
       <div class="block">
@@ -6757,7 +6777,9 @@
       <div class="block">
         <p>My code is at <a href="https://github.com/rweigel/astrostats/tree/main/hws/HW5_2.py">HW5_2.py</a></p>
       </div>
-      <img src="hws/figures/HW5_2.svg">
+      <div class="block">
+        <img src="hws/figures/HW5_2.svg">
+      </div>
       <div class="block">
         <p><strong>Answer to 2.</strong>:</p>
       </div>
@@ -10507,15 +10529,19 @@
       <div class="block">
         <p>In general, you will use the non-parametric bootstrap to determine a confidence interval when the sampling distribution of the measurements is not known. In fact, this is the motivation for the non-parametric bootstrap. Often we don’t know the sampling distribution (but almost as often, we assume to to be Gaussian or some other analytic equation). The advantage of the non-parametric bootstrap is that this assumption is not needed.</p>
       </div>
-      <img src="hws/figures/HW6_1a.svg">
+      <div class="block">
+        <img src="hws/figures/HW6_1a.svg">
+      </div>
       <div class="block">
         <p><a href="https://stats.stackexchange.com/questions/7400/how-to-assess-the-similarity-of-two-histograms">A useful discussion on comparing histograms.</a></p>
       </div>
-      <img src="hws/figures/HW6_1b.svg">
+      <div class="block">
+        <img src="hws/figures/HW6_1b.svg">
+      </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="confidence-intervals-when-sampling-distribution-known" number="6.2" class="hanchor" href="#confidence-intervals-when-sampling-distribution-known">6.2 Confidence Intervals when Sampling Distribution Known</a></h2>
+        <h2><a name="confidence-intervals-when-sampling-distribution-known" number="6.2" class="hanchor" href="#confidence-intervals-when-sampling-distribution-known">6.2 Confidence Intervals when Sampling Distribution Known</a></h2>
       </div>
       <div class="block">
         <p>Background reading: Chapter 7 of Devore and <a href="notes.html#key-distributions">my notes</a>.</p>
@@ -10603,7 +10629,7 @@
       </div>
       <hr>
       <div class="block">
-        <p class="">Draw <span len="6" class="katex"><span class="katex-mathml"><math>
+        <p>Draw <span len="6" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>n</mi>
@@ -11121,14 +11147,20 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
       <div class="block">
         <p>The answers to parts 3.–4. are in the titles of the following figures.</p>
       </div>
-      <img src="hws/figures/HW6_2_3.svg">
-      <img src="hws/figures/HW6_2_4.svg">
       <div class="block">
-        <p class="">This fact that the fractions given in the titles are nearly equal is perhaps not expected –if you repeat parts 1. and 2. a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But not always. The histogram of the error bar widths computed using Equation 7.15 is shown in the following figure. Based on this, the near equality still seems unexpected because the error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.</p>
+        <img src="hws/figures/HW6_2_3.svg">
       </div>
-      <img src="hws/figures/HW6_2_x.svg">
       <div class="block">
-        <p class="">The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. <span len="5" class="katex"><span class="katex-mathml"><math>
+        <img src="hws/figures/HW6_2_4.svg">
+      </div>
+      <div class="block">
+        <p>This fact that the fractions given in the titles are nearly equal is perhaps not expected –if you repeat parts 1. and 2. a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But not always. The histogram of the error bar widths computed using Equation 7.15 is shown in the following figure. Based on this, the near equality still seems unexpected because the error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.</p>
+      </div>
+      <div class="block">
+        <img src="hws/figures/HW6_2_x.svg">
+      </div>
+      <div class="block">
+        <p>The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. <span len="5" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>μ</mi>
@@ -11144,11 +11176,13 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, manifests by more black dots below the line of magneta dots than above it.</p>
       </div>
-      <img src="hws/figures/HW6_2_y.svg">
+      <div class="block">
+        <img src="hws/figures/HW6_2_y.svg">
+      </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="confidence-interval-when-sampling-distribution-is-not-known" number="6.3" class="hanchor highlighted" href="#confidence-interval-when-sampling-distribution-is-not-known">6.3 Confidence Interval when Sampling Distribution is not Known</a></h2>
+        <h2><a name="confidence-interval-when-sampling-distribution-is-not-known" number="6.3" class="hanchor" href="#confidence-interval-when-sampling-distribution-is-not-known">6.3 Confidence Interval when Sampling Distribution is not Known</a></h2>
       </div>
       <div class="block">
         <p>(<strong>590 only</strong>)</p>
@@ -11197,7 +11231,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
         <p><strong>Answer</strong></p>
       </div>
       <div class="block">
-        <p class="active">See <a href="hws/HW6_3.py">HW6_3.py</a>, which creates the following figure. In the legend, <span len="11" class="katex"><span class="katex-mathml"><math>
+        <p>See <a href="hws/HW6_3.py">HW6_3.py</a>, which creates the following figure. In the legend, <span len="11" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mover accent="true">
@@ -11245,7 +11279,9 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
       <div class="block">
         <p>I used two methods because the number of measurements is smaller than what is typically recommended for the parametric bootstrap. Equation 7.15 is not ideal either - this equation requires the measurements to be drawn from a Gaussian. However, we are only given a set of measurements and we don’t know if it is appropriate to assume they were drawn from a Gaussian (often this is assumed). This situation, where the assumptions for a given statistical method are not satisfied or not known to be satisfied, is common. This is why I recommend always using at least two methods.</p>
       </div>
-      <img src="hws/figures/HW6_3.svg">
+      <div class="block">
+        <img src="hws/figures/HW6_3.svg">
+      </div>
     </div>
     <div class="section">
       <div class="block">
