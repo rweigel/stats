@@ -15,8 +15,6 @@ xo_mean = np.mean(xo)
 n = np.size(xo)
 s = np.std(xo, ddof=1)
 
-#np.random.seed(100)
-
 # Part 1.
 
 # Devore 7.4
@@ -38,7 +36,6 @@ t = stats.t.ppf(0.975, n-1) # 2.2621571627409915
 
 w2 = t*s/np.sqrt(n) # width of error bar for part 2.
 
-print(w2-w1)
 print('95% CI: Eqn 7.15: [{0:.2f}, {1:.2f}]'.format(xo_mean - w2, xo_mean + w2))
 
 # Part 3
@@ -56,10 +53,11 @@ f1 = np.sum(idx1)/B
 bins = np.linspace(8.5,11.5,50)
 
 plt.figure()
-plt.hist(xbars, bins=bins, density=True)
+plt.hist(xbars, color='k', alpha=0.5, bins=bins, density=True)
 plt.xlabel('$\overline{X}$')
-plt.ylabel('pdf($\overline{X}$)')
-title = '{0:.1f}% of time $\mu$ in CI range'
+plt.ylabel('$pdf(\overline{X})$')
+title = '{0:.1f}% of time $\mu$ in CI range given by eqn. 7.4:\n'
+title += '$[\overline{{X}}-z_{{.025}}\sigma/\sqrt{{n}},\overline{{X}}+z_{{.025}}\sigma/\sqrt{{n}}]$'
 title = title.format(100*f1)
 plt.title(title)
 plt.legend(['Parametric bootstrap pdf'])
@@ -76,39 +74,46 @@ ci2s_upper = xbars + w2s
 
 idx2 = np.where(np.logical_and(mu > ci2s_lower, mu < ci2s_upper), 1, 0)
 f2 = np.sum(idx2)/B
-title = '{0:.1f}% of time $\mu$ in CI range'
+title = '{0:.1f}% of time $\mu$ in CI range given by eqn. 7.15:\n'
+title += '$[\overline{{X}}-t_{{.025, 9}}s/\sqrt{{n}},\overline{{X}}+t_{{.025, 9}}s/\sqrt{{n}}]$'
 title = title.format(100*f2)
 
 plt.figure()
-plt.hist(xbars, bins=bins, density=True)
+plt.hist(xbars, color='k', alpha=0.5, bins=bins, density=True)
 plt.xlabel('$\overline{X}$')
-plt.ylabel('pdf($\overline{X}$)')
+plt.ylabel('$pdf(\overline{X})$')
 plt.title(title)
 plt.legend(['Parametric bootstrap pdf'])
-
 plt.savefig('figures/HW6_2_4.svg', transparent=True)
 plt.savefig('figures/HW6_2_4.png', transparent=True)
 
+# Extra plots to explain results
+
 plt.figure()
 plt.plot([w1s,w1s], [0, 2.5], 'k', label='Equation 7.4')
-plt.plot([np.mean(w2s),np.mean(w2s)], [0, 2.5], 'r', label='Average width from Equation 7.15')
-plt.hist(w2s, bins=np.linspace(0,1.5,50), color='b', density=True, label='Equation 7.15')
+plt.plot([np.median(w2s),np.median(w2s)], [0, 2.5], 'r', label='Equation 7.15 median')
+plt.hist(w2s, bins=np.linspace(0,1.5,50), color='k', alpha=0.5, density=True, label='Equation 7.15')
+plt.ylim([0, 2.5])
 plt.ylabel('pdf')
-plt.xlabel('Error bar width')
+plt.xlabel('CI width')
 plt.legend()
+plt.savefig('figures/HW6_2_x.svg', transparent=True)
+plt.savefig('figures/HW6_2_x.png', transparent=True)
+
 
 plt.figure()
 idx2x = np.where(np.logical_or(mu < ci2s_lower, mu > ci2s_upper), 1, 0)
 idx2x = np.asarray(np.logical_or(mu < ci2s_lower, mu > ci2s_upper)).nonzero()[0]
 idx1x = np.asarray(np.logical_or(mu < ci1s_lower, mu > ci1s_upper)).nonzero()[0]
 w1s = np.ones(B)*1.96*sigma/np.sqrt(n)
-plt.plot(xbars-mu, w1s,'y.',label='Equation 7.4')
-plt.plot(xbars-mu, w2s, 'b.', label='Equation 7.15')
-plt.plot(xbars[idx1x]-mu, w1s[idx1x],'k.',ms=2, label='Equation 7.4 $\mu$ outside CI')
-plt.plot(xbars[idx2x]-mu, w2s[idx2x], 'k.',ms=2,label='Equation 7.15 $\mu$ outside CI')
-plt.xlabel('$\overline{x}-\mu$')
-plt.ylabel('Error bar width')
-plt.legend()
+plt.plot(xbars-mu, w1s,'m.',label='Equation 7.4', zorder=3)
+plt.plot(xbars[idx1x]-mu, w1s[idx1x],'y.',ms=2,  zorder=4, label='Equation 7.4 gives $\mu$ outside CI')
+plt.plot(xbars-mu, w2s, '.', color=[1,0,0,0.5], label='Equation 7.15', zorder=1)
+plt.plot(xbars[idx2x]-mu, w2s[idx2x], 'k.',ms=2, zorder=1, label='Equation 7.15 gives $\mu$ outside CI')
+plt.xlabel('$\overline{X}-\mu$')
+plt.ylabel('CI width')
+plt.legend(loc='upper left')
+plt.savefig('figures/HW6_2_y.svg', transparent=True)
+plt.savefig('figures/HW6_2_y.png', transparent=True)
 
-
-print(stats.pearsonr(w2s, xbars-mu))
+#print(stats.pearsonr(w2s, xbars-mu))

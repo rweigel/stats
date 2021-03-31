@@ -2,6 +2,14 @@ import numpy as np
 from scipy import stats
 from matplotlib import pyplot as plt
 
+import distutils.spawn
+if distutils.spawn.find_executable("latex"):
+    from matplotlib import rc
+    rc('text', usetex=True)
+
+rc('font', **{'family': 'serif', 'serif': ['Times'], 'size': 12})
+
+
 alpha = 0.05
 
 xo = np.asarray([-0.54603241, -0.40652794, -0.11570264, -1.26244673, -1.38616981,
@@ -20,7 +28,7 @@ xo_mean = np.mean(xo)
 n = np.size(xo)
 s = np.std(xo, ddof=1)
 
-title = ' = {0:.2f}; 95% CI from Eqn 7.15: [{1:.2f}, {2:.2f}]'
+title = ' = {0:.2f}; 95\% CI from Eqn 7.15: [{1:.2f}, {2:.2f}]'
 title = '$\overline{X}$' + title.format(xo_mean, xo_mean - w2, xo_mean + w2)
 
 B = 10000
@@ -51,7 +59,7 @@ plt.plot([ci[0],ci[0]], [0, 0.2], 'k:')
 plt.plot([xo_mean,xo_mean], [0, 0.2], 'k')
 plt.fill_between(bins[0:-1], N_star/B, color='k', alpha=0.5, step='mid')
 
-l1 = '95%% CI = [%.2f, %.2f]' % (ci[0], ci[1])
+l1 = '95\\%% CI = [%.2f, %.2f]' % (ci[0], ci[1])
 l2 = '$\hat{\mu} = %.2f$' % xo_mean
 plt.legend([l1, l2, 'Bootstrap sampling dist.'])
 plt.plot([ci[1],ci[1]], [0, 0.2], 'k:')

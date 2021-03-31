@@ -81,27 +81,19 @@
     }
     
     h1,h2,h3,h4,h5,h6 {
-      width: 95%;
+      width: 100%;
     }
     
-    .block pre {
-      width: 95%;
-    }
-    
-    .block ul {
-      width: 95%;
-      margin-left: 1em;
-      padding-left: 1em;
-    }
-    
-    .block ol {
-      width: 95%;
+    .block ul, ol, pre {
+      width: 100%;
       margin-left: 1em;
       padding-left: 1em;
     }
     
     a {
-      text-decoration: none;
+        color: inherit;
+        text-decoration-style: dotted;
+        text-decoration-thickness: 1px;
     }
     
     /* Fenced code blocks have form <pre><code>...</code></pre> */
@@ -138,10 +130,6 @@
       margin-right: 1em;
       line-height: 1.5;
     }
-    .ace_line_group {
-      border: 1px solid rgb(0,0,0,0);
-      margin-top: -2px;
-    }
     
     .block {
       display: flex;
@@ -152,7 +140,7 @@
     }
     
     p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0.5em;
         margin-block-end: 0.5em;
@@ -163,19 +151,18 @@
     }
     
     li .block p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0.5em;
         margin-block-end: 0.5em;
       }
     
     li .block:first-of-type p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0em;
         margin-block-end: 0em;
       }
-    
     
     h1 + .line-number {margin-block-start: 20em;}
     h2 + .line-number {margin-block-start: 15em;}
@@ -188,15 +175,18 @@
       margin-block-start: 0.5em;
     }
     
-    li > div > p  + div.line-number {
-      margin-block-start: 0em;
+    .block > div.linenumber {
+      margin-block-start: -0.5em;
+    }
+    
+    ul ul + .line-number {
+      display: none;
     }
     
     .line-number {
       float: right;
+      white-space: nowrap;
       font-size: 10%;
-      width:5%;
-      text-align: right;
     }
     
     .blockquote + div.line-number {
@@ -204,7 +194,7 @@
     }
     
     .blockquote {
-      width: 95%;
+      width: 100%;
       display: block;
       margin-top: 1em;
       margin-bottom: 1em;
@@ -213,15 +203,14 @@
     }
     
     pre code {
-      width: 95%;
+      width: 100%;
     }
     pre .line-number {
       float: right;
       font-size: 80%;
-      width:5%;
+      width: 5%;
       text-align: right;
     }
-    
     
     details > summary {
       font-weight: bold;
@@ -319,7 +308,7 @@
     <ol>
       <li><a number="1" href="#overview">Overview</a></li>
       <li><a number="2" href="#definitions">Definitions</a></li>
-      <li><a number="3" href="#key-distributions">Key Distributions</a></li>
+      <li><a number="3" href="#key-distributions" class="highlighted">Key Distributions</a></li>
     </ol>
   </div>
   <div id="display">
@@ -528,6 +517,11 @@
           </li>
           <li>
             <div class="block">
+              <p><strong>Population statistic</strong> - a computation based on all values in a population.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
               <p><strong>Probability distribution</strong> – There are two types: discrete and continuous.</p>
             </div>
             <div class="block">
@@ -645,12 +639,15 @@
             </div>
             <div class="block">
               <pre class="language-Python"><div class="block"><code><span class="hljs-comment"># src=code/pmf.py</span></code></div></pre>
-            </div> <img src="code/figures/pmf.svg">
+            </div>
+            <div class="block">
+              <img src="code/figures/pmf.svg">
+            </div>
             <div class="block">
               <p> <strong>2. Continuous</strong></p>
             </div>
             <div class="block">
-              <p class="active"> The discrete case is called the “probability density function”, and I’ve been using the variable <span len="3" class="katex"><span class="katex-mathml"><math>
+              <p> The discrete case is called the “probability density function”, and I’ve been using the variable <span len="3" class="katex"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mi>p</mi>
@@ -883,7 +880,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                         </mrow>
                         <annotation encoding="application/x-tex">x</annotation>
                       </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">x</span></span></span></span> drawn from this distribution will be in the range <span len="33" class="katex"><span class="katex-mathml"><math>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">x</span></span></span></span> drawn a Gaussian will be in the range <span len="33" class="katex"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mo>[</mo>
@@ -981,7 +978,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
               <p><strong>Sampling distribution</strong> - When we take a sample from a population and compute a statistc, for example a mean, we want to know the uncertainty in the statistic. That is, we want to know what the probability distribution of the means would be if we took many samples and computed many means. The probability histogram of the test statistic is the sampling distribution. If the sampling distribution is known, we can easily put error bars on our test statistic.</p>
             </div>
             <div class="block">
-              <p> In HW #1, we derived a sampling distribution numerically. It was found that when <span len="3" class="katex"><span class="katex-mathml"><math>
+              <p> In <a href="hw.html#hw-1">HW #1</a>, we derived a sampling distribution numerically. It was found that when <span len="3" class="katex"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mi>n</mi>
@@ -1697,12 +1694,121 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span>.</p>
             </div>
           </li>
+          <li>
+            <div class="block">
+              <p><strong>Parametric bootstrap sample statistic distribution</strong> – A pmf or pdf created by simulating many experiments and the calculation of a sample statistic for each experiment. For example, suppose that we wanted to know the distribution of the sample statistic <span len="29" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>Y</mi>
+                          <mo>=</mo>
+                          <msubsup>
+                            <mi>X</mi>
+                            <mn>1</mn>
+                            <mn>2</mn>
+                          </msubsup>
+                          <mo>+</mo>
+                          <msubsup>
+                            <mi>X</mi>
+                            <mn>2</mn>
+                            <mn>2</mn>
+                          </msubsup>
+                          <mo>+</mo>
+                          <mo>…</mo>
+                          <mo>+</mo>
+                          <msubsup>
+                            <mi>X</mi>
+                            <mi>n</mi>
+                            <mn>2</mn>
+                          </msubsup>
+                        </mrow>
+                        <annotation encoding="application/x-tex">Y=X_1^2 + X_2^2 + … + X_n^2</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.0622159999999998em;vertical-align:-0.24810799999999997em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="minner">…</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"></span></span></span></span></span></span></span></span>, where an experiment consists of drawing <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>n</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">n</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> values, <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>X</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">X</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>, which are Gaussian distribution with a known mean and standard deviation. We could use a random number generator so simulate many experiements and for each experiment compute <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>Y</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">Y</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span>. If a theoretical distribution for <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>Y</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">Y</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.22222em;">Y</span></span></span></span> is not known, this method can be used.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><strong>Non-parametric bootstrap sample statistic distribution</strong></p>
+            </div>
+            <div class="block">
+              <p> <a href="https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping">The definition</a> of the idiom “bootstrapping” is “get (oneself or something) into or out of a situation using existing resources.” If we don’t know the sampling distribution of <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>X</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">X</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span>, we can’t use a random number generator to simulate many experiments. In this case, we use the only available resource: the measurments from one experiment. This done by drawing a sample of <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>n</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">n</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> with replacement from the <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>n</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">n</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> measurements. Each such draw is called a bootstrap sample (or experiment) and the test statistic computed from it is indicated by <span len="5" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>Y</mi>
+                            <mo>∗</mo>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">Y_*</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.175696em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>. The bootstrap pmf or pdf is computed from the histogram of the <span len="5" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msup>
+                            <mi>Y</mi>
+                            <mo>∗</mo>
+                          </msup>
+                        </mrow>
+                        <annotation encoding="application/x-tex">Y^*</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.688696em;"></span><span class="strut bottom" style="height:0.688696em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>s.</p>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="key-distributions" number="3" class="hanchor" href="#key-distributions">3 Key Distributions</a></h1>
+        <h1><a name="key-distributions" number="3" class="hanchor highlighted" href="#key-distributions">3 Key Distributions</a></h1>
       </div>
       <div class="block">
         <p>Discrete distributions used thus far</p>
@@ -1711,12 +1817,12 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
         <ul>
           <li>
             <div class="block">
-              <p>Binomial Distribution follows from Bernoulii Trials</p>
+              <p>The Binomial Distribution, which follows from Bernoulii Trials.</p>
             </div>
           </li>
           <li>
             <div class="block">
-              <p>Poisson Distribution is limiting case of Binomial Distribution (requires <span len="8" class="katex"><span class="katex-mathml"><math>
+              <p>The Poisson Distribution, which is limiting case of Binomial Distribution (requires <span len="8" class="katex"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mi>n</mi>
@@ -1751,12 +1857,12 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
           </li>
           <li>
             <div class="block">
-              <p>The Exponential Distribution (aka “Waiting Time Distribution)” is the distribution of the time between successes (aka “events”) in a Poisson-distributed variable (derivation is not trivial).</p>
+              <p>The Exponential Distribution (aka “Waiting Time Distribution)”, which is the distribution of the time between successes (aka “events”) in a Poisson-distributed variable (derivation is not trivial).</p>
             </div>
           </li>
           <li>
             <div class="block">
-              <p>Normal or Gaussian distribution (note Normal and Gaussian are used interchangeably) is limiting case of Binomial Distribution (and Poisson Distribution, but not Exponential distribution)</p>
+              <p>The Normal or Gaussian distribution (note Normal and Gaussian are used interchangeably), which is a limiting case of Binomial Distribution (and Poisson Distribution, but not Exponential distribution).</p>
             </div>
           </li>
         </ul>
@@ -1824,7 +1930,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                         </mrow>
                         <annotation encoding="application/x-tex">X</annotation>
                       </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span> is a Gaussian–distributed random variable with mean <span len="5" class="katex"><span class="katex-mathml"><math>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span> is a random variable with mean <span len="5" class="katex"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mi>μ</mi>
@@ -1882,121 +1988,6 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                         <annotation encoding="application/x-tex">z</annotation>
                       </semantics>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.04398em;">z</span></span></span></span> is the Standard Normal.</p>
-            </div>
-            <div class="block">
-              <p> Note that we could first standardize the <span len="5" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <msub>
-                            <mi>X</mi>
-                            <mi>i</mi>
-                          </msub>
-                        </mrow>
-                        <annotation encoding="application/x-tex">X_i</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> values according to <span len="29" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <msup>
-                            <mi>X</mi>
-                            <mo mathvariant="normal">′</mo>
-                          </msup>
-                          <mo>=</mo>
-                          <mo>(</mo>
-                          <mi>X</mi>
-                          <mo>−</mo>
-                          <mi>μ</mi>
-                          <mo>)</mo>
-                          <mi mathvariant="normal">/</mi>
-                          <mi>σ</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">X^{\prime} = (X-\mu)/\sigma</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">μ</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span>. Note the omission of the <span len="10" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <msqrt>
-                            <mrow>
-                              <mi>n</mi>
-                            </mrow>
-                          </msqrt>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\sqrt{n}</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="base"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathit">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
-                                    <path d="M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
--10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
--50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
-35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
--221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
-s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
-s-65,47,-65,47z M834 80H400000v40H845z"></path>
-                                  </svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"></span></span></span></span></span></span></span> in this case. Then the histogram of <span len="12" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <msup>
-                            <mi>X</mi>
-                            <mo mathvariant="normal">′</mo>
-                          </msup>
-                        </mrow>
-                        <annotation encoding="application/x-tex">X^{\prime}</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:0.751892em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> is normalized and to standardize <span len="23" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <msup>
-                            <mover accent="true">
-                              <mrow>
-                                <mi>X</mi>
-                              </mrow>
-                              <mo stretchy="true">‾</mo>
-                            </mover>
-                            <mo mathvariant="normal">′</mo>
-                          </msup>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\overline{X}^{\prime}</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9051220000000001em;"></span><span class="strut bottom" style="height:0.9051220000000001em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                                      <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                    </svg></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9051220000000001em;"><span style="top:-3.2162300000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span>, we would only need <span len="33" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>z</mi>
-                          <mo>=</mo>
-                          <mo>(</mo>
-                          <mover accent="true">
-                            <mrow>
-                              <mi>X</mi>
-                            </mrow>
-                            <mo stretchy="true">‾</mo>
-                          </mover>
-                          <mo>−</mo>
-                          <mn>1</mn>
-                          <mo>)</mo>
-                          <mi mathvariant="normal">/</mi>
-                          <mo>(</mo>
-                          <mn>1</mn>
-                          <mi mathvariant="normal">/</mi>
-                          <msqrt>
-                            <mrow>
-                              <mi>n</mi>
-                            </mrow>
-                          </msqrt>
-                          <mo>)</mo>
-                        </mrow>
-                        <annotation encoding="application/x-tex">z=(\overline{X}-1)/(1/\sqrt{n})</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">(</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                                    <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                  </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord">/</span><span class="mopen">(</span><span class="mord">1</span><span class="mord">/</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathit">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
-                                    <path d="M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
--10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
--50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
-35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
--221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
-s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
-s-65,47,-65,47z M834 80H400000v40H845z"></path>
-                                  </svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"></span></span></span></span><span class="mclose">)</span></span></span></span>. </p>
             </div>
           </li>
           <li>
@@ -2125,7 +2116,14 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                         </mrow>
                         <annotation encoding="application/x-tex">X</annotation>
                       </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span> is a Gaussian–distributed random variable. Both the numerator and denominator will vary from sample to sample and so we expect that the histogram of </p>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span></span> is a Gaussian–distributed random variable. Both the numerator and denominator of <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>t</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">t</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.61508em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">t</span></span></span></span> will vary from sample to sample and so we expect that the histogram of </p>
             </div>
             <div class="block">
               <p> <span len="41" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
@@ -2271,9 +2269,11 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                       </semantics>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.06366em;">ν</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span>.</p>
             </div>
-            <img src="hws/figures/compare_gaussian_and_t.svg">
             <div class="block">
-              <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code></div><div class="block"><code><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt</code></div><div class="block"><code></code></div><div class="block"><code>n     = <span class="hljs-number">5</span></code></div><div class="block"><code>mu    = <span class="hljs-number">10</span></code></div><div class="block"><code>sigma = <span class="hljs-number">20</span></code></div><div class="block"><code></code></div><div class="block"><code><span class="hljs-comment"># n x 10,000 matrix</span></code></div><div class="block"><code>X = mu + sigma*np.random.randn(n, <span class="hljs-number">10000</span>)</code></div><div class="block"><code></code></div><div class="block"><code><span class="hljs-comment"># Compute 10,000 averages of n values</span></code></div><div class="block"><code>Xbar = np.mean(X, axis=<span class="hljs-number">0</span>)</code></div><div class="block"><code></code></div><div class="block"><code>V = np.var(X, axis=<span class="hljs-number">0</span>, ddof=<span class="hljs-number">1</span>)</code></div><div class="block"><code>S = np.sqrt(V)</code></div><div class="block"><code></code></div><div class="block"><code>z = (Xbar - mu)/(sigma/np.sqrt(n))</code></div><div class="block"><code>t = (Xbar - mu)/(S/np.sqrt(n))</code></div><div class="block"><code>plt.figure()</code></div><div class="block"><code>plt.grid()</code></div><div class="block"><code>plt.hist(t, bins=np.linspace(-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">50</span>), edgecolor=<span class="hljs-string">'k'</span>, facecolor=<span class="hljs-string">'k'</span>)</code></div><div class="block"><code>plt.hist(z, bins=np.linspace(-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">50</span>), edgecolor=<span class="hljs-string">'b'</span>, facecolor=<span class="hljs-string">'b'</span>)</code></div><div class="block"><code>plt.xlabel(<span class="hljs-string">'<span len="3" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.61508em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">t</span></span></span></span> or <span len="3" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.04398em;">z</span></span></span></span>'</span>)</code></div><div class="block"><code>plt.ylabel(<span class="hljs-string">'# in bin'</span>)</code></div><div class="block"><code>plt.title(<span class="hljs-string">'<span len="6" class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span> t and z values using <span len="5" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">n=4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">4</span></span></span></span>'</span>)</code></div><div class="block"><code>plt.legend([<span class="hljs-string">'<span len="3" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.61508em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">t</span></span></span></span>'</span>,<span class="hljs-string">'<span len="3" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.04398em;">z</span></span></span></span>'</span>])</code></div><div class="block"><code></code></div><div class="block"><code>plt.savefig(<span class="hljs-string">"figures/compare_gaussian_and_t.png"</span>, <span class="hljs-built_in">format</span>=<span class="hljs-string">"png"</span>, transparent=<span class="hljs-literal">True</span>)</code></div><div class="block"><code>plt.savefig(<span class="hljs-string">"figures/compare_gaussian_and_t.svg"</span>, <span class="hljs-built_in">format</span>=<span class="hljs-string">"svg"</span>, transparent=<span class="hljs-literal">True</span>)</code></div></pre>
+              <img src="hws/figures/compare_gaussian_and_t.svg">
+            </div>
+            <div class="block">
+              <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code></div><div class="block"><code><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt</code></div><div class="block"><code></code></div><div class="block"><code class="active">n     = <span class="hljs-number">5</span></code></div><div class="block"><code>mu    = <span class="hljs-number">10</span></code></div><div class="block"><code>sigma = <span class="hljs-number">20</span></code></div><div class="block"><code></code></div><div class="block"><code><span class="hljs-comment"># n x 10,000 matrix</span></code></div><div class="block"><code>X = mu + sigma*np.random.randn(n, <span class="hljs-number">10000</span>)</code></div><div class="block"><code></code></div><div class="block"><code><span class="hljs-comment"># Compute 10,000 averages of n values</span></code></div><div class="block"><code>Xbar = np.mean(X, axis=<span class="hljs-number">0</span>)</code></div><div class="block"><code></code></div><div class="block"><code>V = np.var(X, axis=<span class="hljs-number">0</span>, ddof=<span class="hljs-number">1</span>)</code></div><div class="block"><code>S = np.sqrt(V)</code></div><div class="block"><code></code></div><div class="block"><code>z = (Xbar - mu)/(sigma/np.sqrt(n))</code></div><div class="block"><code>t = (Xbar - mu)/(S/np.sqrt(n))</code></div><div class="block"><code>plt.figure()</code></div><div class="block"><code>plt.grid()</code></div><div class="block"><code>plt.hist(t, bins=np.linspace(-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">50</span>), edgecolor=<span class="hljs-string">'k'</span>, facecolor=<span class="hljs-string">'k'</span>)</code></div><div class="block"><code>plt.hist(z, bins=np.linspace(-<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">50</span>), edgecolor=<span class="hljs-string">'b'</span>, facecolor=<span class="hljs-string">'b'</span>)</code></div><div class="block"><code>plt.xlabel(<span class="hljs-string">'<span len="3" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.61508em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">t</span></span></span></span> or <span len="3" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.04398em;">z</span></span></span></span>'</span>)</code></div><div class="block"><code>plt.ylabel(<span class="hljs-string">'# in bin'</span>)</code></div><div class="block"><code>plt.title(<span class="hljs-string">'<span len="6" class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">10^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span> t and z values using <span len="5" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">n=4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">4</span></span></span></span>'</span>)</code></div><div class="block"><code>plt.legend([<span class="hljs-string">'<span len="3" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.61508em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">t</span></span></span></span>'</span>,<span class="hljs-string">'<span len="3" class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.04398em;">z</span></span></span></span>'</span>])</code></div><div class="block"><code></code></div><div class="block"><code>plt.savefig(<span class="hljs-string">"figures/compare_gaussian_and_t.png"</span>, <span class="hljs-built_in">format</span>=<span class="hljs-string">"png"</span>, transparent=<span class="hljs-literal">True</span>)</code></div><div class="block"><code>plt.savefig(<span class="hljs-string">"figures/compare_gaussian_and_t.svg"</span>, <span class="hljs-built_in">format</span>=<span class="hljs-string">"svg"</span>, transparent=<span class="hljs-literal">True</span>)</code></div></pre>
             </div>
           </li>
           <li>

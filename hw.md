@@ -837,17 +837,26 @@ Equation 7.15 is the 95\% confidence interval for the average of $n$ values draw
 
 $$\left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}+t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)$$
 
-Note that $n$ does not need to be large for this equation to apply. Both equations only require that the $n$ values are drawn from a Gaussian distribution. In this problem, you compared the confidence intervals using both equations. Because the conditions for each equation to apply were satisfied, we expect the the simulations in 3. and 4. to show that 95\% of the confidence intervals contained $\mu$. This is perhaps not expected --if you run repeat the expriment a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But now always. The histogram of the error bar widths is shown in the following. Based on this diagram, the result from the simulations still seems unexpected. The error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.
+Note that $n$ does not need to be large for either equation to apply. Both equations only require that the $n$ values are drawn from a Gaussian distribution. Because the conditions for each equation to apply were satisfied, we expect the the simulations in 3. and 4. to show that 95\% of the confidence intervals contained $\mu$. 
 
-To explain the simulation results, we need $\mu$ to fall outside of the CI from Equation 7.15 more often when the CI from 7.15 is smaller than that from 7.4 than when the CI from 7.15 is larger than that from 7.4. This could explain why even though the CI from 7.15 is on average larger, it traps $\mu$ as frequently.
+See [HW6_2.py](hws/HW6_2.py) for the calculations for parts 1.--4.
 
-the error bar widths from Equation 2. are larger than that from Equation 1. How then could these error bars overlap $\mu$ the same percentage of time? There are two factors that determine if $\mu$ will be in the confidence interval (1) the width of the confidence interval and (2) center of the confidence interval.
+1. [9.58, 10.82] (but will vary)
+2. [9.52, 10.88] (but will vary)
 
-The answers to parts 1.--4. are in the following figures, which were created using  [HW6_2.py](hws/HW6_2.py). The title in the first plot has the answers to parts 1. and 3.; the title in the second plot has the answers to parts 2. and 4.
+The answers to parts 3.--4. are in the titles of the following figures.
 
 <img src="hws/figures/HW6_2_3.svg"/>
 
 <img src="hws/figures/HW6_2_4.svg"/>
+
+This fact that the fractions given in the titles are nearly equal is perhaps not expected --if you repeat parts 1. and 2. a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But not always. The histogram of the error bar widths computed using Equation 7.15 is shown in the following figure. Based on this, the near equality still seems unexpected because the error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.
+
+<img src="hws/figures/HW6_2_x.svg"/>
+
+The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. $\mu$ falls outside of the CI from Equation 7.15 more often when the CI width from 7.15 is smaller than that from 7.4 in comparison to when the CI width from 7.15 is larger than that from 7.4. So even though the error bar widths from eqn 7.15 are on average larger than that from 7.4, $\mu$ is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, manifests by more black dots below the line of magneta dots than above it.
+
+<img src="hws/figures/HW6_2_y.svg"/>
 
 ## Confidence Interval when Sampling Distribution is not Known
 
@@ -866,7 +875,7 @@ Save the code for your answer in a file named `HW6_3.py`. When executed, the cod
 
 **Answer**
 
-See [HW6_3.py](hws/HW6_3.py). In the legend, $\hat{\mu}$ is used to represent the average of the $\overline{X}^*$ values and $\overline{X}$ to represent the average of the given measurements. As a check, I computed a confidence interval using equation 7.15. Thus, confidence intervals were computed using the non-parametric bootstrap and a standard freqentist parametric method.
+See [HW6_3.py](hws/HW6_3.py), which creates the following figure. In the legend, $\hat{\mu}$ is used to represent the average of the $\overline{X}^*$ values and $\overline{X}$ to represent the average of the measurements given in the problem statement. As a check, I computed a confidence interval using equation 7.15. Thus, confidence intervals were computed using the non-parametric bootstrap and a standard freqentist parametric method.
 
 I used two methods because the number of measurements is smaller than what is typically recommended for the parametric bootstrap. Equation 7.15 is not ideal either - this equation requires the measurements to be drawn from a Gaussian. However, we are only given a set of measurements and we don't know if it is appropriate to assume they were drawn from a Gaussian (often this is assumed). This situation, where the assumptions for a given statistical method are not satisfied or not known to be satisfied, is common. This is why I recommend always using at least two methods.
  

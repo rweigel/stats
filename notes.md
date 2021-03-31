@@ -22,6 +22,8 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
 * **Sample statistic** - a computation based on a sample from a population that gives an estimate of the equivalent value that would be obtained if the same computation was performed on the population (see also Devore p214).
 
+* **Population statistic** - a computation based on all values in a population.
+
 * **Probability distribution** -- There are two types: discrete and continuous.
 
     **1\. Discrete**
@@ -66,7 +68,7 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
     $$\int_{-\infty}^\infty p(x)dx=1$$
 
-    You are already familiar with statements such as "95% of the time a value of $x$ drawn from this distribution will be in the range $[\mu-1.96\sigma,\mu+1.96\sigma]$, or
+    You are already familiar with statements such as "95% of the time a value of $x$ drawn a Gaussian will be in the range $[\mu-1.96\sigma,\mu+1.96\sigma]$, or
 
     $$P(\mu-1.96\sigma\le x\le \mu+1.96\sigma) = 0.95 = \int_{\mu-1.96\sigma}^{\mu+1.96\sigma}p(x)dx$$
 
@@ -74,7 +76,7 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
 * **Sampling distribution** - When we take a sample from a population and compute a statistc, for example a mean, we want to know the uncertainty in the statistic. That is, we want to know what the probability distribution of the means would be if we took many samples and computed many means. The probability histogram of the test statistic is the sampling distribution. If the sampling distribution is known, we can easily put error bars on our test statistic.
 
-    In HW #1, we derived a sampling distribution numerically. It was found that when $n$ values of $X$ were drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$ and the statistic 
+    In [HW #1](hw.html#hw-1), we derived a sampling distribution numerically. It was found that when $n$ values of $X$ were drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$ and the statistic 
 
     $$\overline{X} = \frac{1}{n}\sum_{i=1}^nX_i$$
 
@@ -114,16 +116,22 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
 * **Central Limit Theorem**
 
-    The Law of Large Numbers tells use that if we require $\overline{X}$ to fall in range that we specify around $\mu$ with a probability that we specify, we can find an $n$ value to satisfy our requirement. The central limit theorem says that for large $n$, $\overline{X}$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma$. With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
+    The Law of Large Numbers tells use that if we require $\overline{X}$ to fall in range that we specify around $\mu$ with a probability that we specify, we can find an $n$ value to satisfy our requirement. The central limit theorem says that for large $n$, $\overline{X}$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma$. With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
+
+* **Parametric bootstrap sample statistic distribution** -- A pmf or pdf created by simulating many experiments and the calculation of a sample statistic for each experiment. For example, suppose that we wanted to know the distribution of the sample statistic $Y=X_1^2 + X_2^2 + ... + X_n^2$, where an experiment consists of drawing $n$ values, $X$, which are Gaussian distribution with a known mean and standard deviation. We could use a random number generator so simulate many experiements and for each experiment compute $Y$. If a theoretical distribution for $Y$ is not known, this method can be used.
+
+* **Non-parametric bootstrap sample statistic distribution**
+
+    [The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." If we don't know the sampling distribution of $X$, we can't use a random number generator to simulate many experiments. In this case, we use the only available resource: the measurments from one experiment. This done by drawing a sample of $n$ with replacement from the $n$ measurements. Each such draw is called a bootstrap sample (or experiment) and the test statistic computed from it is indicated by $Y_*$. The bootstrap pmf or pdf is computed from the histogram of the $Y^*$s.
 
 # Key Distributions
 
 Discrete distributions used thus far
 
-- Binomial Distribution follows from Bernoulii Trials
-- Poisson Distribution is limiting case of Binomial Distribution (requires $n\gg 1$ and valid for $kp\ll 1$ and $k/n\ll 1$) (did derivation in class).
-- The Exponential Distribution (aka "Waiting Time Distribution)" is the distribution of the time between successes (aka "events") in a Poisson-distributed variable (derivation is not trivial).
-- Normal or Gaussian distribution (note Normal and Gaussian are used interchangeably) is limiting case of Binomial Distribution (and Poisson Distribution, but not Exponential distribution)
+- The Binomial Distribution, which follows from Bernoulii Trials.
+- The Poisson Distribution, which is limiting case of Binomial Distribution (requires $n\gg 1$ and valid for $kp\ll 1$ and $k/n\ll 1$) (did derivation in class).
+- The Exponential Distribution (aka "Waiting Time Distribution)", which is the distribution of the time between successes (aka "events") in a Poisson-distributed variable (derivation is not trivial).
+- The Normal or Gaussian distribution (note Normal and Gaussian are used interchangeably), which is a limiting case of Binomial Distribution (and Poisson Distribution, but not Exponential distribution).
 
 Three key distributions are
 
@@ -131,13 +139,11 @@ Three key distributions are
 
     $$z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
 
-    **Constraint**: $X$ is a Gaussian--distributed random variable with mean $\mu$ and standard deviation $\sigma$ **and $\boldsymbol{n}$ is large**.
+    **Constraint**: $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$ **and $\boldsymbol{n}$ is large**.
 
     A standardized variable will have a histogram that is centered on the origin and a standard deviation of unity.
     
     If $X$ is a random variable from _almost any_ probability distribution with mean $\mu$ and standard deviation $\sigma$, the sampling distribution of $z$ is the Standard Normal.
-
-    Note that we could first standardize the $X_i$ values according to $X^{\prime} = (X-\mu)/\sigma$. Note the omission of the $\sqrt{n}$ in this case. Then the histogram of $X^{\prime}$ is normalized and to standardize $\overline{X}^{\prime}$, we would only need $z=(\overline{X}-1)/(1/\sqrt{n})$. 
 
 -   The "Student $t$" distribution is the **sampling distribution** of the quantity
 
@@ -147,7 +153,7 @@ Three key distributions are
     
     $$S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X-\overline{X})^2}$$
 
-    **Constraint**: $X$ is a Gaussian--distributed random variable. Both the numerator and denominator will vary from sample to sample and so we expect that the histogram of 
+    **Constraint**: $X$ is a Gaussian--distributed random variable. Both the numerator and denominator of $t$ will vary from sample to sample and so we expect that the histogram of 
 
     $$t=\frac{\overline{X}-\mu}{S/\sqrt{n}}$$    
     
@@ -162,7 +168,7 @@ Three key distributions are
     ```Python
     import numpy as np
     from matplotlib import pyplot as plt
-    
+        
     n     = 5
     mu    = 10
     sigma = 20

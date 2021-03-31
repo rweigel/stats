@@ -353,8 +353,8 @@
       <li><a number="6" href="#hw-6">HW 6</a></li>
       <ol>
         <li><a number="6.1" href="#bootstraping-a-sampling-distribution">Bootstraping a Sampling Distribution</a></li>
-        <li><a number="6.2" href="#confidence-intervals-when-sampling-distribution-known" class="highlighted">Confidence Intervals when Sampling Distribution Known</a></li>
-        <li><a number="6.3" href="#confidence-interval-when-sampling-distribution-is-not-known">Confidence Interval when Sampling Distribution is not Known</a></li>
+        <li><a number="6.2" href="#confidence-intervals-when-sampling-distribution-known" class="">Confidence Intervals when Sampling Distribution Known</a></li>
+        <li><a number="6.3" href="#confidence-interval-when-sampling-distribution-is-not-known" class="highlighted">Confidence Interval when Sampling Distribution is not Known</a></li>
       </ol>
       <li><a number="7" href="#hw-7">HW 7</a></li>
       <ol>
@@ -10515,7 +10515,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="confidence-intervals-when-sampling-distribution-known" number="6.2" class="hanchor highlighted" href="#confidence-intervals-when-sampling-distribution-known">6.2 Confidence Intervals when Sampling Distribution Known</a></h2>
+        <h2 class=""><a name="confidence-intervals-when-sampling-distribution-known" number="6.2" class="hanchor" href="#confidence-intervals-when-sampling-distribution-known">6.2 Confidence Intervals when Sampling Distribution Known</a></h2>
       </div>
       <div class="block">
         <p>Background reading: Chapter 7 of Devore and <a href="notes.html#key-distributions">my notes</a>.</p>
@@ -10603,7 +10603,7 @@
       </div>
       <hr>
       <div class="block">
-        <p>Draw <span len="6" class="katex"><span class="katex-mathml"><math>
+        <p class="">Draw <span len="6" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>n</mi>
@@ -11078,72 +11078,77 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                                 </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9300000000000002em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></p>
       </div>
       <div class="block">
-        <p class="">Note that <span len="3" class="katex"><span class="katex-mathml"><math>
+        <p>Note that <span len="3" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>n</mi>
                   </mrow>
                   <annotation encoding="application/x-tex">n</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> does not need to be large for this equation to apply. Both equations only require that the <span len="3" class="katex"><span class="katex-mathml"><math>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> does not need to be large for either equation to apply. Both equations only require that the <span len="3" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>n</mi>
                   </mrow>
                   <annotation encoding="application/x-tex">n</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> values are drawn from a Gaussian distribution. In this problem, you compared the confidence intervals using both equations. Because the conditions for each equation to apply were satisfied, we expect the the simulations in 3. and 4. to show that 95% of the confidence intervals contained <span len="5" class="katex"><span class="katex-mathml"><math>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> values are drawn from a Gaussian distribution. Because the conditions for each equation to apply were satisfied, we expect the the simulations in 3. and 4. to show that 95% of the confidence intervals contained <span len="5" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>μ</mi>
                   </mrow>
                   <annotation encoding="application/x-tex">\mu</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span>. This is perhaps not expected –if you run repeat the expriment a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But now always. The histogram of the error bar widths is shown in the following. Based on this diagram, the result from the simulations still seems unexpected. The error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.</p>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span>. </p>
       </div>
       <div class="block">
-        <p class="active">To explain the simulation results, we need <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>μ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mu</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> to fall outside of the CI from Equation 7.15 more often when the CI from 7.15 is smaller than that from 7.4 than when the CI from 7.15 is larger than that from 7.4. This could explain why even though the CI from 7.15 is on average larger, it traps <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>μ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mu</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> as frequently.</p>
+        <p>See <a href="hws/HW6_2.py">HW6_2.py</a> for the calculations for parts 1.–4.</p>
       </div>
       <div class="block">
-        <p>the error bar widths from Equation 2. are larger than that from Equation 1. How then could these error bars overlap <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>μ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mu</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> the same percentage of time? There are two factors that determine if <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>μ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mu</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> will be in the confidence interval (1) the width of the confidence interval and (2) center of the confidence interval.</p>
+        <ol>
+          <li>
+            <div class="block">
+              <p>[9.58, 10.82] (but will vary)</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>[9.52, 10.88] (but will vary)</p>
+            </div>
+          </li>
+        </ol>
       </div>
       <div class="block">
-        <p>The answers to parts 1.–4. are in the following figures, which were created using <a href="hws/HW6_2.py">HW6_2.py</a>. The title in the first plot has the answers to parts 1. and 3.; the title in the second plot has the answers to parts 2. and 4.</p>
+        <p>The answers to parts 3.–4. are in the titles of the following figures.</p>
       </div>
       <img src="hws/figures/HW6_2_3.svg">
       <img src="hws/figures/HW6_2_4.svg">
+      <div class="block">
+        <p class="">This fact that the fractions given in the titles are nearly equal is perhaps not expected –if you repeat parts 1. and 2. a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But not always. The histogram of the error bar widths computed using Equation 7.15 is shown in the following figure. Based on this, the near equality still seems unexpected because the error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.</p>
+      </div>
+      <img src="hws/figures/HW6_2_x.svg">
+      <div class="block">
+        <p class="">The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. <span len="5" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>μ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> falls outside of the CI from Equation 7.15 more often when the CI width from 7.15 is smaller than that from 7.4 in comparison to when the CI width from 7.15 is larger than that from 7.4. So even though the error bar widths from eqn 7.15 are on average larger than that from 7.4, <span len="5" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>μ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, manifests by more black dots below the line of magneta dots than above it.</p>
+      </div>
+      <img src="hws/figures/HW6_2_y.svg">
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="confidence-interval-when-sampling-distribution-is-not-known" number="6.3" class="hanchor" href="#confidence-interval-when-sampling-distribution-is-not-known">6.3 Confidence Interval when Sampling Distribution is not Known</a></h2>
+        <h2 class=""><a name="confidence-interval-when-sampling-distribution-is-not-known" number="6.3" class="hanchor highlighted" href="#confidence-interval-when-sampling-distribution-is-not-known">6.3 Confidence Interval when Sampling Distribution is not Known</a></h2>
       </div>
       <div class="block">
         <p>(<strong>590 only</strong>)</p>
@@ -11192,7 +11197,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
         <p><strong>Answer</strong></p>
       </div>
       <div class="block">
-        <p>See <a href="hws/HW6_3.py">HW6_3.py</a>. In the legend, <span len="11" class="katex"><span class="katex-mathml"><math>
+        <p class="active">See <a href="hws/HW6_3.py">HW6_3.py</a>, which creates the following figure. In the legend, <span len="11" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mover accent="true">
@@ -11235,7 +11240,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.7633300000000001em;vertical-align:0em;"></span><span class="base"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                               <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                            </svg></span></span></span></span></span></span></span></span></span> to represent the average of the given measurements. As a check, I computed a confidence interval using equation 7.15. Thus, confidence intervals were computed using the non-parametric bootstrap and a standard freqentist parametric method.</p>
+                            </svg></span></span></span></span></span></span></span></span></span> to represent the average of the measurements given in the problem statement. As a check, I computed a confidence interval using equation 7.15. Thus, confidence intervals were computed using the non-parametric bootstrap and a standard freqentist parametric method.</p>
       </div>
       <div class="block">
         <p>I used two methods because the number of measurements is smaller than what is typically recommended for the parametric bootstrap. Equation 7.15 is not ideal either - this equation requires the measurements to be drawn from a Gaussian. However, we are only given a set of measurements and we don’t know if it is appropriate to assume they were drawn from a Gaussian (often this is assumed). This situation, where the assumptions for a given statistical method are not satisfied or not known to be satisfied, is common. This is why I recommend always using at least two methods.</p>
