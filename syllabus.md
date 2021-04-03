@@ -16,7 +16,7 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
-**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7)
+**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8)
 
 
 [Midterm](hw.html#midterm)
@@ -158,6 +158,8 @@ In the [References](#references) section of this syllabus, many additional refer
 
 ## April 8th
 
+* [HW #8](hw.html#hw-8) due
+
 ## April 15th
 
 ## April 22nd
@@ -262,7 +264,7 @@ In the following references, the terms "Bayesian Intervals", "Bayesian Confidenc
 ## Astronomy  
 
 1. Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.
-1. Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, https://arxiv.org/abs/1710.06068
+1. Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, https://arxiv.org/abs/1710.06068 or https://iopscience.iop.org/article/10.3847/1538-4365/aab76e; Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.
 1. Bayesian Methods for the Physical Sciences: Learning from Examples in Astronomy and Physics (2015), S. Andreon and B. Weaver.
 1. Bayesian Models for Astrophysical Data: Using R, JAGS, Python, and Stan, J.M. Hilbe, R.S. de Souza, and E.E.O. Ishida.
 1. Modern Statistical Methods for Astronomy: With R Applications (2012), E.D. Feigelson and G.J. Babu.

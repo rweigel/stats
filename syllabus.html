@@ -12,7 +12,7 @@
     
     #toc {
       font-size: 85%;
-      width: 15em;
+      width: 14em;
       position: fixed;
       min-height: 95%;
       max-height: 95%;
@@ -20,6 +20,7 @@
       overflow-y: auto;
       padding-left: 0.75em ;
       padding-right: 1em;
+      margin-right: 1em;
       font-family: "Open Sans";
     }
     
@@ -34,7 +35,7 @@
     
     #display {
       width: 100%;
-      margin-left: 14em;
+      margin-left: 15em;
       max-height: 100%;
       min-height: 100%;
       overflow-x: hidden;
@@ -81,28 +82,34 @@
     }
     
     h1,h2,h3,h4,h5,h6 {
-      width: 95%;
+      width: 100%;
     }
     
-    .block pre {
-      width: 95%;
-    }
-    
-    .block ul {
-      width: 95%;
+    #display .block pre {
+      width: 100%;
       margin-left: 1em;
       padding-left: 1em;
     }
     
-    .block ol {
-      width: 95%;
+    #display .block ul {
+      width: 100%;
       margin-left: 1em;
       padding-left: 1em;
     }
     
+    #display .block ol {
+      width: 100%;
+      margin-left: 1em;
+      padding-left: 1em;
+    }
+    
+    /*
     a {
-      text-decoration: none;
+        color: inherit;
+        text-decoration-style: dotted;
+        text-decoration-thickness: 1px;
     }
+    */
     
     /* Fenced code blocks have form <pre><code>...</code></pre> */
     pre > code {
@@ -138,44 +145,39 @@
       margin-right: 1em;
       line-height: 1.5;
     }
-    .ace_line_group {
-      border: 1px solid rgb(0,0,0,0);
-      margin-top: -2px;
-    }
     
     .block {
       display: flex;
     }
     
-    li > div {
+    #display li > div {
       display: flex;
     }
     
     p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0.5em;
         margin-block-end: 0.5em;
       }
     
-    li {
+    #display li {
       width: 100%;
     }
     
     li .block p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0.5em;
         margin-block-end: 0.5em;
       }
     
     li .block:first-of-type p {
-        width: 95%;
+        width: 100%;
         display: block;
         margin-block-start: 0em;
         margin-block-end: 0em;
       }
-    
     
     h1 + .line-number {margin-block-start: 20em;}
     h2 + .line-number {margin-block-start: 15em;}
@@ -188,15 +190,18 @@
       margin-block-start: 0.5em;
     }
     
-    li > div > p  + div.line-number {
-      margin-block-start: 0em;
+    .block > div.linenumber {
+      margin-block-start: -0.5em;
+    }
+    
+    ul ul + .line-number {
+      display: none;
     }
     
     .line-number {
       float: right;
+      white-space: nowrap;
       font-size: 10%;
-      width:5%;
-      text-align: right;
     }
     
     .blockquote + div.line-number {
@@ -204,7 +209,7 @@
     }
     
     .blockquote {
-      width: 95%;
+      width: 100%;
       display: block;
       margin-top: 1em;
       margin-bottom: 1em;
@@ -213,15 +218,14 @@
     }
     
     pre code {
-      width: 95%;
+      width: 100%;
     }
     pre .line-number {
       float: right;
       font-size: 80%;
-      width:5%;
+      width: 5%;
       text-align: right;
     }
-    
     
     details > summary {
       font-weight: bold;
@@ -333,8 +337,8 @@
         <li><a number="7.7" href="#march-11th">March 11th</a></li>
         <li><a number="7.8" href="#march-18th">March 18th</a></li>
         <li><a number="7.9" href="#march-25th">March 25th</a></li>
-        <li><a number="7.10" href="#april-1st">April 1st</a></li>
-        <li><a number="7.11" href="#april-8th">April 8th</a></li>
+        <li><a number="7.10" href="#april-1st" class="">April 1st</a></li>
+        <li><a number="7.11" href="#april-8th" class="highlighted">April 8th</a></li>
         <li><a number="7.12" href="#april-15th">April 15th</a></li>
         <li><a number="7.13" href="#april-22nd">April 22nd</a></li>
         <li><a number="7.14" href="#april-29th">April 29th</a></li>
@@ -372,8 +376,12 @@
   </div>
   <div id="display">
     <div class="section">
-      <p class="title">AstroStats</p>
-      <p class="subtitle">ASTR/PHYS 390/590</p>
+      <div class="block">
+        <p class="title">AstroStats</p>
+      </div>
+      <div class="block">
+        <p class="subtitle">ASTR/PHYS 390/590</p>
+      </div>
     </div>
     <div class="section">
       <div class="block">
@@ -416,7 +424,13 @@
               <p> <strong>Credits</strong>: 3 (Lecture)</p>
             </div>
           </li>
-          <li><strong>Prerequisites</strong>:<div class="block">
+          <li>
+            <div class="block">
+              <div class="block">
+                <p><strong>Prerequisites</strong>:</p>
+              </div>
+            </div>
+            <div class="block">
               <ul>
                 <li>
                   <div class="block">
@@ -439,7 +453,7 @@
         </ul>
       </div>
       <div class="block">
-        <p><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="hw.html#hw-7">7</a></p>
+        <p><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="hw.html#hw-7">7</a> | <a href="hw.html#hw-8">8</a></p>
       </div>
       <div class="block">
         <p><a href="hw.html#midterm">Midterm</a></p>
@@ -495,7 +509,13 @@
               <p>Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.</p>
             </div>
           </li>
-          <li>I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.<div class="block">
+          <li>
+            <div class="block">
+              <div class="block">
+                <p>I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.</p>
+              </div>
+            </div>
+            <div class="block">
               <ul>
                 <li>
                   <div class="block">
@@ -618,7 +638,13 @@
               <p>Discussion of topics on the syllabus</p>
             </div>
           </li>
-          <li><strong>Course Logistics</strong>; I will go over the following on the first day of class. You do not need to do anything before then.<div class="block">
+          <li>
+            <div class="block">
+              <div class="block">
+                <p><strong>Course Logistics</strong>; I will go over the following on the first day of class. You do not need to do anything before then.</p>
+              </div>
+            </div>
+            <div class="block">
               <ul>
                 <li>
                   <div class="block">
@@ -638,7 +664,12 @@
               </ul>
             </div>
           </li>
-          <li><strong>Course comments</strong>
+          <li>
+            <div class="block">
+              <div class="block">
+                <p><strong>Course comments</strong></p>
+              </div>
+            </div>
             <div class="block">
               <ul>
                 <li>
@@ -674,7 +705,13 @@
               <p> <a href="hw.html">HW #1 discussion</a></p>
             </div>
           </li>
-          <li>Follow-up notes:<div class="block">
+          <li>
+            <div class="block">
+              <div class="block">
+                <p>Follow-up notes:</p>
+              </div>
+            </div>
+            <div class="block">
               <ol>
                 <li>
                   <div class="block">
@@ -743,7 +780,13 @@
               <p>Basic Concepts in Probability</p>
             </div>
           </li>
-          <li>Follow-up notes<div class="block">
+          <li>
+            <div class="block">
+              <div class="block">
+                <p>Follow-up notes</p>
+              </div>
+            </div>
+            <div class="block">
               <ul>
                 <li>
                   <div class="block">
@@ -782,7 +825,13 @@
       </div>
       <div class="block">
         <ul>
-          <li><a href="hw.html#hw-1">HW #1</a> notes based on grading.<div class="block">
+          <li>
+            <div class="block">
+              <div class="block">
+                <p><a href="hw.html#hw-1">HW #1</a> notes based on grading.</p>
+              </div>
+            </div>
+            <div class="block">
               <ul>
                 <li>
                   <div class="block">
@@ -1001,8 +1050,8 @@
         <h2><a name="april-1st" number="7.10" class="hanchor" href="#april-1st">7.10 April 1st</a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li class="active">
+        <ul class="">
+          <li class="">
             <div class="block">
               <p>Discuss <a href="http://articles.adsabs.harvard.edu//full/1990ApJ...364..104I/0000104.000.html">paper</a> on alternatives to ordinary least squares (OLS)</p>
             </div>
@@ -1012,7 +1061,16 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="april-8th" number="7.11" class="hanchor" href="#april-8th">7.11 April 8th</a></h2>
+        <h2 class=""><a name="april-8th" number="7.11" class="hanchor highlighted" href="#april-8th">7.11 April 8th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li class="active">
+            <div class="block">
+              <p><a href="hw.html#hw-8">HW #8</a> due</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="section">
@@ -1395,7 +1453,7 @@
           </li>
           <li>
             <div class="block">
-              <p>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, <a href="https://arxiv.org/abs/1710.06068">https://arxiv.org/abs/1710.06068</a></p>
+              <p>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, <a href="https://arxiv.org/abs/1710.06068">https://arxiv.org/abs/1710.06068</a> or <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aab76e">https://iopscience.iop.org/article/10.3847/1538-4365/aab76e</a>; Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.</p>
             </div>
           </li>
           <li>
