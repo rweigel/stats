@@ -48,6 +48,8 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
     **2\. Continuous**
 
+    See also the [lecture notes by Orloff and Bloom](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading5b.pdf)
+
     The discrete case is called the "probability density function", and I've been using the variable $p$. The requirements are
 
     $$1 = \int_{-\infty}^\infty p(x)dx$$
