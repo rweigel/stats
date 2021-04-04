@@ -35,29 +35,31 @@ print(n_D)
 
 xo = 0.0
 
-dtheta = 0.05
+dtheta = 0.01
 thetas = np.arange(-1, 1 + dtheta, dtheta)
 
-dx = 0.1
-binsx = -dx + np.arange(-5, 5, dx)
+dx = 0.01
+binsx = np.arange(-7, 7 + dx, dx)
 
 p_D_mu = np.full(thetas.size, np.nan)
 p_D_mu_exact = np.full(thetas.size, np.nan)
 for i in range(thetas.size):
-    x = np.random.normal(thetas[i], 1, size=10000)
+    x = np.random.normal(thetas[i], 1, size=100000)
     n, _ = np.histogram(x, bins=binsx)
     
+    print(np.sum(n))
     idx = np.where(np.abs(binsx - xo) <= dx/2)[0]
-    
-    p_D_mu[i] = n[idx]/np.sum(n)
+
+    p_D_mu[i] = n[idx]/10000
 
     p_D_mu_exact[i] = np.exp( -(xo-thetas[i])**2/2.0 )/np.sqrt(2*np.pi)
 
 import math
-E = (math.erf(np.abs(xo)+1) + math.erf(1-np.abs(xo)))
+E = (math.erf(np.abs(xo)+1) + math.erf(1-np.abs(xo)))/2
 print("Evidence integral: {0:.4f}".format(E))
 
-#p_mu_D_exact = p_D_mu_exact/E
+E = 0.68
+p_mu_D_exact = p_D_mu_exact/E
 
 p_mu_D = p_D_mu/np.sum(p_D_mu)
 print(np.sum(p_mu_D))
