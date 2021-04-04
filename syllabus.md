@@ -150,11 +150,12 @@ In the [References](#references) section of this syllabus, many additional refer
 * [Midterm](midterm.html#midterm) due before class
 * Discuss `np.full((3, ), np.nan)`
 * General observations on HW6
- 
+* Discuss [Midterm](midterm.html#midterm)
 
 ## April 1st
 
 * Discuss [paper](http://articles.adsabs.harvard.edu//full/1990ApJ...364..104I/0000104.000.html) on alternatives to ordinary least squares (OLS)
+* Review of Bayes' Theorem and [HW 3.3](hw.html#bayes-rule-for-statistical-inference)
 
 ## April 8th
 
