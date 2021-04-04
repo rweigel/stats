@@ -237,6 +237,7 @@ The following references are not needed for this course, but you may find them u
 
 ### General
 
+1. [Doing Bayesian Data Analysis by Kruschke](http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf) - The best overview that I am aware of.
 1. Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes' rule.
 2. Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas ([arxiv.org/pdf/<wbr>1411.5018.pdf](https://arxiv.org/pdf/1411.5018.pdf)).
 3. Bayes' Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone
@@ -263,6 +264,7 @@ In the following references, the terms "Bayesian Intervals", "Bayesian Confidenc
 
 * https://twiecki.io/blog/2015/11/10/mcmc-sampling/
 * Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from [arxiv.org](https://arxiv.org/abs/1710.06068) and [iopscience.iop.org](https://iopscience.iop.org/article/10.3847/1538-4365/aab76e)); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.
+* [Ravenzwaaij and Brown, 2016](https://link.springer.com/article/10.3758/s13423-016-1015-8)
 
 ## Astronomy  
 
