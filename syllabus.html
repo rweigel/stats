@@ -337,8 +337,8 @@
         <li><a number="7.7" href="#march-11th">March 11th</a></li>
         <li><a number="7.8" href="#march-18th">March 18th</a></li>
         <li><a number="7.9" href="#march-25th">March 25th</a></li>
-        <li><a number="7.10" href="#april-1st" class="">April 1st</a></li>
-        <li><a number="7.11" href="#april-8th" class="highlighted">April 8th</a></li>
+        <li><a number="7.10" href="#april-1st">April 1st</a></li>
+        <li><a number="7.11" href="#april-8th">April 8th</a></li>
         <li><a number="7.12" href="#april-15th">April 15th</a></li>
         <li><a number="7.13" href="#april-22nd">April 22nd</a></li>
         <li><a number="7.14" href="#april-29th">April 29th</a></li>
@@ -359,7 +359,8 @@
         <li><a number="9.2" href="#bayes">Bayes</a></li>
         <ol>
           <li><a number="9.2.1" href="#general">General</a></li>
-          <li><a number="9.2.2" href="#credible-intervals">Credible Intervals</a></li>
+          <li><a number="9.2.2" href="#credible-intervals" class="highlighted">Credible Intervals</a></li>
+          <li><a number="9.2.3" href="#mcmc" class="">MCMC</a></li>
         </ol>
         <li><a number="9.3" href="#astronomy">Astronomy</a></li>
         <li><a number="9.4" href="#software">Software</a></li>
@@ -1061,7 +1062,7 @@
               <p>Discuss <a href="http://articles.adsabs.harvard.edu//full/1990ApJ...364..104I/0000104.000.html">paper</a> on alternatives to ordinary least squares (OLS)</p>
             </div>
           </li>
-          <li class="">
+          <li>
             <div class="block">
               <p>Review of Bayes’ Theorem and <a href="hw.html#bayes-rule-for-statistical-inference">HW 3.3</a></p>
             </div>
@@ -1071,11 +1072,11 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2 class="active"><a name="april-8th" number="7.11" class="hanchor highlighted" href="#april-8th">7.11 April 8th</a></h2>
+        <h2><a name="april-8th" number="7.11" class="hanchor" href="#april-8th">7.11 April 8th</a></h2>
       </div>
       <div class="block">
         <ul>
-          <li class="">
+          <li>
             <div class="block">
               <p><a href="hw.html#hw-8">HW #8</a> due</p>
             </div>
@@ -1090,7 +1091,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="april-22nd" number="7.13" class="hanchor" href="#april-22nd">7.13 April 22nd</a></h2>
+        <h2 class=""><a name="april-22nd" number="7.13" class="hanchor" href="#april-22nd">7.13 April 22nd</a></h2>
       </div>
     </div>
     <div class="section">
@@ -1405,7 +1406,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="credible-intervals" number="9.2.2" class="hanchor" href="#credible-intervals">9.2.2 Credible Intervals</a></h3>
+        <h3 class=""><a name="credible-intervals" number="9.2.2" class="hanchor highlighted" href="#credible-intervals">9.2.2 Credible Intervals</a></h3>
       </div>
       <div class="block">
         <p>In the following references, the terms “Bayesian Intervals”, “Bayesian Confidence Intervals”, and “Credible Intervals” are used to mean the same thing.</p>
@@ -1414,37 +1415,41 @@
         <ul>
           <li>
             <div class="block">
-              <p>The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>. This is not an easy read as a first introduction. The following references provide a more introductory explanation.</p>
+              <p>The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>. This is not an easy read as a first introduction. The following references provide a more introductory explanation: <a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">Kruschke and Liddell 2018</a>; <a href="https://arxiv.org/pdf/1411.5018.pdf">VanderPlas 2014</a>. <a href="http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/">A blog post by VanderPlas</a> goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approach.</p>
+            </div>
+          </li>
+          <li class="active">
+            <div class="block">
+              <p><a href="http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf">Levy 2012</a> is also a good introduction.</p>
             </div>
           </li>
           <li>
             <div class="block">
-              <p><a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">https://link.springer.com/article/10.3758/s13423-016-1221-4</a></p>
+              <p>Credible intervals are described by the authors of the <a href="https://easystats.github.io/bayestestR/articles/credible_interval.html">easystats</a>.</p>
             </div>
           </li>
           <li>
             <div class="block">
-              <p><a href="https://arxiv.org/pdf/1411.5018.pdf">https://arxiv.org/pdf/1411.5018.pdf</a></p>
+              <p><a href="https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/">testscience.org</a> has a brief example that compares confidence intervals with credible intervals.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h3 class=""><a name="mcmc" number="9.2.3" class="hanchor" href="#mcmc">9.2.3 MCMC</a></h3>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p><a href="https://twiecki.io/blog/2015/11/10/mcmc-sampling/">https://twiecki.io/blog/2015/11/10/mcmc-sampling/</a></p>
             </div>
           </li>
           <li>
             <div class="block">
-              <p><a href="http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/">A blog post by VanderPlas</a> goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approach.</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p><a href="http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf">Levy 2012</a> is also a good .</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p>Credible intervals are described by the authors of the easystatsR package <a href="https://easystats.github.io/bayestestR/articles/credible_interval.html">easystats.github.io</a></p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p><a href="https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/">https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/</a></p>
+              <p>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from <a href="https://arxiv.org/abs/1710.06068">arxiv.org</a> and <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aab76e">iopscience.iop.org</a>); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.</p>
             </div>
           </li>
         </ul>
@@ -1459,11 +1464,6 @@
           <li>
             <div class="block">
               <p>Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey, <a href="https://arxiv.org/abs/1710.06068">https://arxiv.org/abs/1710.06068</a> or <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aab76e">https://iopscience.iop.org/article/10.3847/1538-4365/aab76e</a>; Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.</p>
             </div>
           </li>
           <li>
