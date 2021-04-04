@@ -41,11 +41,6 @@ plt.ylabel('pdf')
 plt.xlim([-3, 3])
 plt.ylim([0,0.6])
 
-#handles, labels = plt.gca().get_legend_handles_labels()
-# https://stackoverflow.com/questions/22263807/how-is-order-of-items-in-matplotlib-legend-determined
-#order = [0,2,1]
-#plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order])
-
 
 T = np.linspace(128, 134, 100)
 normal = (1/(sigma/np.sqrt(n))/np.sqrt(2*np.pi))*np.exp( -(T-mu_o)**2/(2*(sigma/np.sqrt(n))**2) )
@@ -80,8 +75,9 @@ if True:
     from matplotlib.patches import Rectangle
     fig, ax = plt.subplots()
     plt.plot(T, normal, 'k')
-    ax.add_patch(Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.03, color='k', alpha=0.4, hatch='//'))
-    nII, binsII, patches = plt.hist(xbarII, bins=T, density=True, alpha=0.5,color='r')
+    #ax.add_patch(Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.03, color='k', alpha=0.4, hatch='//'))
+    plt.plot((xbar_tl, xbar_tu), (0.005, 0.005), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
+    nII, binsII, patches = plt.hist(xbarII, bins=T, density=True, alpha=0.5,color='b')
     plt.xlabel('$\overline{T}$ [degrees]')
     #plt.hist(xbarII[np.where(xbarII < xbar_tu)[0]], bins=T, density=True, alpha=0.5,color='b')
     plt.ylabel('pdf')

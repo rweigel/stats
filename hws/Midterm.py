@@ -57,7 +57,7 @@ a = np.full(B, np.nan)
 b = np.full(B, np.nan)
 for i in range(B):
     # Select 20 values from [0, 1, ..., N-1] with replacement.
-    I20 = np.random.choice(I, size=n, replace=True)
+    I20 = np.random.choice(I20, size=n, replace=True)
     a[i], b[i] = linear_regression(x[I20], y[I20])
 
 abar = np.mean(a)

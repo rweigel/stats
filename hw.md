@@ -935,7 +935,33 @@ If the null hypothesis is that the $n=10$ values are drawn from a Gaussian distr
 
 Based on the "sampling distribution of the null", we expect that 99% of all experiements will yield an $\overline{X}$ in the shaded region. If we do the experiment and its test statistic value is in that region, we do not reject the null hypothesis. Otherwise, we reject the null hypothesis.
 
-In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't reject" region. As a result, we can say "We do not reject the null hypothesis that $\mu=130.0$. The blue pdf was created by drawing $n=10$ values from a Gaussian with a mean of $130$ and a standard deviation of $1.5$, computing the mean, and then repeating $N=10,000$ times. The pdf is of these $10,000$ means. Out of these $10,000$ means, approximately 6\% fell in the "reject" region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error -- we rejected the null hypothesis when it was true.
+In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't reject" region. As a result, we can say "We do not reject the null hypothesis that $\mu=130.0$. The blue pdf was created by drawing $n=10$ values from a Gaussian with a mean of $130$ and a standard deviation of $1.5$, computing the mean, and then repeating $N=10,000$ times. The pdf is of these $10,000$ means. Out of these $10,000$ means, approximately 6% fell in the "reject" region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error -- we rejected the null hypothesis when it was true.`
+
+
+# HW #8
+
+## Posterior related to coin tosses
+
+A coin is tossed 3x and then melted. The results of the toss were two heads and a tail, or $\mathcal{D}=[H,H,T]$. Given this data, we want to determine $\theta$ which is the probability of heads of the coin prior to it being melted. For this problem, assume that your prior knowledge about $\theta$ is "diffuse" and use an "uniformative prior"; that is, use $p(\theta)=1$ for $0\le \theta \le 1$. (In class, I used $p_H$ in place of $\theta$; here I have switched to $\theta$ as it is more common notation for an unknown parameter and will prevent confusion with the "p" in pdf and pmf discussed in the following paragraph.)
+
+1. Create a plot of the posterior pdf, $p(\theta|\mathcal{D})$, using the analytical method described in [HW 3.3](#bayes-rule-for-statistical-inference). On the same axes plot the posterior pdf using the simulation method I discussed in class. (In the simulation method, I simulated coin tosses of coins with different $\theta$ to create histograms that are _related_ to $p(\theta|\mathcal{D})$. You may need to make additional calculations to create a pdf). On my [additional notes](notes.html), I have added some details about pdfs and pmfs that were not well-covered during class.
+2. (**590 only**) The pdf $p(\theta|\mathcal{D})$ contains information that allows us to determine how confident we are that the coin had any value of $\theta$; it can also be used to determine how confident we are that the coin has a value over any range of $\theta$ (by integration of the pdf over that range). In frequentist analysis, this confidence is summarized by a confidence interval. In Bayesian analysis, a different term is used: a Credible Interval (CI), defined as the shortest interval that contains a certain fraction of the probability in the posterior pdf $p(\theta|\mathcal{D})$. In this problem, use a fraction of 0.95. Computation of the Credible Interval is not as simple as that for the confidence interval. Numerically, it can be computed by brute force by generating a list of lower boundary and interval length pairs and computing the integral of $p(\theta|\mathcal{D})$ for each pair. The pair that gives an integral closest to 0.95 is then the Credible Interval. There are also software packages that can be used.
+
+    Compute the 95% Credible Interval using the results from part 1. Display the credible interval in the title.
+
+    The above description should be enough for you to compute the 95% Credible Interval. For background reading and additional context, I don't know of a single resource that covers Credible Intervals; in addition, there are many quantities that are related to Credible Intervals that are sometimes used instead. The earliest reference that I know of is [Jaynes 1976](https://bayes.wustl.edu/etj/articles/confidence.pdf), in which the term Bayesian Interval is used. See also [the documentation for the EasyStats package](https://easystats.github.io/bayestestR/articles/credible_interval.html#:~:text=Credible%20intervals%20are%20an%20important,to%20the%20frequentist%20Confidence%20Intervals), [a StackOverflow discussion](https://stackoverflow.com/questions/22284502/highest-posterior-density-region-and-central-credible-region), and [Kruschke and Liddel, 2018](https://link.springer.com/article/10.3758/s13423-016-1221-4).
+
+Save you answer as `HW9_1.py`. When executed, it should show the pdf for part 1. and the CI in the title for part 2. (for 590 students).
+
+## Posterior related to Gaussian distribution
+
+You are given number, $x_o$ and and told is was generated by calling a Gaussian random number generator with a standard deviation of 1 and a mean of $\theta$, for example, by executing `np.random.normal(theta, 1, size=1)`.
+
+Given the data $\mathcal{D}=[x_o] = [0.5]$, create a plot of the posterior pdf $p(\theta|\mathcal{D})$. You can do this analytically or using an experimental approach similar to the one I covered in class. (The experimental approach is actually more difficult.) Assume that the prior, $p(\theta)$, is zero if $|\theta|>1$ and $0.5$ for $|\theta|\le 1$. 
+
+[Chapter 5 of Stone](https://piazza.com/gmu/spring2021/ce0c/resources) may provide some additional insight into how to approach this problem. Feel free to discuss ideas for how to approach this on Discord.
+
+Save you answer as `HW9_2.py`. When executed, the pdf should be shown.
 
 # Midterm
 
@@ -994,12 +1020,21 @@ Save your code for part 8. as `Midterm_Part_II.py`.
 
 **Answer**
 
+Bulmer p214 and many other references (e.g., [Wikipedia](https://en.wikipedia.org/wiki/Simple_linear_regression#Normality_assumption) and references therein) indicate that
+
 $$\frac{b - \beta}{s_b}\ \sim\ t_{n - 2}$$
 
-where
+which means that the quantity on the left-hand side follows the $t$ distribution with $n-2$ degrees of freedom. In this equation, the definitions 
 
-$$s_{b} = \sqrt{\frac{\frac{1}{n - 2}\sum_{i=1}^n(y_i-\hat{y}\_i)^2 }{{ \sum^n\_{i=1}} (x_i-\overline{x})^2}}$$
+$$s_{b} \equiv \sqrt{\frac{\frac{1}{n - 2}\sum_{i=1}^n(y_i-\hat{y}\_i)^2 }{{ \sum^n\_{i=1}} (x_i-\overline{x})^2}}$$
 
 and
 
-$$\hat{y}_i=bx_i + a$$
+$$\hat{y}_i\equiv bx_i + a$$
+
+are used. As a result, the confidence interval for $\beta$ is
+
+$$\left(b-t_{\alpha/2,n-2}\cdot s_b\text{ }\text{  ,  }\text{ }b+t_{\alpha/2,n-2}\cdot s_b\right)$$
+
+8. There are many ways to test for statistical dependence. Previously we have used $P(A\text{ and } B)=P(A)P(B)$ (Wall and Jenkins pg 24), or equivalently, $P(B|A)=P(B)$. In HW 4.4, showed that the conditional dependence of a flare was not constant. I used Linear correlation is another way of showing dependence (but note that zero correlation does not imply independence; for example, the plots on the bottom row of [this plot](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/800px-Correlation_examples2.svg.png) have zero linear correlation, but clearly there is a dependence between the $x$ and $y$ variables.). One way of looking for a dependence is to ask if the probability of $a-\alpha > 0$ was different when $b-\beta > 0$ vs when $b-\beta <0$. As discussed in class, one student used the $\chi^2$ test to construct a hypothesis test. Here I'll only plot $a-\alpha$ and $b-\beta$.
+ 
