@@ -824,39 +824,17 @@ The confidence intervals for 1. and 2. are easy to compute because we know the s
 4.  Verify your answer for 2. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$. Compute $10,000$ confidence intervals. What fraction of these confidence intervals included $\mu$?
 5.  Suppose some parameter $a$ was computed and its 95% confidence interval is $[0.9, 1.1]$. What is wrong with the claim "the probability that $a$ is in the range $[0.9, 1.1]$ is 0.95"? (Hint - see pages 270--271 of Devore).
 
-Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95\% confidence interval from 1. and 2., respectively, in the title.
+Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95% confidence interval from 1. and 2., respectively, in the title.
 
 **Answer**
 
-Equation 7.4 is the 95\% confidence interval for the average of $n$ values from a Gaussian distribution with a known standard deviation $\sigma$:
+Equation 7.4 is a confidence interval for large $n$ and values from any distribution:
 
-$$\left(\overline{x}-1.96\cdot\frac{\sigma}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}+1.96\cdot\frac{\sigma}{\sqrt{n}}\right)$$
+$$\left(\overline{x}-1.96\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}-1.96\cdot\frac{s}{\sqrt{n}}\right)$$
 
+Equation 7.15 is a confidence interval for any $n$ and is technically valid only for values drawn from a Gaussian distribution:
 
-Equation 7.15 is the 95\% confidence interval for the average of $n$ values drawn from a Gaussian distribution:
-
-$$\left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}+t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)$$
-
-Note that $n$ does not need to be large for either equation to apply. Both equations only require that the $n$ values are drawn from a Gaussian distribution. Because the conditions for each equation to apply were satisfied, we expect the the simulations in 3. and 4. to show that 95\% of the confidence intervals contained $\mu$. 
-
-See [HW6_2.py](hws/HW6_2.py) for the calculations for parts 1.--4.
-
-1. [9.58, 10.82] (but will vary)
-2. [9.52, 10.88] (but will vary)
-
-The answers to parts 3.--4. are in the titles of the following figures.
-
-<img src="hws/figures/HW6_2_3.svg"/>
-
-<img src="hws/figures/HW6_2_4.svg"/>
-
-This fact that the fractions given in the titles are nearly equal is perhaps not expected --if you repeat parts 1. and 2. a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But not always. The histogram of the error bar widths computed using Equation 7.15 is shown in the following figure. Based on this, the near equality still seems unexpected because the error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.
-
-<img src="hws/figures/HW6_2_x.svg"/>
-
-The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. $\mu$ falls outside of the CI from Equation 7.15 more often when the CI width from 7.15 is smaller than that from 7.4 in comparison to when the CI width from 7.15 is larger than that from 7.4. So even though the error bar widths from eqn 7.15 are on average larger than that from 7.4, $\mu$ is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, manifests by more black dots below the line of magneta dots than above it.
-
-<img src="hws/figures/HW6_2_y.svg"/>
+$$\left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)$$
 
 ## Confidence Interval when Sampling Distribution is not Known
 
@@ -869,17 +847,9 @@ Given the measurements
  -0.448,  0.829,  0.799, -1.098,  0.385]
 ```
 
-compute the 95\% confidence interval for $\mu$ by creating a non-parametric bootstrap sampling distribution.
+compute the 95% confidence interval for $\mu$ by creating a non-parametric bootstrap sampling distribution.
 
-Save the code for your answer in a file named `HW6_3.py`. When executed, the code should display the probability density of the non--parametric bootstrap sampling distribution along with $\overline{X}$ and the 95\% confidence for $\mu$ in the title. Be prepared to discuss the interpretation of this plot.
-
-**Answer**
-
-See [HW6_3.py](hws/HW6_3.py), which creates the following figure. In the legend, $\hat{\mu}$ is used to represent the average of the $\overline{X}^*$ values and $\overline{X}$ to represent the average of the measurements given in the problem statement. As a check, I computed a confidence interval using equation 7.15. Thus, confidence intervals were computed using the non-parametric bootstrap and a standard freqentist parametric method.
-
-I used two methods because the number of measurements is smaller than what is typically recommended for the parametric bootstrap. Equation 7.15 is not ideal either - this equation requires the measurements to be drawn from a Gaussian. However, we are only given a set of measurements and we don't know if it is appropriate to assume they were drawn from a Gaussian (often this is assumed). This situation, where the assumptions for a given statistical method are not satisfied or not known to be satisfied, is common. This is why I recommend always using at least two methods.
- 
-<img src="hws/figures/HW6_3.svg"/>
+Save the code for your answer in a file named `HW6_3.py`. When executed, the code should display the probability density of the non--parametric bootstrap sampling distribution along with $\overline{X}$ and the 95% confidence for $\mu$ in the title. Be prepared to discuss the interpretation of this plot.
 
 # HW 7
 
@@ -935,33 +905,7 @@ If the null hypothesis is that the $n=10$ values are drawn from a Gaussian distr
 
 Based on the "sampling distribution of the null", we expect that 99% of all experiements will yield an $\overline{X}$ in the shaded region. If we do the experiment and its test statistic value is in that region, we do not reject the null hypothesis. Otherwise, we reject the null hypothesis.
 
-In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't reject" region. As a result, we can say "We do not reject the null hypothesis that $\mu=130.0$. The blue pdf was created by drawing $n=10$ values from a Gaussian with a mean of $130$ and a standard deviation of $1.5$, computing the mean, and then repeating $N=10,000$ times. The pdf is of these $10,000$ means. Out of these $10,000$ means, approximately 6% fell in the "reject" region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error -- we rejected the null hypothesis when it was true.`
-
-
-# HW #8
-
-## Posterior related to coin tosses
-
-A coin is tossed 3x and then melted. The results of the toss were two heads and a tail, or $\mathcal{D}=[H,H,T]$. Given this data, we want to determine $\theta$ which is the probability of heads of the coin prior to it being melted. For this problem, assume that your prior knowledge about $\theta$ is "diffuse" and use an "uniformative prior"; that is, use $p(\theta)=1$ for $0\le \theta \le 1$. (In class, I used $p_H$ in place of $\theta$; here I have switched to $\theta$ as it is more common notation for an unknown parameter and will prevent confusion with the "p" in pdf and pmf discussed in the following paragraph.)
-
-1. Create a plot of the posterior pdf, $p(\theta|\mathcal{D})$, using the analytical method described in [HW 3.3](#bayes-rule-for-statistical-inference). On the same axes plot the posterior pdf using the simulation method I discussed in class. (In the simulation method, I simulated coin tosses of coins with different $\theta$ to create histograms that are _related_ to $p(\theta|\mathcal{D})$. You may need to make additional calculations to create a pdf). On my [additional notes](notes.html), I have added some details about pdfs and pmfs that were not well-covered during class.
-2. (**590 only**) The pdf $p(\theta|\mathcal{D})$ contains information that allows us to determine how confident we are that the coin had any value of $\theta$; it can also be used to determine how confident we are that the coin has a value over any range of $\theta$ (by integration of the pdf over that range). In frequentist analysis, this confidence is summarized by a confidence interval. In Bayesian analysis, a different term is used: a Credible Interval (CI), defined as the shortest interval that contains a certain fraction of the probability in the posterior pdf $p(\theta|\mathcal{D})$. In this problem, use a fraction of 0.95. Computation of the Credible Interval is not as simple as that for the confidence interval. Numerically, it can be computed by brute force by generating a list of lower boundary and interval length pairs and computing the integral of $p(\theta|\mathcal{D})$ for each pair. The pair that gives an integral closest to 0.95 is then the Credible Interval. There are also software packages that can be used.
-
-    Compute the 95% Credible Interval using the results from part 1. Display the credible interval in the title.
-
-    The above description should be enough for you to compute the 95% Credible Interval. For background reading and additional context, I don't know of a single resource that covers Credible Intervals; in addition, there are many quantities that are related to Credible Intervals that are sometimes used instead. The earliest reference that I know of is [Jaynes 1976](https://bayes.wustl.edu/etj/articles/confidence.pdf), in which the term Bayesian Interval is used. See also [the documentation for the EasyStats package](https://easystats.github.io/bayestestR/articles/credible_interval.html#:~:text=Credible%20intervals%20are%20an%20important,to%20the%20frequentist%20Confidence%20Intervals), [a StackOverflow discussion](https://stackoverflow.com/questions/22284502/highest-posterior-density-region-and-central-credible-region), and [Kruschke and Liddel, 2018](https://link.springer.com/article/10.3758/s13423-016-1221-4).
-
-Save you answer as `HW9_1.py`. When executed, it should show the pdf for part 1. and the CI in the title for part 2. (for 590 students).
-
-## Posterior related to Gaussian distribution
-
-You are given number, $x_o$ and and told is was generated by calling a Gaussian random number generator with a standard deviation of 1 and a mean of $\theta$, for example, by executing `np.random.normal(theta, 1, size=1)`.
-
-Given the data $\mathcal{D}=[x_o] = [0.5]$, create a plot of the posterior pdf $p(\theta|\mathcal{D})$. You can do this analytically or using an experimental approach similar to the one I covered in class. (The experimental approach is actually more difficult.) Assume that the prior, $p(\theta)$, is zero if $|\theta|>1$ and $0.5$ for $|\theta|\le 1$. 
-
-[Chapter 5 of Stone](https://piazza.com/gmu/spring2021/ce0c/resources) may provide some additional insight into how to approach this problem. Feel free to discuss ideas for how to approach this on Discord.
-
-Save you answer as `HW9_2.py`. When executed, the pdf should be shown.
+In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't reject" region. As a result, we can say "We do not reject the null hypothesis that $\mu=130.0$. The blue pdf was created by drawing $n=10$ values from a Gaussian with a mean of $130$ and a standard deviation of $1.5$, computing the mean, and then repeating $N=10,000$ times. The pdf is of these $10,000$ means. Out of these $10,000$ means, approximately 6% fell in the "reject" region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error -- we rejected the null hypothesis when it was true.
 
 # Midterm
 
@@ -988,9 +932,9 @@ In this problem, you will create a poplulation of $N$ values using a linear rela
 3. Use the equations used in your physics labs to compute $a$ and $b$ using the 20 values drawn in step 2. When your code is executed it should print out $a$ and $b$.
 4. Find a Python library that will compute $a$ and $b$ for you. When your code is executed it should print out the values of $a$ and $b$ computed with the library.
 
-In your physics labs, you were typically given an equation for the uncertainty (a confidence interval) in $a$ and $b$. In this problem, you will use the parametric bootstrap to obtain an estimate of the uncertainty.
+In your physics labs, you were typically given an equation for the uncertainty (a confidence interval) in $a$ and $b$. In this problem, you will use the non--parametric bootstrap to obtain an estimate of the uncertainty.
 
-5. Randomly draw $n=20$ $(x,y)$ pairs with replacement $B=10,000$ times. For each draw, compute $a$ and $b$. Use the histogram of $a$ and $b$ to estimate 95% confidence intervals for $a$ and $b$ computed using the method in step 3. (or 4).
+5. Randomly draw $n=20$ $(x,y)$ pairs with replacement $B=10,000$ times. For each draw, compute $a$ and $b$. Use the histogram of $a$ and $b$ to estimate a 95% confidence interval for $a$ and $b$ computed in step 3. (or 4).
 
 Save your code as `Midterm_Part_I.py`. When executed, a plot should appear for part 1. and 2. and a separate plot for part 5. In addition, answers to parts 3. and 4. should be printed to the console.
 
@@ -1000,7 +944,7 @@ Save your code as `Midterm_Part_I.py`. When executed, a plot should appear for p
 
 7. In your physics labs, you use the equation
 
-    $$b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+    $$b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x}^2)}$$
 
     as an estimate of the population parameter $\beta$ in the model equation
     
@@ -1012,29 +956,9 @@ Save your code as `Midterm_Part_I.py`. When executed, a plot should appear for p
 
     Be prepared to explain the derivation of the equation for $b$ in class. (But you do not need to turn anything in.)
 
-8.  In part 5., $B$ values for $a$ and $b$ were computed. Use the values to test the claim that the errors in the estimate $a$ and $b$, given by $a-\alpha$ and $b-\beta$, respectively, are not independent. (Take an observational/experimental approach to answering this question.)
+Save your answers for parts 7. and 8. as `Midterm_Part_II.pdf`. 
 
-Save your answers for parts 6.-8. as `Midterm_Part_II.pdf`. 
+8.  In part 5., $B$ values for $a$ and $b$ were computed. Use the values to test the claim that the errors in the estimate $a$ and $b$, given by $a-\alpha$ and $b-\beta$, respectively, are not independent. (Take an observational/experimental approach to answering this question.)
 
 Save your code for part 8. as `Midterm_Part_II.py`.
 
-**Answer**
-
-Bulmer p214 and many other references (e.g., [Wikipedia](https://en.wikipedia.org/wiki/Simple_linear_regression#Normality_assumption) and references therein) indicate that
-
-$$\frac{b - \beta}{s_b}\ \sim\ t_{n - 2}$$
-
-which means that the quantity on the left-hand side follows the $t$ distribution with $n-2$ degrees of freedom. In this equation, the definitions 
-
-$$s_{b} \equiv \sqrt{\frac{\frac{1}{n - 2}\sum_{i=1}^n(y_i-\hat{y}\_i)^2 }{{ \sum^n\_{i=1}} (x_i-\overline{x})^2}}$$
-
-and
-
-$$\hat{y}_i\equiv bx_i + a$$
-
-are used. As a result, the confidence interval for $\beta$ is
-
-$$\left(b-t_{\alpha/2,n-2}\cdot s_b\text{ }\text{  ,  }\text{ }b+t_{\alpha/2,n-2}\cdot s_b\right)$$
-
-8. There are many ways to test for statistical dependence. Previously we have used $P(A\text{ and } B)=P(A)P(B)$ (Wall and Jenkins pg 24), or equivalently, $P(B|A)=P(B)$. In HW 4.4, showed that the conditional dependence of a flare was not constant. I used Linear correlation is another way of showing dependence (but note that zero correlation does not imply independence; for example, the plots on the bottom row of [this plot](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/800px-Correlation_examples2.svg.png) have zero linear correlation, but clearly there is a dependence between the $x$ and $y$ variables.). One way of looking for a dependence is to ask if the probability of $a-\alpha > 0$ was different when $b-\beta > 0$ vs when $b-\beta <0$. As discussed in class, one student used the $\chi^2$ test to construct a hypothesis test. Here I'll only plot $a-\alpha$ and $b-\beta$.
- 
