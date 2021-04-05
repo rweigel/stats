@@ -33,6 +33,12 @@
       text-decoration: none;
     }
     
+    #display a {
+      text-decoration: none;
+      text-underline-offset: 2px;
+      text-decoration-color: black;
+    }
+    
     #display {
       width: 100%;
       margin-left: 15em;
@@ -313,6 +319,7 @@
         overflow-wrap: break-word;
       }
     }
+      
   </style>
   <link id="hljs-css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" />
@@ -372,12 +379,7 @@
                   </semantics>
                 </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05278em;">β</span></span></span></span> and sample size determination</a></li>
       </ol>
-      <li><a number="8" href="#hw-8">HW #8</a></li>
-      <ol>
-        <li><a number="8.1" href="#posterior-related-to-coin-tosses">Posterior related to coin tosses</a></li>
-        <li><a number="8.2" href="#posterior-related-to-gaussian-distribution">Posterior related to Gaussian distribution</a></li>
-      </ol>
-      <li><a number="9" href="#midterm">Midterm</a></li>
+      <li><a number="8" href="#midterm" class="highlighted">Midterm</a></li>
     </ol>
   </div>
   <div id="display">
@@ -385,7 +387,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="hw-1" number="1" class="hanchor" href="#hw-1">1 HW 1</a></h1>
+        <h1><a number="1" class="hanchor" href="#hw-1">1 HW 1</a></h1>
       </div>
       <div class="block">
         <p>The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.</p>
@@ -543,12 +545,12 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="law-of-large-numbers-i" number="1.1" class="hanchor" href="#law-of-large-numbers-i">1.1 Law of Large Numbers I</a></h2>
+        <h2><a number="1.1" class="hanchor" href="#law-of-large-numbers-i">1.1 Law of Large Numbers I</a></h2>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="a" number="1.1.1" class="hanchor" href="#a">1.1.1 a</a></h3>
+        <h3><a number="1.1.1" class="hanchor" href="#a">1.1.1 a</a></h3>
       </div>
       <div class="block">
         <ol>
@@ -667,7 +669,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="b" number="1.1.2" class="hanchor" href="#b">1.1.2 b</a></h3>
+        <h3><a number="1.1.2" class="hanchor" href="#b">1.1.2 b</a></h3>
       </div>
       <div class="block">
         <ol>
@@ -969,7 +971,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="prelude-to-hypothesis-testing" number="1.2" class="hanchor" href="#prelude-to-hypothesis-testing">1.2 Prelude to Hypothesis Testing</a></h2>
+        <h2><a number="1.2" class="hanchor" href="#prelude-to-hypothesis-testing">1.2 Prelude to Hypothesis Testing</a></h2>
       </div>
       <div class="block">
         <p>This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.</p>
@@ -1143,7 +1145,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="basic-concepts-in-probability" number="1.3" class="hanchor" href="#basic-concepts-in-probability">1.3 Basic Concepts in Probability</a></h2>
+        <h2><a number="1.3" class="hanchor" href="#basic-concepts-in-probability">1.3 Basic Concepts in Probability</a></h2>
       </div>
       <div class="block">
         <p>Read Chapter 2.1-2.2 of Devore, 2012 (<a href="https://piazza.com/gmu/spring2021/ce0c/resources">PDF available on Piazza</a>). </p>
@@ -1319,12 +1321,12 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="hw-2" number="2" class="hanchor" href="#hw-2">2 HW 2</a></h1>
+        <h1><a number="2" class="hanchor" href="#hw-2">2 HW 2</a></h1>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="counting" number="2.1" class="hanchor" href="#counting">2.1 Counting</a></h2>
+        <h2><a number="2.1" class="hanchor" href="#counting">2.1 Counting</a></h2>
       </div>
       <div class="block">
         <ol>
@@ -1666,7 +1668,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="bayes-theorem" number="2.2" class="hanchor" href="#bayes-theorem">2.2 Bayes’ Theorem</a></h2>
+        <h2><a number="2.2" class="hanchor" href="#bayes-theorem">2.2 Bayes’ Theorem</a></h2>
       </div>
       <div class="block">
         <p>2% of people age 50–60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?</p>
@@ -2399,12 +2401,12 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="hw-3" number="3" class="hanchor" href="#hw-3">3 HW 3</a></h1>
+        <h1><a number="3" class="hanchor" href="#hw-3">3 HW 3</a></h1>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="exact-answer-for-coin-flips" number="3.1" class="hanchor" href="#exact-answer-for-coin-flips">3.1 Exact answer for coin flips</a></h2>
+        <h2><a number="3.1" class="hanchor" href="#exact-answer-for-coin-flips">3.1 Exact answer for coin flips</a></h2>
       </div>
       <div class="block">
         <p>In HW 1.3, you considered the question of the probability of getting two heads when flipping a fair coin 3x. This question was easily answered by explicitly writing out the sample space (the set of all possible outcomes) using a tree diagram and counting the number of outcomes with two heads.</p>
@@ -2683,7 +2685,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="bayes-rule-derivation-and-terminology" number="3.2" class="hanchor" href="#bayes-rule-derivation-and-terminology">3.2 Bayes’ Rule Derivation and Terminology</a></h2>
+        <h2><a number="3.2" class="hanchor" href="#bayes-rule-derivation-and-terminology">3.2 Bayes’ Rule Derivation and Terminology</a></h2>
       </div>
       <div class="block">
         <p>You only need the law of multiplication to derive Bayes’ theorem. The law of multiplication is</p>
@@ -3256,7 +3258,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="bayes-rule-for-statistical-inference" number="3.3" class="hanchor" href="#bayes-rule-for-statistical-inference">3.3 Bayes’ Rule for Statistical Inference</a></h2>
+        <h2><a number="3.3" class="hanchor" href="#bayes-rule-for-statistical-inference">3.3 Bayes’ Rule for Statistical Inference</a></h2>
       </div>
       <div class="block">
         <p><strong>References</strong></p>
@@ -5115,12 +5117,12 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="hw-4" number="4" class="hanchor" href="#hw-4">4 HW 4</a></h1>
+        <h1><a number="4" class="hanchor" href="#hw-4">4 HW 4</a></h1>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="reading" number="4.1" class="hanchor" href="#reading">4.1 Reading</a></h2>
+        <h2><a number="4.1" class="hanchor" href="#reading">4.1 Reading</a></h2>
       </div>
       <div class="block">
         <p>Read chapter 2.4 of the textbook (titled “Probability Distributions” in the second edition) and also chapter 3 of Devore (see the <a href="https://piazza.com/gmu/spring2021/ce0c/resources">“Resources”</a> link on Piazza for Devore).</p>
@@ -5128,7 +5130,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="bernoulli-trials" number="4.2" class="hanchor" href="#bernoulli-trials">4.2 Bernoulli Trials</a></h2>
+        <h2><a number="4.2" class="hanchor" href="#bernoulli-trials">4.2 Bernoulli Trials</a></h2>
       </div>
       <div class="block">
         <p>A Bernoulli Trial has </p>
@@ -5413,7 +5415,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="the-poisson-distribution" number="4.3" class="hanchor" href="#the-poisson-distribution">4.3 The Poisson Distribution</a></h2>
+        <h2><a number="4.3" class="hanchor" href="#the-poisson-distribution">4.3 The Poisson Distribution</a></h2>
       </div>
       <div class="block">
         <p>In class, I mentioned that the Poisson distribution can be derived as a limit of the Binomial distribution. This is also discussed in Devore 3.6. </p>
@@ -5927,7 +5929,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="solar-flare-data-590-only-" number="4.4" class="hanchor" href="#solar-flare-data-590-only-">4.4 Solar Flare Data (590 only)</a></h2>
+        <h2><a number="4.4" class="hanchor" href="#solar-flare-data-590-only-">4.4 Solar Flare Data (590 only)</a></h2>
       </div>
       <div class="block">
         <p>Only students registered in the graduate-level course (PHYS 590 or ASTR 590) need to turn in this assignment.</p>
@@ -6232,12 +6234,12 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="hw-5" number="5" class="hanchor" href="#hw-5">5 HW 5</a></h1>
+        <h1><a number="5" class="hanchor" href="#hw-5">5 HW 5</a></h1>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="reading" number="5.1" class="hanchor" href="#reading">5.1 Reading</a></h2>
+        <h2><a number="5.1" class="hanchor" href="#reading">5.1 Reading</a></h2>
       </div>
       <div class="block">
         <p>Read Chapter 3 of Wall and Jenkins</p>
@@ -6245,7 +6247,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="expectation-values" number="5.2" class="hanchor" href="#expectation-values">5.2 Expectation Values</a></h2>
+        <h2><a number="5.2" class="hanchor" href="#expectation-values">5.2 Expectation Values</a></h2>
       </div>
       <div class="block">
         <p>A summary (or descriptive) statistic is a quantity that summarize an aspect of a collection of data. Examples include the mean and standard deviation. Descriptive statistics are always based on a computation done on a <strong>sample</strong> (subset) of the population of data. </p>
@@ -10145,12 +10147,12 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="hw-6" number="6" class="hanchor" href="#hw-6">6 HW 6</a></h1>
+        <h1><a number="6" class="hanchor" href="#hw-6">6 HW 6</a></h1>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="bootstraping-a-sampling-distribution" number="6.1" class="hanchor" href="#bootstraping-a-sampling-distribution">6.1 Bootstraping a Sampling Distribution</a></h2>
+        <h2><a number="6.1" class="hanchor" href="#bootstraping-a-sampling-distribution">6.1 Bootstraping a Sampling Distribution</a></h2>
       </div>
       <div class="block">
         <p>Background Reading: Devore pages 251–252 (see <a href="https://piazza.com/gmu/spring2021/ce0c/resources">Piazza</a>) and <a href="notes.html#key-distributions">my notes</a>.</p>
@@ -10546,7 +10548,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="confidence-intervals-when-sampling-distribution-known" number="6.2" class="hanchor" href="#confidence-intervals-when-sampling-distribution-known">6.2 Confidence Intervals when Sampling Distribution Known</a></h2>
+        <h2><a number="6.2" class="hanchor" href="#confidence-intervals-when-sampling-distribution-known">6.2 Confidence Intervals when Sampling Distribution Known</a></h2>
       </div>
       <div class="block">
         <p>Background reading: Chapter 7 of Devore and <a href="notes.html#key-distributions">my notes</a>.</p>
@@ -10886,24 +10888,17 @@
         <p><strong>Answer</strong></p>
       </div>
       <div class="block">
-        <p>Equation 7.4 is the 95% confidence interval for the average of <span len="3" class="katex"><span class="katex-mathml"><math>
+        <p>Equation 7.4 is a confidence interval for large <span len="3" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>n</mi>
                   </mrow>
                   <annotation encoding="application/x-tex">n</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> values from a Gaussian distribution with a known standard deviation <span len="8" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>σ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\sigma</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span>:</p>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> and values from any distribution:</p>
       </div>
       <div class="block">
-        <p><span len="135" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+        <p><span len="125" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mstyle scriptlevel="0" displaystyle="true">
@@ -10923,7 +10918,7 @@
                         <mo>⋅</mo>
                         <mfrac>
                           <mrow>
-                            <mi>σ</mi>
+                            <mi>s</mi>
                           </mrow>
                           <mrow>
                             <msqrt>
@@ -10942,7 +10937,7 @@
                           </mrow>
                           <mo stretchy="true">‾</mo>
                         </mover>
-                        <mo>+</mo>
+                        <mo>−</mo>
                         <mn>1</mn>
                         <mi mathvariant="normal">.</mi>
                         <mn>9</mn>
@@ -10950,7 +10945,7 @@
                         <mo>⋅</mo>
                         <mfrac>
                           <mrow>
-                            <mi>σ</mi>
+                            <mi>s</mi>
                           </mrow>
                           <mrow>
                             <msqrt>
@@ -10964,7 +10959,7 @@
                       </mrow>
                     </mstyle>
                   </mrow>
-                  <annotation encoding="application/x-tex">\displaystyle \left(\overline{x}-1.96\cdot\frac{\sigma}{\sqrt{n}}\text{ }\text{ , }\text{ }\overline{x}+1.96\cdot\frac{\sigma}{\sqrt{n}}\right)</annotation>
+                  <annotation encoding="application/x-tex">\displaystyle \left(\overline{x}-1.96\cdot\frac{s}{\sqrt{n}}\text{ }\text{ , }\text{ }\overline{x}-1.96\cdot\frac{s}{\sqrt{n}}\right)</annotation>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.45em;"></span><span class="strut bottom" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="base"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.51056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3.47056em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                                 <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
@@ -10978,9 +10973,9 @@ s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
 s-65,47,-65,47z M834 80H400000v40H845z"></path>
                                             </svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"></span></span></span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                                   <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9300000000000002em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord text"><span class="mord">&nbsp;,&nbsp;</span></span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.51056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3.47056em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                                </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9300000000000002em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord text"><span class="mord">&nbsp;,&nbsp;</span></span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.51056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3.47056em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                                 <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                              </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">9</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.30972em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathit">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
+                              </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">9</span><span class="mord">6</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.30972em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathit">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
                                               <path d="M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
 -10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
 -50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
@@ -10990,17 +10985,17 @@ s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
 s-65,47,-65,47z M834 80H400000v40H845z"></path>
                                             </svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"></span></span></span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                                   <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9300000000000002em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></p>
+                                </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9300000000000002em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></p>
       </div>
       <div class="block">
-        <p>Equation 7.15 is the 95% confidence interval for the average of <span len="3" class="katex"><span class="katex-mathml"><math>
+        <p>Equation 7.15 is a confidence interval for any <span len="3" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>n</mi>
                   </mrow>
                   <annotation encoding="application/x-tex">n</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> values drawn from a Gaussian distribution:</p>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> and is technically valid only for values drawn from a Gaussian distribution:</p>
       </div>
       <div class="block">
         <p><span len="149" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
@@ -11050,7 +11045,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                           </mrow>
                           <mo stretchy="true">‾</mo>
                         </mover>
-                        <mo>+</mo>
+                        <mo>−</mo>
                         <msub>
                           <mi>t</mi>
                           <mrow>
@@ -11080,7 +11075,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                       </mrow>
                     </mstyle>
                   </mrow>
-                  <annotation encoding="application/x-tex">\displaystyle \left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{ , }\text{ }\overline{x}+t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)</annotation>
+                  <annotation encoding="application/x-tex">\displaystyle \left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{ , }\text{ }\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)</annotation>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.45em;"></span><span class="strut bottom" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="base"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.51056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3.47056em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                                 <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
@@ -11096,7 +11091,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                                   <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                                 </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9300000000000002em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord text"><span class="mord">&nbsp;,&nbsp;</span></span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.51056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3.47056em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                                 <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                              </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.0037em;">α</span><span class="mord mtight">/</span><span class="mord mtight">2</span><span class="mpunct mtight">,</span><span class="mord mathit mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.30972em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathit">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
+                              </svg></span></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.0037em;">α</span><span class="mord mtight">/</span><span class="mord mtight">2</span><span class="mpunct mtight">,</span><span class="mord mathit mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.30972em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathit">n</span></span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
                                               <path d="M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
 -10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
 -50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
@@ -11108,86 +11103,10 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                                   <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                                 </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9300000000000002em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></p>
       </div>
-      <div class="block">
-        <p>Note that <span len="3" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>n</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">n</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> does not need to be large for either equation to apply. Both equations only require that the <span len="3" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>n</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">n</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> values are drawn from a Gaussian distribution. Because the conditions for each equation to apply were satisfied, we expect the the simulations in 3. and 4. to show that 95% of the confidence intervals contained <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>μ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mu</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span>. </p>
-      </div>
-      <div class="block">
-        <p>See <a href="hws/HW6_2.py">HW6_2.py</a> for the calculations for parts 1.–4.</p>
-      </div>
-      <div class="block">
-        <ol>
-          <li>
-            <div class="block">
-              <p>[9.58, 10.82] (but will vary)</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p>[9.52, 10.88] (but will vary)</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-      <div class="block">
-        <p>The answers to parts 3.–4. are in the titles of the following figures.</p>
-      </div>
-      <div class="block">
-        <img src="hws/figures/HW6_2_3.svg">
-      </div>
-      <div class="block">
-        <img src="hws/figures/HW6_2_4.svg">
-      </div>
-      <div class="block">
-        <p>This fact that the fractions given in the titles are nearly equal is perhaps not expected –if you repeat parts 1. and 2. a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But not always. The histogram of the error bar widths computed using Equation 7.15 is shown in the following figure. Based on this, the near equality still seems unexpected because the error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.</p>
-      </div>
-      <div class="block">
-        <img src="hws/figures/HW6_2_x.svg">
-      </div>
-      <div class="block">
-        <p>The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>μ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mu</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> falls outside of the CI from Equation 7.15 more often when the CI width from 7.15 is smaller than that from 7.4 in comparison to when the CI width from 7.15 is larger than that from 7.4. So even though the error bar widths from eqn 7.15 are on average larger than that from 7.4, <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>μ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mu</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, manifests by more black dots below the line of magneta dots than above it.</p>
-      </div>
-      <div class="block">
-        <img src="hws/figures/HW6_2_y.svg">
-      </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="confidence-interval-when-sampling-distribution-is-not-known" number="6.3" class="hanchor highlighted" href="#confidence-interval-when-sampling-distribution-is-not-known">6.3 Confidence Interval when Sampling Distribution is not Known</a></h2>
+        <h2><a number="6.3" class="hanchor" href="#confidence-interval-when-sampling-distribution-is-not-known">6.3 Confidence Interval when Sampling Distribution is not Known</a></h2>
       </div>
       <div class="block">
         <p>(<strong>590 only</strong>)</p>
@@ -11232,65 +11151,10 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> in the title. Be prepared to discuss the interpretation of this plot.</p>
       </div>
-      <div class="block">
-        <p><strong>Answer</strong></p>
-      </div>
-      <div class="block">
-        <p class="active">See <a href="hws/HW6_3.py">HW6_3.py</a>, which creates the following figure. In the legend, <span len="11" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mover accent="true">
-                      <mrow>
-                        <mi>μ</mi>
-                      </mrow>
-                      <mo>^</mo>
-                    </mover>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\hat{\mu}</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">μ</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"></span></span></span></span></span></span></span> is used to represent the average of the <span len="16" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <msup>
-                      <mover accent="true">
-                        <mrow>
-                          <mi>X</mi>
-                        </mrow>
-                        <mo stretchy="true">‾</mo>
-                      </mover>
-                      <mo>∗</mo>
-                    </msup>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\overline{X}^*</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8419260000000001em;"></span><span class="strut bottom" style="height:0.8419260000000001em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                                <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                              </svg></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8419260000000001em;"><span style="top:-3.2162300000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span> values and <span len="14" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mover accent="true">
-                      <mrow>
-                        <mi>X</mi>
-                      </mrow>
-                      <mo stretchy="true">‾</mo>
-                    </mover>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\overline{X}</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.7633300000000001em;"></span><span class="strut bottom" style="height:0.7633300000000001em;vertical-align:0em;"></span><span class="base"><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7633300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.72333em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                              <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                            </svg></span></span></span></span></span></span></span></span></span> to represent the average of the measurements given in the problem statement. As a check, I computed a confidence interval using equation 7.15. Thus, confidence intervals were computed using the non-parametric bootstrap and a standard freqentist parametric method.</p>
-      </div>
-      <div class="block">
-        <p>I used two methods because the number of measurements is smaller than what is typically recommended for the parametric bootstrap. Equation 7.15 is not ideal either - this equation requires the measurements to be drawn from a Gaussian. However, we are only given a set of measurements and we don’t know if it is appropriate to assume they were drawn from a Gaussian (often this is assumed). This situation, where the assumptions for a given statistical method are not satisfied or not known to be satisfied, is common. This is why I recommend always using at least two methods.</p>
-      </div>
-      <div class="block">
-        <img src="hws/figures/HW6_3.svg">
-      </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="hw-7" number="7" class="hanchor" href="#hw-7">7 HW 7</a></h1>
+        <h1><a number="7" class="hanchor" href="#hw-7">7 HW 7</a></h1>
       </div>
       <div class="block">
         <p>References:</p>
@@ -11381,7 +11245,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="a-test-on-a-population-mean" number="7.1" class="hanchor" href="#a-test-on-a-population-mean">7.1 A Test on a Population Mean</a></h2>
+        <h2><a number="7.1" class="hanchor" href="#a-test-on-a-population-mean">7.1 A Test on a Population Mean</a></h2>
       </div>
       <div class="block">
         <p>In example 8.6 of Devore, a sample of <span len="5" class="katex"><span class="katex-mathml"><math>
@@ -11477,7 +11341,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="-beta-and-sample-size-determination" number="7.2" class="hanchor" href="#-beta-and-sample-size-determination">7.2 <span len="7" class="katex"><span class="katex-mathml"><math>
+        <h2><a number="7.2" class="hanchor" href="#-beta-and-sample-size-determination">7.2 <span len="7" class="katex"><span class="katex-mathml"><math>
                   <semantics>
                     <mrow>
                       <mi>β</mi>
@@ -11688,328 +11552,12 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                   </mrow>
                   <annotation encoding="application/x-tex">10,000</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span> means, approximately 6% fell in the “reject” region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error – we rejected the null hypothesis when it was true.`</p>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span> means, approximately 6% fell in the “reject” region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error – we rejected the null hypothesis when it was true.</p>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="hw-8" number="8" class="hanchor" href="#hw-8">8 HW #8</a></h1>
-      </div>
-    </div>
-    <div class="section">
-      <div class="block">
-        <h2><a name="posterior-related-to-coin-tosses" number="8.1" class="hanchor" href="#posterior-related-to-coin-tosses">8.1 Posterior related to coin tosses</a></h2>
-      </div>
-      <div class="block">
-        <p>A coin is tossed 3x and then melted. The results of the toss were two heads and a tail, or <span len="21" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mrow>
-                      <mi mathvariant="script">D</mi>
-                    </mrow>
-                    <mo>=</mo>
-                    <mo>[</mo>
-                    <mi>H</mi>
-                    <mo separator="true">,</mo>
-                    <mi>H</mi>
-                    <mo separator="true">,</mo>
-                    <mi>T</mi>
-                    <mo>]</mo>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mathcal{D}=[H,H,T]</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mclose">]</span></span></span></span>. Given this data, we want to determine <span len="8" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>θ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\theta</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> which is the probability of heads of the coin prior to it being melted. For this problem, assume that your prior knowledge about <span len="8" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>θ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\theta</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> is “diffuse” and use an “uniformative prior”; that is, use <span len="13" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>p</mi>
-                    <mo>(</mo>
-                    <mi>θ</mi>
-                    <mo>)</mo>
-                    <mo>=</mo>
-                    <mn>1</mn>
-                  </mrow>
-                  <annotation encoding="application/x-tex">p(\theta)=1</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span> for <span len="19" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mn>0</mn>
-                    <mo>≤</mo>
-                    <mi>θ</mi>
-                    <mo>≤</mo>
-                    <mn>1</mn>
-                  </mrow>
-                  <annotation encoding="application/x-tex">0\le \theta \le 1</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="base"><span class="mord">0</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span>. (In class, I used <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <msub>
-                      <mi>p</mi>
-                      <mi>H</mi>
-                    </msub>
-                  </mrow>
-                  <annotation encoding="application/x-tex">p_H</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.08125em;">H</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> in place of <span len="8" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>θ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\theta</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span>; here I have switched to <span len="8" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>θ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\theta</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> as it is more common notation for an unknown parameter and will prevent confusion with the “p” in pdf and pmf discussed in the following paragraph.)</p>
-      </div>
-      <div class="block">
-        <ol>
-          <li>
-            <div class="block">
-              <p>Create a plot of the posterior pdf, <span len="23" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>p</mi>
-                          <mo>(</mo>
-                          <mi>θ</mi>
-                          <mi mathvariant="normal">∣</mi>
-                          <mrow>
-                            <mi mathvariant="script">D</mi>
-                          </mrow>
-                          <mo>)</mo>
-                        </mrow>
-                        <annotation encoding="application/x-tex">p(\theta|\mathcal{D})</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span>, using the analytical method described in <a href="#bayes-rule-for-statistical-inference">HW 3.3</a>. On the same axes plot the posterior pdf using the simulation method I discussed in class. (In the simulation method, I simulated coin tosses of coins with different <span len="8" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>θ</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\theta</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> to create histograms that are <em>related</em> to <span len="23" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>p</mi>
-                          <mo>(</mo>
-                          <mi>θ</mi>
-                          <mi mathvariant="normal">∣</mi>
-                          <mrow>
-                            <mi mathvariant="script">D</mi>
-                          </mrow>
-                          <mo>)</mo>
-                        </mrow>
-                        <annotation encoding="application/x-tex">p(\theta|\mathcal{D})</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span>. You may need to make additional calculations to create a pdf). On my <a href="notes.html">additional notes</a>, I have added some details about pdfs and pmfs that were not well-covered during class.</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p>(<strong>590 only</strong>) The pdf <span len="23" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>p</mi>
-                          <mo>(</mo>
-                          <mi>θ</mi>
-                          <mi mathvariant="normal">∣</mi>
-                          <mrow>
-                            <mi mathvariant="script">D</mi>
-                          </mrow>
-                          <mo>)</mo>
-                        </mrow>
-                        <annotation encoding="application/x-tex">p(\theta|\mathcal{D})</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span> contains information that allows us to determine how confident we are that the coin had any value of <span len="8" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>θ</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\theta</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span>; it can also be used to determine how confident we are that the coin has a value over any range of <span len="8" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>θ</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\theta</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> (by integration of the pdf over that range). In frequentist analysis, this confidence is summarized by a confidence interval. In Bayesian analysis, a different term is used: a Credible Interval (CI), defined as the shortest interval that contains a certain fraction of the probability in the posterior pdf <span len="23" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>p</mi>
-                          <mo>(</mo>
-                          <mi>θ</mi>
-                          <mi mathvariant="normal">∣</mi>
-                          <mrow>
-                            <mi mathvariant="script">D</mi>
-                          </mrow>
-                          <mo>)</mo>
-                        </mrow>
-                        <annotation encoding="application/x-tex">p(\theta|\mathcal{D})</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span>. In this problem, use a fraction of 0.95. Computation of the Credible Interval is not as simple as that for the confidence interval. Numerically, it can be computed by brute force by generating a list of lower boundary and interval length pairs and computing the integral of <span len="23" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>p</mi>
-                          <mo>(</mo>
-                          <mi>θ</mi>
-                          <mi mathvariant="normal">∣</mi>
-                          <mrow>
-                            <mi mathvariant="script">D</mi>
-                          </mrow>
-                          <mo>)</mo>
-                        </mrow>
-                        <annotation encoding="application/x-tex">p(\theta|\mathcal{D})</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span> for each pair. The pair that gives an integral closest to 0.95 is then the Credible Interval. There are also software packages that can be used.</p>
-            </div>
-            <div class="block">
-              <p> Compute the 95% Credible Interval using the results from part 1. Display the credible interval in the title.</p>
-            </div>
-            <div class="block">
-              <p> The above description should be enough for you to compute the 95% Credible Interval. For background reading and additional context, I don’t know of a single resource that covers Credible Intervals; in addition, there are many quantities that are related to Credible Intervals that are sometimes used instead. The earliest reference that I know of is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>, in which the term Bayesian Interval is used. See also <a href="https://easystats.github.io/bayestestR/articles/credible_interval.html#:~:text=Credible%20intervals%20are%20an%20important,to%20the%20frequentist%20Confidence%20Intervals">the documentation for the EasyStats package</a>, <a href="https://stackoverflow.com/questions/22284502/highest-posterior-density-region-and-central-credible-region">a StackOverflow discussion</a>, and <a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">Kruschke and Liddel, 2018</a>.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-      <div class="block">
-        <p>Save you answer as <code>HW9_1.py</code>. When executed, it should show the pdf for part 1. and the CI in the title for part 2. (for 590 students).</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="block">
-        <h2><a name="posterior-related-to-gaussian-distribution" number="8.2" class="hanchor" href="#posterior-related-to-gaussian-distribution">8.2 Posterior related to Gaussian distribution</a></h2>
-      </div>
-      <div class="block">
-        <p>You are given number, <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <msub>
-                      <mi>x</mi>
-                      <mi>o</mi>
-                    </msub>
-                  </mrow>
-                  <annotation encoding="application/x-tex">x_o</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and and told is was generated by calling a Gaussian random number generator with a standard deviation of 1 and a mean of <span len="8" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>θ</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\theta</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span>, for example, by executing <code>np.random.normal(theta, 1, size=1)</code>.</p>
-      </div>
-      <div class="block">
-        <p>Given the data <span len="27" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mrow>
-                      <mi mathvariant="script">D</mi>
-                    </mrow>
-                    <mo>=</mo>
-                    <mo>[</mo>
-                    <msub>
-                      <mi>x</mi>
-                      <mi>o</mi>
-                    </msub>
-                    <mo>]</mo>
-                    <mo>=</mo>
-                    <mo>[</mo>
-                    <mn>0</mn>
-                    <mi mathvariant="normal">.</mi>
-                    <mn>5</mn>
-                    <mo>]</mo>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\mathcal{D}=[x_o] = [0.5]</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mclose">]</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mclose">]</span></span></span></span>, create a plot of the posterior pdf <span len="23" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>p</mi>
-                    <mo>(</mo>
-                    <mi>θ</mi>
-                    <mi mathvariant="normal">∣</mi>
-                    <mrow>
-                      <mi mathvariant="script">D</mi>
-                    </mrow>
-                    <mo>)</mo>
-                  </mrow>
-                  <annotation encoding="application/x-tex">p(\theta|\mathcal{D})</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span>. You can do this analytically or using an experimental approach similar to the one I covered in class. (The experimental approach is actually more difficult.) Assume that the prior, <span len="11" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>p</mi>
-                    <mo>(</mo>
-                    <mi>θ</mi>
-                    <mo>)</mo>
-                  </mrow>
-                  <annotation encoding="application/x-tex">p(\theta)</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>, is zero if <span len="15" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi mathvariant="normal">∣</mi>
-                    <mi>θ</mi>
-                    <mi mathvariant="normal">∣</mi>
-                    <mo>&gt;</mo>
-                    <mn>1</mn>
-                  </mrow>
-                  <annotation encoding="application/x-tex">|\theta|&gt;1</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span> and <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mn>0</mn>
-                    <mi mathvariant="normal">.</mi>
-                    <mn>5</mn>
-                  </mrow>
-                  <annotation encoding="application/x-tex">0.5</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span></span></span></span> for <span len="15" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi mathvariant="normal">∣</mi>
-                    <mi>θ</mi>
-                    <mi mathvariant="normal">∣</mi>
-                    <mo>≤</mo>
-                    <mn>1</mn>
-                  </mrow>
-                  <annotation encoding="application/x-tex">|\theta|\le 1</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord">∣</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span>. </p>
-      </div>
-      <div class="block">
-        <p><a href="https://piazza.com/gmu/spring2021/ce0c/resources">Chapter 5 of Stone</a> may provide some additional insight into how to approach this problem. Feel free to discuss ideas for how to approach this on Discord.</p>
-      </div>
-      <div class="block">
-        <p>Save you answer as <code>HW9_2.py</code>. When executed, the pdf should be shown.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="block">
-        <h1><a name="midterm" number="9" class="hanchor" href="#midterm">9 Midterm</a></h1>
+        <h1 class=""><a number="8" class="hanchor highlighted" href="#midterm">8 Midterm</a></h1>
       </div>
       <div class="block">
         <p><strong></strong></p>
@@ -12518,7 +12066,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                   </mrow>
                   <annotation encoding="application/x-tex">b</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">b</span></span></span></span>. In this problem, you will use the parametric bootstrap to obtain an estimate of the uncertainty.</p>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">b</span></span></span></span>. In this problem, you will use the non–parametric bootstrap to obtain an estimate of the uncertainty.</p>
       </div>
       <div class="block">
         <ol start="5">
@@ -12587,7 +12135,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                         </mrow>
                         <annotation encoding="application/x-tex">b</annotation>
                       </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">b</span></span></span></span> to estimate 95% confidence intervals for <span len="3" class="katex"><span class="katex-mathml"><math>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">b</span></span></span></span> to estimate a 95% confidence interval for <span len="3" class="katex"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mi>a</mi>
@@ -12601,7 +12149,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                         </mrow>
                         <annotation encoding="application/x-tex">b</annotation>
                       </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">b</span></span></span></span> computed using the method in step 3. (or 4).</p>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">b</span></span></span></span> computed in step 3. (or 4).</p>
             </div>
           </li>
         </ol>
@@ -12652,7 +12200,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
               <p>In your physics labs, you use the equation</p>
             </div>
             <div class="block">
-              <p> <span len="217" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+              <p class="active"> <span len="217" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mstyle scriptlevel="0" displaystyle="true">
@@ -12782,26 +12330,26 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                                     <mi>i</mi>
                                   </msub>
                                   <mo>−</mo>
-                                  <mover accent="true">
-                                    <mrow>
-                                      <mi>x</mi>
-                                    </mrow>
-                                    <mo>ˉ</mo>
-                                  </mover>
                                   <msup>
-                                    <mo>)</mo>
+                                    <mover accent="true">
+                                      <mrow>
+                                        <mi>x</mi>
+                                      </mrow>
+                                      <mo>ˉ</mo>
+                                    </mover>
                                     <mn>2</mn>
                                   </msup>
+                                  <mo>)</mo>
                                 </mstyle>
                               </mrow>
                             </mfrac>
                           </mstyle>
                         </mrow>
-                        <annotation encoding="application/x-tex">\displaystyle b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}</annotation>
+                        <annotation encoding="application/x-tex">\displaystyle b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x}^2)}</annotation>
                       </semantics>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:3.3190660000000003em;"></span><span class="strut bottom" style="height:6.138132000000001em;vertical-align:-2.8190660000000003em;"></span><span class="base"><span class="mord mathit">b</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.3190660000000003em;"><span style="top:-2.11em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">n</span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">ˉ</span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.801397em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                                       <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                    </svg></span></span><span style="top:-5.319065999999999em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">n</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">ˉ</span></span></span></span></span></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">ˉ</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.8190660000000003em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.3190660000000003em;"><span style="top:-2.11em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">ˉ</span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.801397em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                                    </svg></span></span><span style="top:-5.319065999999999em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">n</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">ˉ</span></span></span></span></span></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">ˉ</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.8190660000000003em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.3190660000000003em;"><span style="top:-2.11em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">ˉ</span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span><span style="top:-3.801397em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
                                       <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
                                     </svg></span></span><span style="top:-5.319065999999999em;"><span class="pstrut" style="height:3.6513970000000002em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">ˉ</span></span></span></span></span></span><span class="mclose">)</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.56778em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">ˉ</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"></span></span></span></span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.8190660000000003em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
             </div>
@@ -12891,6 +12439,13 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                     </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">b</span></span></span></span> in class. (But you do not need to turn anything in.)</p>
             </div>
           </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p>Save your answers for parts 7. and 8. as <code>Midterm_Part_II.pdf</code>. </p>
+      </div>
+      <div class="block">
+        <ol start="8">
           <li>
             <div class="block">
               <p> In part 5., <span len="3" class="katex"><span class="katex-mathml"><math>
@@ -12952,396 +12507,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
         </ol>
       </div>
       <div class="block">
-        <p>Save your answers for parts 6.-8. as <code>Midterm_Part_II.pdf</code>. </p>
-      </div>
-      <div class="block">
         <p>Save your code for part 8. as <code>Midterm_Part_II.py</code>.</p>
-      </div>
-      <div class="block">
-        <p><strong>Answer</strong></p>
-      </div>
-      <div class="block">
-        <p>Bulmer p214 and many other references (e.g., <a href="https://en.wikipedia.org/wiki/Simple_linear_regression#Normality_assumption">Wikipedia</a> and references therein) indicate that</p>
-      </div>
-      <div class="block">
-        <p><span len="42" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mstyle scriptlevel="0" displaystyle="true">
-                      <mfrac>
-                        <mrow>
-                          <mi>b</mi>
-                          <mo>−</mo>
-                          <mi>β</mi>
-                        </mrow>
-                        <mrow>
-                          <msub>
-                            <mi>s</mi>
-                            <mi>b</mi>
-                          </msub>
-                        </mrow>
-                      </mfrac>
-                      <mtext>&nbsp;</mtext>
-                      <mo>∼</mo>
-                      <mtext>&nbsp;</mtext>
-                      <msub>
-                        <mi>t</mi>
-                        <mrow>
-                          <mi>n</mi>
-                          <mo>−</mo>
-                          <mn>2</mn>
-                        </mrow>
-                      </msub>
-                    </mstyle>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\displaystyle \frac{b - \beta}{s_b}\ \sim\ t_{n - 2}</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.37144em;"></span><span class="strut bottom" style="height:2.20744em;vertical-align:-0.8360000000000001em;"></span><span class="base"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                                <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                              </svg></span></span><span style="top:-3.6770000000000005em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">b</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.05278em;">β</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mspace">&nbsp;</span><span class="mrel">∼</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mspace">&nbsp;</span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"></span></span></span></span></span></span></span></span></p>
-      </div>
-      <div class="block">
-        <p>which means that the quantity on the left-hand side follows the <span len="3" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>t</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">t</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.61508em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">t</span></span></span></span> distribution with <span len="5" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>n</mi>
-                    <mo>−</mo>
-                    <mn>2</mn>
-                  </mrow>
-                  <annotation encoding="application/x-tex">n-2</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base"><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord">2</span></span></span></span> degrees of freedom. In this equation, the definitions </p>
-      </div>
-      <div class="block">
-        <p><span len="114" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mstyle scriptlevel="0" displaystyle="true">
-                      <msub>
-                        <mi>s</mi>
-                        <mi>b</mi>
-                      </msub>
-                      <mo>≡</mo>
-                      <msqrt>
-                        <mrow>
-                          <mfrac>
-                            <mrow>
-                              <mfrac>
-                                <mrow>
-                                  <mn>1</mn>
-                                </mrow>
-                                <mrow>
-                                  <mi>n</mi>
-                                  <mo>−</mo>
-                                  <mn>2</mn>
-                                </mrow>
-                              </mfrac>
-                              <munderover>
-                                <mo>∑</mo>
-                                <mrow>
-                                  <mi>i</mi>
-                                  <mo>=</mo>
-                                  <mn>1</mn>
-                                </mrow>
-                                <mi>n</mi>
-                              </munderover>
-                              <mo>(</mo>
-                              <msub>
-                                <mi>y</mi>
-                                <mi>i</mi>
-                              </msub>
-                              <mo>−</mo>
-                              <msub>
-                                <mover accent="true">
-                                  <mrow>
-                                    <mi>y</mi>
-                                  </mrow>
-                                  <mo>^</mo>
-                                </mover>
-                                <mi>i</mi>
-                              </msub>
-                              <msup>
-                                <mo>)</mo>
-                                <mn>2</mn>
-                              </msup>
-                            </mrow>
-                            <mrow>
-                              <mrow>
-                                <munderover>
-                                  <mo>∑</mo>
-                                  <mrow>
-                                    <mi>i</mi>
-                                    <mo>=</mo>
-                                    <mn>1</mn>
-                                  </mrow>
-                                  <mi>n</mi>
-                                </munderover>
-                              </mrow>
-                              <mo>(</mo>
-                              <msub>
-                                <mi>x</mi>
-                                <mi>i</mi>
-                              </msub>
-                              <mo>−</mo>
-                              <mover accent="true">
-                                <mrow>
-                                  <mi>x</mi>
-                                </mrow>
-                                <mo stretchy="true">‾</mo>
-                              </mover>
-                              <msup>
-                                <mo>)</mo>
-                                <mn>2</mn>
-                              </msup>
-                            </mrow>
-                          </mfrac>
-                        </mrow>
-                      </msqrt>
-                    </mstyle>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\displaystyle s_{b} \equiv \sqrt{\frac{\frac{1}{n - 2}\sum_{i=1}^n(y_i-\hat{y}_i)^2 }{{ \sum^n_{i=1}} (x_i-\overline{x})^2}}</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.9560934999999997em;"></span><span class="strut bottom" style="height:3.04em;vertical-align:-1.0839065000000003em;"></span><span class="base"><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.9560934999999997em;"><span class="svg-align" style="top:-5em;"><span class="pstrut" style="height:5em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.638439em;"><span style="top:-2.305708em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.51056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit">x</span></span></span><span style="top:-3.47056em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                                                        <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                                      </svg></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                                            <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                          </svg></span></span><span style="top:-3.7933310000000002em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
-                                                          <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
-                                                        </svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.994002em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.9160934999999997em;"><span class="pstrut" style="height:5em;"></span><span class="hide-tail" style="min-width:1.02em;height:3.08em;"><svg width="400em" height="3.08em" viewBox="0 0 400000 3240" preserveAspectRatio="xMinYMin slice">
-                              <path d="M473,2793c339.3,-1799.3,509.3,-2700,510,-2702
-c3.3,-7.3,9.3,-11,18,-11H400000v40H1017.7s-90.5,478,-276.2,1466c-185.7,988,
--279.5,1483,-281.5,1485c-2,6,-10,9,-24,9c-8,0,-12,-0.7,-12,-2c0,-1.3,-5.3,-32,
--16,-92c-50.7,-293.3,-119.7,-693.3,-207,-1200c0,-1.3,-5.3,8.7,-16,30c-10.7,
-21.3,-21.3,42.7,-32,64s-16,33,-16,33s-26,-26,-26,-26s76,-153,76,-153s77,-151,
-77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,104,606z
-M1001 80H400000v40H1017z"></path>
-                            </svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0839065000000003em;"></span></span></span></span></span></span></span></p>
-      </div>
-      <div class="block">
-        <p>and</p>
-      </div>
-      <div class="block">
-        <p><span len="28" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mstyle scriptlevel="0" displaystyle="true">
-                      <msub>
-                        <mover accent="true">
-                          <mrow>
-                            <mi>y</mi>
-                          </mrow>
-                          <mo>^</mo>
-                        </mover>
-                        <mi>i</mi>
-                      </msub>
-                      <mo>≡</mo>
-                      <mi>b</mi>
-                      <msub>
-                        <mi>x</mi>
-                        <mi>i</mi>
-                      </msub>
-                      <mo>+</mo>
-                      <mi>a</mi>
-                    </mstyle>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\displaystyle \hat{y}_i\equiv bx_i + a</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≡</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit">b</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit">a</span></span></span></span></p>
-      </div>
-      <div class="block">
-        <p>are used. As a result, the confidence interval for <span len="7" class="katex"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mi>β</mi>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\beta</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.05278em;">β</span></span></span></span> is</p>
-      </div>
-      <div class="block">
-        <p><span len="99" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
-                <semantics>
-                  <mrow>
-                    <mstyle scriptlevel="0" displaystyle="true">
-                      <mrow>
-                        <mo fence="true">(</mo>
-                        <mi>b</mi>
-                        <mo>−</mo>
-                        <msub>
-                          <mi>t</mi>
-                          <mrow>
-                            <mi>α</mi>
-                            <mi mathvariant="normal">/</mi>
-                            <mn>2</mn>
-                            <mo separator="true">,</mo>
-                            <mi>n</mi>
-                            <mo>−</mo>
-                            <mn>2</mn>
-                          </mrow>
-                        </msub>
-                        <mo>⋅</mo>
-                        <msub>
-                          <mi>s</mi>
-                          <mi>b</mi>
-                        </msub>
-                        <mtext>&nbsp;</mtext>
-                        <mtext>&nbsp;,&nbsp;</mtext>
-                        <mtext>&nbsp;</mtext>
-                        <mi>b</mi>
-                        <mo>+</mo>
-                        <msub>
-                          <mi>t</mi>
-                          <mrow>
-                            <mi>α</mi>
-                            <mi mathvariant="normal">/</mi>
-                            <mn>2</mn>
-                            <mo separator="true">,</mo>
-                            <mi>n</mi>
-                            <mo>−</mo>
-                            <mn>2</mn>
-                          </mrow>
-                        </msub>
-                        <mo>⋅</mo>
-                        <msub>
-                          <mi>s</mi>
-                          <mi>b</mi>
-                        </msub>
-                        <mo fence="true">)</mo>
-                      </mrow>
-                    </mstyle>
-                  </mrow>
-                  <annotation encoding="application/x-tex">\displaystyle \left(b-t_{\alpha/2,n-2}\cdot s_b\text{ }\text{ , }\text{ }b+t_{\alpha/2,n-2}\cdot s_b\right)</annotation>
-                </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.85em;"></span><span class="strut bottom" style="height:1.2051999999999998em;vertical-align:-0.3551999999999999em;"></span><span class="base"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord mathit">b</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.0037em;">α</span><span class="mord mtight">/</span><span class="mord mtight">2</span><span class="mpunct mtight">,</span><span class="mord mathit mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord text"><span class="mord">&nbsp;,&nbsp;</span></span><span class="mord text"><span class="mord">&nbsp;</span></span><span class="mord mathit">b</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.0037em;">α</span><span class="mord mtight">/</span><span class="mord mtight">2</span><span class="mpunct mtight">,</span><span class="mord mathit mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span></span></p>
-      </div>
-      <div class="block">
-        <ol start="8">
-          <li>
-            <div class="block">
-              <p>There are many ways to test for statistical dependence. Previously we have used <span len="29" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>P</mi>
-                          <mo>(</mo>
-                          <mi>A</mi>
-                          <mtext>&nbsp;and&nbsp;</mtext>
-                          <mi>B</mi>
-                          <mo>)</mo>
-                          <mo>=</mo>
-                          <mi>P</mi>
-                          <mo>(</mo>
-                          <mi>A</mi>
-                          <mo>)</mo>
-                          <mi>P</mi>
-                          <mo>(</mo>
-                          <mi>B</mi>
-                          <mo>)</mo>
-                        </mrow>
-                        <annotation encoding="application/x-tex">P(A\text{ and } B)=P(A)P(B)</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mord text"><span class="mord">&nbsp;and&nbsp;</span></span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mclose">)</span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span> (Wall and Jenkins pg 24), or equivalently, <span len="13" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>P</mi>
-                          <mo>(</mo>
-                          <mi>B</mi>
-                          <mi mathvariant="normal">∣</mi>
-                          <mi>A</mi>
-                          <mo>)</mo>
-                          <mo>=</mo>
-                          <mi>P</mi>
-                          <mo>(</mo>
-                          <mi>B</mi>
-                          <mo>)</mo>
-                        </mrow>
-                        <annotation encoding="application/x-tex">P(B|A)=P(B)</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mord">∣</span><span class="mord mathit">A</span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span>. In HW 4.4, showed that the conditional dependence of a flare was not constant. I used Linear correlation is another way of showing dependence (but note that zero correlation does not imply independence; for example, the plots on the bottom row of <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/800px-Correlation_examples2.svg.png">this plot</a> have zero linear correlation, but clearly there is a dependence between the <span len="3" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>x</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">x</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">x</span></span></span></span> and <span len="3" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>y</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">y</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> variables.). One way of looking for a dependence is to ask if the probability of <span len="17" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>a</mi>
-                          <mo>−</mo>
-                          <mi>α</mi>
-                          <mo>&gt;</mo>
-                          <mn>0</mn>
-                        </mrow>
-                        <annotation encoding="application/x-tex">a-\alpha &gt; 0</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base"><span class="mord mathit">a</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.0037em;">α</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span> was different when <span len="16" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>b</mi>
-                          <mo>−</mo>
-                          <mi>β</mi>
-                          <mo>&gt;</mo>
-                          <mn>0</mn>
-                        </mrow>
-                        <annotation encoding="application/x-tex">b-\beta &gt; 0</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">b</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.05278em;">β</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span> vs when <span len="15" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>b</mi>
-                          <mo>−</mo>
-                          <mi>β</mi>
-                          <mo>&lt;</mo>
-                          <mn>0</mn>
-                        </mrow>
-                        <annotation encoding="application/x-tex">b-\beta &lt;0</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">b</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.05278em;">β</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span>. As discussed in class, one student used the <span len="8" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <msup>
-                            <mi>χ</mi>
-                            <mn>2</mn>
-                          </msup>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\chi^2</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord mathit">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> test to construct a hypothesis test. Here I’ll only plot <span len="10" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>a</mi>
-                          <mo>−</mo>
-                          <mi>α</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">a-\alpha</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="base"><span class="mord mathit">a</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.0037em;">α</span></span></span></span> and <span len="9" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>b</mi>
-                          <mo>−</mo>
-                          <mi>β</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">b-\beta</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">b</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord mathit" style="margin-right:0.05278em;">β</span></span></span></span>.</p>
-            </div>
-          </li>
-        </ol>
       </div>
     </div>
   </div>

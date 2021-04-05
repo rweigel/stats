@@ -264,7 +264,7 @@ In the following references, the terms "Bayesian Intervals", "Bayesian Confidenc
 
 * https://twiecki.io/blog/2015/11/10/mcmc-sampling/
 * Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from [arxiv.org](https://arxiv.org/abs/1710.06068) and [iopscience.iop.org](https://iopscience.iop.org/article/10.3847/1538-4365/aab76e)); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.
-* [Ravenzwaaij and Brown, 2016](https://link.springer.com/article/10.3758/s13423-016-1015-8)
+* [Ravenzwaaij, Cassey, and Brown, 2018](https://link.springer.com/article/10.3758/s13423-016-1015-8)
 
 ## Astronomy  
 
