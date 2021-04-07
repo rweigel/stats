@@ -25,8 +25,11 @@ plt.xlim([0,1])
 # Select 20 values from [0, 1, ..., N-1] with replacement.
 I20 = np.random.choice(I, size=n, replace=True)
 
-plt.plot(x[I20], y[I20], 'r.', ms=4)
+plt.plot(x[I20], y[I20], 'k.', ms=4)
 plt.legend(['Population (N={0:d})'.format(N), 'Sample (n={0:d})'.format(n)])
+
+plt.savefig('figures/Midterm_2.svg', transparent=True)
+plt.savefig('figures/Midterm_2.png', transparent=True)
 
 def linear_regression(x,y,method='scipy'):
 
@@ -75,25 +78,31 @@ s_b = np.std(b, ddof=1)
 s_a_boot = np.std(a_boot, ddof=1)
 s_b_boot = np.std(b_boot, ddof=1)
 
+# 5.
+
+a_ci_boot = np.percentile(a, [2.5, 97.5])
+print('95% CI for a using non-parametric bootstrap: [{0:.2f}, {1:.2f}]'.format(a_ci_boot[0], a_ci_boot[1]))
+
+b_ci_boot = np.percentile(b, [2.5, 97.5])
+print('95% CI for b using non-parametric bootstrap: [{0:.2f}, {1:.2f}]'.format(b_ci_boot[0], b_ci_boot[1]))
+
 bins = np.linspace(0.4, 1.6, 50)
 
 plt.figure()
 plt.grid()
-plt.hist(a, density=True, bins=bins)
-plt.title('$\overline{{a}}={0:.2f}; s_{{\overline{{a}}}}={1:.2f}$'.format(abar,s_a))
+plt.hist(a, density=True, bins=bins, color='k')
+plt.title('$\overline{{a}}$={0:.2f}; 95% CI: [{1:.2f}, {2:.2f}]'.format(abar,a_ci_boot[0], a_ci_boot[1]))
 plt.xlabel('$a$')
 plt.ylabel('pdf($a$)')
+plt.savefig('figures/Midterm_5.svg', transparent=True)
+plt.savefig('figures/Midterm_5.png', transparent=True)
 
 plt.figure()
 plt.grid()
-plt.title('$\overline{{b}}={0:.2f}; s_{{\overline{{b}}}}={1:.2f}$'.format(bbar,s_b))
-plt.hist(b, density=True, bins=bins)
+plt.title('$\overline{{b}}$={0:.2f}; 95% CI: [{1:.2f}, {2:.2f}]'.format(bbar,b_ci_boot[0], b_ci_boot[1]))
+plt.hist(b, density=True, bins=bins, color='k')
 plt.xlabel('$b$')
 plt.ylabel('pdf($b$)')
-
-# 5.
-b_ci_boot = np.percentile(b, [2.5, 97.5])
-print('95% CI for b using non-parametric bootstrap: [{0:.2f}, {1:.2f}]'.format(b_ci_boot[0], b_ci_boot[1]))
 
 # 6.
 # Confidence intervals are given in many books and online resources. For
@@ -126,18 +135,21 @@ print("Fraction of t-distribution CIs for b that trap beta: {0:.3f}".format(cnt/
 
 # Check of 8.
 cc, p = stats.pearsonr(a-1, b-1)
-
+print(p)
 plt.figure()
-plt.plot(a-1, b-1, '.')
+plt.plot(a-1, b-1, 'k.')
+plt.grid()
 plt.xlabel('$a-\\alpha$')
 plt.ylabel('$b-\\beta$')
-plt.grid()
 #plt.gca().set_aspect('equal')
-plt.title('cc = {0:.2f}'.format(cc))
+plt.title('cc = {0:.2f}; Reject hyp. that cc = 0\n with significance level of p = {1:.1e}'.format(cc,p))
+plt.savefig('figures/Midterm_8a.svg', transparent=True)
+plt.savefig('figures/Midterm_8a.png', transparent=True)
 
 bins = np.arange(-0.7, 0.75, 0.05)
 idx_p = a-alpha > 0
 idx_n = a-alpha < 0
+
 plt.figure()
 plt.hist(b[idx_p]-beta, bins=bins, alpha=0.5, density=True)
 plt.hist(b[idx_n]-beta, bins=bins, alpha=0.5, density=True)
@@ -146,3 +158,6 @@ plt.legend(['pdf($b-\\beta$) for $a>0$', 'pdf($b-\\beta$) for $a<0$'])
 t, p = stats.ttest_ind(b[idx_p]-beta, b[idx_n]-beta)
 
 plt.title('Reject hyp. that means are same\nwith significance level p = {0:.1e}'.format(p))
+
+plt.savefig('figures/Midterm_8b.svg', transparent=True)
+plt.savefig('figures/Midterm_8b.png', transparent=True)

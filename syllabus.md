@@ -18,8 +18,7 @@
 
 **Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8)
 
-
-[Midterm](hw.html#midterm)
+**[Midterm](hw.html#midterm)**
 
 # Motivation
 
@@ -238,18 +237,17 @@ The following references are not needed for this course, but you may find them u
 ### General
 
 1. [Doing Bayesian Data Analysis by Kruschke](http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf) - The best overview that I am aware of.
+2. [How to become a Bayesian in eight easy steps: An annotated reading list, by Etz et al., 2018](https://link.springer.com/article/10.3758/s13423-017-1317-5)
 1. Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes' rule.
 2. Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas ([arxiv.org/pdf/<wbr>1411.5018.pdf](https://arxiv.org/pdf/1411.5018.pdf)).
 3. Bayes' Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone
 4. Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom ([MIT18<wbr>_05S14<wbr>_Reading20.pdf](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf))
 5. Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D'Agostini
-6. Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov [link]
+6. Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov.
 7. Data Analysis - A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling
 8. The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman -- This is a classic book on Machine Learning/Statistical Learning.
-
-http://www.stat.columbia.edu/~gelman/research/published/Cook_Software_Validation.pdf
-
-https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011WR011289
+9. Validation of Software for Bayesian Models Using Posterior Quantiles by Cook, Gelman, and Rubin, 2006 (https://www.jstor.org/stable/27594203).
+1. [Section 3.4 of the lecture notes on Hierarchal Models by Junker](http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf) contains in Section 3.4 a detailed introduction to a common example covered in many books -- finding the posterior when the standard deviation of the population is known and a prior distribution is available.
 
 ### Credible Intervals
 
@@ -259,6 +257,7 @@ In the following references, the terms "Bayesian Intervals", "Bayesian Confidenc
 * [Levy 2012](http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf) is also a good introduction.
 * Credible intervals are described by the authors of the [easystats](https://easystats.github.io/bayestestR/articles/credible_interval.html).
 * [testscience.org](https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/) has a brief example that compares confidence intervals with credible intervals.
+* Analysis of regression confidence intervals and Bayesian credible intervals for uncertainty quantification by Liu, Ye, and Ling, 2012 (https://doi.org/<wbr>10.1029/<wbr>2011WR011289)
 
 ### MCMC
 

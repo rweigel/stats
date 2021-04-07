@@ -1020,21 +1020,72 @@ Save your code for part 8. as `Midterm_Part_II.py`.
 
 **Answer**
 
-Bulmer p214 and many other references (e.g., [Wikipedia](https://en.wikipedia.org/wiki/Simple_linear_regression#Normality_assumption) and references therein) indicate that
+1. See [Midterm.py](hws/Midterm.py).
 
-$$\frac{b - \beta}{s_b}\ \sim\ t_{n - 2}$$
+2. Because we are drawing with replacement, there is a chance that a given draw have a repeated $(x,y)$ pair. It is highly unlikey, however (and the likelihood could be computed). Some people checked this, which was good to see.
 
-which means that the quantity on the left-hand side follows the $t$ distribution with $n-2$ degrees of freedom. In this equation, the definitions 
+3. and 4. Most students printed out the values, but I also checked the differences. The difference won't be exactly zero unless the library implemented the calculation in the same way as you did. Therefore, differences on the order of ["machine epsilon]("https://en.wikipedia.org/wiki/Machine_epsilon) are expected and this is what I checked for.
 
-$$s_{b} \equiv \sqrt{\frac{\frac{1}{n - 2}\sum_{i=1}^n(y_i-\hat{y}\_i)^2 }{{ \sum^n\_{i=1}} (x_i-\overline{x})^2}}$$
+5. In this problem, you only needed to use the histogram to find the bounds for a region that encompassed 95% of the area around the mean. In my code, I did this using `np.percentile`. One could also sort the list of $a$ values and extract the $250$th element and $9750$th element. The same process would be used to find the confidence interval for $b$. Several students attempted to use the confidence intervals that involve the $z$ or $t$ distributions that were used on a previous homework problem. The confidence interval equations do not apply to $a$ and $b$, however. Both $a$ and $b$ have a sampling distribution that is more complex than the ones on the previous homework because the formulas for computing $a$ and $b$ are more complex (and problem 5. asked you to find them).
 
-and
-
-$$\hat{y}_i\equiv bx_i + a$$
-
-are used. As a result, the confidence interval for $\beta$ is
-
-$$\left(b-t_{\alpha/2,n-2}\cdot s_b\text{ }\text{  ,  }\text{ }b+t_{\alpha/2,n-2}\cdot s_b\right)$$
-
-8. There are many ways to test for statistical dependence. Previously we have used $P(A\text{ and } B)=P(A)P(B)$ (Wall and Jenkins pg 24), or equivalently, $P(B|A)=P(B)$. In HW 4.4, showed that the conditional dependence of a flare was not constant. I used Linear correlation is another way of showing dependence (but note that zero correlation does not imply independence; for example, the plots on the bottom row of [this plot](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/800px-Correlation_examples2.svg.png) have zero linear correlation, but clearly there is a dependence between the $x$ and $y$ variables.). One way of looking for a dependence is to ask if the probability of $a-\alpha > 0$ was different when $b-\beta > 0$ vs when $b-\beta <0$. As discussed in class, one student used the $\chi^2$ test to construct a hypothesis test. Here I'll only plot $a-\alpha$ and $b-\beta$.
+5. and 6. A number of students computed the confidence interval on $\overline{a}$ and $\overline{b}$ in this problem or the previous problem. That is, they answered the question of "if you were to take an average of many $a$ and $b$ calculations, what would be the error bars on the averages?" This is not the question of the error bar for a given value of $a$ or $b$ from a single sample of 20 $(x,y)$ pairs from the population. The motivation for me asking you to compute the error bars in part 5. (using the parametric bootstrap method) was so that you could use its answers to check your answer to part 6.
  
+6. Bulmer p214 and many other references (e.g., [Wikipedia](https://en.wikipedia.org/wiki/Simple_linear_regression#Normality_assumption) and references therein) indicate that
+
+    $$\frac{b - \beta}{s_b}\ \sim\ t_{n - 2}$$
+
+    which means that the quantity on the left-hand side follows the $t$ distribution with $n-2$ degrees of freedom. In this equation, the definitions 
+
+    $$s_{b} \equiv \sqrt{\frac{\frac{1}{n - 2}\sum_{i=1}^n(y_i-\hat{y}\_i)^2 }{{ \sum^n\_{i=1}} (x_i-\overline{x})^2}}$$
+
+    and
+
+    $$\hat{y}_i\equiv bx_i + a$$
+
+    are used. As a result, the confidence interval for $\beta$ is
+
+    $$\left(b-t_{\alpha/2,n-2}\cdot s_b\text{ }\text{  ,  }\text{ }b+t_{\alpha/2,n-2}\cdot s_b\right)$$
+    
+    A common error was to use the confidence interval used in [HW 6.2 or 6.3](#hw-6). These confidence interval applies only to a certain type of test statistic (mean) that is computed from data drawn from a population having a certain distribution (Gaussian) where the population varience is known (6.2) or unknown (6.3). In this problem, the test statistic is not a mean and so we expect that the sampling distribution will not be the same as that for a mean.
+
+7. Most students got this one. Subsitution of
+
+    $$y_i = \beta x_i + \alpha + \epsilon_i$$
+
+    into
+    
+    $$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+    gives
+    
+    $$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})( \beta x_i + \alpha + \epsilon_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+    Using
+    
+    $$\overline{y} = \alpha + \beta \overline{x}$$
+    
+    gives
+    
+    $$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})\left[\beta (x_i - \overline{x}) - \epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+    or
+    
+    $$b = \frac{\displaystyle\sum_{i=1}^{n}\left[\beta (x_i - \overline{x})^2 - (x_i-\overline{x})\epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2} = \beta - \frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+    Finally, using
+    
+    $$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$    
+
+    because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
+
+8. There are many ways to test for statistical dependence. Previously we have used $P(A\text{ and } B)=P(A)P(B)$ (Wall and Jenkins pg 24), or equivalently, $P(B|A)=P(B)$. In [HW 4.4](#http://localhost:8080/hw.md!#solar-flare-data-590-only-), I showed that the conditional dependence of a flare was not constant. Linear correlation is another way of showing dependence (but note that zero correlation does not imply independence; for example, the plots on the bottom row of [this plot](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/800px-Correlation_examples2.svg.png) have zero linear correlation, but clearly there is a dependence between the $x$ and $y$ variables.). Based on the correlation plot below, it is safe to conclude that $a-\alpha$ and $b-\beta$ have non-zero correlation and are not independent and I did not expect more than a basic plot like the one shown below.
+
+    The function that I used to compute the correlation coefficient, `scipy.stats.pearsonr`, also outputs a $p$ value that "... roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets." (quote from the [`scipy.stats.pearsonr` documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html)). Said another way, if you used a Gaussian random number generator to produce $N$ $(x,y)$ values with the these $x$ and $y$ having the same variances as the real $x$ and $y$ values, the probability that their correlation coefficient is as large in magnitude as the the one shown in the title is the value of $p$ shown in the title.
+ 
+    <img src="hws/figures/Midterm_8a.svg"/>
+
+    As discussed in class, one student used the $\chi^2$ test to construct a hypothesis test, which is also valid.
+
+    Another way of looking for a dependence is to ask if the probability of $a-\alpha > 0$ was different when $b-\beta > 0$ vs. when $b-\beta <0$. In the code you can see that I tested the hypothesis that the means of the two cases shown below are equal. The test statistic for this hypothesis test is covered in most textbooks, including Wall and Jenkins in Section 5.2.
+   
+    <img src="hws/figures/Midterm_8b.svg"/>
