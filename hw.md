@@ -945,7 +945,7 @@ In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't
 A coin is tossed 3x and then melted. The results of the toss were two heads and a tail, or $\mathcal{D}=[H,H,T]$. Given this data, we want to determine $\theta$ which is the probability of heads of the coin prior to it being melted. For this problem, assume that your prior knowledge about $\theta$ is "diffuse" and use an "uniformative prior"; that is, use $p(\theta)=1$ for $0\le \theta \le 1$. (In class, I used $p_H$ in place of $\theta$; here I have switched to $\theta$ as it is more common notation for an unknown parameter and will prevent confusion with the "p" in pdf and pmf discussed in the following paragraph.)
 
 1. Create a plot of the posterior pdf, $p(\theta|\mathcal{D})$, using the analytical method described in [HW 3.3](#bayes-rule-for-statistical-inference). On the same axes plot the posterior pdf using the simulation method I discussed in class. (In the simulation method, I simulated coin tosses of coins with different $\theta$ to create histograms that are _related_ to $p(\theta|\mathcal{D})$. You may need to make additional calculations to create a pdf). On my [additional notes](notes.html), I have added some details about pdfs and pmfs that were not well-covered during class.
-2. (**590 only**) The pdf $p(\theta|\mathcal{D})$ contains information that allows us to determine how confident we are that the coin had any value of $\theta$; it can also be used to determine how confident we are that the coin has a value over any range of $\theta$ (by integration of the pdf over that range). In frequentist analysis, this confidence is summarized by a confidence interval. In Bayesian analysis, a different term is used: a Credible Interval (CI), defined as the shortest interval that contains a certain fraction of the probability in the posterior pdf $p(\theta|\mathcal{D})$. In this problem, use a fraction of 0.95. Computation of the Credible Interval is not as simple as that for the confidence interval. Numerically, it can be computed by brute force by generating a list of lower boundary and interval length pairs and computing the integral of $p(\theta|\mathcal{D})$ for each pair. The pair that gives an integral closest to 0.95 is then the Credible Interval. There are also software packages that can be used.
+2. (**590 only**) The pdf $p(\theta|\mathcal{D})$ contains information that allows us to determine how confident we are that the coin had any value of $\theta$; it can also be used to determine how confident we are that the coin has a value over any range of $\theta$ (by integration of the pdf over that range). In frequentist analysis, this confidence is summarized by a confidence interval. In Bayesian analysis, a different term is used: a Credible Interval (CI), defined as the shortest interval that contains a certain fraction of the probability in the posterior pdf $p(\theta|\mathcal{D})$. In this problem, use a fraction of 0.95. Computation of the Credible Interval is not as simple as that for the confidence interval. Numerically, it can be computed by brute force by generating a list of lower boundary and interval length pairs and computing the integral of $p(\theta|\mathcal{D})$ for each pair. The pair that has an integral of $0.95$ and the shortest interval length form the Credible Interval. There are also software packages that can be used.
 
     Compute the 95% Credible Interval using the results from part 1. Display the credible interval in the title.
 
@@ -962,6 +962,16 @@ Given the data $\mathcal{D}=[x_o] = [0.5]$, create a plot of the posterior pdf $
 [Chapter 5 of Stone](https://piazza.com/gmu/spring2021/ce0c/resources) may provide some additional insight into how to approach this problem. Feel free to discuss ideas for how to approach this on Discord.
 
 Save you answer as `HW8_2.py`. When executed, the pdf should be shown.
+
+**Answer**
+
+<img src="hws/figures/HW8_2a_run_1.svg"/>
+
+<img src="hws/figures/HW8_2b_run_1.svg"/>
+
+<img src="hws/figures/HW8_2c_run_1.svg"/>
+
+<img src="hws/figures/HW8_2d_run_1.svg"/>
 
 # Midterm
 
@@ -1070,11 +1080,11 @@ Save your code for part 8. as `Midterm_Part_II.py`.
 
     or
     
-    $$b = \frac{\displaystyle\sum_{i=1}^{n}\left[\beta (x_i - \overline{x})^2 - (x_i-\overline{x})\epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2} = \beta - \frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+    $$b = \frac{\displaystyle\sum_{i=1}^{n}\left[\beta (x_i - \overline{x})^2 - (x_i-\overline{x})\epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2} = \beta - \frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
 
     Finally, using
     
-    $$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$    
+    $$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$    
 
     because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
 

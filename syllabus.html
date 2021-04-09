@@ -283,6 +283,12 @@
       font-size: 1.1em !important;
     }
     
+    /*
+    ol li::marker {
+      font-size: 0px;
+    }
+    */
+    
     @media print {
     
       * { overflow: visible !important; } 
@@ -346,11 +352,11 @@
         <li><a number="7.8" href="#march-18th">March 18th</a></li>
         <li><a number="7.9" href="#march-25th">March 25th</a></li>
         <li><a number="7.10" href="#april-1st">April 1st</a></li>
-        <li><a number="7.11" href="#april-8th">April 8th</a></li>
-        <li><a number="7.12" href="#april-15th">April 15th</a></li>
+        <li><a number="7.11" href="#april-8th" class="highlighted">April 8th</a></li>
+        <li><a number="7.12" href="#april-15th" class="">April 15th</a></li>
         <li><a number="7.13" href="#april-22nd">April 22nd</a></li>
         <li><a number="7.14" href="#april-29th">April 29th</a></li>
-        <li><a number="7.15" href="#may-6th">May 6th</a></li>
+        <li><a number="7.15" href="#may-6th" class="">May 6th</a></li>
       </ol>
       <li><a number="8" href="#topics">Topics</a></li>
       <ol>
@@ -366,7 +372,7 @@
         <li><a number="9.1" href="#general">General</a></li>
         <li><a number="9.2" href="#bayes">Bayes</a></li>
         <ol>
-          <li><a number="9.2.1" href="#general" class="highlighted">General</a></li>
+          <li><a number="9.2.1" href="#general">General</a></li>
           <li><a number="9.2.2" href="#credible-intervals">Credible Intervals</a></li>
           <li><a number="9.2.3" href="#mcmc">MCMC</a></li>
         </ol>
@@ -1080,13 +1086,56 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.11" class="hanchor" href="#april-8th">7.11 April 8th</a></h2>
+        <h2><a number="7.11" class="hanchor highlighted" href="#april-8th">7.11 April 8th</a></h2>
       </div>
       <div class="block">
         <ul>
           <li>
             <div class="block">
               <p><a href="hw.html#hw-8">HW #8</a> due</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Additional comments on [Midterm][hw.html#midterm]</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>Discussion of <a href="hw.html#hw-8">HW #8</a></p>
+            </div>
+          </li>
+          <li class="active">
+            <div class="block">
+              <p>Discussion of extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span len="13" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mrow>
+                            <mi mathvariant="script">D</mi>
+                          </mrow>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> has more than one value and/or when both <span len="5" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>μ</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\mu</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and <span len="8" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>σ</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\sigma</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span> are unknown.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>One-on-one discussion with students as needed if time remains.</p>
             </div>
           </li>
         </ul>
@@ -1096,15 +1145,136 @@
       <div class="block">
         <h2><a number="7.12" class="hanchor" href="#april-15th">7.12 April 15th</a></h2>
       </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <div class="block">
+                <p>HW #9 due. Will covers</p>
+              </div>
+            </div>
+            <div class="block">
+              <ul>
+                <li class="">
+                  <div class="block">
+                    <p>Extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span len="13" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mrow>
+                                  <mi mathvariant="script">D</mi>
+                                </mrow>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> has more than one value and/or when both <span len="5" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mi>μ</mi>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\mu</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and <span len="8" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mi>σ</mi>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\sigma</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span> are unknown. Uses analytic and experimental method.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>Comparing two means using frequentist (do problem) and Bayesian approach (read paper)</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>Using MCMC (read paper, do small problem)</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
       <div class="block">
         <h2><a number="7.13" class="hanchor" href="#april-22nd">7.13 April 22nd</a></h2>
       </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <div class="block">
+                <p>HW #10 due. Will covers</p>
+              </div>
+            </div>
+            <div class="block">
+              <ul>
+                <li>
+                  <div class="block">
+                    <p>Extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span len="13" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mrow>
+                                  <mi mathvariant="script">D</mi>
+                                </mrow>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> has more than one value and/or when both <span len="5" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mi>μ</mi>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\mu</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and <span len="8" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mi>θ</mi>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\theta</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> are unknown. Uses MCMC instead of experimental method.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>Comparing two means using Bayesian approach (full problem)</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="section">
       <div class="block">
         <h2><a number="7.14" class="hanchor" href="#april-29th">7.14 April 29th</a></h2>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <div class="block">
+                <p>HW #11 due. Covers</p>
+              </div>
+            </div>
+            <div class="block">
+              <ul>
+                <li>
+                  <div class="block">
+                    <p>Regression using Bayesian method and comparison with Midterm problem.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="section">
@@ -1112,10 +1282,16 @@
         <h2><a number="7.15" class="hanchor" href="#may-6th">7.15 May 6th</a></h2>
       </div>
       <div class="block">
-        <p>Thursday, May 6th from 4:30 – 7:10 pm</p>
+        <ul class="">
+          <li>
+            <div class="block">
+              <p>Take-home final due Sunday, May 9th at 11:59 pm.</p>
+            </div>
+          </li>
+        </ul>
       </div>
       <div class="block">
-        <p>Final exam (<a href="https://registrar.gmu.edu/wp-content/uploads/Spring-2021-Final-Exam-Schedule.pdf">full schedule</a>)</p>
+        <p class="">Final exam (<a href="https://registrar.gmu.edu/wp-content/uploads/Spring-2021-Final-Exam-Schedule.pdf">full schedule</a>)</p>
       </div>
     </div>
     <div class="section">
@@ -1359,7 +1535,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a number="9.2.1" class="hanchor highlighted" href="#general">9.2.1 General</a></h3>
+        <h3><a number="9.2.1" class="hanchor" href="#general">9.2.1 General</a></h3>
       </div>
       <div class="block">
         <ol>
@@ -1418,7 +1594,7 @@
               <p>Validation of Software for Bayesian Models Using Posterior Quantiles by Cook, Gelman, and Rubin, 2006 (<a href="https://www.jstor.org/stable/27594203">https://www.jstor.org/stable/27594203</a>).</p>
             </div>
           </li>
-          <li class="active">
+          <li>
             <div class="block">
               <p><a href="http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf">Section 3.4 of the lecture notes on Hierarchal Models by Junker</a> contains in Section 3.4 a detailed introduction to a common example covered in many books – finding the posterior when the standard deviation of the population is known and a prior distribution is available.</p>
             </div>

@@ -45,23 +45,18 @@ plt.ylim([0,0.6])
 T = np.linspace(128, 134, 100)
 normal = (1/(sigma/np.sqrt(n))/np.sqrt(2*np.pi))*np.exp( -(T-mu_o)**2/(2*(sigma/np.sqrt(n))**2) )
 
-if True:
-    from matplotlib.patches import Rectangle, FancyArrowPatch
-    fig, ax = plt.subplots()
-    plt.plot(T, normal, 'k', label='Null hypothesis distribution (exact)')
-    plt.hist(xbarI, bins=T, density=True, alpha=0.5, label='Null distribution (bootstrapped)')
-    #rp = Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.03, color='k', alpha=0.4, hatch='//', label='Do not reject if $\overline{T}$ in this range')
-    #ax.add_patch(rp)
-    plt.plot((xbar_tl, xbar_tu), (0.01, 0.01), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
-    #ax.add_patch(p1)
-    plt.xlabel('$\overline{T}$ [degrees]')
-    plt.ylabel('pdf')
-    plt.xlim([128, 134])
-    plt.ylim([0,1])
-    handles, labels = plt.gca().get_legend_handles_labels()
-    # https://stackoverflow.com/questions/22263807/how-is-order-of-items-in-matplotlib-legend-determined
-    order = [0,2,1]
-    plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order])
+fig, ax = plt.subplots()
+plt.plot(T, normal, 'k', label='Null hypothesis distribution (exact)')
+plt.hist(xbarI, bins=T, density=True, alpha=0.5, label='Null distribution (bootstrapped)')
+plt.plot((xbar_tl, xbar_tu), (0.01, 0.01), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
+plt.xlabel('$\overline{T}$ [degrees]')
+plt.ylabel('pdf($\overline{T}$) [1/degrees]')
+plt.xlim([128, 134])
+plt.ylim([0,1])
+handles, labels = plt.gca().get_legend_handles_labels()
+# https://stackoverflow.com/questions/22263807/how-is-order-of-items-in-matplotlib-legend-determined
+order = [0,2,1]
+plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order])
 
 # Test of type II (Ho not rejected when it is false b/c mu = 132)
 zII = np.empty(N)
@@ -71,31 +66,27 @@ for i in range(N):
     xbarII[i] = np.mean(x)
     zII[i] = (np.mean(x) - mu_o)/(sigma/np.sqrt(n))
 
-if True:
-    from matplotlib.patches import Rectangle
-    fig, ax = plt.subplots()
-    plt.plot(T, normal, 'k')
-    #ax.add_patch(Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.03, color='k', alpha=0.4, hatch='//'))
-    plt.plot((xbar_tl, xbar_tu), (0.005, 0.005), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
-    nII, binsII, patches = plt.hist(xbarII, bins=T, density=True, alpha=0.5,color='b')
-    plt.xlabel('$\overline{T}$ [degrees]')
-    #plt.hist(xbarII[np.where(xbarII < xbar_tu)[0]], bins=T, density=True, alpha=0.5,color='b')
-    plt.ylabel('pdf')
-    plt.xlim([128, 134])
-    #plt.ylim([0,400])
-    ax.add_patch(Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.00, color=(0,1,0,0.5)))
-    ax.legend(['Null hypothesis distribution (exact)',
-               'Do not reject null if $\overline{T}$ in this range',
-               'Simulated data - non-rejected',
-               'Simulated data - rejected'],
-              loc='upper right')
+from matplotlib.patches import Rectangle
+fig, ax = plt.subplots()
+plt.plot(T, normal, 'k')
+plt.plot((xbar_tl, xbar_tu), (0.005, 0.005), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
+nII, binsII, patches = plt.hist(xbarII, bins=T, density=True, alpha=0.5,color='b')
+plt.xlabel('$\overline{T}$ [degrees]')
+plt.ylabel('pdf($\overline{T}$) [1/degrees]')
+plt.xlim([128, 134])
+ax.add_patch(Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.00, color=(0,1,0,0.5)))
+ax.legend(['Null hypothesis distribution (exact)',
+           'Do not reject null if $\overline{T}$ in this range',
+           'Simulated data - non-rejected',
+           'Simulated data - rejected'],
+          loc='upper right')
 
+# Modify bar colors for non-rejected part of pdf.
 for patch in patches:
     xy = patch.get_xy()
     w = patch.get_width()
     if xy[0] + w/2 <= xbar_tu:
         patch.set_facecolor((0,1,0,0.5))
-
 
 
 

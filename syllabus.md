@@ -159,16 +159,32 @@ In the [References](#references) section of this syllabus, many additional refer
 ## April 8th
 
 * [HW #8](hw.html#hw-8) due
+* Additional comments on [Midterm][hw.html#midterm]
+* Discussion of [HW #8](hw.html#hw-8)
+* Discussion of extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\sigma$ are unknown.
+* One-on-one discussion with students as needed if time remains.
 
 ## April 15th
 
+* HW #9 due. Will covers
+    * Extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\sigma$ are unknown. Uses analytic and experimental method.
+    * Comparing two means using frequentist (do problem) and Bayesian approach (read paper)
+    * Using MCMC (read paper, do small problem)
+
 ## April 22nd
+
+* HW #10 due. Will covers
+    * Extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\theta$ are unknown. Uses MCMC instead of experimental method.
+    * Comparing two means using Bayesian approach (full problem)
 
 ## April 29th
 
+* HW #11 due. Covers
+    * Regression using Bayesian method and comparison with Midterm problem.
+
 ## May 6th
 
-Thursday, May 6th from 4:30 -- 7:10 pm
+* Take-home final due Sunday, May 9th at 11:59 pm.
 
 Final exam ([full schedule](https://registrar.gmu.edu/wp-content/uploads/Spring-2021-Final-Exam-Schedule.pdf))
 
