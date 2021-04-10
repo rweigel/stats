@@ -83,6 +83,9 @@ plt.xlabel('$\\theta$')
 plt.ylabel('$P(\mathcal{D}|\\theta)$')
 plt.title(title)
 plt.legend()
+if thetas.size < 12:
+    plt.xticks(thetas)
+
 plt.savefig('figures/HW8_2b_run-{0:d}.svg'.format(run), transparent=True)
 plt.savefig('figures/HW8_2b_run-{0:d}.png'.format(run), transparent=True)
 
@@ -95,6 +98,9 @@ plt.xlabel('$\\theta$')
 plt.ylabel('$P(\\theta|\mathcal{D})$')
 plt.title(title)
 plt.legend()
+if thetas.size < 12:
+    plt.xticks(thetas)
+
 plt.savefig('figures/HW8_2c_run-{0:d}.svg'.format(run), transparent=True)
 plt.savefig('figures/HW8_2c_run-{0:d}.png'.format(run), transparent=True)
 
@@ -113,5 +119,7 @@ plt.xlabel('$\\theta$')
 plt.ylabel('$p(\\theta|\mathcal{D})$')
 plt.title(title)
 plt.legend()
+if thetas.size < 12:
+    plt.xticks(thetas)
 plt.savefig('figures/HW8_2d_run-{0:d}.svg'.format(run), transparent=True)
 plt.savefig('figures/HW8_2d_run-{0:d}.png'.format(run), transparent=True)
