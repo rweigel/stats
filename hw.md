@@ -1021,10 +1021,10 @@ In the example on page 99 of Wall and Jenkins, he states
 
 This statement follows from a frequentist analysis performed using the method in 9.2 of Devore.
 
-1. I verified the quoted claim in two ways using the code [HW_9_2.py](hws/HW_9_2.py). Add comments to this code to explain my calculations. Include references to the relevant pages or equations of Devore.
+1. I verified the quoted claim in two ways using the code [HW9_2.py](hws/HW9_2.py). Add comments to this code to explain my calculations. Include references to the relevant pages or equations of Devore.
 2. Compute the 95% confidence interval for $\mu_x-\mu_y=0$ given the values of $x$ and $y$ in the code. Also compute the 78% confidence interval.
 
-Save your answers in a file named `HW_9_2.py`. When executed, it should print the confidence intervals. Prior to class, be prepared to explain the interpretation the meaning of this confidence interval and the quoted statement from Wall and Jenkins.
+Save your answers in a file named `HW9_2.py`. When executed, it should print the confidence intervals. Prior to class, be prepared to explain the interpretation the meaning of this confidence interval and the quoted statement from Wall and Jenkins.
 
 # Midterm
 
