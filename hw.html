@@ -388,10 +388,15 @@
       </ol>
       <li><a number="8" href="#hw-8">HW #8</a></li>
       <ol>
-        <li><a number="8.1" href="#posterior-related-to-coin-tosses" class="highlighted">Posterior related to coin tosses</a></li>
+        <li><a number="8.1" href="#posterior-related-to-coin-tosses">Posterior related to coin tosses</a></li>
         <li><a number="8.2" href="#posterior-related-to-gaussian-distribution">Posterior related to Gaussian distribution</a></li>
       </ol>
-      <li><a number="9" href="#midterm">Midterm</a></li>
+      <li><a number="9" href="#hw9">HW9</a></li>
+      <ol>
+        <li><a number="9.1" href="#extending-hw-8-2" class="highlighted">Extending HW 8.2</a></li>
+        <li><a number="9.2" href="#two-sample-frequentist-confidence-interval" class="">Two-sample frequentist confidence interval</a></li>
+      </ol>
+      <li><a number="10" href="#midterm">Midterm</a></li>
     </ol>
   </div>
   <div id="display">
@@ -11712,7 +11717,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="8.1" class="hanchor highlighted" href="#posterior-related-to-coin-tosses">8.1 Posterior related to coin tosses</a></h2>
+        <h2><a number="8.1" class="hanchor" href="#posterior-related-to-coin-tosses">8.1 Posterior related to coin tosses</a></h2>
       </div>
       <div class="block">
         <p>A coin is tossed 3x and then melted. The results of the toss were two heads and a tail, or <span len="21" class="katex"><span class="katex-mathml"><math>
@@ -11926,24 +11931,24 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
         <p>See <a href="hws/HW8_1.py">HW8_1.py</a>.</p>
       </div>
       <div class="block">
-        <img src="hws/figures/HW8_1_1a.svg" class="">
+        <img src="hws/figures/HW8_1_1a.svg">
       </div>
       <div class="block">
-        <img src="hws/figures/HW8_1_1b.svg" class="">
+        <img src="hws/figures/HW8_1_1b.svg">
       </div>
       <div class="block">
-        <img src="hws/figures/HW8_1_2a.svg" class="active">
+        <img src="hws/figures/HW8_1_2a.svg">
       </div>
       <div class="block">
-        <img src="hws/figures/HW8_1_2b.svg" class="">
+        <img src="hws/figures/HW8_1_2b.svg">
       </div>
       <div class="block">
-        <img src="hws/figures/HW8_1_2c.svg" class="">
+        <img src="hws/figures/HW8_1_2c.svg">
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a number="8.2" class="hanchor" href="#posterior-related-to-gaussian-distribution">8.2 Posterior related to Gaussian distribution</a></h2>
+        <h2><a number="8.2" class="hanchor" href="#posterior-related-to-gaussian-distribution">8.2 Posterior related to Gaussian distribution</a></h2>
       </div>
       <div class="block">
         <p>You are given number, <span len="5" class="katex"><span class="katex-mathml"><math>
@@ -12072,7 +12077,354 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="9" class="hanchor" href="#midterm">9 Midterm</a></h1>
+        <h1><a number="9" class="hanchor" href="#hw9">9 HW9</a></h1>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a number="9.1" class="hanchor highlighted" href="#extending-hw-8-2">9.1 Extending HW 8.2</a></h2>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p><strong>390 only</strong> </p>
+            </div>
+            <div class="block">
+              <p> You are given number, <span len="9" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>x</mi>
+                            <mi>o</mi>
+                          </msub>
+                          <mo>=</mo>
+                          <mn>0</mn>
+                          <mi mathvariant="normal">.</mi>
+                          <mn>5</mn>
+                        </mrow>
+                        <annotation encoding="application/x-tex">x_o=0.5</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span></span></span></span> and told is was generated by calling a Gaussian random number generator with a mean of <span len="10" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>θ</mi>
+                            <mn>1</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta_1</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and standard deviation of <span len="10" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>θ</mi>
+                            <mn>2</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta_2</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> by executing <code>np.random.normal(theta1, theta2, size=1)</code>.</p>
+            </div>
+            <div class="block">
+              <p> Given the data <span len="27" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mrow>
+                            <mi mathvariant="script">D</mi>
+                          </mrow>
+                          <mo>=</mo>
+                          <mo>[</mo>
+                          <msub>
+                            <mi>x</mi>
+                            <mi>o</mi>
+                          </msub>
+                          <mo>]</mo>
+                          <mo>=</mo>
+                          <mo>[</mo>
+                          <mn>0</mn>
+                          <mi mathvariant="normal">.</mi>
+                          <mn>5</mn>
+                          <mo>]</mo>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\mathcal{D}=[x_o] = [0.5]</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mclose">]</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mclose">]</span></span></span></span>, create a plot of the posterior pdf <span len="36" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>p</mi>
+                          <mo>(</mo>
+                          <mrow>
+                            <mi mathvariant="bold-italic">θ</mi>
+                          </mrow>
+                          <mi mathvariant="normal">∣</mi>
+                          <mrow>
+                            <mi mathvariant="script">D</mi>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                        <annotation encoding="application/x-tex">p(\boldsymbol{\theta}|\mathcal{D})</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord"><span class="mord boldsymbol" style="margin-right:0.03194em;">θ</span></span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span> (here <span len="21" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mrow>
+                            <mi mathvariant="bold-italic">θ</mi>
+                          </mrow>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\boldsymbol{\theta}</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord boldsymbol" style="margin-right:0.03194em;">θ</span></span></span></span></span> is a vector containing <span len="10" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>θ</mi>
+                            <mn>1</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta_1</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and <span len="10" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>θ</mi>
+                            <mn>2</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta_2</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>). You can do this analytically or using an experimental approach similar to the one I covered in class. Assume that the prior, <span len="13" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>p</mi>
+                          <mo>(</mo>
+                          <msub>
+                            <mi>θ</mi>
+                            <mi>j</mi>
+                          </msub>
+                          <mo>)</mo>
+                        </mrow>
+                        <annotation encoding="application/x-tex">p(\theta_j)</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mclose">)</span></span></span></span>, is zero if <span len="17" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi mathvariant="normal">∣</mi>
+                          <msub>
+                            <mi>θ</mi>
+                            <mi>j</mi>
+                          </msub>
+                          <mi mathvariant="normal">∣</mi>
+                          <mo>&gt;</mo>
+                          <mn>1</mn>
+                        </mrow>
+                        <annotation encoding="application/x-tex">|\theta_j|&gt;1</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord">∣</span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord">∣</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span> and <span len="5" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mn>0</mn>
+                          <mi mathvariant="normal">.</mi>
+                          <mn>5</mn>
+                        </mrow>
+                        <annotation encoding="application/x-tex">0.5</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span></span></span></span> for <span len="17" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi mathvariant="normal">∣</mi>
+                          <msub>
+                            <mi>θ</mi>
+                            <mi>j</mi>
+                          </msub>
+                          <mi mathvariant="normal">∣</mi>
+                          <mo>≤</mo>
+                          <mn>1</mn>
+                        </mrow>
+                        <annotation encoding="application/x-tex">|\theta_j|\le 1</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord">∣</span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord">∣</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span></span> for both <span len="10" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>θ</mi>
+                            <mn>1</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta_1</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and <span len="10" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>θ</mi>
+                            <mn>2</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta_2</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>. </p>
+            </div>
+            <div class="block">
+              <p> Save your program as <code>HW9_1_1.py</code>. When executed, a plot of the posterior as a function of <span len="10" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>θ</mi>
+                            <mn>1</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta_1</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and <span len="10" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>θ</mi>
+                            <mn>2</mn>
+                          </msub>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta_2</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> should be shown using a heatmap (you only need to show the heatmap generated using either the analytic or experimental method, but I encourage you to try both). In this problem, the pdf depends on two variables. I suggest using <a href="code/plot_matrix.py">plot_matrix.py</a> as a starting point for your visualization; it shows how to plot a matrix as a heatmap.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><strong>590 only</strong></p>
+            </div>
+            <div class="block">
+              <p class="active"> You are given <span len="24" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mrow>
+                            <mi mathvariant="script">D</mi>
+                          </mrow>
+                          <mo>=</mo>
+                          <mo>[</mo>
+                          <mn>0</mn>
+                          <mi mathvariant="normal">.</mi>
+                          <mn>5</mn>
+                          <mo separator="true">,</mo>
+                          <mn>1</mn>
+                          <mi mathvariant="normal">.</mi>
+                          <mn>5</mn>
+                          <mo>]</mo>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\mathcal{D}=[0.5, 1.5]</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">5</span><span class="mclose">]</span></span></span></span> and told that the values were generated by calling a Gaussian random number generator with a mean of <span len="8" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>θ</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\theta</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> and standard deviation of 1 for example, by executing <code>np.random.normal(theta, 1, size=2)</code>.</p>
+            </div>
+            <div class="block">
+              <p> Find the exact posterior, <span len="23" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>p</mi>
+                          <mo>(</mo>
+                          <mi>θ</mi>
+                          <mi mathvariant="normal">∣</mi>
+                          <mrow>
+                            <mi mathvariant="script">D</mi>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                        <annotation encoding="application/x-tex">p(\theta|\mathcal{D})</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span>. Compare this with an approximate posterior computed using the simulation method used in my solution to <a href="#hw-8">HW #8.2</a>. You will need to use <code>np.histogram2d</code> for the simulation method.</p>
+            </div>
+            <div class="block">
+              <p> Save your program as <code>HW9_1_2.py</code>. When executed, a plot of the exact and experimental posteriors should be shown.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a number="9.2" class="hanchor" href="#two-sample-frequentist-confidence-interval">9.2 Two-sample frequentist confidence interval</a></h2>
+      </div>
+      <div class="block">
+        <p>Read 9.1 and 9.2 of Devore and 5.2 of Wall and Jenkins.</p>
+      </div>
+      <div class="block">
+        <p>In the example on page 99 of Wall and Jenkins, he states</p>
+      </div>
+      <div class="block">
+        <div class="blockquote">
+          <p>“The standard <span len="3" class="katex"><span class="katex-mathml"><math>
+                  <semantics>
+                    <mrow>
+                      <mi>t</mi>
+                    </mrow>
+                    <annotation encoding="application/x-tex">t</annotation>
+                  </semantics>
+                </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.61508em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">t</span></span></span></span> statistic is 1.33. If we do a two-tailed test …, we find a 22% chance that these data would arise if the means were the same.”</p>
+        </div>
+      </div>
+      <div class="block">
+        <p>This statement follows from a frequentist analysis performed using the method in 9.2 of Devore.</p>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <p>I verified the quoted claim in two ways using the code <a href="hws/HW_9_2.py">HW_9_2.py</a>. Add comments to this code to explain my calculations. Include references to the relevant pages or equations of Devore.</p>
+            </div>
+          </li>
+          <li class="">
+            <div class="block">
+              <p>Compute the 95% confidence interval for <span len="15" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <msub>
+                            <mi>μ</mi>
+                            <mi>x</mi>
+                          </msub>
+                          <mo>−</mo>
+                          <msub>
+                            <mi>μ</mi>
+                            <mi>y</mi>
+                          </msub>
+                          <mo>=</mo>
+                          <mn>0</mn>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\mu_x-\mu_y=0</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.9305479999999999em;vertical-align:-0.286108em;"></span><span class="base"><span class="mord"><span class="mord mathit">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mord rule" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathit">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span> given the values of <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>x</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">x</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">x</span></span></span></span> and <span len="3" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>y</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">y</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> in the code. Also compute the 78% confidence interval.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p class="">Save your answers in a file named <code>HW_9_2.py</code>. When executed, it should print the confidence intervals. Prior to class, be prepared to explain the interpretation the meaning of this confidence interval and the quoted statement from Wall and Jenkins.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h1><a number="10" class="hanchor" href="#midterm">10 Midterm</a></h1>
       </div>
       <div class="block">
         <p><strong></strong></p>
