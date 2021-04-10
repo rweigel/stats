@@ -1013,7 +1013,7 @@ See [HW8_2.py](hws/HW8_2.py).
 
 ## Two-sample frequentist confidence interval
 
-Read 9.1 and 9.2 of Devore and 5.2 of Wall and Jenkins.
+Read [9.1 and 9.2 of Devore](https://piazza.com/class_profile/get_resource/kjlkdhhn1rs342/knc0kztxw5h4et) and 5.2 of Wall and Jenkins.
 
 In the example on page 99 of Wall and Jenkins, he states
 
