@@ -991,7 +991,7 @@ See [HW8_2.py](hws/HW8_2.py).
 
 <img src="hws/figures/HW8_2d_run-1.svg"/>
 
-# HW9
+# HW #9
 
 ## Extending HW 8.2
 
