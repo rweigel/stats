@@ -938,7 +938,7 @@ Based on the "sampling distribution of the null", we expect that 99% of all expe
 In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't reject" region. As a result, we can say "We do not reject the null hypothesis that $\mu=130.0$. The blue pdf was created by drawing $n=10$ values from a Gaussian with a mean of $130$ and a standard deviation of $1.5$, computing the mean, and then repeating $N=10,000$ times. The pdf is of these $10,000$ means. Out of these $10,000$ means, approximately 6% fell in the "reject" region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error -- we rejected the null hypothesis when it was true.`
 
 
-# HW #8
+# HW 8
 
 ## Posterior related to coin tosses
 
@@ -991,7 +991,7 @@ See [HW8_2.py](hws/HW8_2.py).
 
 <img src="hws/figures/HW8_2d_run-1.svg"/>
 
-# HW #9
+# HW 9
 
 ## Extending HW 8.2
 
