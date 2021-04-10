@@ -1001,7 +1001,7 @@ See [HW8_2.py](hws/HW8_2.py).
 
     Given the data $\mathcal{D}=[x_o] = [0.5]$, create a plot of the posterior pdf $p(\boldsymbol{\theta}|\mathcal{D})$ (here $\boldsymbol{\theta}$ is a vector containing $\theta_1$ and $\theta_2$). You can do this analytically or using an experimental approach similar to the one I covered in class. Assume that the prior, $p(\theta_j)$, is zero if $|\theta_j|>1$ and $0.5$ for $|\theta_j|\le 1$ for both $\theta_1$ and $\theta_2$. 
 
-    Save your program as `HW9_1_1.py`. When executed, a plot of the posterior as a function of $\theta_1$ and $\theta_2$ should be shown using a heatmap (you only need to show the heatmap generated using either the analytic or experimental method, but I encourage you to try both). In this problem, the pdf depends on two variables. I suggest using [plot_matrix.py](code/plot_matrix.py) as a starting point for your visualization; it shows how to plot a matrix as a heatmap.
+    Save your program as `HW9_1_1.py`. When executed, a plot of the posterior as a function of $\theta_1$ and $\theta_2$ should be shown using a heatmap (you only need to show the heatmap generated using either the analytic or experimental method, but I encourage you to try both). In this problem, the pdf depends on two variables. I suggest using [plot_matrix.py](https://github.com/rweigel/astrostats/blob/main/code/plot_matrix.py) as a starting point for your visualization; it shows how to plot a matrix as a heatmap.
 
 2. **590 only**
 
@@ -1021,7 +1021,7 @@ In the example on page 99 of Wall and Jenkins, he states
 
 This statement follows from a frequentist analysis performed using the method in 9.2 of Devore.
 
-1. I verified the quoted claim in two ways using the code [HW9_2.py](hws/HW9_2.py). Add comments to this code to explain my calculations. Include references to the relevant pages or equations of Devore.
+1. I verified the quoted claim in two ways using the code [HW9_2.py](https://github.com/rweigel/astrostats/blob/main/hws/HW9_2.py). Add comments to this code to explain my calculations. Include references to the relevant pages or equations of Devore.
 2. Compute the 95% confidence interval for $\mu_x-\mu_y=0$ given the values of $x$ and $y$ in the code. Also compute the 78% confidence interval.
 
 Save your answers in a file named `HW9_2.py`. When executed, it should print the confidence intervals. Prior to class, be prepared to explain the interpretation the meaning of this confidence interval and the quoted statement from Wall and Jenkins.
