@@ -1015,7 +1015,7 @@ See [HW8_2.py](hws/HW8_2.py).
 
 Read [9.1 and 9.2 of Devore](https://piazza.com/class_profile/get_resource/kjlkdhhn1rs342/knc0kztxw5h4et) and 5.2 of Wall and Jenkins.
 
-In the example on page 99 of Wall and Jenkins, he states
+In the example starting on page 98 of Wall and Jenkins, he states
 
 > "The standard $t$ statistic is 1.33. If we do a two-tailed test ..., we find a 22% chance that these data would arise if the means were the same."
 
