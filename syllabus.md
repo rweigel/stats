@@ -16,7 +16,7 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
-**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8)
+**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8) | [9](hw.html#hw-9)
 
 **[Midterm](hw.html#midterm)**
 
@@ -159,27 +159,28 @@ In the [References](#references) section of this syllabus, many additional refer
 ## April 8th
 
 * [HW #8](hw.html#hw-8) due
-* Additional comments on [Midterm][hw.html#midterm]
+* Additional comments on [Midterm](hw.html#midterm)
 * Discussion of [HW #8](hw.html#hw-8)
 * Discussion of extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\sigma$ are unknown.
 * One-on-one discussion with students as needed if time remains.
 
 ## April 15th
 
-* HW #9 due. Will covers
+* [HW #9](hw.html#hw-9) due. Will cover
     * Extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\sigma$ are unknown. Uses analytic and experimental method.
+    * Doing Bayesian problem sequentially -- using $\mathcal{D}_1$ to compute $p(\theta|\mathcal{D}_1)$ and then using this as a prior to compute $p(\theta|[\mathcal{D}_1,\mathcal{D}_2])$.
     * Comparing two means using frequentist (do problem) and Bayesian approach (read paper)
     * Using MCMC (read paper, do small problem)
 
 ## April 22nd
 
-* HW #10 due. Will covers
+* HW #10 due. Will cover
     * Extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\theta$ are unknown. Uses MCMC instead of experimental method.
     * Comparing two means using Bayesian approach (full problem)
 
 ## April 29th
 
-* HW #11 due. Covers
+* HW #11 due. Cover
     * Regression using Bayesian method and comparison with Midterm problem.
 
 ## May 6th
@@ -252,18 +253,23 @@ The following references are not needed for this course, but you may find them u
 
 ### General
 
-1. [Doing Bayesian Data Analysis by Kruschke](http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf) - The best overview that I am aware of.
-2. [How to become a Bayesian in eight easy steps: An annotated reading list, by Etz et al., 2018](https://link.springer.com/article/10.3758/s13423-017-1317-5)
+3. Bayes' Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone. This book is a good starting point.
+1. [Doing Bayesian Data Analysis by Kruschke](http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf) - The best overview that I am aware of. The examples are in R, but translation to other languages is straightforward. Most of the value of this book is in the descriptions of the concepts.
+2. [Bayesian Statistics -- an Introduction by P.M. Lee](https://www.amazon.com/Bayesian-Statistics-Introduction-Peter-Lee-dp-1118332571/dp/1118332571/) is a classic introductory textbook.
+2. [How to become a Bayesian in eight easy steps: An annotated reading list, by Etz et al., 2018](https://link.springer.com/article/10.3758/s13423-017-1317-5).
+7. Data Analysis - A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling.
 1. Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes' rule.
-2. Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas ([arxiv.org/pdf/<wbr>1411.5018.pdf](https://arxiv.org/pdf/1411.5018.pdf)).
-3. Bayes' Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone
-4. Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom ([MIT18<wbr>_05S14<wbr>_Reading20.pdf](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf))
 5. Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D'Agostini
-6. Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov.
-7. Data Analysis - A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling
 8. The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman -- This is a classic book on Machine Learning/Statistical Learning.
 9. Validation of Software for Bayesian Models Using Posterior Quantiles by Cook, Gelman, and Rubin, 2006 (https://www.jstor.org/stable/27594203).
 1. [Section 3.4 of the lecture notes on Hierarchal Models by Junker](http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf) contains in Section 3.4 a detailed introduction to a common example covered in many books -- finding the posterior when the standard deviation of the population is known and a prior distribution is available.
+
+### Bayesian vs. Frequentist
+
+1. The primary reference is  [Jaynes 1976]( https://bayes.wustl.edu/etj/articles/confidence.pdf). 
+2. Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas ([arxiv.org/pdf/<wbr>1411.5018.pdf](https://arxiv.org/pdf/1411.5018.pdf)).
+3. Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom ([MIT18<wbr>_05S14<wbr>_Reading20.pdf](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf))
+4. Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov.
 
 ### Credible Intervals
 

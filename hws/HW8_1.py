@@ -43,7 +43,7 @@ plt.figure(2)
 plt.bar(thetas, p_theta_given_D, width=dtheta/2, color='k', alpha=0.5, align='center', label='Experiment')
 plt.plot(thetas, p_theta_given_D_exact, 'k.', ms=2, label='Exact')
 plt.xlabel('$\\theta$ of coin')
-plt.ylabel('$p(\mathcal{{D}}|\\theta)$'.format(N_H))
+plt.ylabel('$p(\mathcal{{D}}|\\theta)$')
 plt.title('Experiment: Toss coins with different $\\theta$ {0:d}x; Each bin is\n' \
           ' result from 10k reps of experiment for given $\\theta$' \
           .format(N_T))
@@ -116,7 +116,7 @@ plt.plot([a,b], [0, 0], 'k-', linewidth=3, label='95% credible int. [{0:.2f},{1:
 plt.xlabel('$\\theta$ of coin')
 plt.grid()
 plt.ylim([0, 2.25])
-plt.ylabel('$p(\mathcal{{D}}|\\theta)$'.format(N_H))
+plt.ylabel('$p(\mathcal{{D}}|\\theta)$')
 plt.title('Experiment: Toss coins with different $\\theta$ {0:d}x; Each experiment' \
           ' bin\nis result from 10k reps of experiment for given $\\theta$. ' \
           '$\mathcal{{D}}=[H,H,T]$'

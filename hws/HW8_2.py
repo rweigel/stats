@@ -2,7 +2,7 @@ import numpy as np
 from math import erf
 from matplotlib import pyplot as plt
 
-run = 1
+run = 2
 
 xo = 0.5
 sigma = 1
@@ -13,9 +13,9 @@ if run == 1:
     dtheta = 0.2
     dx = 1
 else:
-    N = 100000
-    dtheta = 0.2
-    dx = 0.1
+    N = 500000
+    dtheta = 0.1
+    dx = 0.01
 
 # Theta values to test. Theta corresponds to pop. mean.
 thetas = np.arange(-1, 1 + dtheta, dtheta)

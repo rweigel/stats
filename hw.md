@@ -856,7 +856,7 @@ This fact that the fractions given in the titles are nearly equal is perhaps not
 
 The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. $\mu$ falls outside of the CI from Equation 7.15 more often when the CI width from 7.15 is smaller than that from 7.4 in comparison to when the CI width from 7.15 is larger than that from 7.4. So even though the error bar widths from eqn 7.15 are on average larger than that from 7.4, $\mu$ is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, manifests by more black dots below the line of magneta dots than above it.
 
-<img src="hws/figures/HW6_2_y.svg"/>
+<img src="hws/figures/HW6_2_y.png" width="100%"/>
 
 ## Confidence Interval when Sampling Distribution is not Known
 
@@ -909,11 +909,38 @@ x = np.random.normal(130.0, 1.5, size=9)
 print(np.mean(x)) #131.0812930740811
 ```
 
-Suppose you were given the values of `x` that results from executing this code, but you did not know the population standard deviation $\sigma$ (that is, you did not know the code used to generate the list of 9 numbers). You were only told that the values in `x` were drawn from a Normal distribution. In this case, the _equations given_ <strike>appropriate test is given as Case II</strike> on page 314--315 of Devore. (See [Discord discussion](https://discord.com/channels/806626538782064670/806626538782064673/821087920302587925)).
+Suppose you were given the values of `x` that results from executing this code, but you did not know the population standard deviation $\sigma$ (that is, you did not know the code used to generate the list of 9 numbers). You were only told that the values in `x` were drawn from a Normal distribution. In this case, the _equations given_ <strike>appropriate test is given as Case II</strike> (See [Discord discussion](https://discord.com/channels/806626538782064670/806626538782064673/821087920302587925)) on page 314--315.
 
 Test the same hypothesis as that in Example 8.6 using the list of 9 values in `x` that results from executing the above code.
 
 Save your answer in a file named `HW7_1.pdf`. Your answer should include the same steps as in Example 8.6 but using the Case II equations.
+
+**Answer**
+
+In this problem, I intended to suggest that you use the Case II equations, with the hope that someone would point out that the Case II equations don't apply because $n$ is not large. But my wording was terrible.
+
+The appropriate test statistic is $T$ defined in the Case III section of Devore:
+
+$$T = \frac{\overline{X}-\mu}{S/\sqrt{n}}$$
+
+Using the code below, I get $T=2.24$. The sampling distribution of $T$ is $t_{\nu}=t_8$. This means that if I repeatedly sampled 9 values from a population with a mean of $130$ and computed $T$ for each sample, the pdfs of the $T$s would follow the $t_8$ curve. Using a table for the $t$ distribution, 95% of the time $T$ will be between $\pm 2.31$. The $T$ value of $2.24$ is inside of this range and thus we do not reject null hypothesis that $\mu=130$ at a significance level of $0.95$.
+
+99% of the time, $T$ will be between $\pm 3.36$ . Thus, we would also not reject the null hypothesis at a significance level of $0.99$.
+
+If I instead used the Case II method, I would have rejected the null hypothesis at a significance level of $0.95$ because for a significance level of $0.95$, the non-rejection range is $\pm 1.96$ and the value of the z statistic of $2.16$ is outside of this range. For a significance level of $0.99$, I would not reject the null hypothesis because $2.16$ is inside of the range $\pm 2.57$
+
+Statistical software often reports a critical $p$ value. In the following, `scipy.stats.ttest_1samp` returns $p_c=0.056$. This means that we can reject the null hypothesis if our rejection criteria is $\alpha < p_c$. In the above, I used $\alpha = 0.05$ and $\alpha = 0.01$. In both cases, I rejected the null hypothesis, which is expected because in both cases, $\alpha < 0.056$. If instead I had chosen $\alpha = 0.06$, I would not have rejected the null hypothesis.
+
+```Python
+from scipy import stats
+mu = 130
+sigma = 1.5
+np.random.seed(623)
+x = np.random.normal(mu, sigma, size=9)
+T, pc = stats.ttest_1samp(x, mu)
+print('Scipy: t  = {0:.3f}'.format(T))  # 2.236
+print('Scipy: pc = {0:.3f}'.format(pc)) # 0.056
+```
 
 ## $\beta$ and sample size determination
 
@@ -931,11 +958,17 @@ Save your answers in a files named `HW7_2.pdf` and `HW7_2.py` (or the extension 
 
 **Comments**
 
-If the null hypothesis is that the $n=10$ values are drawn from a Gaussian distribution with $\mu_o=130$ and $\sigma=1.5$, we know the sampling distribution of the test statistic $\overline{X}$ -- it is a Gaussian with mean $\mu_o$ and variance $S^2$. In a hypothesis test, we formulate the hypothesis and then identify ranges of values for the test statistic. Then we compute the test statistic from experiment and see what region it falls into.
+We know the sampling distribution of the test statistic $\overline{X}$ ("the sampling distribution of the null") -- it is a Gaussian with mean $\mu_o$ and variance $\sigma^2$.
 
-Based on the "sampling distribution of the null", we expect that 99% of all experiements will yield an $\overline{X}$ in the shaded region. If we do the experiment and its test statistic value is in that region, we do not reject the null hypothesis. Otherwise, we reject the null hypothesis.
+In a hypothesis test, we formulate a hypothesis and then identify a hypothesis rejection range. Then we compute the test statistic from experiment and see what range it falls into.
 
-In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't reject" region. As a result, we can say "We do not reject the null hypothesis that $\mu=130.0$. The blue pdf was created by drawing $n=10$ values from a Gaussian with a mean of $130$ and a standard deviation of $1.5$, computing the mean, and then repeating $N=10,000$ times. The pdf is of these $10,000$ means. Out of these $10,000$ means, approximately 6% fell in the "reject" region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error -- we rejected the null hypothesis when it was true.`
+If the null hypothesis is that the data were drawn from a $\mathcal{N}(\mu_o,\theta)$, then based on the sampling distribution of the null, we expect that 99% of all experiements will yield an $\overline{X}$ in the shaded region. If we do the experiment and its test statistic value is in that region, we do not reject the null hypothesis. Otherwise, we reject the null hypothesis. **Not rejecting the null is not the same as accepting the null**; think of "rejecting the null" as similar to the statement "My null hypothesis is that you committed the crime. Because you don't have an alibi, I can't reject the null hypothesis." In this statement, it is clear that not rejecting the null does not imply that you committed the crime. It only means there is not sufficient evidence to rule you out as a suspect.
+
+In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't reject" region. As a result, we can say "We do not reject the null hypothesis that $\mu=130.0$. The blue pdf was created by drawing $n=9$ values from a Gaussian with a mean of $130$ and a standard deviation of $1.5$, computing the mean, and then repeating $N=10,000$ times. The pdf is of these $10,000$ means. Out of these $10,000$ means, approximately 6% fell in the "reject" region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error -- we rejected the null hypothesis when it was true.
+
+The script that generated the following figure is [HW7_2.py](hws/HW7_2.py]). In the script, I compare $P(\text{Type II})$ using a simulation and using the exact formula given for $H_a: \mu \ne \mu_o$ in the box on the top of page 314. In the simulation method, $P(\text{Type II})$ is the fraction of the simulated pdf that overlaps with the non-rejection region. The exact formula corresponds to a replacement of the simulated pdf with a Gaussian pdf having a mean of $132$ and standard deviation of $1.5$ and integration of this pdf over the region of the red line. 
+
+<img src="hws/figures/HW7_2c.svg"/>
 
 
 # HW 8
@@ -949,7 +982,7 @@ A coin is tossed 3x and then melted. The results of the toss were two heads and 
 
     Compute the 95% Credible Interval using the results from part 1. Display the credible interval in the title.
 
-    The above description should be enough for you to compute the 95% Credible Interval. For background reading and additional context, I don't know of a single resource that covers Credible Intervals; in addition, there are many quantities that are related to Credible Intervals that are sometimes used instead. The earliest reference that I know of is [Jaynes 1976](https://bayes.wustl.edu/etj/articles/confidence.pdf), in which the term Bayesian Interval is used. See also [the documentation for the EasyStats package](https://easystats.github.io/bayestestR/articles/credible_interval.html#:~:text=Credible%20intervals%20are%20an%20important,to%20the%20frequentist%20Confidence%20Intervals), [a StackOverflow discussion](https://stackoverflow.com/questions/22284502/highest-posterior-density-region-and-central-credible-region), and [Kruschke and Liddel, 2018](https://link.springer.com/article/10.3758/s13423-016-1221-4).
+    The above description should be enough for you to compute the 95% Credible Interval. For background reading and additional context, I don't know of a single resource that covers Credible Intervals; in addition, there are many quantities that are related to Credible Intervals that are sometimes used instead. The earliest reference that I know of is [Jaynes 1976](https://bayes.wustl.edu/etj/articles/confidence.pdf), in which the term Bayesian Interval is used. See also [the documentation for the EasyStats package](https://easystats.github.io/bayestestR/articles/credible_interval.html#:~:text=Credible%20intervals%20are%20an%20important,to%20the%20frequentist%20Confidence%20Intervals), [a StackOverflow discussion](https://stackoverflow.com/questions/22284502/highest-posterior-density-region-and-central-credible-region), and [Kruschke and Liddel, 2018](https://link.springer.com/article/10.3758/s13423-016-1221-4). [Kruschke 2015 p88-89](http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf) discusses the Highest Density Interval, which is different that the Credible Interval (he also discuses the fact that there are many variants of the Highest Density Interval that are used).
 
 Save you answer as `HW8_1.py`. When executed, it should show the pdf for part 1. and the CI in the title for part 2. (for 590 students).
 
@@ -981,7 +1014,7 @@ Save you answer as `HW8_2.py`. When executed, the pdf should be shown.
 
 **Answer**
 
-See [HW8_2.py](hws/HW8_2.py). 
+See [HW8_2.py](hws/HW8_2.py). In the following, I show results using only 10 experiments for each $\theta$ values so that it is easy to visually check the results in the second plot based on the dots in the the first plot.
 
 <img src="hws/figures/HW8_2a_run-1.svg"/>
 
@@ -990,6 +1023,14 @@ See [HW8_2.py](hws/HW8_2.py).
 <img src="hws/figures/HW8_2c_run-1.svg"/>
 
 <img src="hws/figures/HW8_2d_run-1.svg"/>
+
+The following plots show the results when $500,000$ experiments are performed for each $\theta$ value. The plot of the grid with dots not shown because it takes too long to render this many points. 
+
+<img src="hws/figures/HW8_2b_run-2.svg"/>
+
+<img src="hws/figures/HW8_2c_run-2.svg"/>
+
+<img src="hws/figures/HW8_2d_run-2.svg"/>
 
 # HW 9
 
@@ -1007,7 +1048,7 @@ See [HW8_2.py](hws/HW8_2.py).
 
     You are given $\mathcal{D}=[0.5, 1.5]$ and told that the values were generated by calling a Gaussian random number generator with a mean of $\theta$ and standard deviation of 1 for example, by executing `np.random.normal(theta, 1, size=2)`.
 
-    Find the exact posterior, $p(\theta|\mathcal{D})$. Compare this with an approximate posterior computed using the simulation method used in my solution to [HW #8.2](#hw-8). You will need to use `np.histogram2d` for the simulation method.
+    Find the exact posterior, $p(\theta|\mathcal{D})$. Compare this with an approximate posterior computed using the simulation method used in my solution to [HW #8.2](#hw-8). You will need to use x``np.histogram2d` for the simulation method.
 
     Save your program as `HW9_1_2.py`. When executed, a plot of the exact and experimental posteriors should be shown.
 
@@ -1026,6 +1067,176 @@ This statement follows from a frequentist analysis performed using the method in
 
 Save your answers in a file named `HW9_2.py`. When executed, it should print the confidence intervals. Prior to class, be prepared to explain the interpretation the meaning of this confidence interval and the quoted statement from Wall and Jenkins.
 
+**Answer**
+
+> Suppose that we have two small sets of data, from Gaussian distributions of equal variance: $-1.22, -1.17, 0.93, -0.58, -1.14$ (mean $-0.64$) and $1.03, -1.59, -0.41, 0.71, 2.10$ (mean $0.37$), with a pooled standard deviation of $1.2$. The standard $t$ statistic is $1.33$. If we do a two-tailed test ..., we find a $22$ per cent chance that these data would arise if the means were the same.
+
+Given the description, the appropriate test is #5. below. However, I missed the "equal variance" part of the statement and so I used test #3 in the code that I posted. Based on the values given, In my solution, I've done tests both #3 and #5 and added comments and print statements.
+
+For test #3, I find
+
+$$\sqrt{\frac{S_X^2}{n_X} + \frac{S_Y^2}{n_Y}}=0.7527$$
+
+and
+
+$$T = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{S_X^2}{n_X} + \frac{S_Y^2}{n_Y}}}=1.3305$$
+
+and $\nu=6$, which is $6.8431$ rounded down to the nearest integer. This is the $T$ value given in the second edition of Wall and Jenkins.
+
+For test #5, I find
+
+$$S_p=\sqrt{\frac{n_X-1}{n_X+n_Y-2}S_X^2 +\frac{n_Y-1}{n_X+n_Y-2} S_Y^2}=\sqrt{\frac{S_X^2+S_Y^2}{2}}=1.1901$$
+
+and
+
+$$\sqrt{\frac{S_p^2}{n_X} + \frac{S_p^2}{n_Y}}=0.7527$$
+
+$$T = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{S_p^2}{n_X} + \frac{S_p^2}{n_Y}}}=1.3305$$
+
+Note that because $n_X=n_Y$, the $T$ values are the same for these two cases. In general, this will not be true.
+
+
+### Five cases involving difference between means
+
+Suppose that we want to make a statement about whether the means of a set of data $X=[X_1, ..., X_{n_X}]$ differs from that of $Y=[Y_1, ..., Y_{n_X}]$. The frequentist approach is to make a statement about how often differences larger than the observed sample means from one experiment, $|\overline{X}-\overline{Y}|$, would occur if the experiment was repeated many times and the population means were equal: $\mu_X = \mu_Y$.
+
+1. Unpooled Case I
+
+    * $X$'s and $Y$'s Gaussian iid
+    * $\sigma_X$ and $\sigma_Y$ known but not necessarily equal
+    * $n_X$ and $n_Y$ arbitrary (but $> 0$)
+
+    The statistic (see page 347 of Devore)
+
+    $$Z = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{\sigma_X^2}{n_X} + \frac{\sigma_Y^2}{n_Y}}}$$
+
+    is $\mathcal{N}(0, 1)$. That is, it is Gaussian-distributed with mean of 0 and variance of 1. Recall that short-hand for "Gaussian-distributed with mean of $\mu$ and variance of $\sigma^2$" is $\mathcal{N}(\mu,\sigma^2)$.
+
+2. Unpooled Case II
+
+    * $X$'s and $Y$'s drawn from iid but not necessarily Gaussian-distributed
+    * $\sigma_X$ and $\sigma_Y$ not known and not known to be equal
+    * $n_X$ and $n_Y$ **large**
+
+    The statistic (see page 351 of Devore)
+    
+    $$Z = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{S_X^2}{n_X} + \frac{S_Y^2}{n_Y}}}$$
+
+     has a $\mathcal{N}(0,1)$ sampling distribution.
+
+3. Unpooled Case III
+    * $X$'s and $Y$'s are Gaussian iid.
+    * $\sigma_X$ and $\sigma_Y$ unknown and not known to be equal
+    * $n_1$ and/or $n_2$ **not large**
+
+    The statistic (see page 357 of Devore)
+    
+    $$T = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{S_X^2}{n_X} + \frac{S_Y^2}{n_Y}}}$$
+
+    is _approximately_ $t$-distributed with $\nu$ given on page 357 of Devore.
+
+    For more on pooled vs. un-pooled tests, see https://ijpam.eu/contents/2013-89-4/5/5.pdf.
+
+3. Pooled Case I
+
+    * $X$'s and $Y$'s are Gaussian iid.
+    * $\sigma\equiv\sigma_1=\sigma_2$ known.
+    * $n_X$ and/or $n_Y$ **not** large
+
+    The statistic (see page 361 of Devore.)
+    
+    $$Z = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{\sigma^2}{n_X} + \frac{\sigma^2}{n_Y}}}$$
+     has a $\mathcal{N}(0,1)$ sampling distribution. 
+
+4. Pooled Case II
+    * $X$'s and $Y$'s are Gaussian iid.
+    * $\sigma\equiv\sigma_X=\sigma_Y$, but $\sigma$ unknown.
+    * $n_1$ and/or $n_2$ **not** large
+
+    The statistic (see page 361 of Devore)
+    
+    $$T = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{S_p^2}{n_X} + \frac{S_p^2}{n_Y}}}$$
+
+    is $t$-distributed with $\nu=n_X+n_Y-2$, where the pooled sample variance, $S_p$, is defined by
+
+    $$S_p^2=\frac{n_X-1}{n_X+n_Y-2}S_X^2 +\frac{n_Y-1}{n_X+n_Y-2} S_Y^2$$
+
+    For more on pooled vs. un-pooled tests, see https://ijpam.eu/contents/2013-89-4/5/5.pdf.
+
+    The definition of the "pooled" variance depends on the test being performed. If it is a pooled t-test, it is .... Otherwise, it is ... (Wikipedia).
+
+# HW 10
+
+## Review
+
+Thus far, you have estimated the posterior $p(\boldsymbol{\theta}|\mathcal{D})$ for a discrete and continuous problem. For example, in [HW #8.1](#hw-8), you computed the probability that a coin had a bias $\theta$ given the results of three coin tosses. In this case, the $\boldsymbol{\theta}$ vector, which represents a set of unknowns, had only one element.
+
+The computed posterior allowed us to say
+
+> Given the data and our prior knowledge of $\theta$s for coins, the probability that $\theta$ is in the range $[0.19, 0.93]$ is $0.95$.
+
+(Here $\theta$ represents the probability of heads for the coin, so in essence, we are making a statement about the probability of a probability, which may be confusing. If so, think of $\theta$ as equivalent to some physical parameter, such as the setting on the dial of the machine that manufactured the coin.)
+
+In [HW #8.2](#hw-8), you computed the posterior $p(\mu|\mathcal{D})$. Data were drawn from a Gaussian distribution with an unknown mean $\mu$ but a known variance of 1. The posterior allows use to make statements such as "the probability that $\mu$ is between $[a, b]$ is $c$". (We didn't do this, but it is straightforward to do using the same method used in [HW #8.1](#hw-8-1)).
+
+In both problems of [HW #8](#hw-8), there was one unknown parameter and $\mathcal{D}$ had only one value. In [HW #9.1.1](#hw-9), $\boldsymbol{\theta}$ had two unknown parameters and in [HW #9.1.2](#hw-9), $\mathcal{D}$ had two values.
+
+In all of the problems mentioned above, the posterior could be computed using a brute-force simulation or analytically. In my solution, I used the simulation and analytical method and also a third method, which I called "Exactish". That method used numerical integration to compute the evidence integral.
+
+As the number of values in $\mathcal{D}$ increases, the brute-force simulation method requires too many calculations for it to be useful. For example, if a $10\times 10$ grid was used in 9.1.2 to compute $p(\theta|\mathcal{D})$ for $10$ values of $\theta$, a total of $10^3$ grid points were needed. If $\mathcal{D}$ had $n=20$ values, $10^{21}$ grid points would be needed. So if your computation for $10^3$ grid points took 1 second, the $n=20$ simulation would take 32 trillion years.
+
+As a result, although the brute-force method is useful for understanding the ingredients and computation needed to form a posterior, it is (probably) never used in practice.
+
+To compute the posterior analytically, we needed to perform an integral for the evidence, $p(\mathcal{D})$. Consider the case where there are 2 unknown parameters, as was the case for problem 9.1.1. The integral was
+
+$$P(\mathcal{D}) = \int_{\mu}\int_{\sigma} p(\mathcal{D}|\mu,\sigma)p(\mu)p(\sigma)d\mu d\theta$$
+
+In my "exactish" solution, I evaluated the integral numerically.
+
+In problem 9.1.1, the numerical integration required the sum of values on a $10\times 10$ grid and took a negligible amount of time. If we wanted to compute $p(\boldsymbol{\theta}|\mathcal{D})$ when $\boldsymbol{\theta}$ had $7$ unknown parameters, we would need do do a sum of $10^7$ values. If instead of using a grid with $10$ values for each parameter we used 100, a sum of $10^{14}$ values would be needed.
+
+In this case, we will need an algorithm to evaluate integrals more efficiently. On commonly used integration algorithm is called "Monte Carlo".
+
+However, even better integration methods won't be sufficient for computing the posterior in many real--world problems. In such cases, the Markov Chain Monte Carlo method (MCMC) can be used. Curiously, it removes the need to do any integration! (The "Monte Carlo" in MCMC refers to the use of random numbers as opposed to the use of Monte Carlo integration.)
+
+For additional information for the motivation for the use of the MCMC algorithm, see [chapters 10.1--10.5 of Gelman 2014](https://piazza.com/class_profile/get_resource/kjlkdhhn1rs342/knm3ewukxqm2he) and [Chapter 7 of Kruschke (2015)](https://piazza.com/class_profile/get_resource/kjlkdhhn1rs342/knm3ex0th3f2hg), and [Brownlee (1998)](https://machinelearningmastery.com/markov-chain-monte-carlo-for-probability/).
+
+## (**390 only**) Monte Carlo Integration
+
+In class, I mentioned how Monte Carlo integration works. Draw a closed shape on a piece of paper with a known area, $A_k$. Hang the square on the wall and throw 1000 darts at the wall with your eyes closed. An estimate of the area of the arbitrary shape is $A_{k}n_{h}/n_{k}$, where $n_{h}$ is the number of darts that fell in the shape you drew and $n_{k}$ is the number of darts that hit the paper.
+
+To simulate tossing darts, you can use a uniform random number generator. The following code simulates tossing darts at a paper that is $2x1$. 
+
+```Python
+import numpy as np
+from matplotlib import pyplot as plt
+x = np.random.uniform(low=-1, high=1, size=1000)
+y = np.random.uniform(low=0, high=1, size=1000)
+
+plt.plot(x, y, '.')
+```
+
+Use Monte Carlo integration to estimate the under the curve of a parabola $y=1-x^2$ from $x=-1$ to $x=1$. (That is, the area between $y=0$ and $y=1-x^2$ with $x$ in the range of $[-1, 1]$.)
+
+Save your code as `HW10_1.py`. When executed, it should print the exact area and the Monte Carlo estimate of the area for $N=10^1, 10^2, ..., 10^5$.
+
+## (**590 only**) Markov Chain Monte Carlo Sampling
+
+The MCMC algorithm is described in detail in [Chapter 7 of Kruschke](
+http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf). An example of the implementation of the MCMC algorithm in Python is given at [https://twiecki.io/<wbr>blog/2015/11/10/mcmc-sampling/](https://twiecki.io/blog/2015/11/10/mcmc-sampling/).
+
+Estimate the posterior in [HW #9.2](#hw-9) using the MCMC algorithm. Write your own implementation of the MCMC algorithm (but you are welcome to use a library that implements the MCMC algorithm to check your answer). Use $\mathcal{D}=[0.5, 1.5]$ and also $\mathcal{D}$ with $50$ values drawn from a Gaussian with mean of $0.5$ and variance of $1$. 
+
+Save your answer in a file named `HW10_1.py`. When executed, the posterior for at least two $\mathcal{D}$s should be shown. For each case, the MCMC--derived prior should be compared with that using another method (e.g., the exact answer or a numerical approximation). Make sure to include relevant details in the in titles, and be prepared to explain the results in class.
+
+Additional References:
+
+* [Computational Statistics in Python](http://people.duke.edu/~ccc14/sta-663/PyMC2.html) demonstrates the use of PyMC2 to solve basic problems
+* [Bayesian Data Analysis, Gelman (2014); Chapters 10 and 11](https://piazza.com/class_profile/get_resource/kjlkdhhn1rs342/knm3ewukxqm2he)
+* [Introduction to Monte Carlo Methods, MacKay (1998)](https://piazza.com/class_profile/get_resource/kjlkdhhn1rs342/knm3gzw515h409)
+* [A simple introduction to Markov Chain Monte–Carlo sampling, Ravenzwaaij, Cassey, and Brown (2018)](https://link.springer.com/article/10.3758/s13423-016-1015-8)
+* Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from [arxiv.org](https://arxiv.org/abs/1710.06068) and [iopscience.iop.org](https://iopscience.iop.org/article/10.3847/1538-4365/aab76e)); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.
+ 
 # Midterm
 
 **<center>PHYS/ASTR 390/590 Midterm Exam; Spring 2021</center>**
@@ -1152,3 +1363,4 @@ Save your code for part 8. as `Midterm_Part_II.py`.
     Another way of looking for a dependence is to ask if the probability of $a-\alpha > 0$ was different when $b-\beta > 0$ vs. when $b-\beta <0$. In the code you can see that I tested the hypothesis that the means of the two cases shown below are equal. The test statistic for this hypothesis test is covered in most textbooks, including Wall and Jenkins in Section 5.2.
    
     <img src="hws/figures/Midterm_8b.svg"/>
+

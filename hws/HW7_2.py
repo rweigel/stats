@@ -35,14 +35,19 @@ std_normal = (1/np.sqrt(2*np.pi))*np.exp( -z**2/2. )
 fig, ax = plt.subplots()
 plt.plot(z, std_normal, 'k', label='Null hypothesis distribution (exact)')
 plt.hist(zI, bins=z, density=True, alpha=0.5, label='Null distribution (bootstrapped)')
-plt.plot((-zt, zt), (0.01, 0.01), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
-plt.xlabel('$z$')
-plt.ylabel('pdf')
-plt.xlim([-3, 3])
+plt.plot((-zt, zt), (0, 0), color='r', lw=2, label='Do not reject null if $\overline{T}$ in this range')
+plt.xlabel('$z=(\mu-\overline{T})/(\sigma\sqrt{n})$')
+plt.ylabel('pdf(z)')
+plt.xlim([-5, 5])
 plt.ylim([0,0.6])
+plt.legend()
+plt.savefig('figures/HW7_2a.svg', transparent=True)
+plt.savefig('figures/HW7_2a.png', transparent=True)
 
 
 T = np.linspace(128, 134, 100)
+
+# Normal with mean of mu_o and standard deviation of sigma
 normal = (1/(sigma/np.sqrt(n))/np.sqrt(2*np.pi))*np.exp( -(T-mu_o)**2/(2*(sigma/np.sqrt(n))**2) )
 
 fig, ax = plt.subplots()
@@ -52,11 +57,14 @@ plt.plot((xbar_tl, xbar_tu), (0.01, 0.01), color='r', lw=2, label='Do not reject
 plt.xlabel('$\overline{T}$ [degrees]')
 plt.ylabel('pdf($\overline{T}$) [1/degrees]')
 plt.xlim([128, 134])
-plt.ylim([0,1])
+plt.ylim([0,1.1])
 handles, labels = plt.gca().get_legend_handles_labels()
 # https://stackoverflow.com/questions/22263807/how-is-order-of-items-in-matplotlib-legend-determined
 order = [0,2,1]
 plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order])
+plt.savefig('figures/HW7_2b.svg', transparent=True)
+plt.savefig('figures/HW7_2b.png', transparent=True)
+
 
 # Test of type II (Ho not rejected when it is false b/c mu = 132)
 zII = np.empty(N)
@@ -74,6 +82,7 @@ nII, binsII, patches = plt.hist(xbarII, bins=T, density=True, alpha=0.5,color='b
 plt.xlabel('$\overline{T}$ [degrees]')
 plt.ylabel('pdf($\overline{T}$) [1/degrees]')
 plt.xlim([128, 134])
+plt.ylim([0,1.2])
 ax.add_patch(Rectangle((xbar_tl,0),xbar_tu-xbar_tl,0.00, color=(0,1,0,0.5)))
 ax.legend(['Null hypothesis distribution (exact)',
            'Do not reject null if $\overline{T}$ in this range',
@@ -88,6 +97,8 @@ for patch in patches:
     if xy[0] + w/2 <= xbar_tu:
         patch.set_facecolor((0,1,0,0.5))
 
+plt.savefig('figures/HW7_2c.svg', transparent=True)
+plt.savefig('figures/HW7_2c.png', transparent=True)
 
 
 # Test of type II (Don't reject Ho when we should have)
