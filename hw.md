@@ -1225,7 +1225,7 @@ Save your code as `HW10_1.py`. When executed, it should print the exact area and
 The MCMC algorithm is described in detail in [Chapter 7 of Kruschke](
 http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf). An example of the implementation of the MCMC algorithm in Python is given at [https://twiecki.io/<wbr>blog/2015/11/10/mcmc-sampling/](https://twiecki.io/blog/2015/11/10/mcmc-sampling/).
 
-Estimate the posterior in [HW #9.2](#hw-9) using the MCMC algorithm. Write your own implementation of the MCMC algorithm (but you are welcome to use a library that implements the MCMC algorithm to check your answer). Use $\mathcal{D}=[0.5, 1.5]$ and also $\mathcal{D}$ with $50$ values drawn from a Gaussian with mean of $0.5$ and variance of $1$. 
+Estimate the posterior in [HW #9.1.2](#hw-9) using the MCMC algorithm. Write your own implementation of the MCMC algorithm (but you are welcome to use a library that implements the MCMC algorithm to check your answer). Use $\mathcal{D}=[0.5, 1.5]$ and also $\mathcal{D}$ with $50$ values drawn from a Gaussian with mean of $0.5$ and variance of $1$. 
 
 Save your answer in a file named `HW10_1.py`. When executed, the posterior for at least two $\mathcal{D}$s should be shown. For each case, the MCMC--derived prior should be compared with that using another method (e.g., the exact answer or a numerical approximation). Make sure to include relevant details in the in titles, and be prepared to explain the results in class.
 
