@@ -54,7 +54,7 @@ if False:
     plt.bar(bw/2. + bins[0:-1], cnts[0]/np.sum(cnts[0]), width=bw*(0.99))
     plt.ylabel('Probability Distribution')
 
-plt.title('$\mu= 0$, $n=%d$, $mean(\overline{X}) = $ %.2g' % (Ne, np.mean(Xbar)))
+plt.title('$n=%d$, $mean(\overline{X}) = $ %.2g' % (n, np.mean(Xbar)))
 plt.xlabel('$\overline{X}$')
 
 plt.savefig("figures/HW1_1a.png", format="png", transparent=True)

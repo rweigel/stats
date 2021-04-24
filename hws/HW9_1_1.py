@@ -38,6 +38,7 @@ for i in range(theta1s.size):
 
         P_D_theta_exactish[i,j] = dx*np.exp( -(xo-theta1s[i])**2/(2.0*theta2s[j]**2) )/np.sqrt(2*np.pi*theta2s[j]**2)
 
+        # Using Jeffrey's prior
         P_D_theta_exactish2[i,j] = (1/theta2s[j])*dx*np.exp( -(xo-theta1s[i])**2/(2.0*theta2s[j]**2) )/np.sqrt(2*np.pi*theta2s[j]**2)
 
 

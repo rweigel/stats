@@ -183,7 +183,7 @@ In the [References](#references) section of this syllabus, many additional refer
 * HW #11 due. Cover
     * Regression using Bayesian method and comparison with Midterm problem.
 
-## May 6th
+## May 9th
 
 * Take-home final due Sunday, May 9th at 11:59 pm.
 
@@ -270,6 +270,7 @@ The following references are not needed for this course, but you may find them u
 2. Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas ([arxiv.org/pdf/<wbr>1411.5018.pdf](https://arxiv.org/pdf/1411.5018.pdf)).
 3. Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom ([MIT18<wbr>_05S14<wbr>_Reading20.pdf](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf))
 4. Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov.
+5. [The Earth is Round](https://psycnet.apa.org/record/1995-12080-001) covers the mis-use of significance tests in the psychological literature.
 
 ### Credible Intervals
 
@@ -286,6 +287,13 @@ In the following references, the terms "Bayesian Intervals", "Bayesian Confidenc
 * https://twiecki.io/blog/2015/11/10/mcmc-sampling/
 * Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from [arxiv.org](https://arxiv.org/abs/1710.06068) and [iopscience.iop.org](https://iopscience.iop.org/article/10.3847/1538-4365/aab76e)); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.
 * [Ravenzwaaij, Cassey, and Brown, 2018](https://link.springer.com/article/10.3758/s13423-016-1015-8)
+
+### Misc
+
+* https://stats.stackexchange.com/questions/421221/bayesian-inference-feeding-posterior-back-in-as-prior
+* https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/How-Principled-and-Practical-Are-Penalised-Complexity-Priors/10.1214/16-STS603.full
+* http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf
+* https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d
 
 ## Astronomy  
 

@@ -17,7 +17,7 @@ for i in range(thetas.size):
     x = np.random.binomial(N_T, thetas[i], size=N_E)
     n_B[i] = np.sum(x == N_H)
 
-P_D_given_theta = n_B/N_E # a probability, but not a pmf b/c sum(P_B) != 0
+P_D_given_theta = n_B/N_E # a probability, but not a pmf b/c sum( ) != 0
 print('sum(P_D_given_theta) = {0:.2f}'.format(np.sum(P_D_given_theta)))
 
 plt.figure(1)
@@ -37,7 +37,7 @@ p_theta_given_D_exact = 12*(1-thetas)*thetas**2
 
 # Experimental pdf
 p_theta_given_D = P_D_given_theta/np.sum(P_D_given_theta*dtheta)
-print('sum(p_theta_given_D)*dtheta = {0:.2f}'.format(dtheta*np.sum(p_theta_given_D)))
+print('sum(p_theta_given_D*dtheta) = {0:.2f}'.format(dtheta*np.sum(p_theta_given_D)))
 
 plt.figure(2)
 plt.bar(thetas, p_theta_given_D, width=dtheta/2, color='k', alpha=0.5, align='center', label='Experiment')

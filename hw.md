@@ -19,7 +19,7 @@ If you are interested, for a more formal definition of the Law of Large Numbers 
 
 ### a
 
-1. Draw $n=100$ values from a population of numbers drawn from a gaussian distribution with mean $\mu=0$ and standard deviation $\sigma=1$.
+1. Draw $n=100$ values from a population of Gaussian-distributed numbers drawn with mean $\mu=0$ and standard deviation $\sigma=1$.
 2. Compute $\overline{X}$.
 3. Repeat 1. and 2. $10,000$ times and plot a histogram of $\overline{X}$.
 
@@ -28,6 +28,8 @@ Save your program as `HW1_1a.py`. When I execute your program, I should see a hi
 **Answer**
 
 See [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py). Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.
+
+From the following plot, it should be clear that when we draw $100$ values from a population with a mean of zero, the average of the $100$ values will not always be zero.
 
 <img src="hws/figures/HW1_1a.svg"/>
 
@@ -55,7 +57,7 @@ See [HW1_1b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1b.py)
 4.  The following plot shows the dependence.
   
     <img src="hws/figures/HW1_1b4.svg"/>
-5.  I accepted any answer to this question as it was not interpreted correctly. By "distribution", I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed, the distribution of $\overline{X}$ is still Gaussian. In [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
+5.  I accepted any answer to this question if it was not interpreted correctly. By "distribution", I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed, the distribution of $\overline{X}$ is still Gaussian. In [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
 
 ## Prelude to Hypothesis Testing
 
@@ -966,7 +968,7 @@ If the null hypothesis is that the data were drawn from a $\mathcal{N}(\mu_o,\th
 
 In problem 7.1, the experiment yielded $131.08$, which is well within the "Don't reject" region. As a result, we can say "We do not reject the null hypothesis that $\mu=130.0$. The blue pdf was created by drawing $n=9$ values from a Gaussian with a mean of $130$ and a standard deviation of $1.5$, computing the mean, and then repeating $N=10,000$ times. The pdf is of these $10,000$ means. Out of these $10,000$ means, approximately 6% fell in the "reject" region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error -- we rejected the null hypothesis when it was true.
 
-The script that generated the following figure is [HW7_2.py](hws/HW7_2.py]). In the script, I compare $P(\text{Type II})$ using a simulation and using the exact formula given for $H_a: \mu \ne \mu_o$ in the box on the top of page 314. In the simulation method, $P(\text{Type II})$ is the fraction of the simulated pdf that overlaps with the non-rejection region. The exact formula corresponds to a replacement of the simulated pdf with a Gaussian pdf having a mean of $132$ and standard deviation of $1.5$ and integration of this pdf over the region of the red line. 
+The script that generated the following figure is [HW7\_2.py](hws/HW7\_2.py). In the script, I compare $P(\text{Type II})$ using a simulation and using the exact formula given for $H_a: \mu \ne \mu_o$ in the box on the top of page 314. In the simulation method, $P(\text{Type II})$ is the fraction of the simulated pdf that overlaps with the non-rejection region. The exact formula corresponds to a replacement of the simulated pdf with a Gaussian pdf having a mean of $132$ and standard deviation of $1.5$ and integration of this pdf over the region of the red line. 
 
 <img src="hws/figures/HW7_2c.svg"/>
 
@@ -1014,6 +1016,16 @@ Save you answer as `HW8_2.py`. When executed, the pdf should be shown.
 
 **Answer**
 
+The exact answer is
+
+$$p(\theta|\mathcal{D}) = \frac{\frac{1}{2\pi}{e^{(0.5-\theta)^2/2}}}{P(\mathcal{D})}$$
+
+where
+
+$$P(\mathcal{D})=\int_{-1}^1\frac{1}{2\pi}{e^{(0.5-\theta)^2/2}}d\theta\approx 0.625$$
+
+(One can use a program such as Wolfram Alpha to compute this integral or use the fact that the integral is [related to the Error Function](https://en.wikipedia.org/wiki/Error_function#Name) and use the error function function in `numpy`. I used the latter in my solution.)
+
 See [HW8_2.py](hws/HW8_2.py). In the following, I show results using only 10 experiments for each $\theta$ values so that it is easy to visually check the results in the second plot based on the dots in the the first plot.
 
 <img src="hws/figures/HW8_2a_run-1.svg"/>
@@ -1024,7 +1036,7 @@ See [HW8_2.py](hws/HW8_2.py). In the following, I show results using only 10 exp
 
 <img src="hws/figures/HW8_2d_run-1.svg"/>
 
-The following plots show the results when $500,000$ experiments are performed for each $\theta$ value. The plot of the grid with dots not shown because it takes too long to render this many points. 
+The following plots show the results when $500,000$ experiments are performed for each $\theta$ value. The plot of the grid with dots is not shown because it takes too long to render this many points. 
 
 <img src="hws/figures/HW8_2b_run-2.svg"/>
 
@@ -1048,7 +1060,7 @@ The following plots show the results when $500,000$ experiments are performed fo
 
     You are given $\mathcal{D}=[0.5, 1.5]$ and told that the values were generated by calling a Gaussian random number generator with a mean of $\theta$ and standard deviation of 1 for example, by executing `np.random.normal(theta, 1, size=2)`.
 
-    Find the exact posterior, $p(\theta|\mathcal{D})$. Compare this with an approximate posterior computed using the simulation method used in my solution to [HW #8.2](#hw-8). You will need to use x``np.histogram2d` for the simulation method.
+    Find the exact posterior, $p(\theta|\mathcal{D})$. Compare this with an approximate posterior computed using the simulation method used in my solution to [HW #8.2](#hw-8). You will can use `np.histogram2d` for the simulation method.
 
     Save your program as `HW9_1_2.py`. When executed, a plot of the exact and experimental posteriors should be shown.
 
@@ -1220,6 +1232,24 @@ Use Monte Carlo integration to estimate the under the curve of a parabola $y=1-x
 
 Save your code as `HW10_1.py`. When executed, it should print the exact area and the Monte Carlo estimate of the area for $N=10^1, 10^2, ..., 10^5$.
 
+**Answer**
+
+See [HW10_1.py](hws/HW10_1.py). Note that for 1000 points, Monte Carlo answer is off by 0.03 whereas for numerical integration with 21 rectangles, answer is only off by 0.003. Monte Carlo is less efficient when the integration is over only a few dimensions.
+
+<img src="hws/figures/HW10_1.svg"/>
+
+```
+Numerical integration (21 rectangles): 1.33000
+Exact: 1.33333
+Monte Carlo 1000 points: 1.36400
+
+N = 10^1; Area = 1.20000000
+N = 10^2; Area = 1.20000000
+N = 10^3; Area = 1.34400000
+N = 10^4; Area = 1.34680000
+N = 10^5; Area = 1.33782000
+```
+
 ## (**590 only**) Markov Chain Monte Carlo Sampling
 
 The MCMC algorithm is described in detail in [Chapter 7 of Kruschke](
@@ -1237,6 +1267,32 @@ Additional References:
 * [A simple introduction to Markov Chain Monte–Carlo sampling, Ravenzwaaij, Cassey, and Brown (2018)](https://link.springer.com/article/10.3758/s13423-016-1015-8)
 * Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from [arxiv.org](https://arxiv.org/abs/1710.06068) and [iopscience.iop.org](https://iopscience.iop.org/article/10.3847/1538-4365/aab76e)); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.
  
+# HW 11
+
+In [HW10_2.py](hws/HW10_2.py), a solution is given for the following
+
+* You are going to draw values from a distribution with and unknown mean and a variance of 1. You have prior knowledge that the unknown mean can only be between [-1,1].
+* You decide to assume that all values of the unknown mean are equally probable inside of the range of [-1,1].
+* You draw two values, $\mathcal{D}=[0.5, 1.5]$ and then find $p(\mu|\mathcal{D})$.
+
+The [HW11_reference.py](hws/HW11_reference.py) uses [`emcee`](https://emcee.readthedocs.io/en/stable/) to solve this problem.
+
+## Compare `emcee` to manual MCMC code
+
+Compare the posterior computed in [HW11_reference.py](hws/HW11_reference.py) with that computed in [HW10_2.py](hws/HW10_2.py).
+
+This is an open-ended question. I am only looking for something slightly more than just a comparison of the posteriors on the same plot. I want you to have done enough experimentation so that you can contribute to the class discussion.
+
+Save your answer in a file named `HW11_1.py`.
+
+## Generalize [HW11_reference.py](hws/HW11_reference.py)
+
+Modify [HW11_reference.py](hws/HW11_reference.py) so that $\mathcal{D}$ can have an arbitrary number of values.
+
+Experiment by computing the posterior for $\mathcal{D}$ values drawn various population distributions (e.g., uniform, chi-squared) with various parameters (e.g., bounds on uniform and # of degrees of freedom of chi-squared). Also, experiment with different numbers of values in $\mathcal{D}$. Be prepared to justify any features in the posterior plot.
+
+Save your answer in a file name `HW11_2.py`.
+
 # Midterm
 
 **<center>PHYS/ASTR 390/590 Midterm Exam; Spring 2021</center>**
@@ -1363,4 +1419,3 @@ Save your code for part 8. as `Midterm_Part_II.py`.
     Another way of looking for a dependence is to ask if the probability of $a-\alpha > 0$ was different when $b-\beta > 0$ vs. when $b-\beta <0$. In the code you can see that I tested the hypothesis that the means of the two cases shown below are equal. The test statistic for this hypothesis test is covered in most textbooks, including Wall and Jenkins in Section 5.2.
    
     <img src="hws/figures/Midterm_8b.svg"/>
-

@@ -403,9 +403,14 @@
       <ol>
         <li><a number="10.1" href="#review">Review</a></li>
         <li><a number="10.2" href="#-390-only-monte-carlo-integration">(<strong>390 only</strong>) Monte Carlo Integration</a></li>
-        <li><a number="10.3" href="#-590-only-markov-chain-monte-carlo-sampling" class="highlighted">(<strong>590 only</strong>) Markov Chain Monte Carlo Sampling</a></li>
+        <li><a number="10.3" href="#-590-only-markov-chain-monte-carlo-sampling">(<strong>590 only</strong>) Markov Chain Monte Carlo Sampling</a></li>
       </ol>
-      <li><a number="11" href="#midterm">Midterm</a></li>
+      <li><a number="11" href="#hw-11">HW 11</a></li>
+      <ol>
+        <li><a number="11.1" href="#compare-emcee-to-manual-mcmc-code" class="highlighted">Compare <code>emcee</code> to manual MCMC code</a></li>
+        <li><a number="11.2" href="#generalize-hw11_reference-py" class="">Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></li>
+      </ol>
+      <li><a number="12" href="#midterm" class="">Midterm</a></li>
     </ol>
   </div>
   <div id="display">
@@ -593,7 +598,7 @@
                         </mrow>
                         <annotation encoding="application/x-tex">n=100</annotation>
                       </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span> values from a population of numbers drawn from a gaussian distribution with mean <span len="7" class="katex"><span class="katex-mathml"><math>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span> values from a population of Gaussian-distributed numbers drawn with mean <span len="7" class="katex"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mi>μ</mi>
@@ -688,6 +693,27 @@
       </div>
       <div class="block">
         <p>See <a href="https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py">HW1_1a.py</a>. Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.</p>
+      </div>
+      <div class="block">
+        <p>From the following plot, it should be clear that when we draw <span len="5" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mn>1</mn>
+                    <mn>0</mn>
+                    <mn>0</mn>
+                  </mrow>
+                  <annotation encoding="application/x-tex">100</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span> values from a population with a mean of zero, the average of the <span len="5" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mn>1</mn>
+                    <mn>0</mn>
+                    <mn>0</mn>
+                  </mrow>
+                  <annotation encoding="application/x-tex">100</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span> values will not always be zero.</p>
       </div>
       <div class="block">
         <img src="hws/figures/HW1_1a.svg">
@@ -940,7 +966,7 @@
           </li>
           <li>
             <div class="block">
-              <p> I accepted any answer to this question as it was not interpreted correctly. By “distribution”, I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the <span len="3" class="katex"><span class="katex-mathml"><math>
+              <p> I accepted any answer to this question if it was not interpreted correctly. By “distribution”, I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the <span len="3" class="katex"><span class="katex-mathml"><math>
                       <semantics>
                         <mrow>
                           <mi>n</mi>
@@ -12101,7 +12127,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord">1</span><span class="mord">0</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span> means, approximately 6% fell in the “reject” region. Even though the data were drawn from a distribution that is consistent with the null hypothesis, according to our rejection criteria, we rejected the hypothesis! This is the nature of a hypothesis test. What has occured is that we made a type I error – we rejected the null hypothesis when it was true.</p>
       </div>
       <div class="block">
-        <p>The script that generated the following figure is <a href="hws/HW7_2.py%5D">HW7_2.py</a>. In the script, I compare <span len="19" class="katex"><span class="katex-mathml"><math>
+        <p>The script that generated the following figure is <a href="hws/HW7_2.py">HW7_2.py</a>. In the script, I compare <span len="19" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mi>P</mi>
@@ -12512,6 +12538,143 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
         <p><strong>Answer</strong></p>
       </div>
       <div class="block">
+        <p>The exact answer is</p>
+      </div>
+      <div class="block">
+        <p><span len="87" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mstyle scriptlevel="0" displaystyle="true">
+                      <mi>p</mi>
+                      <mo>(</mo>
+                      <mi>θ</mi>
+                      <mi mathvariant="normal">∣</mi>
+                      <mrow>
+                        <mi mathvariant="script">D</mi>
+                      </mrow>
+                      <mo>)</mo>
+                      <mo>=</mo>
+                      <mfrac>
+                        <mrow>
+                          <mfrac>
+                            <mrow>
+                              <mn>1</mn>
+                            </mrow>
+                            <mrow>
+                              <mn>2</mn>
+                              <mi>π</mi>
+                            </mrow>
+                          </mfrac>
+                          <mrow>
+                            <msup>
+                              <mi>e</mi>
+                              <mrow>
+                                <mo>(</mo>
+                                <mn>0</mn>
+                                <mi mathvariant="normal">.</mi>
+                                <mn>5</mn>
+                                <mo>−</mo>
+                                <mi>θ</mi>
+                                <msup>
+                                  <mo>)</mo>
+                                  <mn>2</mn>
+                                </msup>
+                                <mi mathvariant="normal">/</mi>
+                                <mn>2</mn>
+                              </mrow>
+                            </msup>
+                          </mrow>
+                        </mrow>
+                        <mrow>
+                          <mi>P</mi>
+                          <mo>(</mo>
+                          <mrow>
+                            <mi mathvariant="script">D</mi>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                      </mfrac>
+                    </mstyle>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\displaystyle p(\theta|\mathcal{D}) = \frac{\frac{1}{2\pi}{e^{(0.5-\theta)^2/2}}}{P(\mathcal{D})}</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.72192em;"></span><span class="strut bottom" style="height:2.65792em;vertical-align:-0.936em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.72192em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                                <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                              </svg></span></span><span style="top:-3.7350000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathit mtight" style="margin-right:0.03588em;">π</span></span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                                              <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                                            </svg></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9869199999999998em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">5</span><span class="mbin mtight">−</span><span class="mord mathit mtight" style="margin-right:0.02778em;">θ</span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913142857142857em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mtight">/</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+      </div>
+      <div class="block">
+        <p>where</p>
+      </div>
+      <div class="block">
+        <p><span len="86" class="katex katex-display" style="display: block"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mstyle scriptlevel="0" displaystyle="true">
+                      <mi>P</mi>
+                      <mo>(</mo>
+                      <mrow>
+                        <mi mathvariant="script">D</mi>
+                      </mrow>
+                      <mo>)</mo>
+                      <mo>=</mo>
+                      <msubsup>
+                        <mo>∫</mo>
+                        <mrow>
+                          <mo>−</mo>
+                          <mn>1</mn>
+                        </mrow>
+                        <mn>1</mn>
+                      </msubsup>
+                      <mfrac>
+                        <mrow>
+                          <mn>1</mn>
+                        </mrow>
+                        <mrow>
+                          <mn>2</mn>
+                          <mi>π</mi>
+                        </mrow>
+                      </mfrac>
+                      <mrow>
+                        <msup>
+                          <mi>e</mi>
+                          <mrow>
+                            <mo>(</mo>
+                            <mn>0</mn>
+                            <mi mathvariant="normal">.</mi>
+                            <mn>5</mn>
+                            <mo>−</mo>
+                            <mi>θ</mi>
+                            <msup>
+                              <mo>)</mo>
+                              <mn>2</mn>
+                            </msup>
+                            <mi mathvariant="normal">/</mi>
+                            <mn>2</mn>
+                          </mrow>
+                        </msup>
+                      </mrow>
+                      <mi>d</mi>
+                      <mi>θ</mi>
+                      <mo>≈</mo>
+                      <mn>0</mn>
+                      <mi mathvariant="normal">.</mi>
+                      <mn>6</mn>
+                      <mn>2</mn>
+                      <mn>5</mn>
+                    </mstyle>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\displaystyle P(\mathcal{D})=\int_{-1}^1\frac{1}{2\pi}{e^{(0.5-\theta)^2/2}}d\theta\approx 0.625</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.5640080000000003em;"></span><span class="strut bottom" style="height:2.5342890000000002em;vertical-align:-0.970281em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5640080000000003em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.8129000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.970281em;"></span></span></span></span></span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord mathit" style="margin-right:0.03588em;">π</span></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.2em;"><svg width="400em" height="0.2em" viewBox="0 0 400000 200" preserveAspectRatio="xMinYMin slice">
+                                <path d="M0 80H400000 v40H0z M0 80H400000 v40H0z"></path>
+                              </svg></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.0369199999999998em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">5</span><span class="mbin mtight">−</span><span class="mord mathit mtight" style="margin-right:0.02778em;">θ</span><span class="mclose mtight"><span class="mclose mtight">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913142857142857em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mtight">/</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span class="mord mathit">d</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">6</span><span class="mord">2</span><span class="mord">5</span></span></span></span></p>
+      </div>
+      <div class="block">
+        <p>(One can use a program such as Wolfram Alpha to compute this integral or use the fact that the integral is <a href="https://en.wikipedia.org/wiki/Error_function#Name">related to the Error Function</a> and use the error function function in <code>numpy</code>. I used the latter in my solution.)</p>
+      </div>
+      <div class="block">
         <p>See <a href="hws/HW8_2.py">HW8_2.py</a>. In the following, I show results using only 10 experiments for each <span len="8" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
@@ -12554,7 +12717,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                   </mrow>
                   <annotation encoding="application/x-tex">\theta</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> value. The plot of the grid with dots not shown because it takes too long to render this many points. </p>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> value. The plot of the grid with dots is not shown because it takes too long to render this many points. </p>
       </div>
       <div class="block">
         <img src="hws/figures/HW8_2b_run-2.svg">
@@ -12861,7 +13024,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path>
                         </mrow>
                         <annotation encoding="application/x-tex">p(\theta|\mathcal{D})</annotation>
                       </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span>. Compare this with an approximate posterior computed using the simulation method used in my solution to <a href="#hw-8">HW #8.2</a>. You will need to use x``np.histogram2d` for the simulation method.</p>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span>. Compare this with an approximate posterior computed using the simulation method used in my solution to <a href="#hw-8">HW #8.2</a>. You will can use <code>np.histogram2d</code> for the simulation method.</p>
             </div>
             <div class="block">
               <p> Save your program as <code>HW9_1_2.py</code>. When executed, a plot of the exact and experimental posteriors should be shown.</p>
@@ -15395,16 +15558,28 @@ M1001 80H400000v40H1013z"></path>
                 </semantics>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>.</p>
       </div>
+      <div class="block">
+        <p><strong>Answer</strong></p>
+      </div>
+      <div class="block">
+        <p>See <a href="hws/HW10_1.py">HW10_1.py</a>. Note that for 1000 points, Monte Carlo answer is off by 0.03 whereas for numerical integration with 21 rectangles, answer is only off by 0.003. Monte Carlo is less efficient when the integration is over only a few dimensions.</p>
+      </div>
+      <div class="block">
+        <img src="hws/figures/HW10_1.svg">
+      </div>
+      <div class="block">
+        <pre><div class="block"><code>Numerical integration (21 rectangles): 1.33000</code></div><div class="block"><code>Exact: 1.33333</code></div><div class="block"><code>Monte Carlo 1000 points: 1.36400</code></div><div class="block"><code></code></div><div class="block"><code>N = 10^1; Area = 1.20000000</code></div><div class="block"><code>N = 10^2; Area = 1.20000000</code></div><div class="block"><code>N = 10^3; Area = 1.34400000</code></div><div class="block"><code>N = 10^4; Area = 1.34680000</code></div><div class="block"><code>N = 10^5; Area = 1.33782000</code></div></pre>
+      </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="-590-only-markov-chain-monte-carlo-sampling" number="10.3" class="hanchor highlighted" href="#-590-only-markov-chain-monte-carlo-sampling">10.3 (<strong>590 only</strong>) Markov Chain Monte Carlo Sampling</a></h2>
+        <h2><a name="-590-only-markov-chain-monte-carlo-sampling" number="10.3" class="hanchor" href="#-590-only-markov-chain-monte-carlo-sampling">10.3 (<strong>590 only</strong>) Markov Chain Monte Carlo Sampling</a></h2>
       </div>
       <div class="block">
         <p>The MCMC algorithm is described in detail in <a href="http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf">Chapter 7 of Kruschke</a>. An example of the implementation of the MCMC algorithm in Python is given at <a href="https://twiecki.io/blog/2015/11/10/mcmc-sampling/">https://twiecki.io/<wbr>blog/2015/11/10/mcmc-sampling/</a>.</p>
       </div>
       <div class="block">
-        <p class="active">Estimate the posterior in <a href="#hw-9">HW #9.1.2</a> using the MCMC algorithm. Write your own implementation of the MCMC algorithm (but you are welcome to use a library that implements the MCMC algorithm to check your answer). Use <span len="24" class="katex"><span class="katex-mathml"><math>
+        <p>Estimate the posterior in <a href="#hw-9">HW #9.1.2</a> using the MCMC algorithm. Write your own implementation of the MCMC algorithm (but you are welcome to use a library that implements the MCMC algorithm to check your answer). Use <span len="24" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mrow>
@@ -15505,7 +15680,125 @@ M1001 80H400000v40H1013z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="midterm" number="11" class="hanchor" href="#midterm">11 Midterm</a></h1>
+        <h1><a name="hw-11" number="11" class="hanchor" href="#hw-11">11 HW 11</a></h1>
+      </div>
+      <div class="block">
+        <p>In <a href="hws/HW10_2.py">HW10_2.py</a>, a solution is given for the following</p>
+      </div>
+      <div class="block">
+        <ul>
+          <li>
+            <div class="block">
+              <p>You are going to draw values from a distribution with and unknown mean and a variance of 1. You have prior knowledge that the unknown mean can only be between [-1,1].</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>You decide to assume that all values of the unknown mean are equally probable inside of the range of [-1,1].</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>You draw two values, <span len="24" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mrow>
+                            <mi mathvariant="script">D</mi>
+                          </mrow>
+                          <mo>=</mo>
+                          <mo>[</mo>
+                          <mn>0</mn>
+                          <mi mathvariant="normal">.</mi>
+                          <mn>5</mn>
+                          <mo separator="true">,</mo>
+                          <mn>1</mn>
+                          <mi mathvariant="normal">.</mi>
+                          <mn>5</mn>
+                          <mo>]</mo>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\mathcal{D}=[0.5, 1.5]</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mord rule" style="margin-right:0.2777777777777778em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">5</span><span class="mclose">]</span></span></span></span> and then find <span len="20" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>p</mi>
+                          <mo>(</mo>
+                          <mi>μ</mi>
+                          <mi mathvariant="normal">∣</mi>
+                          <mrow>
+                            <mi mathvariant="script">D</mi>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                        <annotation encoding="application/x-tex">p(\mu|\mathcal{D})</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit">μ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="mclose">)</span></span></span></span>.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="block">
+        <p>The <a href="hws/HW11_reference.py">HW11_reference.py</a> uses <a href="https://emcee.readthedocs.io/en/stable/"><code>emcee</code></a> to solve this problem.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="compare-emcee-to-manual-mcmc-code" number="11.1" class="hanchor highlighted" href="#compare-emcee-to-manual-mcmc-code">11.1 Compare <code>emcee</code> to manual MCMC code</a></h2>
+      </div>
+      <div class="block">
+        <p>Compare the posterior computed in <a href="hws/HW11_reference.py">HW11_reference.py</a> with that computed in <a href="hws/HW10_2.py">HW10_2.py</a>.</p>
+      </div>
+      <div class="block">
+        <p class="active">This is an open-ended question. I am only looking for something slightly more than just a comparison of the posteriors on the same plot. I want you to have done enough experimentation so that you can contribute to the class discussion.</p>
+      </div>
+      <div class="block">
+        <p class="">Save your answer in a file named <code>HW11_1.py</code>.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="generalize-hw11_reference-py" number="11.2" class="hanchor" href="#generalize-hw11_reference-py">11.2 Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></h2>
+      </div>
+      <div class="block">
+        <p class="">Modify <a href="hws/HW11_reference.py">HW11_reference.py</a> so that <span len="13" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mrow>
+                      <mi mathvariant="script">D</mi>
+                    </mrow>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> can have an arbitrary number of values.</p>
+      </div>
+      <div class="block">
+        <p class="">Experiment by computing the posterior for <span len="13" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mrow>
+                      <mi mathvariant="script">D</mi>
+                    </mrow>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> values drawn various population distributions (e.g., uniform, chi-squared) with various parameters (e.g., bounds on uniform and # of degrees of freedom of chi-squared). Also, experiment with different numbers of values in <span len="13" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mrow>
+                      <mi mathvariant="script">D</mi>
+                    </mrow>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mathcal{D}</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span>. Be prepared to justify any features in the posterior plot.</p>
+      </div>
+      <div class="block">
+        <p class="">Save your answer in a file name <code>HW11_2.py</code>.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h1 class=""><a name="midterm" number="12" class="hanchor" href="#midterm">12 Midterm</a></h1>
       </div>
       <div class="block">
         <p><strong></strong></p>
