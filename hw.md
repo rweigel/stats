@@ -1271,7 +1271,8 @@ Additional References:
 
 In [HW10_2.py](hws/HW10_2.py), a solution is given for the following
 
-* You are going to draw values from a distribution with and unknown mean and a variance of 1. You have prior knowledge that the unknown mean can only be between [-1,1].
+* You are going to draw values from a distribution with an unknown mean $\mu$ and a variance of 1.
+* You have prior knowledge that the unknown mean can only be between [-1,1].
 * You decide to assume that all values of the unknown mean are equally probable inside of the range of [-1,1].
 * You draw two values, $\mathcal{D}=[0.5, 1.5]$ and then find $p(\mu|\mathcal{D})$.
 
@@ -1289,7 +1290,7 @@ Save your answer in a file named `HW11_1.py`.
 
 Modify [HW11_reference.py](hws/HW11_reference.py) so that $\mathcal{D}$ can have an arbitrary number of values.
 
-Experiment by computing the posterior for $\mathcal{D}$ values drawn various population distributions (e.g., uniform, chi-squared) with various parameters (e.g., bounds on uniform and # of degrees of freedom of chi-squared). Also, experiment with different numbers of values in $\mathcal{D}$. Be prepared to justify any features in the posterior plot.
+Experiment by computing the posterior for $\mathcal{D}$ values drawn from various population distributions (e.g., uniform, chi-squared) with various parameters (e.g., bounds on uniform and # of degrees of freedom of chi-squared). Also, experiment with different numbers of values in $\mathcal{D}$. Be prepared to justify any features in your posterior plot.
 
 Save your answer in a file name `HW11_2.py`.
 

@@ -407,10 +407,10 @@
       </ol>
       <li><a number="11" href="#hw-11">HW 11</a></li>
       <ol>
-        <li><a number="11.1" href="#compare-emcee-to-manual-mcmc-code" class="highlighted">Compare <code>emcee</code> to manual MCMC code</a></li>
-        <li><a number="11.2" href="#generalize-hw11_reference-py" class="">Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></li>
+        <li><a number="11.1" href="#compare-emcee-to-manual-mcmc-code">Compare <code>emcee</code> to manual MCMC code</a></li>
+        <li><a number="11.2" href="#generalize-hw11_reference-py" class="highlighted">Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></li>
       </ol>
-      <li><a number="12" href="#midterm" class="">Midterm</a></li>
+      <li><a number="12" href="#midterm">Midterm</a></li>
     </ol>
   </div>
   <div id="display">
@@ -15689,7 +15689,19 @@ M1001 80H400000v40H1013z"></path>
         <ul>
           <li>
             <div class="block">
-              <p>You are going to draw values from a distribution with and unknown mean and a variance of 1. You have prior knowledge that the unknown mean can only be between [-1,1].</p>
+              <p>You are going to draw values from a distribution with an unknown mean <span len="5" class="katex"><span class="katex-mathml"><math>
+                      <semantics>
+                        <mrow>
+                          <mi>μ</mi>
+                        </mrow>
+                        <annotation encoding="application/x-tex">\mu</annotation>
+                      </semantics>
+                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and a variance of 1.</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>You have prior knowledge that the unknown mean can only be between [-1,1].</p>
             </div>
           </li>
           <li>
@@ -15743,24 +15755,24 @@ M1001 80H400000v40H1013z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="compare-emcee-to-manual-mcmc-code" number="11.1" class="hanchor highlighted" href="#compare-emcee-to-manual-mcmc-code">11.1 Compare <code>emcee</code> to manual MCMC code</a></h2>
+        <h2><a name="compare-emcee-to-manual-mcmc-code" number="11.1" class="hanchor" href="#compare-emcee-to-manual-mcmc-code">11.1 Compare <code>emcee</code> to manual MCMC code</a></h2>
       </div>
       <div class="block">
         <p>Compare the posterior computed in <a href="hws/HW11_reference.py">HW11_reference.py</a> with that computed in <a href="hws/HW10_2.py">HW10_2.py</a>.</p>
       </div>
       <div class="block">
-        <p class="active">This is an open-ended question. I am only looking for something slightly more than just a comparison of the posteriors on the same plot. I want you to have done enough experimentation so that you can contribute to the class discussion.</p>
+        <p>This is an open-ended question. I am only looking for something slightly more than just a comparison of the posteriors on the same plot. I want you to have done enough experimentation so that you can contribute to the class discussion.</p>
       </div>
       <div class="block">
-        <p class="">Save your answer in a file named <code>HW11_1.py</code>.</p>
+        <p>Save your answer in a file named <code>HW11_1.py</code>.</p>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="generalize-hw11_reference-py" number="11.2" class="hanchor" href="#generalize-hw11_reference-py">11.2 Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></h2>
+        <h2 class=""><a name="generalize-hw11_reference-py" number="11.2" class="hanchor highlighted" href="#generalize-hw11_reference-py">11.2 Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></h2>
       </div>
       <div class="block">
-        <p class="">Modify <a href="hws/HW11_reference.py">HW11_reference.py</a> so that <span len="13" class="katex"><span class="katex-mathml"><math>
+        <p class="active">Modify <a href="hws/HW11_reference.py">HW11_reference.py</a> so that <span len="13" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mrow>
@@ -15772,7 +15784,7 @@ M1001 80H400000v40H1013z"></path>
               </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> can have an arbitrary number of values.</p>
       </div>
       <div class="block">
-        <p class="">Experiment by computing the posterior for <span len="13" class="katex"><span class="katex-mathml"><math>
+        <p>Experiment by computing the posterior for <span len="13" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mrow>
@@ -15781,7 +15793,7 @@ M1001 80H400000v40H1013z"></path>
                   </mrow>
                   <annotation encoding="application/x-tex">\mathcal{D}</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> values drawn various population distributions (e.g., uniform, chi-squared) with various parameters (e.g., bounds on uniform and # of degrees of freedom of chi-squared). Also, experiment with different numbers of values in <span len="13" class="katex"><span class="katex-mathml"><math>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> values drawn from various population distributions (e.g., uniform, chi-squared) with various parameters (e.g., bounds on uniform and # of degrees of freedom of chi-squared). Also, experiment with different numbers of values in <span len="13" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mrow>
@@ -15790,15 +15802,15 @@ M1001 80H400000v40H1013z"></path>
                   </mrow>
                   <annotation encoding="application/x-tex">\mathcal{D}</annotation>
                 </semantics>
-              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span>. Be prepared to justify any features in the posterior plot.</p>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span>. Be prepared to justify any features in your posterior plot.</p>
       </div>
       <div class="block">
-        <p class="">Save your answer in a file name <code>HW11_2.py</code>.</p>
+        <p>Save your answer in a file name <code>HW11_2.py</code>.</p>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 class=""><a name="midterm" number="12" class="hanchor" href="#midterm">12 Midterm</a></h1>
+        <h1><a name="midterm" number="12" class="hanchor" href="#midterm">12 Midterm</a></h1>
       </div>
       <div class="block">
         <p><strong></strong></p>
