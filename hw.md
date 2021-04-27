@@ -1294,6 +1294,34 @@ Experiment by computing the posterior for $\mathcal{D}$ values drawn from variou
 
 Save your answer in a file name `HW11_2.py`.
 
+# Final
+
+A partial list of the type of problem that will appear on the take-home final. You may ask questions and discuss in general how you would approach these problems on Discord before class on Thursday and during class on Thursday, April 29th (but don't post full solutions; provide hints and suggestions only). On Friday, April 30th, I'll post the actual take-home final which will contain this list of questions (and possibly a few more problems). After I post the actual take-home final, you may no longer collaborate. The take-home final is due Sunday, May 9th at 11:59 pm.
+
+## Product of Gaussians
+
+The product of Gaussians is often encountered when computing the likeliehood. Show that the product of two Gaussian pdfs with means of $\mu_1$ and $\mu_2$ and standard deviation $\sigma_o$ is a Gaussian with mean $\mu$ and standard deviation of $\sigma$ and write $\mu$ and $\sigma$ in terms of $\mu_1$, $\mu_2$, and $\sigma_o$.
+
+## Samples from a distribution with unknown mean and variance
+
+The following values were drawn from a distribution with an unknown mean $\mu$ and standard deviation $\sigma$:
+
+The values are independent and identially distributed and assume they were drawn from a Gaussian-distributed population.
+
+1. Use the frequentist method to compute:
+    1. A 95% Confidence Interval for $\mu$
+    2. A 95% Confidence Interval for $\sigma$
+1. Use the Bayesian method to compute
+    1. A 95% Credible Interval for $\mu$
+    2. A 95% Credible Interval for $\sigma$
+
+During the course of the semester, mutltiple approaches for the computations in 1. and 2. have been used. You may use any approach and any software library for these two problems.
+
+## TBD
+
+
+
+
 # Midterm
 
 **<center>PHYS/ASTR 390/590 Midterm Exam; Spring 2021</center>**

@@ -408,9 +408,15 @@
       <li><a number="11" href="#hw-11">HW 11</a></li>
       <ol>
         <li><a number="11.1" href="#compare-emcee-to-manual-mcmc-code">Compare <code>emcee</code> to manual MCMC code</a></li>
-        <li><a number="11.2" href="#generalize-hw11_reference-py" class="highlighted">Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></li>
+        <li><a number="11.2" href="#generalize-hw11_reference-py">Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></li>
       </ol>
-      <li><a number="12" href="#midterm">Midterm</a></li>
+      <li><a number="12" href="#final" class="">Final</a></li>
+      <ol>
+        <li><a number="12.1" href="#product-of-gaussians" class="">Product of Gaussians</a></li>
+        <li><a number="12.2" href="#samples-from-a-distribution-with-unknown-mean-and-variance" class="highlighted">Samples from a distribution with unknown mean and variance</a></li>
+        <li><a number="12.3" href="#tbd">TBD</a></li>
+      </ol>
+      <li><a number="13" href="#midterm">Midterm</a></li>
     </ol>
   </div>
   <div id="display">
@@ -15769,10 +15775,10 @@ M1001 80H400000v40H1013z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2 class=""><a name="generalize-hw11_reference-py" number="11.2" class="hanchor highlighted" href="#generalize-hw11_reference-py">11.2 Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></h2>
+        <h2><a name="generalize-hw11_reference-py" number="11.2" class="hanchor" href="#generalize-hw11_reference-py">11.2 Generalize </a><a href="hws/HW11_reference.py">HW11_reference.py</a></h2>
       </div>
       <div class="block">
-        <p class="active">Modify <a href="hws/HW11_reference.py">HW11_reference.py</a> so that <span len="13" class="katex"><span class="katex-mathml"><math>
+        <p>Modify <a href="hws/HW11_reference.py">HW11_reference.py</a> so that <span len="13" class="katex"><span class="katex-mathml"><math>
                 <semantics>
                   <mrow>
                     <mrow>
@@ -15810,7 +15816,218 @@ M1001 80H400000v40H1013z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="midterm" number="12" class="hanchor" href="#midterm">12 Midterm</a></h1>
+        <h1><a name="final" number="12" class="hanchor" href="#final">12 Final</a></h1>
+      </div>
+      <div class="block">
+        <p class="">A partial list of the type of problem that will appear on the take-home final. You may ask questions and discuss in general how you would approach these problems on Discord before class on Thursday and during class on Thursday, April 29th (but don’t post full solutions; provide hints and suggestions only). On Friday, April 30th, I’ll post the actual take-home final which will contain this list of questions (and possibly a few more problems). After I post the actual take-home final, you may no longer collaborate. The take-home final is due Sunday, May 9th at 11:59 pm.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="product-of-gaussians" number="12.1" class="hanchor" href="#product-of-gaussians">12.1 Product of Gaussians</a></h2>
+      </div>
+      <div class="block">
+        <p class="">The product of Gaussians is often encountered when computing the likeliehood. Show that the product of two Gaussian pdfs with means of <span len="7" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mi>μ</mi>
+                      <mn>1</mn>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu_1</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord mathit">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and <span len="7" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mi>μ</mi>
+                      <mn>2</mn>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu_2</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord mathit">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> and standard deviation <span len="10" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mi>σ</mi>
+                      <mi>o</mi>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\sigma_o</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> is a Gaussian with mean <span len="5" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>μ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and standard deviation of <span len="8" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>σ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\sigma</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span> and write <span len="5" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>μ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and <span len="8" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>σ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\sigma</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span> in terms of <span len="7" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mi>μ</mi>
+                      <mn>1</mn>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu_1</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord mathit">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>, <span len="7" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mi>μ</mi>
+                      <mn>2</mn>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu_2</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord mathit">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>, and <span len="10" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <msub>
+                      <mi>σ</mi>
+                      <mi>o</mi>
+                    </msub>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\sigma_o</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 class="active"><a name="samples-from-a-distribution-with-unknown-mean-and-variance" number="12.2" class="hanchor highlighted" href="#samples-from-a-distribution-with-unknown-mean-and-variance">12.2 Samples from a distribution with unknown mean and variance</a></h2>
+      </div>
+      <div class="block">
+        <p>The following values were drawn from a distribution with an unknown mean <span len="5" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>μ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\mu</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and standard deviation <span len="8" class="katex"><span class="katex-mathml"><math>
+                <semantics>
+                  <mrow>
+                    <mi>σ</mi>
+                  </mrow>
+                  <annotation encoding="application/x-tex">\sigma</annotation>
+                </semantics>
+              </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span>:</p>
+      </div>
+      <div class="block">
+        <p>The values are independent and identially distributed and assume they were drawn from a Gaussian-distributed population.</p>
+      </div>
+      <div class="block">
+        <ol>
+          <li>
+            <div class="block">
+              <div class="block">
+                <p>Use the frequentist method to compute:</p>
+              </div>
+            </div>
+            <div class="block">
+              <ol>
+                <li>
+                  <div class="block">
+                    <p>A 95% Confidence Interval for <span len="5" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mi>μ</mi>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\mu</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span></p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>A 95% Confidence Interval for <span len="8" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mi>σ</mi>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\sigma</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span></p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <div class="block">
+                <p>Use the Bayesian method to compute</p>
+              </div>
+            </div>
+            <div class="block">
+              <ol>
+                <li>
+                  <div class="block">
+                    <p>A 95% Credible Interval for <span len="5" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mi>μ</mi>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\mu</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span></p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>A 95% Credible Interval for <span len="8" class="katex"><span class="katex-mathml"><math>
+                            <semantics>
+                              <mrow>
+                                <mi>σ</mi>
+                              </mrow>
+                              <annotation encoding="application/x-tex">\sigma</annotation>
+                            </semantics>
+                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span></p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p>During the course of the semester, mutltiple approaches for the computations in 1. and 2. have been used. You may use any approach and any software library for these two problems.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="linear-regression" number="12.3" class="hanchor" href="#tbd">12.3 TBD</a></h2>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h1><a name="midterm" number="13" class="hanchor" href="#midterm">13 Midterm</a></h1>
       </div>
       <div class="block">
         <p><strong></strong></p>
