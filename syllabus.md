@@ -281,6 +281,7 @@ In the following references, the terms "Bayesian Intervals", "Bayesian Confidenc
 * Credible intervals are described by the authors of the [easystats](https://easystats.github.io/bayestestR/articles/credible_interval.html).
 * [testscience.org](https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/) has a brief example that compares confidence intervals with credible intervals.
 * Analysis of regression confidence intervals and Bayesian credible intervals for uncertainty quantification by Liu, Ye, and Ling, 2012 (https://doi.org/<wbr>10.1029/<wbr>2011WR011289)
+* `bayes_mvs` in SciPy uses [https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?<wbr>article=1277&context=facpub](https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?article=1277&context=facpub)
 
 ### MCMC
 

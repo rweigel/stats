@@ -1266,7 +1266,11 @@ Additional References:
 * [Introduction to Monte Carlo Methods, MacKay (1998)](https://piazza.com/class_profile/get_resource/kjlkdhhn1rs342/knm3gzw515h409)
 * [A simple introduction to Markov Chain Monte–Carlo sampling, Ravenzwaaij, Cassey, and Brown (2018)](https://link.springer.com/article/10.3758/s13423-016-1015-8)
 * Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from [arxiv.org](https://arxiv.org/abs/1710.06068) and [iopscience.iop.org](https://iopscience.iop.org/article/10.3847/1538-4365/aab76e)); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.
- 
+
+**Answer**
+
+[HW10_2.py](hws/HW10_2.py).
+
 # HW 11
 
 In [HW10_2.py](hws/HW10_2.py), a solution is given for the following
@@ -1304,22 +1308,26 @@ The product of Gaussians is often encountered when computing the likeliehood. Sh
 
 ## Samples from a distribution with unknown mean and variance
 
-The following values were drawn from a distribution with an unknown mean $\mu$ and standard deviation $\sigma$:
+The following values were drawn from a distribution with an unknown mean $\mu$ and unknown standard deviation $\sigma$:
 
-The values are independent and identially distributed and assume they were drawn from a Gaussian-distributed population.
+```
+1.1, 1.2, ...
+```
 
-1. Use the frequentist method to compute:
+The values are independent and identically distributed and drawn from a Gaussian population.
+
+1. Use a frequentist method to compute:
     1. A 95% Confidence Interval for $\mu$
     2. A 95% Confidence Interval for $\sigma$
 1. Use the Bayesian method to compute
     1. A 95% Credible Interval for $\mu$
     2. A 95% Credible Interval for $\sigma$
 
-During the course of the semester, mutltiple approaches for the computations in 1. and 2. have been used. You may use any approach and any software library for these two problems.
+During the course of the semester, multiple approaches for the computations in 1. and 2. have been used. You may use any approach and any software library for these two problems. I strongly recommend that you use multiple methods for computing each answer and if they differ, provide and explanation.
 
 ## TBD
 
-
+## TBD
 
 
 # Midterm
@@ -1340,7 +1348,7 @@ $$y_i = \beta x_i + \alpha + \epsilon_i$$
 
 Repeating this process $n$ times will yield $n$ values of $y$ and $x$. When we do linear regression on a set of measurements, we are assuming that the system we took measurements from works in a way that is equivalent to the above process.
 
-In this problem, you will create a poplulation of $N$ values using a linear relationship and then draw a sample of $n$ $(x,y)$ values. Then, you will compute $a$ and $b$, which are estimates of the respective population parameters $\alpha$ and $\beta$.
+In this problem, you will create a population of $N$ values using a linear relationship and then draw a sample of $n$ $(x,y)$ values. Then, you will compute $a$ and $b$, which are estimates of the respective population parameters $\alpha$ and $\beta$.
 
 1. Create a population of $N=1000$ $(x,y)$ pairs using $\alpha=1$, $\beta=1$, and $\sigma=0.2$. For values of $x$, use $0, 1/N, 2/N, ..., (N-1)/N$. Create a scatter plot of these $N$ $(x,y)$ values.
 2. Randomly draw $n=20$ $(x,y)$ pairs with replacement from the population and plot them on the same axis as the previous plot.
