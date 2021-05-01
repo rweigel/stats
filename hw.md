@@ -1300,34 +1300,113 @@ Save your answer in a file name `HW11_2.py`.
 
 # Final
 
-A partial list of the type of problem that will appear on the take-home final. You may ask questions and discuss in general how you would approach these problems on Discord before class on Thursday and during class on Thursday, April 29th (but don't post full solutions; provide hints and suggestions only). On Friday, April 30th, I'll post the actual take-home final which will contain this list of questions (and possibly a few more problems). After I post the actual take-home final, you may no longer collaborate. The take-home final is due Sunday, May 9th at 11:59 pm.
+**<center>PHYS/ASTR 390/590 Final Exam; Spring 2021</center>**
+
+Due Sunday, May 9th at 11:59 pm.
+
+590 students must solve all problems. 390 students do not need to answer questions marked **590 only**.
+
+You may not communicate with anyone else on these problems. You are free to ask me questions, however. Send questions via email or as a private message on Discord or Piazza.
 
 ## Product of Gaussians
 
-The product of Gaussians is often encountered when computing the likeliehood. Show that the product of two Gaussian pdfs with means of $\mu_1$ and $\mu_2$ and standard deviation $\sigma_o$ is a Gaussian with mean $\mu$ and standard deviation of $\sigma$ and write $\mu$ and $\sigma$ in terms of $\mu_1$, $\mu_2$, and $\sigma_o$.
+The product of Gaussians is often encountered when computing the likelihood. Show that the product of Gaussian pdfs with means of $\mu_1, \mu_2, \mu_3$ and a common standard deviation of $\sigma_o$ is a Gaussian with mean $\mu$ and standard deviation of $\sigma$. Write $\mu$ and $\sigma$ in terms of $\mu_1, \mu_2, \mu_3$, and  $\sigma_o$.
+
+Save your answers in a file named `Final1.pdf`.
 
 ## Samples from a distribution with unknown mean and variance
 
-The following values were drawn from a distribution with an unknown mean $\mu$ and unknown standard deviation $\sigma$:
+Assuming the following values were drawn from a Gaussian distribution with an unknown mean $\mu$ and unknown standard deviation $\sigma$:
 
 ```
-1.1, 1.2, ...
+[4.72 9.11 5.57 7.66 4.69 4.86 6.51 6.65 4.77 0.26 4.67 6.37 5.05 5.91
+ 5.54 2.13 6.77 3.84 4.   6.18 3.54 5.52 3.29 4.62 4.25 4.08 3.37 4.91
+ 5.24 6.85 3.85 5.11 9.41 5.78 5.97 5.87 1.59 4.51 0.72 6.72 8.4  3.94
+ 8.53 2.76 2.62 6.11 3.37 4.01 7.17 3.05]
 ```
-
-The values are independent and identically distributed and drawn from a Gaussian population.
 
 1. Use a frequentist method to compute:
     1. A 95% Confidence Interval for $\mu$
     2. A 95% Confidence Interval for $\sigma$
-1. Use the Bayesian method to compute
-    1. A 95% Credible Interval for $\mu$
-    2. A 95% Credible Interval for $\sigma$
+1. Use a Bayesian method to compute
+    1. $p(\mu|\mathcal{D})$
+    2. $p(\sigma|\mathcal{D})$
+    3. (**590 only**) A 95% Credible Interval for $\mu$
+    4. (**590 only**) A 95% Credible Interval for $\sigma$
 
-During the course of the semester, multiple approaches for the computations in 1. and 2. have been used. You may use any approach and any software library for these two problems. I strongly recommend that you use multiple methods for computing each answer and if they differ, provide and explanation.
+During the course of the semester, multiple approaches for the computations in 1. and 2. have been used. You may use any approach and any software library for these two problems. I strongly recommend that you use multiple methods for computing each answer to ensure your answers are reasonable and likely to be correct. Cite sources for code that you've used or built upon as appropriate.
 
-## TBD
+Save your answers in a file named `Final2.py`. When executed, plots with answers to the above should be displayed.
 
-## TBD
+## Linear Regression
+
+(390 students must only answer 1. and 3.; 590 students must answer 1.--4.)
+
+1. Use least--squares linear regression (any approach or library may be used) to find the slope $a$ and intercept $b$, and their 95% confidence intervals, for the 20 $(x,y)$ pairs of
+
+```
+  x    y
+ 0.00 3.15
+ 0.03 3.01
+ 0.05 3.29
+ 0.07 3.61
+ 0.10 3.13
+ 0.12 3.18
+ 0.15 3.77
+ 0.17 3.58
+ 0.20 3.26
+ 0.23 3.61
+ 0.25 3.36
+ 0.28 3.41
+ 0.30 3.67
+ 0.33 3.08
+ 0.35 3.18
+ 0.38 3.58
+ 0.40 3.50
+ 0.42 3.94
+ 0.45 3.63
+ 0.47 3.53
+ 0.50 4.44
+ 0.53 3.98
+ 0.55 4.12
+ 0.57 3.72
+ 0.60 4.04
+ 0.62 4.28
+ 0.65 3.95
+ 0.68 4.46
+ 0.70 4.22
+ 0.72 4.36
+ 0.75 4.32
+ 0.78 5.11
+ 0.80 4.60
+ 0.82 4.33
+ 0.85 4.95
+ 0.88 4.38
+ 0.90 4.86
+ 0.93 4.26
+ 0.95 4.50
+ 0.97 5.01
+ ```
+
+2. Assuming that $y_i-ax_i-b$ ($i=1,...,20$) is Gaussian--distributed with a standard deviation of $0.3$ and using the posteriors
+
+    $p(a)=0$ for $|a| < 5$ and $p(a)=const$ otherwise
+
+    and
+
+    $p(b)=0$ for $|b| < 5$ and $p(b)=const$ otherwise
+
+    compute and plot the analytic posterior $p((a,b)|\mathcal{D})$ as a heatmap.
+
+3. Use `emcee` to estimate the posteriors $p(a|\mathcal{D})$ and $p(b|\mathcal{D})$; use the same priors for $a$ and $b$ as given in 2.
+
+4. Use the posterior computed in 2. to find a 95% Credible Interval for both $a$ and $b$.
+
+Save your answers in a file named `Final3.py`. When executed plots with answers to the above should be displayed (or printed to the console).
+
+Cite sources for code that you've used or built upon as appropriate.
+
+Save your answers in a file named `Final3.py`. When executed plots with answers to the above should be displayed.
 
 
 # Midterm
