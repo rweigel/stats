@@ -16,9 +16,9 @@
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
-**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8) | [9](hw.html#hw-9)
+**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8) | [9](hw.html#hw-9) | [10](hw.html#hw-10) | [11](hw.html#hw-11)
 
-**[Midterm](hw.html#midterm)**
+**[Midterm](hw.html#midterm)** | **[Final](hw.html#final)**
 
 # Motivation
 
@@ -55,9 +55,9 @@ In the [References](#references) section of this syllabus, many additional refer
 
 # Evaluation
 
-*   **Homework**: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts.
-*   **Midterm**: 30% - In-class and hand-written.
-*   **Final project**: 30% - Students registered in 590 students will have an extra part for the final project.
+*   **Homework**: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts. 
+*   **Midterm**: 30%
+*   **Final project**: 30%
 *   **Final course**: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, < 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).
 
 # Weekly Schedule

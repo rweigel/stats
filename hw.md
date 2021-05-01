@@ -1083,7 +1083,7 @@ Save your answers in a file named `HW9_2.py`. When executed, it should print the
 
 > Suppose that we have two small sets of data, from Gaussian distributions of equal variance: $-1.22, -1.17, 0.93, -0.58, -1.14$ (mean $-0.64$) and $1.03, -1.59, -0.41, 0.71, 2.10$ (mean $0.37$), with a pooled standard deviation of $1.2$. The standard $t$ statistic is $1.33$. If we do a two-tailed test ..., we find a $22$ per cent chance that these data would arise if the means were the same.
 
-Given the description, the appropriate test is #5. below. However, I missed the "equal variance" part of the statement and so I used test #3 in the code that I posted. Based on the values given, In my solution, I've done tests both #3 and #5 and added comments and print statements.
+Given the description, the appropriate test is [test #5. below](#five-cases-involving-difference-between-means). However, I missed the "equal variance" part of the statement and so I used [test #3 below](#five-cases-involving-difference-between-means) in the code that I linked to in the problem statement. In my solution, I've done tests both #3 and #5 and added comments and print statements.
 
 For test #3, I find
 
@@ -1110,13 +1110,13 @@ Note that because $n_X=n_Y$, the $T$ values are the same for these two cases. In
 
 ### Five cases involving difference between means
 
-Suppose that we want to make a statement about whether the means of a set of data $X=[X_1, ..., X_{n_X}]$ differs from that of $Y=[Y_1, ..., Y_{n_X}]$. The frequentist approach is to make a statement about how often differences larger than the observed sample means from one experiment, $|\overline{X}-\overline{Y}|$, would occur if the experiment was repeated many times and the population means were equal: $\mu_X = \mu_Y$.
+Suppose that we want to make a statement about whether the means of a set of data $X=[X_1, ..., X_{n_X}]$ differs from that of $Y=[Y_1, ..., Y_{n_X}]$. The frequentist approach is to make a statement about how often the difference, $|\overline{X}-\overline{Y}|$, would be larger than the observed value if the experiment was repeated many times and the population means were equal: $\mu_X = \mu_Y$.
 
 1. Unpooled Case I
 
     * $X$'s and $Y$'s Gaussian iid
-    * $\sigma_X$ and $\sigma_Y$ known but not necessarily equal
-    * $n_X$ and $n_Y$ arbitrary (but $> 0$)
+    * $\sigma_X$ and $\sigma_Y$ **known**
+    * $n_X$ and $n_Y$ **arbitrary** (but $> 0$)
 
     The statistic (see page 347 of Devore)
 
@@ -1127,7 +1127,7 @@ Suppose that we want to make a statement about whether the means of a set of dat
 2. Unpooled Case II
 
     * $X$'s and $Y$'s drawn from iid but not necessarily Gaussian-distributed
-    * $\sigma_X$ and $\sigma_Y$ not known and not known to be equal
+    * $\sigma_X$ and $\sigma_Y$ **unknown** and not known to be equal
     * $n_X$ and $n_Y$ **large**
 
     The statistic (see page 351 of Devore)
@@ -1138,7 +1138,7 @@ Suppose that we want to make a statement about whether the means of a set of dat
 
 3. Unpooled Case III
     * $X$'s and $Y$'s are Gaussian iid.
-    * $\sigma_X$ and $\sigma_Y$ unknown and not known to be equal
+    * $\sigma_X$ and $\sigma_Y$ **unknown** and not known to be equal
     * $n_1$ and/or $n_2$ **not large**
 
     The statistic (see page 357 of Devore)
@@ -1152,8 +1152,8 @@ Suppose that we want to make a statement about whether the means of a set of dat
 3. Pooled Case I
 
     * $X$'s and $Y$'s are Gaussian iid.
-    * $\sigma\equiv\sigma_1=\sigma_2$ known.
-    * $n_X$ and/or $n_Y$ **not** large
+    * $\sigma\equiv\sigma_1=\sigma_2$ **known**.
+    * $n_X$ and/or $n_Y$ **not large**
 
     The statistic (see page 361 of Devore.)
     
@@ -1162,8 +1162,8 @@ Suppose that we want to make a statement about whether the means of a set of dat
 
 4. Pooled Case II
     * $X$'s and $Y$'s are Gaussian iid.
-    * $\sigma\equiv\sigma_X=\sigma_Y$, but $\sigma$ unknown.
-    * $n_1$ and/or $n_2$ **not** large
+    * $\sigma\equiv\sigma_X=\sigma_Y$, but $\sigma$ **unknown**.
+    * $n_1$ and/or $n_2$ **not large**
 
     The statistic (see page 361 of Devore)
     
@@ -1388,7 +1388,7 @@ Save your answers in a file named `Final2.py`. When executed, plots with answers
  0.97 5.01
  ```
 
-2. Assuming that $y_i-ax_i-b$ ($i=1,...,20$) is Gaussian--distributed with a standard deviation of $0.3$ and using the posteriors
+2. Assuming that $y_i-ax_i-b$ ($i=1,...,20$) is Gaussian--distributed with a standard deviation of $0.3$ and using the priors
 
     $p(a)=0$ for $|a| < 5$ and $p(a)=const$ otherwise
 
