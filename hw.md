@@ -1390,11 +1390,11 @@ Save your answers in a file named `Final2.py`. When executed, plots with answers
 
 2. Assuming that $y_i-ax_i-b$ ($i=1,...,20$) is Gaussian--distributed with a standard deviation of $0.3$ and using the priors
 
-    $p(a)=0$ for $|a| < 5$ and $p(a)=const$ otherwise
+    $p(a)=0$ for $|a| > 5$ and $p(a)=const$ otherwise
 
     and
 
-    $p(b)=0$ for $|b| < 5$ and $p(b)=const$ otherwise
+    $p(b)=0$ for $|b| > 5$ and $p(b)=const$ otherwise
 
     compute and plot the analytic posterior $p((a,b)|\mathcal{D})$ as a heatmap.
 
