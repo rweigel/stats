@@ -27,15 +27,20 @@ for i in range(theta1s.size):
         x = np.random.normal(theta1s[i], theta2s[j], size=N)
         n, _ = np.histogram(x, bins=binsx)
 
+        # Find cases where samples are near xo.
         idx = np.where(np.abs(binsxc - xo) <= dx/2)[0]
         if (idx.size > 1):
             print('xo is on boundary of two bins.')
             idx = idx[0]
 
+        # Probability of data given theta is # of times
+        # draw from Normal(theta1, theta2**2) was near xo.
         P_D_theta[i,j] = n[idx]/N
         
         print('P = {0:.2f}; theta1 = {1:.2f}; theta2 = {2:.2f}'.format(P_D_theta[i,j],theta1s[i],theta2s[j]))
 
+        # Exact-"ish" because to be exact we would need to integrate over
+        # area around xo.
         P_D_theta_exactish[i,j] = dx*np.exp( -(xo-theta1s[i])**2/(2.0*theta2s[j]**2) )/np.sqrt(2*np.pi*theta2s[j]**2)
 
         # Using Jeffrey's prior
@@ -56,7 +61,7 @@ theta2se = np.append(theta2s, theta2s[-1] + dtheta)
 theta2se = theta2se - dtheta/2
 
 plt.figure(1)
-m = plt.pcolor(theta1se, theta2se, np.log(P_theta_D.T), cmap=plt.get_cmap('viridis', 20))
+m = plt.pcolor(theta1se, theta2se, P_theta_D.T, cmap=plt.get_cmap('viridis', 20))
 #m.set_clim(0,0.1)
 cb = plt.colorbar(m)
 plt.ylabel('$\\theta_2$ ($\sigma$)')
@@ -69,6 +74,9 @@ if theta1s.size < 11:
     plt.xticks(theta1s)
 if theta2s.size < 11:
     plt.yticks(theta2s)
+plt.savefig('figures/HW9_1_1a.svg', transparent=True)
+plt.savefig('figures/HW9_1_1a.png', transparent=True)
+
 
 plt.figure(2)
 m = plt.pcolor(theta1se, theta2se, P_theta_D_exactish.T, cmap=plt.get_cmap('viridis', 20))
@@ -84,6 +92,9 @@ if theta1s.size < 11:
     plt.xticks(theta1s)
 if theta2s.size < 11:
     plt.yticks(theta2s)
+
+plt.savefig('figures/HW9_1_1b.svg', transparent=True)
+plt.savefig('figures/HW9_1_1b.png', transparent=True)
 
 plt.figure(3)
 m = plt.pcolor(theta1se, theta2se, P_theta_D_exactish2.T, cmap=plt.get_cmap('viridis', 20))
@@ -101,17 +112,20 @@ if theta2s.size < 11:
     plt.yticks(theta2s)
 
 
-P_delta = P_theta_D -P_theta_D_exactish
+P_delta = P_theta_D - P_theta_D_exactish
 plt.figure(4)
 m = plt.pcolor(theta1se, theta2se, P_delta.T, cmap=plt.get_cmap('viridis', 20))
-m.set_clim(-0.1,0.1)
+#m.set_clim(-0.1,0.1)
 cb = plt.colorbar(m)
 plt.ylabel('$\\theta_2$ ($\sigma$)')
 plt.xlabel('$\\theta_1$ ($\mu$)')
-plt.title('Simulation-Exactish using same color scale')
+plt.title('Simulation-Exactish')
 
 # Set ticks to match centers
 if theta1s.size < 11:
     plt.xticks(theta1s)
 if theta2s.size < 11:
     plt.yticks(theta2s)
+
+plt.savefig('figures/HW9_1_1c.svg', transparent=True)
+plt.savefig('figures/HW9_1_1c.png', transparent=True)
