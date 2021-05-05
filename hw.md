@@ -1287,7 +1287,7 @@ Additional References:
 
 **Answer**
 
-[HW10_2.py](hws/HW10_2.py).
+See [HW10_2.py](hws/HW10_2.py).
 
 # HW 11
 
@@ -1315,6 +1315,10 @@ Modify [HW11_reference.py](hws/HW11_reference.py) so that $\mathcal{D}$ can have
 Experiment by computing the posterior for $\mathcal{D}$ values drawn from various population distributions (e.g., uniform, chi-squared) with various parameters (e.g., bounds on uniform and # of degrees of freedom of chi-squared). Also, experiment with different numbers of values in $\mathcal{D}$. Be prepared to justify any features in your posterior plot.
 
 Save your answer in a file name `HW11_2.py`.
+
+**Answer**
+
+See [HW11_2.py](https://github.com/rweigel/astrostats/blob/main/code/HW11_2.py).(https://github.com/rweigel/astrostats/blob/main/code/plot_matrix.py).
 
 # Final
 
@@ -1456,7 +1460,8 @@ In your physics labs, you were typically given an equation for the uncertainty (
 
 5. Randomly draw $n=20$ $(x,y)$ pairs with replacement $B=10,000$ times. For each draw, compute $a$ and $b$. Use the histogram of $a$ and $b$ to estimate 95% confidence intervals for $a$ and $b$ computed using the method in step 3. (or 4).
 
-Save your code as `Midterm_Part_I.py`. When executed, a plot should appear for part 1. and 2. and a separate plot for part 5. In addition, answers to parts 3. and 4. should be printed to the console.
+Save your code as `Midterm_Part_I.py
+`. When executed, a plot should appear for part 1. and 2. and a separate plot for part 5. In addition, answers to parts 3. and 4. should be printed to the console.
 
 (**Problems 6.-7. are required for 590 only**)
 
