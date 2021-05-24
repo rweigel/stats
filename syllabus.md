@@ -1,3 +1,53 @@
+<!--- TOC --->
+
+
+1\. [Course Information](#course-information)<br/>
+2\. [Motivation](#motivation)<br/>
+3\. [Methods of Instruction](#methods-of-instruction)<br/>
+4\. [Programming](#programming)<br/>
+5\. [Textbook](#textbook)<br/>
+6\. [Evaluation](#evaluation)<br/>
+7\. [Weekly Schedule](#weekly-schedule)<br/>
+&nbsp;&nbsp;&nbsp;1\. [January 28th](#january-28th)<br/>
+&nbsp;&nbsp;&nbsp;2\. [February 4th](#february-4th)<br/>
+&nbsp;&nbsp;&nbsp;3\. [February 11th](#february-11th)<br/>
+&nbsp;&nbsp;&nbsp;4\. [February 18th](#february-18th)<br/>
+&nbsp;&nbsp;&nbsp;5\. [February 25th](#february-25th)<br/>
+&nbsp;&nbsp;&nbsp;6\. [March 4th](#march-4th)<br/>
+&nbsp;&nbsp;&nbsp;7\. [March 11th](#march-11th)<br/>
+&nbsp;&nbsp;&nbsp;8\. [March 18th](#march-18th)<br/>
+&nbsp;&nbsp;&nbsp;9\. [March 25th](#march-25th)<br/>
+&nbsp;&nbsp;&nbsp;10\. [April 1st](#april-1st)<br/>
+&nbsp;&nbsp;&nbsp;11\. [April 8th](#april-8th)<br/>
+&nbsp;&nbsp;&nbsp;12\. [April 15th](#april-15th)<br/>
+&nbsp;&nbsp;&nbsp;13\. [April 22nd](#april-22nd)<br/>
+&nbsp;&nbsp;&nbsp;14\. [April 29th](#april-29th)<br/>
+&nbsp;&nbsp;&nbsp;15\. [May 9th](#may-9th)<br/>
+8\. [Topics](#topics)<br/>
+&nbsp;&nbsp;&nbsp;1\. [Python](#python)<br/>
+&nbsp;&nbsp;&nbsp;2\. [Basic Concepts in Probability](#basic-concepts-in-probability)<br/>
+&nbsp;&nbsp;&nbsp;3\. [Elements of Statistics](#elements-of-statistics)<br/>
+&nbsp;&nbsp;&nbsp;4\. [Hypothesis Tests](#hypothesis-tests)<br/>
+&nbsp;&nbsp;&nbsp;5\. [Parameter Estimation - Basic](#parameter-estimation-basic)<br/>
+&nbsp;&nbsp;&nbsp;6\. [Parameter Estimation - Advanced](#parameter-estimation-advanced)<br/>
+9\. [References](#references)<br/>
+&nbsp;&nbsp;&nbsp;1\. [General](#general)<br/>
+&nbsp;&nbsp;&nbsp;2\. [Bayes](#bayes)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1\. [General](#general)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2\. [Bayesian vs. Frequentist](#bayesian-vs-frequentist)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3\. [Credible Intervals](#credible-intervals)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4\. [MCMC](#mcmc)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5\. [Misc](#misc)<br/>
+&nbsp;&nbsp;&nbsp;3\. [Astronomy](#astronomy)<br/>
+&nbsp;&nbsp;&nbsp;4\. [Software](#software)<br/>
+10\. [General Policies](#general-policies)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1\. [Academic Integrity](#academic-integrity)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2\. [Disability](#disability)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3\. [Diversity and Inclusion](#diversity-and-inclusion)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4\. [Communication](#communication)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5\. [University Resources](#university-resources)<br/>
+
+<!--- /TOC --->
 <p class='title'>AstroStats</p>
 
 <p class='subtitle'>ASTR/PHYS 390/590</p>
@@ -295,6 +345,8 @@ In the following references, the terms "Bayesian Intervals", "Bayesian Confidenc
 * https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/How-Principled-and-Practical-Are-Penalised-Complexity-Priors/10.1214/16-STS603.full
 * http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf
 * https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d
+* https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior
+* https://link.springer.com/article/10.3758/s13423-016-1221-4
 
 ## Astronomy  
 
