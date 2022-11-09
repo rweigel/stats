@@ -1919,7 +1919,8 @@ Matplotlib is the most commonly used Python plotting package. There are many oth
 
 * http://matplotlib.org/users/beginner.html
 * http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.legend
-* 
+* https://github.com/matplotlib/cheatsheets/blob/master/cheatsheets.pdf
+* https://github.com/matplotlib/cheatsheets/blob/master/handout-beginner.pdf
 
 ## Importing Matplotlib
 

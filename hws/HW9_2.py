@@ -1,5 +1,5 @@
 import numpy as np
-import scipy.stats
+import scipy
 
 x = np.array([-1.22, -1.17, 0.93, -0.58, -1.14])
 y = np.array([1.03, -1.59, -0.41, 0.71, 2.10])
@@ -60,3 +60,23 @@ print('p:         {0:.4f}'.format(p))
 t_pooled, p_pooled = scipy.stats.ttest_ind(x, y, equal_var=True)
 print('t pooled:  {0:.4f}'.format(t_pooled))
 print('p pooled:  {0:.4f}'.format(p_pooled))
+
+# Devore page 358: Confidence interval is
+# xbar - ybar +/- t_{alpha/2, nu}*S_xy
+# For 95%, alpha/2 = 0.025, which corresponds to
+
+t = scipy.stats.t.ppf(0.975, nu) # 2.4469118487916806
+
+cil = ybar-xbar - t*S_xy
+ciu = ybar-xbar + t*S_xy
+
+print('95% Confidence interval for mu_x-mu_y is [{0:.2f}, {1:.2f}]'.format(cil, ciu))
+# 95% Confidence interval for mu_x-mu_y is [-0.84, 2.85]
+
+t = scipy.stats.t.ppf(0.89, nu) # 2.4469118487916806
+
+cil = ybar-xbar - t*S_xy
+ciu = ybar-xbar + t*S_xy
+
+print('78% Confidence interval for mu_x-mu_y is [{0:.2f}, {1:.2f}]'.format(cil, ciu))
+# 78% Confidence interval for mu_x-mu_y is [-0.03, 2.03]

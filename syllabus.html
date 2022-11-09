@@ -3,471 +3,844 @@
 
 <head>
   <meta charset="utf-8">
-  <title>AstroStats</title>
+  <title></title>
   <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
   <style>
+    #toc>ol ol {
+      display: none
+    }
+
     body {
-      background-color: rgb(240,240,240);
+      background-image: url("https://rweigel.github.io/biedit/img/paper.png")
     }
-    
+
+    .body {
+      display: flex;
+      min-width: 50%;
+      max-height: 100%;
+      position: absolute;
+      background-image: url("https://rweigel.github.io/biedit/img/paper.png");
+    }
+
     #toc {
-      font-size: 85%;
-      width: 14em;
-      position: fixed;
-      min-height: 95%;
-      max-height: 95%;
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding-left: 0.75em ;
-      padding-right: 1em;
+      flex: 0 1 auto;
+      margin-top: 0em;
       margin-right: 1em;
-      font-family: "Open Sans";
+      max-width: 12em;
+      overflow: hidden auto;
     }
-    
+
+    #toc .toctext {
+      color: darkblue;
+    }
+
+    #toc .toctext-empty {
+      min-width: 1em;
+      border-bottom: 1px solid blue;
+    }
+
     #toc ol {
       list-style-type: decimal;
+      margin: 0.25em 0em 0em 0.25em;
       padding-inline-start: 1em;
     }
-    
+
     #toc a {
       text-decoration: none;
     }
-    
-    #display a {
-      text-decoration: none;
-      text-underline-offset: 2px;
-      text-decoration-color: black;
-    }
-    
+
     #display {
-      width: 100%;
-      margin-left: 15em;
-      max-height: 100%;
-      min-height: 100%;
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding-left: 1em;
-      padding-right: 1em;
-      border-left: 1px solid rgb(240,240,240);
-      font-family: "Open Sans";
+      flex: 1 1 80%;
+      overflow: hidden auto;
+      overflow-wrap: break-word;
     }
-    
-    .title {
+
+    #display .abstract {
       text-align: center;
-      font-size: 250%;
+      font-size: 100%;
       font-weight: bold;
       color: black;
-      margin-bottom: 0;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
     }
-    
-    .subtitle {
+
+    #display .title {
       text-align: center;
       font-size: 150%;
       font-weight: bold;
       color: black;
       margin-top: 0.2em;
+      margin-bottom: 0.2em;
     }
-    
-    .hanchor {
-      text-decoration: none;
-      color: inherit;
+
+    #display .subtitle {
+      text-align: center;
+      font-size: 120%;
+      font-weight: bold;
+      color: black;
+      margin-top: 0.2em;
     }
-    
-    h1 {
-      color: darkblue;
-      border-bottom: 2px solid darkblue;
-      cursor: arrow;
+
+    #display .date {
+      text-align: right;
+      color: black;
     }
-    
-    h2 {
-      border-bottom: 1px solid black;
-    }
-    
-    h3 {
-      border-bottom: 1px dotted black;
-    }
-    
-    h1,h2,h3,h4,h5,h6 {
-      width: 100%;
-    }
-    
-    #display .block pre {
-      width: 100%;
-      margin-left: 1em;
-      padding-left: 1em;
-    }
-    
-    #display .block ul {
-      width: 100%;
-      margin-left: 1em;
-      padding-left: 1em;
-    }
-    
-    #display .block ol {
-      width: 100%;
-      margin-left: 1em;
-      padding-left: 1em;
-    }
-    
-    /*
-    a {
-        color: inherit;
-        text-decoration-style: dotted;
-        text-decoration-thickness: 1px;
-    }
-    */
-    
-    /* Fenced code blocks have form <pre><code>...</code></pre> */
-    pre > code {
-      background-color: rgba(0,0,0,0);
-      font-size: 1.25em;
-    }
-    
-    code {
-      background-color: rgba(0,0,0,.03);
-      border-radius: 0px;
-      font-size: 1.2em;
-    }
-    
-    code.language-Python {
-      background-color: rgba(0,0,0,0);
-      font-size: 1.2em;
-    }
-    
-    pre {
-      border-left: 3px solid black;
-      background-color: rgba(0,0,0,.03);
-      padding: 0.5em;
-      margin-left: 1em;
-      margin-right: 1em;
-      line-height: 1.5;
-      overflow-x: auto;
-    }
-    
-    pre.language-Python {
-      border-left: 5px solid blue;
-      padding: 0.5em;
-      margin-left: 1em;
-      margin-right: 1em;
-      line-height: 1.5;
-      overflow-x: auto;
-    }
-    
-    .block {
+
+    #display .block {
       display: flex;
+      flex: 1 1 auto;
     }
-    
-    #display li > div {
-      display: flex;
-    }
-    
-    p {
-        width: 100%;
-        display: block;
-        margin-block-start: 0.5em;
-        margin-block-end: 0.5em;
-      }
-    
-    #display li {
-      width: 100%;
-    }
-    
-    li .block p {
-        width: 100%;
-        display: block;
-        margin-block-start: 0.5em;
-        margin-block-end: 0.5em;
-      }
-    
-    li .block:first-of-type p {
-        width: 100%;
-        display: block;
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-      }
-    
-    h1 + .line-number {margin-block-start: 20em;}
-    h2 + .line-number {margin-block-start: 15em;}
-    h3 + .line-number {margin-block-start: 15em;}
-    h4 + .line-number {margin-block-start: 15em;}
-    h5 + .line-number {margin-block-start: 15em;}
-    h6 + .line-number {margin-block-start: 15em;}
-    
-    p + .line-number {
-      margin-block-start: 0.5em;
-    }
-    
-    .block > div.linenumber {
-      margin-block-start: -0.5em;
-    }
-    
-    ul ul + .line-number {
+
+    #display .block>.comment {
       display: none;
     }
-    
-    .line-number {
-      float: right;
-      white-space: nowrap;
-      font-size: 10%;
+
+    #display .hr {
+      width: 100%;
+      height: 1px;
+      display: block;
+      margin: 0.5em;
+      border-top: 1px solid black;
     }
-    
-    .blockquote + div.line-number {
-      margin-top: 1rem;
+
+    #display a {
+      text-decoration-line: none;
+      text-decoration-color: black;
+      color: darkblue;
     }
-    
+
+    #display a.broken-internal-link {
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-underline-offset: 2px;
+      text-decoration-color: red;
+    }
+
+    #display span.broken-internal-link {
+      font-size: 0.75em;
+      color: red;
+    }
+
+    #display a:focus-visible {
+      outline: none;
+      background-color: yellow;
+    }
+
+    #display p {
+      width: 100%;
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display pre {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      width: 100%;
+      text-decoration: none;
+      color: inherit;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display h1 {
+      color: darkblue;
+      border-bottom: 2px solid darkblue;
+    }
+
+    #display h2 {
+      border-bottom: 1px solid black;
+    }
+
+    #display h3 {
+      border-bottom: 1px dotted black;
+    }
+
+    #display img {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      max-width: 100%;
+    }
+
+    figure {
+      display: block;
+      margin-block: 0em;
+      margin-inline: 0px;
+    }
+
+    details>summary {
+      font-weight: bold;
+    }
+
+    details {
+      padding-left: 0.5em;
+    }
+
+    details[open] {
+      border: 1px solid black;
+      padding: 0em 0em 0em 0.5em;
+    }
+
+    table {
+      padding: 0px;
+      display: block;
+      width: 100%;
+    }
+
+    table tr {
+      border-top: 1px solid rgb(204, 204, 204);
+      background-color: white;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: rgb(248, 248, 248);
+    }
+
+    table tr th {
+      font-weight: bold;
+      border: 1px solid rgb(204, 204, 204);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr td {
+      border: 1px solid rgb(204, 204, 204);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr th :first-child,
+    table tr td :first-child {
+      margin-top: 0px;
+    }
+
+    table tr th :last-child,
+    table tr td :last-child {
+      margin-bottom: 0px;
+    }
+
+    #display code {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.03);
+      border-radius: 0px;
+      white-space: pre-wrap;
+    }
+
+    #display code~.line-number {
+      margin-top: 3px;
+      margin-right: 3px;
+    }
+
+    #display pre {
+      width: 100%;
+      text-indent: 0.75em;
+      margin: 0.5em 0px;
+      white-space: pre-wrap;
+      border-left: 3px solid black;
+      background-color: rgba(0, 0, 0, 0.03);
+      line-height: 1.25;
+      overflow-x: clip;
+    }
+
+    #display pre code {
+      background-color: rgba(0, 0, 0, 0);
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display pre.language-python {}
+
+    #display li>div {
+      display: flex;
+    }
+
+    #display li {
+      min-height: 1em;
+      width: 100%;
+    }
+
+    #display ul {
+      width: 100%;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      margin-left: 1em;
+      padding-left: 0.35em;
+    }
+
+    #display ul.compact {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ol {
+      width: 100%;
+      margin-left: 1em;
+      padding-left: 0.5em;
+    }
+
+    #display>.section>.block>ol.loose {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display>.section>.block>ol.compact {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ol.compact p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ol.loose p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ul.compact p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ul.loose p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    .inline-html .block .block-info {
+      display: none;
+    }
+
+    .inline-html {
+      width: 100%;
+    }
+
+    .section>.block ol~.block-info {}
+
+    .section>.block ul~.block-info {}
+
+    .section>.block pre~.block-info {}
+
+    .section>.block code~.block-info {}
+
+    pre .block-info {
+      font-size: 8px;
+      text-align: right;
+      text-indent: 0px;
+    }
+
+    .block-info {
+      text-align: right;
+      width: 24px;
+      font-family: monospace;
+      white-space: pre-line;
+      overflow-wrap: break-word;
+      font-size: 8px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+    }
+
     .blockquote {
       width: 100%;
       display: block;
-      margin-top: 1em;
-      margin-bottom: 1em;
-      margin-left: 40px;
-      margin-right: 40px;
-    }
-    
-    pre code {
-      width: 100%;
-    }
-    pre .line-number {
-      float: right;
-      font-size: 80%;
-      width: 5%;
-      text-align: right;
-    }
-    
-    details > summary {
-      font-weight: bold;
-    }
-    
-    details[open] {
+      margin: 1em;
       border: 1px solid black;
       padding: 1em;
+      border-radius: 0.5em;
     }
-    
-    /* https://gist.github.com/andyferra/2554919 */
-    table {
-      padding: 0; }
-      table tr {
-        border-top: 1px solid #cccccc;
-        background-color: white;
-        margin: 0;
-        padding: 0; }
-        table tr:nth-child(2n) {
-          background-color: #f8f8f8; }
-        table tr th {
-          font-weight: bold;
-          border: 1px solid #cccccc;
-          text-align: left;
-          margin: 0;
-          padding: 6px 13px; }
-        table tr td {
-          border: 1px solid #cccccc;
-          text-align: left;
-          margin: 0;
-          padding: 6px 13px; }
-        table tr th :first-child, table tr td :first-child {
-          margin-top: 0; }
-        table tr th :last-child, table tr td :last-child {
-          margin-bottom: 0; }
-    
-    /* 
-      A span with class 'katex' wraps all equations. A span with class
-      katex-display wraps block equations and a span with class katex.
-    */
-    .katex { 
+
+    .solutionsfalse {
+      display: block;
+    }
+
+    .solutionstrue {
+      display: none;
+    }
+
+    .inline {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .latex-underline {
+      text-decoration: underline;
+    }
+
+    .katex {
       font-size: inherit !important;
     }
-    
+
+    .katex-warning {
+      border-right: 0.5em solid red;
+    }
+
     .katex-display {
       text-align: center;
-      margin: 1em;
-      font-size: 1.1em !important;
+      margin: 0em;
+      font-size: 1em !important;
     }
-    
+
+    .katex-display.fleqn>.katex {
+      padding-left: 0em;
+      margin: 0em;
+    }
+
     @media print {
-    
-      * { overflow: visible !important; } 
-    
-      body, html {
-        margin: 0.5in;
-        color: #000;
-        height: auto;
-        background-color: #fff;
-        border: none;
+      * {
+        overflow: visible !important;
+      }
+
+      @page {
+        size: auto;
+        margin: 0.75in;
+      }
+
+      .katex .hide-tail {
+        overflow: hidden !important;
+      }
+
+      .body {
         display: inline;
+        position: relative;
       }
-    
-      h1,h2,h3,h4,h5,h6 {page-break-before: avoid;}
-    
-      .title {
-        page-break-before: always;
-        margin-top: 0;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        width: 100%;
+        margin-block: 0.1em;
       }
-    
+
+      h1 {
+        font-size: 1.25em;
+        color: black;
+        border-bottom: 2px solid black;
+      }
+
+      h2 {
+        font-size: 1.15em;
+        border-bottom: 1px solid black;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      h4,
+      h5,
+      h6 {
+        font-size: 1.05em;
+      }
+
+      .md-toc {
+        break-inside: avoid;
+        font-size: 14px;
+      }
+
+      pre {
+        break-inside: avoid;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
       #toc {
+        display: none;
         font-size: 100%;
-        margin: 0;
+        margin: 0px;
         width: 100%;
         overflow-y: hidden;
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 0px;
+        padding-right: 0px;
       }
-    
+
       #display {
+        margin-left: 0em;
         width: 100%;
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 0px;
+        padding-right: 0px;
         border: none;
         overflow-wrap: break-word;
       }
+
+      .katex {
+        font: 1em / 1.1 KaTeX_Main, "Times New Roman", serif;
+        white-space: nowrap;
+        text-indent: 0px;
+        text-rendering: auto;
+      }
+
+      .katex-display {
+        margin-top: 0px !important;
+        font-size: 1em !important;
+      }
     }
-      
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" />
 </head>
 
-<body style="display: flex;min-width: 50%;max-height:100%;">
-  <div id="toc">
+<body class="body">
+  <div id="toc" style="min-width: 5em;">
     <ol>
-      <li><a number="1" href="#course-information">Course Information</a></li>
-      <li><a number="2" href="#motivation">Motivation</a></li>
-      <li><a number="3" href="#methods-of-instruction">Methods of Instruction</a></li>
-      <li><a number="4" href="#programming">Programming</a></li>
-      <li><a number="5" href="#textbook">Textbook</a></li>
-      <li><a number="6" href="#evaluation">Evaluation</a></li>
-      <li><a number="7" href="#weekly-schedule">Weekly Schedule</a></li>
-      <ol>
-        <li><a number="7.1" href="#january-28th">January 28th</a></li>
-        <li><a number="7.2" href="#february-4th">February 4th</a></li>
-        <li><a number="7.3" href="#february-11th">February 11th</a></li>
-        <li><a number="7.4" href="#february-18th">February 18th</a></li>
-        <li><a number="7.5" href="#february-25th">February 25th</a></li>
-        <li><a number="7.6" href="#march-4th">March 4th</a></li>
-        <li><a number="7.7" href="#march-11th">March 11th</a></li>
-        <li><a number="7.8" href="#march-18th">March 18th</a></li>
-        <li><a number="7.9" href="#march-25th">March 25th</a></li>
-        <li><a number="7.10" href="#april-1st">April 1st</a></li>
-        <li><a number="7.11" href="#april-8th">April 8th</a></li>
-        <li><a number="7.12" href="#april-15th">April 15th</a></li>
-        <li><a number="7.13" href="#april-22nd">April 22nd</a></li>
-        <li><a number="7.14" href="#april-29th">April 29th</a></li>
-        <li><a number="7.15" href="#may-9th">May 9th</a></li>
-      </ol>
-      <li><a number="8" href="#topics">Topics</a></li>
-      <ol>
-        <li><a number="8.1" href="#python">Python</a></li>
-        <li><a number="8.2" href="#basic-concepts-in-probability">Basic Concepts in Probability</a></li>
-        <li><a number="8.3" href="#elements-of-statistics">Elements of Statistics</a></li>
-        <li><a number="8.4" href="#hypothesis-tests">Hypothesis Tests</a></li>
-        <li><a number="8.5" href="#parameter-estimation-basic">Parameter Estimation - Basic</a></li>
-        <li><a number="8.6" href="#parameter-estimation-advanced">Parameter Estimation - Advanced</a></li>
-      </ol>
-      <li><a number="9" href="#references">References</a></li>
-      <ol>
-        <li><a number="9.1" href="#general">General</a></li>
-        <li><a number="9.2" href="#bayes">Bayes</a></li>
-        <ol>
-          <li><a number="9.2.1" href="#general">General</a></li>
-          <li><a number="9.2.2" href="#bayesian-vs-frequentist">Bayesian vs. Frequentist</a></li>
-          <li><a number="9.2.3" href="#credible-intervals">Credible Intervals</a></li>
-          <li><a number="9.2.4" href="#mcmc">MCMC</a></li>
-          <li><a number="9.2.5" href="#misc">Misc</a></li>
+      <li>
+        <a href="#course-information" raw="# Course Information" lo="55" lf="55" class="">
+          <span class="toctext">Course Information</span>
+        </a>
+      </li>
+      <li>
+        <a href="#motivation" raw="# Motivation" lo="73" lf="73">
+          <span class="toctext">Motivation</span>
+        </a>
+      </li>
+      <li>
+        <a href="#methods-of-instruction" raw="# Methods of Instruction" lo="79" lf="79">
+          <span class="toctext">Methods of Instruction</span>
+        </a>
+      </li>
+      <li>
+        <a href="#programming" raw="# Programming" lo="88" lf="88">
+          <span class="toctext">Programming</span>
+        </a>
+      </li>
+      <li>
+        <a href="#textbook" raw="# Textbook" lo="94" lf="94">
+          <span class="toctext">Textbook</span>
+        </a>
+      </li>
+      <li>
+        <a href="#evaluation" raw="# Evaluation" lo="106" lf="106">
+          <span class="toctext">Evaluation</span>
+        </a>
+      </li>
+      <li>
+        <a href="#weekly-schedule" raw="# Weekly Schedule" lo="113" lf="113">
+          <span class="toctext">Weekly Schedule</span>
+        </a>
+        <ol class="toc" style="display: none;">
+          <li>
+            <a href="#january-28th" raw="## January 28th" lo="115" lf="115">
+              <span class="toctext">January 28th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#february-4th" raw="## February 4th" lo="139" lf="139">
+              <span class="toctext">February 4th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#february-11th" raw="## February 11th" lo="152" lf="152">
+              <span class="toctext">February 11th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#february-18th" raw="## February 18th" lo="161" lf="161">
+              <span class="toctext">February 18th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#february-25th" raw="## February 25th" lo="168" lf="168">
+              <span class="toctext">February 25th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#march-4th" raw="## March 4th" lo="177" lf="177">
+              <span class="toctext">March 4th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#march-11th" raw="## March 11th" lo="182" lf="182">
+              <span class="toctext">March 11th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#march-18th" raw="## March 18th" lo="189" lf="189">
+              <span class="toctext">March 18th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#march-25th" raw="## March 25th" lo="197" lf="197">
+              <span class="toctext">March 25th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#april-1st" raw="## April 1st" lo="204" lf="204">
+              <span class="toctext">April 1st</span>
+            </a>
+          </li>
+          <li>
+            <a href="#april-8th" raw="## April 8th" lo="209" lf="209">
+              <span class="toctext">April 8th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#april-15th" raw="## April 15th" lo="217" lf="217">
+              <span class="toctext">April 15th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#april-22nd" raw="## April 22nd" lo="225" lf="225">
+              <span class="toctext">April 22nd</span>
+            </a>
+          </li>
+          <li>
+            <a href="#april-29th" raw="## April 29th" lo="231" lf="231">
+              <span class="toctext">April 29th</span>
+            </a>
+          </li>
+          <li>
+            <a href="#may-9th" raw="## May 9th" lo="236" lf="236">
+              <span class="toctext">May 9th</span>
+            </a>
+          </li>
         </ol>
-        <li><a number="9.3" href="#astronomy">Astronomy</a></li>
-        <li><a number="9.4" href="#software">Software</a></li>
-      </ol>
-      <li><a number="10" href="#general-policies">General Policies</a></li>
-      <ol>
-        <li><a number="10.1" href="#academic-integrity">Academic Integrity</a></li>
-        <li><a number="10.2" href="#disability">Disability</a></li>
-        <li><a number="10.3" href="#diversity-and-inclusion">Diversity and Inclusion</a></li>
-        <li><a number="10.4" href="#communication">Communication</a></li>
-        <li><a number="10.5" href="#university-resources">University Resources</a></li>
-      </ol>
+      </li>
+      <li>
+        <a href="#topics" raw="# Topics" lo="242" lf="242">
+          <span class="toctext">Topics</span>
+        </a>
+        <ol class="toc" style="display: none;">
+          <li>
+            <a href="#python" raw="## Python" lo="246" lf="246">
+              <span class="toctext">Python</span>
+            </a>
+          </li>
+          <li>
+            <a href="#basic-concepts-in-probability" raw="## Basic Concepts in Probability" lo="252" lf="252">
+              <span class="toctext">Basic Concepts in Probability</span>
+            </a>
+          </li>
+          <li>
+            <a href="#elements-of-statistics" raw="## Elements of Statistics" lo="261" lf="261">
+              <span class="toctext">Elements of Statistics</span>
+            </a>
+          </li>
+          <li>
+            <a href="#hypothesis-tests" raw="## Hypothesis Tests" lo="270" lf="270">
+              <span class="toctext">Hypothesis Tests</span>
+            </a>
+          </li>
+          <li>
+            <a href="#parameter-estimation-basic" raw="## Parameter Estimation - Basic" lo="276" lf="276">
+              <span class="toctext">Parameter Estimation - Basic</span>
+            </a>
+          </li>
+          <li>
+            <a href="#parameter-estimation-advanced" raw="## Parameter Estimation - Advanced" lo="281" lf="281">
+              <span class="toctext">Parameter Estimation - Advanced</span>
+            </a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#references" raw="# References" lo="287" lf="287">
+          <span class="toctext">References</span>
+        </a>
+        <ol class="toc" style="display: none;">
+          <li>
+            <a href="#general" raw="## General" lo="291" lf="291">
+              <span class="toctext">General</span>
+            </a>
+          </li>
+          <li>
+            <a href="#bayes" raw="## Bayes" lo="302" lf="302">
+              <span class="toctext">Bayes</span>
+            </a>
+            <ol class="toc" style="display: none;">
+              <li>
+                <a href="#general" raw="### General" lo="304" lf="304">
+                  <span class="toctext">General</span>
+                </a>
+              </li>
+              <li>
+                <a href="#bayesian-vs-frequentist" raw="### Bayesian vs. Frequentist" lo="317" lf="317">
+                  <span class="toctext">Bayesian vs. Frequentist</span>
+                </a>
+              </li>
+              <li>
+                <a href="#credible-intervals" raw="### Credible Intervals" lo="325" lf="325">
+                  <span class="toctext">Credible Intervals</span>
+                </a>
+              </li>
+              <li>
+                <a href="#mcmc" raw="### MCMC" lo="336" lf="336">
+                  <span class="toctext">MCMC</span>
+                </a>
+              </li>
+              <li>
+                <a href="#misc" raw="### Misc" lo="342" lf="342">
+                  <span class="toctext">Misc</span>
+                </a>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <a href="#astronomy" raw="## Astronomy  " lo="351" lf="351">
+              <span class="toctext">Astronomy</span>
+            </a>
+          </li>
+          <li>
+            <a href="#software" raw="## Software" lo="360" lf="360">
+              <span class="toctext">Software</span>
+            </a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#general-policies" raw="# General Policies" lo="366" lf="366">
+          <span class="toctext">General Policies</span>
+        </a>
+        <ol class="toc" style="display: none;">
+          <li>
+            <a href="#academic-integrity" raw="## Academic Integrity" lo="368" lf="368">
+              <span class="toctext">Academic Integrity</span>
+            </a>
+          </li>
+          <li>
+            <a href="#disability" raw="## Disability" lo="372" lf="372">
+              <span class="toctext">Disability</span>
+            </a>
+          </li>
+          <li>
+            <a href="#diversity-and-inclusion" raw="## Diversity and Inclusion" lo="376" lf="376">
+              <span class="toctext">Diversity and Inclusion</span>
+            </a>
+          </li>
+          <li>
+            <a href="#communication" raw="## Communication" lo="380" lf="380">
+              <span class="toctext">Communication</span>
+            </a>
+          </li>
+          <li>
+            <a href="#university-resources" raw="## University Resources" lo="386" lf="386">
+              <span class="toctext">University Resources</span>
+            </a>
+          </li>
+        </ol>
+      </li>
     </ol>
   </div>
   <div id="display">
     <div class="section">
       <div class="block">
-        <p>1. <a href="#course-information">Course Information</a><br> 2. <a href="#motivation">Motivation</a><br> 3. <a href="#methods-of-instruction">Methods of Instruction</a><br> 4. <a href="#programming">Programming</a><br> 5. <a href="#textbook">Textbook</a><br> 6. <a href="#evaluation">Evaluation</a><br> 7. <a href="#weekly-schedule">Weekly Schedule</a><br> &nbsp;&nbsp;&nbsp;1. <a href="#january-28th">January 28th</a><br> &nbsp;&nbsp;&nbsp;2. <a href="#february-4th">February 4th</a><br> &nbsp;&nbsp;&nbsp;3. <a href="#february-11th">February 11th</a><br> &nbsp;&nbsp;&nbsp;4. <a href="#february-18th">February 18th</a><br> &nbsp;&nbsp;&nbsp;5. <a href="#february-25th">February 25th</a><br> &nbsp;&nbsp;&nbsp;6. <a href="#march-4th">March 4th</a><br> &nbsp;&nbsp;&nbsp;7. <a href="#march-11th">March 11th</a><br> &nbsp;&nbsp;&nbsp;8. <a href="#march-18th">March 18th</a><br> &nbsp;&nbsp;&nbsp;9. <a href="#march-25th">March 25th</a><br> &nbsp;&nbsp;&nbsp;10. <a href="#april-1st">April 1st</a><br> &nbsp;&nbsp;&nbsp;11. <a href="#april-8th">April 8th</a><br> &nbsp;&nbsp;&nbsp;12. <a href="#april-15th">April 15th</a><br> &nbsp;&nbsp;&nbsp;13. <a href="#april-22nd">April 22nd</a><br> &nbsp;&nbsp;&nbsp;14. <a href="#april-29th">April 29th</a><br> &nbsp;&nbsp;&nbsp;15. <a href="#may-9th">May 9th</a><br> 8. <a href="#topics">Topics</a><br> &nbsp;&nbsp;&nbsp;1. <a href="#python">Python</a><br> &nbsp;&nbsp;&nbsp;2. <a href="#basic-concepts-in-probability">Basic Concepts in Probability</a><br> &nbsp;&nbsp;&nbsp;3. <a href="#elements-of-statistics">Elements of Statistics</a><br> &nbsp;&nbsp;&nbsp;4. <a href="#hypothesis-tests">Hypothesis Tests</a><br> &nbsp;&nbsp;&nbsp;5. <a href="#parameter-estimation-basic">Parameter Estimation - Basic</a><br> &nbsp;&nbsp;&nbsp;6. <a href="#parameter-estimation-advanced">Parameter Estimation - Advanced</a><br> 9. <a href="#references">References</a><br> &nbsp;&nbsp;&nbsp;1. <a href="#general">General</a><br> &nbsp;&nbsp;&nbsp;2. <a href="#bayes">Bayes</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. <a href="#general">General</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. <a href="#bayesian-vs-frequentist">Bayesian vs. Frequentist</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. <a href="#credible-intervals">Credible Intervals</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. <a href="#mcmc">MCMC</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. <a href="#misc">Misc</a><br> &nbsp;&nbsp;&nbsp;3. <a href="#astronomy">Astronomy</a><br> &nbsp;&nbsp;&nbsp;4. <a href="#software">Software</a><br> 10. <a href="#general-policies">General Policies</a><br> &nbsp;&nbsp;&nbsp;&nbsp;1. <a href="#academic-integrity">Academic Integrity</a><br> &nbsp;&nbsp;&nbsp;&nbsp;2. <a href="#disability">Disability</a><br> &nbsp;&nbsp;&nbsp;&nbsp;3. <a href="#diversity-and-inclusion">Diversity and Inclusion</a><br> &nbsp;&nbsp;&nbsp;&nbsp;4. <a href="#communication">Communication</a><br> &nbsp;&nbsp;&nbsp;&nbsp;5. <a href="#university-resources">University Resources</a><br></p>
+        <div class="comment">
+          <!--- TOC --->
+        </div>
       </div>
       <div class="block">
-        <p class="title">AstroStats</p>
+        <p class="">1. <a href="#course-information">Course Information</a><br> 2. <a href="#motivation">Motivation</a><br> 3. <a href="#methods-of-instruction">Methods of Instruction</a><br> 4. <a href="#programming">Programming</a><br> 5. <a href="#textbook">Textbook</a><br> 6. <a href="#evaluation">Evaluation</a><br> 7. <a href="#weekly-schedule">Weekly Schedule</a><br> &nbsp;&nbsp;&nbsp;1. <a href="#january-28th">January 28th</a><br> &nbsp;&nbsp;&nbsp;2. <a href="#february-4th">February 4th</a><br> &nbsp;&nbsp;&nbsp;3. <a href="#february-11th">February 11th</a><br> &nbsp;&nbsp;&nbsp;4. <a href="#february-18th">February 18th</a><br> &nbsp;&nbsp;&nbsp;5. <a href="#february-25th">February 25th</a><br> &nbsp;&nbsp;&nbsp;6. <a href="#march-4th">March 4th</a><br> &nbsp;&nbsp;&nbsp;7. <a href="#march-11th">March 11th</a><br> &nbsp;&nbsp;&nbsp;8. <a href="#march-18th">March 18th</a><br> &nbsp;&nbsp;&nbsp;9. <a href="#march-25th">March 25th</a><br> &nbsp;&nbsp;&nbsp;10. <a href="#april-1st">April 1st</a><br> &nbsp;&nbsp;&nbsp;11. <a href="#april-8th">April 8th</a><br> &nbsp;&nbsp;&nbsp;12. <a href="#april-15th">April 15th</a><br> &nbsp;&nbsp;&nbsp;13. <a href="#april-22nd">April 22nd</a><br> &nbsp;&nbsp;&nbsp;14. <a href="#april-29th">April 29th</a><br> &nbsp;&nbsp;&nbsp;15. <a href="#may-9th">May 9th</a><br> 8. <a href="#topics">Topics</a><br> &nbsp;&nbsp;&nbsp;1. <a href="#python">Python</a><br> &nbsp;&nbsp;&nbsp;2. <a href="#basic-concepts-in-probability">Basic Concepts in Probability</a><br> &nbsp;&nbsp;&nbsp;3. <a href="#elements-of-statistics">Elements of Statistics</a><br> &nbsp;&nbsp;&nbsp;4. <a href="#hypothesis-tests">Hypothesis Tests</a><br> &nbsp;&nbsp;&nbsp;5. <a href="#parameter-estimation-basic">Parameter Estimation - Basic</a><br> &nbsp;&nbsp;&nbsp;6. <a href="#parameter-estimation-advanced">Parameter Estimation - Advanced</a><br> 9. <a href="#references">References</a><br> &nbsp;&nbsp;&nbsp;1. <a href="#general">General</a><br> &nbsp;&nbsp;&nbsp;2. <a href="#bayes">Bayes</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. <a href="#general">General</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. <a href="#bayesian-vs-frequentist">Bayesian vs. Frequentist</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. <a href="#credible-intervals">Credible Intervals</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. <a href="#mcmc">MCMC</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. <a href="#misc">Misc</a><br> &nbsp;&nbsp;&nbsp;3. <a href="#astronomy">Astronomy</a><br> &nbsp;&nbsp;&nbsp;4. <a href="#software">Software</a><br> 10. <a href="#general-policies">General Policies</a><br> &nbsp;&nbsp;&nbsp;&nbsp;1. <a href="#academic-integrity">Academic Integrity</a><br> &nbsp;&nbsp;&nbsp;&nbsp;2. <a href="#disability">Disability</a><br> &nbsp;&nbsp;&nbsp;&nbsp;3. <a href="#diversity-and-inclusion">Diversity and Inclusion</a><br> &nbsp;&nbsp;&nbsp;&nbsp;4. <a href="#communication">Communication</a><br> &nbsp;&nbsp;&nbsp;&nbsp;5. <a href="#university-resources">University Resources</a><br></p>
       </div>
       <div class="block">
-        <p class="subtitle">ASTR/PHYS 390/590</p>
+        <div class="comment" style="">
+          <!--- /TOC --->
+        </div>
+      </div>
+      <div class="block">
+        <div class="inline-html">
+          <p class="title"></p>
+          <div class="block">
+            <p>AstroStats</p>
+          </div>
+          <p></p>
+        </div>
+      </div>
+      <div class="block">
+        <div class="inline-html">
+          <p class="subtitle"></p>
+          <div class="block">
+            <p>ASTR/PHYS 390/590</p>
+          </div>
+          <p></p>
+        </div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="1" class="hanchor" href="#course-information">1 Course Information</a></h1>
+        <h1 class=""><a name="course-information" class="anchor hanchor" href="#course-information"><span class="hnumber">1</span>&nbsp;<span class="htext">Course Information</span></a></h1>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
-              <p> <strong>Day and Time</strong>: Thursday from 4:30 - 7:10 pm</p>
+              <p><strong>Day and Time</strong>: Thursday from 4:30 - 7:10 pm</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="58" lf="58">
             <div class="block">
-              <p> <strong>Location</strong>: Online</p>
+              <p><strong>Location</strong>: Online</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="59" lf="59">
             <div class="block">
-              <p> <strong>Instructor</strong>: Bob Weigel</p>
+              <p><strong>Instructor</strong>: Bob Weigel</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="60" lf="60">
             <div class="block">
-              <p> <strong>Email</strong>: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></p>
+              <p><strong>Email</strong>: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="61" lf="61">
             <div class="block">
-              <p> <strong>Office Hour</strong>: Thursday 3:30-4:30 pm</p>
+              <p><strong>Office Hour</strong>: Thursday 3:30-4:30 pm</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="62" lf="62">
             <div class="block">
-              <p> <strong>Course URL</strong>: <a href="http://rweigel.github.io/astrostats">http://rweigel.github.io/astrostats</a></p>
+              <p><strong>Course URL</strong>: <a href="http://rweigel.github.io/astrostats">http://rweigel.github.io/astrostats</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="63" lf="63">
             <div class="block">
-              <p> <strong>Credits</strong>: 3 (Lecture)</p>
+              <p><strong>Credits</strong>: 3 (Lecture)</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="64" lf="66">
             <div class="block">
-              <div class="block">
-                <p><strong>Prerequisites</strong>:</p>
-              </div>
+              <p><strong>Prerequisites</strong>:</p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
-                    <p> 390: Grade of B or higher in PHYS 251 or permission of instructor;</p>
+                    <p>390: Grade of B or higher in PHYS 251 or permission of instructor;</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="66" lf="66">
                   <div class="block">
-                    <p> 590: Enrollment in a COS or VSE graduate program.</p>
+                    <p>590: Enrollment in a COS or VSE graduate program.</p>
                   </div>
                 </li>
               </ul>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="67" lf="69">
             <div class="block">
-              <p> <strong>Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.</p>
+              <p><strong>Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.</p>
             </div>
           </li>
         </ul>
       </div>
       <div class="block">
-        <p><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="hw.html#hw-7">7</a> | <a href="hw.html#hw-8">8</a> | <a href="hw.html#hw-9">9</a> | <a href="hw.html#hw-10">10</a> | <a href="hw.html#hw-11">11</a></p>
+        <p class=""><strong>Homeworks</strong>: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="hw.html#hw-7">7</a> | <a href="hw.html#hw-8">8</a> | <a href="hw.html#hw-9">9</a> | <a href="hw.html#hw-10">10</a> | <a href="hw.html#hw-11">11</a></p>
       </div>
       <div class="block">
         <p><strong><a href="hw.html#midterm">Midterm</a></strong> | <strong><a href="hw.html#final">Final</a></strong></p>
@@ -475,23 +848,23 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="2" class="hanchor" href="#motivation">2 Motivation</a></h1>
+        <h1><a name="motivation" class="anchor hanchor" href="#motivation"><span class="hnumber">2</span>&nbsp;<span class="htext">Motivation</span></a></h1>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
-              <p> Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.</p>
+              <p>Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="76" lf="76">
             <div class="block">
-              <p> Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.</p>
+              <p>Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="77" lf="79">
             <div class="block">
-              <p> Many BS, MS, and PhD students have not had a traditional statistics course as an undergraduate.</p>
+              <p>Many BS, MS, and PhD students have not had a traditional statistics course as an undergraduate.</p>
             </div>
           </li>
         </ul>
@@ -499,41 +872,39 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="3" class="hanchor" href="#methods-of-instruction">3 Methods of Instruction</a></h1>
+        <h1><a name="methods-of-instruction" class="anchor hanchor" href="#methods-of-instruction"><span class="hnumber">3</span>&nbsp;<span class="htext">Methods of Instruction</span></a></h1>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="82" lf="82">
             <div class="block">
               <p>I usually have you do a reading and basic follow-up problems before I discuss a topic in class. I find content that I present “sticks” if students have experiemented with the concepts before I discuss them.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="83" lf="83">
             <div class="block">
               <p>You will be asked to participate in class discussions during class and on Piazza. Talking and writing about statistics will help you understand statistics.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="84" lf="84">
             <div class="block">
-              <p>Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.</p>
+              <p>Homework assignments will be &nbsp;50% hand-written and &nbsp;50% programs. I will ask students to present their solutions during class and for other students to comment.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="85" lf="88">
             <div class="block">
-              <div class="block">
-                <p>I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.</p>
-              </div>
+              <p>I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.</p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
-                    <p> As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.</p>
+                    <p>As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.</p>
                   </div>
                 </li>
               </ul>
@@ -544,23 +915,23 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="4" class="hanchor" href="#programming">4 Programming</a></h1>
+        <h1><a name="programming" class="anchor hanchor" href="#programming"><span class="hnumber">4</span>&nbsp;<span class="htext">Programming</span></a></h1>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>Any programming language may be used for homework and the final project. I will write my solutions in Python.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="91" lf="91">
             <div class="block">
               <p>I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my <a href="python">notes for PHYS 251</a>.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="92" lf="94">
             <div class="block">
-              <p> I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.</p>
+              <p>I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.</p>
             </div>
           </li>
         </ul>
@@ -568,7 +939,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="5" class="hanchor" href="#textbook">5 Textbook</a></h1>
+        <h1><a name="textbook" class="anchor hanchor" href="#textbook"><span class="hnumber">5</span>&nbsp;<span class="htext">Textbook</span></a></h1>
       </div>
       <div class="block">
         <p>Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | <a href="https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492">Amazon</a> | <a href="https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html">Author’s web page</a> |</p>
@@ -580,13 +951,13 @@
         <p>Two general references on statistics that I highly recommend are</p>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
-              <p>Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in and parsimonious manner. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for ~$5.00.</p>
+              <p>Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in and parsimonious manner. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for &nbsp;$5.00.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="102" lf="104">
             <div class="block">
               <p>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors. | <a href="https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527">Amazon</a> |</p>
             </div>
@@ -599,28 +970,28 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="6" class="hanchor" href="#evaluation">6 Evaluation</a></h1>
+        <h1><a name="evaluation" class="anchor hanchor" href="#evaluation"><span class="hnumber">6</span>&nbsp;<span class="htext">Evaluation</span></a></h1>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
-              <p> <strong>Homework</strong>: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts. </p>
+              <p><strong>Homework</strong>: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts. </p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="109" lf="109">
             <div class="block">
-              <p> <strong>Midterm</strong>: 30%</p>
+              <p><strong>Midterm</strong>: 30%</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="110" lf="110">
             <div class="block">
-              <p> <strong>Final project</strong>: 30%</p>
+              <p><strong>Final project</strong>: 30%</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="111" lf="113">
             <div class="block">
-              <p> <strong>Final course</strong>: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, &lt; 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).</p>
+              <p><strong>Final course</strong>: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, &lt; 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).</p>
             </div>
           </li>
         </ul>
@@ -628,49 +999,47 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="7" class="hanchor" href="#weekly-schedule">7 Weekly Schedule</a></h1>
+        <h1><a name="weekly-schedule" class="anchor hanchor" href="#weekly-schedule"><span class="hnumber">7</span>&nbsp;<span class="htext">Weekly Schedule</span></a></h1>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.1" class="hanchor" href="#january-28th">7.1 January 28th</a></h2>
+        <h2><a name="january-28th" class="anchor hanchor" href="#january-28th"><span class="hnumber">7.1</span>&nbsp;<span class="htext">January 28th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>Introductions</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="118" lf="118">
             <div class="block">
               <p>Brief introduction to course</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="119" lf="119">
             <div class="block">
               <p>Discussion of topics on the syllabus</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="120" lf="123">
             <div class="block">
-              <div class="block">
-                <p><strong>Course Logistics</strong>; I will go over the following on the first day of class. You do not need to do anything before then.</p>
-              </div>
+              <p><strong>Course Logistics</strong>; I will go over the following on the first day of class. You do not need to do anything before then.</p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
                     <p>Make sure that you can log on to Piazza. You should have received an email from Piazza before the start of the first class.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="122" lf="122">
                   <div class="block">
                     <p>Create a GitHub account with your GMU username (the name in your email address, lowercase) and a repository named <code>astrostats</code> (lowercase). Give <code>rweigel</code> read/write permissions. If you already have a GitHub user id and would like to use it, send me it.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="123" lf="123">
                   <div class="block">
                     <p>During class discussion, I will ask you to turn on your webcam. Please let me know if you have an issue with this (e.g., you are working in a room with a family in the background or are calling in from a locker room).</p>
                   </div>
@@ -678,20 +1047,18 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="124" lf="126">
             <div class="block">
-              <div class="block">
-                <p><strong>Course comments</strong></p>
-              </div>
+              <p><strong>Course comments</strong></p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
                     <p>Approximately 1/2 of the students in this class are undergraduates, the other 1/2 are graduates. We did this because this is the first time that the course has been taught. There will be an adjustment period as I figure out how best to handle differentials in experience with statistics, programming, and data analysis.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="126" lf="126">
                   <div class="block">
                     <p>Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.</p>
                   </div>
@@ -699,62 +1066,60 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="127" lf="127">
             <div class="block">
-              <p> Python IDEs and <a href="https://colab.research.google.com/">Google Colab</a> introduction</p>
+              <p>Python IDEs and <a href="https://colab.research.google.com/">Google Colab</a> introduction</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="128" lf="128">
             <div class="block">
-              <p> Review of Python</p>
+              <p>Review of Python</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="129" lf="129">
             <div class="block">
-              <p> <a href="python.html#numpy">Review of Python/NumPy</a> (and MATLAB, if needed) </p>
+              <p><a href="python.html#numpy">Review of Python/NumPy</a> (and MATLAB, if needed) </p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="130" lf="130">
             <div class="block">
-              <p> <a href="hw.html">HW #1 discussion</a></p>
+              <p><a href="hw.html">HW #1 discussion</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="131" lf="139">
             <div class="block">
-              <div class="block">
-                <p>Follow-up notes:</p>
-              </div>
+              <p>Follow-up notes:</p>
             </div>
             <div class="block">
-              <ol>
-                <li>
+              <ol class="compact">
+                <li markerlength="3">
                   <div class="block">
-                    <p> The recording is at <a href="https://www.youtube.com/watch?v=yxFzL_TD900">https://www.youtube.com/watch?v=yxFzL_TD900</a> In the future, I’ll provide a link to a Zoom page. This week I had to do it differently because I had to trim off conversations I had after class.</p>
+                    <p>The recording is at <a href="https://www.youtube.com/watch?v=yxFzL_TD900">https://www.youtube.com/watch?v=yxFzL_TD900</a> In the future, I’ll provide a link to a Zoom page. This week I had to do it differently because I had to trim off conversations I had after class.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="3" lo="133" lf="133">
                   <div class="block">
-                    <p> W.M. mentioned <code>np.where</code> as an option for finding elements in an <code>ndarray</code>. I don’t recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I’ve added an example of its use on my <a href="https://rweigel.github.io/astrostats/python.html#finding-elements">Python notes page</a>.</p>
+                    <p>W.M. mentioned <code>np.where</code> as an option for finding elements in an <code>ndarray</code>. I don’t recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I’ve added an example of its use on my <a href="https://rweigel.github.io/astrostats/python.html#finding-elements">Python notes page</a>.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="3" lo="134" lf="134">
                   <div class="block">
-                    <p> In the HW, I ask for you to provide written solutions in a <code>.md</code> or <code>.pdf</code> file. <code>.md</code> is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click “Create File”, then enter, for example, <code>HW1_1b.md</code> and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I’ll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.</p>
+                    <p>In the HW, I ask for you to provide written solutions in a <code>.md</code> or <code>.pdf</code> file. <code>.md</code> is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click “Create File”, then enter, for example, <code>HW1_1b.md</code> and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I’ll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="3" lo="135" lf="135">
                   <div class="block">
-                    <p> I expect that students may encounter issues submitting their first assignment to GitHub. If you have any issues, meet with me before or after class. I won’t count assignments as late if you contacted me about a submission issue.</p>
+                    <p>I expect that students may encounter issues submitting their first assignment to GitHub. If you have any issues, meet with me before or after class. I won’t count assignments as late if you contacted me about a submission issue.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="3" lo="136" lf="136">
                   <div class="block">
-                    <p> In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. I found a site that explains the basics of random number generation using very simple algorithms; see <a href="https://www.math.utah.edu/~alfeld/Random/Random.html">Peter Alfeld’s Random Number Generator notes</a>. On HW1, <strong>do not</strong> use <code>np.random.seed</code> as I did in class. I’ll explain more about when you want to use it the next time that we meet.</p>
+                    <p>In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. I found a site that explains the basics of random number generation using very simple algorithms; see <a href="https://www.math.utah.edu/&nbsp;alfeld/Random/Random.html">Peter Alfeld’s Random Number Generator notes</a>. On HW1, <strong>do not</strong> use <code>np.random.seed</code> as I did in class. I’ll explain more about when you want to use it the next time that we meet.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="3" lo="137" lf="139">
                   <div class="block">
-                    <p> I still can’t think of the error I encountered when I created an array using <code>x = np.array([1,2,3])</code>, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because <code>x</code> is an integer array, show us during the next class period. </p>
+                    <p>I still can’t think of the error I encountered when I created an array using <code>x = np.array([1,2,3])</code>, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because <code>x</code> is an integer array, show us during the next class period. </p>
                   </div>
                 </li>
               </ol>
@@ -765,64 +1130,62 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.2" class="hanchor" href="#february-4th">7.2 February 4th</a></h2>
+        <h2><a name="february-4th" class="anchor hanchor" href="#february-4th"><span class="hnumber">7.2</span>&nbsp;<span class="htext">February 4th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p><a href="hw.html#hw-1">HW #1</a> due before class starts</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="141" lf="141">
             <div class="block">
               <p>The Discord server is up. You can ask questions there as an alternative to Piazza. If you want to meet with me, we can meet on either Discord or Zoom (it is a little easier to initiate a meeting on Discord, but Discord is not offically sanctioned by GMU).</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="142" lf="142">
             <div class="block">
               <p>We will continue to meet for class and office hours on Zoom. Don’t worry about missing somthing important on Discord. I’ll post it on the course web page.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="143" lf="143">
             <div class="block">
               <p>Extended discussion of <a href="hw.html#hw-1">HW #1</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="144" lf="144">
             <div class="block">
               <p>Basic Concepts in Probability</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="145" lf="152">
             <div class="block">
-              <div class="block">
-                <p>Follow-up notes</p>
-              </div>
+              <p>Follow-up notes</p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
                     <p>If ambiguity or error in a problem statement, <strong>please</strong> post a question on Piazza or Discord! </p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="147" lf="147">
                   <div class="block">
                     <p>The recording is on my <a href="https://gmu.zoom.us/rec/share/Fqvgv9j-bH5vpC7JLoJ8o5ABF-1OUbPXzVOPF3mu442nwAby3fWwlUybSzEpZvH-.B3rl8OT1FN2X965N">Zoom page</a>.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="148" lf="148">
                   <div class="block">
                     <p>When I go through your assignments, I may move your HWs out of a subdirectory to remind you to not do that. I want everyone’s repository to contain the same structure and file names so that my automation software for pulling and pushing works.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="149" lf="149">
                   <div class="block">
                     <p>When I was discussing the combination problem for the number of unique license plates that could be created given stickers with the numbers 0-9 assuming that license plates with the same set of numbers in any order are treated as not-unique, I wrote down as an example “899 = 989 = 998” are equivalent. These three are not options because a number is repeated. I should have written, “For example, 123 and all permutations are equivalent license plates”. In spite of this mistake, someone gave the correct answer - that there are 3! permutations of any three numbers, so if the number of possible license plates is 9!/7! assuming the order of the numbers matters, then the number of possible license plates is 9!/(7!3!) assuming license plates with the same numbers in any order are equivalent.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="150" lf="152">
                   <div class="block">
                     <p>I am working on posting my solutions to HW1 and also posting HW2. I expect to have HW2 posted by Saturday at noon, which is about a day later than I planned (I typically post the next HW a day after class because I often modify what I planned to assign based on what happened in class). I’ll update the <a href="https://rweigel.github.io/astrostats/">course page</a> and make a Piazza post when I have posted HW2.</p>
                   </div>
@@ -835,19 +1198,17 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.3" class="hanchor" href="#february-11th">7.3 February 11th</a></h2>
+        <h2><a name="february-11th" class="anchor hanchor" href="#february-11th"><span class="hnumber">7.3</span>&nbsp;<span class="htext">February 11th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
-              <div class="block">
-                <p><a href="hw.html#hw-1">HW #1</a> notes based on grading.</p>
-              </div>
+              <p><a href="hw.html#hw-1">HW #1</a> notes based on grading.</p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
                     <p>Discuss W.M.’s solution.</p>
                   </div>
@@ -855,53 +1216,24 @@
               </ul>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="156" lf="156">
             <div class="block">
-              <p> Discord - Justin’s timing experiment and Nasser’s question</p>
+              <p>Discord - Justin’s timing experiment and Nasser’s question</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="157" lf="157">
             <div class="block">
-              <p> <a href="hw.html#hw-2">HW #2</a> due before class starts</p>
+              <p><a href="hw.html#hw-2">HW #2</a> due before class starts</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="158" lf="158">
             <div class="block">
-              <p> Discuss HW #2 solutions </p>
+              <p>Discuss HW #2 solutions </p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="159" lf="161">
             <div class="block">
-              <p> In-class work on problems related to HW #2 and HW #3</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="section">
-      <div class="block">
-        <h2><a number="7.4" class="hanchor" href="#february-18th">7.4 February 18th</a></h2>
-      </div>
-      <div class="block">
-        <ul>
-          <li>
-            <div class="block">
-              <p> <a href="hw.html#hw-3">HW #3</a> due before class starts</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p> Discuss HW #3 solutions</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p> In-class work on problems related to HW #3</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p> From this point on, I’ll be covering topics in the order that they appear and Wall and Jenkins. Up until now, the problems have been mostly about programming techniques that you’ll need. The problems did not require knowledge of statistics, but you’ll want to think back to these problems as the results and their interpretation will be important.</p>
+              <p>In-class work on problems related to HW #2 and HW #3</p>
             </div>
           </li>
         </ul>
@@ -909,38 +1241,28 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.5" class="hanchor" href="#february-25th">7.5 February 25th</a></h2>
+        <h2><a name="february-18th" class="anchor hanchor" href="#february-18th"><span class="hnumber">7.4</span>&nbsp;<span class="htext">February 18th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
-              <p> <a href="hw.html#hw-4">HW #4</a> due before class starts</p>
+              <p><a href="hw.html#hw-3">HW #3</a> due before class starts</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="164" lf="164">
             <div class="block">
-              <p> I’ve written up my notes from our discussion of HW #3. I’ve also added additional details on problem 3.3 regarding probability densities and the interpretation of the the posterior.</p>
+              <p>Discuss HW #3 solutions</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="165" lf="165">
             <div class="block">
-              <p> Discuss question on Discord about <code>np.vectorize</code>.</p>
+              <p>In-class work on problems related to HW #3</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="166" lf="168">
             <div class="block">
-              <p> Discussion of problems 4.2 and 4.3.</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p> Discussion of reading.</p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p> Discussion of problem 4.4. </p>
+              <p>From this point on, I’ll be covering topics in the order that they appear and Wall and Jenkins. Up until now, the problems have been mostly about programming techniques that you’ll need. The problems did not require knowledge of statistics, but you’ll want to think back to these problems as the results and their interpretation will be important.</p>
             </div>
           </li>
         </ul>
@@ -948,16 +1270,55 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.6" class="hanchor" href="#march-4th">7.6 March 4th</a></h2>
+        <h2><a name="february-25th" class="anchor hanchor" href="#february-25th"><span class="hnumber">7.5</span>&nbsp;<span class="htext">February 25th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
+            <div class="block">
+              <p><a href="hw.html#hw-4">HW #4</a> due before class starts</p>
+            </div>
+          </li>
+          <li markerlength="2" lo="171" lf="171">
+            <div class="block">
+              <p>I’ve written up my notes from our discussion of HW #3. I’ve also added additional details on problem 3.3 regarding probability densities and the interpretation of the the posterior.</p>
+            </div>
+          </li>
+          <li markerlength="2" lo="172" lf="172">
+            <div class="block">
+              <p>Discuss question on Discord about <code>np.vectorize</code>.</p>
+            </div>
+          </li>
+          <li markerlength="2" lo="173" lf="173">
+            <div class="block">
+              <p>Discussion of problems 4.2 and 4.3.</p>
+            </div>
+          </li>
+          <li markerlength="2" lo="174" lf="174">
+            <div class="block">
+              <p>Discussion of reading.</p>
+            </div>
+          </li>
+          <li markerlength="2" lo="175" lf="177">
+            <div class="block">
+              <p>Discussion of problem 4.4. </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="march-4th" class="anchor hanchor" href="#march-4th"><span class="hnumber">7.6</span>&nbsp;<span class="htext">March 4th</span></a></h2>
+      </div>
+      <div class="block">
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>Discussion of <a href="hw.html#hw-5">HW #5</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="180" lf="182">
             <div class="block">
               <p>Discussion of <a href="notes.html#statistics">elements of statistics</a></p>
             </div>
@@ -967,33 +1328,26 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.7" class="hanchor" href="#march-11th">7.7 March 11th</a></h2>
+        <h2><a name="march-11th" class="anchor hanchor" href="#march-11th"><span class="hnumber">7.7</span>&nbsp;<span class="htext">March 11th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>Discussion of <a href="hw.html#hw-6">HW #6</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="185" lf="185">
             <div class="block">
-              <p>Discussion of <span len="3" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>P</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">P</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">P</span></span></span></span>s (probability mass functions), pdfs (probability density functions), and their generation in Python</p>
+              <p>Discussion of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>s (probability mass functions), pdfs (probability density functions), and their generation in Python</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="186" lf="186">
             <div class="block">
               <p>Discussion of degrees–of–freedom</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="187" lf="189">
             <div class="block">
               <p>Discuss absolute paths in code</p>
             </div>
@@ -1003,31 +1357,31 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.8" class="hanchor" href="#march-18th">7.8 March 18th</a></h2>
+        <h2><a name="march-18th" class="anchor hanchor" href="#march-18th"><span class="hnumber">7.8</span>&nbsp;<span class="htext">March 18th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p><a href="hw.html#hw-7">HW #7</a> due</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="192" lf="192">
             <div class="block">
               <p>Discuss PA’s HW5.1 soln.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="193" lf="193">
             <div class="block">
               <p>Discuss plot labels, <code>np.round</code>, and <code>format</code>.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="194" lf="194">
             <div class="block">
               <p>Discuss number of decimals in numbers.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="195" lf="197">
             <div class="block">
               <p><a href="midterm.html#midterm">Midterm</a> assigned</p>
             </div>
@@ -1037,26 +1391,26 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.9" class="hanchor" href="#march-25th">7.9 March 25th</a></h2>
+        <h2><a name="march-25th" class="anchor hanchor" href="#march-25th"><span class="hnumber">7.9</span>&nbsp;<span class="htext">March 25th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p><a href="midterm.html#midterm">Midterm</a> due before class</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="200" lf="200">
             <div class="block">
               <p>Discuss <code>np.full((3, ), np.nan)</code></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="201" lf="201">
             <div class="block">
               <p>General observations on HW6</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="202" lf="204">
             <div class="block">
               <p>Discuss <a href="midterm.html#midterm">Midterm</a></p>
             </div>
@@ -1066,16 +1420,16 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.10" class="hanchor" href="#april-1st">7.10 April 1st</a></h2>
+        <h2><a name="april-1st" class="anchor hanchor" href="#april-1st"><span class="hnumber">7.10</span>&nbsp;<span class="htext">April 1st</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>Discuss <a href="http://articles.adsabs.harvard.edu//full/1990ApJ...364..104I/0000104.000.html">paper</a> on alternatives to ordinary least squares (OLS)</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="207" lf="209">
             <div class="block">
               <p>Review of Bayes’ Theorem and <a href="hw.html#bayes-rule-for-statistical-inference">HW 3.3</a></p>
             </div>
@@ -1085,54 +1439,31 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.11" class="hanchor" href="#april-8th">7.11 April 8th</a></h2>
+        <h2><a name="april-8th" class="anchor hanchor" href="#april-8th"><span class="hnumber">7.11</span>&nbsp;<span class="htext">April 8th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p><a href="hw.html#hw-8">HW #8</a> due</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="212" lf="212">
             <div class="block">
               <p>Additional comments on <a href="hw.html#midterm">Midterm</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="213" lf="213">
             <div class="block">
               <p>Discussion of <a href="hw.html#hw-8">HW #8</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="214" lf="214">
             <div class="block">
-              <p>Discussion of extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span len="13" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mrow>
-                            <mi mathvariant="script">D</mi>
-                          </mrow>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\mathcal{D}</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> has more than one value and/or when both <span len="5" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>μ</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\mu</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and <span len="8" class="katex"><span class="katex-mathml"><math>
-                      <semantics>
-                        <mrow>
-                          <mi>σ</mi>
-                        </mrow>
-                        <annotation encoding="application/x-tex">\sigma</annotation>
-                      </semantics>
-                    </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span> are unknown.</p>
+              <p>Discussion of extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span> has more than one value and/or when both <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span> are unknown.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="215" lf="217">
             <div class="block">
               <p>One-on-one discussion with students as needed if time remains.</p>
             </div>
@@ -1142,104 +1473,32 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.12" class="hanchor" href="#april-15th">7.12 April 15th</a></h2>
+        <h2><a name="april-15th" class="anchor hanchor" href="#april-15th"><span class="hnumber">7.12</span>&nbsp;<span class="htext">April 15th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
-              <div class="block">
-                <p><a href="hw.html#hw-9">HW #9</a> due. Will cover</p>
-              </div>
+              <p><a href="hw.html#hw-9">HW #9</a> due. Will cover</p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
-                    <p>Extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span len="13" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <mrow>
-                                  <mi mathvariant="script">D</mi>
-                                </mrow>
-                              </mrow>
-                              <annotation encoding="application/x-tex">\mathcal{D}</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> has more than one value and/or when both <span len="5" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <mi>μ</mi>
-                              </mrow>
-                              <annotation encoding="application/x-tex">\mu</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and <span len="8" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <mi>σ</mi>
-                              </mrow>
-                              <annotation encoding="application/x-tex">\sigma</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.03588em;">σ</span></span></span></span> are unknown. Uses analytic and experimental method.</p>
+                    <p>Extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span> has more than one value and/or when both <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span> are unknown. Uses analytic and experimental method.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="221" lf="221">
                   <div class="block">
-                    <p>Doing Bayesian problem sequentially – using <span len="15" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <msub>
-                                  <mi mathvariant="script">D</mi>
-                                  <mn>1</mn>
-                                </msub>
-                              </mrow>
-                              <annotation encoding="application/x-tex">\mathcal{D}_1</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> to compute <span len="25" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <mi>p</mi>
-                                <mo>(</mo>
-                                <mi>θ</mi>
-                                <mi mathvariant="normal">∣</mi>
-                                <msub>
-                                  <mi mathvariant="script">D</mi>
-                                  <mn>1</mn>
-                                </msub>
-                                <mo>)</mo>
-                              </mrow>
-                              <annotation encoding="application/x-tex">p(\theta|\mathcal{D}_1)</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mclose">)</span></span></span></span> and then using this as a prior to compute <span len="41" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <mi>p</mi>
-                                <mo>(</mo>
-                                <mi>θ</mi>
-                                <mi mathvariant="normal">∣</mi>
-                                <mo>[</mo>
-                                <msub>
-                                  <mi mathvariant="script">D</mi>
-                                  <mn>1</mn>
-                                </msub>
-                                <mo separator="true">,</mo>
-                                <msub>
-                                  <mi mathvariant="script">D</mi>
-                                  <mn>2</mn>
-                                </msub>
-                                <mo>]</mo>
-                                <mo>)</mo>
-                              </mrow>
-                              <annotation encoding="application/x-tex">p(\theta|[\mathcal{D}_1,\mathcal{D}_2])</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">p</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mopen">[</span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mpunct">,</span><span class="mord rule" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mclose">]</span><span class="mclose">)</span></span></span></span>.</p>
+                    <p>Doing Bayesian problem sequentially – using <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> to compute <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> and then using this as a prior to compute <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mord">∣</span><span class="mopen">[</span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">])</span></span></span></span>.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="222" lf="222">
                   <div class="block">
                     <p>Comparing two means using frequentist (do problem) and Bayesian approach (read paper)</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="223" lf="225">
                   <div class="block">
                     <p>Using MCMC (read paper, do small problem)</p>
                   </div>
@@ -1252,47 +1511,22 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.13" class="hanchor" href="#april-22nd">7.13 April 22nd</a></h2>
+        <h2><a name="april-22nd" class="anchor hanchor" href="#april-22nd"><span class="hnumber">7.13</span>&nbsp;<span class="htext">April 22nd</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
-              <div class="block">
-                <p>HW #10 due. Will cover</p>
-              </div>
+              <p>HW #10 due. Will cover</p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
-                    <p>Extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span len="13" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <mrow>
-                                  <mi mathvariant="script">D</mi>
-                                </mrow>
-                              </mrow>
-                              <annotation encoding="application/x-tex">\mathcal{D}</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span></span> has more than one value and/or when both <span len="5" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <mi>μ</mi>
-                              </mrow>
-                              <annotation encoding="application/x-tex">\mu</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">μ</span></span></span></span> and <span len="8" class="katex"><span class="katex-mathml"><math>
-                            <semantics>
-                              <mrow>
-                                <mi>θ</mi>
-                              </mrow>
-                              <annotation encoding="application/x-tex">\theta</annotation>
-                            </semantics>
-                          </math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span> are unknown. Uses MCMC instead of experimental method.</p>
+                    <p>Extension of <a href="hw.html#hw-8">HW #8.2</a> to case where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.02778em;">D</span></span></span></span> has more than one value and/or when both <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span> are unknown. Uses MCMC instead of experimental method.</p>
                   </div>
                 </li>
-                <li>
+                <li markerlength="2" lo="229" lf="231">
                   <div class="block">
                     <p>Comparing two means using Bayesian approach (full problem)</p>
                   </div>
@@ -1305,19 +1539,17 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.14" class="hanchor" href="#april-29th">7.14 April 29th</a></h2>
+        <h2><a name="april-29th" class="anchor hanchor" href="#april-29th"><span class="hnumber">7.14</span>&nbsp;<span class="htext">April 29th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
-              <div class="block">
-                <p>HW #11 due. Cover</p>
-              </div>
+              <p>HW #11 due. Cover</p>
             </div>
             <div class="block">
-              <ul>
-                <li>
+              <ul class="compact">
+                <li markerlength="2">
                   <div class="block">
                     <p>Regression using Bayesian method and comparison with Midterm problem.</p>
                   </div>
@@ -1330,11 +1562,11 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="7.15" class="hanchor" href="#may-9th">7.15 May 9th</a></h2>
+        <h2><a name="may-9th" class="anchor hanchor" href="#may-9th"><span class="hnumber">7.15</span>&nbsp;<span class="htext">May 9th</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>Take-home final due Sunday, May 9th at 11:59 pm.</p>
             </div>
@@ -1347,7 +1579,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="8" class="hanchor" href="#topics">8 Topics</a></h1>
+        <h1><a name="topics" class="anchor hanchor" href="#topics"><span class="hnumber">8</span>&nbsp;<span class="htext">Topics</span></a></h1>
       </div>
       <div class="block">
         <p>The topics listed below are covered in Chapters 2-7 of the textbook. Supplementary references and notes will be provided as-needed.</p>
@@ -1355,21 +1587,21 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="8.1" class="hanchor" href="#python">8.1 Python</a></h2>
+        <h2><a name="python" class="anchor hanchor" href="#python"><span class="hnumber">8.1</span>&nbsp;<span class="htext">Python</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>NumPy</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="249" lf="249">
             <div class="block">
               <p>Random number generators</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="250" lf="252">
             <div class="block">
               <p>Data Visualization</p>
             </div>
@@ -1379,36 +1611,36 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="8.2" class="hanchor" href="#basic-concepts-in-probability">8.2 Basic Concepts in Probability</a></h2>
+        <h2><a name="basic-concepts-in-probability" class="anchor hanchor" href="#basic-concepts-in-probability"><span class="hnumber">8.2</span>&nbsp;<span class="htext">Basic Concepts in Probability</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>Mathematical, Frequentist, and Bayesian probabilities</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="255" lf="255">
             <div class="block">
               <p>Conditional probability</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="256" lf="256">
             <div class="block">
               <p>Bayes’ theorem</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="257" lf="257">
             <div class="block">
               <p>Counting - permutations and combinations</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="258" lf="258">
             <div class="block">
               <p>Probability distributions</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="259" lf="261">
             <div class="block">
               <p>Overview of statistical fallacies</p>
             </div>
@@ -1418,36 +1650,36 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="8.3" class="hanchor" href="#elements-of-statistics">8.3 Elements of Statistics</a></h2>
+        <h2><a name="elements-of-statistics" class="anchor hanchor" href="#elements-of-statistics"><span class="hnumber">8.3</span>&nbsp;<span class="htext">Elements of Statistics</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>Expectation, mean, variance, and bias</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="264" lf="264">
             <div class="block">
               <p>Random variables, distributions, quantiles, mean, variance</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="265" lf="265">
             <div class="block">
               <p>Joint distributions, covariance, correlation, independence</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="266" lf="266">
             <div class="block">
               <p>The law of large numbers</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="267" lf="267">
             <div class="block">
               <p>Central limit theorem</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="268" lf="270">
             <div class="block">
               <p>Bootstrapping</p>
             </div>
@@ -1457,21 +1689,21 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="8.4" class="hanchor" href="#hypothesis-tests">8.4 Hypothesis Tests</a></h2>
+        <h2><a name="hypothesis-tests" class="anchor hanchor" href="#hypothesis-tests"><span class="hnumber">8.4</span>&nbsp;<span class="htext">Hypothesis Tests</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>Frequentist</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="273" lf="273">
             <div class="block">
               <p>Bayesian</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="274" lf="276">
             <div class="block">
               <p>Bootstrap and Jackknife</p>
             </div>
@@ -1481,16 +1713,16 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="8.5" class="hanchor" href="#parameter-estimation-basic">8.5 Parameter Estimation - Basic</a></h2>
+        <h2><a name="parameter-estimation-basic" class="anchor hanchor" href="#parameter-estimation-basic"><span class="hnumber">8.5</span>&nbsp;<span class="htext">Parameter Estimation - Basic</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>Least-squares</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="279" lf="281">
             <div class="block">
               <p>Maximum likelihood</p>
             </div>
@@ -1500,21 +1732,21 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="8.6" class="hanchor" href="#parameter-estimation-advanced">8.6 Parameter Estimation - Advanced</a></h2>
+        <h2><a name="parameter-estimation-advanced" class="anchor hanchor" href="#parameter-estimation-advanced"><span class="hnumber">8.6</span>&nbsp;<span class="htext">Parameter Estimation - Advanced</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>Linear models</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="284" lf="284">
             <div class="block">
               <p>Nonlinear models</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="285" lf="287">
             <div class="block">
               <p>The EMCEE Markov chain Monte Carlo Python library</p>
             </div>
@@ -1524,7 +1756,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="9" class="hanchor" href="#references">9 References</a></h1>
+        <h1><a name="references" class="anchor hanchor" href="#references"><span class="hnumber">9</span>&nbsp;<span class="htext">References</span></a></h1>
       </div>
       <div class="block">
         <p>The following references are not needed for this course, but you may find them useful for alternative explanations of topics in the textbook.</p>
@@ -1532,46 +1764,46 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="9.1" class="hanchor" href="#general">9.1 General</a></h2>
+        <h2><a name="general" class="anchor hanchor" href="#general"><span class="hnumber">9.1</span>&nbsp;<span class="htext">General</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>Principles of Statistics, M.G. Bulmer - A short Dover book that covers fundamental statistical topics in and parsimonious manner. Available on Amazon for $3.00.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="294" lf="294">
             <div class="block">
               <p>Many of the topics covered in this course are covered in the MIT OCW course <a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/">Introduction to Probability and Statistics</a>. </p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="295" lf="295">
             <div class="block">
               <p>Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg - Covers basics of uncertainty and error analysis at Freshman physics lab level. Very good but very expensive (&gt; $100 on Amazon).</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="296" lf="296">
             <div class="block">
               <p>Statistical Methods in Experimental Physics, F. James - A standard reference that you should have a copy of.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="297" lf="297">
             <div class="block">
               <p>Statistics, D. Freedman, R. Pisani, and R. Purves - A basic introduction to statistics with many examples and extended discussion of topics.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="298" lf="298">
             <div class="block">
               <p>Probability for the Enthusiastic Beginner, D. Morin - A very basic introduction to probability.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="299" lf="299">
             <div class="block">
               <p>Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore - A commonly used textbook for upper-division engineering and science majors.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="300" lf="302">
             <div class="block">
               <p>Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed) – Similar in scope and coverage of Devore. </p>
             </div>
@@ -1581,63 +1813,63 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="9.2" class="hanchor" href="#bayes">9.2 Bayes</a></h2>
+        <h2><a name="bayes" class="anchor hanchor" href="#bayes"><span class="hnumber">9.2</span>&nbsp;<span class="htext">Bayes</span></a></h2>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3><a number="9.2.1" class="hanchor" href="#general">9.2.1 General</a></h3>
+        <h3><a name="general" class="anchor hanchor" href="#general"><span class="hnumber">9.2.1</span>&nbsp;<span class="htext">General</span></a></h3>
       </div>
       <div class="block">
-        <ol start="3">
-          <li>
+        <ol start="3" class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>Bayes’ Rule - A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone. This book is a good starting point.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="307" lf="307">
             <div class="block">
               <p><a href="http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf">Doing Bayesian Data Analysis by Kruschke</a> - The best overview that I am aware of. The examples are in R, but translation to other languages is straightforward. Most of the value of this book is in the descriptions of the concepts.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="308" lf="308">
             <div class="block">
               <p><a href="https://www.amazon.com/Bayesian-Statistics-Introduction-Peter-Lee-dp-1118332571/dp/1118332571/">Bayesian Statistics – an Introduction by P.M. Lee</a> is a classic introductory textbook.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="309" lf="309">
             <div class="block">
               <p><a href="https://link.springer.com/article/10.3758/s13423-017-1317-5">How to become a Bayesian in eight easy steps: An annotated reading list, by Etz et al., 2018</a>.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="310" lf="310">
             <div class="block">
               <p>Data Analysis - A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="311" lf="311">
             <div class="block">
               <p>Neural Networks for Pattern Recognition (2006), by C.M. Bishop - Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes’ rule.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="312" lf="312">
             <div class="block">
               <p>Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D’Agostini</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="313" lf="313">
             <div class="block">
               <p>The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman – This is a classic book on Machine Learning/Statistical Learning.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="314" lf="314">
             <div class="block">
               <p>Validation of Software for Bayesian Models Using Posterior Quantiles by Cook, Gelman, and Rubin, 2006 (<a href="https://www.jstor.org/stable/27594203">https://www.jstor.org/stable/27594203</a>).</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="315" lf="317">
             <div class="block">
-              <p><a href="http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf">Section 3.4 of the lecture notes on Hierarchal Models by Junker</a> contains in Section 3.4 a detailed introduction to a common example covered in many books – finding the posterior when the standard deviation of the population is known and a prior distribution is available.</p>
+              <p><a href="http://www.stat.cmu.edu/&nbsp;brian/463-663/week09/Chapter%2003.pdf">Section 3.4 of the lecture notes on Hierarchal Models by Junker</a> contains in Section 3.4 a detailed introduction to a common example covered in many books – finding the posterior when the standard deviation of the population is known and a prior distribution is available.</p>
             </div>
           </li>
         </ol>
@@ -1645,31 +1877,31 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a number="9.2.2" class="hanchor" href="#bayesian-vs-frequentist">9.2.2 Bayesian vs. Frequentist</a></h3>
+        <h3><a name="bayesian-vs-frequentist" class="anchor hanchor" href="#bayesian-vs-frequentist"><span class="hnumber">9.2.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>. </p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="320" lf="320">
             <div class="block">
               <p>Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas (<a href="https://arxiv.org/pdf/1411.5018.pdf">arxiv.org/pdf/<wbr>1411.5018.pdf</a>).</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="321" lf="321">
             <div class="block">
               <p>Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom (<a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf">MIT18<wbr>_05S14<wbr>_Reading20.pdf</a>)</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="322" lf="322">
             <div class="block">
               <p>Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="323" lf="325">
             <div class="block">
               <p><a href="https://psycnet.apa.org/record/1995-12080-001">The Earth is Round</a> covers the mis-use of significance tests in the psychological literature.</p>
             </div>
@@ -1679,39 +1911,39 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a number="9.2.3" class="hanchor" href="#credible-intervals">9.2.3 Credible Intervals</a></h3>
+        <h3><a name="credible-intervals" class="anchor hanchor" href="#credible-intervals"><span class="hnumber">9.2.3</span>&nbsp;<span class="htext">Credible Intervals</span></a></h3>
       </div>
       <div class="block">
         <p>In the following references, the terms “Bayesian Intervals”, “Bayesian Confidence Intervals”, and “Credible Intervals” are used to mean the same thing.</p>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>. This is not an easy read as a first introduction. The following references provide a more introductory explanation: <a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">Kruschke and Liddell 2018</a>; <a href="https://arxiv.org/pdf/1411.5018.pdf">VanderPlas 2014</a>. <a href="http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/">A blog post by VanderPlas</a> goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approach.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="330" lf="330">
             <div class="block">
-              <p><a href="http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf">Levy 2012</a> is also a good introduction.</p>
+              <p><a href="http://www.mit.edu/&nbsp;rplevy/pmsl_textbook/chapters/pmsl_5.pdf">Levy 2012</a> is also a good introduction.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="331" lf="331">
             <div class="block">
               <p>Credible intervals are described by the authors of the <a href="https://easystats.github.io/bayestestR/articles/credible_interval.html">easystats</a>.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="332" lf="332">
             <div class="block">
               <p><a href="https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/">testscience.org</a> has a brief example that compares confidence intervals with credible intervals.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="333" lf="333">
             <div class="block">
               <p>Analysis of regression confidence intervals and Bayesian credible intervals for uncertainty quantification by Liu, Ye, and Ling, 2012 (<a href="https://doi.org/">https://doi.org/</a><wbr>10.1029/<wbr>2011WR011289)</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="334" lf="336">
             <div class="block">
               <p><code>bayes_mvs</code> in SciPy uses <a href="https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?article=1277&amp;context=facpub">https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?<wbr>article=1277&amp;context=facpub</a></p>
             </div>
@@ -1721,21 +1953,21 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a number="9.2.4" class="hanchor" href="#mcmc">9.2.4 MCMC</a></h3>
+        <h3><a name="mcmc" class="anchor hanchor" href="#mcmc"><span class="hnumber">9.2.4</span>&nbsp;<span class="htext">MCMC</span></a></h3>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p><a href="https://twiecki.io/blog/2015/11/10/mcmc-sampling/">https://twiecki.io/blog/2015/11/10/mcmc-sampling/</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="339" lf="339">
             <div class="block">
               <p>Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from <a href="https://arxiv.org/abs/1710.06068">arxiv.org</a> and <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aab76e">iopscience.iop.org</a>); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="340" lf="342">
             <div class="block">
               <p><a href="https://link.springer.com/article/10.3758/s13423-016-1015-8">Ravenzwaaij, Cassey, and Brown, 2018</a></p>
             </div>
@@ -1745,36 +1977,36 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a number="9.2.5" class="hanchor" href="#misc">9.2.5 Misc</a></h3>
+        <h3><a name="misc" class="anchor hanchor" href="#misc"><span class="hnumber">9.2.5</span>&nbsp;<span class="htext">Misc</span></a></h3>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p><a href="https://stats.stackexchange.com/questions/421221/bayesian-inference-feeding-posterior-back-in-as-prior">https://stats.stackexchange.com/questions/421221/bayesian-inference-feeding-posterior-back-in-as-prior</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="345" lf="345">
             <div class="block">
               <p><a href="https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/How-Principled-and-Practical-Are-Penalised-Complexity-Priors/10.1214/16-STS603.full">https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/How-Principled-and-Practical-Are-Penalised-Complexity-Priors/10.1214/16-STS603.full</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="346" lf="346">
             <div class="block">
               <p><a href="http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf">http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="347" lf="347">
             <div class="block">
               <p><a href="https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d">https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="348" lf="348">
             <div class="block">
               <p><a href="https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior">https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior</a></p>
             </div>
           </li>
-          <li class="active">
+          <li markerlength="2" lo="349" lf="351">
             <div class="block">
               <p><a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">https://link.springer.com/article/10.3758/s13423-016-1221-4</a></p>
             </div>
@@ -1784,36 +2016,36 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="9.3" class="hanchor" href="#astronomy">9.3 Astronomy</a></h2>
+        <h2><a name="astronomy" class="anchor hanchor" href="#astronomy"><span class="hnumber">9.3</span>&nbsp;<span class="htext">Astronomy</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p>Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="354" lf="354">
             <div class="block">
               <p>Bayesian Methods for the Physical Sciences: Learning from Examples in Astronomy and Physics (2015), S. Andreon and B. Weaver.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="355" lf="355">
             <div class="block">
               <p>Bayesian Models for Astrophysical Data: Using R, JAGS, Python, and Stan, J.M. Hilbe, R.S. de Souza, and E.E.O. Ishida.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="356" lf="356">
             <div class="block">
               <p>Modern Statistical Methods for Astronomy: With R Applications (2012), E.D. Feigelson and G.J. Babu.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="357" lf="357">
             <div class="block">
               <p>Statistics, Data Mining, and Machine Learning in Astronomy: A Practical Python Guide for the Analysis of Survey Data, Željko Ivezic, Andrew J. Connolly, Jacob T VanderPlas, and Alexander Gray.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="358" lf="360">
             <div class="block">
               <p>Computational Bayesian Statistics: An Introduction (2019), M. Antónia Amaral Turkman, Carlos Daniel Paulino, Peter Müller.</p>
             </div>
@@ -1823,16 +2055,16 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="9.4" class="hanchor" href="#software">9.4 Software</a></h2>
+        <h2><a name="software" class="anchor hanchor" href="#software"><span class="hnumber">9.4</span>&nbsp;<span class="htext">Software</span></a></h2>
       </div>
       <div class="block">
-        <ol>
-          <li>
+        <ol class="compact">
+          <li markerlength="3">
             <div class="block">
               <p><a href="http://greenteapress.com/thinkstats2/html/thinkstats2010.html">Think Stats</a> - A free book that demonstrates standard statistical calculations in Python.</p>
             </div>
           </li>
-          <li>
+          <li markerlength="3" lo="363" lf="366">
             <div class="block">
               <p><a href="https://arxiv.org/pdf/1202.3665.pdf">EMCEE Overview</a>
                 <a href="https://emcee.readthedocs.io/en/stable/">EMCEE software documentation</a>
@@ -1844,12 +2076,12 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a number="10" class="hanchor" href="#general-policies">10 General Policies</a></h1>
+        <h1><a name="general-policies" class="anchor hanchor" href="#general-policies"><span class="hnumber">10</span>&nbsp;<span class="htext">General Policies</span></a></h1>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="10.1" class="hanchor" href="#academic-integrity">10.1 Academic Integrity</a></h2>
+        <h2><a name="academic-integrity" class="anchor hanchor" href="#academic-integrity"><span class="hnumber">10.1</span>&nbsp;<span class="htext">Academic Integrity</span></a></h2>
       </div>
       <div class="block">
         <p>Any instance of cheating or plagiarism is a violation of the Honor Code Pledge and will result in a score of zero on the exam or paper and referral to the Honor Committee. The website for the Office of Academic Integrity is <a href="https://oai.gmu.edu/">https://oai.gmu.edu/</a>.</p>
@@ -1857,7 +2089,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="10.2" class="hanchor" href="#disability">10.2 Disability</a></h2>
+        <h2><a name="disability" class="anchor hanchor" href="#disability"><span class="hnumber">10.2</span>&nbsp;<span class="htext">Disability</span></a></h2>
       </div>
       <div class="block">
         <p>If you have a disability and need academic accommodations, please contact Disability Services. Their website is <a href="https://ds.gmu.edu/">https://ds.gmu.edu/</a>. All academic accommodations must be arranged through Disability Services.</p>
@@ -1865,7 +2097,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="10.3" class="hanchor" href="#diversity-and-inclusion">10.3 Diversity and Inclusion</a></h2>
+        <h2><a name="diversity-and-inclusion" class="anchor hanchor" href="#diversity-and-inclusion"><span class="hnumber">10.3</span>&nbsp;<span class="htext">Diversity and Inclusion</span></a></h2>
       </div>
       <div class="block">
         <p>We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at <a href="https://universitypolicy.gmu.edu/policies/non-discrimination-policy/">https://universitypolicy.gmu.edu/policies/non-discrimination-policy/</a>.</p>
@@ -1873,7 +2105,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="10.4" class="hanchor" href="#communication">10.4 Communication</a></h2>
+        <h2><a name="communication" class="anchor hanchor" href="#communication"><span class="hnumber">10.4</span>&nbsp;<span class="htext">Communication</span></a></h2>
       </div>
       <div class="block">
         <p>If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. </p>
@@ -1884,21 +2116,21 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a number="10.5" class="hanchor" href="#university-resources">10.5 University Resources</a></h2>
+        <h2><a name="university-resources" class="anchor hanchor" href="#university-resources"><span class="hnumber">10.5</span>&nbsp;<span class="htext">University Resources</span></a></h2>
       </div>
       <div class="block">
-        <ul>
-          <li>
+        <ul class="compact">
+          <li markerlength="2">
             <div class="block">
               <p>Learning Services <a href="https://learningservices.gmu.edu/">https://learningservices.gmu.edu/</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="389" lf="389">
             <div class="block">
               <p>Student Support and Advocacy Center <a href="https://ssac.gmu.edu/">https://ssac.gmu.edu/</a></p>
             </div>
           </li>
-          <li>
+          <li markerlength="2" lo="390" lf="391">
             <div class="block">
               <p>Counseling and Psychological Services <a href="https://caps.gmu.edu/">https://caps.gmu.edu/</a></p>
             </div>
@@ -1907,6 +2139,40 @@
       </div>
     </div>
   </div>
+  <script>
+    function tocClickListen() {
+      // No jQuery b/c also used in stand-alone HTML.
+      let hs = document.querySelectorAll('#toc > ol ol');
+      let el, ns;
+      for (let i = 0; i < hs.length; i++) {
+        if (hs[i].previousElementSibling) {
+          el = hs[i].previousElementSibling.firstElementChild;
+          if (el.length == 0) {
+            continue;
+          }
+          el.addEventListener('click', event => {
+            ns = event.target.parentNode.nextElementSibling;
+            if (!ns) return;
+            if (ns.style.display === 'none') {
+    ns.style.display = 'block';
+            }
+            else {
+    ns.style.display = 'none';
+            }
+          });
+        }
+      }
+    }
+    if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && 
+          !document.documentElement.doScroll)
+    ) {
+      tocClickListen();
+    } else {
+      document.addEventListener("DOMContentLoaded", tocClickListen);
+    }
+  </script>
 </body>
 
 </html>

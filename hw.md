@@ -1060,7 +1060,7 @@ The following plots show the results when $500,000$ experiments are performed fo
     
     <img src="hws/figures/HW9_1_1a.svg"/>
             
-    <img src="hws/figures/HW9_1_1c.svg"/>
+    <img src="hws/figures/HW9_1_1b.svg"/>
             
     <img src="hws/figures/HW9_1_1c.svg"/>
     
@@ -1099,7 +1099,13 @@ Save your answers in a file named `HW9_2.py`. When executed, it should print the
 
 **Answer**
 
+The full quote is
+
 > Suppose that we have two small sets of data, from Gaussian distributions of equal variance: $-1.22, -1.17, 0.93, -0.58, -1.14$ (mean $-0.64$) and $1.03, -1.59, -0.41, 0.71, 2.10$ (mean $0.37$), with a pooled standard deviation of $1.2$. The standard $t$ statistic is $1.33$. If we do a two-tailed test ..., we find a $22$ per cent chance that these data would arise if the means were the same.
+
+The 95% Confidence interval for $\mu_x-\mu_y$ is $[-0.84, 2.85]$
+
+The 78% Confidence interval for $\mu_x-\mu_y$ is $[-0.03, 2.03]$
 
 Given the description, the appropriate test is [test #5. below](#five-cases-involving-difference-between-means). However, I missed the "equal variance" part of the statement and so I used [test #3 below](#five-cases-involving-difference-between-means) in the code that I linked to in the problem statement. In my solution, I've done tests both #3 and #5 and added comments and print statements.
 
@@ -1125,8 +1131,7 @@ $$T = \frac{\overline{X} - \overline{Y}}{\sqrt{\frac{S_p^2}{n_X} + \frac{S_p^2}{
 
 Note that because $n_X=n_Y$, the $T$ values are the same for these two cases. In general, this will not be true.
 
-
-### Five cases involving difference between means
+**Five cases involving difference between means**
 
 Suppose that we want to make a statement about whether the means of a set of data $X=[X_1, ..., X_{n_X}]$ differs from that of $Y=[Y_1, ..., Y_{n_X}]$. The frequentist approach is to make a statement about how often the difference, $|\overline{X}-\overline{Y}|$, would be larger than the observed value if the experiment was repeated many times and the population means were equal: $\mu_X = \mu_Y$.
 
@@ -1308,9 +1313,9 @@ This is an open-ended question. I am only looking for something slightly more th
 
 Save your answer in a file named `HW11_1.py`.
 
-## Generalize [HW11_reference.py](hws/HW11_reference.py)
+## Generalize `HW11_reference.py`
 
-Modify [HW11_reference.py](hws/HW11_reference.py) so that $\mathcal{D}$ can have an arbitrary number of values.
+Modify [HW11_reference.py](https://github.com/rweigel/astrostats/blob/main/hws/HW11_reference.py) so that $\mathcal{D}$ can have an arbitrary number of values.
 
 Experiment by computing the posterior for $\mathcal{D}$ values drawn from various population distributions (e.g., uniform, chi-squared) with various parameters (e.g., bounds on uniform and # of degrees of freedom of chi-squared). Also, experiment with different numbers of values in $\mathcal{D}$. Be prepared to justify any features in your posterior plot.
 
@@ -1318,7 +1323,7 @@ Save your answer in a file name `HW11_2.py`.
 
 **Answer**
 
-See [HW11_2.py](https://github.com/rweigel/astrostats/blob/main/code/HW11_2.py).(https://github.com/rweigel/astrostats/blob/main/code/plot_matrix.py).
+See [HW11_2.py](https://github.com/rweigel/astrostats/blob/main/code/HW11_2.py).
 
 # Final
 
@@ -1335,6 +1340,29 @@ You may not communicate with anyone else on these problems. You are free to ask 
 The product of Gaussians is often encountered when computing the likelihood. Show that the product of Gaussian pdfs with means of $\mu_1, \mu_2, \mu_3$ and a common standard deviation of $\sigma_o$ is a Gaussian with mean $\mu$ and standard deviation of $\sigma$. Write $\mu$ and $\sigma$ in terms of $\mu_1, \mu_2, \mu_3$, and  $\sigma_o$.
 
 Save your answers in a file named `Final1.pdf`.
+
+**Answer**
+
+$$P=\frac{1}{\sqrt{2\pi\sigma^2_o}}e^{-(x-\mu_1)^2/2\sigma_o^2}\frac{1}{\sqrt{2\pi\sigma_o^2}}e^{-(x-\mu_2)^2/2\sigma_o^2}\frac{1}{\sqrt{2\pi\sigma_o^2}}e^{-(x-\mu_3)^2/2\sigma_o^2}$$
+
+Define
+
+$$-2s^2\sigma_o^2 \equiv {(x-\mu_1)^2} + {(x-\mu_2)^2} + {(x-\mu_3)^2}$$
+
+then
+
+$$P=\frac{1}{(2\pi\sigma_o^2)^{3/2}}e^{-2s^2\sigma_o^2}$$
+
+The exponent can be expanded and rewritten as
+
+$${(x-\mu_1)^2} + {(x-\mu_2)^2} + {(x-\mu_3)^2}=3(x^2-2\bar\mu x + u^2)=3[(x-\bar\mu)^2+u^2-\bar\mu^2]$$
+
+where $u\equiv \mu_1^2 + \mu_2^2 + \mu_3^2$ and $\bar\mu\equiv(\mu_1+\mu_2+\mu_3)/3$
+
+$$P=\frac{1}{(2\pi\sigma_o^2)^{3/2}}e^{2s^2\sigma_o^2}=\frac{e^{-(u^2-\bar \mu^2)/2\sigma^2}}{(2\pi\sigma_o^2)^{3/2}}e^{-(x-\bar\mu)^2/2\sigma^2}$$
+
+where $\sigma^2\equiv\sigma_o^2/n$. Thus $P$ is a Gaussian with mean of $\bar x$ and variance of $\sigma_o^2/n$.
+
 
 ## Samples from a distribution with unknown mean and variance
 
@@ -1359,6 +1387,15 @@ Assuming the following values were drawn from a Gaussian distribution with an un
 During the course of the semester, multiple approaches for the computations in 1. and 2. have been used. You may use any approach and any software library for these two problems. I strongly recommend that you use multiple methods for computing each answer to ensure your answers are reasonable and likely to be correct. Cite sources for code that you've used or built upon as appropriate.
 
 Save your answers in a file named `Final2.py`. When executed, plots with answers to the above should be displayed.
+
+
+**Comments**
+
+1. Options: Equation 7.15 of Devore or non-parametric bootstrap (see also )
+2. Options: Boxed equation on Page 295 of Devore or non-parametric bootstrap
+3. Options: Extend exact soln in solns of 9.1.1, use emcee, or use code at http://people.duke.edu/~ccc14/sta-663/PyMC2.html
+4. Options: Extend exact soln in solns of 9.1.1, use emcee, or use code at  http://people.duke.edu/~ccc14/sta-663/PyMC2.html
+
 
 ## Linear Regression
 
@@ -1430,6 +1467,12 @@ Cite sources for code that you've used or built upon as appropriate.
 
 Save your answers in a file named `Final3.py`. When executed plots with answers to the above should be displayed.
 
+**Comments**
+
+1. See Midterm solutions
+2. Generalize result of first problem of final. See previous HW for using `erf` to compute integral for evidence.
+3. Simplify https://emcee.readthedocs.io/en/stable/tutorials/line/, which was discussed in class. This example is also in Stone, which was given as a handout and is a standard example that can be found in many references.
+4. See previous homework for code for computing credible interval.
 
 # Midterm
 
