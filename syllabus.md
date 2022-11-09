@@ -1,61 +1,12 @@
-<!--- TOC --->
-
-
-1\. [Course Information](#course-information)<br/>
-2\. [Motivation](#motivation)<br/>
-3\. [Methods of Instruction](#methods-of-instruction)<br/>
-4\. [Programming](#programming)<br/>
-5\. [Textbook](#textbook)<br/>
-6\. [Evaluation](#evaluation)<br/>
-7\. [Weekly Schedule](#weekly-schedule)<br/>
-&nbsp;&nbsp;&nbsp;1\. [January 28th](#january-28th)<br/>
-&nbsp;&nbsp;&nbsp;2\. [February 4th](#february-4th)<br/>
-&nbsp;&nbsp;&nbsp;3\. [February 11th](#february-11th)<br/>
-&nbsp;&nbsp;&nbsp;4\. [February 18th](#february-18th)<br/>
-&nbsp;&nbsp;&nbsp;5\. [February 25th](#february-25th)<br/>
-&nbsp;&nbsp;&nbsp;6\. [March 4th](#march-4th)<br/>
-&nbsp;&nbsp;&nbsp;7\. [March 11th](#march-11th)<br/>
-&nbsp;&nbsp;&nbsp;8\. [March 18th](#march-18th)<br/>
-&nbsp;&nbsp;&nbsp;9\. [March 25th](#march-25th)<br/>
-&nbsp;&nbsp;&nbsp;10\. [April 1st](#april-1st)<br/>
-&nbsp;&nbsp;&nbsp;11\. [April 8th](#april-8th)<br/>
-&nbsp;&nbsp;&nbsp;12\. [April 15th](#april-15th)<br/>
-&nbsp;&nbsp;&nbsp;13\. [April 22nd](#april-22nd)<br/>
-&nbsp;&nbsp;&nbsp;14\. [April 29th](#april-29th)<br/>
-&nbsp;&nbsp;&nbsp;15\. [May 9th](#may-9th)<br/>
-8\. [Topics](#topics)<br/>
-&nbsp;&nbsp;&nbsp;1\. [Python](#python)<br/>
-&nbsp;&nbsp;&nbsp;2\. [Basic Concepts in Probability](#basic-concepts-in-probability)<br/>
-&nbsp;&nbsp;&nbsp;3\. [Elements of Statistics](#elements-of-statistics)<br/>
-&nbsp;&nbsp;&nbsp;4\. [Hypothesis Tests](#hypothesis-tests)<br/>
-&nbsp;&nbsp;&nbsp;5\. [Parameter Estimation - Basic](#parameter-estimation-basic)<br/>
-&nbsp;&nbsp;&nbsp;6\. [Parameter Estimation - Advanced](#parameter-estimation-advanced)<br/>
-9\. [References](#references)<br/>
-&nbsp;&nbsp;&nbsp;1\. [General](#general)<br/>
-&nbsp;&nbsp;&nbsp;2\. [Bayes](#bayes)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1\. [General](#general)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2\. [Bayesian vs. Frequentist](#bayesian-vs-frequentist)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3\. [Credible Intervals](#credible-intervals)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4\. [MCMC](#mcmc)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5\. [Misc](#misc)<br/>
-&nbsp;&nbsp;&nbsp;3\. [Astronomy](#astronomy)<br/>
-&nbsp;&nbsp;&nbsp;4\. [Software](#software)<br/>
-10\. [General Policies](#general-policies)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;1\. [Academic Integrity](#academic-integrity)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;2\. [Disability](#disability)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;3\. [Diversity and Inclusion](#diversity-and-inclusion)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;4\. [Communication](#communication)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;5\. [University Resources](#university-resources)<br/>
-
-<!--- /TOC --->
-<p class='title'>AstroStats</p>
-
-<p class='subtitle'>ASTR/PHYS 390/590</p>
+```mdextension
+Title: AstroStats 
+Subtitle: ASTR/PHYS 390/590<br>Spring, 2023
+```
 
 # Course Information
 
 *   **Day and Time**: Thursday from 4:30 - 7:10 pm
-*   **Location**: Online
+*   **Location**: 220 Planetary Hall
 *   **Instructor**: Bob Weigel
 *   **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
 *   **Office Hour**: Thursday 3:30-4:30 pm
@@ -65,10 +16,6 @@
     *   390: Grade of B or higher in PHYS 251 or permission of instructor;
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
-
-**Homeworks**: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8) | [9](hw.html#hw-9) | [10](hw.html#hw-10) | [11](hw.html#hw-11)
-
-**[Midterm](hw.html#midterm)** | **[Final](hw.html#final)**
 
 # Motivation
 
@@ -88,7 +35,7 @@
 # Programming
 
 * Any programming language may be used for homework and the final project. I will write my solutions in Python.
-* I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my [notes for PHYS 251](python).
+* I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my [notes for PHYS 251](python.html).
 *  I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.
 
 # Textbook
@@ -109,135 +56,6 @@ In the [References](#references) section of this syllabus, many additional refer
 *   **Midterm**: 30%
 *   **Final project**: 30%
 *   **Final course**: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, < 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).
-
-# Weekly Schedule
-
-## January 28th
-
-* Introductions
-* Brief introduction to course
-* Discussion of topics on the syllabus
-* **Course Logistics**; I will go over the following on the first day of class. You do not need to do anything before then.
-    * Make sure that you can log on to Piazza. You should have received an email from Piazza before the start of the first class.
-    * Create a GitHub account with your GMU username (the name in your email address, lowercase) and a repository named `astrostats` (lowercase). Give `rweigel` read/write permissions. If you already have a GitHub user id and would like to use it, send me it.
-    * During class discussion, I will ask you to turn on your webcam. Please let me know if you have an issue with this (e.g., you are working in a room with a family in the background or are calling in from a locker room).
-*   **Course comments**
-    * Approximately 1/2 of the students in this class are undergraduates, the other 1/2 are graduates. We did this because this is the first time that the course has been taught. There will be an adjustment period as I figure out how best to handle differentials in experience with statistics, programming, and data analysis.
-    * Ideally, this course would have a pre-requisite of an undergraduate statistics course. The motivation for offering this course was to familiarize students researching astronomy with modern statistical methods (Bayesian and Monte Carlo). As a result, I am going to cover the minimal amount of background needed to get to these modern methods.
-*   Python IDEs and [Google Colab](https://colab.research.google.com/) introduction
-*   Review of Python
-*   [Review of Python/NumPy](python.html#numpy) (and MATLAB, if needed) 
-*   [HW #1 discussion](hw.html)
-*   Follow-up notes:
-    1.   The recording is at https://www.youtube.com/watch?v=yxFzL_TD900 In the future, I'll provide a link to a Zoom page. This week I had to do it differently because I had to trim off conversations I had after class.
-    2.   W.M. mentioned `np.where` as an option for finding elements in an `ndarray`. I don't recall ever using this function but can see where it would be useful (people coming from IDL would probably use this function more often because IDL has an equivalent function. I come from a MATLAB background and tend to use the method shown in class). I've added an example of its use on my [Python notes page](https://rweigel.github.io/astrostats/python.html#finding-elements).
-    3.  In the HW, I ask for you to provide written solutions in a `.md` or `.pdf` file. `.md` is the extension for Markdown, which is a plain-text file written in a certain way. To create a Markdown file on Github, simply click "Create File", then enter, for example, `HW1_1b.md` and then enter text. Markdown is an analog to HTML except it is much easier to write Markdown. I'll provide more details in the next class period. As an alternative, just write your answers in an MS Word document, save it as a PDF, and then upload it to GitHub.
-    4.  I expect that students may encounter issues submitting their first assignment to GitHub. If you have any issues, meet with me before or after class. I won't count assignments as late if you contacted me about a submission issue.
-    5.  In class, I discussed setting the seed for a random number generator if you want to get the same result when you run the code multiple times. I mentioned that I did not know if the choice of seed mattered. For a good random number generator, the randomness of the generated sequence should be independent of the choice of seed. I found a site that explains the basics of random number generation using very simple algorithms; see [Peter Alfeld's Random Number Generator notes](https://www.math.utah.edu/~alfeld/Random/Random.html). On HW1, **do not** use `np.random.seed` as I did in class. I'll explain more about when you want to use it the next time that we meet.
-    6.  I still can't think of the error I encountered when I created an array using `x = np.array([1,2,3])`, which created an integer array instead of a floating-point array. If anyone can think of a simple example where you get an unexpected result because `x` is an integer array, show us during the next class period. 
-
-## February 4th
-- [HW #1](hw.html#hw-1) due before class starts
-- The Discord server is up. You can ask questions there as an alternative to Piazza. If you want to meet with me, we can meet on either Discord or Zoom (it is a little easier to initiate a meeting on Discord, but Discord is not offically sanctioned by GMU).
-- We will continue to meet for class and office hours on Zoom. Don't worry about missing somthing important on Discord. I'll post it on the course web page.
-- Extended discussion of [HW #1](hw.html#hw-1)
-- Basic Concepts in Probability
-- Follow-up notes
-    * If ambiguity or error in a problem statement, **please** post a question on Piazza or Discord! 
-    * The recording is on my [Zoom page](https://gmu.zoom.us/rec/share/Fqvgv9j-bH5vpC7JLoJ8o5ABF-1OUbPXzVOPF3mu442nwAby3fWwlUybSzEpZvH-.B3rl8OT1FN2X965N).
-    * When I go through your assignments, I may move your HWs out of a subdirectory to remind you to not do that. I want everyone's repository to contain the same structure and file names so that my automation software for pulling and pushing works.
-    * When I was discussing the combination problem for the number of unique license plates that could be created given stickers with the numbers 0-9 assuming that license plates with the same set of numbers in any order are treated as not-unique, I wrote down as an example "899 = 989 = 998" are equivalent. These three are not options because a number is repeated. I should have written, "For example, 123 and all permutations are equivalent license plates". In spite of this mistake, someone gave the correct answer - that there are 3! permutations of any three numbers, so if the number of possible license plates is 9!/7! assuming the order of the numbers matters, then the number of possible license plates is 9!/(7!3!) assuming license plates with the same numbers in any order are equivalent.
-    * I am working on posting my solutions to HW1 and also posting HW2. I expect to have HW2 posted by Saturday at noon, which is about a day later than I planned (I typically post the next HW a day after class because I often modify what I planned to assign based on what happened in class). I'll update the [course page](https://rweigel.github.io/astrostats/) and make a Piazza post when I have posted HW2.
-
-## February 11th
-
-*   [HW #1](hw.html#hw-1) notes based on grading.
-    * Discuss W.M.'s solution.
-*   Discord - Justin's timing experiment and Nasser's question
-*   [HW #2](hw.html#hw-2) due before class starts
-*   Discuss HW #2 solutions 
-*   In-class work on problems related to HW #2 and HW #3
-
-## February 18th
-
-*   [HW #3](hw.html#hw-3) due before class starts
-*   Discuss HW #3 solutions
-*   In-class work on problems related to HW #3
-*   From this point on, I'll be covering topics in the order that they appear and Wall and Jenkins. Up until now, the problems have been mostly about programming techniques that you'll need. The problems did not require knowledge of statistics, but you'll want to think back to these problems as the results and their interpretation will be important.
-
-## February 25th
-
-*   [HW #4](hw.html#hw-4) due before class starts
-*   I've written up my notes from our discussion of HW #3. I've also added additional details on problem 3.3 regarding probability densities and the interpretation of the the posterior.
-*   Discuss question on Discord about `np.vectorize`.
-*   Discussion of problems 4.2 and 4.3.
-*   Discussion of reading.
-*   Discussion of problem 4.4.   
-
-## March 4th
-
-* Discussion of [HW #5](hw.html#hw-5)
-* Discussion of [elements of statistics](notes.html#statistics)
-
-## March 11th
-
-* Discussion of [HW #6](hw.html#hw-6)
-* Discussion of $P$s (probability mass functions), pdfs (probability density functions), and their generation in Python
-* Discussion of degrees--of--freedom
-* Discuss absolute paths in code
-
-## March 18th
-
-* [HW #7](hw.html#hw-7) due
-* Discuss PA's HW5.1 soln.
-* Discuss plot labels, `np.round`, and `format`.
-* Discuss number of decimals in numbers.
-* [Midterm](midterm.html#midterm) assigned
-
-## March 25th
-
-* [Midterm](midterm.html#midterm) due before class
-* Discuss `np.full((3, ), np.nan)`
-* General observations on HW6
-* Discuss [Midterm](midterm.html#midterm)
-
-## April 1st
-
-* Discuss [paper](http://articles.adsabs.harvard.edu//full/1990ApJ...364..104I/0000104.000.html) on alternatives to ordinary least squares (OLS)
-* Review of Bayes' Theorem and [HW 3.3](hw.html#bayes-rule-for-statistical-inference)
-
-## April 8th
-
-* [HW #8](hw.html#hw-8) due
-* Additional comments on [Midterm](hw.html#midterm)
-* Discussion of [HW #8](hw.html#hw-8)
-* Discussion of extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\sigma$ are unknown.
-* One-on-one discussion with students as needed if time remains.
-
-## April 15th
-
-* [HW #9](hw.html#hw-9) due. Will cover
-    * Extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\sigma$ are unknown. Uses analytic and experimental method.
-    * Doing Bayesian problem sequentially -- using $\mathcal{D}_1$ to compute $p(\theta|\mathcal{D}_1)$ and then using this as a prior to compute $p(\theta|[\mathcal{D}_1,\mathcal{D}_2])$.
-    * Comparing two means using frequentist (do problem) and Bayesian approach (read paper)
-    * Using MCMC (read paper, do small problem)
-
-## April 22nd
-
-* HW #10 due. Will cover
-    * Extension of [HW #8.2](hw.html#hw-8) to case where $\mathcal{D}$ has more than one value and/or when both $\mu$ and $\theta$ are unknown. Uses MCMC instead of experimental method.
-    * Comparing two means using Bayesian approach (full problem)
-
-## April 29th
-
-* HW #11 due. Cover
-    * Regression using Bayesian method and comparison with Midterm problem.
-
-## May 9th
-
-* Take-home final due Sunday, May 9th at 11:59 pm.
-
-Final exam ([full schedule](https://registrar.gmu.edu/wp-content/uploads/Spring-2021-Final-Exam-Schedule.pdf))
 
 # Topics
 
