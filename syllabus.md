@@ -17,7 +17,7 @@ Subtitle: ASTR/PHYS 390/590<br>Spring, 2023
     *   590: Enrollment in a COS or VSE graduate program.
 *   **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
 
-HWs: [HW1](hws#hw-1)
+HWs: [HW1](hw.html#hw-1)
 
 # Motivation
 
@@ -29,7 +29,7 @@ HWs: [HW1](hws#hw-1)
 
 * In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.
 * I usually have you do a reading and basic follow-up problems before I discuss a topic in class. I find content that I present "sticks" if students have experiemented with the concepts before I discuss them.
-* You will be asked to participate in class discussions during class and on Piazza. Talking and writing about statistics will help you understand statistics.
+* You will be asked to participate in class discussions during class and on Discord. Talking and writing about statistics will help you understand statistics.
 * Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.
 *   I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
     *  As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.
@@ -199,7 +199,7 @@ We seek to create a learning environment that fosters respect for people across 
 
 ## Communication
 
-If you have a question whose answer may be of interest to other students, please post it to Piazza and make it visible to other students. You can set the post so that you are anonymous. 
+If you have a question whose answer may be of interest to other students, please post it to Discord and make it visible to other students. You can set the post so that you are anonymous. 
 
 If you need to send communicate with me about something private, please send it to `rweigel@gmu.edu` from your MasonLive email address.
 
