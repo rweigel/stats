@@ -1,18 +1,31 @@
-# Overview
+# General
 
-Thus far, we have considered several problems related to
+* Population
+* Census
+* Sample
+* Variable
+* {uni,bi,multi}-variate
+* Statistic
+* Descriptive Statistics
+* Inferential Statistics
+* Probability Problem
+* Statistics Problem
+* Frequency of $X$ (or relative frequency of $X$)
+* Experiment
 
-$\overline{X}_1=X_1 + ... + X_n$
+# Probability
 
-$...$
+* Sample Space
+* Event
+* Mutually Exclusive (pairwise disjoint)
+* Compliment
+* Union
+* Intersection
+* Sampling with/without replacement
+* Permutation
+* Combination (un-ordered subset)
 
-$\overline{X}_{\infty}=X_1 + ... + X_n$
-
-where $n$ is the **number of samples** and in place of $\infty$ we have been using $10,000$ in numerical experiments.
-
-You have done several experiments using this approach, and I've informally introduced terminology. We are at the point in this course where you are familiar with the computations and have a rough idea of the terminology. In the following, more formal and specific definitions are introduced. Although I've avoided introducing too much terminology up to now so that you could focus on the computations, from this point forward, I'll want you to try to properly use the terminology.
-
-# Definitions
+# Statistics
 
 In the experiments done in the homework, the $X_i$ values are **random samples** from a **probability distribution** with **expectation values** for the mean and variance defined by $E[X]\equiv\mu$ and $E[(X-\mu)^2]\equiv\sigma^2$.
 
@@ -126,7 +139,7 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
    [The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." If we don't know the sampling distribution of $X$, we can't use a random number generator to simulate many experiments. In this case, we use the only available resource: the measurments from one experiment. This done by drawing a sample of $n$ with replacement from the $n$ measurements. Each such draw is called a bootstrap sample (or experiment) and the test statistic computed from it is indicated by $Y_*$. The bootstrap pmf or pdf is computed from the histogram of the $Y^*$s.
 
-# Key Distributions
+# Distributions
 
 Discrete distributions used thus far
 
