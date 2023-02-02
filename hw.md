@@ -23,7 +23,15 @@ If you are interested, for a more formal definition of the Law of Large Numbers 
 2. Compute $\overline{X}$.
 3. Repeat 1. and 2. $10,000$ times and plot a histogram of $\overline{X}$.
 
-Save your program as `HW1_1a.py`. Also save your histogram as `HW1_1a.png`.
+Save your program as `HW1_1a.py`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title.
+
+**Answer**
+
+See [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py). Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.
+
+From the following plot, it should be clear that when we draw $100$ values from a population with a mean of zero, the average of the $100$ values will not always be zero.
+
+<img src="hws/figures/HW1_1a.svg"/>
 
 ### b
 
@@ -31,11 +39,25 @@ Save your program as `HW1_1a.py`. Also save your histogram as `HW1_1a.png`.
 2. How does the fraction depend on $n$? <sup>+</sup>
 3. For $n=100$, what is the range $[-\epsilon,\epsilon]$ for which $99$% of the $10,000$ $\overline{X}$s fall in?
 4. How does $\epsilon$ depend on $n$? <sup>+</sup>
-5. How does your answer change if a distribution other than gaussian is used?
+5. How does your answer change if the distribution changes?
 
 <sup>+</sup> You may explain this using one or more of words, tables, and plots.
 
 Save your program as `HW1_1b.py`. Save your answers in a file named `HW1_1b.md` or `HW1_1b.pdf`.
+
+**Answer**
+
+See [HW1_1b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1b.py)
+
+1.  7.6%
+2.  The following plot shows the dependence. As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
+
+    <img src="hws/figures/HW1_1b2.svg"/>
+3.  25.8%
+4.  The following plot shows the dependence.
+  
+    <img src="hws/figures/HW1_1b4.svg"/>
+5.  I accepted any answer to this question if it was not interpreted correctly. By "distribution", I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed, the distribution of $\overline{X}$ is still Gaussian. In [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
 
 ## Prelude to Hypothesis Testing
 
@@ -59,3 +81,31 @@ Read Chapter 2.1-2.2 of Devore, 2012.
 3. Define event $A$ to be that the experiment yields two heads. Define event $B$ to be that the experiment yields two tails. What is $A \cup B$ and $A \cap B$?
 
 Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
+
+**Answer**
+
+1. The sample space has 8 elements ($2^3$). This list can be found using a tree diagram as shown below.
+
+    ```
+            H   => HHH
+        H -
+            T   => HHT
+    H -        
+            H   => HTH
+        T -
+            T   => HTT
+
+            H   => THH
+        H -
+            T   => THT
+    T -        
+            H   => TTH
+        T -
+            T   => TTT
+
+    ```
+2. $3$ by inspection of the table above. Also, suppose that we have three unique coins $T$, $H_1$, and $H_2$. There are $3!$ unique permutations. If we drop the subscripts, then the number of unique permutations is divided by 2. So $3!/2=3$.
+3. By inspection of the list from 1., $A \cup B = 6$ and  $A \cap B = \emptyset$.
+
+In the above, I assumed "experiement yields two heads" to mean "the experiment yielded exactly two heads" and not "the experiement yielded two or more heads".
+

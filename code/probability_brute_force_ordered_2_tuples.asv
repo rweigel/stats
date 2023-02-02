@@ -1,0 +1,23 @@
+na = 3;
+nb = 2;
+N = 0;
+for a = 1:na
+   for b = 1:nb
+      fprintf('(%d,%d)\n',a,b);
+      N = N + 1;
+   end
+end
+fprintf('Number of unique ordered tuples = %d\n',N);
+
+
+G = [''];
+nb = 2;
+N = 0;
+for a = 1:na
+   for b = 1:nb
+      fprintf('(%d,%d)\n',a,b);
+      N = N + 1;
+   end
+end
+fprintf('Number of unique ordered tuples = %d\n',N);
+

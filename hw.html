@@ -291,6 +291,11 @@
       padding-left: 0.5em;
     }
 
+    #display>.section>.block &>ol.compact {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
     #display>.section>.block>ol.loose {
       margin-top: 0.5em;
       margin-bottom: 0.5em;
@@ -545,7 +550,7 @@
   <div id="toc" style="min-width: 5em;">
     <ol>
       <li>
-        <a href="#hw-1" raw="# HW 1" lo="1" class="">
+        <a href="#hw-1" raw="# HW 1" lo="1">
           <span class="toctext">HW 1</span>
         </a>
         <ol class="toc" style="display: none;">
@@ -555,7 +560,7 @@
             </a>
             <ol class="toc" style="display: none;">
               <li>
-                <a href="#a" raw="### a" lo="20" class="">
+                <a href="#a" raw="### a" lo="20">
                   <span class="toctext">a</span>
                 </a>
               </li>
@@ -567,12 +572,12 @@
             </ol>
           </li>
           <li>
-            <a href="#prelude-to-hypothesis-testing" raw="## Prelude to Hypothesis Testing" lo="62" class="">
+            <a href="#prelude-to-hypothesis-testing" raw="## Prelude to Hypothesis Testing" lo="62">
               <span class="toctext">Prelude to Hypothesis Testing</span>
             </a>
           </li>
           <li>
-            <a href="#basic-concepts-in-probability" raw="## Basic Concepts in Probability" lo="82" class="">
+            <a href="#basic-concepts-in-probability" raw="## Basic Concepts in Probability" lo="75" class="highlighted">
               <span class="toctext">Basic Concepts in Probability</span>
             </a>
           </li>
@@ -585,11 +590,11 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="1" lf="1" class=""><a name="hw-1" number="1" lo="1" raw="# HW 1" class="anchor hanchor" href="#hw-1"><span class="hnumber">1</span>&nbsp;<span class="htext">HW 1</span></a></h1>
+        <h1 lo="1" lf="1"><a name="hw-1" number="1" lo="1" raw="# HW 1" class="anchor hanchor" href="#hw-1"><span class="hnumber">1</span>&nbsp;<span class="htext">HW 1</span></a></h1>
         <div class="block-info" style="display: none;"><span class="line-numbers">1</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="3" lf="3" class="">The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.</p>
+        <p padlength="0" lo="3" lf="3">The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">3</span></div>
       </div>
       <div class="block">
@@ -643,26 +648,26 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="20" lf="20" class=""><a name="a" number="1.1.1" lo="20" raw="### a" class="anchor hanchor" href="#a"><span class="hnumber">1.1.1</span>&nbsp;<span class="htext">a</span></a></h3>
+        <h3 lo="20" lf="20"><a name="a" number="1.1.1" lo="20" raw="### a" class="anchor hanchor" href="#a"><span class="hnumber">1.1.1</span>&nbsp;<span class="htext">a</span></a></h3>
         <div class="block-info" style="display: none;"><span class="line-numbers">20</span></div>
       </div>
       <div class="block">
         <ol lo="22" lf="24" class="compact">
-          <li markerlength="3" padlength="0" lo="22" lf="22" class="">
+          <li markerlength="3" padlength="0" lo="22" lf="22">
             <div class="block">
-              <p padlength="0" lo="22" lf="22" class="">Draw <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> values from a population of Gaussian-distributed numbers drawn with mean <span len="7" raw="_\mu=0_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> and standard deviation <span len="10" raw="_\sigma=1_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
+              <p padlength="0" lo="22" lf="22">Draw <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> values from a population of Gaussian-distributed numbers drawn with mean <span len="7" raw="_\mu=0_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> and standard deviation <span len="10" raw="_\sigma=1_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">22</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="23" lf="23" class="">
+          <li markerlength="3" padlength="0" lo="23" lf="23">
             <div class="block">
-              <p padlength="0" lo="23" lf="23" class="">Compute <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>.</p>
+              <p padlength="0" lo="23" lf="23">Compute <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>.</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">23</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="24" lf="26" class="">
+          <li markerlength="3" padlength="0" lo="24" lf="26">
             <div class="block">
-              <p padlength="0" lo="24" lf="24" class="">Repeat 1. and 2. <span len="8" raw="_10,000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span></span></span></span> times and plot a histogram of <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>.</p>
+              <p padlength="0" lo="24" lf="24">Repeat 1. and 2. <span len="8" raw="_10,000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span></span></span></span> times and plot a histogram of <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>.</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">24</span></div>
             </div>
           </li>
@@ -670,133 +675,241 @@
         <div class="block-info" style="display: none;"><span class="line-numbers">22-24</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="26" lf="26" class="">Save your program as <code type="md">HW1_1a.py</code>. Also save your histogram as <code type="md">HW1_1a.png</code>.</p>
+        <p padlength="0" lo="26" lf="26">Save your program as <code type="md">HW1_1a.py</code>. When I execute your program, I should see a histogram with <em type="md" marker="_"><strong type="md">the average of</strong></em> <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> displayed in the title.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">26</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="28" lf="28"><strong type="md">Answer</strong></p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">28</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="30" lf="30">See <a href="https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py">HW1_1a.py</a>. Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">30</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="32" lf="32">From the following plot, it should be clear that when we draw <span len="5" raw="_100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> values from a population with a mean of zero, the average of the <span len="5" raw="_100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> values will not always be zero.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">32</span></div>
+      </div>
+      <div class="block">
+        <div class="inline-html" lo="34" lf="34">
+          <img src="hws/figures/HW1_1a.svg">
+        </div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">34</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="28" lf="28" class=""><a name="b" number="1.1.2" lo="28" raw="### b" class="anchor hanchor" href="#b" lf="28"><span class="hnumber">1.1.2</span>&nbsp;<span class="htext">b</span></a></h3>
+        <h3 lo="36" lf="36" class=""><a name="b" number="1.1.2" lo="36" raw="### b" class="anchor hanchor" href="#b"><span class="hnumber">1.1.2</span>&nbsp;<span class="htext">b</span></a></h3>
         <div class="block-info" style="display: none;"><span class="line-numbers">36</span></div>
       </div>
       <div class="block">
-        <ol lo="30" lf="34" class="compact">
-          <li markerlength="3" padlength="0" lo="30" lf="30" class="">
+        <ol lo="38" lf="42" class="compact">
+          <li markerlength="3" padlength="0" lo="38" lf="38">
             <div class="block">
-              <p padlength="0" lo="30" lf="30" class="">For <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span>, what fraction of the <span len="8" raw="_10,000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span></span></span></span> <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>s were in the range <span len="15" raw="_[-0.01, 0.01]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">0.01</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.01</span><span class="mclose">]</span></span></span></span>?</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">30</span></div>
+              <p padlength="0" lo="38" lf="38">For <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span>, what fraction of the <span len="8" raw="_10,000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span></span></span></span> <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>s were in the range <span len="15" raw="_[-0.01, 0.01]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">0.01</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.01</span><span class="mclose">]</span></span></span></span>?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">38</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="31" lf="31" class="">
+          <li markerlength="3" padlength="0" lo="39" lf="39">
             <div class="block">
-              <p padlength="0" lo="31" lf="31" class="">How does the fraction depend on <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>? <sup>+</sup></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">31</span></div>
+              <p padlength="0" lo="39" lf="39">How does the fraction depend on <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>? <sup>+</sup></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">39</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="32" lf="32" class="">
+          <li markerlength="3" padlength="0" lo="40" lf="40">
             <div class="block">
-              <p padlength="0" lo="32" lf="32" class="">For <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span>, what is the range <span len="22" raw="_[-\epsilon,\epsilon]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord mathnormal">ϵ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">ϵ</span><span class="mclose">]</span></span></span></span> for which <span len="4" raw="_99_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">99</span></span></span></span>% of the <span len="8" raw="_10,000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span></span></span></span> <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>s fall in?</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">32</span></div>
+              <p padlength="0" lo="40" lf="40">For <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span>, what is the range <span len="22" raw="_[-\epsilon,\epsilon]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord mathnormal">ϵ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">ϵ</span><span class="mclose">]</span></span></span></span> for which <span len="4" raw="_99_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">99</span></span></span></span>% of the <span len="8" raw="_10,000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span></span></span></span> <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>s fall in?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">40</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="33" lf="33" class="">
+          <li markerlength="3" padlength="0" lo="41" lf="41">
             <div class="block">
-              <p padlength="0" lo="33" lf="33" class="">How does <span len="10" raw="_\epsilon_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> depend on <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>? <sup>+</sup></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">33</span></div>
+              <p padlength="0" lo="41" lf="41">How does <span len="10" raw="_\epsilon_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> depend on <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>? <sup>+</sup></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">41</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="34" lf="34" class="">
+          <li markerlength="3" padlength="0" lo="42" lf="44">
             <div class="block">
-              <p padlength="0" lo="34" lf="34" class="">How does your answer change if a distribution other than gaussian is used?</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">34</span></div>
+              <p padlength="0" lo="42" lf="42">How does your answer change if the distribution changes?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">42</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">30-34</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">38-42</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="36" lf="36"><sup>+</sup> You may explain this using one or more of words, tables, and plots.</p>
+        <p padlength="0" lo="44" lf="44"><sup>+</sup> You may explain this using one or more of words, tables, and plots.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">44</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="38" lf="38" class="">Save your program as <code type="md">HW1_1b.py</code>. Save your answers in a file named <code type="md">HW1_1b.md</code> or <code type="md">HW1_1b.pdf</code>.</p>
+        <p padlength="0" lo="46" lf="46">Save your program as <code type="md">HW1_1b.py</code>. Save your answers in a file named <code type="md">HW1_1b.md</code> or <code type="md">HW1_1b.pdf</code>.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">46</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="48" lf="48"><strong type="md">Answer</strong></p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">48</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="50" lf="50">See <a href="https://github.com/rweigel/astrostats/blob/main/hws/HW1_1b.py">HW1_1b.py</a></p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">50</span></div>
+      </div>
+      <div class="block">
+        <ol lo="52" lf="60" class="loose">
+          <li markerlength="3" padlength="0" lo="52" lf="52">
+            <div class="block">
+              <p padlength="1" lo="52" lf="52">7.6%</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">52</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="53" lf="55">
+            <div class="block">
+              <p padlength="0" lo="53" lf="54">The following plot shows the dependence. As <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> increases, the standard deviation of the histogram of <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> decreases so that more of the distribution is in the range <span len="15" raw="_[-0.01, 0.01]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">0.01</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.01</span><span class="mclose">]</span></span></span></span>.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">53-54</span></div>
+            </div>
+            <div class="block">
+              <div class="inline-html" lo="55" lf="54">
+                <img src="hws/figures/HW1_1b2.svg">
+              </div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">55-54</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="56" lf="56">
+            <div class="block">
+              <p padlength="1" lo="56" lf="56">25.8%</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">56</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="57" lf="59">
+            <div class="block">
+              <p padlength="0" lo="57" lf="58">The following plot shows the dependence.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">57-58</span></div>
+            </div>
+            <div class="block">
+              <div class="inline-html" lo="59" lf="58">
+                <img src="hws/figures/HW1_1b4.svg">
+              </div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">59-58</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="60" lf="62">
+            <div class="block">
+              <p padlength="1" lo="60" lf="60" class="">I accepted any answer to this question if it was not interpreted correctly. By “distribution”, I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> <span len="3" raw="_X_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>s are distributed, the distribution of <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> is still Gaussian. In <a href="https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py">HW1_1a.py</a>, there is a line with <code type="md">np.random.uniform</code> commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>s.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">60</span></div>
+            </div>
+          </li>
+        </ol>
+        <div class="block-info" style="display: none;"><span class="line-numbers">52-60</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="40" lf="40" class="highlighted"><a name="prelude-to-hypothesis-testing" number="1.2" lo="40" raw="## Prelude to Hypothesis Testing" class="anchor hanchor" href="#prelude-to-hypothesis-testing" lf="40"><span class="hnumber">1.2</span>&nbsp;<span class="htext">Prelude to Hypothesis Testing</span></a></h2>
+        <h2 lo="62" lf="62"><a name="prelude-to-hypothesis-testing" number="1.2" lo="62" raw="## Prelude to Hypothesis Testing" class="anchor hanchor" href="#prelude-to-hypothesis-testing"><span class="hnumber">1.2</span>&nbsp;<span class="htext">Prelude to Hypothesis Testing</span></a></h2>
         <div class="block-info" style="display: none;"><span class="line-numbers">62</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="42" lf="42">This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.</p>
+        <p padlength="0" lo="64" lf="64">This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">64</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="44" lf="44" class="">I select <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> men at random from the U.S. population and compute the average and standard deviation of their heights. Assume that the distribution of the population is gaussian with a standard deviation that happens to equal the standard deviation of the sample. </p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">44</span></div>
+        <p padlength="0" lo="66" lf="66">I select <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> men at random from the U.S. population and compute the average and standard deviation of their heights. Assume that the distribution of the population is gaussian with a standard deviation that happens to equal the standard deviation of the sample. </p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">66</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="46" lf="46" class="active">Using only the techniques used in the previous problem and these assumptions, make a statement about the likelihood that the actual U.S. population average is more than 1 inch larger or smaller than the average of the <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> heights.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">46</span></div>
+        <p padlength="0" lo="68" lf="68">Using only the techniques used in the previous problem and these assumptions, make a statement about the likelihood that the actual U.S. population average is more than 1 inch larger or smaller than the average of the <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> heights.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">68</span></div>
       </div>
       <div class="block">
-        <ol lo="48" lf="49" class="compact">
-          <li markerlength="3" padlength="0" lo="48" lf="48" class="">
+        <ol lo="70" lf="71" class="compact">
+          <li markerlength="3" padlength="0" lo="70" lf="70">
             <div class="block">
-              <p padlength="0" lo="48" lf="48" class="">Briefly describe how you could do a calculation to estimate the likelihood. If you have done hypothesis testing before, don’t use any of its terminology or techniques.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">48</span></div>
+              <p padlength="0" lo="70" lf="70">Briefly describe how you could do a calculation to estimate the likelihood. If you have done hypothesis testing before, don’t use any of its terminology or techniques.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">70</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="49" lf="51" class="">
+          <li markerlength="3" padlength="0" lo="71" lf="73">
             <div class="block">
-              <p padlength="0" lo="49" lf="49" class="">Implement the calculation. Assume the mean of the <span len="5" raw="_100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> men was 72 inches and the standard deviation was 3 inches.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">49</span></div>
+              <p padlength="0" lo="71" lf="71">Implement the calculation. Assume the mean of the <span len="5" raw="_100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> men was 72 inches and the standard deviation was 3 inches.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">71</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">48-49</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">70-71</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="51" lf="51" class="">Save your answer to part 1. in a file named <code type="md">HW1_2.md</code> or <code type="md">HW1_2.pdf</code>. Save your answer to part 2. in a file named <code type="md">HW1_2.py</code>.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">51</span></div>
+        <p padlength="0" lo="73" lf="73">Save your answer to part 1. in a file named <code type="md">HW1_2.md</code> or <code type="md">HW1_2.pdf</code>. Save your answer to part 2. in a file named <code type="md">HW1_2.py</code>.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">73</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="53" lf="53" class=""><a name="basic-concepts-in-probability" number="1.3" lo="53" raw="## Basic Concepts in Probability" class="anchor hanchor" href="#basic-concepts-in-probability" lf="53"><span class="hnumber">1.3</span>&nbsp;<span class="htext">Basic Concepts in Probability</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">63</span></div>
+        <h2 lo="75" lf="75" class="highlighted"><a name="basic-concepts-in-probability" number="1.3" lo="75" raw="## Basic Concepts in Probability" class="anchor hanchor" href="#basic-concepts-in-probability"><span class="hnumber">1.3</span>&nbsp;<span class="htext">Basic Concepts in Probability</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">75</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="55" lf="55" class="">Read Chapter 2.1-2.2 of Devore, 2012. </p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">55</span></div>
+        <p padlength="0" lo="77" lf="77">Read Chapter 2.1-2.2 of Devore, 2012. </p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">77</span></div>
       </div>
       <div class="block">
-        <ol lo="57" lf="59" class="compact">
-          <li markerlength="3" padlength="0" lo="57" lf="57">
+        <ol lo="79" lf="81" class="compact">
+          <li markerlength="3" padlength="0" lo="79" lf="79" class="">
             <div class="block">
-              <p padlength="0" lo="57" lf="57">An experiment involves tossing a coin 3x. What is the sample space of this experiment?</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">69-71</span></div>
+              <p padlength="0" lo="79" lf="79" class="">An experiment involves tossing a coin 3x. What is the sample space of this experiment?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">79</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="58" lf="58">
+          <li markerlength="3" padlength="0" lo="80" lf="80" class="">
             <div class="block">
-              <p padlength="0" lo="58" lf="58">How many of the outcomes in the sample space had two heads? </p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">69-71</span></div>
+              <p padlength="0" lo="80" lf="80" class="">How many of the outcomes in the sample space had two heads? </p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">80</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="59" lf="61">
+          <li markerlength="3" padlength="0" lo="81" lf="83" class="">
             <div class="block">
-              <p padlength="0" lo="59" lf="59">Define event <span len="3" raw="_A_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> to be that the experiment yields two heads. Define event <span len="3" raw="_B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> to be that the experiment yields two tails. What is <span len="10" raw="_A \cup B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> and <span len="10" raw="_A \cap B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>?</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">69</span></div>
+              <p padlength="0" lo="81" lf="81" class="">Define event <span len="3" raw="_A_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> to be that the experiment yields two heads. Define event <span len="3" raw="_B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> to be that the experiment yields two tails. What is <span len="10" raw="_A \cup B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> and <span len="10" raw="_A \cap B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">81</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">67-69</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">79-81</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="61" lf="61" class="">Save your answers in a file named <code type="md">HW1_3a.md</code> or <code type="md">HW1_3a.pdf</code>.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">71</span></div>
+        <p padlength="0" lo="83" lf="83" class="">Save your answers in a file named <code type="md">HW1_3a.md</code> or <code type="md">HW1_3a.pdf</code>.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">83</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="85" lf="85" class=""><strong type="md">Answer</strong></p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">85</span></div>
+      </div>
+      <div class="block">
+        <ol lo="87" lf="108" class="loose">
+          <li markerlength="3" padlength="0" lo="87" lf="106" class="">
+            <div class="block">
+              <p padlength="0" lo="87" lf="88" class="">The sample space has 8 elements (<span len="5" raw="_2^3_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span>). This list can be found using a tree diagram as shown below.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">87-88</span></div>
+            </div>
+            <div class="block">
+              <pre lo="89" lf="105" class=""><div class="block"><code lo="90" class="">        H   =&gt; HHH</code><div class="line-number">1</div></div><div class="block"><code lo="91" class="">    H -</code><div class="line-number">2</div></div><div class="block"><code lo="92" class="">        T   =&gt; HHT</code><div class="line-number">3</div></div><div class="block"><code lo="93" class="">H -        </code><div class="line-number">4</div></div><div class="block"><code lo="94" class="">        H   =&gt; HTH</code><div class="line-number">5</div></div><div class="block"><code lo="95" class="">    T -</code><div class="line-number">6</div></div><div class="block"><code lo="96" class="">        T   =&gt; HTT</code><div class="line-number">7</div></div><div class="block"><code lo="97" class=""></code><div class="line-number">8</div></div><div class="block"><code lo="98" class="">        H   =&gt; THH</code><div class="line-number">9</div></div><div class="block"><code lo="99" class="">    H -</code><div class="line-number">10</div></div><div class="block"><code lo="100" class="">        T   =&gt; THT</code><div class="line-number">11</div></div><div class="block"><code lo="101" class="">T -        </code><div class="line-number">12</div></div><div class="block"><code lo="102" class="">        H   =&gt; TTH</code><div class="line-number">13</div></div><div class="block"><code lo="103" class="">    T -</code><div class="line-number">14</div></div><div class="block"><code lo="104" class="">        T   =&gt; TTT</code><div class="line-number">15</div></div><div class="block"><code lo="105" class=""></code><div class="line-number">16</div></div></pre>
+              <div class="block-info" style="display: none;"><span class="line-numbers">89-105</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="107" lf="107" class="">
+            <div class="block">
+              <p padlength="0" lo="107" lf="107" class=""><span len="3" raw="_3_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> by inspection of the table above. Also, suppose that we have three unique coins <span len="3" raw="_T_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>, <span len="5" raw="_H_1_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and <span len="5" raw="_H_2_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. There are <span len="4" raw="_3!_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">3</span><span class="mclose">!</span></span></span></span> unique permutations. If we drop the subscripts, then the number of unique permutations is divided by 2. So <span len="8" raw="_3!/2=3_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">!</span><span class="mord">/2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span>.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">107</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="108" lf="110" class="">
+            <div class="block">
+              <p padlength="0" lo="108" lf="108" class="">By inspection of the list from 1., <span len="14" raw="_A \cup B = 6_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span> and <span len="22" raw="_A \cap B = \emptyset_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">∅</span></span></span></span>.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">108</span></div>
+            </div>
+          </li>
+        </ol>
+        <div class="block-info" style="display: none;"><span class="line-numbers">87-108</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="110" lf="110" class="active">In the above, I assumed “experiement yields two heads” to mean “the experiment yielded exactly two heads” and not “the experiement yielded two or more heads”.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">110</span></div>
       </div>
     </div>
   </div>
