@@ -1,3 +1,40 @@
+# Counting
+
+## Distinct ordered pairs (2-tuples)
+
+```matlab
+for a = 1:na:
+   for a = 1:nb:
+      print('(%d,%d)',a,a)
+```
+
+```matlab
+
+B = ['Bob','Joe','Don']
+G = ['Sue','Ali','Jen']
+
+for b in B:
+   for g in G:
+      print('(%d,%d)',b,g)
+```
+
+## Distinct ordered $k$-tuples (Uniquely ordered groups of $k$)
+
+```matlab
+for a = 1:na:
+   for b = 1:nb:
+      for c 1:nc:
+         print('(%d,%d,%c)',a,b,c)
+```
+
+## Sampling with replacement to form distinct ordered $k$-tuples
+
+Choose $k$ objects in succession from a population of $n$ distinct objects. The number, $N$ of distinct and ordered $k$-tuples is $N=n^r$. Each $k$-tuple is equiprobable.
+
+## Permutations
+
+## Combinations (shuffled permutation)
+
 # General
 
 * Population
