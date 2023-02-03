@@ -1,14 +1,14 @@
 # HW 1
 
-The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them in order to solve these problems.
+The first two problems of this homework are intended to primarily be a review of the programming techniques that you will need for this class. The problems mention the Law of Large Numbers, confidence intervals, and hypothesis testing. You do not need to know anything about the statistical theory behind them to solve these problems.
 
 ----
 
-The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
+The Law of Large Numbers tells us that as $n\rightarrow \infty$, the sample average defined by
 
 $$\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$$
 
-will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
+will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller than a particular value.
 
 If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see
 * [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
@@ -27,9 +27,9 @@ Save your program as `HW1_1a.py`. When I execute your program, I should see a hi
 
 **Answer**
 
-See [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py). Several students turned in plots without axis labels 🤷. I should not have to ask and I should really give a zero to make the point that it is never acceptable to create a plot with missing or incorrect labels.
+See [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py).
 
-From the following plot, it should be clear that when we draw $100$ values from a population with a mean of zero, the average of the $100$ values will not always be zero.
+From the following plot, it should be clear that when we draw $100$ values from a population with a mean of zero, the average of the $100$ values will not always be zero. The standard deviation appears to be approximately $0.1$, which is smaller than $\sigma$.
 
 <img src="hws/figures/HW1_1a.svg"/>
 
@@ -41,7 +41,7 @@ From the following plot, it should be clear that when we draw $100$ values from 
 4. How does $\epsilon$ depend on $n$? <sup>+</sup>
 5. How does your answer change if the distribution changes?
 
-<sup>+</sup> You may explain this using one or more of words, tables, and plots.
+<sup>+</sup> You may explain this using one or more words, tables, and plots.
 
 Save your program as `HW1_1b.py`. Save your answers in a file named `HW1_1b.md` or `HW1_1b.pdf`.
 
@@ -50,20 +50,20 @@ Save your program as `HW1_1b.py`. Save your answers in a file named `HW1_1b.md` 
 See [HW1_1b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1b.py)
 
 1.  7.6%
-2.  The following plot shows the dependence. As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
+2. The following plot shows the dependence. As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
 
     <img src="hws/figures/HW1_1b2.svg"/>
 3.  25.8%
-4.  The following plot shows the dependence.
+4. The following plot shows the dependence.
   
     <img src="hws/figures/HW1_1b4.svg"/>
-5.  I accepted any answer to this question if it was not interpreted correctly. By "distribution", I mean the type of distribution, e.g., Gaussian, uniform, lognormal, etc. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed, the distribution of $\overline{X}$ is still Gaussian. In [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
+5. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed; the distribution of $\overline{X}$ is still Gaussian. In [HW1_1a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
 
 ## Prelude to Hypothesis Testing
 
 This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.
 
-I select $n=100$ men at random from the U.S. population and compute the average and standard deviation of their heights. Assume that the distribution of the population is gaussian with a standard deviation that happens to equal the standard deviation of the sample. 
+I select $n=100$ men at random from the U.S. population and compute the average and standard deviation of their heights. Assume that the distribution of the population is gaussian with a standard deviation equal to the sample's standard deviation. 
 
 Using only the techniques used in the previous problem and these assumptions, make a statement about the likelihood that the actual U.S. population average is more than 1 inch larger or smaller than the average of the $n$ heights.
 
@@ -71,6 +71,16 @@ Using only the techniques used in the previous problem and these assumptions, ma
 2. Implement the calculation. Assume the mean of the $100$ men was 72 inches and the standard deviation was 3 inches.
 
 Save your answer to part 1. in a file named `HW1_2.md` or `HW1_2.pdf`. Save your answer to part 2. in a file named `HW1_2.py`.
+
+**Answer**
+
+In this problem, a single sample of $n=100$ was used to compute an average, $\overline{X}_o$ and standard deviation $s_o$. We do not know the population average $\mu$ but want to make a statement (or "inference") about it.
+
+Now do many (say 10,000) experiments of drawing a sample of $100$ values from a gaussian distribution with mean $\overline{X}_o$ and sample standard deviation $s_o$. That is, assume that the actual unknown population distribution has a mean and standard deviation equal to that from the sample.
+
+The percentage of $10,000$ experiments that had an $\overline{X}$ that was one inch larger or smaller than $\overline{X}_o$ is our estimate of the likelihood.
+
+The above is the basic process of inferential statistics. However, instead of doing a simulation of 10,000 experiments, one can use a table to look up the expected percentage when an infinite number of experiments are performed.
 
 ## Basic Concepts in Probability
 
@@ -107,5 +117,53 @@ Save your answers in a file named `HW1_3a.md` or `HW1_3a.pdf`.
 2. $3$ by inspection of the table above. Also, suppose that we have three unique coins $T$, $H_1$, and $H_2$. There are $3!$ unique permutations. If we drop the subscripts, then the number of unique permutations is divided by 2. So $3!/2=3$.
 3. By inspection of the list from 1., $A \cup B = 6$ and  $A \cap B = \emptyset$.
 
-In the above, I assumed "experiement yields two heads" to mean "the experiment yielded exactly two heads" and not "the experiement yielded two or more heads".
+In the above, I assumed "experiment yields two heads" to mean "the experiment yielded exactly two heads" and not "the experiment yielded two or more heads".
 
+# HW 2
+
+## Venn Diagrams, Unions, and Intersections
+
+In class, I considered problem 12 in Chapter 2 of Devore 8th edition (slightly modified notation):
+
+Consider randomly selecting a student at a certain university. Let $V$ denote the event the selected individual has a Visa credit card and $M$ be the analogous event for a MasterCard. Suppose that $P(V)=0.5$, $P(M)=0.4$, and $P(V \cap M)=0.25$.
+
+1. Compute the probability that the selected individual has at least one of the two types of cards (i.e., the probability of the event $V\cup M$).
+
+2. What is the probability that the selected individual has neither card type?
+
+3. Find the probability that the student has a Visa but not MasterCard.
+
+Develop a simulation to estimate answers to 1.-3.
+
+Save your code in a file named `HW2_1.py` and have your code print a text file named `HW2_1.txt` with the estimates for 1.-3.
+
+## Counting
+
+1. $n_r$ red balls, $n_g$ green balls, and $n_b$ blue balls are in a box. Three balls are randomly selected. Assume $n_r=4$, $n_g=5$, and $n_b=6$.
+
+   a. What is the probability that exactly two selected balls are red?
+
+   b. What is the probability that all three selected balls have the same color?
+
+   c. What is the probability that one ball of each type is
+selected?
+
+   Save your answer is a file named `HW2_2_1.pdf` or `HW2_2_1.md`.
+
+2. Use Python to check your answer by simulating many experiments, corresponding to selecting three balls, and then computing the probabilities in parts 1a.--c (technically, you will compute relative frequencies and use them to estimate the probability).
+
+   This will not be an exact answer, but as you increase the number of experiments, this approximate answer should approach the probabilities you found in part 1.
+
+   Save as `HW2_2_2.py`
+
+## Random Walk
+
+A random walk is a process is analogous to the flipping of a fair coin. An example in physics is a cylinder constrained to move in one dimension being struck by air particles (and the cylinder moves without friction). Each strike sends the cylinder a small step to the left or right. The probability of a step to the left is the same as that of a step to the right. See also [Chapter 1 of Kittel and Kroemer](http://www.fulviofrisone.com/attachments/article/413/Kittel%20-%20Thermodynamics.pdf) for a description in the context of statistical physics.
+
+1. After $3$ strikes, what are the probabilities the cylinder is one, two, and three steps to the right of its initial position?
+
+2. After $4$ strikes, what are the probabilities the cylinder is one, two, three, and four steps to the right of its initial position?
+
+3. What is the general formula for the probability that the cylinder is $k$ steps away from its initial position after $N$ steps?
+
+4. Simulate $10,000$ steps and plot a histogram of the final position relative to its initial position. Add dots to show the values predicted from the formula found in part 3.
