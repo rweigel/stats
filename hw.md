@@ -167,3 +167,48 @@ A random walk is a process is analogous to the flipping of a fair coin. An examp
 3. What is the general formula for the probability that the cylinder is $k$ steps away from its initial position after $N$ steps?
 
 4. Simulate $10,000$ steps and plot a histogram of the final position relative to its initial position. Add dots to show the values predicted from the formula found in part 3.
+
+# HW 3
+
+## Using Bayes' Rule
+
+In a certain city, there are only two delivery companies, and their vehicle colors are yellow and orange. A witness saw a delivery vehicle run over a dog and leave the scene. In this city,
+
+* 80% of the delivery vechicles are orange;
+* 20% of the delivery vechicles are yellow; and
+* the witness claimed they saw an orange delivery vechicle run over the dog. The witness was tested in recreations of the incident and it was found that 75% of the time they correctly identified the color of the delivery vechicle (no actual dogs were harmed in the recreation).
+
+What is the probability that the delivery vechicle that ran over the dog was orange?
+
+Save your answer in a file named `HW3_1.pdf` in your repository. Be prepared to explain your answer at the whiteboard in class.
+
+## Formula Used in Class
+
+When solving the cancer screening problem using Bayes' rule in class, I stated without proof that if a sample space can be partitioned into events $A_1$, $A_2,...,A_N$ that are
+
+1. mutually exclusive (meaning if $A_i$ occurs, $A_j$ with $j\ne i$ cannot occur) and
+2. exhaustive (if an event occurs, it must be one in the list of $A$ events), then
+
+$\ds P(X) = \sum_{j=1}^{N}P(A_j)P(X|A_j)$
+
+in which cases, Bayes' rule
+
+$$A(A_i|X) = \frac{P(X|A_i)P(A_i)}{P(X)}$$
+
+can be written as
+
+$$A(A_i|X) = \frac{P(X|A_i)P(A_i)}{\sum_{j=1}^{N}P(A_j)P(X|A_j)}$$
+
+Find a way of graphically justifying and explaining
+
+$\ds P(X) = \sum_{j=1}^{N}P(A_j)P(X|A_j)$
+
+assuming conditions 1. and 2. above. Save your answer in a file named `HW3_2.pdf` in your repository. Be prepared to explain your answer at the whiteboard in class.
+
+## HW #2
+
+Make corrections to your HW #2 problems that you think were not correct.
+
+## Reading
+
+Read [Chapters 1 and 2 of Sivia](https://drive.google.com/file/d/1jlcywhHQlfKGADki7yxuo5T55X15Rjpd★★★★remove★★★★). Be prepared to ask and answer questions in class.
