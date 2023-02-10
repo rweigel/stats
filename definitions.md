@@ -1,99 +1,3 @@
-# Counting
-
-## Distinct ordered pairs (2-tuples)
-
-Given $a_1$, $a_2$, ... $a_{n_a}$ and $b_1$, $b_2$, ... $b_{n_b}$, one can form $N=n_an_b$ distinct ordered pairs with one element from each list. Said another way, if slot $1$ is filled with a choice from $a$ and slot $2$ is filled with a choice from $b$, there are $n_an_b$ unique ways to fill the slots.
-
-One can use a tree diagram, table, or $x$--$y$ plot to prove.
-
-**Typical Example**:
-
-Two teams of twelve players each. How many unique handshakes between members of opposing teams?
-
-*Answer*: $n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
-
-Brute force calculation: [code/probability_brute_force_ordered_2_tuples.m](code/probability_brute_force_ordered_2_tuples.m)
-
-## Distinct ordered $k$-tuples (Uniquely ordered groups of $k$)
-
-Given $k$ lists
-
-$L_1$: $a_1$, $a_2$, ... $a_{n_a}$
-
-$L_2$: $b_1$, $b_2$, ... $b_{n_b}$
-
-...
-
-$L_k$: $x_1$, $x_2$, ... $x_{n_k}$ (where $x$ represents the $k$th letter of the alphabet)
-
-one can form $N=n_an_b...n_k$ distinct ordered $k$--tuples containing one element from each list. Can use a tree diagram to prove. Said another way, ...
-
-**Typical Example**:
-
-What is the probability of getting three sixes in an experiment when three dice are thrown? 
-
-*Answer*: $6\cdot 6\cdot 6=216$ is the number of unique experiment results. Of these experiments, only one will have three sixes, so $P=1/216$.
-
-## Sampling with replacement to form distinct ordered $k$-tuples
-
-Choose $k$ objects in succession from a population of $n$ distinct objects. The number, $N$ of distinct and ordered $k$-tuples is $N=n^k$. Each $k$-tuple is equiprobable.
-
-Equivalent to given $k$ lists
-
-$L_1$: $a_1$, $a_2$, ... $a_{n}$
-
-$L_2$: $b_1$, $b_2$, ... $b_{n}$
-
-...
-
-$L_k$: $x_1$, $x_2$, ... $x_{n_k}$ (where $x$ represents the $k$th letter of the alphabet)
-
-one can form $N=n^k$ distinct ordered $k$--tuples containing one element from each list.
-
-## Permutations
-
-Given a population of $a_1, a_2, ..., a_n$, sample without replacement to form distinct orderings of size $k$. The number of possible distinct $k$--tuples is
-
-$N=n\cdot (n-1)\cdot ... (n-k+1)$
-
-This can be rewritten as
-
-$$N=\frac{n!}{(n-k)!}$$
-
-This number is typically written as $P_n^k$, $_nP_k$, or $P_{n,k}$, where the $P$ means "number of permuations" and not "probability".
-
-**Typical Example**:
-
-You have stickers labled $1$, ..., $6$ that are used to form a license plate. How many unique license plates can you form?
-
-*Answer*: $6!$
-
-## Combinations (shuffled permutations)
-
-Each permutation can be regarded as group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permuations. For example, if the two permutations
-
-$(1,2)$
-
-$(2,1)$
-
-are regarded as equivalent, then there is only one group containing the numbers $1$ and $2$. To determine the number of possible orderings of each permutation, ask how many ways a set of $k$ elements can be arranged. The answer is $k!$.
-
-So, to find the number of combinations, divide the number of permutations by $k!$.
-
-$$C_{n,k}=\frac{P_{n,k}}{k!}=\frac{\ds\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}$$
-
-$C_{n,k}$ is often called a binomial coefficient and the denoted by $\ds{N\choose k}$ and referred to as "$n$ choose $k$".
-
-**Typical Example**:
-* How many unique ordered hands of size $5$ can be formed using a $52$-card deck?
-
-   *Answer*: $52\cdot 51\cdot 50\cdot 49\cdot 48$.
-* How many hands of size $5$ can be formed using a $52$-card deck?
-
-   *Answer*: Each permutation can be rearranged in $5!$ ways. So the number of hands is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
-
-
-
 # General
 
 * Population
@@ -335,3 +239,97 @@ Three key distributions are
    that we compute from a set of measurements $X_1, ..., X_n$ and we can assume the measurements are independently distributed random variables, but we don't know if their distribution is Gaussian. As a result, we don't know how $Y$ will be distributed -- it does not fit the constraint of the $\chi^2$ distribution and nobody has worked out the expected distribution of $e$ for this calculation.
 
    We can "bootrap" a sampling distribution by drawing $n$ values from the list $[X_1,...X_n]$ with replacement and computing $Y^{\*}_1$. We repeat $10,000$ times. The distribution of 10,000 $Y^{\*}$ values is a good approximation to the unknown sampling distribution of $Y$. See also page 251 of Devore.
+
+# Counting
+
+## Distinct ordered pairs (2-tuples)
+
+Given $a_1$, $a_2$, ... $a_{n_a}$ and $b_1$, $b_2$, ... $b_{n_b}$, one can form $N=n_an_b$ distinct ordered pairs with one element from each list. Said another way, if slot $1$ is filled with a choice from $a$ and slot $2$ is filled with a choice from $b$, there are $n_an_b$ unique ways to fill the slots.
+
+One can use a tree diagram, table, or $x$--$y$ plot to prove.
+
+**Typical Example**:
+
+Two teams of twelve players each. How many unique handshakes between members of opposing teams?
+
+*Answer*: $n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
+
+Brute force calculation: [code/probability_brute_force_ordered_2_tuples.m](code/probability_brute_force_ordered_2_tuples.m)
+
+## Distinct ordered $k$-tuples (Uniquely ordered groups of $k$)
+
+Given $k$ lists
+
+$L_1$: $a_1$, $a_2$, ... $a_{n_a}$
+
+$L_2$: $b_1$, $b_2$, ... $b_{n_b}$ 
+
+...
+
+$L_k$: $x_1$, $x_2$, ... $x_{n_k}$ (where $x$ represents the $k$th letter of the alphabet)
+
+one can form $N=n_an_b...n_k$ distinct ordered $k$--tuples containing one element from each list. Can use a tree diagram to prove. Said another way, ...
+
+**Typical Example**:
+
+What is the probability of getting three sixes in an experiment when three dice are thrown? 
+
+*Answer*: $6\cdot 6\cdot 6=216$ is the number of unique experiment results. Of these experiments, only one will have three sixes, so $P=1/216$.
+
+## Sampling with replacement to form distinct ordered $k$-tuples
+
+Choose $k$ objects in succession from a population of $n$ distinct objects. The number, $N$ of distinct and ordered $k$-tuples is $N=n^k$. Each $k$-tuple is equiprobable.
+
+Equivalent to given $k$ lists
+
+$L_1$: $a_1$, $a_2$, ... $a_{n}$
+
+$L_2$: $b_1$, $b_2$, ... $b_{n}$
+
+...
+
+$L_k$: $x_1$, $x_2$, ... $x_{n_k}$ (where $x$ represents the $k$th letter of the alphabet)
+
+one can form $N=n^k$ distinct ordered $k$--tuples containing one element from each list.
+
+## Permutations
+
+Given a population of $a_1, a_2, ..., a_n$, sample without replacement to form distinct orderings of size $k$. The number of possible distinct $k$--tuples is
+
+$N=n\cdot (n-1)\cdot ... (n-k+1)$
+
+This can be rewritten as
+
+$$N=\frac{n!}{(n-k)!}$$
+
+This number is typically written as $P_n^k$, $_nP_k$, or $P_{n,k}$, where the $P$ means "number of permuations" and not "probability".
+
+**Typical Example**:
+
+You have stickers labled $1$, ..., $6$ that are used to form a license plate. How many unique license plates can you form?
+
+*Answer*: $6!$
+
+## Combinations (shuffled permutations)
+
+Each permutation can be regarded as group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permuations. For example, if the two permutations
+
+$(1,2)$
+
+$(2,1)$
+
+are regarded as equivalent, then there is only one group containing the numbers $1$ and $2$. To determine the number of possible orderings of each permutation, ask how many ways a set of $k$ elements can be arranged. The answer is $k!$.
+
+So, to find the number of combinations, divide the number of permutations by $k!$.
+
+$$C_{n,k}=\frac{P_{n,k}}{k!}=\frac{\ds\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}$$
+
+$C_{n,k}$ is often called a binomial coefficient and the denoted by $\ds{N\choose k}$ and referred to as "$n$ choose $k$".
+
+**Typical Example**:
+* How many unique ordered hands of size $5$ can be formed using a $52$-card deck?
+
+   *Answer*: $52\cdot 51\cdot 50\cdot 49\cdot 48$.
+* How many hands of size $5$ can be formed using a $52$-card deck?
+
+   *Answer*: Each permutation can be rearranged in $5!$ ways. So the number of hands is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
