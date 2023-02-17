@@ -63,18 +63,18 @@ See [HW1_1b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW1_1b.py)
 
 This problem is a prelude to the frequentist interpretation of probability and hypothesis testing.
 
-I select $n=100$ men at random from the U.S. population and compute the average and standard deviation of their heights. Assume that the distribution of the population is gaussian with a standard deviation equal to the sample's standard deviation. 
+I select $n=100$ men at random from the US population and compute the average and standard deviation of their heights. Assume that the distribution of the population is gaussian with a standard deviation equal to the sample's standard deviation. 
 
-Using only the techniques used in the previous problem and these assumptions, make a statement about the likelihood that the actual U.S. population average is more than 1 inch larger or smaller than the average of the $n$ heights.
+Using only the techniques used in the previous problem and these assumptions, make a statement about the likelihood that the actual US population average is more than 1 inch larger or smaller than the average of the $n$ heights.
 
-1. Briefly describe how you could do a calculation to estimate the likelihood. If you have done hypothesis testing before, don't use any of its terminology or techniques.
+1. Briefly describe how you could do a calculation to estimate the likelihood. If you have done hypothesis testing before, use its terminology and techniques sparingly.
 2. Implement the calculation. Assume the mean of the $100$ men was 72 inches and the standard deviation was 3 inches.
 
 Save your answer to part 1. in a file named `HW1_2.md` or `HW1_2.pdf`. Save your answer to part 2. in a file named `HW1_2.py`.
 
 **Answer**
 
-In this problem, a single sample of $n=100$ was used to compute an average, $\overline{X}_o$ and standard deviation $s_o$. We do not know the population average $\mu$ but want to make a statement (or "inference") about it.
+In this problem, a single sample of $n=100$ was used to compute an average, $\overline{X}_o$, and standard deviation $s_o$. We do not know the population average $\mu$ but want to make a statement (or "inference") about it.
 
 Now do many (say $10,000$) experiments of drawing a sample of $100$ values from a gaussian distribution with mean $\overline{X}_o$ and sample standard deviation $s_o$. That is, assume that the actual unknown population distribution has a mean and standard deviation equal to that from the sample.
 
@@ -158,7 +158,7 @@ selected?
 
 ## Random Walk
 
-A random walk is a process is analogous to the flipping of a fair coin. An example in physics is a cylinder constrained to move in one dimension being struck by air particles (and the cylinder moves without friction). Each strike sends the cylinder a small step to the left or right. The probability of a step to the left is the same as that of a step to the right. See also [Chapter 1 of Kittel and Kroemer](http://www.fulviofrisone.com/attachments/article/413/Kittel%20-%20Thermodynamics.pdf) for a description in the context of statistical physics.
+A random walk is a process analogous to flipping a fair coin. An example in physics is a cylinder constrained to move in one dimension being struck by air particles (and the cylinder moves without friction). Each strike sends the cylinder a small step to the left or right. The probability of a step to the left is the same as that of a step to the right. See also [Chapter 1 of Kittel and Kroemer](http://www.fulviofrisone.com/attachments/article/413/Kittel%20-%20Thermodynamics.pdf) for a description in the context of statistical physics.
 
 1. After $3$ strikes, what are the probabilities the cylinder is one, two, and three steps to the right of its initial position?
 
@@ -174,13 +174,13 @@ A random walk is a process is analogous to the flipping of a fair coin. An examp
 
 In a certain city, there are only two delivery companies, and their vehicle colors are yellow and orange. A witness saw a delivery vehicle run over a dog and leave the scene. In this city,
 
-* 80% of the delivery vechicles are orange;
-* 20% of the delivery vechicles are yellow; and
-* the witness claimed they saw an orange delivery vechicle run over the dog. The witness was tested in recreations of the incident and it was found that 75% of the time they correctly identified the color of the delivery vechicle (no actual dogs were harmed in the recreation).
+* 80% of the delivery vehicles are orange;
+* 20% of the delivery vehicles are yellow; and
+* the witness claimed they saw an orange delivery vehicle run over the dog. The witness was tested in recreations of the incident, and it was found that 75% of the time, they correctly identified the color of the delivery vehicle (no actual dogs were harmed in the recreation).
 
-What is the probability that the delivery vechicle that ran over the dog was orange?
+What is the probability that the delivery vehicle that ran over the dog was orange?
 
-Save your answer in a file named `HW3_1.pdf` in your repository. Be prepared to explain your answer at the whiteboard in class.
+Save your answer in a file named `HW3_1.pdf` in your repository. Be prepared to explain your answer on the whiteboard in class.
 
 ## Formula Used in Class
 
@@ -201,13 +201,13 @@ $$A(A_i|X) = \frac{P(X|A_i)P(A_i)}{\sum_{j=1}^{N}P(A_j)P(X|A_j)}$$
 
 Find a way of graphically justifying and explaining
 
-$\ds P(X) = \sum_{j=1}^{N}P(A_j)P(X|A_j)$
+$\ds P(X) = \sum_{j=1}^{N}P(A_j)P(X|A_j)$,
 
 assuming conditions 1. and 2. above. Save your answer in a file named `HW3_2.pdf` in your repository. Be prepared to explain your answer at the whiteboard in class.
 
 ## HW #2
 
-Make corrections to your HW #2 problems that you think were not correct.
+Make corrections to your HW #2 problems that you think needed to be corrected.
 
 ## Reading
 
@@ -217,4 +217,88 @@ Read [Chapters 1 and 2 of Sivia](https://drive.google.com/file/d/1jlcywhHQlfKGAD
 
 ## Reading
 
-Read [Chapter 3 of Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★)
+Read [Chapter 3 of Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★).
+
+##  Expectation Values
+
+A summary (or descriptive) statistic is a quantity that summarizes an aspect of a collection of data. Examples include the mean and standard deviation. Descriptive statistics are always based on a computation done on a **sample** (subset) of the population of data. 
+
+Definitions
+
+* **Population** - "All" of the data is called the population. A population can be finite or infinite. An example of a finite population is all US citizens. An example of an infinite population is values from a continuous probability density function.
+* **Sample statistic** - a computation based on a sample from a population that estimates the equivalent value that would be obtained if the same computation was performed on the population. (Devore p214)
+
+It is important that sample statistics are **unbiased**. If we compute a sample statistic based on a sample from a population and repeat this process many times, we want the average of the sample statistic to be equal to the corresponding population statistic.
+
+An example of an unbiased sample statistic is the average,
+
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i\$$
+
+Suppose we have a list of 1000 numbers with a mean $\mu$. If we draw $n=100$ numbers at random, compute the average $\overline{X}_1$, and repeat $N\rightarrow \infty$ times, the average of these averages will be $\mu$, the population average. Mathematically, this is
+
+$$
+\lim_{N\rightarrow \infty} \frac{1}{N}\sum_{i=1}^N\overline{X}_i = \mu
+$$
+
+The distribution of the $\overline{X}_i$ values is called the **sampling distribution** (Devore p214)
+
+The general definition of the expectation operator $E[\cdot]$ is, for discrete $x$,
+
+$$E \left[X\right] = \sum_{\text{all }x}xP(x)
+$$
+
+By definition, the average of $X$ over the population is defined as
+
+$\mu\equiv E\left[X\right]$.
+
+The variance of a population is defined as
+
+$$\sigma^2\equiv E\left[(X-\mu)^2\right]$$
+
+An example of a biased sample statistic is
+
+$$S_{b}^2 = \frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2$$
+
+In part 1., you will numerically demonstrate that $E[S^2_b]$ is related to $\sigma^2$. In part 2., you will fill in the details of the proof I started in class to find the relationship.
+
+1. Show that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$ and repeating $N=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values and display their average and variance in the title. Save your code as `HW4_2_1.py` and plot as `HW4_2_1.pdf`.
+2. Show that $E[S^2_b]=\sigma^2(n-1)/n$. Save your answer in a file named `HW4_2_2.pdf`.
+
+## The Poisson Distribution
+
+The Poisson distribution can be derived as a limit of the Binomial distribution. This is also discussed in [Devore 3.6](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★).
+
+If
+
+1. in a sufficiently short amount of time, $\Delta t$, only 0 or 1 event can occur (two or more simultaneous events are impossible);
+2.  the probability of exactly 1 event occurring in $\Delta t$ is equal to $\lambda \Delta t$, where $\lambda$ is a constant; and
+3.  any non-overlapping intervals of length $\Delta t$ are independent Bernoulli trials,
+
+the probability of $k$ events occurring in the time interval $t=N\Delta t$ is
+
+$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
+
+for sufficiently large $N$. Another way of writing this equation is, if $p$ is the probability of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
+
+$$P(k)=\frac{\ds\left(p\frac{t}{\Delta t}\right)^k e^{-p\large\frac{t}{\Delta t}}}{k!}$$
+
+Next, using the definition $t\equiv N\Delta t$,
+
+$$P(k)=\frac{(p N)^k e^{-p N}}{k!}$$
+
+The interpretation is that if the probability of a success in a trial is $p$, then the probability of $k$ successes in $N$ trials is $P(k)$. 
+Use a random number generator to create a dataset that simulates the following result. Every hour, the number of x-ray flares is tabulated. It is found that over $10,00$ days, $900$ flares occurred so that the average probability of a flare in a given hour is $900/(1000\cdot 24)$.
+
+1. Plot
+
+   a. $P_S(k)$, the probability of $k$ flare events occurring **per day** for the **S**imulated dataset,
+
+   b. $P_P(k)$ expected from the equation above using the value of $\lambda$ computed based on the **P**oisson distribution equation above, and
+
+   c. $P_B(k)$ expected from the **B**inomial distribution, from which the Poisson distribution was derived.
+
+2.  From your dataset, derive a new dataset, the time between flares, and plot a histogram of the time between flares.
+
+Save your code as `HW4_3.py` and save the plot as `HW5_3.pdf`. Spend time on thinking about the best way to label axes, the title, the legend, colors, and annotations. As discussed, you want to have enough detail on the plot so that a reader can start to make interpretations without having to read or hear a long description. 
+
+Be prepared to justify any differences between the three cases in class.
