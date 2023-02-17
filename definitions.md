@@ -15,8 +15,9 @@
 
 # Probability
 
-* Sample Space
-* Event
+* Sample Space (or Event Space) -- the set of all possible elementary events.  Sample spaces are often visualized using Venn diagrams.  
+* Event -- A set, or class, or group of possible uncertain outcomes.  A compound event can be decomposed into two or more subevents.  What is defined by an event depends on the context.
+* Independence -- Note that statistical dependence does not necessarily imply physical cause-and-effect relationship.  You should be able to give many example of this on cue.
 * Mutually Exclusive (pairwise disjoint)
 * Compliment
 * Union
@@ -24,6 +25,47 @@
 * Sampling with/without replacement
 * Permutation
 * Combination (un-ordered subset)
+
+## Symbols
+
+Notation is highly variable.
+
+"Or" (union) is typically represented by `$\cup$`
+
+"And" (intersect) is represented by four symbols: `$\cap$` $\quad$ `&` $\quad$ `,` $\quad$ `+`
+
+"Given" (condition) is represented by `$|$` (all items to the right of this "conditional" symbol are taken as being true)
+
+"Not $A$" (compliment of set $A$) is represented by four symbols: `$A^\prime$` $\quad$ `$\overline{A}$` $\quad$ `~$A$` $\quad$ $\neg A$
+
+## Axioms
+
+1. Probability of any event is nonnegative;
+2. The probability of the entire sample space is 1; and
+3. The probability of one or the other of two mutually exclusive events occuring is the sum of their two individual probabilities.
+
+
+## Law of Addition
+
+[[Image:Image2.png|left|thumb|Image of two targets]]
+
+Number of ways A or B could occur: n(A or B) = n(A) + n(B) - n(A and B)
+
+Note that the two dots in the overlapping segment were double counted; the last term removes the extra count.
+
+Probability of events A or B to occur: P(A or B) = P(A) + P(B) - P(A and B)
+
+**Example**
+
+If you are in a firing line and two people have guns that shoot a real bullet instead of a blank with probability of 1/3, what is the probability that you get shot (assuming the marksmen never miss?)  Draw a tree diagram and a Venn diagram to explain the answer.
+
+*Answer*
+
+$P(A \text{ or } B) = 1/3 + 1/3 - 1/9 = 5/9$
+
+or, $P(\overline{A\text{ or } B}) = (2/3)(2/3) = 4/9$
+
+Check: $P(\overline{A\text{ or } B}) = 1 - P(A \text{ or } B)$
 
 # Statistics
 
@@ -246,6 +288,8 @@ Three key distributions are
 
 Given $a_1$, $a_2$, ... $a_{n_a}$ and $b_1$, $b_2$, ... $b_{n_b}$, one can form $N=n_an_b$ distinct ordered pairs with one element from each list. Said another way, if slot $1$ is filled with a choice from $a$ and slot $2$ is filled with a choice from $b$, there are $n_an_b$ unique ways to fill the slots.
 
+If there are n<sub>1</sub> ways of doing operation 1 and  n<sub>2</sub> ways of doing operation 2, then both operations can be performed in n<sub>1</sub>·n<sub>2</sub> ways.  For example, if operation 1 is moving north, south, east, or west and operation 2 is moving up or down, then there are 8 possible combinations of a horizontal step followed by a vertical step.
+
 One can use a tree diagram, table, or $x$--$y$ plot to prove.
 
 **Typical Example**:
@@ -333,3 +377,179 @@ $C_{n,k}$ is often called a binomial coefficient and the denoted by $\ds{N\choos
 * How many hands of size $5$ can be formed using a $52$-card deck?
 
    *Answer*: Each permutation can be rearranged in $5!$ ways. So the number of hands is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
+
+# Bayes
+
+You only need to know these two laws in order to derive Bayes' theorem.
+
+Sum law
+
+Product law
+
+## Review
+
+----
+
+[[Image:Image1.png|thumb|left|Image 1]]
+
+**Question:* What is $n(A \text{ and } B)$ in Image 1? That is, how many dots have labels of $A$ or $B$? (Give a number)
+
+**Answer**: All of them; $n(A) + n(B) = 11$
+
+**Question:** What is $n(A \text{ and } B)$ in Image 1?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
+
+**Answer**: zero
+
+----
+
+[[Image:Image2.png|left|thumb|Image 2]]
+
+**Question:** What is $n(A \text{ and } B)$ in Image 2?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
+
+**Answer**: 2
+
+**Question:** What is $n(B \text{ and } A)$ in Image 2?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
+
+**Answer**: 2
+
+----
+
+'''Question:''' In terms of n(A), n(B), n(A and B), what is n(A '''or''' B) in Image 2?  That is, how many dots have labels of A or B?
+
+{| class="wikitable collapsible collapsed"
+! Answer
+|-
+|
+n(A '''or''' B) = n(A) + n(B) - n(A and B)
+|}
+
+'''Question:''' In terms of n(B), P(A|B), what is n(A and B) in Image 2?
+
+{| class="wikitable collapsible collapsed"
+! align="left" | Answer
+|-
+|
+<math>n(A \mbox{ and } B) = n(B)\cdot P(A|B)</math>
+|}
+
+'''Question:''' In terms of n(A), P(B|A), what is n(B and A) in Image 2?
+
+{| class="wikitable collapsible collapsed"
+! align="left" | Answer
+|-
+|
+<math>n(B \mbox{ and } A) = n(A)\cdot P(B|A)</math>
+|}
+|}
+
+==== ====
+
+{| border="0" cellpadding="2" width="100%" align="left"
+|-
+|style="vertical-align:top"|
+[[Image:Image3.png|thumb|left|Image 3 (X Y Z, A B grid)]]
+|style="vertical-align:top"|
+'''Question:''' In terms of n(A), n(B), n(X), P(X|A), and P(A|X), what is n(A and X) in Image 3?
+
+{| class="wikitable collapsible collapsed"
+! align="left" | Answer
+|-
+|
+<math>n(A \mbox{ and } X) = n(A)\cdot P(X|A)</math>
+|}
+
+'''Question:''' In terms of n(A), n(B), n(X), P(X|A), and P(A|X), what is n(X and A) in Image 3?
+
+{| class="wikitable collapsible collapsed"
+! align="left" | Answer
+|-
+|
+<math>n(X \mbox{ and } A) = n(X)\cdot P(A|X)</math>
+|}
+|}
+<br style="clear:both"/>
+== Bayes' Theorem ==
+
+=== Derivation ===
+
+
+{| border="0" cellpadding="2" width="100%" align="left"
+|-
+|style="vertical-align:top" width="50%" |
+'''Question''': In reference to Image 2, what is P(A|B) in terms of n(A), n(B), n(A and B), and n(B and A)?
+|style="vertical-align:top"|
+{| class="wikitable collapsible collapsed"
+! Answer
+|-
+|
+<math>P(A|B) = \frac{n(A \mbox{ and } B)}{n(B)}</math>
+|}
+|}
+
+{| border="0" cellpadding="2" width="100%" align="left"
+|-
+|style="vertical-align:top" width="50%" |
+'''Question''': In reference to Image 2, what is 
+
+<math>\frac{n(A \mbox{ and } B)}{n(B \mbox{ and } A)}</math>
+
+in terms of n(A), n(B), P(A|B), and P(B|A)? 
+|style="vertical-align:top"|
+{| class="wikitable collapsible collapsed"
+! Answer
+|-
+|
+<math>\frac{n(A \mbox{ and } B)}{n(B \mbox{ and } A)} = 1 = \frac{n(A)\cdot P(B|A)}{n(B)\cdot P(A|B)}
+</math>
+
+or
+
+<math>
+n(B) = n(A)\cdot\frac{P(B|A)}{P(A|B)}
+</math>
+
+or
+
+<math>
+P(B) = P(A)\cdot\frac{P(B|A)}{P(A|B)}
+</math>
+
+|}
+|}
+
+{| border="0" cellpadding="2" width="100%" align="left"
+|-
+|style="vertical-align:top" width="50%" |
+'''Question''': In reference to Image 3, what is 
+
+<math>\frac{n(A \mbox{ and } X)}{n(X \mbox{ and } A)}</math>
+
+in terms of n(A), n(X), P(A|X), and P(X|A)? 
+|style="vertical-align:top"|
+{| class="wikitable collapsible collapsed"
+! Answer
+|-
+|
+<math>\frac{n(A \mbox{ and } X)}{n(X \mbox{ and } A)} = 1 = \frac{n(A)\cdot P(X|A)}{n(X)\cdot P(A|X)}
+</math>
+
+or
+
+<math>
+n(X) = n(A)\cdot\frac{P(X|A)}{P(A|X)}
+</math>
+
+or
+
+<math>
+P(X) = P(A)\cdot\frac{P(X|A)}{P(A|X)}
+</math>
+
+check
+
+<math>
+\frac{5}{13} = \frac{7}{13}\cdot\frac{\frac{2}{7}}{\frac{2}{5}}
+</math>
+|}
+|}
+

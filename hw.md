@@ -12,8 +12,8 @@ will be near the population average $\mu$ with a given probability. Given $n$ sa
 
 If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see
 * [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
-* Bulmer, Chapter 6 ([Piazza](https://piazza.com/gmu/spring2021/ce0c/resources))
-* DeGroot, Chapter 6 ([Piazza](https://piazza.com/gmu/spring2021/ce0c/resources))
+* [Bulmer, Chapter 6] (https://drive.google.com/file/d/1B5y51uJ37jL_MYcoiS4TKiQQbo8wjKS7★★★★remove★★★★)
+* [DeGroot, Chapter 6](https://drive.google.com/file/d/1L7daiOuSpyTJf8Zh76uSC7c7xQ7TpjwK★★★★remove★★★★)
 
 ## Law of Large Numbers I
 
@@ -76,15 +76,15 @@ Save your answer to part 1. in a file named `HW1_2.md` or `HW1_2.pdf`. Save your
 
 In this problem, a single sample of $n=100$ was used to compute an average, $\overline{X}_o$ and standard deviation $s_o$. We do not know the population average $\mu$ but want to make a statement (or "inference") about it.
 
-Now do many (say 10,000) experiments of drawing a sample of $100$ values from a gaussian distribution with mean $\overline{X}_o$ and sample standard deviation $s_o$. That is, assume that the actual unknown population distribution has a mean and standard deviation equal to that from the sample.
+Now do many (say $10,000$) experiments of drawing a sample of $100$ values from a gaussian distribution with mean $\overline{X}_o$ and sample standard deviation $s_o$. That is, assume that the actual unknown population distribution has a mean and standard deviation equal to that from the sample.
 
 The percentage of $10,000$ experiments that had an $\overline{X}$ that was one inch larger or smaller than $\overline{X}_o$ is our estimate of the likelihood.
 
-The above is the basic process of inferential statistics. However, instead of doing a simulation of 10,000 experiments, one can use a table to look up the expected percentage when an infinite number of experiments are performed.
+The above is the basic process of inferential statistics. However, instead of doing a simulation of $10,000$ experiments, one can use a table to look up the expected percentage when an infinite number of experiments are performed.
 
 ## Basic Concepts in Probability
 
-Read Chapter 2.1-2.2 of Devore, 2012. 
+Read Chapter [2.1-2.2 of Devore, 2012](https://drive.google.com/file/d/1XzI97l_QPpVpRb91CbcO1BYH7sqduZH1★★★★remove★★★★). 
 
 1. An experiment involves tossing a coin 3x. What is the sample space of this experiment?
 2. How many of the outcomes in the sample space had two heads? 
@@ -123,7 +123,7 @@ In the above, I assumed "experiment yields two heads" to mean "the experiment yi
 
 ## Venn Diagrams, Unions, and Intersections
 
-In class, I considered problem 12 in Chapter 2 of Devore 8th edition (slightly modified notation):
+In class, I considered [problem 12 in Chapter 2 of Devore](https://drive.google.com/file/d/1XzI97l_QPpVpRb91CbcO1BYH7sqduZH1★★★★remove★★★★) (slightly modified notation):
 
 Consider randomly selecting a student at a certain university. Let $V$ denote the event the selected individual has a Visa credit card and $M$ be the analogous event for a MasterCard. Suppose that $P(V)=0.5$, $P(M)=0.4$, and $P(V \cap M)=0.25$.
 
@@ -212,3 +212,9 @@ Make corrections to your HW #2 problems that you think were not correct.
 ## Reading
 
 Read [Chapters 1 and 2 of Sivia](https://drive.google.com/file/d/1jlcywhHQlfKGADki7yxuo5T55X15Rjpd★★★★remove★★★★). Be prepared to ask and answer questions in class.
+
+# HW 4
+
+## Reading
+
+Read [Chapter 3 of Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★)
