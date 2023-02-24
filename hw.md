@@ -12,7 +12,7 @@ will be near the population average $\mu$ with a given probability. Given $n$ sa
 
 If you are interested, for a more formal definition of the Law of Large Numbers and proofs, see
 * [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
-* [Bulmer, Chapter 6] (https://drive.google.com/file/d/1B5y51uJ37jL_MYcoiS4TKiQQbo8wjKS7★★★★remove★★★★)
+* [Bulmer, Chapter 6](https://drive.google.com/file/d/1B5y51uJ37jL_MYcoiS4TKiQQbo8wjKS7★★★★remove★★★★)
 * [DeGroot, Chapter 6](https://drive.google.com/file/d/1L7daiOuSpyTJf8Zh76uSC7c7xQ7TpjwK★★★★remove★★★★)
 
 ## Law of Large Numbers I
@@ -123,7 +123,7 @@ In the above, I assumed "experiment yields two heads" to mean "the experiment yi
 
 ## Venn Diagrams, Unions, and Intersections
 
-In class, I considered [problem 12 in Chapter 2 of Devore](https://drive.google.com/file/d/1XzI97l_QPpVpRb91CbcO1BYH7sqduZH1★★★★remove★★★★) (slightly modified notation):
+In class, I considered [problem 12 in Chapter 2 on page 62 of Devore](https://drive.google.com/file/d/1XzI97l_QPpVpRb91CbcO1BYH7sqduZH1★★★★remove★★★★) (slightly modified notation):
 
 Consider randomly selecting a student at a certain university. Let $V$ denote the event the selected individual has a Visa credit card and $M$ be the analogous event for a MasterCard. Suppose that $P(V)=0.5$, $P(M)=0.4$, and $P(V \cap M)=0.25$.
 
@@ -137,9 +137,13 @@ Develop a simulation to estimate answers to 1.-3.
 
 Save your code in a file named `HW2_1.py` and have your code print a text file named `HW2_1.txt` with the estimates for 1.-3.
 
+**Answer**
+
+The exact answers are 1. $0.35$, 2. $0.35$, and 3. $0.25$.
+
 ## Counting
 
-1. $n_r$ red balls, $n_g$ green balls, and $n_b$ blue balls are in a box. Three balls are randomly selected. Assume $n_r=4$, $n_g=5$, and $n_b=6$.
+1. $n_r$ red balls, $n_g$ green balls, and $n_b$ blue balls are in a box. Three balls are randomly selected without replacement. Assume $n_r=4$, $n_g=5$, and $n_b=6$.
 
    a. What is the probability that exactly two selected balls are red?
 
@@ -155,6 +159,30 @@ selected?
    This will not be an exact answer, but as you increase the number of experiments, this approximate answer should approach the probabilities you found in part 1.
 
    Save as `HW2_2_2.py`
+
+**Answer**
+
+1. &nbsp;
+
+   a. Consider the number of ways drawing, in this order $[r,r,g]$. It is $4\cdot 3\cdot 5$. There are three ways to order this list, so the total number of ways of getting two reds and one green is $3(4\cdot 3\cdot 5)$. From similar reasoning, it follows that the number of ways of getting $[r,r,b]$ in any order is $3(4\cdot 3\cdot 6)$. The total probability is thus
+
+   $$\displaystyle \frac{3(4\cdot 3\cdot 5 + 4\cdot 3\cdot 6)}{15\cdot 14\cdot 13}\approx 0.145$$
+
+   b. The number of ways of getting "three of a kind" is the number of ways of getting three reds plus the number of ways of getting three greens plus the number of ways of getting three blues, which is
+
+   $$(4\cdot 3 \cdot 2) + (5\cdot 4\cdot 3) + (6\cdot 5\cdot 4)$$
+
+   The requested probability is thus
+
+   $$\frac{(4\cdot 3 \cdot 2) + (5\cdot 4\cdot 3) + (6\cdot 5\cdot 4)}{15\cdot 14\cdot 13}\approx 0.075$$
+
+   c. The number of ways of getting $[r,g,b]$ is $4\cdot 5\cdot 6$. There are ${3\cdot 2}=6$ arrangements of this list.
+
+   The requested probability is thus
+
+   $$\frac{6(6\cdot 5\cdot 4)}{15\cdot 14\cdot 13}\approx 0.26$$
+
+2. See [HW2_2_2.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_2_2.py)
 
 ## Random Walk
 
@@ -181,6 +209,39 @@ In a certain city, there are only two delivery companies, and their vehicle colo
 What is the probability that the delivery vehicle that ran over the dog was orange?
 
 Save your answer in a file named `HW3_1.pdf` in your repository. Be prepared to explain your answer on the whiteboard in class.
+
+**Answer**
+
+Notice that this problem is identical in structure to the problem considered in class and the visual use for that problem could also be used here. As an alternative, consider 1000 recreations of the indident in which 800 vehicles are orange and 200 vehicles are red. Based on a correct identification of 75\% the expected number for each possible witness claim is shown in the last column.
+
+```
+              600 - Is orange, claims orange
+       800  
+              200 - Is orange, claims yellow
+1000
+              150 - Is yellow, claims yellow
+       200
+               50 - Is yellow, claims orange
+```
+
+In the last column, the witness claims orange when the vehicle is orange $600$ times. The witness claims orange $600 + 50$ times. So the probability is $600/650\approx 0.92$.
+
+To use Bayes' theorem, we start by writing the given probabilities
+
+* $P(O) = 0.8$
+* $P(Y) = 0.2$
+* $P(W_O|O) = 0.75$ 
+* $P(W_O|Y) = 0.25$ (not given, but follows from probability axiom)
+
+where $W_O$ means "witness claimed orange".
+
+To solve using Bayes' rule, notice that this problem is identical in structure to the problem considered in class and the visual use for that problem could also be used here.
+
+We want to know $P(O|W_O)$, that is, the probability that the vehicle was orange given the witness claimed they saw an orange vehicle strike the dog. Bayes' theorem is
+
+$$P(O|W_O)=\frac{P(O)\cdot P(W_O|O)}{P(W_O)}$$
+
+The denominator is $P(W_O)=P(O)P(W_O|O) + P(Y)P(W_O|Y)$, which comes from the next problem.
 
 ## Formula Used in Class
 
@@ -302,3 +363,65 @@ Use a random number generator to create a dataset that simulates the following r
 Save your code as `HW4_3.py` and save the plot as `HW5_3.pdf`. Spend time on thinking about the best way to label axes, the title, the legend, colors, and annotations. As discussed, you want to have enough detail on the plot so that a reader can start to make interpretations without having to read or hear a long description. 
 
 Be prepared to justify any differences between the three cases in class.
+
+# HW 5
+
+## Bernoulli Trials
+
+A Bernoulli Trial has 
+
+* two possible outcomes,
+* the probability of "success" is $p$ and the probability of "failure" is $1-p$, and
+* these probabilities don't change.
+
+For $N$ trials, the probability of $k$ successes is given by the Binomial distribution:
+
+$$P(k)={N \choose k}p^k(1-p)^{N-k}$$
+
+See also [Devore 3.4](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★), where an experiment that conforms to the Bernoulli Trial constraints is referred to as a "Binomial Experiment".
+
+1.  Use a random number generator to simulate 10,000 Binomial Experiments with $N=100$ trials and $p=0.4$ and then plot $P(k)$. (You'll have to research how exactly to "use a random number generator" to do this".) On the same axes, plot $P(k)$ expected from the equation above using the given $N$ and $p$. 
+2.  Suppose $p$ follows the rule: "If two trials in a row are a success, the probability of success ($p$) on the next trial is $0.3$; otherwise, $p=0.4$". Plot $P(k)$ on the same axes as for part 1.
+
+Save your code as `HW5_1.py` and save the plot as `HW5_1.pdf`. Be prepared to provide a justification in class for any differences between the two cases.
+
+A follow-up question that I'll ask is if based on the two plots you can conclude that the second plot does not satisfy the constraints of a Binomial Experiment. Later in the semester, formal ways of answering this question will be covered. For now, I just want to hear your ideas about how you would approach the problem.
+
+## Solar Flare Data
+
+The zip file [SOLAR\_FLARES-revised3.zip](http://mag.gmu.edu/git-data/astrostats/SOLAR\_FLARES-revised3.zip) contains the time of solar flares in an ASCII file named `xray.txt`; this is the only file that you will need for this problem. See the README file for information on how this file was created if you are interested.
+
+Plot the probability distribution of the number of solar flares per day using `xray.txt`.
+
+1. Is the probability distribution similar to that expected from a Binomial Experiment or the Poisson distribution? If so, plot the equation for a Binomial Experiment and/or the Poisson distribution on the same axes as the histogram.
+2. Is the probability density of the time between solar flares similar to the probability density of the exponential distribution?
+3. Do the data conform to the constraints of a Binomial Experiment or the assumptions for the Poisson distribution?
+
+Save any code or plots that you use to answer these questions in files with the prefix `HW5_2`. Be prepared to discuss your results in class.
+
+## Confidence Intervals when Sampling Distribution Known
+
+Background reading: [Chapter 7 of Devore](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/★★★★remove★★★★)
+
+The simplest problem for computing a confidence interval is
+
+1. $n$ values are drawn from a Gaussian distribution;
+2. the population standard deviation, $\sigma$, is known;
+3. the statistic for which to compute a confidence interval is the mean.
+
+When $\sigma$ is not known (which is usually the case), we still know the sampling distribution of $\overline{X}$. However, for small $n$, it is not Gaussian -- it is $t_{n-1}$--distributed.
+
+----
+
+Draw $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$. Compute the 95\% confidence interval for the mean
+
+1. using Equation 7.4 of Devore, and
+2. using Equation 7.15 of Devore.
+
+The confidence intervals for 1. and 2. are easy to compute because we know the sampling distribution. In the following, you are going to assume that you did not know the sampling distribution and derive it with a "parametric bootstrap" simulation. (The "parametric" corresponds to the fact that you are doing a simulation with knowledge of parameters, in this case $\mu$ and $\sigma$, of the population.)
+
+3. Verify your answer for 1. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$ times. Compute $10,000$ confidence intervals using Equation 7.4 of Devore What fraction of these confidence intervals included $\mu$?
+4.  Verify your answer for 2. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$. Compute $10,000$ confidence intervals using Equation 7.15 of Devore. What fraction of these confidence intervals included $\mu$?
+5.  Suppose some parameter $a$ was computed and its 95% confidence interval is $[0.9, 1.1]$. What is wrong with the claim "the probability that $a$ is in the range $[0.9, 1.1]$ is 0.95"? Think about this first, but you are stumpted, see pages 270--271 [of Devore](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/★★★★remove★★★★).
+
+Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95\% confidence interval from 1. and 2., respectively, in the title.

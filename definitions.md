@@ -179,7 +179,7 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
 * **Non-parametric bootstrap sample statistic distribution**
 
-   [The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." If we don't know the sampling distribution of $X$, we can't use a random number generator to simulate many experiments. In this case, we use the only available resource: the measurments from one experiment. This done by drawing a sample of $n$ with replacement from the $n$ measurements. Each such draw is called a bootstrap sample (or experiment) and the test statistic computed from it is indicated by $Y_*$. The bootstrap pmf or pdf is computed from the histogram of the $Y^*$s.
+   [The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." If we don't know the sampling distribution of $X$, we can't use a random number generator to simulate many experiments. In this case, we use the only available resource: the measurments from one experiment. This done by drawing a sample of $n$ with replacement from the $n$ measurements. Each such draw is called a bootstrap sample (or experiment) and the test statistic computed from it is indicated by $Y^*$. The bootstrap pmf or pdf is computed from the histogram of the $Y^*$s.
 
 # Distributions
 
@@ -196,7 +196,7 @@ Three key distributions are
 
    $$z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
 
-   **Constraint**: $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$ **and $\boldsymbol{n}$ is large**.
+   **Constraint**: $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$ **and $\boldsymbol{n}$ is large** (unless the random variable is normally distributed, which case any $n$)
 
    A standardized variable will have a histogram that is centered on the origin and a standard deviation of unity.
 
