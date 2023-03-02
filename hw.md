@@ -360,9 +360,13 @@ Use a random number generator to create a dataset that simulates the following r
 
 2.  From your dataset, derive a new dataset, the time between flares, and plot a histogram of the time between flares.
 
-Save your code as `HW4_3.py` and save the plot as `HW5_3.pdf`. Spend time on thinking about the best way to label axes, the title, the legend, colors, and annotations. As discussed, you want to have enough detail on the plot so that a reader can start to make interpretations without having to read or hear a long description. 
+Save your code as `HW4_3.py` and save the plot as `HW4_3.pdf`. Spend time on thinking about the best way to label axes, the title, the legend, colors, and annotations. As discussed, you want to have enough detail on the plot so that a reader can start to make interpretations without having to read or hear a long description. 
 
 Be prepared to justify any differences between the three cases in class.
+
+**Solution**
+
+See [HW4_3.py](https://github.com/rweigel/astrostats/blob/main/hws/HW4_3.py)
 
 # HW 5
 
