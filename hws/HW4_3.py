@@ -56,8 +56,8 @@ plt.ylabel('PMF')
 plt.legend(['Binomial','Poisson: ($\lambda t)^ke^{\lambda t}/k!$','Simulated (1000 days)'])
 plt.title('$t=%d$ hrs; $\lambda$=%.3f/hr' % (t, lambda_))
 
-plt.savefig('HW4_3.svg', transparent=True)
-plt.savefig('HW4_3.png', transparent=True)
+plt.savefig('figures/HW4_3.svg', transparent=True)
+plt.savefig('figures/HW4_3.png', transparent=True)
 
 plt.figure()
 plt.grid()
@@ -69,8 +69,8 @@ plt.ylabel('PMF difference')
 plt.legend(['|Poisson - Binomial|','|Simulated - Binomial|'])
 plt.title('$t=%d$ hrs; $\lambda$=%.3f/hr' % (t, lambda_))
 
-plt.savefig('HW4_3-error.svg', transparent=True)
-plt.savefig('HW4_3-error.png', transparent=True)
+plt.savefig('figures/HW4_3-error.svg', transparent=True)
+plt.savefig('figures/HW4_3-error.png', transparent=True)
 
 
 # Part 2.
@@ -93,3 +93,6 @@ xticks = np.arange(25, np.max(dte)+1, 25)
 plt.gca().set_xticks([1,*xticks])
 plt.ylabel('PMF')
 plt.xlabel('hours between flares')
+
+plt.savefig('figures/HW4_3-dt.svg', transparent=True)
+plt.savefig('figures/HW4_3-dt.png', transparent=True)

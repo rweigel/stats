@@ -368,6 +368,12 @@ Be prepared to justify any differences between the three cases in class.
 
 See [HW4_3.py](https://github.com/rweigel/astrostats/blob/main/hws/HW4_3.py)
 
+<img src="hws/figures/HW4_3.svg"/>
+
+<img src="hws/figures/HW4_3-error.svg"/>
+
+<img src="hws/figures/HW4_3-dt.svg"/>
+
 # HW 5
 
 ## Bernoulli Trials
