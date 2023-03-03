@@ -325,6 +325,188 @@ In part 1., you will numerically demonstrate that $E[S^2_b]$ is related to $\sig
 1. Show that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$ and repeating $N=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values and display their average and variance in the title. Save your code as `HW4_2_1.py` and plot as `HW4_2_1.pdf`.
 2. Show that $E[S^2_b]=\sigma^2(n-1)/n$. Save your answer in a file named `HW4_2_2.pdf`.
 
+**Solution**
+
+
+Page 245 of Devore has a briefer proof, which is described at the end of this answer.
+
+$$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
+
+expanding the square gives
+
+$$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i^2-2X_i\overline{X}+\overline{X}^2) \right]$$
+
+or, equivalently,
+
+$$I.\qquad E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\frac{2}{n}\sum_{i=1}^nX_i\overline{X}+\frac{1}{n}\sum_{i=1}^n\overline{X}^2 \right]$$
+
+The second term in the square braces in equation $I.$ is
+
+$$\frac{2}{n}\sum_{i=1}^nX_i\overline{X}=2\overline{X}\left(\frac{1}{n}\sum_{i=1}^nX_i\right)=2\overline{X}^2$$
+
+where the definition $\overline{X}\equiv (1/n)\sum_{i=1}^nX_i$ was used.
+
+The third term is 
+$$\frac{1}{n}\sum_{i=1}^n\overline{X}^2=\frac{1}{n}n\overline{X}^2=\overline{X}^2$$
+
+Therefore, the second and third terms combine to be $-2\overline{X}^2+\overline{X}^2=-\overline{X}^2$ and Equation $I.$ simplifies to
+
+$$E[S_{b}^2] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\overline{X}^2\right]$$
+
+Distributing the $E$ to each of the two terms and moving the $E$ inside the sum (both steps use $E[X+Y]=E[X]+E[Y]$) gives
+
+$$II.\qquad E[S_{b}^2] =\frac{1}{n}\sum_{i=1}^nE\left[X_i^2\right]-E\left[\overline{X}^2\right]$$
+
+Both of the terms in the above equation can be re-written using $\mu$, $\sigma$, and $n$.
+
+Noting that $E[Y_i]$ and $E[Y]$ are equivalent, the expectation in the first term can be re-written using
+
+$$E\left[X^2\right]=\mu^2+\sigma^2$$
+
+which follows from the definition
+
+$$\sigma^2 \equiv E\left[(X-\mu)^2\right],$$
+
+which can be rewritten as
+
+$$\sigma^2 = E\left[X^2-2\mu X+\mu^2\right] = E\left[X^2\right]-2\mu E[X]+E[\mu^2]$$
+
+Using the definition $\mu \equiv E[X]$, this simplifies to
+
+$$\sigma^2 = E[X^2]-\mu^2$$
+
+giving
+
+$$E\left[X^2\right]=\mu^2+\sigma^2$$
+
+Therefore, the first term in equation $II.$ is
+
+$$\frac{1}{n}\sum_{i=1}^n E\left[ X_i^2 \right]=\frac{1}{n}\sum_{i=1}^n (\mu^2+\sigma^2)=\frac{1}{n}n(\mu^2+\sigma^2)=\mu^2+\sigma^2$$
+
+The second term in equation $II.$, $E[\overline{X}^2]$, can be rewritten
+
+$$E\left[\overline{X}^2\right]=E\left[\left(\frac{1}{n}\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]$$
+
+The square of the sum,
+
+$$\left(\sum_{i=1}^nX_i\right)^2=(X_1+X_2+...)(X_1+X_2+...)$$
+
+expands to 
+
+$X_1^2+X_1(X_2+X_3+...)+$
+
+$X_2^2+X_2(X_3+X_4+...)+$
+
+$...$
+
+$X_n^2+X_n(X_1+X_2+...)$
+
+Let $X^\prime=X-\mu$ and note that
+
+$E\left[X^\prime\right]=0$, 
+
+$E\left[X^\prime_iX^{\prime}_j\right]=0 \quad(i\ne j)$, and 
+
+$E\left[X^{\prime 2}\right]=\sigma^2$.
+
+The above set of equations can now be written as 
+
+$(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...)+$
+
+$(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...)+$
+
+$...$
+
+$(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...)$
+
+There are $n$ terms of the form $E[(X^{\prime}_i+\mu)^2]$ that evaluate to $\sigma^2+\mu^2$ because
+
+$$E\left[(X^{\prime}_i+\mu)^2\right]=E\left[ X^{\prime 2}_i + 2X^{\prime}_i\mu + \mu^2 \right] = \sigma^2+0+\mu^2$$
+
+There are $n$ terms of the a form similar to
+
+$$(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...)$$
+
+or
+
+$$X^{\prime}_1(X^{\prime}_2+X^{\prime}_3+...)+\mu(\mu + \mu + ...)$$
+
+In the second parenthesis, there are $n-1$ $\mu$ terms. Using this and multiplying through the terms in the first set of parenthesis by $X_1^\prime$ gives
+
+$$X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...\mu(n-1)\mu$$
+
+Becuase $E[X_i^\prime X_j^\prime] = 0$, 
+
+$$E\big[X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...+\mu^2(n-1)\big]=\mu^2(n-1)$$
+
+so finally we can conclude that
+
+$$E\left[\overline{X}^2\right]=\frac{1}{n^2}\left[n(\sigma^2+\mu^2)+n\mu^2(n-1)\right]=\mu^2+\sigma^2/n$$
+
+In summary, we have shown that $E[X^2]=\mu^2+\sigma^2$ and $E[\overline{X}^2]=\mu^2+\sigma^2/n$. As a result, Equation $II.$ simplifies to
+
+$$E[S_{b}^2] = E\left[ X^2 \right] - E\left[ \overline{X}^2 \right] =\mu^2+\sigma^2-\left( \mu^2+\sigma^2/n\right) = \sigma^2-\sigma^2 /n$$
+
+or,
+
+$$E[S_{b}^2] = \frac{n-1}{n}\sigma^2$$
+
+with the interpretation that $S_b^2$ is downward biased by a factor of $(n-1)/n$.
+
+This equation makes sense in one limit - suppose we draw a single sample from a distribution with variance $\sigma^2$. $S_b^2$ will always be zero, which is less than $\sigma^2$ for any nonzero $\sigma$.
+
+It follows from the calculation above that an unbiased estimate of the variance of a population is
+
+$$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
+
+because $E[S^2]=\sigma^2$. Recall that in contrast, an unbiased estimate of $\mu$ is
+
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
+
+which has $n$ and not $n-1$.
+
+Note that when $n=1$, $S^2$ is $0/0$, which indeterminate; this makes sense as -- we don't expect to be able to estimate the variance of a population with only one sample.
+
+----
+
+Devore on pg 245 starts with the observation that for the variance of random variable $Y$, $V(Y)$, can be written 
+
+$$V(Y)=E[Y^2]-(E[Y])^2$$
+
+or, rearranging,
+
+$$A.\qquad E[Y^2]=V(Y)+(E[Y])^2,$$
+
+which is stated without proof. The formula is also given on page 112, but a proof is not given.
+
+Next, he states that it follows from the definition
+
+$$S^2 = \frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
+
+that
+
+$$S^2 = \frac{1}{n-1}\left[\sum_{i=1}^nX_i^2-\frac{1}{n}\left(\sum_{i=1}^nX_i\right)^2\right].$$
+
+Taking the expectation and moving it inside of the sum in the first term gives
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^nE[X_i^2]-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
+
+Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X$ is $E[X^2]=V(X)+(E[X])^2=\sigma^2+\mu^2$ using the definitions of $\sigma$ and $\mu$. Using this, the above equation can be re-written as
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
+
+Using equation $A.$ again, which is $E[Y^2]=V(Y)+(E[Y])^2$, this time with $Y=\sum_{i=1}^n X_i$ gives
+
+$$E\left[\left(\sum_{i=1}^n X_i\right)^2\right]=V\left(\sum_{i=1}^n X_i\right)+\left(E\left[\sum_{i=1}^n X_i\right]\right)^2=n\sigma^2+(n\mu)^2$$
+
+so now
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}\left[n\sigma^2+(n\mu)^2\right]\right)$$
+
+or
+
+$$E[S^2] = \frac{1}{n-1}\left(n(\sigma^2+\mu^2)-\frac{1}{n}(n\sigma^2+n^2\mu^2)\right)=\sigma^2$$
+
 ## The Poisson Distribution
 
 The Poisson distribution can be derived as a limit of the Binomial distribution. This is also discussed in [Devore 3.6](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★).
@@ -434,4 +616,66 @@ The confidence intervals for 1. and 2. are easy to compute because we know the s
 4.  Verify your answer for 2. by drawing $n=10$ values from a Gaussian with $\mu=10$ and $\sigma=1$ $10,000$. Compute $10,000$ confidence intervals using Equation 7.15 of Devore. What fraction of these confidence intervals included $\mu$?
 5.  Suppose some parameter $a$ was computed and its 95% confidence interval is $[0.9, 1.1]$. What is wrong with the claim "the probability that $a$ is in the range $[0.9, 1.1]$ is 0.95"? Think about this first, but you are stumpted, see pages 270--271 [of Devore](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/★★★★remove★★★★).
 
-Save the code for your answer in a file named `HW6_2.py` and text answers in `HW6_2.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95\% confidence interval from 1. and 2., respectively, in the title.
+Save the code for your answer in a file named `HW5_3.py` and text answers in `HW5_3.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95\% confidence interval from 1. and 2., respectively, in the title.
+
+# HW 6
+
+## Linear Regression
+
+When fitting a straight line to data using the equation $y=bx + a$, we most often make the following assumptions about the process that generated the data. First, we assume that each of the sampled $y_i$ ($i=1,...,n$) values were generated by drawing a value from a Gaussian distribution with $\mu=0$ and standard deviation $\sigma$ and then adding to it $\beta x_i + \alpha$, where $x_i$ are values that we choose. The values of $\alpha$ and $\beta$ are unknown quantities that we seek to estimate given a limited set of $n$ measurements of the population and equations for $b$ and $a$ that you typically first encounter in a physics lab.
+
+To simulate the process of generating $y_i$ values described above, choose a value for $x_i$. Next, draw a value from a Gaussian distribution with a mean of zero and standard deviation of $\sigma$, the value of which is represented by the variable $\epsilon_i$. Then solve for $y_i$ using
+
+$$y_i = \beta x_i + \alpha + \epsilon_i$$
+
+Repeating this process $n$ times will yield $n$ values of $y$ and $x$. When we do linear regression on a set of measurements, we assume that the system we took measurements from works in a way that is equivalent to the above process -- we give the system an input of $x_i$ and it returns an output $y_i$ based on this process.
+
+In this problem, you will create a population of $N$ values using a linear relationship and then draw a sample of $n$ $(x,y)$ values. Then, you will compute $a$ and $b$, which are estimates of the respective population parameters $\alpha$ and $\beta$.
+
+1. Create a population of $N=1000$ $(x,y)$ pairs using $\alpha=1$, $\beta=1$, and $\sigma=0.2$. For values of $x$, use $0, 1/N, 2/N, ..., (N-1)/N$. Create a scatter plot of these $N$ $(x,y)$ values.
+2. Randomly draw $n=20$ $(x,y)$ pairs with replacement from the population and plot them on the same axis as the previous plot.
+3. Use the equations used in your physics labs to compute $a$ and $b$ using the 20 values drawn in step 2. When your code is executed, it should print out $a$ and $b$.
+4. Find a Python library that will compute $a$ and $b$ for you. When your code is executed it should print out the values of $a$ and $b$ computed with the library.
+
+In your physics labs, you were typically given an equation for the uncertainty (a confidence interval) in $a$ and $b$. In this problem, you will use the non--parametric bootstrap to obtain an estimate of the uncertainty.
+
+5. Randomly draw $n=20$ $(x,y)$ pairs with replacement $N_B=10,000$ times. For each draw, compute $a$ and $b$. Use the histogram of $a$ and $b$ to estimate 95% confidence intervals for $a$ and $b$ computed using the method in step 3. (or 4).
+
+Save your code for parts 1.-5. in `HW6_I.py`. When executed, a plot should appear for parts 1. and 2. and a separate plot for part 5. In addition, answers to parts 3. and 4. should be printed to the console.
+
+
+For parts 6. and 7., see [Bulmer, 1979, Chapter 12](https://drive.google.com/file/d/1B5y51uJ37jL_MYcoiS4TKiQQbo8wjKS7/★★★★remove★★★★).
+
+6. Use a $t$ test to compute the 95% confidence interval for $b$. (You'll have to research the appropriate test statistic to perform the $t$ test on.) Provide brief justifications or references for any equations.
+
+7. In your physics labs, you use the equation
+
+    $$b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+    as an estimate of the population parameter $\beta$ in the model equation
+    
+    $$y_i = \beta x_i + \alpha + \epsilon_i$$
+    
+    where $\epsilon_i$ are independent and randomly distributed values from a Gaussian distribution with zero mean and standard deviation $\sigma$.
+
+    Show analytically that $b$ is an unbiased estimate of $\beta$.
+
+8.  In part 5., $N_B$ values for $a$ and $b$ were computed. Use the values to test the claim that the errors in the estimate $a$ and $b$, given by $a-\alpha$ and $b-\beta$, respectively, are not independent. (This lack of independence was mentioned in Bulmer; take an observational/experimental approach to answer this question.)
+
+Save your answers for parts 6.-8. as `HW6_II.pdf`. 
+
+Save your code for part 8. as `HW6_II.py`.
+
+## Exploratory Data Analysis on Solar Flare Data
+
+Before performing statistical analysis on a dataset, one typically performs exploratory data analysis. This can involve visual explorations using plots such as time series, histograms, scatter plots, autocorrelations, power spectra, etc. It can also involve calculations such as means and variances.
+
+There is no set rule for what analysis should be performed -- it depends on the question you want to answer, the type of data, and your previous experience. The general idea is to look at your dataset from many perspectives before performing formal statistical analysis and attempting to draw any conclusions. You will often use the results of your exploratory analysis to determine if your answers make sense or to convince others that your answers and conclusions make sense.
+
+Based on the solar flare data problem given in the last homework, I suggested
+
+1. a time series plot of events (0 = no event, 1 = event);
+2. a calculation and plot showing if or how the rate of flares changes on a month-to-month basis; and
+3. a calculation of $P(F_t|F_{t-1})$, $P(F_t|\overline{F}_{t-1})$, $P(\overline{F}\_t|\overline{F}_{t-1})$, and $P(\overline{F}\_t|F_{t-1})$, where $F_t$ indicates a flare in hour $t$ and $\overline{F}_t$ indicates no flare.
+
+Do this analysis and then come up with your own exploratory analysis of this dataset, and be prepared to discuss the motivation and interpretation of your results. For inspiration, review papers and websites that cover this topic.
