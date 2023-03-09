@@ -1,5 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
+import matplotlib_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg')
 
 debug = False # True prints output
 

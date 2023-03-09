@@ -604,6 +604,24 @@ Plot the probability distribution of the number of solar flares per day using `x
 
 Save any code or plots that you use to answer these questions in files with the prefix `HW5_2`. Be prepared to discuss your results in class.
 
+**Comments**
+
+These data were considered in [Wheatland, 2000](https://iopscience.iop.org/article/10.1086/312739). The fit to both a binomial and Poisson distribution is poor. (I was glad to see that several students also plotted the binomial distribution because of concern that the assumptions Poisson approximation was not satisfied.) This is somewhat expected given that the probability that a flare occured in a given hour depends on whether a flare occured in the previous hour. From the data, I find (see [HW5_2.py](https://github.com/rweigel/astrostats/tree/main/hws/HW5_2.py))
+
+$P(F_t)=0.27$
+
+$P(F_t|F_{t-1})=0.08$, meaning that a flare is the least likely to occur in a given hour if one occured in the previous hour.
+
+$P(F_t|\overline{F}_{t-1})=0.19$
+
+$P(\overline{F}\_t|\overline{F}_{t-1})=0.54$
+
+$P(\overline{F}\_t|F_{t-1})=0.19$
+
+where $F_t$ indicates a flare in hour $t$ and $\overline{F}_t$ indicates no flare. The binomial distribution requires that these probabilities are all the same, which is clearly not the case. In addition, multiple flares occured in the same hour. If we define an event as a single flare, then the data are not consistent with the assumption that in each $\Delta t$, only one event can occur. (We can work around this by defining an event as when one or more flares occured in a given hour.)
+
+In writing the rule for the previous problem, I had mis-remembered the above result. That is, I had recalled that $P(F_t|\overline{F}_{t-1}) > P(F_t|F_{t-1})$, which is opposite to what was observed.
+
 ## Confidence Intervals when Sampling Distribution Known
 
 Background reading: [Chapter 7 of Devore](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/★★★★remove★★★★)
