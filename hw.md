@@ -579,6 +579,19 @@ Save your code as `HW5_1.py` and save the plot as `HW5_1.pdf`. Be prepared to pr
 
 A follow-up question that I'll ask is if based on the two plots you can conclude that the second plot does not satisfy the constraints of a Binomial Experiment. Later in the semester, formal ways of answering this question will be covered. For now, I just want to hear your ideas about how you would approach the problem.
 
+**Answer**
+
+The motivation for allowing $p$ to vary is that often you'll have a data set that does not quite conform to a certain set of assumptions. It is often useful to model the non--conformity to get an idea for how the non--conformity will change the results. In this problem, the varition in $p$ models "persistence". The most common form of persistence is that high--temperature days tend to follow high--temperature days. That is, the probability of a day having a high--temperature is larger if the previous day had a high temperature.
+
+There are several other points to discuss:
+
+1. How do we know if the simulation values are significantly different than the values from the formula? Could you determine this using concepts covered in previous HW problems? (We'll cover how to do this formally later.)
+2. The distribution looks Gaussian. How different from a Gaussian is it?
+
+My code is at [HW5_1.py](https://github.com/rweigel/astrostats/tree/main/hws/HW5_1.py). I solved the problem in two ways. In the first, I use a uniform probability distribution to generate a trial result with the given probabilities of success. In the second solution, I use `np.random.binomial()` to generate the trial results.
+
+<img src="hws/figures/HW5_1.svg"/>
+
 ## Solar Flare Data
 
 The zip file [SOLAR\_FLARES-revised3.zip](http://mag.gmu.edu/git-data/astrostats/SOLAR\_FLARES-revised3.zip) contains the time of solar flares in an ASCII file named `xray.txt`; this is the only file that you will need for this problem. See the README file for information on how this file was created if you are interested.
