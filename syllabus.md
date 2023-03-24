@@ -6,6 +6,7 @@ Subtitle: ASTR/PHYS 390/590<br>Spring, 2023
 # Course Information
 
 * **Day and Time**: Thursday from 4:30 - 7:10 pm
+* **Last Class**: Thursday, May 4th
 * **Location**: 220 Planetary Hall
 * **Instructor**: Bob Weigel
 * **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)

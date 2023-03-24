@@ -710,3 +710,13 @@ Based on the solar flare data problem given in the last homework, I suggested
 3. a calculation of $P(F_t|F_{t-1})$, $P(F_t|\overline{F}_{t-1})$, $P(\overline{F}\_t|\overline{F}_{t-1})$, and $P(\overline{F}\_t|F_{t-1})$, where $F_t$ indicates a flare in hour $t$ and $\overline{F}_t$ indicates no flare.
 
 Do this analysis and then come up with your own exploratory analysis of this dataset, and be prepared to discuss the motivation and interpretation of your results. For inspiration, review papers and websites that cover this topic.
+
+# HW 7
+
+## $\beta$ and sample size determination
+
+After Example 8.6 [of Devore](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/★★★★remove★★★★), there are several paragraphs where formulas related to $\beta$ are given. Use one or more of them to determine $\beta$ for $\mu'=132^\circ$
+
+Suppose that you did not have a formula for computing $\beta$. Develop and implement a simulation in the style used for previous homework problems to compute $\beta$ for $\mu'=132^\circ$
+
+Save your code as `HW7_1.py` and figure showing relevant data from the simulation as `HW7_1.{pdf,svg,png}`. Your code should print the answer from the formula and your simulation when executed. Make sure that your plots have enough annotations so that when they are shown to the class, it is clear what was done to create the plot. Also, add a caption if more than the annotations is needed.
