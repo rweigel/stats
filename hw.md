@@ -693,7 +693,7 @@ For parts 6. and 7., see [Bulmer, 1979, Chapter 12](https://drive.google.com/fil
 
 8.  In part 5., $N_B$ values for $a$ and $b$ were computed. Use the values to test the claim that the errors in the estimate $a$ and $b$, given by $a-\alpha$ and $b-\beta$, respectively, are not independent. (This lack of independence was mentioned in Bulmer; take an observational/experimental approach to answer this question.)
 
-Save your answers for parts 6.-8. as `HW6_II.pdf`. 
+Save your answers for parts 6.-8. as `HW6_II.pdf`.
 
 Save your code for part 8. as `HW6_II.py`.
 
@@ -715,8 +715,57 @@ Do this analysis and then come up with your own exploratory analysis of this dat
 
 ## $\beta$ and sample size determination
 
-After Example 8.6 [of Devore](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/★★★★remove★★★★), there are several paragraphs where formulas related to $\beta$ are given. Use one or more of them to determine $\beta$ for $\mu'=132^\circ$
+After Example 8.6 [of Devore](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/★★★★remove★★★★), there are several paragraphs where formulas related to $\beta$ are given. Use one or more of them to determine $\beta$ for $\mu'=132^\circ$.
 
-Suppose that you did not have a formula for computing $\beta$. Develop and implement a simulation in the style used for previous homework problems to compute $\beta$ for $\mu'=132^\circ$
+Suppose that you did not have a formula for computing $\beta$. Develop and implement a simulation in the style used for previous homework problems to compute $\beta$ for $\mu'=132^\circ$.
 
 Save your code as `HW7_1.py` and figure showing relevant data from the simulation as `HW7_1.{pdf,svg,png}`. Your code should print the answer from the formula and your simulation when executed. Make sure that your plots have enough annotations so that when they are shown to the class, it is clear what was done to create the plot. Also, add a caption if more than the annotations is needed.
+
+# HW 8
+
+## Project
+
+Perform exploratory data analysis on your project data.
+
+Save the code and plots as `Project_I.py` and `Project_I{a,b,c}.{svg,pdf,png}`. You are expected to present at least three plots in class. If your data are time series, the first plot should be a time series of all of the data. (The notation `Project_{a,b,c}` means files named `Project_a`, `Project_b`, and `Project_c`. Similar for `{svg,pdf,png}`.)
+
+## Autocorrelation
+
+The lag $k$ autocovariance of a sequence $z_t$ with $t$ integer is defined as
+
+$\gamma_k=\text{acov}[z_t,z_{t+k}]=E[(z_t-\mu)(z_{t+k}-\mu)]$
+
+where $E[\cdot]$ is the expectation operator. The autocorrelation at lag $k$ is
+
+$$\rho_k=\text{acorr}[z_t,z_{t+k}]=\frac{\gamma_k}{\gamma_0}=\frac{E[(z_t-\mu)(z_{t+k}-\mu)]}{\sigma_z^2}$$
+
+where $\mu$ is the population mean of $z$ and $\sigma_z$ is the population standard deviation.
+
+For a finite sequence of length $n$ with $t=1,...,n$, according to [Box, Jenkins, and Reinsel (p31; 1994)](http://bobweigel.info/csi763/images/Box_1994_Time_Series_Analysis-pages_1-44.pdf), "... the most satisfactory estimate of the lag $k$th [population] autocorrelation $\rho_k$ is"
+
+$$r_k=\frac{c_k}{c_0}$$
+
+where
+
+$$c_k=\frac{1}{n}\sum_{t=1}^{N-k}(z_t-\bar{z})(z_{t+k}-\bar{z})$$
+
+### Computing $r_k$
+
+Create a sequence of $N=1000$ measurements using
+
+$z_{t} = a_1z_{t-1} + a_2z_{t-2} + \epsilon_t$
+
+where $\epsilon_t$ are drawn from a gaussian distribution with zero mean and unit variance. Use $a_1=0.7$ and $a_2=-0.2$.
+
+1. Compute and plot $r_k$.
+2. The values of the population autocorrelation $\rho_k$ (which Wilks calls the "theoretical autocorrelation") can be computed using Equations 10.33a and b and 10.25 of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★). Compute $\rho_k$ and plot it on the same axes as $r_k$.
+3. Use the parametric bootstrap to estimate the sampling distribution of $r_1$. Use this sampling distribution to estimate a 99% confidence interval for $r_1$ computed in part 1.
+4. Use equation 2.1.11 of [Box, Jenkins, and Reinsel (p31; 1994)](http://bobweigel.info/csi763/images/Box_1994_Time_Series_Analysis-pages_1-44.pdf) and $\rho_k$ from part 2. to compute $\text{var}[r_1]$. Compare this variance with the variance of the sampling distribution found in part 3.
+
+### Estimating $a_1$ and $a_2$
+
+Using the same sequence of $z_t$ values used for part 1. of the previous problem, use equations 10.29a and b of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★) to compute $a_1$ and $a_2$. Use either the parametric or non--parametric bootrap to estimate a 99\% confidence interval for the computed $a_1$ and $a_2$.
+
+### Estimating $\sigma_\epsilon$
+
+In class, a student asked if given a sequence of $z_t$ values if we can estimate properties of the driver function (assuming the model is correct). Equation 10.26 of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★) is an estimate of the variance of $\epsilon_t$ in terms of $a_1$, $a_2$, and the population autocorrelations. Use this formula to estimate $\sigma_\epsilon$ using $a_1=0.7$, $a_2=-0.2$ and the values of $\rho_k$ found earlier.
