@@ -649,6 +649,37 @@ The confidence intervals for 1. and 2. are easy to compute because we know the s
 
 Save the code for your answer in a file named `HW5_3.py` and text answers in `HW5_3.pdf`. When executed, the code should display the probability density of the sampling distribution for 3. and 4. along with $\overline{X}$ and its 95\% confidence interval from 1. and 2., respectively, in the title.
 
+**Answer**
+
+Equation 7.4 is the 95\% confidence interval for the average of $n$ values from a Gaussian distribution with a known standard deviation $\sigma$:
+
+$$\left(\overline{x}-1.96\cdot\frac{\sigma}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}+1.96\cdot\frac{\sigma}{\sqrt{n}}\right)$$
+
+Equation 7.15 is the 95\% confidence interval for the average of $n$ values drawn from a Gaussian distribution:
+
+$$\left(\overline{x}-t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\text{ }\text{  ,  }\text{ }\overline{x}+t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}\right)$$
+
+Note that $n$ does not need to be large for either equation to apply. Both equations only require that the $n$ values are drawn from a Gaussian distribution. Because the conditions for each equation to apply were satisfied, we expect the the simulations in 3. and 4. to show that 95\% of the confidence intervals contained $\mu$. 
+
+See [HW6_2.py](hws/HW5_4.py) for the calculations for parts 1.--4.
+
+1. [9.58, 10.82] (but will vary)
+2. [9.52, 10.88] (but will vary)
+
+The answers to parts 3.--4. are in the titles of the following figures.
+
+<img src="hws/figures/HW5_3_3.svg"/>
+
+<img src="hws/figures/HW5_3_4.svg"/>
+
+This fact that the fractions given in the titles are nearly equal is perhaps not expected --if you repeat parts 1. and 2. a few times and compare the fixed error bar width from Equation 7.4 with the variable error bar width of Equation 7.15, you will observe that the width from 7.15 is usually larger than that from 7.4. But not always. The histogram of the error bar widths computed using Equation 7.15 is shown in the following figure. Based on this, the near equality still seems unexpected because the error bar widths from Equation 7.15 are on average larger than the fixed width from 7.4.
+
+<img src="hws/figures/HW5_3_x.svg"/>
+
+The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. $\mu$ falls outside of the CI from Equation 7.15 more often when the CI width from 7.15 is smaller than that from 7.4 in comparison to when the CI width from 7.15 is larger than that from 7.4. So even though the error bar widths from eqn 7.15 are on average larger than that from 7.4, $\mu$ is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, this corresponds to more black dots below the line of magneta dots than above it.
+
+<img src="hws/figures/HW5_3_y.png" width="100%"/>
+
 # HW 6
 
 ## Linear Regression
