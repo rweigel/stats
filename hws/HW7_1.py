@@ -17,13 +17,22 @@ S = np.std(x, ddof=1)
 print('S    = {0:.3f}'.format(S)) # 1.451
 
 T = (Xbar - mu)/(S/np.sqrt(n))
-print('T    = {0:.3f}'.format(T)) # 2.236
+print('t    = {0:.3f}'.format(T)) # 2.236
 
 Z = (Xbar - mu)/(sigma/np.sqrt(n))
-print('Z    = {0:.3f}'.format(Z)) # 2.236
+print('z    = {0:.3f}'.format(Z)) # 2.236
 
 # Compute T using SciPy
 from scipy import stats
 T, p = stats.ttest_1samp(x, mu)
 print('SciPy: t = {0:.3f}'.format(T)) # 2.236
 print('SciPy: p = {0:.3f}'.format(p)) # 0.056
+
+"""
+Xbar = 131.081
+S    = 1.451
+t    = 2.236
+z    = 2.163
+SciPy: t = 2.236
+SciPy: p = 0.056
+"""
