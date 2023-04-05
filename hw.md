@@ -588,7 +588,7 @@ There are several other points to discuss:
 1. How do we know if the simulation values are significantly different than the values from the formula? Could you determine this using concepts covered in previous HW problems? (We'll cover how to do this formally later.)
 2. The distribution looks Gaussian. How different from a Gaussian is it?
 
-My code is at [HW5_1.py](https://github.com/rweigel/astrostats/tree/main/hws/HW5_1.py). I solved the problem in two ways. In the first, I use a uniform probability distribution to generate a trial result with the given probabilities of success. In the second solution, I use `np.random.binomial()` to generate the trial results.
+My code is at [HW5_1.py](hws/HW5_1.py). I solved the problem in two ways. In the first, I use a uniform probability distribution to generate a trial result with the given probabilities of success. In the second solution, I use `np.random.binomial()` to generate the trial results.
 
 <img src="hws/figures/HW5_1.svg"/>
 
@@ -720,6 +720,25 @@ After Example 8.6 [of Devore](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95
 Suppose that you did not have a formula for computing $\beta$. Develop and implement a simulation in the style used for previous homework problems to compute $\beta$ for $\mu'=132^\circ$.
 
 Save your code as `HW7_1.py` and figure showing relevant data from the simulation as `HW7_1.{pdf,svg,png}`. Your code should print the answer from the formula and your simulation when executed. Make sure that your plots have enough annotations so that when they are shown to the class, it is clear what was done to create the plot. Also, add a caption if more than the annotations is needed.
+
+**Answer**
+
+Preliminary calculations are made in [HW7_1.py](hws/HW7_1.py).
+
+The following plots and text were generated using [HW7_2.py](hws/HW7_2.py).
+
+```
+P(type I)  = 0.0100 (exact)
+P(type I)  = 0.0089 (simulation)
+P(type II) = 0.0778 (exact) μ' = 132.0
+P(type II) = 0.0816 (simulation) μ' = 132.0
+```
+
+<img src="hws/figures/HW7_2a.svg"/>
+
+<img src="hws/figures/HW7_2b.svg"/>
+
+<img src="hws/figures/HW7_2c.svg"/>
 
 # HW 8
 
