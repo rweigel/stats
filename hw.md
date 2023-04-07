@@ -678,7 +678,7 @@ This fact that the fractions given in the titles are nearly equal is perhaps not
 
 The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. $\mu$ falls outside of the CI from Equation 7.15 more often when the CI width from 7.15 is smaller than that from 7.4 in comparison to when the CI width from 7.15 is larger than that from 7.4. So even though the error bar widths from eqn 7.15 are on average larger than that from 7.4, $\mu$ is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, this corresponds to more black dots below the line of magneta dots than above it.
 
-<img src="hws/figures/HW5_3_y.png" width="100%"/>
+<img src="hws/figures/HW5_3_y.png" width="50%"/>
 
 # HW 6
 
@@ -808,7 +808,7 @@ $z_{t} = a_1z_{t-1} + a_2z_{t-2} + \epsilon_t$
 where $\epsilon_t$ are drawn from a gaussian distribution with zero mean and unit variance. Use $a_1=0.7$ and $a_2=-0.2$.
 
 1. Compute and plot $r_k$.
-2. The values of the population autocorrelation $\rho_k$ (which Wilks calls the "theoretical autocorrelation") can be computed using Equations 10.33a and b and 10.25 of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★). Compute $\rho_k$ and plot it on the same axes as $r_k$.
+2. The values of the population autocorrelation $\rho_k$ (which Wilks calls the "theoretical autocorrelation") can be computed using Equations 10.33a and b and 10.25 of [Wilks, 2019; pg 504](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★). Compute $\rho_k$ and plot it on the same axes as $r_k$.
 3. Use the parametric bootstrap to estimate the sampling distribution of $r_1$. Use this sampling distribution to estimate a 99% confidence interval for $r_1$ computed in part 1.
 4. Use equation 2.1.11 of [Box, Jenkins, and Reinsel (p31; 1994)](http://bobweigel.info/csi763/images/Box_1994_Time_Series_Analysis-pages_1-44.pdf) and $\rho_k$ from part 2. to compute $\text{var}[r_1]$. Compare this variance with the variance of the sampling distribution found in part 3.
 
