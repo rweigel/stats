@@ -1,4 +1,4 @@
 {
     "jupyter.interactiveWindow.textEditor.executeSelection": true,
-    "workbench.colorTheme": "Visual Studio Dark"
+    "workbench.colorTheme": "Monokai"
 }

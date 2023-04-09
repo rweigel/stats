@@ -777,7 +777,7 @@ P(type II) = 0.0816 (simulation) μ' = 132.0
 
 Perform exploratory data analysis on your project data.
 
-Save the code and plots as `Project_I.py` and `Project_I{a,b,c}.{svg,pdf,png}`. You are expected to present at least three plots in class. If your data are time series, the first plot should be a time series of all of the data. (The notation `Project_{a,b,c}` means files named `Project_a`, `Project_b`, and `Project_c`. Similar for `{svg,pdf,png}`.)
+Save the code and plots as `Project_I.py` and `Project_I{a,b,c}.{svg,pdf,png}`. You are expected to present at least three plots in class. If your data are time series, the first plot should be a time series of all of the data. (The notation `Project_I{a,b,c}` means files named `Project_Ia`, `Project_Ib`, and `Project_Ic`. Similar for `{svg,pdf,png}`.)
 
 ## Autocorrelation
 
@@ -819,3 +819,45 @@ Using the same sequence of $z_t$ values used for part 1. of the previous problem
 ### Estimating $\sigma_\epsilon$
 
 In class, a student asked if given a sequence of $z_t$ values if we can estimate properties of the driver function (assuming the model is correct). Equation 10.26 of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★) is an estimate of the variance of $\epsilon_t$ in terms of $a_1$, $a_2$, and the population autocorrelations. Use this formula to estimate $\sigma_\epsilon$ using $a_1=0.7$, $a_2=-0.2$ and the values of $\rho_k$ found earlier.
+
+# HW 9
+
+## Project 
+
+Do the exploratory data analysis on your project data suggested during class. Also, implement the revisions suggestion to the plots presented in class.
+
+Save the code and plots as `Project_II.py` and `Project_II{a,b,c}.{svg,pdf,png}`. You are expected to present at least three plots in class. If your data are time series, the first plot should be a time series of all of the data. (The notation `Project_II{a,b,c}` means files named `Project_IIa`, `Project_IIb`, and `Project_IIc`. Similar for `{svg,pdf,png}`.)
+
+## Raw Periodogram
+
+The fourier series model for $y$ having an odd number $N$ time steps is
+
+$$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t$$
+
+and has least-squares estimates of $\alpha$ and $\beta$ (the fact that these are the least-square estimates can be shown) of
+
+$\ds a_0 = \frac{1}{N}\sum_{t=1}^{N} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{sin}(2\pi f_i t)$
+
+where $\ds f_i \equiv \frac{i}{N}$
+
+with $i=1,2,...,q$ and $N = 2q+1$, so that there is a total of $N$ unknown parameters in the model equation.
+
+If $N$ is even, then $N=2q$ and $b_q = 0$ and the number of free parameters in the model equation is still $N$.  Also, $a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
+
+The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$.
+
+The raw periodogram is defined as
+
+$$I(f_i) = \frac{N}{2}\left(a_i^2 + b_i^2\right)$$
+
+for $i = 1,2,...,q$.
+
+1. Create a "white noise" signal by creating a time series with $N=1000$ values drawn from a gaussian with zero mean an unit variance and plot $I(f_i)$ vs $f_i$.
+
+2. Use the parametric bootstrap to estimate the sampling distribution of $f_2$. Use this sampling distribution to estimate a 99\% confidence interval for $I(f_2)$ computed in part 1.
+
+3. What is the theoretical sampling distribution of $I(f_2)$? Derive this or cite a reference.
