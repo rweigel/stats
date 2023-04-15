@@ -678,7 +678,7 @@ This fact that the fractions given in the titles are nearly equal is perhaps not
 
 The explanation for the near equality of the fractions in the titles of figures for parts 3. and 4. is in the following figure. $\mu$ falls outside of the CI from Equation 7.15 more often when the CI width from 7.15 is smaller than that from 7.4 in comparison to when the CI width from 7.15 is larger than that from 7.4. So even though the error bar widths from eqn 7.15 are on average larger than that from 7.4, $\mu$ is more frequently outside of the CI of 7.15 when its error bar widths are smaller than that of 7.4. In the figure, this corresponds to more black dots below the line of magneta dots than above it.
 
-<img src="hws/figures/HW5_3_y.png" width="50%"/>
+<img src="hws/figures/HW5_3_y.png" width="100%"/>
 
 # HW 6
 
@@ -861,3 +861,19 @@ for $i = 1,2,...,q$.
 2. Use the parametric bootstrap to estimate the sampling distribution of $f_2$. Use this sampling distribution to estimate a 99\% confidence interval for $I(f_2)$ computed in part 1.
 
 3. What is the theoretical sampling distribution of $I(f_2)$? Derive this or cite a reference.
+
+# HW 10
+
+## Project 
+
+Do the analysis on your project data suggested during class. Also, implement the revisions suggestion to the plots presented in class.
+
+Save the code and plots as `Project_III.py` and `Project_III{a,b,c,...}.{svg,pdf,png}`.
+
+## Discrete Fourier Transforms
+
+1. Use a FFT library to compute the periodogram of a signal of your choosing. Compare the result with the periodogram calculation code you implemented for HW #9.
+
+2. In class, I discussed several experiments that one could do to understand the discrete Fourier transform. Use a FFT library and signals of your choosing to create periodograms that help explain
+   1. The effect of adding zeros to the start or end of a periodic signal before computing the periodogram. (This is called "zero padding").
+   2. The periodogram of a periodic signal when the number of samples used to compute the periodogram is not an integer multiple of the number of samples per period of the signal. (In this case, the periodogram will exhibit what is called "leakage.")
