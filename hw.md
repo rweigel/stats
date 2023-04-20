@@ -820,6 +820,10 @@ Using the same sequence of $z_t$ values used for part 1. of the previous problem
 
 In class, a student asked if given a sequence of $z_t$ values if we can estimate properties of the driver function (assuming the model is correct). Equation 10.26 of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★) is an estimate of the variance of $\epsilon_t$ in terms of $a_1$, $a_2$, and the population autocorrelations. Use this formula to estimate $\sigma_\epsilon$ using $a_1=0.7$, $a_2=-0.2$ and the values of $\rho_k$ found earlier.
 
+**Answer**
+
+See [HW8_2.py](hws/HW8_2.py).
+
 # HW 9
 
 ## Project 
@@ -844,9 +848,9 @@ $\ds b_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{sin}(2\pi f_i t)$
 
 where $\ds f_i \equiv \frac{i}{N}$
 
-with $i=1,2,...,q$ and $N = 2q+1$, so that there is a total of $N$ unknown parameters in the model equation.
+with $i=1,2,...,q$ and $q = (N - 1)/2$, so that there is a total of $N$ unknown parameters in the model equation.
 
-If $N$ is even, then $N=2q$ and $b_q = 0$ and the number of free parameters in the model equation is still $N$.  Also, $a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
+If $N$ is even, then $q=N/2$ and $b_q = 0$ and the number of free parameters in the model equation is still $N$.  Also, the last $a$ terms simplifies: $\ds a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
 
 The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$.
 
@@ -861,6 +865,12 @@ for $i = 1,2,...,q$.
 2. Use the parametric bootstrap to estimate the sampling distribution of $f_2$. Use this sampling distribution to estimate a 99\% confidence interval for $I(f_2)$ computed in part 1.
 
 3. What is the theoretical sampling distribution of $I(f_2)$? Derive this or cite a reference.
+
+**Answer**
+
+See [HW9_2.py](hws/HW9_2.py).
+
+The sampling distribution of $I(f_i)$ is $\chi^2_2$ (Chi-squared with two degrees of freedom) unless $i=0$ or $i=N/2$ when $N$ is even, in which case it is $\chi^2_1$ (Chi-squared with two degrees of freedom). See Wilks 2016 Eqn 10.79 (pg 541); see also https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/20.pdf. The Chi-square distribution arises when one adds the squares of $\mathcal{N}(0,\sigma^2)$--distributed values. (Recall that the sum--of--square error for linear regression was Chi--squared distributed.)
 
 # HW 10
 
