@@ -874,7 +874,7 @@ The sampling distribution of $I(f_i)$ is $\chi^2_2$ (Chi-squared with two degree
 
 # HW 10
 
-## Project 
+## Project
 
 Do the analysis on your project data suggested during class. Also, implement the revisions suggestion to the plots presented in class.
 
@@ -887,3 +887,46 @@ Save the code and plots as `Project_III.py` and `Project_III{a,b,c,...}.{svg,pdf
 2. In class, I discussed several experiments that one could do to understand the discrete Fourier transform. Use a FFT library and signals of your choosing to create periodograms that help explain
    1. The effect of adding zeros to the start or end of a periodic signal before computing the periodogram. (This is called "zero padding").
    2. The periodogram of a periodic signal when the number of samples used to compute the periodogram is not an integer multiple of the number of samples per period of the signal. (In this case, the periodogram will exhibit what is called "leakage.")
+
+# HW 11
+
+## Project
+
+Do the analysis on your project data suggested during class. Also, implement the revisions suggestion to the plots presented in class.
+
+Save the code and plots as `Project_IV.py` and `Project_IV{a,b,c,...}.{svg,pdf,png}`.
+
+## Discrete Fourier Transforms
+
+(Follow-up based on issues with previous HWs)
+
+In class, I defined the periodogram coefficients as
+
+$\ds a_0 = \frac{1}{N}\sum_{t=1}^{N} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{sin}(2\pi f_i t)$
+
+where $\ds f_i \equiv \frac{i}{N}$.
+
+FFT algorithms typically compute (see the [numpy.fft](https://numpy.org/doc/stable/reference/routines.fft.html#implementation-details) documentation)
+
+$$c_k = \sum_{t=0}^{N-1} y_t e^{-2\pi j(k t)/N}$$
+
+with $k=0, ..., N-1$.
+
+1. For the signal $y = [0, 1, -1, 0]$, compute all $a$, $b$, and $c$ values
+2. Write a function that takes an input of an arbitrary signal $y$, uses `numpy.fft` to compute $c$ and then returns the $a, b$, and $f$ values computed from $c$. Your function should not have a `for` loop.
+
+## Spectrograms and STFT
+
+Quite often, the periodicities in a signal change with time. For example for the first half a measurement of a time series, there may be a single dominant frequency. In the second half, the dominant frequency may have changed. If one computes the periodogram of the entire time series, there will be peaks at the two dominant frequencies, but the fact that the dominant frequency was time dependent is lost.
+
+A spectrogram is based on a series of "Short--Time Fourier Transforms" (STFTs). The procedure is to split the full time series into segments and compute the Fourier coefficients for each segment.
+
+1. Create a time series segment of length $N=1000$ that is a sin wave of period $20$. Append to this a time series segment of length $N=1000$ that is a sin wave with period $10$. Plot the combined time series.
+2. Compute and plot the periodogram of the combined time series. 
+3. Compute and plot the periodogram of each segment. Put the periodograms in a `numpy` array with two rows. Plot the periodograms on the same axis.
+4. Compute $n=200$ periodograms by splitting the full time series (length $2000$) into non--overlapping subsegments of length $10$. Put the periodograms into a `numpy` array with $200$ rows. Plot the matrix as [a heatmap](https://seaborn.pydata.org/generated/seaborn.heatmap.html). The $x$ axis should be the subsegment number ($1, ..., 200)$, the $y$ axis should be frequency, and the colorbar should correspond to $I$.
+
