@@ -870,7 +870,7 @@ for $i = 1,2,...,q$.
 
 See [HW9_2.py](hws/HW9_2.py).
 
-The sampling distribution of $I(f_i)$ is $\chi^2_2$ (Chi-squared with two degrees of freedom) unless $i=0$ or $i=N/2$ when $N$ is even, in which case it is $\chi^2_1$ (Chi-squared with two degrees of freedom). See Wilks 2016 Eqn 10.79 (pg 541); see also https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/20.pdf. The Chi-square distribution arises when one adds the squares of $\mathcal{N}(0,\sigma^2)$--distributed values. (Recall that the sum--of--square error for linear regression was Chi--squared distributed.)
+The sampling distribution of $I(f_i)$ is $\chi^2_2$ (Chi-squared with two degrees of freedom) unless $i=0$ or $i=N/2$ when $N$ is even, in which case it is $\chi^2_1$ (Chi-squared with two degrees of freedom). See Wilks 2016 Eqn 10.79 (pg 541); see also [some lecture notes](https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/20.pdf). The Chi-square distribution arises when one adds the squares of $\mathcal{N}(0,\sigma^2)$--distributed values. (Recall that the sum--of--square error for linear regression was Chi--squared distributed.)
 
 # HW 10
 
@@ -916,7 +916,7 @@ $$c_k = \sum_{t=0}^{N-1} y_t e^{-2\pi j(k t)/N}$$
 
 with $k=0, ..., N-1$.
 
-1. For the signal $y = [0, 1, -1, 0]$, compute all $a$, $b$, and $c$ values
+1. For the signal $y = [0, 1, 0, -1]$, compute all $a$, $b$, and $c$ values
 2. Write a function that takes an input of an arbitrary signal $y$, uses `numpy.fft` to compute $c$ and then returns the $a, b$, and $f$ values computed from $c$. Your function should not have a `for` loop.
 
 ## Spectrograms and STFT
