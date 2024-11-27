@@ -20,21 +20,34 @@ Subtitle: ASTR/PHYS 390/590<br>Spring, 2023
 
 HWs: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8) | [9](hw.html#hw-9) | [10](hw.html#hw-10) | [11](hw.html#hw-11)
 
-# Motivation
+# Motivation and Learning Outcomes
+
+**Motivation**
 
 * Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.
 * Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.
 * Many BS, MS, and PhD students have not had a traditional statistics course as an undergraduate.
 
+**Learning Outcomes**
+
+Students will
+1. be able to solve fundamental statistical problems analytically and numerically;
+1. have an intuitive understanding of the interpretation of uncertainty;
+1. be able to compute uncertainties using at least two methods;
+1. generate ideas for exploratory data analysis and validation of statistical calculations;
+1. learn to use at least one advanced statistical package.
+1. learn to present data and results at the level of quality seen in seminars and journal articles; and
+1. learn to write code in a way that it is easy for others to understand and modify;
+
 # Methods of Instruction
 
 * In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.
-* I usually have you do a reading and basic follow-up problems before I discuss a topic in class. I find content that I present "sticks" if students have experiemented with the concepts before I discuss them.
+* I usually have you do a reading and basic problem on a new topic before I discuss it in class. I find content that I present "sticks" if students have experiemented with the concepts before I discuss them.
 * You will be asked to participate in class discussions during class and on Discord. Talking and writing about statistics will help you understand statistics.
-* Homework assignments will be ~50% hand-written and ~50% programs. I will ask students to present their solutions during class and for other students to comment.
-* I give detailed solutions to homework problems. However, I will not be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
+* Homework assignments will be approximately 50% hand-written and 50% programs. I will ask students to present their solutions during class and for other students to comment.
+* I give detailed solutions to homework problems. However, I will not always be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
 
-   As a result, I may ask you to meet with me to explain your reasoning. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.
+   I may ask you to meet with me to explain your reasoning on your homework. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.
 
 # Programming
 
@@ -49,7 +62,7 @@ Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. 
 This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I'll typically provide two references that explain the background material.
 
 Two general references on statistics that I highly recommend are
-1. Principles of Statistics, M.G. Bulmer -- A short Dover book that covers fundamental statistical topics in and parsimonious manner. [Available used on Amazon](https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603) for ~$5.00.
+1. Principles of Statistics, M.G. Bulmer -- A short Dover book that covers fundamental statistical topics in a parsimonious manner. [Available used on Amazon](https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603) for ~$5.00.
 2. Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore -- A commonly used textbook for upper-division engineering and science majors. | [Amazon](https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527) |
 
 In the [References](#references) section of this syllabus, many additional references and resources are listed.
@@ -69,7 +82,14 @@ The topics listed below are covered in Chapters 2-7 of the textbook. Supplementa
 
 1. NumPy
 2. Random number generators
-3. Data Visualization
+3. Data visualization and creating publication--quality plots
+
+## Exploratory Data Analysis
+
+1. Histograms
+2. Autocorrelation
+3. Periodograms and Short--Time Fourier Transforms
+4. Other options based on student interest
 
 ## Basic Concepts in Probability
 
@@ -89,7 +109,7 @@ The topics listed below are covered in Chapters 2-7 of the textbook. Supplementa
 5. Central limit theorem
 6. Bootstrapping
 
-## Hypothesis Tests
+## Hypothesis Tests and Confidence/Credible Intervals
 
 1. Frequentist
 2. Bayesian
@@ -190,11 +210,11 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 
 ## Academic Integrity
 
-Any instance of cheating or plagiarism is a violation of the Honor Code Pledge and will result in a score of zero on the exam or paper and referral to the Honor Committee. The website for the Office of Academic Integrity is https://oai.gmu.edu/.
+Mason is an Honor Code university; please see the Office for Academic Integrity for a full description of the code and the honor committee process. The principle of academic integrity is taken very seriously and violations are treated gravely. What does academic integrity mean in this course? Essentially this: when you are responsible for a task, you will perform that task. When you rely on someone else’s work in an aspect of the performance of that task, you will give full credit in the proper, accepted form. Any student use of Generative-AI tools should follow the fundamental principles of the Honor Code.
 
 ## Disability
 
-If you have a disability and need academic accommodations, please contact Disability Services. Their website is https://ds.gmu.edu/. All academic accommodations must be arranged through Disability Services.
+Disability Services at George Mason University is committed to providing equitable access to learning opportunities for all students by upholding the laws that ensure equal treatment of people with disabilities. If you are seeking accommodations for this class, please first visit http://ds.gmu.edu/ for detailed information about the Disability Services registration process. Then please discuss your approved accommodations with me. Disability Services is located in Student Union Building I (SUB I), Suite 2500. Email:ods@gmu.edu | Phone: (703) 993-2474.
 
 ## Diversity and Inclusion
 
