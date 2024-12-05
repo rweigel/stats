@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>AstroStats </title>
+  <title>Statistical Methods in Physics</title>
   <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
   <style>
     #toc>ol ol {
@@ -290,6 +290,11 @@
       padding-left: 0.5em;
     }
 
+    #display>.section>.block &>ol.compact {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
     #display>.section>.block>ol.loose {
       margin-top: 0.5em;
       margin-bottom: 0.5em;
@@ -422,8 +427,14 @@
         margin: 0.5in 0.75in 0.75in;
       }
 
-      .katex .hide-tail {
-        overflow: hidden !important;
+      body,
+      html {
+        margin: 0px;
+        padding: 0px;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        overflow: auto;
+        display: inline;
       }
 
       .page-break {
@@ -499,6 +510,10 @@
         overflow-wrap: break-word;
       }
 
+      .katex .hide-tail {
+        overflow: hidden !important;
+      }
+
       .katex {
         font: 1em / 1.1 KaTeX_Main, "Times New Roman", serif;
         white-space: nowrap;
@@ -550,158 +565,163 @@
   <div id="toc" style="min-width: 5em;">
     <ol>
       <li>
-        <a href="#course-information" raw="# Course Information" lo="6">
+        <a href="#course-information" raw="# Course Information" lo="6" class="highlighted">
           <span class="toctext">Course Information</span>
         </a>
       </li>
       <li>
-        <a href="#motivation-and-learning-outcomes" raw="# Motivation and Learning Outcomes" lo="23" class="highlighted">
+        <a href="#summary" raw="# Summary" lo="20">
+          <span class="toctext">Summary</span>
+        </a>
+      </li>
+      <li>
+        <a href="#motivation-and-learning-outcomes" raw="# Motivation and Learning Outcomes" lo="26" class="">
           <span class="toctext">Motivation and Learning Outcomes</span>
         </a>
       </li>
       <li>
-        <a href="#methods-of-instruction" raw="# Methods of Instruction" lo="29" class="">
+        <a href="#methods-of-instruction" raw="# Methods of Instruction" lo="45">
           <span class="toctext">Methods of Instruction</span>
         </a>
       </li>
       <li>
-        <a href="#programming" raw="# Programming" lo="39">
+        <a href="#programming" raw="# Programming" lo="57">
           <span class="toctext">Programming</span>
         </a>
       </li>
       <li>
-        <a href="#textbook" raw="# Textbook" lo="45" class="">
+        <a href="#textbook" raw="# Textbook" lo="63">
           <span class="toctext">Textbook</span>
         </a>
       </li>
       <li>
-        <a href="#evaluation" raw="# Evaluation" lo="57" class="">
+        <a href="#evaluation" raw="# Evaluation" lo="73">
           <span class="toctext">Evaluation</span>
         </a>
       </li>
       <li>
-        <a href="#topics" raw="# Topics" lo="64" class="">
+        <a href="#topics" raw="# Topics" lo="80">
           <span class="toctext">Topics</span>
         </a>
         <ol class="toc" style="display: none;">
           <li>
-            <a href="#python" raw="## Python" lo="68" class="">
+            <a href="#python" raw="## Python" lo="84">
               <span class="toctext">Python</span>
             </a>
           </li>
           <li>
-            <a href="#exploratory-data-analysis" raw="## Exploratory Data Analysis" lo="74" class="">
+            <a href="#exploratory-data-analysis" raw="## Exploratory Data Analysis" lo="90">
               <span class="toctext">Exploratory Data Analysis</span>
             </a>
           </li>
           <li>
-            <a href="#basic-concepts-in-probability" raw="## Basic Concepts in Probability" lo="79" class="">
+            <a href="#basic-concepts-in-probability" raw="## Basic Concepts in Probability" lo="97">
               <span class="toctext">Basic Concepts in Probability</span>
             </a>
           </li>
           <li>
-            <a href="#elements-of-statistics" raw="## Elements of Statistics" lo="88">
+            <a href="#elements-of-statistics" raw="## Elements of Statistics" lo="106">
               <span class="toctext">Elements of Statistics</span>
             </a>
           </li>
           <li>
-            <a href="#hypothesis-tests-and-confidence-credible-intervals" raw="## Hypothesis Tests and Confidence/Credible Intervals" lo="97">
+            <a href="#hypothesis-tests-and-confidence-credible-intervals" raw="## Hypothesis Tests and Confidence/Credible Intervals" lo="115">
               <span class="toctext">Hypothesis Tests and Confidence/Credible Intervals</span>
             </a>
           </li>
           <li>
-            <a href="#parameter-estimation-basic" raw="## Parameter Estimation - Basic" lo="103">
+            <a href="#parameter-estimation-basic" raw="## Parameter Estimation - Basic" lo="121">
               <span class="toctext">Parameter Estimation - Basic</span>
             </a>
           </li>
           <li>
-            <a href="#parameter-estimation-advanced" raw="## Parameter Estimation - Advanced" lo="108">
+            <a href="#parameter-estimation-advanced" raw="## Parameter Estimation - Advanced" lo="126">
               <span class="toctext">Parameter Estimation - Advanced</span>
             </a>
           </li>
         </ol>
       </li>
       <li>
-        <a href="#references" raw="# References" lo="114">
+        <a href="#references" raw="# References" lo="132">
           <span class="toctext">References</span>
         </a>
         <ol class="toc" style="display: none;">
           <li>
-            <a href="#general" raw="## General" lo="118">
+            <a href="#general" raw="## General" lo="136">
               <span class="toctext">General</span>
             </a>
           </li>
           <li>
-            <a href="#bayes" raw="## Bayes" lo="129">
+            <a href="#bayes" raw="## Bayes" lo="147">
               <span class="toctext">Bayes</span>
             </a>
             <ol class="toc" style="display: none;">
               <li>
-                <a href="#general" raw="### General" lo="131">
+                <a href="#general" raw="### General" lo="149">
                   <span class="toctext">General</span>
                 </a>
               </li>
               <li>
-                <a href="#bayesian-vs.-frequentist" raw="### Bayesian vs. Frequentist" lo="144">
+                <a href="#bayesian-vs.-frequentist" raw="### Bayesian vs. Frequentist" lo="162">
                   <span class="toctext">Bayesian vs. Frequentist</span>
                 </a>
               </li>
               <li>
-                <a href="#credible-intervals" raw="### Credible Intervals" lo="152">
+                <a href="#credible-intervals" raw="### Credible Intervals" lo="170">
                   <span class="toctext">Credible Intervals</span>
                 </a>
               </li>
               <li>
-                <a href="#mcmc" raw="### MCMC" lo="164">
+                <a href="#mcmc" raw="### MCMC" lo="182">
                   <span class="toctext">MCMC</span>
                 </a>
               </li>
               <li>
-                <a href="#misc" raw="### Misc" lo="170">
+                <a href="#misc" raw="### Misc" lo="188">
                   <span class="toctext">Misc</span>
                 </a>
               </li>
             </ol>
           </li>
           <li>
-            <a href="#astronomy" raw="## Astronomy" lo="179">
+            <a href="#astronomy" raw="## Astronomy" lo="197">
               <span class="toctext">Astronomy</span>
             </a>
           </li>
           <li>
-            <a href="#software" raw="## Software" lo="188">
+            <a href="#software" raw="## Software" lo="206">
               <span class="toctext">Software</span>
             </a>
           </li>
         </ol>
       </li>
       <li>
-        <a href="#general-policies" raw="# General Policies" lo="194">
+        <a href="#general-policies" raw="# General Policies" lo="212">
           <span class="toctext">General Policies</span>
         </a>
-        <ol class="toc" style="display: block;">
+        <ol class="toc" style="display: none;">
           <li>
-            <a href="#academic-integrity" raw="## Academic Integrity" lo="196">
+            <a href="#academic-integrity" raw="## Academic Integrity" lo="214">
               <span class="toctext">Academic Integrity</span>
             </a>
           </li>
           <li>
-            <a href="#disability" raw="## Disability" lo="200">
+            <a href="#disability" raw="## Disability" lo="218">
               <span class="toctext">Disability</span>
             </a>
           </li>
           <li>
-            <a href="#diversity-and-inclusion" raw="## Diversity and Inclusion" lo="204">
+            <a href="#diversity-and-inclusion" raw="## Diversity and Inclusion" lo="222">
               <span class="toctext">Diversity and Inclusion</span>
             </a>
           </li>
           <li>
-            <a href="#communication" raw="## Communication" lo="208">
+            <a href="#communication" raw="## Communication" lo="226">
               <span class="toctext">Communication</span>
             </a>
           </li>
           <li>
-            <a href="#university-resources" raw="## University Resources" lo="214">
+            <a href="#university-resources" raw="## University Resources" lo="232" class="">
               <span class="toctext">University Resources</span>
             </a>
           </li>
@@ -712,21 +732,21 @@
   <div id="display">
     <div class="section">
       <div class="block">
-        <p padlength="0" lo="2" lf="2" class="title">AstroStats </p>
+        <p padlength="0" lo="2" lf="2" class="title">Statistical Methods in Physics</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">2</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="3" lf="3" class="subtitle">ASTR/PHYS 390/590<br>Spring, 2023</p>
+        <p padlength="0" lo="3" lf="3" class="subtitle">ASTR/PHYS 390/590<br>Spring, 2025</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">3</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="6" lf="6"><a name="course-information" number="1" lo="6" raw="# Course Information" class="anchor hanchor" href="#course-information"><span class="hnumber">1</span>&nbsp;<span class="htext">Course Information</span></a></h1>
+        <h1 lo="6" lf="6" class="highlighted"><a name="course-information" number="1" lo="6" raw="# Course Information" class="anchor hanchor" href="#course-information"><span class="hnumber">1</span>&nbsp;<span class="htext">Course Information</span></a></h1>
         <div class="block-info" style="display: none;"><span class="line-numbers">6</span></div>
       </div>
       <div class="block">
-        <ul lo="8" lf="19" class="compact">
+        <ul lo="8" lf="18" class="compact">
           <li markerlength="2" padlength="0" lo="8" lf="8">
             <div class="block">
               <p padlength="0" lo="8" lf="8"><strong type="md">Day and Time</strong>: Thursday from 4:30 - 7:10 pm</p>
@@ -735,1031 +755,1033 @@
           </li>
           <li markerlength="2" padlength="0" lo="9" lf="9">
             <div class="block">
-              <p padlength="0" lo="9" lf="9"><strong type="md">Last Class</strong>: Thursday, May 4th</p>
+              <p padlength="0" lo="9" lf="9" class="active"><strong type="md">Location</strong>: 220 Planetary Hall</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">9</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="10" lf="10">
             <div class="block">
-              <p padlength="0" lo="10" lf="10"><strong type="md">Location</strong>: 220 Planetary Hall</p>
+              <p padlength="0" lo="10" lf="10"><strong type="md">Instructor</strong>: Bob Weigel</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">10</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="11" lf="11">
             <div class="block">
-              <p padlength="0" lo="11" lf="11"><strong type="md">Instructor</strong>: Bob Weigel</p>
+              <p padlength="0" lo="11" lf="11"><strong type="md">Email</strong>: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></p>
               <div class="block-info" style="display: none;"><span class="line-numbers">11</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="12" lf="12">
             <div class="block">
-              <p padlength="0" lo="12" lf="12"><strong type="md">Email</strong>: <a href="mailto:rweigel@gmu.edu">rweigel@gmu.edu</a></p>
+              <p padlength="0" lo="12" lf="12"><strong type="md">Office Hour</strong>: Thursday 3:30-4:30 pm</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">12</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="13" lf="13">
             <div class="block">
-              <p padlength="0" lo="13" lf="13"><strong type="md">Office Hour</strong>: Thursday 3:30-4:30 pm</p>
+              <p padlength="0" lo="13" lf="13"><strong type="md">Course URL</strong>: <a href="http://rweigel.github.io/stats">http://rweigel.github.io/stats</a></p>
               <div class="block-info" style="display: none;"><span class="line-numbers">13</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="14" lf="14">
             <div class="block">
-              <p padlength="0" lo="14" lf="14"><strong type="md">Course URL</strong>: <a href="http://rweigel.github.io/astrostats">http://rweigel.github.io/astrostats</a></p>
+              <p padlength="0" lo="14" lf="14"><strong type="md">Credits</strong>: 3 (Lecture)</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">14</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="15" lf="15">
+          <li markerlength="2" padlength="0" lo="15" lf="17">
             <div class="block">
-              <p padlength="0" lo="15" lf="15"><strong type="md">Credits</strong>: 3 (Lecture)</p>
+              <p padlength="0" lo="15" lf="15"><strong type="md">Prerequisites</strong>:</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">15</span></div>
             </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="16" lf="18">
             <div class="block">
-              <p padlength="0" lo="16" lf="16"><strong type="md">Prerequisites</strong>:</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">16</span></div>
-            </div>
-            <div class="block">
-              <ul lo="17" lf="18" class="compact">
+              <ul lo="16" lf="17" class="compact">
+                <li markerlength="2" padlength="0" lo="16" lf="16">
+                  <div class="block">
+                    <p padlength="0" lo="16" lf="16">390: Grade of B or higher in PHYS 251 or permission of instructor;</p>
+                    <div class="block-info" style="display: none;"><span class="line-numbers">16</span></div>
+                  </div>
+                </li>
                 <li markerlength="2" padlength="0" lo="17" lf="17">
                   <div class="block">
-                    <p padlength="0" lo="17" lf="17">390: Grade of B or higher in PHYS 251 or permission of instructor;</p>
+                    <p padlength="0" lo="17" lf="17">590: Enrollment in a COS or VSE graduate program.</p>
                     <div class="block-info" style="display: none;"><span class="line-numbers">17</span></div>
                   </div>
                 </li>
-                <li markerlength="2" padlength="0" lo="18" lf="18">
-                  <div class="block">
-                    <p padlength="0" lo="18" lf="18">590: Enrollment in a COS or VSE graduate program.</p>
-                    <div class="block-info" style="display: none;"><span class="line-numbers">18</span></div>
-                  </div>
-                </li>
               </ul>
-              <div class="block-info" style="display: none;"><span class="line-numbers">17-18</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">16-17</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="19" lf="21">
+          <li markerlength="2" padlength="0" lo="18" lf="20">
             <div class="block">
-              <p padlength="0" lo="19" lf="19"><strong type="md">Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">19</span></div>
+              <p padlength="0" lo="18" lf="18"><strong type="md">Catalog Description</strong>: Bayesian and frequentist statistical and data analysis methods applied to data and problems in physics.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">18</span></div>
             </div>
           </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">8-19</span></div>
-      </div>
-      <div class="block">
-        <p padlength="0" lo="21" lf="21">HWs: <a href="hw.html#hw-1">1</a> | <a href="hw.html#hw-2">2</a> | <a href="hw.html#hw-3">3</a> | <a href="hw.html#hw-4">4</a> | <a href="hw.html#hw-5">5</a> | <a href="hw.html#hw-6">6</a> | <a href="hw.html#hw-7">7</a> | <a href="hw.html#hw-8">8</a> | <a href="hw.html#hw-9">9</a> | <a href="hw.html#hw-10">10</a> | <a href="hw.html#hw-11">11</a></p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">21</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">8-18</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="23" lf="23" class="highlighted"><a name="motivation-and-learning-outcomes" number="2" lo="23" raw="# Motivation and Learning Outcomes" class="anchor hanchor" href="#motivation-and-learning-outcomes"><span class="hnumber">2</span>&nbsp;<span class="htext">Motivation and Learning Outcomes</span></a></h1>
-        <div class="block-info" style="display: none;"><span class="line-numbers">23</span></div>
+        <h1 lo="20" lf="20"><a name="summary" number="2" lo="20" raw="# Summary" class="anchor hanchor" href="#summary"><span class="hnumber">2</span>&nbsp;<span class="htext">Summary</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">20</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="25" lf="25" class=""><strong type="md">Motivation</strong></p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">25</span></div>
+        <p padlength="0" lo="22" lf="22">This course covers fundamental statistical methods that apply to most data–related (both measurement and simulation) problems. I emphasize the development of a deep understanding of the interpretation of statistical results.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">22</span></div>
       </div>
       <div class="block">
-        <ul lo="27" lf="29" class="compact">
-          <li markerlength="2" padlength="0" lo="27" lf="27" class="">
+        <p padlength="0" lo="24" lf="24">I encourage students doing data-related research projects to use their data for a project.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">24</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h1 lo="26" lf="26" class=""><a name="motivation-and-learning-outcomes" number="3" lo="26" raw="# Motivation and Learning Outcomes" class="anchor hanchor" href="#motivation-and-learning-outcomes"><span class="hnumber">3</span>&nbsp;<span class="htext">Motivation and Learning Outcomes</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">26</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="28" lf="28"><strong type="md">Motivation</strong></p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">28</span></div>
+      </div>
+      <div class="block">
+        <ul lo="30" lf="32" class="compact">
+          <li markerlength="2" padlength="0" lo="30" lf="30">
             <div class="block">
-              <p padlength="0" lo="27" lf="27" class="">Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">27</span></div>
+              <p padlength="0" lo="30" lf="30">Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">30</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="28" lf="28" class="">
+          <li markerlength="2" padlength="0" lo="31" lf="31">
             <div class="block">
-              <p padlength="0" lo="28" lf="28" class="">Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">28</span></div>
+              <p padlength="0" lo="31" lf="31">Many of our graduate students are working on data-intensive research problems that require understanding modern statistical methods.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">31</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="29" lf="31" class="">
+          <li markerlength="2" padlength="0" lo="32" lf="34">
             <div class="block">
-              <p padlength="0" lo="29" lf="29" class="">Many BS, MS, and PhD students have not had a traditional statistics course as an undergraduate.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">29</span></div>
+              <p padlength="0" lo="32" lf="32">Many BS, MS, and PhD students have not taken a traditional statistics course as an undergraduate.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">32</span></div>
             </div>
           </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">27-29</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">30-32</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="31" lf="31" class=""><strong type="md">Learning Outcomes</strong></p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">31</span></div>
+        <p padlength="0" lo="34" lf="34"><strong type="md">Learning Outcomes</strong></p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">34</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="33" lf="33" class="">Students will</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">33</span></div>
+        <p padlength="0" lo="36" lf="36">Students will</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">36</span></div>
       </div>
       <div class="block">
-        <ol lo="34" lf="40" class="compact">
-          <li markerlength="3" padlength="0" lo="34" lf="34" class="">
-            <div class="block">
-              <p padlength="0" lo="34" lf="34" class="">be able to solve fundamental statistical problems analytically and numerically;</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">34</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="35" lf="35" class="">
-            <div class="block">
-              <p padlength="0" lo="35" lf="35" class="">have an intuitive understanding of the interpretation of uncertainty;</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">35</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="36" lf="36" class="">
-            <div class="block">
-              <p padlength="0" lo="36" lf="36" class="">be able to compute uncertainties using at least two methods;</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">36</span></div>
-            </div>
-          </li>
+        <ol lo="37" lf="43" class="compact">
           <li markerlength="3" padlength="0" lo="37" lf="37" class="">
             <div class="block">
-              <p padlength="0" lo="37" lf="37" class="">generate ideas for exploratory data analysis and validation of statistical calculations;</p>
+              <p padlength="0" lo="37" lf="37" class="">be able to solve fundamental statistical problems analytically and numerically;</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">37</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="38" lf="38" class="">
             <div class="block">
-              <p padlength="0" lo="38" lf="38" class="">learn to use at least one advanced statistical package.</p>
+              <p padlength="0" lo="38" lf="38" class="">have an intuitive understanding of the interpretation of uncertainty;</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">38</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="39" lf="39" class="">
             <div class="block">
-              <p padlength="0" lo="39" lf="39" class="active">learn to present data and results at the level of quality seen in seminars and journal articles; and</p>
+              <p padlength="0" lo="39" lf="39" class="">be able to compute uncertainties using at least two methods;</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">39</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="40" lf="40" class="">
             <div class="block">
-              <p padlength="0" lo="40" lf="40" class="">learn to write code in a way that it is easy for others to understand and modify;</p>
+              <p padlength="0" lo="40" lf="40" class="">generate ideas for exploratory data analysis and validation of statistical calculations;</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">40</span></div>
             </div>
           </li>
+          <li markerlength="3" padlength="0" lo="41" lf="41" class="">
+            <div class="block">
+              <p padlength="0" lo="41" lf="41" class="">learn to use at least one advanced statistical package;</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">41</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="42" lf="42" class="">
+            <div class="block">
+              <p padlength="0" lo="42" lf="42" class="">learn to present data and results at the level of quality seen in seminars, journal articles, and meeting posters; and</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">42</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="43" lf="43" class="">
+            <div class="block">
+              <p padlength="0" lo="43" lf="43" class="">learn to write code in a way that is easy for others to understand and modify.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">43</span></div>
+            </div>
+          </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">34-40</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">37-43</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="42" lf="42" class=""><a name="methods-of-instruction" number="3" lo="42" raw="# Methods of Instruction" class="anchor hanchor" href="#methods-of-instruction" lf="42"><span class="hnumber">3</span>&nbsp;<span class="htext">Methods of Instruction</span></a></h1>
-        <div class="block-info" style="display: none;"><span class="line-numbers">42</span></div>
+        <h1 lo="45" lf="45"><a name="methods-of-instruction" number="4" lo="45" raw="# Methods of Instruction" class="anchor hanchor" href="#methods-of-instruction"><span class="hnumber">4</span>&nbsp;<span class="htext">Methods of Instruction</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">45</span></div>
       </div>
       <div class="block">
-        <ul lo="44" lf="50" class="loose">
-          <li markerlength="2" padlength="0" lo="44" lf="44" class="">
+        <ul lo="47" lf="51" class="compact">
+          <li markerlength="2" padlength="0" lo="47" lf="47">
             <div class="block">
-              <p padlength="0" lo="44" lf="44" class="">In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">48-50</span></div>
+              <p padlength="0" lo="47" lf="47">In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">47</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="45" lf="45" class="">
+          <li markerlength="2" padlength="0" lo="48" lf="48">
             <div class="block">
-              <p padlength="0" lo="45" lf="45" class="">I usually have you do a reading and basic problem on a new topic before I discuss it in class. I find content that I present “sticks” if students have experiemented with the concepts before I discuss them.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">48-50</span></div>
+              <p padlength="0" lo="48" lf="48">I usually have you do a reading and solve a basic problem on a new topic before I discuss it in class. I find content that I present “sticks” if students have experimented with the concepts before I discuss them.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">48</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="46" lf="46" class="">
+          <li markerlength="2" padlength="0" lo="49" lf="49">
             <div class="block">
-              <p padlength="0" lo="46" lf="46" class="">You will be asked to participate in class discussions during class and on Discord. Talking and writing about statistics will help you understand statistics.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">48-50</span></div>
+              <p padlength="0" lo="49" lf="49">You will be asked to participate in class discussions during class and on Discord. Talking and writing about statistics will help you understand statistics.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">49</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="47" lf="47" class="">
+          <li markerlength="2" padlength="0" lo="50" lf="50">
             <div class="block">
-              <p padlength="0" lo="47" lf="47" class="">Homework assignments will be approximately 50% hand-written and 50% programs. I will ask students to present their solutions during class and for other students to comment.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">48-50</span></div>
-            </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="48" lf="50" class="">
-            <div class="block">
-              <p padlength="0" lo="48" lf="49" class="">I give detailed solutions to homework problems. However, I will not always be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">48-49</span></div>
-            </div>
-            <div class="block">
-              <p padlength="1" lo="50" lf="50" class="">I may ask you to meet with me to explain your reasoning on your homework. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.</p>
+              <p padlength="0" lo="50" lf="50">Homework assignments will be approximately 50% hand-written and 50% programs. I will ask students to present their solutions during class and for others to comment.</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">50</span></div>
             </div>
           </li>
+          <li markerlength="2" padlength="0" lo="51" lf="53">
+            <div class="block">
+              <p padlength="0" lo="51" lf="51">After the midterm, students will propose a project, and part of each subsequent homework assignment will be an additional analysis related to your project. The required analysis will be based on what you propose and ideas that are generated when you give a brief (&nbsp;5–minute) update on your progress.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">51</span></div>
+            </div>
+          </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">44-50</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">47-51</span></div>
+      </div>
+      <div class="block">
+        <div class="comment" lo="53" lf="53">%* I give detailed solutions to homework problems. However, I will not always be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.</div>
+      </div>
+      <div class="block">
+        <div class="comment" lo="55" lf="55">%I may ask you to meet with me to explain your reasoning on your homework. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.</div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="52" lf="52"><a name="programming" number="4" lo="52" raw="# Programming" class="anchor hanchor" href="#programming" lf="52"><span class="hnumber">4</span>&nbsp;<span class="htext">Programming</span></a></h1>
-        <div class="block-info" style="display: none;"><span class="line-numbers">52</span></div>
+        <h1 lo="57" lf="57"><a name="programming" number="5" lo="57" raw="# Programming" class="anchor hanchor" href="#programming"><span class="hnumber">5</span>&nbsp;<span class="htext">Programming</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">57</span></div>
       </div>
       <div class="block">
-        <ul lo="54" lf="56" class="compact">
-          <li markerlength="2" padlength="0" lo="54" lf="54">
+        <ul lo="59" lf="61" class="compact">
+          <li markerlength="2" padlength="0" lo="59" lf="59">
             <div class="block">
-              <p padlength="0" lo="54" lf="54">Any programming language may be used for homework and the final project. I will write my solutions in Python.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">56-58</span></div>
+              <p padlength="0" lo="59" lf="59">You may use any programming language for homework and the final project. I will write my solutions in Python.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">59</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="55" lf="55">
+          <li markerlength="2" padlength="0" lo="60" lf="60">
             <div class="block">
-              <p padlength="0" lo="55" lf="55">I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my <a href="python.html">notes for PHYS 251</a>.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">56-58</span></div>
+              <p padlength="0" lo="60" lf="60">I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my <a href="python.html">notes for PHYS 251</a>.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">60</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="56" lf="58">
+          <li markerlength="2" padlength="0" lo="61" lf="63">
             <div class="block">
-              <p padlength="0" lo="56" lf="56">I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">56</span></div>
+              <p padlength="0" lo="61" lf="61">I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">61</span></div>
             </div>
           </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">54-56</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">59-61</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="58" lf="58" class=""><a name="textbook" number="5" lo="58" raw="# Textbook" class="anchor hanchor" href="#textbook" lf="58"><span class="hnumber">5</span>&nbsp;<span class="htext">Textbook</span></a></h1>
-        <div class="block-info" style="display: none;"><span class="line-numbers">58</span></div>
+        <h1 lo="63" lf="63"><a name="textbook" number="6" lo="63" raw="# Textbook" class="anchor hanchor" href="#textbook"><span class="hnumber">6</span>&nbsp;<span class="htext">Textbook</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">63</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="60" lf="60">Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | <a href="https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492">Amazon</a> | <a href="https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html">Author’s web page</a> |</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">60</span></div>
+        <p padlength="0" lo="65" lf="65">There is not a single textbook that covers all of the material in this course. I will provide hand–outs or links to references for each topic covered.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">65</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="62" lf="62">This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I’ll typically provide two references that explain the background material.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">62</span></div>
+        <p padlength="0" lo="67" lf="67">Two general references on statistics that I highly recommend are</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">67</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="64" lf="64">Two general references on statistics that I highly recommend are</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">64</span></div>
-      </div>
-      <div class="block">
-        <ol lo="65" lf="66" class="compact">
-          <li markerlength="3" padlength="0" lo="65" lf="65" class="">
+        <ol lo="68" lf="69" class="compact">
+          <li markerlength="3" padlength="0" lo="68" lf="68">
             <div class="block">
-              <p padlength="0" lo="65" lf="65" class="">Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in a parsimonious manner. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for &nbsp;$5.00.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">66</span></div>
+              <p padlength="0" lo="68" lf="68">Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics. <a href="https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603">Available used on Amazon</a> for &nbsp;$5.00.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">68</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="66" lf="66" class="">
+          <li markerlength="3" padlength="0" lo="69" lf="71">
             <div class="block">
-              <p padlength="0" lo="66" lf="66" class="">Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors. | <a href="https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527">Amazon</a> |</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">66</span></div>
+              <p padlength="0" lo="69" lf="69">Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors. | <a href="https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527">Amazon</a> |</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">69</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">65-66</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">68-69</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="68" lf="68">In the <a href="#references">References</a> section of this syllabus, many additional references and resources are listed.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">68</span></div>
+        <p padlength="0" lo="71" lf="71">Many additional references and resources are listed in the <a href="#references">References</a> section of this syllabus.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">71</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="70" lf="70" class=""><a name="evaluation" number="6" lo="70" raw="# Evaluation" class="anchor hanchor" href="#evaluation" lf="70"><span class="hnumber">6</span>&nbsp;<span class="htext">Evaluation</span></a></h1>
-        <div class="block-info" style="display: none;"><span class="line-numbers">70</span></div>
+        <h1 lo="73" lf="73"><a name="evaluation" number="7" lo="73" raw="# Evaluation" class="anchor hanchor" href="#evaluation"><span class="hnumber">7</span>&nbsp;<span class="htext">Evaluation</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">73</span></div>
       </div>
       <div class="block">
-        <ul lo="72" lf="75" class="compact">
-          <li markerlength="2" padlength="0" lo="72" lf="72">
+        <ul lo="75" lf="78" class="compact">
+          <li markerlength="2" padlength="0" lo="75" lf="75">
             <div class="block">
-              <p padlength="0" lo="72" lf="72"><strong type="md">Homework</strong>: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts. </p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">75-77</span></div>
-            </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="73" lf="73">
-            <div class="block">
-              <p padlength="0" lo="73" lf="73"><strong type="md">Midterm</strong>: 30%</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">75-77</span></div>
-            </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="74" lf="74">
-            <div class="block">
-              <p padlength="0" lo="74" lf="74"><strong type="md">Final project</strong>: 30%</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">75-77</span></div>
-            </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="75" lf="77">
-            <div class="block">
-              <p padlength="0" lo="75" lf="75" class=""><strong type="md">Final course</strong>: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, &lt; 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).</p>
+              <p padlength="0" lo="75" lf="75"><strong type="md">Homework</strong>: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of real data. Assignments are due before class starts. </p>
               <div class="block-info" style="display: none;"><span class="line-numbers">75</span></div>
             </div>
           </li>
+          <li markerlength="2" padlength="0" lo="76" lf="76">
+            <div class="block">
+              <p padlength="0" lo="76" lf="76"><strong type="md">Midterm</strong>: 30%</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">76</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="77" lf="77">
+            <div class="block">
+              <p padlength="0" lo="77" lf="77"><strong type="md">Final project</strong>: 30%</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">77</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="78" lf="80">
+            <div class="block">
+              <p padlength="0" lo="78" lf="78"><strong type="md">Final course</strong>: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, &lt; 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">78</span></div>
+            </div>
+          </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">72-75</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">75-78</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="77" lf="77" class=""><a name="topics" number="7" lo="77" raw="# Topics" class="anchor hanchor" href="#topics" lf="77"><span class="hnumber">7</span>&nbsp;<span class="htext">Topics</span></a></h1>
-        <div class="block-info" style="display: none;"><span class="line-numbers">77</span></div>
+        <h1 lo="80" lf="80"><a name="topics" number="8" lo="80" raw="# Topics" class="anchor hanchor" href="#topics"><span class="hnumber">8</span>&nbsp;<span class="htext">Topics</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">80</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="79" lf="79" class="">The topics listed below are covered in Chapters 2-7 of the textbook. Supplementary references and notes will be provided as-needed.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">79</span></div>
+        <p padlength="0" lo="82" lf="82">Supplementary references and notes will be provided as needed.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">82</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="81" lf="81" class=""><a name="python" number="7.1" lo="81" raw="## Python" class="anchor hanchor" href="#python" lf="81"><span class="hnumber">7.1</span>&nbsp;<span class="htext">Python</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">81</span></div>
+        <h2 lo="84" lf="84"><a name="python" number="8.1" lo="84" raw="## Python" class="anchor hanchor" href="#python"><span class="hnumber">8.1</span>&nbsp;<span class="htext">Python</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">84</span></div>
       </div>
       <div class="block">
-        <ol lo="83" lf="85" class="compact">
-          <li markerlength="3" padlength="0" lo="83" lf="83" class="">
+        <ol lo="86" lf="88" class="compact">
+          <li markerlength="3" padlength="0" lo="86" lf="86">
             <div class="block">
-              <p padlength="0" lo="83" lf="83" class="">NumPy</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">85</span></div>
+              <p padlength="0" lo="86" lf="86">NumPy</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">86</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="84" lf="84" class="">
+          <li markerlength="3" padlength="0" lo="87" lf="87">
             <div class="block">
-              <p padlength="0" lo="84" lf="84" class="">Random number generators</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">85</span></div>
+              <p padlength="0" lo="87" lf="87">Random number generators</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">87</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="85" lf="85" class="">
+          <li markerlength="3" padlength="0" lo="88" lf="90">
             <div class="block">
-              <p padlength="0" lo="85" lf="85" class="">Data visualization and creating publication–quality plots</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">85</span></div>
+              <p padlength="0" lo="88" lf="88">Data visualization and creating publication–quality plots</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">88</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">83-85</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">86-88</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="87" lf="87" class=""><a name="exploratory-data-analysis" number="7.2" lo="87" raw="## Exploratory Data Analysis" class="anchor hanchor" href="#exploratory-data-analysis" lf="87"><span class="hnumber">7.2</span>&nbsp;<span class="htext">Exploratory Data Analysis</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">87</span></div>
+        <h2 lo="90" lf="90"><a name="exploratory-data-analysis" number="8.2" lo="90" raw="## Exploratory Data Analysis" class="anchor hanchor" href="#exploratory-data-analysis"><span class="hnumber">8.2</span>&nbsp;<span class="htext">Exploratory Data Analysis</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">90</span></div>
       </div>
       <div class="block">
-        <ol lo="89" lf="92" class="compact">
-          <li markerlength="3" padlength="0" lo="89" lf="89" class="">
+        <ol lo="92" lf="95" class="compact">
+          <li markerlength="3" padlength="0" lo="92" lf="92">
             <div class="block">
-              <p padlength="0" lo="89" lf="89" class="">Histograms</p>
+              <p padlength="0" lo="92" lf="92">Histograms</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">92</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="90" lf="90" class="">
+          <li markerlength="3" padlength="0" lo="93" lf="93">
             <div class="block">
-              <p padlength="0" lo="90" lf="90" class="">Autocorrelation</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">92</span></div>
+              <p padlength="0" lo="93" lf="93">Autocorrelation</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">93</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="91" lf="91" class="">
+          <li markerlength="3" padlength="0" lo="94" lf="94">
             <div class="block">
-              <p padlength="0" lo="91" lf="91" class="">Periodograms and Short–Time Fourier Transforms</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">92</span></div>
+              <p padlength="0" lo="94" lf="94">Periodograms and Short–Time Fourier Transforms</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">94</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="92" lf="92" class="">
+          <li markerlength="3" padlength="0" lo="95" lf="97">
             <div class="block">
-              <p padlength="0" lo="92" lf="92" class="">Other options based on student interest</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">92</span></div>
+              <p padlength="0" lo="95" lf="95">Other options based on student interest</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">95</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">89-92</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">92-95</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="94" lf="94" class=""><a name="basic-concepts-in-probability" number="7.3" lo="94" raw="## Basic Concepts in Probability" class="anchor hanchor" href="#basic-concepts-in-probability" lf="94"><span class="hnumber">7.3</span>&nbsp;<span class="htext">Basic Concepts in Probability</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">94</span></div>
+        <h2 lo="97" lf="97"><a name="basic-concepts-in-probability" number="8.3" lo="97" raw="## Basic Concepts in Probability" class="anchor hanchor" href="#basic-concepts-in-probability"><span class="hnumber">8.3</span>&nbsp;<span class="htext">Basic Concepts in Probability</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">97</span></div>
       </div>
       <div class="block">
-        <ol lo="96" lf="101" class="compact">
-          <li markerlength="3" padlength="0" lo="96" lf="96">
-            <div class="block">
-              <p padlength="0" lo="96" lf="96">Mathematical, Frequentist, and Bayesian probabilities</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">101-103</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="97" lf="97">
-            <div class="block">
-              <p padlength="0" lo="97" lf="97">Conditional probability</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">101-103</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="98" lf="98">
-            <div class="block">
-              <p padlength="0" lo="98" lf="98">Bayes’ theorem</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">101-103</span></div>
-            </div>
-          </li>
+        <ol lo="99" lf="104" class="compact">
           <li markerlength="3" padlength="0" lo="99" lf="99">
             <div class="block">
-              <p padlength="0" lo="99" lf="99">Counting - permutations and combinations</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">101-103</span></div>
+              <p padlength="0" lo="99" lf="99">Mathematical, Frequentist, and Bayesian probabilities</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">99</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="100" lf="100">
             <div class="block">
-              <p padlength="0" lo="100" lf="100">Probability distributions</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">101-103</span></div>
+              <p padlength="0" lo="100" lf="100">Conditional probability</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">100</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="101" lf="103">
+          <li markerlength="3" padlength="0" lo="101" lf="101">
             <div class="block">
-              <p padlength="0" lo="101" lf="101">Overview of statistical fallacies</p>
+              <p padlength="0" lo="101" lf="101">Bayes’ theorem</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">101</span></div>
             </div>
           </li>
+          <li markerlength="3" padlength="0" lo="102" lf="102">
+            <div class="block">
+              <p padlength="0" lo="102" lf="102">Counting - permutations and combinations</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">102</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="103" lf="103">
+            <div class="block">
+              <p padlength="0" lo="103" lf="103">Probability distributions</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">103</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="104" lf="106">
+            <div class="block">
+              <p padlength="0" lo="104" lf="104">Overview of statistical fallacies</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">104</span></div>
+            </div>
+          </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">96-101</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">99-104</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="103" lf="103"><a name="elements-of-statistics" number="7.4" lo="103" raw="## Elements of Statistics" class="anchor hanchor" href="#elements-of-statistics" lf="103"><span class="hnumber">7.4</span>&nbsp;<span class="htext">Elements of Statistics</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">103</span></div>
+        <h2 lo="106" lf="106"><a name="elements-of-statistics" number="8.4" lo="106" raw="## Elements of Statistics" class="anchor hanchor" href="#elements-of-statistics"><span class="hnumber">8.4</span>&nbsp;<span class="htext">Elements of Statistics</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">106</span></div>
       </div>
       <div class="block">
-        <ol lo="105" lf="110" class="compact">
-          <li markerlength="3" padlength="0" lo="105" lf="105">
-            <div class="block">
-              <p padlength="0" lo="105" lf="105">Expectation, mean, variance, and bias</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">110-112</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="106" lf="106">
-            <div class="block">
-              <p padlength="0" lo="106" lf="106">Random variables, distributions, quantiles, mean, variance</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">110-112</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="107" lf="107">
-            <div class="block">
-              <p padlength="0" lo="107" lf="107">Joint distributions, covariance, correlation, independence</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">110-112</span></div>
-            </div>
-          </li>
+        <ol lo="108" lf="113" class="compact">
           <li markerlength="3" padlength="0" lo="108" lf="108">
             <div class="block">
-              <p padlength="0" lo="108" lf="108">The law of large numbers</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">110-112</span></div>
+              <p padlength="0" lo="108" lf="108">Expectation, mean, variance, and bias</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">108</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="109" lf="109">
             <div class="block">
-              <p padlength="0" lo="109" lf="109">Central limit theorem</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">110-112</span></div>
+              <p padlength="0" lo="109" lf="109">Random variables, distributions, quantiles, mean, variance</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">109</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="110" lf="112">
+          <li markerlength="3" padlength="0" lo="110" lf="110">
             <div class="block">
-              <p padlength="0" lo="110" lf="110">Bootstrapping</p>
+              <p padlength="0" lo="110" lf="110">Joint distributions, covariance, correlation, independence</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">110</span></div>
             </div>
           </li>
-        </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">105-110</span></div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="block">
-        <h2 lo="112" lf="112"><a name="hypothesis-tests-and-confidence-credible-intervals" number="7.5" lo="112" raw="## Hypothesis Tests and Confidence/Credible Intervals" class="anchor hanchor" href="#hypothesis-tests-and-confidence-credible-intervals" lf="112"><span class="hnumber">7.5</span>&nbsp;<span class="htext">Hypothesis Tests and Confidence/Credible Intervals</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">112</span></div>
-      </div>
-      <div class="block">
-        <ol lo="114" lf="116" class="compact">
-          <li markerlength="3" padlength="0" lo="114" lf="114">
+          <li markerlength="3" padlength="0" lo="111" lf="111">
             <div class="block">
-              <p padlength="0" lo="114" lf="114">Frequentist</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">116-118</span></div>
+              <p padlength="0" lo="111" lf="111">The law of large numbers</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">111</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="115" lf="115">
+          <li markerlength="3" padlength="0" lo="112" lf="112">
             <div class="block">
-              <p padlength="0" lo="115" lf="115">Bayesian</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">116-118</span></div>
+              <p padlength="0" lo="112" lf="112">Central limit theorem</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">112</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="116" lf="118">
+          <li markerlength="3" padlength="0" lo="113" lf="115">
             <div class="block">
-              <p padlength="0" lo="116" lf="116">Bootstrap and Jackknife</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">116</span></div>
+              <p padlength="0" lo="113" lf="113">Bootstrapping</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">113</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">114-116</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">108-113</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="118" lf="118"><a name="parameter-estimation-basic" number="7.6" lo="118" raw="## Parameter Estimation - Basic" class="anchor hanchor" href="#parameter-estimation-basic" lf="118"><span class="hnumber">7.6</span>&nbsp;<span class="htext">Parameter Estimation - Basic</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">118</span></div>
+        <h2 lo="115" lf="115"><a name="hypothesis-tests-and-confidence-credible-intervals" number="8.5" lo="115" raw="## Hypothesis Tests and Confidence/Credible Intervals" class="anchor hanchor" href="#hypothesis-tests-and-confidence-credible-intervals"><span class="hnumber">8.5</span>&nbsp;<span class="htext">Hypothesis Tests and Confidence/Credible Intervals</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">115</span></div>
       </div>
       <div class="block">
-        <ol lo="120" lf="121" class="compact">
-          <li markerlength="3" padlength="0" lo="120" lf="120">
+        <ol lo="117" lf="119" class="compact">
+          <li markerlength="3" padlength="0" lo="117" lf="117">
             <div class="block">
-              <p padlength="0" lo="120" lf="120">Least-squares</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">121-123</span></div>
+              <p padlength="0" lo="117" lf="117">Frequentist</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">117</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="121" lf="123">
+          <li markerlength="3" padlength="0" lo="118" lf="118">
             <div class="block">
-              <p padlength="0" lo="121" lf="121">Maximum likelihood</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">121</span></div>
+              <p padlength="0" lo="118" lf="118">Bayesian</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">118</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="119" lf="121">
+            <div class="block">
+              <p padlength="0" lo="119" lf="119">Bootstrap and Jackknife</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">119</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">120-121</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">117-119</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="123" lf="123"><a name="parameter-estimation-advanced" number="7.7" lo="123" raw="## Parameter Estimation - Advanced" class="anchor hanchor" href="#parameter-estimation-advanced" lf="123"><span class="hnumber">7.7</span>&nbsp;<span class="htext">Parameter Estimation - Advanced</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">123</span></div>
+        <h2 lo="121" lf="121"><a name="parameter-estimation-basic" number="8.6" lo="121" raw="## Parameter Estimation - Basic" class="anchor hanchor" href="#parameter-estimation-basic"><span class="hnumber">8.6</span>&nbsp;<span class="htext">Parameter Estimation - Basic</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">121</span></div>
       </div>
       <div class="block">
-        <ol lo="125" lf="127" class="compact">
-          <li markerlength="3" padlength="0" lo="125" lf="125">
+        <ol lo="123" lf="124" class="compact">
+          <li markerlength="3" padlength="0" lo="123" lf="123">
             <div class="block">
-              <p padlength="0" lo="125" lf="125">Linear models</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">127-129</span></div>
+              <p padlength="0" lo="123" lf="123">Least-squares</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">123</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="126" lf="126">
+          <li markerlength="3" padlength="0" lo="124" lf="126">
             <div class="block">
-              <p padlength="0" lo="126" lf="126">Nonlinear models</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">127-129</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="127" lf="129">
-            <div class="block">
-              <p padlength="0" lo="127" lf="127">The EMCEE Markov chain Monte Carlo Python library</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">127</span></div>
+              <p padlength="0" lo="124" lf="124">Maximum likelihood</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">124</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">125-127</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">123-124</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="129" lf="129"><a name="references" number="8" lo="129" raw="# References" class="anchor hanchor" href="#references" lf="129"><span class="hnumber">8</span>&nbsp;<span class="htext">References</span></a></h1>
-        <div class="block-info" style="display: none;"><span class="line-numbers">129</span></div>
+        <h2 lo="126" lf="126"><a name="parameter-estimation-advanced" number="8.7" lo="126" raw="## Parameter Estimation - Advanced" class="anchor hanchor" href="#parameter-estimation-advanced"><span class="hnumber">8.7</span>&nbsp;<span class="htext">Parameter Estimation - Advanced</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">126</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="131" lf="131">The following references are not needed for this course, but you may find them useful for alternative explanations of topics in the textbook.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">131</span></div>
+        <ol lo="128" lf="130" class="compact">
+          <li markerlength="3" padlength="0" lo="128" lf="128">
+            <div class="block">
+              <p padlength="0" lo="128" lf="128">Linear models</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">128</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="129" lf="129">
+            <div class="block">
+              <p padlength="0" lo="129" lf="129">Nonlinear models</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">129</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="130" lf="132">
+            <div class="block">
+              <p padlength="0" lo="130" lf="130">The EMCEE Markov chain Monte Carlo Python library</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">130</span></div>
+            </div>
+          </li>
+        </ol>
+        <div class="block-info" style="display: none;"><span class="line-numbers">128-130</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="133" lf="133"><a name="general" number="8.1" lo="133" raw="## General" class="anchor hanchor" href="#general" lf="133"><span class="hnumber">8.1</span>&nbsp;<span class="htext">General</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">133</span></div>
+        <h1 lo="132" lf="132"><a name="references" number="9" lo="132" raw="# References" class="anchor hanchor" href="#references"><span class="hnumber">9</span>&nbsp;<span class="htext">References</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">132</span></div>
       </div>
       <div class="block">
-        <ol lo="135" lf="142" class="compact">
-          <li markerlength="3" padlength="0" lo="135" lf="135">
-            <div class="block">
-              <p padlength="0" lo="135" lf="135">Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics in and parsimonious manner. Available on Amazon for $3.00.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">142-144</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="136" lf="136">
-            <div class="block">
-              <p padlength="0" lo="136" lf="136">Many of the topics covered in this course are covered in the MIT OCW course <a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/">Introduction to Probability and Statistics</a>.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">142-144</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="137" lf="137">
-            <div class="block">
-              <p padlength="0" lo="137" lf="137">Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg – Covers basics of uncertainty and error analysis at Freshman physics lab level. Very good but very expensive (&gt; $100 on Amazon).</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">142-144</span></div>
-            </div>
-          </li>
+        <p padlength="0" lo="134" lf="134">The following references are not needed for this course, but you may find them useful for alternative explanations of topics in the textbook.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">134</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="136" lf="136"><a name="general" number="9.1" lo="136" raw="## General" class="anchor hanchor" href="#general"><span class="hnumber">9.1</span>&nbsp;<span class="htext">General</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">136</span></div>
+      </div>
+      <div class="block">
+        <ol lo="138" lf="145" class="compact">
           <li markerlength="3" padlength="0" lo="138" lf="138">
             <div class="block">
-              <p padlength="0" lo="138" lf="138">Statistical Methods in Experimental Physics, F. James – A standard reference that you should have a copy of.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">142-144</span></div>
+              <p padlength="0" lo="138" lf="138">Principles of Statistics, M.G. Bulmer – A short Dover book that covers fundamental statistical topics. Available on Amazon for $3.00.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">138</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="139" lf="139">
             <div class="block">
-              <p padlength="0" lo="139" lf="139">Statistics, D. Freedman, R. Pisani, and R. Purves – A basic introduction to statistics with many examples and extended discussion of topics.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">142-144</span></div>
+              <p padlength="0" lo="139" lf="139">Many of the topics covered in this course are covered in the MIT OCW course <a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/">Introduction to Probability and Statistics</a>.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">139</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="140" lf="140">
             <div class="block">
-              <p padlength="0" lo="140" lf="140">Probability for the Enthusiastic Beginner, D. Morin – A very basic introduction to probability.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">142-144</span></div>
+              <p padlength="0" lo="140" lf="140">Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg – Covers uncertainty and error analysis basics at Freshman physics lab level. Very good but very expensive (&gt; $100 on Amazon).</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">140</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="141" lf="141">
             <div class="block">
-              <p padlength="0" lo="141" lf="141">Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">142-144</span></div>
+              <p padlength="0" lo="141" lf="141">Statistical Methods in Experimental Physics, F. James – A standard reference that you should have a copy of.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">141</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="142" lf="144">
+          <li markerlength="3" padlength="0" lo="142" lf="142">
             <div class="block">
-              <p padlength="0" lo="142" lf="142">Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed) – Similar in scope and coverage of Devore.</p>
+              <p padlength="0" lo="142" lf="142">Statistics, D. Freedman, R. Pisani, and R. Purves – A basic introduction to statistics with many examples and extended discussion of topics.</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">142</span></div>
             </div>
           </li>
+          <li markerlength="3" padlength="0" lo="143" lf="143">
+            <div class="block">
+              <p padlength="0" lo="143" lf="143">Probability for the Enthusiastic Beginner, D. Morin – an elementary introduction to probability.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">143</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="144" lf="144">
+            <div class="block">
+              <p padlength="0" lo="144" lf="144">Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore – A commonly used textbook for upper-division engineering and science majors.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">144</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="145" lf="147">
+            <div class="block">
+              <p padlength="0" lo="145" lf="145">Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed) – Similar in scope and coverage of Devore.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">145</span></div>
+            </div>
+          </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">135-142</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">138-145</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="144" lf="144"><a name="bayes" number="8.2" lo="144" raw="## Bayes" class="anchor hanchor" href="#bayes" lf="144"><span class="hnumber">8.2</span>&nbsp;<span class="htext">Bayes</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">144</span></div>
+        <h2 lo="147" lf="147"><a name="bayes" number="9.2" lo="147" raw="## Bayes" class="anchor hanchor" href="#bayes"><span class="hnumber">9.2</span>&nbsp;<span class="htext">Bayes</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">147</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="146" lf="146"><a name="general" number="8.2.1" lo="146" raw="### General" class="anchor hanchor" href="#general" lf="146"><span class="hnumber">8.2.1</span>&nbsp;<span class="htext">General</span></a></h3>
-        <div class="block-info" style="display: none;"><span class="line-numbers">146</span></div>
+        <h3 lo="149" lf="149"><a name="general" number="9.2.1" lo="149" raw="### General" class="anchor hanchor" href="#general"><span class="hnumber">9.2.1</span>&nbsp;<span class="htext">General</span></a></h3>
+        <div class="block-info" style="display: none;"><span class="line-numbers">149</span></div>
       </div>
       <div class="block">
-        <ol lo="148" lf="157" class="compact">
-          <li markerlength="3" padlength="0" lo="148" lf="148">
-            <div class="block">
-              <p padlength="0" lo="148" lf="148">Bayes’ Rule – A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone. This book is a good starting point.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="149" lf="149">
-            <div class="block">
-              <p padlength="0" lo="149" lf="149"><a href="http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf">Doing Bayesian Data Analysis by Kruschke</a> – The best overview that I am aware of. The examples are in R, but translation to other languages is straightforward. Most of the value of this book is in the descriptions of the concepts.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="150" lf="150">
-            <div class="block">
-              <p padlength="0" lo="150" lf="150"><a href="https://www.amazon.com/Bayesian-Statistics-Introduction-Peter-Lee-dp-1118332571/dp/1118332571/">Bayesian Statistics – an Introduction by P.M. Lee</a> is a classic introductory textbook.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
-            </div>
-          </li>
+        <ol lo="151" lf="160" class="compact">
           <li markerlength="3" padlength="0" lo="151" lf="151">
             <div class="block">
-              <p padlength="0" lo="151" lf="151"><a href="https://link.springer.com/article/10.3758/s13423-017-1317-5">How to become a Bayesian in eight easy steps: An annotated reading list, by Etz et al., 2018</a>.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
+              <p padlength="0" lo="151" lf="151">Bayes’ Rule – A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone. This book is a good starting point.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">151</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="152" lf="152">
             <div class="block">
-              <p padlength="0" lo="152" lf="152">Data Analysis – A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
+              <p padlength="0" lo="152" lf="152"><a href="http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf">Doing Bayesian Data Analysis by Kruschke</a> – The best overview that I am aware of. The examples are in R, but translation to other languages is straightforward. Most of this book’s value is in the concepts’ descriptions.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">152</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="153" lf="153">
             <div class="block">
-              <p padlength="0" lo="153" lf="153">Neural Networks for Pattern Recognition (2006), by C.M. Bishop – Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes’ rule.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
+              <p padlength="0" lo="153" lf="153"><a href="https://www.amazon.com/Bayesian-Statistics-Introduction-Peter-Lee-dp-1118332571/dp/1118332571/">Bayesian Statistics – an Introduction by P.M. Lee</a> is a classic introductory textbook.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">153</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="154" lf="154">
             <div class="block">
-              <p padlength="0" lo="154" lf="154">Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D’Agostini</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
+              <p padlength="0" lo="154" lf="154"><a href="https://link.springer.com/article/10.3758/s13423-017-1317-5">How to become a Bayesian in eight easy steps: An annotated reading list, by Etz et al., 2018</a>.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">154</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="155" lf="155">
             <div class="block">
-              <p padlength="0" lo="155" lf="155">The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman – This is a classic book on Machine Learning/Statistical Learning.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
+              <p padlength="0" lo="155" lf="155">Data Analysis – A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">155</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="156" lf="156">
             <div class="block">
-              <p padlength="0" lo="156" lf="156">Validation of Software for Bayesian Models Using Posterior Quantiles by Cook, Gelman, and Rubin, 2006 (<a href="https://www.jstor.org/stable/27594203">https://www.jstor.org/stable/27594203</a>).</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">157-159</span></div>
+              <p padlength="0" lo="156" lf="156">Neural Networks for Pattern Recognition (2006), by C.M. Bishop – Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes’ rule.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">156</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="157" lf="159">
+          <li markerlength="3" padlength="0" lo="157" lf="157">
             <div class="block">
-              <p padlength="0" lo="157" lf="157"><a href="http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf">Section 3.4 of the lecture notes on Hierarchal Models by Junker</a> contains in Section 3.4 a detailed introduction to a common example covered in many books – finding the posterior when the standard deviation of the population is known and a prior distribution is available.</p>
+              <p padlength="0" lo="157" lf="157">Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D’Agostini</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">157</span></div>
             </div>
           </li>
+          <li markerlength="3" padlength="0" lo="158" lf="158">
+            <div class="block">
+              <p padlength="0" lo="158" lf="158">The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman – This is a classic book on Machine Learning/Statistical Learning.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">158</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="159" lf="159">
+            <div class="block">
+              <p padlength="0" lo="159" lf="159">Validation of Software for Bayesian Models Using Posterior Quantiles by Cook, Gelman, and Rubin, 2006 (<a href="https://www.jstor.org/stable/27594203">https://www.jstor.org/stable/27594203</a>).</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">159</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="160" lf="162">
+            <div class="block">
+              <p padlength="0" lo="160" lf="160"><a href="http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf">Section 3.4 of the lecture notes on Hierarchal Models by Junker</a> contains in Section 3.4 a detailed introduction to a typical example covered in many books – finding the posterior when the standard deviation of the population is known and a prior distribution is available.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">160</span></div>
+            </div>
+          </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">148-157</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">151-160</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="159" lf="159"><a name="bayesian-vs.-frequentist" number="8.2.2" lo="159" raw="### Bayesian vs. Frequentist" class="anchor hanchor" href="#bayesian-vs.-frequentist" lf="159"><span class="hnumber">8.2.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
-        <div class="block-info" style="display: none;"><span class="line-numbers">159</span></div>
+        <h3 lo="162" lf="162"><a name="bayesian-vs.-frequentist" number="9.2.2" lo="162" raw="### Bayesian vs. Frequentist" class="anchor hanchor" href="#bayesian-vs.-frequentist"><span class="hnumber">9.2.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
+        <div class="block-info" style="display: none;"><span class="line-numbers">162</span></div>
       </div>
       <div class="block">
-        <ol lo="161" lf="165" class="compact">
-          <li markerlength="3" padlength="0" lo="161" lf="161">
-            <div class="block">
-              <p padlength="0" lo="161" lf="161">The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">165-167</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="162" lf="162">
-            <div class="block">
-              <p padlength="0" lo="162" lf="162">Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas (<a href="https://arxiv.org/pdf/1411.5018.pdf">arxiv.org/pdf/<wbr>1411.5018.pdf</a>).</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">165-167</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="163" lf="163">
-            <div class="block">
-              <p padlength="0" lo="163" lf="163">Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom (<a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf">MIT18<wbr>_05S14<wbr>_Reading20.pdf</a>)</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">165-167</span></div>
-            </div>
-          </li>
+        <ol lo="164" lf="168" class="compact">
           <li markerlength="3" padlength="0" lo="164" lf="164">
             <div class="block">
-              <p padlength="0" lo="164" lf="164">Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">165-167</span></div>
+              <p padlength="0" lo="164" lf="164">The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">164</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="165" lf="167">
+          <li markerlength="3" padlength="0" lo="165" lf="165">
             <div class="block">
-              <p padlength="0" lo="165" lf="165"><a href="https://psycnet.apa.org/record/1995-12080-001">The Earth is Round</a> covers the mis-use of significance tests in the psychological literature.</p>
+              <p padlength="0" lo="165" lf="165">Frequentism and Bayesianism: A Python-driven Primer (2015), by J. VanderPlas (<a href="https://arxiv.org/pdf/1411.5018.pdf">arxiv.org/pdf/<wbr>1411.5018.pdf</a>).</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">165</span></div>
             </div>
           </li>
+          <li markerlength="3" padlength="0" lo="166" lf="166">
+            <div class="block">
+              <p padlength="0" lo="166" lf="166">Lecture notes on the comparison of frequentist and Bayesian Inference, by J. Orloff and J. Bloom (<a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading20.pdf">MIT18<wbr>_05S14<wbr>_Reading20.pdf</a>)</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">166</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="167" lf="167">
+            <div class="block">
+              <p padlength="0" lo="167" lf="167">Statistical Inference Showdown: The Frequentists vs. The Bayesians (2017), by K. Dubovikov.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">167</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="168" lf="170">
+            <div class="block">
+              <p padlength="0" lo="168" lf="168"><a href="https://psycnet.apa.org/record/1995-12080-001">The Earth is Round</a> covers the mis-use of significance tests in the psychological literature.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">168</span></div>
+            </div>
+          </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">161-165</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">164-168</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="167" lf="167"><a name="credible-intervals" number="8.2.3" lo="167" raw="### Credible Intervals" class="anchor hanchor" href="#credible-intervals" lf="167"><span class="hnumber">8.2.3</span>&nbsp;<span class="htext">Credible Intervals</span></a></h3>
-        <div class="block-info" style="display: none;"><span class="line-numbers">167</span></div>
+        <h3 lo="170" lf="170"><a name="credible-intervals" number="9.2.3" lo="170" raw="### Credible Intervals" class="anchor hanchor" href="#credible-intervals"><span class="hnumber">9.2.3</span>&nbsp;<span class="htext">Credible Intervals</span></a></h3>
+        <div class="block-info" style="display: none;"><span class="line-numbers">170</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="169" lf="169">In the following references, the terms “Bayesian Intervals”, “Bayesian Confidence Intervals”, and “Credible Intervals” are used to mean the same thing.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">169</span></div>
+        <p padlength="0" lo="172" lf="172">In the following references, the terms “Bayesian Intervals”, “Bayesian Confidence Intervals”, and “Credible Intervals” are used to mean the same thing.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">172</span></div>
       </div>
       <div class="block">
-        <ul lo="171" lf="177" class="compact">
-          <li markerlength="2" padlength="0" lo="171" lf="171">
-            <div class="block">
-              <p padlength="0" lo="171" lf="171">The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>. This is not an easy read as a first introduction. The following references provide a more introductory explanation: <a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">Kruschke and Liddell 2018</a>; <a href="https://arxiv.org/pdf/1411.5018.pdf">VanderPlas 2014</a>. <a href="http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/">A blog post by VanderPlas</a> goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approach.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">176-179</span></div>
-            </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="172" lf="172">
-            <div class="block">
-              <p padlength="0" lo="172" lf="172"><a href="http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf">Levy 2012</a> is also a good introduction.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">176-179</span></div>
-            </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="173" lf="173">
-            <div class="block">
-              <p padlength="0" lo="173" lf="173">Credible intervals are described by the authors of the <a href="https://easystats.github.io/bayestestR/articles/credible_interval.html">easystats</a>.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">176-179</span></div>
-            </div>
-          </li>
+        <ul lo="174" lf="180" class="compact">
           <li markerlength="2" padlength="0" lo="174" lf="174">
             <div class="block">
-              <p padlength="0" lo="174" lf="174"><a href="https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/">testscience.org</a> has a brief example that compares confidence intervals with credible intervals.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">176-179</span></div>
+              <p padlength="0" lo="174" lf="174">The primary reference is <a href="https://bayes.wustl.edu/etj/articles/confidence.pdf">Jaynes 1976</a>. This is not an easy read as a first introduction. The following references provide a more introductory explanation: <a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">Kruschke and Liddell 2018</a>; <a href="https://arxiv.org/pdf/1411.5018.pdf">VanderPlas 2014</a>. <a href="http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/">A blog post by VanderPlas</a> goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approaches.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">174</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="175" lf="175">
             <div class="block">
-              <p padlength="0" lo="175" lf="175">Analysis of regression confidence intervals and Bayesian credible intervals for uncertainty quantification by Liu, Ye, and Ling, 2012 (<a href="https://doi.org/">https://doi.org/</a><wbr>10.1029/<wbr>2011WR011289)</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">176-179</span></div>
+              <p padlength="0" lo="175" lf="175"><a href="http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf">Levy 2012</a> is also a good introduction.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">175</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="176" lf="179">
+          <li markerlength="2" padlength="0" lo="176" lf="176">
             <div class="block">
-              <p padlength="0" lo="176" lf="177"><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bayes_mvs.html"><code type="md">bayes_mvs</code></a> in SciPy uses the method described in <a href="https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?article=1277&amp;context=facpub">A Bayesian perspective on estimating mean, variance, and standard-deviation from data by Travis E. Oliphant, 2006</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">176-177</span></div>
+              <p padlength="0" lo="176" lf="176">Credible intervals are described by the authors of the <a href="https://easystats.github.io/bayestestR/articles/credible_interval.html">easystats</a>.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">176</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="177" lf="177">
+            <div class="block">
+              <p padlength="0" lo="177" lf="177"><a href="https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/">testscience.org</a> has a brief example that compares confidence intervals with credible intervals.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">177</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="178" lf="178">
+            <div class="block">
+              <p padlength="0" lo="178" lf="178">Analysis of regression confidence intervals and Bayesian credible intervals for uncertainty quantification by Liu, Ye, and Ling, 2012 (<a href="https://doi.org/">https://doi.org/</a><wbr>10.1029/<wbr>2011WR011289)</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">178</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="179" lf="182">
+            <div class="block">
+              <p padlength="0" lo="179" lf="180"><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bayes_mvs.html"><code type="md">bayes_mvs</code></a> in SciPy uses the method described in <a href="https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?article=1277&amp;context=facpub">A Bayesian perspective on estimating mean, variance, and standard-deviation from data by Travis E. Oliphant, 2006</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">179-180</span></div>
             </div>
           </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">171-177</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">174-180</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="179" lf="179"><a name="mcmc" number="8.2.4" lo="179" raw="### MCMC" class="anchor hanchor" href="#mcmc" lf="179"><span class="hnumber">8.2.4</span>&nbsp;<span class="htext">MCMC</span></a></h3>
-        <div class="block-info" style="display: none;"><span class="line-numbers">179</span></div>
+        <h3 lo="182" lf="182"><a name="mcmc" number="9.2.4" lo="182" raw="### MCMC" class="anchor hanchor" href="#mcmc"><span class="hnumber">9.2.4</span>&nbsp;<span class="htext">MCMC</span></a></h3>
+        <div class="block-info" style="display: none;"><span class="line-numbers">182</span></div>
       </div>
       <div class="block">
-        <ul lo="181" lf="183" class="compact">
-          <li markerlength="2" padlength="0" lo="181" lf="181">
+        <ul lo="184" lf="186" class="compact">
+          <li markerlength="2" padlength="0" lo="184" lf="184">
             <div class="block">
-              <p padlength="0" lo="181" lf="181"><a href="https://twiecki.io/blog/2015/11/10/mcmc-sampling/">https://twiecki.io/blog/2015/11/10/mcmc-sampling/</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">183-185</span></div>
+              <p padlength="0" lo="184" lf="184"><a href="https://twiecki.io/blog/2015/11/10/mcmc-sampling/">https://twiecki.io/blog/2015/11/10/mcmc-sampling/</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">184</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="182" lf="182">
+          <li markerlength="2" padlength="0" lo="185" lf="185">
             <div class="block">
-              <p padlength="0" lo="182" lf="182">Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from <a href="https://arxiv.org/abs/1710.06068">arxiv.org</a> and <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aab76e">iopscience.iop.org</a>); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">183-185</span></div>
+              <p padlength="0" lo="185" lf="185">Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from <a href="https://arxiv.org/abs/1710.06068">arxiv.org</a> and <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aab76e">iopscience.iop.org</a>); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipes for implementation.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">185</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="183" lf="185">
+          <li markerlength="2" padlength="0" lo="186" lf="188">
             <div class="block">
-              <p padlength="0" lo="183" lf="183"><a href="https://link.springer.com/article/10.3758/s13423-016-1015-8">Ravenzwaaij, Cassey, and Brown, 2018</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">183</span></div>
+              <p padlength="0" lo="186" lf="186"><a href="https://link.springer.com/article/10.3758/s13423-016-1015-8">Ravenzwaaij, Cassey, and Brown, 2018</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">186</span></div>
             </div>
           </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">181-183</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">184-186</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="185" lf="185"><a name="misc" number="8.2.5" lo="185" raw="### Misc" class="anchor hanchor" href="#misc" lf="185"><span class="hnumber">8.2.5</span>&nbsp;<span class="htext">Misc</span></a></h3>
-        <div class="block-info" style="display: none;"><span class="line-numbers">185</span></div>
+        <h3 lo="188" lf="188"><a name="misc" number="9.2.5" lo="188" raw="### Misc" class="anchor hanchor" href="#misc"><span class="hnumber">9.2.5</span>&nbsp;<span class="htext">Misc</span></a></h3>
+        <div class="block-info" style="display: none;"><span class="line-numbers">188</span></div>
       </div>
       <div class="block">
-        <ul lo="187" lf="192" class="compact">
-          <li markerlength="2" padlength="0" lo="187" lf="187">
-            <div class="block">
-              <p padlength="0" lo="187" lf="187"><a href="https://stats.stackexchange.com/questions/421221/bayesian-inference-feeding-posterior-back-in-as-prior">https://stats.stackexchange.com/questions/421221/bayesian-inference-feeding-posterior-back-in-as-prior</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">192-194</span></div>
-            </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="188" lf="188">
-            <div class="block">
-              <p padlength="0" lo="188" lf="188"><a href="https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/How-Principled-and-Practical-Are-Penalised-Complexity-Priors/10.1214/16-STS603.full">https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/How-Principled-and-Practical-Are-Penalised-Complexity-Priors/10.1214/16-STS603.full</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">192-194</span></div>
-            </div>
-          </li>
-          <li markerlength="2" padlength="0" lo="189" lf="189">
-            <div class="block">
-              <p padlength="0" lo="189" lf="189"><a href="http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf">http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">192-194</span></div>
-            </div>
-          </li>
+        <ul lo="190" lf="195" class="compact">
           <li markerlength="2" padlength="0" lo="190" lf="190">
             <div class="block">
-              <p padlength="0" lo="190" lf="190"><a href="https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d">https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">192-194</span></div>
+              <p padlength="0" lo="190" lf="190"><a href="https://stats.stackexchange.com/questions/421221/bayesian-inference-feeding-posterior-back-in-as-prior">https://stats.stackexchange.com/questions/421221/bayesian-inference-feeding-posterior-back-in-as-prior</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">190</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="191" lf="191">
             <div class="block">
-              <p padlength="0" lo="191" lf="191"><a href="https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior">https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">192-194</span></div>
+              <p padlength="0" lo="191" lf="191"><a href="https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/How-Principled-and-Practical-Are-Penalised-Complexity-Priors/10.1214/16-STS603.full">https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/How-Principled-and-Practical-Are-Penalised-Complexity-Priors/10.1214/16-STS603.full</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">191</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="192" lf="194">
+          <li markerlength="2" padlength="0" lo="192" lf="192">
             <div class="block">
-              <p padlength="0" lo="192" lf="192"><a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">https://link.springer.com/article/10.3758/s13423-016-1221-4</a></p>
+              <p padlength="0" lo="192" lf="192"><a href="http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf">http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf</a></p>
               <div class="block-info" style="display: none;"><span class="line-numbers">192</span></div>
             </div>
           </li>
+          <li markerlength="2" padlength="0" lo="193" lf="193">
+            <div class="block">
+              <p padlength="0" lo="193" lf="193"><a href="https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d">https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">193</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="194" lf="194">
+            <div class="block">
+              <p padlength="0" lo="194" lf="194"><a href="https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior">https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">194</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="195" lf="197">
+            <div class="block">
+              <p padlength="0" lo="195" lf="195"><a href="https://link.springer.com/article/10.3758/s13423-016-1221-4">https://link.springer.com/article/10.3758/s13423-016-1221-4</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">195</span></div>
+            </div>
+          </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">187-192</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">190-195</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="194" lf="194"><a name="astronomy" number="8.3" lo="194" raw="## Astronomy" class="anchor hanchor" href="#astronomy" lf="194"><span class="hnumber">8.3</span>&nbsp;<span class="htext">Astronomy</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">194</span></div>
+        <h2 lo="197" lf="197"><a name="astronomy" number="9.3" lo="197" raw="## Astronomy" class="anchor hanchor" href="#astronomy"><span class="hnumber">9.3</span>&nbsp;<span class="htext">Astronomy</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">197</span></div>
       </div>
       <div class="block">
-        <ol lo="196" lf="201" class="compact">
-          <li markerlength="3" padlength="0" lo="196" lf="196">
-            <div class="block">
-              <p padlength="0" lo="196" lf="196">Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">201-203</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="197" lf="197">
-            <div class="block">
-              <p padlength="0" lo="197" lf="197">Bayesian Methods for the Physical Sciences: Learning from Examples in Astronomy and Physics (2015), S. Andreon and B. Weaver.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">201-203</span></div>
-            </div>
-          </li>
-          <li markerlength="3" padlength="0" lo="198" lf="198">
-            <div class="block">
-              <p padlength="0" lo="198" lf="198">Bayesian Models for Astrophysical Data: Using R, JAGS, Python, and Stan, J.M. Hilbe, R.S. de Souza, and E.E.O. Ishida.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">201-203</span></div>
-            </div>
-          </li>
+        <ol lo="199" lf="204" class="compact">
           <li markerlength="3" padlength="0" lo="199" lf="199">
             <div class="block">
-              <p padlength="0" lo="199" lf="199">Modern Statistical Methods for Astronomy: With R Applications (2012), E.D. Feigelson and G.J. Babu.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">201-203</span></div>
+              <p padlength="0" lo="199" lf="199">Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">199</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="200" lf="200">
             <div class="block">
-              <p padlength="0" lo="200" lf="200">Statistics, Data Mining, and Machine Learning in Astronomy: A Practical Python Guide for the Analysis of Survey Data, Željko Ivezic, Andrew J. Connolly, Jacob T VanderPlas, and Alexander Gray.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">201-203</span></div>
+              <p padlength="0" lo="200" lf="200">Bayesian Methods for the Physical Sciences: Learning from Examples in Astronomy and Physics (2015), S. Andreon and B. Weaver.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">200</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="201" lf="203">
+          <li markerlength="3" padlength="0" lo="201" lf="201">
             <div class="block">
-              <p padlength="0" lo="201" lf="201">Computational Bayesian Statistics: An Introduction (2019), M. Antónia Amaral Turkman, Carlos Daniel Paulino, Peter Müller.</p>
+              <p padlength="0" lo="201" lf="201">Bayesian Models for Astrophysical Data: Using R, JAGS, Python, and Stan, J.M. Hilbe, R.S. de Souza, and E.E.O. Ishida.</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">201</span></div>
             </div>
           </li>
+          <li markerlength="3" padlength="0" lo="202" lf="202">
+            <div class="block">
+              <p padlength="0" lo="202" lf="202">Modern Statistical Methods for Astronomy: With R Applications (2012), E.D. Feigelson and G.J. Babu.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">202</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="203" lf="203">
+            <div class="block">
+              <p padlength="0" lo="203" lf="203">Statistics, Data Mining, and Machine Learning in Astronomy: A Practical Python Guide for the Analysis of Survey Data, Željko Ivezic, Andrew J. Connolly, Jacob T VanderPlas, and Alexander Gray.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">203</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="204" lf="206">
+            <div class="block">
+              <p padlength="0" lo="204" lf="204">Computational Bayesian Statistics: An Introduction (2019), M. Antónia Amaral Turkman, Carlos Daniel Paulino, Peter Müller.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">204</span></div>
+            </div>
+          </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">196-201</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">199-204</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="203" lf="203"><a name="software" number="8.4" lo="203" raw="## Software" class="anchor hanchor" href="#software" lf="203"><span class="hnumber">8.4</span>&nbsp;<span class="htext">Software</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">203</span></div>
+        <h2 lo="206" lf="206"><a name="software" number="9.4" lo="206" raw="## Software" class="anchor hanchor" href="#software"><span class="hnumber">9.4</span>&nbsp;<span class="htext">Software</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">206</span></div>
       </div>
       <div class="block">
-        <ol lo="205" lf="207" class="compact">
-          <li markerlength="3" padlength="0" lo="205" lf="205">
+        <ol lo="208" lf="210" class="compact">
+          <li markerlength="3" padlength="0" lo="208" lf="208">
             <div class="block">
-              <p padlength="0" lo="205" lf="205"><a href="http://greenteapress.com/thinkstats2/html/thinkstats2010.html">Think Stats</a> - A free book that demonstrates standard statistical calculations in Python.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">206-209</span></div>
+              <p padlength="0" lo="208" lf="208"><a href="http://greenteapress.com/thinkstats2/html/thinkstats2010.html">Think Stats</a> - A free book demonstrating standard statistical calculations in Python.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">208</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="206" lf="209">
+          <li markerlength="3" padlength="0" lo="209" lf="212">
             <div class="block">
-              <p padlength="0" lo="206" lf="207"><a href="https://arxiv.org/pdf/1202.3665.pdf">EMCEE Overview</a>
+              <p padlength="0" lo="209" lf="210"><a href="https://arxiv.org/pdf/1202.3665.pdf">EMCEE Overview</a>
                 <a href="https://emcee.readthedocs.io/en/stable/">EMCEE software documentation</a>
               </p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">206-207</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">209-210</span></div>
             </div>
           </li>
         </ol>
-        <div class="block-info" style="display: none;"><span class="line-numbers">205-207</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">208-210</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="209" lf="209"><a name="general-policies" number="9" lo="209" raw="# General Policies" class="anchor hanchor" href="#general-policies" lf="209"><span class="hnumber">9</span>&nbsp;<span class="htext">General Policies</span></a></h1>
-        <div class="block-info" style="display: none;"><span class="line-numbers">209</span></div>
+        <h1 lo="212" lf="212"><a name="general-policies" number="10" lo="212" raw="# General Policies" class="anchor hanchor" href="#general-policies"><span class="hnumber">10</span>&nbsp;<span class="htext">General Policies</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">212</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="211" lf="211" class=""><a name="academic-integrity" number="9.1" lo="211" raw="## Academic Integrity" class="anchor hanchor" href="#academic-integrity" lf="211"><span class="hnumber">9.1</span>&nbsp;<span class="htext">Academic Integrity</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">211</span></div>
+        <h2 lo="214" lf="214"><a name="academic-integrity" number="10.1" lo="214" raw="## Academic Integrity" class="anchor hanchor" href="#academic-integrity"><span class="hnumber">10.1</span>&nbsp;<span class="htext">Academic Integrity</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">214</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="213" lf="213" class="">Mason is an Honor Code university; please see the Office for Academic Integrity for a full description of the code and the honor committee process. The principle of academic integrity is taken very seriously and violations are treated gravely. What does academic integrity mean in this course? Essentially this: when you are responsible for a task, you will perform that task. When you rely on someone else’s work in an aspect of the performance of that task, you will give full credit in the proper, accepted form. Any student use of Generative-AI tools should follow the fundamental principles of the Honor Code.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">213</span></div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="block">
-        <h2 lo="215" lf="215" class=""><a name="disability" number="9.2" lo="215" raw="## Disability" class="anchor hanchor" href="#disability" lf="215"><span class="hnumber">9.2</span>&nbsp;<span class="htext">Disability</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">215</span></div>
-      </div>
-      <div class="block">
-        <p padlength="0" lo="217" lf="217" class="">Disability Services at George Mason University is committed to providing equitable access to learning opportunities for all students by upholding the laws that ensure equal treatment of people with disabilities. If you are seeking accommodations for this class, please first visit <a href="http://ds.gmu.edu/">http://ds.gmu.edu/</a> for detailed information about the Disability Services registration process. Then please discuss your approved accommodations with me. Disability Services is located in Student Union Building I (SUB I), Suite 2500. Email:<a href="mailto:ods@gmu.edu">ods@gmu.edu</a> | Phone: (703) 993-2474.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">217</span></div>
+        <p padlength="0" lo="216" lf="216">Mason is an Honor Code university; please see the Office for Academic Integrity for a full description of the code and the honor committee process. The principle of academic integrity is taken very seriously and violations are treated gravely. What does academic integrity mean in this course? Essentially this: when you are responsible for a task, you will perform that task. When you rely on someone else’s work in an aspect of the performance of that task, you will give full credit in the proper, accepted form. Any student use of Generative-AI tools should follow the fundamental principles of the Honor Code.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">216</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="219" lf="219" class=""><a name="diversity-and-inclusion" number="9.3" lo="219" raw="## Diversity and Inclusion" class="anchor hanchor" href="#diversity-and-inclusion" lf="219"><span class="hnumber">9.3</span>&nbsp;<span class="htext">Diversity and Inclusion</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">219</span></div>
+        <h2 lo="218" lf="218"><a name="disability" number="10.2" lo="218" raw="## Disability" class="anchor hanchor" href="#disability"><span class="hnumber">10.2</span>&nbsp;<span class="htext">Disability</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">218</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="221" lf="221">We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at <a href="https://universitypolicy.gmu.edu/policies/non-discrimination-policy/">https://universitypolicy.gmu.edu/policies/non-discrimination-policy/</a>.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">221</span></div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="block">
-        <h2 lo="223" lf="223"><a name="communication" number="9.4" lo="223" raw="## Communication" class="anchor hanchor" href="#communication" lf="223"><span class="hnumber">9.4</span>&nbsp;<span class="htext">Communication</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">223</span></div>
-      </div>
-      <div class="block">
-        <p padlength="0" lo="225" lf="225">If you have a question whose answer may be of interest to other students, please post it to Discord and make it visible to other students. You can set the post so that you are anonymous.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">225</span></div>
-      </div>
-      <div class="block">
-        <p padlength="0" lo="227" lf="227">If you need to send communicate with me about something private, please send it to <code type="md">rweigel@gmu.edu</code> from your MasonLive email address.</p>
-        <div class="block-info" style="display: none;"><span class="line-numbers">227</span></div>
+        <p padlength="0" lo="220" lf="220">Disability Services at George Mason University is committed to providing equitable access to learning opportunities for all students by upholding the laws that ensure equal treatment of people with disabilities. If you are seeking accommodations for this class, please first visit <a href="http://ds.gmu.edu/">http://ds.gmu.edu/</a> for detailed information about the Disability Services registration process. Then please discuss your approved accommodations with me. Disability Services is located in Student Union Building I (SUB I), Suite 2500. Email:<a href="mailto:ods@gmu.edu">ods@gmu.edu</a> | Phone: (703) 993-2474.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">220</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="229" lf="229"><a name="university-resources" number="9.5" lo="229" raw="## University Resources" class="anchor hanchor" href="#university-resources" lf="229"><span class="hnumber">9.5</span>&nbsp;<span class="htext">University Resources</span></a></h2>
-        <div class="block-info" style="display: none;"><span class="line-numbers">229</span></div>
+        <h2 lo="222" lf="222"><a name="diversity-and-inclusion" number="10.3" lo="222" raw="## Diversity and Inclusion" class="anchor hanchor" href="#diversity-and-inclusion"><span class="hnumber">10.3</span>&nbsp;<span class="htext">Diversity and Inclusion</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">222</span></div>
       </div>
       <div class="block">
-        <ul lo="231" lf="233" class="compact">
-          <li markerlength="2" padlength="0" lo="231" lf="231">
+        <p padlength="0" lo="224" lf="224">We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at <a href="https://universitypolicy.gmu.edu/policies/non-discrimination-policy/">https://universitypolicy.gmu.edu/policies/non-discrimination-policy/</a>.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">224</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="226" lf="226"><a name="communication" number="10.4" lo="226" raw="## Communication" class="anchor hanchor" href="#communication"><span class="hnumber">10.4</span>&nbsp;<span class="htext">Communication</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">226</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="228" lf="228">If you have a question whose answer may be of interest to other students, please post it to Discord and make it visible to other students. You can set the post so that you are anonymous.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">228</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="230" lf="230">If you need to send communicate with me about something private, please send it to <code type="md">rweigel@gmu.edu</code> from your MasonLive email address.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">230</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="232" lf="232" class=""><a name="university-resources" number="10.5" lo="232" raw="## University Resources" class="anchor hanchor" href="#university-resources"><span class="hnumber">10.5</span>&nbsp;<span class="htext">University Resources</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">232</span></div>
+      </div>
+      <div class="block">
+        <ul lo="234" lf="236" class="compact">
+          <li markerlength="2" padlength="0" lo="234" lf="234">
             <div class="block">
-              <p padlength="0" lo="231" lf="231">Learning Services <a href="https://learningservices.gmu.edu/">https://learningservices.gmu.edu/</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">233-234</span></div>
+              <p padlength="0" lo="234" lf="234">Learning Services <a href="https://learningservices.gmu.edu/">https://learningservices.gmu.edu/</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">234</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="232" lf="232">
+          <li markerlength="2" padlength="0" lo="235" lf="235">
             <div class="block">
-              <p padlength="0" lo="232" lf="232">Student Support and Advocacy Center <a href="https://ssac.gmu.edu/">https://ssac.gmu.edu/</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">233-234</span></div>
+              <p padlength="0" lo="235" lf="235">Student Support and Advocacy Center <a href="https://ssac.gmu.edu/">https://ssac.gmu.edu/</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">235</span></div>
             </div>
           </li>
-          <li markerlength="2" padlength="0" lo="233" lf="234">
+          <li markerlength="2" padlength="0" lo="236" lf="237" class="">
             <div class="block">
-              <p padlength="0" lo="233" lf="233">Counseling and Psychological Services <a href="https://caps.gmu.edu/">https://caps.gmu.edu/</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">233</span></div>
+              <p padlength="0" lo="236" lf="236">Counseling and Psychological Services <a href="https://caps.gmu.edu/">https://caps.gmu.edu/</a></p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">236</span></div>
             </div>
           </li>
         </ul>
-        <div class="block-info" style="display: none;"><span class="line-numbers">231-233</span></div>
+        <div class="block-info" style="display: none;"><span class="line-numbers">234-236</span></div>
       </div>
     </div>
   </div>

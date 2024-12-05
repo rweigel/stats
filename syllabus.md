@@ -1,32 +1,35 @@
 ```mdextension
-Title: AstroStats 
-Subtitle: ASTR/PHYS 390/590<br>Spring, 2023
+Title: Statistical Methods in Physics
+Subtitle: ASTR/PHYS 390/590<br>Spring, 2025
 ```
 
 # Course Information
 
 * **Day and Time**: Thursday from 4:30 - 7:10 pm
-* **Last Class**: Thursday, May 4th
 * **Location**: 220 Planetary Hall
 * **Instructor**: Bob Weigel
 * **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
 * **Office Hour**: Thursday 3:30-4:30 pm
-* **Course URL**: [http://rweigel.github.io/astrostats](http://rweigel.github.io/astrostats)
+* **Course URL**: [http://rweigel.github.io/stats](http://rweigel.github.io/stats)
 * **Credits**: 3 (Lecture)
 * **Prerequisites**:
   * 390: Grade of B or higher in PHYS 251 or permission of instructor;
   * 590: Enrollment in a COS or VSE graduate program.
-* **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in astrophysics and the space sciences.
+* **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in physics.
 
-HWs: [1](hw.html#hw-1) | [2](hw.html#hw-2) | [3](hw.html#hw-3) | [4](hw.html#hw-4) | [5](hw.html#hw-5) | [6](hw.html#hw-6) | [7](hw.html#hw-7) | [8](hw.html#hw-8) | [9](hw.html#hw-9) | [10](hw.html#hw-10) | [11](hw.html#hw-11)
+# Summary
+
+This course covers fundamental statistical methods that apply to most data--related (both measurement and simulation) problems. I emphasize the development of a deep understanding of the interpretation of statistical results.
+
+I encourage students doing data-related research projects to use their data for a project.
 
 # Motivation and Learning Outcomes
 
 **Motivation**
 
 * Many entry-level jobs for BS, MS, and PhD typically involve exploratory data analysis and require a basic understanding of statistics.
-* Many of our graduate students are working on data-intensive research problems that require an understanding of modern statistical methods.
-* Many BS, MS, and PhD students have not had a traditional statistics course as an undergraduate.
+* Many of our graduate students are working on data-intensive research problems that require understanding modern statistical methods.
+* Many BS, MS, and PhD students have not taken a traditional statistics course as an undergraduate.
 
 **Learning Outcomes**
 
@@ -35,48 +38,48 @@ Students will
 1. have an intuitive understanding of the interpretation of uncertainty;
 1. be able to compute uncertainties using at least two methods;
 1. generate ideas for exploratory data analysis and validation of statistical calculations;
-1. learn to use at least one advanced statistical package.
-1. learn to present data and results at the level of quality seen in seminars and journal articles; and
-1. learn to write code in a way that it is easy for others to understand and modify;
+1. learn to use at least one advanced statistical package;
+1. learn to present data and results at the level of quality seen in seminars, journal articles, and meeting posters; and
+1. learn to write code in a way that is easy for others to understand and modify.
 
 # Methods of Instruction
 
 * In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.
-* I usually have you do a reading and basic problem on a new topic before I discuss it in class. I find content that I present "sticks" if students have experiemented with the concepts before I discuss them.
+* I usually have you do a reading and solve a basic problem on a new topic before I discuss it in class. I find content that I present "sticks" if students have experimented with the concepts before I discuss them.
 * You will be asked to participate in class discussions during class and on Discord. Talking and writing about statistics will help you understand statistics.
-* Homework assignments will be approximately 50% hand-written and 50% programs. I will ask students to present their solutions during class and for other students to comment.
-* I give detailed solutions to homework problems. However, I will not always be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
+* Homework assignments will be approximately 50% hand-written and 50% programs. I will ask students to present their solutions during class and for others to comment.
+* After the midterm, students will propose a project, and part of each subsequent homework assignment will be an additional analysis related to your project. The required analysis will be based on what you propose and ideas that are generated when you give a brief (~5--minute) update on your progress.
 
-   I may ask you to meet with me to explain your reasoning on your homework. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.
+%* I give detailed solutions to homework problems. However, I will not always be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
+
+%I may ask you to meet with me to explain your reasoning on your homework. I will comment on your how you solved the problem and how you presented your results. Like ordinary writing, they can always be improved. I want you to leave this class knowing how a working scientist organizes analyses and presents results.
 
 # Programming
 
-* Any programming language may be used for homework and the final project. I will write my solutions in Python.
+* You may use any programming language for homework and the final project. I will write my solutions in Python.
 * I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my [notes for PHYS 251](python.html).
 * I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.
 
 # Textbook
 
-Practical Statistics for Astronomers, 2nd Edition (2012), by J.V. Wall and C.R. Jenkins | [Amazon](https://www.amazon.com/Practical-Statistics-Astronomers-Cambridge-Observing/dp/0521732492) | [Author's web page](https://www.astro.ubc.ca/people/jvw/ASTROSTATS/index.html) |
-
-This textbook covers modern statistical methods used in astronomy. It is not a comprehensive textbook, however. The textbook is most useful as a reference to understand the approaches and types of problems considered in the astronomical literature. For this reason, I will supplement this textbook with copies of background material. I'll typically provide two references that explain the background material.
+There is not a single textbook that covers all of the material in this course. I will provide hand--outs or links to references for each topic covered.
 
 Two general references on statistics that I highly recommend are
-1. Principles of Statistics, M.G. Bulmer -- A short Dover book that covers fundamental statistical topics in a parsimonious manner. [Available used on Amazon](https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603) for ~$5.00.
+1. Principles of Statistics, M.G. Bulmer -- A short Dover book that covers fundamental statistical topics. [Available used on Amazon](https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603) for ~$5.00.
 2. Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore -- A commonly used textbook for upper-division engineering and science majors. | [Amazon](https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527) |
 
-In the [References](#references) section of this syllabus, many additional references and resources are listed.
+Many additional references and resources are listed in the [References](#references) section of this syllabus.
 
 # Evaluation
 
-* **Homework**: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of astronomy or space science data. Assignments are due before class starts. 
+* **Homework**: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of real data. Assignments are due before class starts. 
 * **Midterm**: 30%
 * **Final project**: 30%
 * **Final course**: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, < 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).
 
 # Topics
 
-The topics listed below are covered in Chapters 2-7 of the textbook. Supplementary references and notes will be provided as-needed.
+Supplementary references and notes will be provided as needed.
 
 ## Python
 
@@ -132,12 +135,12 @@ The following references are not needed for this course, but you may find them u
 
 ## General
 
-1. Principles of Statistics, M.G. Bulmer -- A short Dover book that covers fundamental statistical topics in and parsimonious manner. Available on Amazon for $3.00.
+1. Principles of Statistics, M.G. Bulmer -- A short Dover book that covers fundamental statistical topics. Available on Amazon for $3.00.
 1. Many of the topics covered in this course are covered in the MIT OCW course [Introduction to Probability and Statistics](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/).
-1. Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg -- Covers basics of uncertainty and error analysis at Freshman physics lab level. Very good but very expensive (> $100 on Amazon).
+1. Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg -- Covers uncertainty and error analysis basics at Freshman physics lab level. Very good but very expensive (> $100 on Amazon).
 1. Statistical Methods in Experimental Physics, F. James -- A standard reference that you should have a copy of.
 1. Statistics, D. Freedman, R. Pisani, and R. Purves -- A basic introduction to statistics with many examples and extended discussion of topics.
-1. Probability for the Enthusiastic Beginner, D. Morin -- A very basic introduction to probability.
+1. Probability for the Enthusiastic Beginner, D. Morin -- an elementary introduction to probability.
 1. Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore -- A commonly used textbook for upper-division engineering and science majors.
 1. Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed) -- Similar in scope and coverage of Devore.
 
@@ -146,7 +149,7 @@ The following references are not needed for this course, but you may find them u
 ### General
 
 1. Bayes' Rule -- A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone. This book is a good starting point.
-1. [Doing Bayesian Data Analysis by Kruschke](http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf) -- The best overview that I am aware of. The examples are in R, but translation to other languages is straightforward. Most of the value of this book is in the descriptions of the concepts.
+1. [Doing Bayesian Data Analysis by Kruschke](http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf) -- The best overview that I am aware of. The examples are in R, but translation to other languages is straightforward. Most of this book's value is in the concepts' descriptions.
 1. [Bayesian Statistics -- an Introduction by P.M. Lee](https://www.amazon.com/Bayesian-Statistics-Introduction-Peter-Lee-dp-1118332571/dp/1118332571/) is a classic introductory textbook.
 1. [How to become a Bayesian in eight easy steps: An annotated reading list, by Etz et al., 2018](https://link.springer.com/article/10.3758/s13423-017-1317-5).
 1. Data Analysis -- A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling.
@@ -154,7 +157,7 @@ The following references are not needed for this course, but you may find them u
 1. Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D'Agostini
 1. The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman -- This is a classic book on Machine Learning/Statistical Learning.
 1. Validation of Software for Bayesian Models Using Posterior Quantiles by Cook, Gelman, and Rubin, 2006 (https://www.jstor.org/stable/27594203).
-1. [Section 3.4 of the lecture notes on Hierarchal Models by Junker](http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf) contains in Section 3.4 a detailed introduction to a common example covered in many books -- finding the posterior when the standard deviation of the population is known and a prior distribution is available.
+1. [Section 3.4 of the lecture notes on Hierarchal Models by Junker](http://www.stat.cmu.edu/~brian/463-663/week09/Chapter%2003.pdf) contains in Section 3.4 a detailed introduction to a typical example covered in many books -- finding the posterior when the standard deviation of the population is known and a prior distribution is available.
 
 ### Bayesian vs. Frequentist
 
@@ -168,7 +171,7 @@ The following references are not needed for this course, but you may find them u
 
 In the following references, the terms "Bayesian Intervals", "Bayesian Confidence Intervals", and "Credible Intervals" are used to mean the same thing.
 
-* The primary reference is [Jaynes 1976]( https://bayes.wustl.edu/etj/articles/confidence.pdf). This is not an easy read as a first introduction. The following references provide a more introductory explanation: [Kruschke and Liddell 2018](https://link.springer.com/article/10.3758/s13423-016-1221-4); [VanderPlas 2014](https://arxiv.org/pdf/1411.5018.pdf). [A blog post by VanderPlas](http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/) goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approach.
+* The primary reference is [Jaynes 1976]( https://bayes.wustl.edu/etj/articles/confidence.pdf). This is not an easy read as a first introduction. The following references provide a more introductory explanation: [Kruschke and Liddell 2018](https://link.springer.com/article/10.3758/s13423-016-1221-4); [VanderPlas 2014](https://arxiv.org/pdf/1411.5018.pdf). [A blog post by VanderPlas](http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/) goes over one of the examples in Jaynes. Read the comments to see the disagreements about the Frequentist and Bayesian approaches.
 * [Levy 2012](http://www.mit.edu/~rplevy/pmsl_textbook/chapters/pmsl_5.pdf) is also a good introduction.
 * Credible intervals are described by the authors of the [easystats](https://easystats.github.io/bayestestR/articles/credible_interval.html).
 * [testscience.org](https://testscience.org/characterize-system/test-evaluation-analyses/bayesian-credible-intervals/) has a brief example that compares confidence intervals with credible intervals.
@@ -179,7 +182,7 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 ### MCMC
 
 * https://twiecki.io/blog/2015/11/10/mcmc-sampling/
-* Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from [arxiv.org](https://arxiv.org/abs/1710.06068) and [iopscience.iop.org](https://iopscience.iop.org/article/10.3847/1538-4365/aab76e)); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipies for implementation.
+* Data analysis recipes: Using Markov Chain Monte Carlo (2017), Hogg and Foreman-Mackey (available from [arxiv.org](https://arxiv.org/abs/1710.06068) and [iopscience.iop.org](https://iopscience.iop.org/article/10.3847/1538-4365/aab76e)); Provides an overview of the motivation for MCMC sampling, discussions of its use and abuse, and detailed recipes for implementation.
 * [Ravenzwaaij, Cassey, and Brown, 2018](https://link.springer.com/article/10.3758/s13423-016-1015-8)
 
 ### Misc
@@ -202,7 +205,7 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 
 ## Software
 
-1. [Think Stats](http://greenteapress.com/thinkstats2/html/thinkstats2010.html) - A free book that demonstrates standard statistical calculations in Python.
+1. [Think Stats](http://greenteapress.com/thinkstats2/html/thinkstats2010.html) - A free book demonstrating standard statistical calculations in Python.
 1. [EMCEE Overview](https://arxiv.org/pdf/1202.3665.pdf)
  [EMCEE software documentation](https://emcee.readthedocs.io/en/stable/)
 
