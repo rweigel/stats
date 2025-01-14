@@ -21,7 +21,7 @@ Subtitle: ASTR/PHYS 390/590<br>Spring, 2025
 
 This course covers fundamental statistical methods that apply to most data--related (both measurement and simulation) problems. I emphasize the development of a deep understanding of the interpretation of statistical results.
 
-I encourage students doing data-related research projects to use their data for a project.
+I encourage students doing data-related research projects to use their data for a project in which the statistical methods covered in class are applied to their data.
 
 # Motivation and Learning Outcomes
 
@@ -48,7 +48,7 @@ Students will
 * I usually have you do a reading and solve a basic problem on a new topic before I discuss it in class. I find content that I present "sticks" if students have experimented with the concepts before I discuss them.
 * You will be asked to participate in class discussions during class and on Discord. Talking and writing about statistics will help you understand statistics.
 * Homework assignments will be approximately 50% hand-written and 50% programs. I will ask students to present their solutions during class and for others to comment.
-* After the midterm, students will propose a project, and part of each subsequent homework assignment will be an additional analysis related to your project. The required analysis will be based on what you propose and ideas that are generated when you give a brief (~5--minute) update on your progress.
+* After the midterm, students will propose a project, and part of each subsequent homework assignment will be an additional analysis related to your project. The required analysis will be based on what you propose and ideas that are generated when you give a brief ($\sim$5--minute) update on your progress.
 
 %* I give detailed solutions to homework problems. However, I will not always be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
 
@@ -65,8 +65,8 @@ Students will
 There is not a single textbook that covers all of the material in this course. I will provide hand--outs or links to references for each topic covered.
 
 Two general references on statistics that I highly recommend are
-1. Principles of Statistics, M.G. Bulmer -- A short Dover book that covers fundamental statistical topics. [Available used on Amazon](https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603) for ~$5.00.
-2. Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore -- A commonly used textbook for upper-division engineering and science majors. | [Amazon](https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527) |
+1. [Principles of Statistics, M.G. Bulmer](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) -- A short Dover book that covers fundamental statistical topics; also available used [on Amazon](https://www.amazon.com/Principles-Statistics-Dover-Books-Mathematics/dp/0486637603) for ~$5.00.
+2. [Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore](https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★) -- A commonly used textbook for upper-division engineering and science majors. | [Amazon](https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527)
 
 Many additional references and resources are listed in the [References](#references) section of this syllabus.
 
@@ -135,24 +135,25 @@ The following references are not needed for this course, but you may find them u
 
 ## General
 
-1. Principles of Statistics, M.G. Bulmer -- A short Dover book that covers fundamental statistical topics. Available on Amazon for $3.00.
+1. [Principles of Statistics, M.G. Bulmer](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) -- A short Dover book that covers fundamental statistical topics.
 1. Many of the topics covered in this course are covered in the MIT OCW course [Introduction to Probability and Statistics](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/).
 1. Dealing with Uncertainty - A Guide to Error Analysis 2nd Edition, M. Drosg -- Covers uncertainty and error analysis basics at Freshman physics lab level. Very good but very expensive (> $100 on Amazon).
-1. Statistical Methods in Experimental Physics, F. James -- A standard reference that you should have a copy of.
+1. [Bonamente, 2017 Statistics and Analysis of Scientific Data](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing★★★★★remove★★★★★) - Listed as a graduate text, but level is similar to undergraduate textbooks. Covers most of the main topics discussed in this course.
+1. Statistical Methods in Experimental Physics, F. James
 1. Statistics, D. Freedman, R. Pisani, and R. Purves -- A basic introduction to statistics with many examples and extended discussion of topics.
-1. Probability for the Enthusiastic Beginner, D. Morin -- an elementary introduction to probability.
-1. Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore -- A commonly used textbook for upper-division engineering and science majors.
-1. Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed) -- Similar in scope and coverage of Devore.
+1. Probability for the Enthusiastic Beginner, D. Morin -- An elementary introduction to probability.
+1. [Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore](https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★) -- A commonly used textbook for upper-division engineering and science majors. | [Amazon](https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527)
+1. [Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed)](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing) -- Similar in scope and coverage of Devore.
 
 ## Bayes
 
 ### General
 
-1. Bayes' Rule -- A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone. This book is a good starting point.
+1. Bayes' Rule with Python -- A Tutorial Introduction to Bayesian Analysis (2013), by J.V. Stone. This book is a good starting point. Chapters: [1](https://drive.google.com/file/d/1JV1EU9R0WbyY_t6BDlGR4u7N9PXzikcE/view?usp=sharing★★★★★remove★★★★★), [4](https://drive.google.com/file/d/1zx2EAsjhnnU6BDFd8In5wAwXDyYi1wVA/view?usp=sharing★★★★★remove★★★★★), [5](https://drive.google.com/file/d/1qqW8CzYLqGbkSMDi1U0tGhiIMe5biGiC/view?usp=sharing★★★★★remove★★★★★)
 1. [Doing Bayesian Data Analysis by Kruschke](http://www.r-5.org/files/books/computers/algo-list/statistics/data-mining/John_K_Kruschke-Doing_Bayesian_Data_Analysis-EN.pdf) -- The best overview that I am aware of. The examples are in R, but translation to other languages is straightforward. Most of this book's value is in the concepts' descriptions.
 1. [Bayesian Statistics -- an Introduction by P.M. Lee](https://www.amazon.com/Bayesian-Statistics-Introduction-Peter-Lee-dp-1118332571/dp/1118332571/) is a classic introductory textbook.
 1. [How to become a Bayesian in eight easy steps: An annotated reading list, by Etz et al., 2018](https://link.springer.com/article/10.3758/s13423-017-1317-5).
-1. Data Analysis -- A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling.
+1. [Data Analysis -- A Bayesian Tutorial (2006), by D.S. Sivia and J. Skilling](https://drive.google.com/file/d/1jlcywhHQlfKGADki7yxuo5T55X15Rjpd/view?usp=sharing★★★★★remove★★★★★).
 1. Neural Networks for Pattern Recognition (2006), by C.M. Bishop -- Advanced undergraduates or first-year PhD students; the first few chapters have a good introduction to Bayes' rule.
 1. Teaching Statistics in the Physics Curriculum: Unifying and Clarifying Role of Subjective Probability (1999), by G. D'Agostini
 1. The Elements of Statistical Learning (2009; 2nd Edition), by T. Hastie, R. Tibshirani, and J. Friedman -- This is a classic book on Machine Learning/Statistical Learning.
@@ -193,6 +194,7 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 * https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d
 * https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior
 * https://link.springer.com/article/10.3758/s13423-016-1221-4
+* [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★)
 
 ## Astronomy
 
