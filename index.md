@@ -23,13 +23,17 @@ Subtitle: ASTR/PHYS 390/590<br>Spring, 2025
 
 * Introductions
 
-* Discuss Syllabus
+* Discuss Syllabus Questions. **Preparation**: Read the syllabus before class.
 
 * Cover Probability topics in [Devore Chapter 2](https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link★★★★★remove★★★★★); see also  [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=drive_link★★★★★remove★★★★★), and [DeGroot Chapter 1](https://drive.google.com/file/d/1rbF5pJBFd3cggc-Dz0ctD9VInbR8CyHl/view?usp=drive_link★★★★★remove★★★★★).
 
-   Preparation: Read [Devore Chapter 2](https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link★★★★★remove★★★★★), write down all of the definitions of key terms, and be prepared to provide the definition without refering to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class and will help if you are familiar with all of the definitions.
+   **Preparation**: Read [Devore Chapter 2](https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link★★★★★remove★★★★★), write down all of the definitions of key terms, and be prepared to provide the definition without refering to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class and will help if you are familiar with all of the definitions.
 
    At the start of class, I will ask students for key terms, write them on the board, and then ask for volunteers to provide a definition (ideally without referring to your notes).
+
+* Cover GitHub; **Preparation**: Create a GitHub account before class starts.
+
+* Cover Discord
 
 # Summary
 
@@ -95,6 +99,15 @@ Many additional references and resources are listed in the [References](#referen
 
 Supplementary references and notes will be provided as needed.
 
+## Basic Concepts in Probability
+
+1. Mathematical, Frequentist, and Bayesian probabilities
+2. Conditional probability
+3. Bayes' theorem
+4. Counting - permutations and combinations
+5. Probability distributions
+6. Overview of statistical fallacies
+
 ## Python
 
 1. NumPy
@@ -107,15 +120,6 @@ Supplementary references and notes will be provided as needed.
 2. Autocorrelation
 3. Periodograms and Short--Time Fourier Transforms
 4. Other options based on student interest
-
-## Basic Concepts in Probability
-
-1. Mathematical, Frequentist, and Bayesian probabilities
-2. Conditional probability
-3. Bayes' theorem
-4. Counting - permutations and combinations
-5. Probability distributions
-6. Overview of statistical fallacies
 
 ## Elements of Statistics
 
