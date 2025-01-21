@@ -25,7 +25,7 @@ Subtitle: ASTR/PHYS 390/590<br>Spring, 2025
 
 * Discuss Syllabus Questions. **Preparation**: Read the syllabus before class.
 
-* Cover Probability topics in [Devore Chapter 2](https://drive.google.com/file/d/1-n9-6OK9r6DSqrUyK77fVUo-yNUK8Zc9/view?usp=sharing★★★★★remove★★★★★); see also  [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=drive_link★★★★★remove★★★★★), and [DeGroot Chapter 1](https://drive.google.com/file/d/1rbF5pJBFd3cggc-Dz0ctD9VInbR8CyHl/view?usp=drive_link★★★★★remove★★★★★).
+* Cover Probability topics in [Devore Chapter 2]((https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★); see also  [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing★★★★★remove★★★★★), [Rozanov Chapters 1 and 2](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★), [Larson Chapters 1 and 2](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) and [DeGroot Chapter 1](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★).
 
    **Preparation**: Read [Devore Chapter 2](https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link★★★★★remove★★★★★), write down all of the definitions of key terms, and be prepared to define without referring to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.
 
@@ -161,7 +161,9 @@ The following references are not needed for this course, but you may find them u
 1. Statistics, D. Freedman, R. Pisani, and R. Purves -- A basic introduction to statistics with many examples and extended discussion of topics.
 1. Probability for the Enthusiastic Beginner, D. Morin -- An elementary introduction to probability.
 1. [Probability and Statistics for Engineering and the Sciences (8th ed), J.L. Devore](https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★) -- A commonly used textbook for upper-division engineering and science majors. | [Amazon](https://www.amazon.com/Probability-Statistics-Engineering-Sciences-Devore/dp/0538733527)
-1. [Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed)](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing) -- Similar in scope and coverage of Devore.
+1. [Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed)](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★) -- Similar in scope and coverage of Devore.
+1.  [Probability Theory: A Concise Course, Y.A. Rozanov](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★)
+1. [Introduction to Probability Theory and Statistical Inference (3rd ed), H.J. Larson](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) 
 
 ## Bayes
 

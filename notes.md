@@ -1,23 +1,22 @@
 # Probability Definitions
 
-[Devore Chapter 2](https://drive.google.com/file/d/1-n9-6OK9r6DSqrUyK77fVUo-yNUK8Zc9/view?usp=sharing★★★★★remove★★★★★)
-
 * Probability
-  > The term probability refers to the study of randomness and uncertainty. In any situation in which one of a number of possible outcomes may occur, the discipline of probability provides methods for quantifying the chances, or likeli- hoods, associated with the various outcomes. (p 50)
+  > The term probability refers to the study of randomness and uncertainty. In any situation in which one of a number of possible outcomes may occur, the discipline of probability provides methods for quantifying the chances, or likeli- hoods, associated with the various outcomes. (Devore p 50)
 
-  > Given an experiment and a sample space $\mathcal{S}$, the objective of probability is to assign to each event $A$ a number $P(A)$, called the probability of the event $A$, which will give a precise measure of the chance that $A$ will occur. (p 55)
+  > Given an experiment and a sample space $\mathcal{S}$, the objective of probability is to assign to each event $A$ a number $P(A)$, called the probability of the event $A$, which will give a precise measure of the chance that $A$ will occur. (Devore p 55)
+
 
 * Experiment
 
-* Event
+  > An experiment is any activity or process whose outcome is subject to uncertainty. ...
+  >
+  > Thus experiments that may be of interest include tossing a coin once or several times, selecting a card or cards from a deck, weighing a loaf of bread, ascertaining the commuting time from home to work on a particular morning, obtaining blood types from a group of individuals, or measuring the compressive strengths of different steel beams. (Devore p 51)
 
-  > An event is any collection (subset) of outcomes contained in the sample space S. An event is simple if it consists of exactly one outcome and compound if it consists of more than one outcome. (p 52)
-
-  > An event is just a set. (p 53)
+  > An experiment is any process, real or hypothetical, in which the possible outcomes can be identified ahead of time. (DeGroot p 5)
 
 * Sample Space, $\mathcal{S}$ (or Event Space)
 
-  > the set of all possible outcomes of an experiement.
+  > ... the set of all possible outcomes of an experiement. (Devore p 51)
   
   Can we also say a sample space is the set of all possible simple events?
 
@@ -35,29 +34,37 @@
 
   We can define a compound event: $A$ is outcome of the experiment yielding one tail.
 
+* Event
+
+  > An event is any collection (subset) of outcomes contained in the sample space $\mathcal{S}$. An event is simple if it consists of exactly one outcome and compound if it consists of more than one outcome. (Devore p 52)
+
+  > An event is just a set. (Devore p 53)
+
+  > An event is a well-defined set of possible outcomes of the experiment. (DeGroot p 5)
+
 * Compliment -- "Not $A$" is represented by four symbols: `$A^\prime$` $\quad$ `$\overline{A}$` $\quad$ `~$A$` $\quad$ $\neg A$
 
-  > The complement of an event $A$, denoted by $A'$, is the set of all outcomes in $\mathcal{S}$ that are not contained in $A$. (p 53)
+  > The complement of an event $A$, denoted by $A'$, is the set of all outcomes in $\mathcal{S}$ that are not contained in $A$. (Devore p 53)
 
-* Difference (not defined by Devore. See Rozanov p 14) -- $A-B$ means the event in which $A$ occurs but not $B$.
+* Difference (Rozanov p 14): $A-B$ means the event in which $A$ occurs but not $B$.
 
-* Subset (Rozanov, p15) -- $A\subset B$ means the set $A$ is a subset of $B$.
+* Subset (Rozanov p 15): $A\subset B$ means the set $A$ is a subset of $B$.
 
 * Union -- "Or" (union) is typically represented by `$\cup$`
 
-  > The union of two events $A$ and $B$, denoted by $A \cup B$ "$A$ or $B$" is the event consisting of all outcomes that are _either in_ $A$ _or in_ $B$ _or in both events_ (so that the union includes outcomes for which both $A$ and $B$ occur as well as outcomes for which exactly one occurs) -- that is, all outcomes in at least one of the events. (p 53)
+  > The union of two events $A$ and $B$, denoted by $A \cup B$ "$A$ or $B$" is the event consisting of all outcomes that are _either in_ $A$ _or in_ $B$ _or in both events_ (so that the union includes outcomes for which both $A$ and $B$ occur as well as outcomes for which exactly one occurs) -- that is, all outcomes in at least one of the events. (Devore p 53)
 
 * Intersection - "And" (intersect) is represented by four symbols: `$\cap$` $\quad$ `&` $\quad$ `,` $\quad$ `+`
 
-  > The intersection of two events $A$ and $B$, denoted by $A \cap B$ and read "$A$ and $B$," is the event consisting of all outcomes that are in _both_ $A$ _and_ $B$. (p 53)
+  > The intersection of two events $A$ and $B$, denoted by $A \cap B$ and read "$A$ and $B$," is the event consisting of all outcomes that are in _both_ $A$ _and_ $B$. (Devore p 53)
 
-* Null event
+* Null Event
 
-  > Let $\varnothing$ denote the null event (the event consisting of no outcomes whatsoever). When $A\cap B = \varnothing$, $A$ and $B$ are said to be mutually exclusive or disjoint events.
+  > Let $\varnothing$ denote the null event (the event consisting of no outcomes whatsoever). When $A\cap B = \varnothing$, $A$ and $B$ are said to be mutually exclusive or disjoint events. (Devore p 54)
 
-* Mutually exclusive -- Defined in Null Event definition. Also referred to as "pairwise disjoint".
+* Mutually Exclusive -- Defined in Null Event definition. Also referred to as "pairwise disjoint".
 
-* Axioms of Probability (p 56)
+* Axioms of Probability (Devore p 56)
 
   1. For any event $A$, $P(A) \ge 0$.
   2. $P(\mathcal{S})=1$
@@ -69,7 +76,7 @@
 
      $$P(A_1 \cup A_2 .... \cup A_k) = \sum_{i=1}^k P(A_i)$$
 
-  > Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsisten with our intuitve notions of probability. (p 57)
+  > Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsisten with our intuitve notions of probability. (Devore p 57)
 
 * Geometric Series
 
@@ -88,21 +95,21 @@
 
 *  Relative Frequency and Interpretation of Proability
 
-  > ... most frequently used an most easily understood is based on the notation of relative frequencies. (p 57)
+  > ... most frequently used an most easily understood is based on the notation of relative frequencies. (Devore p 57)
 
   Repeat experiment $n$ times (each repetition is called a "replication"). If event $A$ occurs $n(A)$ times in $n$ replications, then relative frequency is $n(A)/n$.
   
-  > The _objective interpretation of probability_ identifies this limiting relative frequency to $P(A)$.
+  > The _objective interpretation of probability_ identifies this limiting relative frequency to $P(A)$. (Devore p 57)
   
   If exeriment is not repeatable, prior information must be used to determine $P(A)$ and not everyone may conclude the same $P(A)$; in this case $P(A)$ has a subjective interpretation.
 
 * Law of Compliments (Devore does not use this, however)
 
-  > For any event $A$, $P(A)+P(A')=1$, from which $P(A)=1-P(A')$. (p 59)
+  > For any event $A$, $P(A)+P(A')=1$, from which $P(A)=1-P(A')$. (Devore p 59)
 
 * Corallary to Axiom 3 (Devore only calls this a proposition) 
 
-  > For any event $A$, $P(A)\le 1$.
+  > For any event $A$, $P(A)\le 1$. (Devore p 59)
 
 * Law of Addition (Devore does not use this, however)
 
@@ -120,7 +127,7 @@
   >
   > $P(A\cup B\cup C) = P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B\cap C)$
 
-  **Visual proof**
+  **Visual proof for two events**
 
   [[Image:Image2.png|left|thumb|Image of two targets]]
 
@@ -146,17 +153,17 @@
 
   Check: $P(\overline{A\text{ or } B}) = 1 - P(A \text{ or } B)$
 
-* Product Rule (or Law of Multiplication)
+* Product Rule (or Law of Multiplication) (Devore does not name but gives as proposition on p 65)
 
-  > If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
+  > If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$. (Devore p 65)
 
-* Tree Diagram -- Use for visually justifying product rule and counting permutations (defined later)
+* Tree Diagram -- Use for visually justifying product rule and counting permutations (Devore p 66)
 
-* Tuple -- A "$k$--tuple" is an ordered collection of $k$ objects. (p 66)
+* Tuple -- A "$k$--tuple" is an ordered collection of $k$ objects. (Devore p 66)
 
 * General Product Rule (or Product Rule for $k$-Tuples)
 
-  > Suppose a set consists of ordered collections of $k$ elements ($k$-tuples) and that there are $n_1$ possible choices for the first element; for each choice of the first element, there are $n_2$ possible choices of the second element; ...; for each possible choice of the first $k-1$ elements, there are $n_k$ choices of the $k$th element. Then there are $n_1n_2...n_k$ possible $k$-tuples. (p 66).
+  > Suppose a set consists of ordered collections of $k$ elements ($k$-tuples) and that there are $n_1$ possible choices for the first element; for each choice of the first element, there are $n_2$ possible choices of the second element; ...; for each possible choice of the first $k-1$ elements, there are $n_k$ choices of the $k$th element. Then there are $n_1n_2...n_k$ possible $k$-tuples. (Devore p 66).
 
   Note that "elements" is used here, but in definition of tuple, objects is used.
   
@@ -212,7 +219,7 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
    **1\. Discrete**
 
-   Devore (p97) calls the discrete case a "probability mass function" and I've been using the variable $P$. If $x$ is a discrete variable, then
+   Devore (p 97) calls the discrete case a "probability mass function" and I've been using the variable $P$. If $x$ is a discrete variable, then
 
    $$1 = \sum_{\text{all x}}P(x)$$
 
