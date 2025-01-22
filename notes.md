@@ -199,7 +199,268 @@
 
 * Combination (un-ordered subset) -- The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the team picking example, there are $3$ team combinations. 
 
+Each permutation can be regarded as group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permuations. For example, if the two permutations
+
+$(1,2)$
+
+$(2,1)$
+
+are regarded as equivalent, then there is only one group containing the numbers $1$ and $2$. To determine the number of possible orderings of each permutation, ask how many ways a set of $k$ elements can be arranged. The answer is $k!$.
+
+So, to find the number of combinations, divide the number of permutations by $k!$.
+
+$$C_{n,k}=\frac{P_{n,k}}{k!}=\frac{\ds\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}$$
+
+$C_{n,k}$ is often called a binomial coefficient and the denoted by $\ds{N\choose k}$ and referred to as "$n$ choose $k$".
+
 # Set operations in Python
+
+# Counting
+
+Three types of problems:
+
+1. Product Rule:
+
+   A. Given $k$ ordered boxes and $n_1$ choices for first box, $n_2$ for the second, ...
+
+   B. Given $k$ ordered boxes and $n$ choices for first box, $n$ for second, ...
+
+2. Permutations: Given **one** set of length $n$, how many distinct _ordered_ sets with no duplicates of $k$ elements can be created? (e.g., set = {a, b}, permutations are {a, b}, {b, a}. Similar to a product rule B. problem where $n_1=n$, $n_2=n-1$, ....
+
+3. Combinations: Same as 2. except counting all sets with the same elements as equivalent. (e.g., if set = {a, b} only one combination is possible: {a, b}).
+
+## Product rule examples
+
+One can use a tree diagram, table, or $x$--$y$ plot to prove.
+
+If there are $n_1$ ways of doing operation $1$ and  $n_2$ ways of doing operation 2, then both operations can be performed in $n_1n_2$ ways.  
+
+**Example**
+
+Take two steps, each step is North, South, East or West. 
+
+Put one of N, S, E, W in first box and same for second box. Result is $16$ unique step pairs.
+
+Tree diagram.
+
+Equivalent problem: Sample with replacement from set {N, S, E, W}. 
+
+
+**Example**:
+
+If operation 1 is moving north, south, east, or west and operation 2 is moving up or down, then there are 8 possible operations of length $2$.
+
+**Example**:
+
+Two teams of twelve players each. How many unique handshakes between members of opposing teams?
+
+*Answer*: $n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
+
+Brute force calculation: [code/probability_brute_force_ordered_2_tuples.m](code/probability_brute_force_ordered_2_tuples.m)
+
+Tree diagram
+
+
+## Permutation examples
+
+**Example**
+
+Step {N, S, E, W}. Then take another step, but not in the same direction as first.
+
+*Answer*: $4\cdot 3 = 12$
+
+**Example**:
+
+You have stickers labled $1$, ..., $6$ that are used to form a license plate.
+
+How many unique license plates of length $6$ can you form? *Answer*: $6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1$
+
+How many unique license plates of length $2$ can you form? *Answer*: $6\cdot 5 = 30$
+
+## Combination examples
+
+**Example**:
+* How many unique ordered hands of size $5$ can be formed using a $52$-card deck?
+
+   *Answer*: This is a permutation problem: $52\cdot 51\cdot 50\cdot 49\cdot 48$ permutations.
+* How many hands of size $5$ can be formed using a $52$-card deck?
+
+   *Answer*: Each permutation can be rearranged in $5!$ ways. So the number of hands (combinations) is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
+
+# Bayes' theorem
+
+You only need to know these two laws in order to derive Bayes' theorem.
+
+Sum law
+
+Product law
+
+## Review
+
+----
+
+[[Image:Image1.png|thumb|left|Image 1]]
+
+**Question:* What is $n(A \text{ and } B)$ in Image 1? That is, how many dots have labels of $A$ or $B$? (Give a number)
+
+**Answer**: All of them; $n(A) + n(B) = 11$
+
+**Question:** What is $n(A \text{ and } B)$ in Image 1?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
+
+**Answer**: zero
+
+----
+
+[[Image:Image2.png|left|thumb|Image 2]]
+
+**Question:** What is $n(A \text{ and } B)$ in Image 2?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
+
+**Answer**: 2
+
+**Question:** What is $n(B \text{ and } A)$ in Image 2?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
+
+**Answer**: 2
+
+----
+
+'''Question:''' In terms of n(A), n(B), n(A and B), what is n(A '''or''' B) in Image 2?  That is, how many dots have labels of A or B?
+
+{| class="wikitable collapsible collapsed"
+! Answer
+|-
+|
+n(A '''or''' B) = n(A) + n(B) - n(A and B)
+|}
+
+'''Question:''' In terms of n(B), P(A|B), what is n(A and B) in Image 2?
+
+{| class="wikitable collapsible collapsed"
+! align="left" | Answer
+|-
+|
+<math>n(A \mbox{ and } B) = n(B)\cdot P(A|B)</math>
+|}
+
+'''Question:''' In terms of n(A), P(B|A), what is n(B and A) in Image 2?
+
+{| class="wikitable collapsible collapsed"
+! align="left" | Answer
+|-
+|
+<math>n(B \mbox{ and } A) = n(A)\cdot P(B|A)</math>
+|}
+|}
+
+==== ====
+
+{| border="0" cellpadding="2" width="100%" align="left"
+|-
+|style="vertical-align:top"|
+[[Image:Image3.png|thumb|left|Image 3 (X Y Z, A B grid)]]
+|style="vertical-align:top"|
+'''Question:''' In terms of n(A), n(B), n(X), P(X|A), and P(A|X), what is n(A and X) in Image 3?
+
+{| class="wikitable collapsible collapsed"
+! align="left" | Answer
+|-
+|
+<math>n(A \mbox{ and } X) = n(A)\cdot P(X|A)</math>
+|}
+
+'''Question:''' In terms of n(A), n(B), n(X), P(X|A), and P(A|X), what is n(X and A) in Image 3?
+
+{| class="wikitable collapsible collapsed"
+! align="left" | Answer
+|-
+|
+<math>n(X \mbox{ and } A) = n(X)\cdot P(A|X)</math>
+|}
+|}
+<br style="clear:both"/>
+== Bayes' Theorem ==
+
+=== Derivation ===
+
+
+{| border="0" cellpadding="2" width="100%" align="left"
+|-
+|style="vertical-align:top" width="50%" |
+'''Question''': In reference to Image 2, what is P(A|B) in terms of n(A), n(B), n(A and B), and n(B and A)?
+|style="vertical-align:top"|
+{| class="wikitable collapsible collapsed"
+! Answer
+|-
+|
+<math>P(A|B) = \frac{n(A \mbox{ and } B)}{n(B)}</math>
+|}
+|}
+
+{| border="0" cellpadding="2" width="100%" align="left"
+|-
+|style="vertical-align:top" width="50%" |
+'''Question''': In reference to Image 2, what is 
+
+<math>\frac{n(A \mbox{ and } B)}{n(B \mbox{ and } A)}</math>
+
+in terms of n(A), n(B), P(A|B), and P(B|A)? 
+|style="vertical-align:top"|
+{| class="wikitable collapsible collapsed"
+! Answer
+|-
+|
+<math>\frac{n(A \mbox{ and } B)}{n(B \mbox{ and } A)} = 1 = \frac{n(A)\cdot P(B|A)}{n(B)\cdot P(A|B)}
+</math>
+
+or
+
+<math>
+n(B) = n(A)\cdot\frac{P(B|A)}{P(A|B)}
+</math>
+
+or
+
+<math>
+P(B) = P(A)\cdot\frac{P(B|A)}{P(A|B)}
+</math>
+
+|}
+|}
+
+{| border="0" cellpadding="2" width="100%" align="left"
+|-
+|style="vertical-align:top" width="50%" |
+'''Question''': In reference to Image 3, what is 
+
+<math>\frac{n(A \mbox{ and } X)}{n(X \mbox{ and } A)}</math>
+
+in terms of n(A), n(X), P(A|X), and P(X|A)? 
+|style="vertical-align:top"|
+{| class="wikitable collapsible collapsed"
+! Answer
+|-
+|
+<math>\frac{n(A \mbox{ and } X)}{n(X \mbox{ and } A)} = 1 = \frac{n(A)\cdot P(X|A)}{n(X)\cdot P(A|X)}
+</math>
+
+or
+
+<math>
+n(X) = n(A)\cdot\frac{P(X|A)}{P(A|X)}
+</math>
+
+or
+
+<math>
+P(X) = P(A)\cdot\frac{P(X|A)}{P(A|X)}
+</math>
+
+check
+
+<math>
+\frac{5}{13} = \frac{7}{13}\cdot\frac{\frac{2}{7}}{\frac{2}{5}}
+</math>
+|}
+|}
 
 
 
@@ -418,274 +679,4 @@ Three key distributions are
 
    We can "bootrap" a sampling distribution by drawing $n$ values from the list $[X_1,...X_n]$ with replacement and computing $Y^{\*}_1$. We repeat $10,000$ times. The distribution of 10,000 $Y^{\*}$ values is a good approximation to the unknown sampling distribution of $Y$. See also page 251 of Devore.
 
-# Counting
-
-## Distinct ordered pairs (2-tuples)
-
-Given $a_1$, $a_2$, ... $a_{n_a}$ and $b_1$, $b_2$, ... $b_{n_b}$, one can form $N=n_an_b$ distinct ordered pairs with one element from each list. Said another way, if slot $1$ is filled with a choice from $a$ and slot $2$ is filled with a choice from $b$, there are $n_an_b$ unique ways to fill the slots.
-
-If there are n<sub>1</sub> ways of doing operation 1 and  n<sub>2</sub> ways of doing operation 2, then both operations can be performed in n<sub>1</sub>·n<sub>2</sub> ways.  For example, if operation 1 is moving north, south, east, or west and operation 2 is moving up or down, then there are 8 possible combinations of a horizontal step followed by a vertical step.
-
-One can use a tree diagram, table, or $x$--$y$ plot to prove.
-
-**Typical Example**:
-
-Two teams of twelve players each. How many unique handshakes between members of opposing teams?
-
-*Answer*: $n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
-
-Brute force calculation: [code/probability_brute_force_ordered_2_tuples.m](code/probability_brute_force_ordered_2_tuples.m)
-
-## Distinct ordered $k$-tuples (Uniquely ordered groups of $k$)
-
-Given $k$ lists
-
-$L_1$: $a_1$, $a_2$, ... $a_{n_a}$
-
-$L_2$: $b_1$, $b_2$, ... $b_{n_b}$ 
-
-...
-
-$L_k$: $x_1$, $x_2$, ... $x_{n_k}$ (where $x$ represents the $k$th letter of the alphabet)
-
-one can form $N=n_an_b...n_k$ distinct ordered $k$--tuples containing one element from each list. Can use a tree diagram to prove. Said another way, ...
-
-**Typical Example**:
-
-What is the probability of getting three sixes in an experiment when three dice are thrown? 
-
-*Answer*: $6\cdot 6\cdot 6=216$ is the number of unique experiment results. Of these experiments, only one will have three sixes, so $P=1/216$.
-
-## Sampling with replacement to form distinct ordered $k$-tuples
-
-Choose $k$ objects in succession from a population of $n$ distinct objects. The number, $N$ of distinct and ordered $k$-tuples is $N=n^k$. Each $k$-tuple is equiprobable.
-
-Equivalent to given $k$ lists
-
-$L_1$: $a_1$, $a_2$, ... $a_{n}$
-
-$L_2$: $b_1$, $b_2$, ... $b_{n}$
-
-...
-
-$L_k$: $x_1$, $x_2$, ... $x_{n_k}$ (where $x$ represents the $k$th letter of the alphabet)
-
-one can form $N=n^k$ distinct ordered $k$--tuples containing one element from each list.
-
-## Permutations
-
-Given a population of $a_1, a_2, ..., a_n$, sample without replacement to form distinct orderings of size $k$. The number of possible distinct $k$--tuples is
-
-$N=n\cdot (n-1)\cdot ... (n-k+1)$
-
-This can be rewritten as
-
-$$N=\frac{n!}{(n-k)!}$$
-
-This number is typically written as $P_n^k$, $_nP_k$, or $P_{n,k}$, where the $P$ means "number of permuations" and not "probability".
-
-**Typical Example**:
-
-You have stickers labled $1$, ..., $6$ that are used to form a license plate. How many unique license plates can you form?
-
-*Answer*: $6!$
-
-## Combinations (shuffled permutations)
-
-Each permutation can be regarded as group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permuations. For example, if the two permutations
-
-$(1,2)$
-
-$(2,1)$
-
-are regarded as equivalent, then there is only one group containing the numbers $1$ and $2$. To determine the number of possible orderings of each permutation, ask how many ways a set of $k$ elements can be arranged. The answer is $k!$.
-
-So, to find the number of combinations, divide the number of permutations by $k!$.
-
-$$C_{n,k}=\frac{P_{n,k}}{k!}=\frac{\ds\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}$$
-
-$C_{n,k}$ is often called a binomial coefficient and the denoted by $\ds{N\choose k}$ and referred to as "$n$ choose $k$".
-
-**Typical Example**:
-* How many unique ordered hands of size $5$ can be formed using a $52$-card deck?
-
-   *Answer*: $52\cdot 51\cdot 50\cdot 49\cdot 48$.
-* How many hands of size $5$ can be formed using a $52$-card deck?
-
-   *Answer*: Each permutation can be rearranged in $5!$ ways. So the number of hands is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
-
-# Bayes
-
-You only need to know these two laws in order to derive Bayes' theorem.
-
-Sum law
-
-Product law
-
-## Review
-
-----
-
-[[Image:Image1.png|thumb|left|Image 1]]
-
-**Question:* What is $n(A \text{ and } B)$ in Image 1? That is, how many dots have labels of $A$ or $B$? (Give a number)
-
-**Answer**: All of them; $n(A) + n(B) = 11$
-
-**Question:** What is $n(A \text{ and } B)$ in Image 1?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
-
-**Answer**: zero
-
-----
-
-[[Image:Image2.png|left|thumb|Image 2]]
-
-**Question:** What is $n(A \text{ and } B)$ in Image 2?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
-
-**Answer**: 2
-
-**Question:** What is $n(B \text{ and } A)$ in Image 2?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
-
-**Answer**: 2
-
-----
-
-'''Question:''' In terms of n(A), n(B), n(A and B), what is n(A '''or''' B) in Image 2?  That is, how many dots have labels of A or B?
-
-{| class="wikitable collapsible collapsed"
-! Answer
-|-
-|
-n(A '''or''' B) = n(A) + n(B) - n(A and B)
-|}
-
-'''Question:''' In terms of n(B), P(A|B), what is n(A and B) in Image 2?
-
-{| class="wikitable collapsible collapsed"
-! align="left" | Answer
-|-
-|
-<math>n(A \mbox{ and } B) = n(B)\cdot P(A|B)</math>
-|}
-
-'''Question:''' In terms of n(A), P(B|A), what is n(B and A) in Image 2?
-
-{| class="wikitable collapsible collapsed"
-! align="left" | Answer
-|-
-|
-<math>n(B \mbox{ and } A) = n(A)\cdot P(B|A)</math>
-|}
-|}
-
-==== ====
-
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top"|
-[[Image:Image3.png|thumb|left|Image 3 (X Y Z, A B grid)]]
-|style="vertical-align:top"|
-'''Question:''' In terms of n(A), n(B), n(X), P(X|A), and P(A|X), what is n(A and X) in Image 3?
-
-{| class="wikitable collapsible collapsed"
-! align="left" | Answer
-|-
-|
-<math>n(A \mbox{ and } X) = n(A)\cdot P(X|A)</math>
-|}
-
-'''Question:''' In terms of n(A), n(B), n(X), P(X|A), and P(A|X), what is n(X and A) in Image 3?
-
-{| class="wikitable collapsible collapsed"
-! align="left" | Answer
-|-
-|
-<math>n(X \mbox{ and } A) = n(X)\cdot P(A|X)</math>
-|}
-|}
-<br style="clear:both"/>
-== Bayes' Theorem ==
-
-=== Derivation ===
-
-
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="50%" |
-'''Question''': In reference to Image 2, what is P(A|B) in terms of n(A), n(B), n(A and B), and n(B and A)?
-|style="vertical-align:top"|
-{| class="wikitable collapsible collapsed"
-! Answer
-|-
-|
-<math>P(A|B) = \frac{n(A \mbox{ and } B)}{n(B)}</math>
-|}
-|}
-
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="50%" |
-'''Question''': In reference to Image 2, what is 
-
-<math>\frac{n(A \mbox{ and } B)}{n(B \mbox{ and } A)}</math>
-
-in terms of n(A), n(B), P(A|B), and P(B|A)? 
-|style="vertical-align:top"|
-{| class="wikitable collapsible collapsed"
-! Answer
-|-
-|
-<math>\frac{n(A \mbox{ and } B)}{n(B \mbox{ and } A)} = 1 = \frac{n(A)\cdot P(B|A)}{n(B)\cdot P(A|B)}
-</math>
-
-or
-
-<math>
-n(B) = n(A)\cdot\frac{P(B|A)}{P(A|B)}
-</math>
-
-or
-
-<math>
-P(B) = P(A)\cdot\frac{P(B|A)}{P(A|B)}
-</math>
-
-|}
-|}
-
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="50%" |
-'''Question''': In reference to Image 3, what is 
-
-<math>\frac{n(A \mbox{ and } X)}{n(X \mbox{ and } A)}</math>
-
-in terms of n(A), n(X), P(A|X), and P(X|A)? 
-|style="vertical-align:top"|
-{| class="wikitable collapsible collapsed"
-! Answer
-|-
-|
-<math>\frac{n(A \mbox{ and } X)}{n(X \mbox{ and } A)} = 1 = \frac{n(A)\cdot P(X|A)}{n(X)\cdot P(A|X)}
-</math>
-
-or
-
-<math>
-n(X) = n(A)\cdot\frac{P(X|A)}{P(A|X)}
-</math>
-
-or
-
-<math>
-P(X) = P(A)\cdot\frac{P(X|A)}{P(A|X)}
-</math>
-
-check
-
-<math>
-\frac{5}{13} = \frac{7}{13}\cdot\frac{\frac{2}{7}}{\frac{2}{5}}
-</math>
-|}
-|}
 
