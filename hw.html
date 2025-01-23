@@ -1,0 +1,829 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>hw</title>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%220.9em%22 font-size=%22100%22>📖</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
+  <link id="hljs-css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+  <style>
+    #toc>ol ol {
+      display: none
+    }
+
+    body {
+      background-image: url("https://rweigel.github.io/biedit/img/paper.png")
+    }
+
+    .body {
+      display: flex;
+      min-width: 50%;
+      max-height: 100%;
+      position: absolute;
+      background-image: url("https://rweigel.github.io/biedit/img/paper.png");
+    }
+
+    #toc {
+      flex: 0 1 auto;
+      margin-top: 0em;
+      margin-right: 1em;
+      max-width: 12em;
+      overflow: hidden auto;
+    }
+
+    #toc .toctext {
+      color: darkblue;
+    }
+
+    #toc .toctext-empty {
+      min-width: 1em;
+      border-bottom: 1px solid blue;
+    }
+
+    #toc ol {
+      margin: 0.25em 0em 0em 0.5em;
+      list-style-type: decimal;
+      padding-inline-start: 1em;
+    }
+
+    #toc a {
+      text-decoration: none;
+    }
+
+    #display {
+      flex: 1 1 80%;
+      overflow: hidden auto;
+      overflow-wrap: break-word;
+    }
+
+    #display .abstract {
+      text-align: center;
+      font-size: 100%;
+      font-weight: bold;
+      color: black;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display .title {
+      text-align: center;
+      font-size: 150%;
+      font-weight: bold;
+      color: black;
+      margin-top: 0.2em;
+      margin-bottom: 0.2em;
+    }
+
+    #display .subtitle {
+      text-align: center;
+      font-size: 120%;
+      font-weight: bold;
+      color: black;
+      margin-top: 0.2em;
+    }
+
+    #display .date {
+      text-align: right;
+      color: black;
+    }
+
+    #display .block {
+      display: flex;
+      flex: 1 1 auto;
+    }
+
+    #display .block>.comment {
+      display: none;
+    }
+
+    #display .hr {
+      width: 100%;
+      height: 1px;
+      display: block;
+      margin: 0.5em;
+      border-top: 1px solid black;
+    }
+
+    #display a {
+      text-decoration-line: none;
+      text-decoration-color: black;
+      color: darkblue;
+    }
+
+    #display a.broken-internal-link {
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-underline-offset: 2px;
+      text-decoration-color: red;
+    }
+
+    #display span.broken-internal-link {
+      font-size: 0.75em;
+      color: red;
+    }
+
+    #display a:focus-visible {
+      outline: none;
+      background-color: yellow;
+    }
+
+    #display p {
+      width: 100%;
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display pre {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      width: 100%;
+      text-decoration: none;
+      color: inherit;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display h1 {
+      color: darkblue;
+      border-bottom: 2px solid darkblue;
+    }
+
+    #display h2 {
+      border-bottom: 1px solid black;
+    }
+
+    #display h3 {
+      border-bottom: 1px dotted black;
+    }
+
+    #display img {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      max-width: 100%;
+    }
+
+    figure {
+      display: block;
+      margin-block: 0em;
+      margin-inline: 0px;
+    }
+
+    details>summary {
+      font-weight: bold;
+    }
+
+    details {
+      padding-left: 0.5em;
+    }
+
+    details[open] {
+      border: 1px solid black;
+      padding: 0em 0em 0em 0.5em;
+    }
+
+    table {
+      padding: 0px;
+      display: block;
+      width: 100%;
+    }
+
+    table tr {
+      border-top: 1px solid rgb(204, 204, 204);
+      background-color: white;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: rgb(248, 248, 248);
+    }
+
+    table tr th {
+      font-weight: bold;
+      border: 1px solid rgb(204, 204, 204);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr td {
+      border: 1px solid rgb(204, 204, 204);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr th :first-child,
+    table tr td :first-child {
+      margin-top: 0px;
+    }
+
+    table tr th :last-child,
+    table tr td :last-child {
+      margin-bottom: 0px;
+    }
+
+    #display code {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.03);
+      border-radius: 0px;
+      white-space: pre-wrap;
+    }
+
+    #display code~.line-number {
+      margin-top: 3px;
+      margin-right: 3px;
+    }
+
+    #display pre {
+      width: 100%;
+      text-indent: 0.75em;
+      margin: 0.5em 0px;
+      white-space: pre-wrap;
+      border-left: 3px solid black;
+      background-color: rgba(0, 0, 0, 0.03);
+      line-height: 1.25;
+      overflow-x: clip;
+    }
+
+    #display pre code {
+      background-color: rgba(0, 0, 0, 0);
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display pre.language-python {}
+
+    #display li>div {
+      display: flex;
+    }
+
+    #display li {
+      min-height: 1em;
+      width: 100%;
+    }
+
+    #display ul {
+      width: 100%;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      margin-left: 1em;
+      padding-left: 0.35em;
+    }
+
+    #display ul.compact {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ol {
+      width: 100%;
+      margin-left: 1em;
+      padding-left: 0.5em;
+    }
+
+    #display>.section>.block &>ol.compact {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display>.section>.block>ol.loose {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #display>.section>.block>ol.compact {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ol.compact p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ol.loose p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ul.compact p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    #display ul.loose p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+
+    .inline-html .block .block-info {
+      display: none;
+    }
+
+    .inline-html {
+      width: 100%;
+    }
+
+    .section>.block ol~.block-info {}
+
+    .section>.block ul~.block-info {}
+
+    .section>.block pre~.block-info {}
+
+    .section>.block code~.block-info {}
+
+    pre .block-info {
+      font-size: 8px;
+      text-align: right;
+      text-indent: 0px;
+    }
+
+    .block-info {
+      text-align: right;
+      width: 24px;
+      font-family: monospace;
+      white-space: pre-line;
+      overflow-wrap: break-word;
+      font-size: 8px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+    }
+
+    .blockquote {
+      width: 100%;
+      display: block;
+      margin: 1em;
+      border: 1px solid black;
+      padding: 1em;
+      border-radius: 0.5em;
+    }
+
+    .inline {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .latex-underline {
+      text-decoration: underline;
+    }
+
+    .katex {
+      font-size: inherit !important;
+    }
+
+    .katex-warning {
+      border-right: 0.5em solid red;
+    }
+
+    .katex-display {
+      text-align: center;
+      margin: 0em;
+      font-size: 1em !important;
+    }
+
+    .katex-display.fleqn>.katex {
+      padding-left: 0em;
+      margin: 0em;
+    }
+
+    .page-break {
+      break-after: page;
+      width: 100%;
+      font-size: 0px;
+      border-top: 1px dotted black;
+    }
+
+    .solutionsfalse {
+      display: none;
+    }
+
+    .solutionstrue {
+      display: block;
+    }
+
+    @media print {
+      * {
+        overflow: visible !important;
+      }
+
+      @page {
+        size: auto;
+        margin: 0.5in 0.75in 0.75in;
+      }
+
+      .katex .hide-tail {
+        overflow: hidden !important;
+      }
+
+      .page-break {
+        border-top: none;
+      }
+
+      .body {
+        display: inline;
+        position: relative;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        width: 100%;
+        margin-block: 0.1em;
+      }
+
+      h1 {
+        font-size: 1.25em;
+        color: black;
+        border-bottom: 2px solid black;
+      }
+
+      h2 {
+        font-size: 1.15em;
+        border-bottom: 1px solid black;
+      }
+
+      h3 {
+        font-size: 1.1em;
+      }
+
+      h4,
+      h5,
+      h6 {
+        font-size: 1.05em;
+      }
+
+      .md-toc {
+        break-inside: avoid;
+        font-size: 14px;
+      }
+
+      pre {
+        break-inside: avoid;
+      }
+
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+
+      #toc {
+        display: none;
+        font-size: 100%;
+        margin: 0px;
+        width: 100%;
+        overflow-y: hidden;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      #display {
+        margin-left: 0em;
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+        border: none;
+        overflow-wrap: break-word;
+      }
+
+      .katex {
+        font: 1em / 1.1 KaTeX_Main, "Times New Roman", serif;
+        white-space: nowrap;
+        text-indent: 0px;
+        text-rendering: auto;
+      }
+
+      .katex-display {
+        margin-top: 0px !important;
+        font-size: 1em !important;
+      }
+    }
+  </style>
+  <script>
+    function tocClickListen() {
+      let hs = document.querySelectorAll('#toc > ol ol');
+      let el, ns;
+      for (let i = 0; i < hs.length; i++) {
+        if (hs[i].previousElementSibling) {
+          el = hs[i].previousElementSibling.firstElementChild;
+          if (el.length == 0) {
+            continue;
+          }
+          el.addEventListener('click', event => {
+            ns = event.target.parentNode.nextElementSibling;
+            if (!ns) return;
+            if (ns.style.display === 'none') {
+    ns.style.display = 'block';
+            } else
+            {
+    ns.style.display = 'none';}
+          });
+        }
+      }
+    }
+    if (
+        document.readyState === "complete" ||
+        (document.readyState !== "loading" && 
+          !document.documentElement.doScroll)
+    ) {
+      tocClickListen();
+    } else {
+      document.addEventListener("DOMContentLoaded", tocClickListen);
+    }
+  </script>
+</head>
+
+<body class="body">
+  <div id="toc" style="min-width: 5em;">
+    <ol>
+      <li>
+        <a href="#hw-1" raw="# HW 1" lo="1">
+          <span class="toctext">HW 1</span>
+        </a>
+        <ol class="toc" style="display: none;">
+          <li>
+            <a href="#objective-interpretation-of-probability" raw="## Objective Interpretation of Probability" lo="5">
+              <span class="toctext">Objective Interpretation of Probability</span>
+            </a>
+          </li>
+          <li>
+            <a href="#sample-space" raw="## Sample Space" lo="42">
+              <span class="toctext">Sample Space</span>
+            </a>
+          </li>
+          <li>
+            <a href="#set-notation" raw="## Set Notation" lo="48">
+              <span class="toctext">Set Notation</span>
+            </a>
+          </li>
+          <li>
+            <a href="#law-of-addition-and-set-notation" raw="## Law of Addition and Set Notation" lo="56" class="highlighted">
+              <span class="toctext">Law of Addition and Set Notation</span>
+            </a>
+          </li>
+          <li>
+            <a href="#set-operations-in-python" raw="## Set Operations in Python" lo="60" class="">
+              <span class="toctext">Set Operations in Python</span>
+            </a>
+          </li>
+          <li>
+            <a href="#random-walk-simulation" raw="## Random Walk Simulation" lo="76">
+              <span class="toctext">Random Walk Simulation</span>
+            </a>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+  <div id="display">
+    <div class="section">
+    </div>
+    <div class="section">
+      <div class="block">
+        <h1 lo="1" lf="1"><a name="hw-1" number="1" lo="1" raw="# HW 1" class="anchor hanchor" href="#hw-1"><span class="hnumber">1</span>&nbsp;<span class="htext">HW 1</span></a></h1>
+        <div class="block-info" style="display: none;"><span class="line-numbers">1</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="3" lf="3">Due Thursday, January 30th at 11:59 pm.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">3</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="5" lf="5"><a name="objective-interpretation-of-probability" number="1.1" lo="5" raw="## Objective Interpretation of Probability" class="anchor hanchor" href="#objective-interpretation-of-probability"><span class="hnumber">1.1</span>&nbsp;<span class="htext">Objective Interpretation of Probability</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">5</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="7" lf="7">The <em type="md" marker="_">objective interpretation of probability</em> is that the the probability of event <span len="3" raw="_A_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> is the limit of the relative frequency of <span len="3" raw="_A_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, <span len="8" raw="_n(A)/n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal">n</span></span></span></span> as the number of experiments, <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>, used to compute the relative frequency approaches <span len="8" raw="_\infty_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord">∞</span></span></span></span>:</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">7</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="9" lf="9"><span len="51" raw="__P(A) = \lim_{n\rightarrow \infty}\frac{n(A)}{n}__" class="katex-display fleqn"><span class="katex katex-display" style="display: block"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.127em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">9</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="11" lf="11">The following program computes the relative frequency of heads for an experiment where a zero or 1 is randomly selected.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">11</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="13" lf="13">Modify this program so that it computes the relative frequency for <span len="17" raw="_n=1, 2, …, 1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1000</span></span></span></span> and plot <span len="11" raw="_\text{rf}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">rf</span></span></span></span></span> vs <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>. See also Figure 2.2 of Devore.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">13</span></div>
+      </div>
+      <div class="block">
+        <pre lo="15" lf="35" class="language-python"><div class="block"><code lo="16"><span class="hljs-keyword">import</span> random</code><div class="line-number">1</div></div><div class="block"><code lo="17"></code><div class="line-number">2</div></div><div class="block"><code lo="18">a = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>]</code><div class="line-number">3</div></div><div class="block"><code lo="19"></code><div class="line-number">4</div></div><div class="block"><code lo="20"><span class="hljs-comment"># Experiment: Randomly select an element from the list a</span></code><div class="line-number">5</div></div><div class="block"><code lo="21">result = random.choice(a)</code><div class="line-number">6</div></div><div class="block"><code lo="22"></code><div class="line-number">7</div></div><div class="block"><code lo="23"><span class="hljs-comment"># Repeat the experiment n times</span></code><div class="line-number">8</div></div><div class="block"><code lo="24">n = <span class="hljs-number">2</span></code><div class="line-number">9</div></div><div class="block"><code lo="25">results = []</code><div class="line-number">10</div></div><div class="block"><code lo="26"><span class="hljs-keyword">for</span> exp <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>):</code><div class="line-number">11</div></div><div class="block"><code lo="27">  result = random.choice(a)</code><div class="line-number">12</div></div><div class="block"><code lo="28">  results.append(result)</code><div class="line-number">13</div></div><div class="block"><code lo="29"></code><div class="line-number">14</div></div><div class="block"><code lo="30">print(<span class="hljs-string">f"n = <span class="hljs-subst">{n}</span> experiments:"</span>)</code><div class="line-number">15</div></div><div class="block"><code lo="31">print(<span class="hljs-string">f"  Results: <span class="hljs-subst">{results}</span>"</span>)</code><div class="line-number">16</div></div><div class="block"><code lo="32"><span class="hljs-comment"># rf = relative frequency</span></code><div class="line-number">17</div></div><div class="block"><code lo="33">print(<span class="hljs-string">f"  rf(0) = <span class="hljs-subst">{results.count(<span class="hljs-number">0</span>) / n}</span>"</span>)</code><div class="line-number">18</div></div><div class="block"><code lo="34">print(<span class="hljs-string">f"  rf(1) = <span class="hljs-subst">{results.count(<span class="hljs-number">1</span>) / n}</span>"</span>)</code><div class="line-number">19</div></div></pre>
+        <div class="block-info" style="display: none;"><span class="line-numbers">15-35</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="37" lf="37">In class, I will raise the following questions:</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">37</span></div>
+      </div>
+      <div class="block">
+        <ul lo="38" lf="40" class="compact">
+          <li markerlength="2" padlength="0" lo="38" lf="38">
+            <div class="block">
+              <p padlength="0" lo="38" lf="38">Can <code type="md">np.random.choice()</code> be used to simplify the program?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">38</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="39" lf="39">
+            <div class="block">
+              <p padlength="0" lo="39" lf="39">How would you characterized the decreasing variation around <span len="5" raw="_0.5_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span> as a function of <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>? What calculation would you do and what plot would you make?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">39</span></div>
+            </div>
+          </li>
+          <li markerlength="2" padlength="0" lo="40" lf="42">
+            <div class="block">
+              <p padlength="0" lo="40" lf="40">Given a real coin, how would you determine if it is “fair” (50% chance for heads)?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">40</span></div>
+            </div>
+          </li>
+        </ul>
+        <div class="block-info" style="display: none;"><span class="line-numbers">38-40</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="42" lf="42"><a name="sample-space" number="1.2" lo="42" raw="## Sample Space" class="anchor hanchor" href="#sample-space"><span class="hnumber">1.2</span>&nbsp;<span class="htext">Sample Space</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">42</span></div>
+      </div>
+      <div class="block">
+        <ol lo="44" lf="46" class="compact">
+          <li markerlength="3" padlength="0" lo="44" lf="44">
+            <div class="block">
+              <p padlength="0" lo="44" lf="44">An experiment involves tossing a coin 3x. What is the sample space of this experiment?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">44</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="45" lf="45">
+            <div class="block">
+              <p padlength="0" lo="45" lf="45">How many of the outcomes in the sample space had two heads? </p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">45</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="46" lf="48">
+            <div class="block">
+              <p padlength="0" lo="46" lf="46">Define event <span len="3" raw="_A_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> to be that the experiment yields two heads. Define event <span len="3" raw="_B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> to be that the experiment yields two tails. What is <span len="10" raw="_A \cup B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> and <span len="10" raw="_A \cap B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">46</span></div>
+            </div>
+          </li>
+        </ol>
+        <div class="block-info" style="display: none;"><span class="line-numbers">44-46</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="48" lf="48"><a name="set-notation" number="1.3" lo="48" raw="## Set Notation" class="anchor hanchor" href="#set-notation"><span class="hnumber">1.3</span>&nbsp;<span class="htext">Set Notation</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">48</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="50" lf="50">The law of addition for any three events <span len="3" raw="_A_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, <span len="3" raw="_B_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>, and <span len="3" raw="_C_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, is</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">50</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="52" lf="52"><span len="97" raw="_P(A\cup B\cup C) = P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B\cap C)_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span></p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">52</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="54" lf="54">Provide a visual way of justifying this. Be prepared to present your answer in class.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">54</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="56" lf="56" class="highlighted"><a name="law-of-addition-and-set-notation" number="1.4" lo="56" raw="## Law of Addition and Set Notation" class="anchor hanchor" href="#law-of-addition-and-set-notation"><span class="hnumber">1.4</span>&nbsp;<span class="htext">Law of Addition and Set Notation</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">56</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="58" lf="58" class="">Suppose 55% of people exercise and 45% drink alcohol. Also, 70% do at least one of these.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">58</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="60" lf="60" class="">What is the probability that a randomly selected person:</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">60</span></div>
+      </div>
+      <div class="block">
+        <ol lo="61" lf="62" class="compact">
+          <li markerlength="3" padlength="0" lo="61" lf="61" class="">
+            <div class="block">
+              <p padlength="0" lo="61" lf="61" class="">exercises and drinks alcohol?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">61</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="62" lf="64" class="">
+            <div class="block">
+              <p padlength="0" lo="62" lf="62" class="">does not do at least one of the two activities?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">62</span></div>
+            </div>
+          </li>
+        </ol>
+        <div class="block-info" style="display: none;"><span class="line-numbers">61-62</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="64" lf="64" class="active">Use a Venn diagram in the way that was used in class to demonstrate your answers.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">64</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="66" lf="66" class=""><a name="set-operations-in-python" number="1.5" lo="66" raw="## Set Operations in Python" class="anchor hanchor" href="#set-operations-in-python" lf="66"><span class="hnumber">1.5</span>&nbsp;<span class="htext">Set Operations in Python</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">66</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="68" lf="68">My basic <a href="python.html#sets">Python notes</a> has examples of methods that can be used for sets in Python.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">68</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="70" lf="70">In class, we solved the Visa/Mastercard problem using the Law of Addition and also a Venn Diagram. We can also solve this using Python set operations. We were given that the probability of a student having a Visa is 0.5. So we suppose there are 100 students and students 1 through 50 have a Visa: <span len="5" raw="_V =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="13" raw="_1, 2, …, 50_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">50</span></span></span></span>}. We were given that the probability of a student having a MasterCard is 0.4 and also the probability that they have both is 0.25. We can codify this by saying students 25 through 65 have a MasterCard: <span len="5" raw="_M =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="15" raw="_26, 27, …, 50_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">26</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">27</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">50</span></span></span></span>}. The remaining students we label as <span len="5" raw="_X =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="16" raw="_66, 67, …, 100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">66</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">67</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">100</span></span></span></span>}.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">70</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="72" lf="72">Generate sets <code type="md">V</code>, <code type="md">M</code>, and <code type="md">X</code> in Python. They use set operations and the <code type="md">len()</code> function to answer the following.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">72</span></div>
+      </div>
+      <div class="block">
+        <ol lo="74" lf="78" class="loose">
+          <li markerlength="3" padlength="0" lo="74" lf="75">
+            <div class="block">
+              <p padlength="0" lo="74" lf="75">What is the probability that the selected individual has at least one of the two types of cards.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">78-80</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="76" lf="77">
+            <div class="block">
+              <p padlength="0" lo="76" lf="77">What is the probability that the selected individual has neither card type?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">78-80</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="78" lf="80">
+            <div class="block">
+              <p padlength="0" lo="78" lf="79">Find the probability that the student has a Visa but not MasterCard.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">78-79</span></div>
+            </div>
+          </li>
+        </ol>
+        <div class="block-info" style="display: none;"><span class="line-numbers">74-78</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="80" lf="80">(Hint: For 2. and 3., you will need to create a set <span len="4" raw="_M'_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> using the the sample space <span len="18" raw="_S={1, 2, …, 100}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">100</span></span></span></span></span>, <span len="3" raw="_M_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>, and a set operation.)</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">80</span></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2 lo="82" lf="82"><a name="random-walk-simulation" number="1.6" lo="82" raw="## Random Walk Simulation" class="anchor hanchor" href="#random-walk-simulation" lf="82"><span class="hnumber">1.6</span>&nbsp;<span class="htext">Random Walk Simulation</span></a></h2>
+        <div class="block-info" style="display: none;"><span class="line-numbers">82</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="84" lf="84">A random walk is a process analogous to flipping a fair coin. An example in physics is a cylinder constrained to move in one dimension being struck by air particles (and the cylinder moves without friction). Each strike sends the cylinder a small step to the left or right. The probability of a step to the left is the same as that of a step to the right. See also <a href="http://www.fulviofrisone.com/attachments/article/413/Kittel%20-%20Thermodynamics.pdf">Chapter 1 of Kittel and Kroemer</a> for a description in the context of statistical physics.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">84</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="86" lf="86">Suppose we want to know the probability that after three strikes, the cylinder is one step the right of its initial position using a simulation (we will cover an exact answer later).</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">86</span></div>
+      </div>
+      <div class="block">
+        <p padlength="0" lo="88" lf="88">We could do an experiment where we randomly select values of <span len="4" raw="_-1_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span> or <span len="3" raw="_1_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> with equal probability using <code type="md">random.choice([-1, 1])</code> three times. A result could be <code type="md">[-1, 1, -1]</code>. The final position after these steps is <code type="md">sum([-1, 1, -1]) = 1</code>. To compute the probability that the final position is <span len="3" raw="_1_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, we can repeat this experiment many times and count the number of times the final position is <span len="3" raw="_1_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
+        <div class="block-info" style="display: none;"><span class="line-numbers">88</span></div>
+      </div>
+      <div class="block">
+        <ol lo="90" lf="91" class="compact">
+          <li markerlength="3" padlength="0" lo="90" lf="90">
+            <div class="block">
+              <p padlength="0" lo="90" lf="90">How many possible step configurations are possible? That is, what is the sample space of the experiment of taking three steps to right or left, with equal probability for each direction?</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">91-93</span></div>
+            </div>
+          </li>
+          <li markerlength="3" padlength="0" lo="91" lf="93">
+            <div class="block">
+              <p padlength="0" lo="91" lf="91">Write a Python program to compute the probability that the cylinder is one step to the right of its initial position.</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">91</span></div>
+            </div>
+          </li>
+        </ol>
+        <div class="block-info" style="display: none;"><span class="line-numbers">90-91</span></div>
+      </div>
+      <div class="block">
+        <div class="comment" lo="93" lf="93">%3. What is the general formula for the probability that the cylinder is $k$ steps away from its initial position after $N$ steps?</div>
+      </div>
+      <div class="block">
+        <div class="comment" lo="95" lf="95">%4. Simulate $10,000$ steps and plot a histogram of the final position relative to its initial position. Add dots to show the values predicted from the formula found in part 3.</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
