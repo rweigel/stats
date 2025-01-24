@@ -164,6 +164,7 @@ The following references are not needed for this course, but you may find them u
 1. [Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed)](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★) -- Similar in scope and coverage of Devore.
 1.  [Probability Theory: A Concise Course, Y.A. Rozanov](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★)
 1. [Introduction to Probability Theory and Statistical Inference (3rd ed), H.J. Larson](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) 
+1. [Introduction to Probabability, 2019 (2nd ed) J.K. Blitzstein and J. Hwang](https://projects.iq.harvard.edu/stat110/home)
 
 ## Bayes
 

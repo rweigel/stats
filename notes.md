@@ -109,7 +109,7 @@
   
   $$P(A) = \lim_{n\rightarrow \infty}\frac{n(A)}{n}$$
 
-  If exeriment is not repeatable, prior information must be used to determine $P(A)$ and not everyone may conclude the same $P(A)$; in this case $P(A)$ has a subjective interpretation. See DeGroot 2012 for a discussion of interpretations of probability.
+  If exeriment is not repeatable, prior information must be used to determine $P(A)$ and not everyone may conclude the same $P(A)$; in this case $P(A)$ has a subjective interpretation. See DeGroot 2012 and [Ross 2022](https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/interpretations-of-probability.html) for a discussion of interpretations of probability.
 
   Python example of Figure 2.2 Devore:
   

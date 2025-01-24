@@ -2,6 +2,15 @@
 
 Due Thursday, January 30th at 11:59 pm.
 
+1. Save your answers in a GitHub repository named `astrostats`. Under `Setting` in the GitHub repository, set me (`rweigel`) as a collaborator.
+2. Save your answers in the following format:
+   1. Save code as `HW1_X.ext`, where `X` is the problem number and `ext` is the extension (e.g., `py` or `m`).
+   2. Save scanned hand-written answers as `HW1_X.pdf`. Use a scanner app to create the document (don't take a photo and convert it to PDF).
+   3. Save plots as `HW1_X.png`. If there are multiple plots for a problem, save them as `HW1_Xa.png`, `HW1_Xb.png`
+3. Guess the relative frequency that instructions 1. and 2. above are followed precisely.
+
+If you have difficulty with any of the above, we can discuss it at the end of class.
+
 ## Objective Interpretation of Probability
 
 The _objective interpretation of probability_ is that the the probability of event $A$ is the limit of the relative frequency of $A$, $n(A)/n$ as the number of experiments, $n$, used to compute the relative frequency approaches $\infty$:
@@ -34,16 +43,16 @@ print(f"  rf(0) = {results.count(0) / n}")
 print(f"  rf(1) = {results.count(1) / n}")
 ```
 
-In class, I will raise the following questions:
+In class, I will raise the following questions (you don't need to answer this on what you turn in):
 * Can `np.random.choice()` be used to simplify the program?
 * How would you characterized the decreasing variation around $0.5$ as a function of $n$? What calculation would you do and what plot would you make?
-* Given a real coin, how would you determine if it is "fair" (50% chance for heads)?
+* In class, I generated a plot by tossing a coin $n$ times and then recording the relative frequency for that $n$. I did this for $n=1, .... 1000$, so I did $1000$ independent coin tossing trials. Another student tossed a coin $1000$ times (one trial) and used the first $n$ numbers to compute the relative frequency for that $n$ (it also appears that this is how Devore generated Figure 2.2). Be prepared to discuss the difference in interpreation of the results from the two approaches.
 
 ## Sample Space
 
 1. An experiment involves tossing a coin 3x. What is the sample space of this experiment?
 2. How many of the outcomes in the sample space had two heads? 
-3. Define event $A$ to be that the experiment yields two heads. Define event $B$ to be that the experiment yields two tails. What is $A \cup B$ and $A \cap B$?
+3. Define event $A$ to be that the experiment yields two heads. Define event $B$ as the experiment yielding two tails. What is $A \cup B$ and $A \cap B$?
 
 ## Set Notation
 
@@ -61,7 +70,7 @@ What is the probability that a randomly selected person:
 1. exercises and drinks alcohol?
 2. does not do at least one of the two activities?
 
-Use a Venn diagram in the way that was used in class to demonstrate your answers.
+Use a Venn diagram (or any visual method) in the way that was used in class to demonstrate your answers.
 
 ## Set Operations in Python
 
@@ -85,10 +94,10 @@ A random walk is a process analogous to flipping a fair coin. An example in phys
 
 Suppose we want to know the probability that after three strikes, the cylinder is one step the right of its initial position using a simulation (we will cover an exact answer later).
 
-We could do an experiment where we randomly select values of $-1$ or $1$ with equal probability using `random.choice([-1, 1])` three times. A result could be `[-1, 1, -1]`. The final position after these steps is `sum([-1, 1, -1]) = 1`. To compute the probability that the final position is $1$, we can repeat this experiment many times and count the number of times the final position is $1$.
+We could do an experiment where we randomly select values of $-1$ or $1$ with equal probability using `random.choice([-1, 1])` three times (`np.random.choice()` can also be used for efficiency). A result could be `[-1, 1, -1]`. The final position after these steps is `sum([-1, 1, -1]) = 1`. To compute the probability that the final position is $1$, we can repeat this experiment many times and count the number of times the final position is $1$.
 
 1. How many possible step configurations are possible? That is, what is the sample space of the experiment of taking three steps to right or left, with equal probability for each direction?
-2. Write a Python program to compute the probability that the cylinder is one step to the right of its initial position.
+2. Write a program for a simulation that gives an estimate the probability that the cylinder is one step to the right of its initial position after three steps.
 
 %3. What is the general formula for the probability that the cylinder is $k$ steps away from its initial position after $N$ steps?
 
