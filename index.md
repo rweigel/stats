@@ -17,6 +17,8 @@ Subtitle: ASTR/PHYS 390/590<br>Spring, 2025
   * 590: Enrollment in a COS or VSE graduate program.
 * **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in physics.
 
+HW: [1](hw.html)
+
 # Class Notes
 
 ## Thursday, January 23rd
