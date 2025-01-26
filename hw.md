@@ -76,7 +76,7 @@ Use a Venn diagram (or any visual method) in the way that was used in class to d
 
 My basic [Python notes](python.html#sets) has examples of methods that can be used for sets in Python.
 
-In class, we solved the Visa/Mastercard problem using the Law of Addition and also a Venn Diagram. We can also solve this using Python set operations. We were given that the probability of a student having a Visa is 0.5. So we suppose there are 100 students and students 1 through 50 have a Visa: $V =$ {$1, 2, ..., 50$}. We were given that the probability of a student having a MasterCard is 0.4 and also the probability that they have both is 0.25. We can codify this by saying students 25 through 65 have a MasterCard: $M =$ {$26, 27, ..., 50$}. The remaining students we label as $X =$ {$66, 67, ..., 100$}.
+In class, we solved the Visa/Mastercard problem using the Law of Addition and also a Venn Diagram. We can also solve this using Python set operations. We were given that the probability of a student having a Visa is 0.5. So we suppose there are 100 students and students 1 through 50 have a Visa: $V =$ {$1, 2, ..., 50$}. We were given that the probability of a student having a MasterCard is 0.4 and also the probability that they have both is 0.25. We can codify this by saying students 26 through 65 have a MasterCard: $M =$ {$26, 27, ..., 65$}. The remaining students we label as $X =$ {$66, 67, ..., 100$}.
 
 Generate sets `V`, `M`, and `X` in Python. They use set operations and the `len()` function to answer the following.
 
