@@ -303,7 +303,15 @@ In class, I solved this using a Venn diagram. Can we solve it using conditional 
 
 "The probability that the student has a Visa but not MasterCard" can be written in terms of a conditional probability: $P(M'|V)$; based on the statement, we know the student has a Visa, so we are given that $V$ is true. We want to find the probability that the student does not have a MasterCard.
 
+Using 
 
+$$P(A|B) = \frac{P(A\cap B)}{P(B)}$$
+
+we need to compute the right-hand side of
+
+$$P(M'|V) = \frac{P(M'\cap V)}{P(V)}$$
+
+Based on the Venn diagram, we know 
 
 ## Bayes' Rule
 
