@@ -299,7 +299,7 @@ We were given that the probability of a student having a Visa is 0.5; the the pr
 
 We were asked to find the probability that the student has a Visa but not MasterCard.
 
-In class, I solved this using a Venn diagram. Can we solve it using conditional probability?
+How is this different from the statement "given the student has a Visa, what is the probability that they do not have a MasterCard?"
 
 "The probability that the student has a Visa but not MasterCard" can be written in terms of a conditional probability: $P(M'|V)$; based on the statement, we know the student has a Visa, so we are given that $V$ is true. We want to find the probability that the student does not have a MasterCard.
 
@@ -311,25 +311,38 @@ we need to compute the right-hand side of
 
 $$P(M'|V) = \frac{P(M'\cap V)}{P(V)}$$
 
-Based on the Venn diagram, we know 
+Based on the Venn diagram, we know $P(M'\cap V)=0.25$ and we were given $P(V)=0.5$, so
+
+$$P(M'|V) = \frac{1}{2}$$
 
 ## Bayes' Rule
 
 $$
-P(B) = P(A)\cdot\frac{P(B|A)}{P(A|B)}
+P(A|B) = P(A)\cdot\frac{P(B|A)}{P(B)}
 $$
 
-### Posterior
+Bayes' rule can be "accidentally" discovered if we had computed
 
-### Prior
+$$P(V|M') = \frac{P(V\cap M)}{P(M')}$$
 
-### Specificity
+and then compared with
 
-### Sensitivity
+$$P(M'|V) = \frac{P(M'\cap V)}{P(V)}$$
 
-### Odds
+The numerators are identical because $V\cap M = M'\cap V$. Combining these two equations gives Bayes' rule.
 
-### LR
+### Terminology
+
+* Posterior: left--hand side
+* Prior: $P(A)$
+* Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
+* Likelihood: conditional probability on right--hand side, $P(B|A)$
+* Odds ratio or relative likelihood: $P(A)/P(B)$, so posterior = likelihood x prior
+
+In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity) and [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html)),
+
+* Sensitivity (true positive rate): $P(T^+|D^+)$, where $T^+$ is a positive test result and $D^+$ means "disease present), or (number of true positives)/(n true positives + n false negatives) = (true positives)/(total number with disease
+* Sensitivity (true negative rate): $P(T^-|D^-)$, where $T^-$ is a negative test result and $D^-$ means "disease present" or (number of true negatives)/(number of true negatives + number of false positives) = (number of true negatives)/(total number without disease).
 
 ### Visual Derivation
 
@@ -442,10 +455,35 @@ $$
 \frac{5}{13} = \frac{7}{13}\cdot\frac{\frac{2}{7}}{\frac{2}{5}}
 $$
 
-
 ## Law of Total Probability
 
+> Let $A_1$, ... , $A_k$ be mutually exclusive and exhaustive events. Then for any other event $B$,
+>
+> $P(B) = P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)$
+
+Explain this using a table and a Venn diagram.
+
+Consider a square partitioned by three non-overlapping rectangles. Draw $B$ as a rectangle inside the square. We can count the number of elements in $B$ using conditional counts:
+
+$n(B) = n(B|A_1) + n(B|A_2) + n(B|A_3)$
+
+Using $P(B|A_1) = n(B|A_1)/n(A_1)$, etc., we have
+
+$n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + n(B|A_3)n(A_3)$
+
+Divide both sides by $n$ to arrive at the result.
+
+## Multiplication Rule for $P(A\cap B)$
+
+$P(A\cap B) = \frac{P(A|B)P(B)}$
+
 ## General Bayes' Rule
+
+When $A_1, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
+
+$$
+P(A_j|B) = \frac{P(B|A_j)P(A_j)}{P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)}
+$$
 
 # Set Operations in Python
 

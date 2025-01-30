@@ -21,6 +21,29 @@ HW: [1](hw.html)
 
 # Class Notes
 
+## Thursday, January 30th
+
+
+**In-class problems**
+
+1. 2% of people age 50–60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?
+
+2. A box in a certain supply room contains four 40-W light-bulbs, five 60-W bulbs, and six 75-W bulbs. Suppose that three bulbs are randomly selected.
+
+   a. What is the probability that exactly two of the selected bulbs are rated at 75-W?
+
+   b. What is the probability that all three of the selected bulbs have the same rating?
+
+   c. What is the probability that one bulb of each type is selected?
+
+   d. Suppose now that bulbs are to be selected one by one until a 75-W bulb is found. What is the probability that it is necessary to examine at least 6 bulbs?
+
+   e. How would you use a numerical simulation to estimate the answer to a. (assume you don't know the formulas for permutations and combinations)?
+
+3. Devise a numerical experiment to test the statement of the Weak Law of Large Numbers
+
+4. Devise a numerical experiment to test the statement of the Central Limit Theorem
+
 ## Thursday, January 23rd
 
 * Introductions

@@ -102,4 +102,3 @@ We could do an experiment where we randomly select values of $-1$ or $1$ with eq
 %3. What is the general formula for the probability that the cylinder is $k$ steps away from its initial position after $N$ steps?
 
 %4. Simulate $10,000$ steps and plot a histogram of the final position relative to its initial position. Add dots to show the values predicted from the formula found in part 3.
-
