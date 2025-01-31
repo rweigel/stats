@@ -105,6 +105,10 @@ We could do an experiment where we randomly select values of $-1$ or $1$ with eq
 
 # HW 2
 
+Due Thursday, February 6th at 11:59 pm.
+
+Save all files in your repository in the same directory as HW #1 (don't use subdirectories or branches).
+
 ## Permutations and Combinations
 
 Find a problem in a textbook involving permutations and/or combinations (cite your source unless you made up the problem) and provide a solution. Be prepared to explain the problem and its solution in class.
