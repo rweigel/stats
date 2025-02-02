@@ -383,10 +383,6 @@
       font-size: inherit !important;
     }
 
-    .katex-warning {
-      border-right: 0.5em solid red;
-    }
-
     .katex-display {
       text-align: center;
       margin: 0em;
@@ -396,6 +392,16 @@
     .katex-display.fleqn>.katex {
       padding-left: 0em;
       margin: 0em;
+    }
+
+    .katex-warning {
+      border-right: 0.5em solid red;
+    }
+
+    .katex-error-expression {}
+
+    .katex-error-message {
+      color: red;
     }
 
     .page-break {
@@ -423,8 +429,14 @@
         margin: 0.5in 0.75in 0.75in;
       }
 
-      .katex .hide-tail {
-        overflow: hidden !important;
+      body,
+      html {
+        margin: 0px;
+        padding: 0px;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        overflow: auto;
+        display: inline;
       }
 
       .page-break {
@@ -500,6 +512,10 @@
         overflow-wrap: break-word;
       }
 
+      .katex .hide-tail {
+        overflow: hidden !important;
+      }
+
       .katex {
         font: 1em / 1.1 KaTeX_Main, "Times New Roman", serif;
         white-space: nowrap;
@@ -554,7 +570,7 @@
         <a href="#hw-1" raw="# HW 1" lo="1" class="">
           <span class="toctext">HW 1</span>
         </a>
-        <ol class="toc" style="display: block;">
+        <ol class="toc" style="display: none;">
           <li>
             <a href="#objective-interpretation-of-probability" raw="## Objective Interpretation of Probability" lo="14">
               <span class="toctext">Objective Interpretation of Probability</span>
@@ -588,44 +604,44 @@
         </ol>
       </li>
       <li>
-        <a href="#hw-2" raw="# HW 2" lo="106" class="highlighted">
+        <a href="#hw-2" raw="# HW 2" lo="106">
           <span class="toctext">HW 2</span>
         </a>
-        <ol class="toc" style="display: block;">
+        <ol class="toc" style="display: none;">
           <li>
-            <a href="#permutations-and-combinations" raw="## Permutations and Combinations" lo="108" class="">
+            <a href="#permutations-and-combinations" raw="## Permutations and Combinations" lo="112">
               <span class="toctext">Permutations and Combinations</span>
             </a>
           </li>
           <li>
-            <a href="#bayes-rule" raw="## Bayes' Rule" lo="118">
+            <a href="#bayes-rule" raw="## Bayes' Rule" lo="122">
               <span class="toctext">Bayes’ Rule</span>
             </a>
           </li>
           <li>
-            <a href="#law-of-large-numbers" raw="## Law of Large Numbers" lo="130">
+            <a href="#law-of-large-numbers" raw="## Law of Large Numbers" lo="134">
               <span class="toctext">Law of Large Numbers</span>
             </a>
             <ol class="toc" style="display: none;">
               <li>
-                <a href="#a" raw="### a" lo="145">
+                <a href="#a" raw="### a" lo="149">
                   <span class="toctext">a</span>
                 </a>
               </li>
               <li>
-                <a href="#b" raw="### b" lo="153">
+                <a href="#b" raw="### b" lo="157">
                   <span class="toctext">b</span>
                 </a>
               </li>
             </ol>
           </li>
           <li>
-            <a href="#central-limit-theorem" raw="## Central Limit Theorem" lo="167" class="">
+            <a href="#central-limit-theorem" raw="## Central Limit Theorem" lo="171" class="highlighted">
               <span class="toctext">Central Limit Theorem</span>
             </a>
           </li>
           <li>
-            <a href="#reading" raw="## Reading" lo="185" class="">
+            <a href="#reading" raw="## Reading" lo="189">
               <span class="toctext">Reading</span>
             </a>
           </li>
@@ -642,7 +658,7 @@
         <div class="block-info" style="display: none;"><span class="line-numbers">1</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="3" lf="3" class="">Due Thursday, January 30th at 11:59 pm.</p>
+        <p padlength="0" lo="3" lf="3">Due Thursday, January 30th at 11:59 pm.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">3</span></div>
       </div>
       <div class="block">
@@ -662,7 +678,7 @@
               <ol lo="7" lf="9" class="compact">
                 <li markerlength="3" padlength="0" lo="7" lf="7">
                   <div class="block">
-                    <p padlength="0" lo="7" lf="7">Save code as <code type="md">HW1_X.ext</code>, where <code type="md">X</code> is the problem number and <code type="md">ext</code> is the extension (e.g., <code type="md">py</code> or <code type="md">m</code>).</p>
+                    <p padlength="0" lo="7" lf="7" class="">Save code as <code type="md">HW1_X.ext</code>, where <code type="md">X</code> is the problem number and <code type="md">ext</code> is the extension (e.g., <code type="md">py</code> or <code type="md">m</code>).</p>
                     <div class="block-info" style="display: none;"><span class="line-numbers">7</span></div>
                   </div>
                 </li>
@@ -706,7 +722,7 @@
         <div class="block-info" style="display: none;"><span class="line-numbers">16</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="18" lf="18"><span len="51" raw="__P(A) = \lim_{n\rightarrow \infty}\frac{n(A)}{n}__" class="katex-display fleqn"><span class="katex katex-display" style="display: block"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.127em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+        <p padlength="0" lo="18" lf="18"><span len="51" raw="__P(A) = \lim_{n\rightarrow \infty}\frac{n(A)}{n}__" class="katex-display fleqn"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.127em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
         <div class="block-info" style="display: none;"><span class="line-numbers">18</span></div>
       </div>
       <div class="block">
@@ -714,7 +730,7 @@
         <div class="block-info" style="display: none;"><span class="line-numbers">20</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="22" lf="22">Modify this program so that it computes the relative frequency for <span len="17" raw="_n=1, 2, …, 1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1000</span></span></span></span> and plot <span len="11" raw="_\text{rf}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">rf</span></span></span></span></span> vs <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>. See also Figure 2.2 of Devore.</p>
+        <p padlength="0" lo="22" lf="22">Modify this program so that it computes the relative frequency for <span len="19" raw="_n=1, 2, ..., 1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1000</span></span></span></span> and plot <span len="11" raw="_\text{rf}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">rf</span></span></span></span></span> vs <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>. See also Figure 2.2 of Devore.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">22</span></div>
       </div>
       <div class="block">
@@ -741,7 +757,7 @@
           </li>
           <li markerlength="2" padlength="0" lo="49" lf="51">
             <div class="block">
-              <p padlength="0" lo="49" lf="49">In class, I generated a plot by tossing a coin <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> times and then recording the relative frequency for that <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>. I did this for <span len="14" raw="_n=1, …. 1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">.1000</span></span></span></span>, so I did <span len="6" raw="_1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1000</span></span></span></span> independent coin tossing trials. Another student tossed a coin <span len="6" raw="_1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1000</span></span></span></span> times (one trial) and used the first <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> numbers to compute the relative frequency for that <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> (it also appears that this is how Devore generated Figure 2.2). Be prepared to discuss the difference in interpreation of the results from the two approaches.</p>
+              <p padlength="0" lo="49" lf="49">In class, I generated a plot by tossing a coin <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> times and then recording the relative frequency for that <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>. I did this for <span len="16" raw="_n=1, .... 1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">....1000</span></span></span></span>, so I did <span len="6" raw="_1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1000</span></span></span></span> independent coin tossing trials. Another student tossed a coin <span len="6" raw="_1000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1000</span></span></span></span> times (one trial) and used the first <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> numbers to compute the relative frequency for that <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> (it also appears that this is how Devore generated Figure 2.2). Be prepared to discuss the difference in interpreation of the results from the two approaches.</p>
               <div class="block-info" style="display: none;"><span class="line-numbers">49</span></div>
             </div>
           </li>
@@ -841,7 +857,7 @@
         <div class="block-info" style="display: none;"><span class="line-numbers">77</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="79" lf="79">In class, we solved the Visa/Mastercard problem using the Law of Addition and also a Venn Diagram. We can also solve this using Python set operations. We were given that the probability of a student having a Visa is 0.5. So we suppose there are 100 students and students 1 through 50 have a Visa: <span len="5" raw="_V =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="13" raw="_1, 2, …, 50_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">50</span></span></span></span>}. We were given that the probability of a student having a MasterCard is 0.4 and also the probability that they have both is 0.25. We can codify this by saying students 26 through 65 have a MasterCard: <span len="5" raw="_M =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="15" raw="_26, 27, …, 65_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">26</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">27</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">65</span></span></span></span>}. The remaining students we label as <span len="5" raw="_X =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="16" raw="_66, 67, …, 100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">66</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">67</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">100</span></span></span></span>}.</p>
+        <p padlength="0" lo="79" lf="79">In class, we solved the Visa/Mastercard problem using the Law of Addition and also a Venn Diagram. We can also solve this using Python set operations. We were given that the probability of a student having a Visa is 0.5. So we suppose there are 100 students and students 1 through 50 have a Visa: <span len="5" raw="_V =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="15" raw="_1, 2, ..., 50_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">50</span></span></span></span>}. We were given that the probability of a student having a MasterCard is 0.4 and also the probability that they have both is 0.25. We can codify this by saying students 26 through 65 have a MasterCard: <span len="5" raw="_M =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="17" raw="_26, 27, ..., 65_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">26</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">27</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">65</span></span></span></span>}. The remaining students we label as <span len="5" raw="_X =_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> {<span len="18" raw="_66, 67, ..., 100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">66</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">67</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">100</span></span></span></span>}.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">79</span></div>
       </div>
       <div class="block">
@@ -872,7 +888,7 @@
         <div class="block-info" style="display: none;"><span class="line-numbers">83-87</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="89" lf="89">(Hint: For 2. and 3., you will need to create a set <span len="4" raw="_M'_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> using the the sample space <span len="18" raw="_S={1, 2, …, 100}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">100</span></span></span></span></span>, <span len="3" raw="_M_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>, and a set operation.)</p>
+        <p padlength="0" lo="89" lf="89">(Hint: For 2. and 3., you will need to create a set <span len="4" raw="_M'_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> using the the sample space <span len="20" raw="_S={1, 2, ..., 100}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">100</span></span></span></span></span>, <span len="3" raw="_M_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>, and a set operation.)</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">89</span></div>
       </div>
     </div>
@@ -919,25 +935,25 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1 lo="106" lf="106" class="highlighted"><a name="hw-2" number="2" lo="106" raw="# HW 2" class="anchor hanchor" href="#hw-2"><span class="hnumber">2</span>&nbsp;<span class="htext">HW 2</span></a></h1>
+        <h1 lo="106" lf="106"><a name="hw-2" number="2" lo="106" raw="# HW 2" class="anchor hanchor" href="#hw-2"><span class="hnumber">2</span>&nbsp;<span class="htext">HW 2</span></a></h1>
         <div class="block-info" style="display: none;"><span class="line-numbers">106</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="108" lf="108" class="">Due Thursday, February 6th at 11:59 pm.</p>
+        <p padlength="0" lo="108" lf="108">Due Thursday, February 6th at 11:59 pm.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">108</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="110" lf="110" class="active">Save all files in your repository in the same directory as HW #1 (don’t use subdirectories or branches).</p>
+        <p padlength="0" lo="110" lf="110">Save all files in your repository in the same directory as HW #1 (don’t use subdirectories or branches).</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">110</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="112" lf="112" class=""><a name="permutations-and-combinations" number="2.1" lo="112" raw="## Permutations and Combinations" class="anchor hanchor" href="#permutations-and-combinations" lf="112"><span class="hnumber">2.1</span>&nbsp;<span class="htext">Permutations and Combinations</span></a></h2>
+        <h2 lo="112" lf="112"><a name="permutations-and-combinations" number="2.1" lo="112" raw="## Permutations and Combinations" class="anchor hanchor" href="#permutations-and-combinations"><span class="hnumber">2.1</span>&nbsp;<span class="htext">Permutations and Combinations</span></a></h2>
         <div class="block-info" style="display: none;"><span class="line-numbers">112</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="114" lf="114" class="">Find a problem in a textbook involving permutations and/or combinations (cite your source unless you made up the problem) and provide a solution. Be prepared to explain the problem and its solution in class.</p>
+        <p padlength="0" lo="114" lf="114">Find a problem in a textbook involving permutations and/or combinations (cite your source unless you made up the problem) and provide a solution. Be prepared to explain the problem and its solution in class.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">114</span></div>
       </div>
       <div class="block">
@@ -955,7 +971,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="122" lf="122"><a name="bayes-rule" number="2.2" lo="122" raw="## Bayes' Rule" class="anchor hanchor" href="#bayes-rule" lf="122"><span class="hnumber">2.2</span>&nbsp;<span class="htext">Bayes’ Rule</span></a></h2>
+        <h2 lo="122" lf="122"><a name="bayes-rule" number="2.2" lo="122" raw="## Bayes' Rule" class="anchor hanchor" href="#bayes-rule"><span class="hnumber">2.2</span>&nbsp;<span class="htext">Bayes’ Rule</span></a></h2>
         <div class="block-info" style="display: none;"><span class="line-numbers">122</span></div>
       </div>
       <div class="block">
@@ -988,7 +1004,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="134" lf="134"><a name="law-of-large-numbers" number="2.3" lo="134" raw="## Law of Large Numbers" class="anchor hanchor" href="#law-of-large-numbers" lf="134"><span class="hnumber">2.3</span>&nbsp;<span class="htext">Law of Large Numbers</span></a></h2>
+        <h2 lo="134" lf="134"><a name="law-of-large-numbers" number="2.3" lo="134" raw="## Law of Large Numbers" class="anchor hanchor" href="#law-of-large-numbers"><span class="hnumber">2.3</span>&nbsp;<span class="htext">Law of Large Numbers</span></a></h2>
         <div class="block-info" style="display: none;"><span class="line-numbers">134</span></div>
       </div>
       <div class="block">
@@ -996,7 +1012,7 @@
         <div class="block-info" style="display: none;"><span class="line-numbers">136</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="138" lf="138"><span len="49" raw="__\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i__" class="katex-display fleqn"><span class="katex katex-display" style="display: block"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.9291em;vertical-align:-1.2777em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+        <p padlength="0" lo="138" lf="138"><span len="49" raw="__\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i__" class="katex-display fleqn"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.9291em;vertical-align:-1.2777em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
         <div class="block-info" style="display: none;"><span class="line-numbers">138</span></div>
       </div>
       <div class="block">
@@ -1012,19 +1028,19 @@
           <li markerlength="2" padlength="0" lo="144" lf="144">
             <div class="block">
               <p padlength="0" lo="144" lf="144"><a href="https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf">Orloff and Bloom, Reading 6b</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">147-149</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">144</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="145" lf="145">
             <div class="block">
               <p padlength="0" lo="145" lf="145"><a href="https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bulmer, Chapter 6</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">147-149</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">145</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="146" lf="146">
             <div class="block">
               <p padlength="0" lo="146" lf="146"><a href="https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">DeGroot, Chapter 6</a></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">147-149</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">146</span></div>
             </div>
           </li>
           <li markerlength="2" padlength="0" lo="147" lf="149">
@@ -1039,7 +1055,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="149" lf="149"><a name="a" number="2.3.1" lo="149" raw="### a" class="anchor hanchor" href="#a" lf="149"><span class="hnumber">2.3.1</span>&nbsp;<span class="htext">a</span></a></h3>
+        <h3 lo="149" lf="149"><a name="a" number="2.3.1" lo="149" raw="### a" class="anchor hanchor" href="#a"><span class="hnumber">2.3.1</span>&nbsp;<span class="htext">a</span></a></h3>
         <div class="block-info" style="display: none;"><span class="line-numbers">149</span></div>
       </div>
       <div class="block">
@@ -1047,13 +1063,13 @@
           <li markerlength="3" padlength="0" lo="151" lf="151">
             <div class="block">
               <p padlength="0" lo="151" lf="151">Draw <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> values from a population of Gaussian-distributed numbers with mean <span len="7" raw="_\mu=0_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> and standard deviation <span len="10" raw="_\sigma=1_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">153-155</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">151</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="152" lf="152">
             <div class="block">
               <p padlength="0" lo="152" lf="152">Compute <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">153-155</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">152</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="153" lf="155">
@@ -1072,7 +1088,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3 lo="157" lf="157"><a name="b" number="2.3.2" lo="157" raw="### b" class="anchor hanchor" href="#b" lf="157"><span class="hnumber">2.3.2</span>&nbsp;<span class="htext">b</span></a></h3>
+        <h3 lo="157" lf="157"><a name="b" number="2.3.2" lo="157" raw="### b" class="anchor hanchor" href="#b"><span class="hnumber">2.3.2</span>&nbsp;<span class="htext">b</span></a></h3>
         <div class="block-info" style="display: none;"><span class="line-numbers">157</span></div>
       </div>
       <div class="block">
@@ -1080,25 +1096,25 @@
           <li markerlength="3" padlength="0" lo="159" lf="159">
             <div class="block">
               <p padlength="0" lo="159" lf="159">For <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span>, what fraction of the <span len="8" raw="_10,000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span></span></span></span> <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>s were in the range <span len="15" raw="_[-0.01, 0.01]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">0.01</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.01</span><span class="mclose">]</span></span></span></span>?</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">163-165</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">159</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="160" lf="160">
             <div class="block">
               <p padlength="0" lo="160" lf="160">How does the fraction depend on <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>? <sup>+</sup></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">163-165</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">160</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="161" lf="161">
             <div class="block">
               <p padlength="0" lo="161" lf="161">For <span len="7" raw="_n=100_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span>, what is the range <span len="22" raw="_[-\epsilon,\epsilon]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord mathnormal">ϵ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">ϵ</span><span class="mclose">]</span></span></span></span> for which <span len="4" raw="_99_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">99</span></span></span></span>% of the <span len="8" raw="_10,000_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span></span></span></span> <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>s fall in?</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">163-165</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">161</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="162" lf="162">
             <div class="block">
               <p padlength="0" lo="162" lf="162">How does <span len="10" raw="_\epsilon_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span></span></span></span> depend on <span len="3" raw="_n_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>? <sup>+</sup></p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">163-165</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">162</span></div>
             </div>
           </li>
           <li markerlength="3" padlength="0" lo="163" lf="165">
@@ -1125,7 +1141,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="171" lf="171" class=""><a name="central-limit-theorem" number="2.4" lo="171" raw="## Central Limit Theorem" class="anchor hanchor" href="#central-limit-theorem" lf="171"><span class="hnumber">2.4</span>&nbsp;<span class="htext">Central Limit Theorem</span></a></h2>
+        <h2 lo="171" lf="171" class="highlighted"><a name="central-limit-theorem" number="2.4" lo="171" raw="## Central Limit Theorem" class="anchor hanchor" href="#central-limit-theorem"><span class="hnumber">2.4</span>&nbsp;<span class="htext">Central Limit Theorem</span></a></h2>
         <div class="block-info" style="display: none;"><span class="line-numbers">171</span></div>
       </div>
       <div class="block">
@@ -1146,7 +1162,7 @@ M834 80h400000v40h-400000z"></path>
         <div class="block-info" style="display: none;"><span class="line-numbers">173</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="175" lf="176">Important: this theorem (usually) applies even if the distribution of the values used in computing <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> are not Gaussian–distributed.</p>
+        <p padlength="0" lo="175" lf="176" class="active">Important: this theorem (usually) applies even if the distribution of the values used in computing <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> are not Gaussian–distributed.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">175-176</span></div>
       </div>
       <div class="block">
@@ -1185,21 +1201,21 @@ M834 80h400000v40h-400000z"></path>
       </div>
       <div class="block">
         <ol lo="182" lf="185" class="compact">
-          <li markerlength="3" padlength="0" lo="182" lf="182">
+          <li markerlength="3" padlength="0" lo="182" lf="182" class="">
             <div class="block">
-              <p padlength="0" lo="182" lf="182">This histogram should be approximately Gaussian;</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">185-187</span></div>
+              <p padlength="0" lo="182" lf="182" class="">This histogram should be approximately Gaussian;</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">182</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="183" lf="183">
+          <li markerlength="3" padlength="0" lo="183" lf="183" class="">
             <div class="block">
-              <p padlength="0" lo="183" lf="183">The mean of <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> should be approximately <span len="5" raw="_\mu_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span>, which is the population standard deviation; and</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">185-187</span></div>
+              <p padlength="0" lo="183" lf="183" class="">The mean of <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> should be approximately <span len="5" raw="_\mu_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span>, which is the population mean; and</p>
+              <div class="block-info" style="display: none;"><span class="line-numbers">183</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="184" lf="184">
+          <li markerlength="3" padlength="0" lo="184" lf="184" class="">
             <div class="block">
-              <p padlength="0" lo="184" lf="184">This standard deviation of <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> should be approximately <span len="17" raw="_\sigma/\sqrt{n}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0503em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mord">/</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8003em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">n</span></span></span><span style="top:-2.7603em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
+              <p padlength="0" lo="184" lf="184" class="">This standard deviation of <span len="14" raw="_\overline{X}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> should be approximately <span len="17" raw="_\sigma/\sqrt{n}_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0503em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mord">/</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8003em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">n</span></span></span><span style="top:-2.7603em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
                                     <path d="M95,702
 c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
 c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
@@ -1213,12 +1229,12 @@ s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
 M834 80h400000v40h-400000z"></path>
                                   </svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2397em;"><span></span></span></span></span></span></span></span></span>, where <span len="8" raw="_\sigma_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span> is the population standard deviation.</p>
-              <div class="block-info" style="display: none;"><span class="line-numbers">185-187</span></div>
+              <div class="block-info" style="display: none;"><span class="line-numbers">184</span></div>
             </div>
           </li>
-          <li markerlength="3" padlength="0" lo="185" lf="187">
+          <li markerlength="3" padlength="0" lo="185" lf="185" class="">
             <div class="block">
-              <p padlength="0" lo="185" lf="185">95% of the time the range <span len="69" raw="_[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1333em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1333em;vertical-align:-0.25em;"></span><span class="mord">1.96</span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mord">/</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8003em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">n</span></span></span><span style="top:-2.7603em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
+              <p padlength="0" lo="185" lf="185" class="">95% of the time the range <span len="69" raw="_[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]_" class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1333em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.8033em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1333em;vertical-align:-0.25em;"></span><span class="mord">1.96</span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mord">/</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8003em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">n</span></span></span><span style="top:-2.7603em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice">
                                     <path d="M95,702
 c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
 c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
@@ -1252,21 +1268,21 @@ M834 80h400000v40h-400000z"></path>
         <div class="block-info" style="display: none;"><span class="line-numbers">182-185</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="187" lf="187" class="">Create one or two plots that demonstrate these points. Pay careful attention to your annotations. Save your code as <code type="md">HW2_4.py</code> and plots as <code type="md">HW2_4.png</code> (use subplots).</p>
+        <p padlength="0" lo="187" lf="187">Create one or two plots that demonstrate these points. Pay careful attention to your annotations. Save your code as <code type="md">HW2_4.py</code> and plots as <code type="md">HW2_4.png</code> (use subplots).</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">187</span></div>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2 lo="189" lf="189" class=""><a name="reading" number="2.5" lo="189" raw="## Reading" class="anchor hanchor" href="#reading" lf="189"><span class="hnumber">2.5</span>&nbsp;<span class="htext">Reading</span></a></h2>
+        <h2 lo="189" lf="189"><a name="reading" number="2.5" lo="189" raw="## Reading" class="anchor hanchor" href="#reading"><span class="hnumber">2.5</span>&nbsp;<span class="htext">Reading</span></a></h2>
         <div class="block-info" style="display: none;"><span class="line-numbers">189</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="191" lf="191" class="">Background reading on Discrete Probability Distributions: <a href="(https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 3</a></p>
+        <p padlength="0" lo="191" lf="191">Background reading on Discrete Probability Distributions: <a href="(https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 3</a></p>
         <div class="block-info" style="display: none;"><span class="line-numbers">191</span></div>
       </div>
       <div class="block">
-        <p padlength="0" lo="193" lf="193" class="">Alternatives: <a href="https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bulmer Chapters 1 and 2</a>, <a href="https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bonamente Chapter 3</a>, <a href="https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Rozanov Chapter 5</a>, <a href="https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Larson Chapter 4</a> and <a href="https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">DeGroot Chapter 5.1-5.6</a>.</p>
+        <p padlength="0" lo="193" lf="193">Alternatives: <a href="https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bulmer Chapters 1 and 2</a>, <a href="https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bonamente Chapter 3</a>, <a href="https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Rozanov Chapter 5</a>, <a href="https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Larson Chapter 4</a> and <a href="https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">DeGroot Chapter 5.1-5.6</a>.</p>
         <div class="block-info" style="display: none;"><span class="line-numbers">193</span></div>
       </div>
     </div>
