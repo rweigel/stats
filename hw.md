@@ -48,11 +48,55 @@ In class, I will raise the following questions (you don't need to answer this on
 * How would you characterized the decreasing variation around $0.5$ as a function of $n$? What calculation would you do and what plot would you make?
 * In class, I generated a plot by tossing a coin $n$ times and then recording the relative frequency for that $n$. I did this for $n=1, .... 1000$, so I did $1000$ independent coin tossing trials. Another student tossed a coin $1000$ times (one trial) and used the first $n$ numbers to compute the relative frequency for that $n$ (it also appears that this is how Devore generated Figure 2.2). Be prepared to discuss the difference in interpreation of the results from the two approaches.
 
+**Solution**
+
+See [HW1_1.py](https://github.com/rweigel/stats/tree/main/solns). Problem is solved with and without using NumPy.
+
+<img src="solns/HW1_1.png" width="500px"/>
+
+Comments on in--class discussion questions:
+
+* How would you characterized the decreasing variation around $0.5$ as a function of $n$? What calculation would you do and what plot would you make?
+
+  **Answer**: We can repeat the process used to create the figure $N$ times. Then we could compare the histogram of the values at, say, $n=100$ and $n=1000$ and characterized the difference in their variation by the histogram's standard deviation.
+
+* In class, I generated a plot by tossing a coin $n$ times and then recording the relative frequency for that $n$. I did this for $n=1, .... 1000$, so I did $1000$ independent coin tossing trials. Another student tossed a coin $1000$ times (one trial) and used the first $n$ numbers to compute the relative frequency for that $n$ (it also appears that this is how Devore generated Figure 2.2). Be prepared to discuss the difference in interpreation of the results from the two approaches.
+
+  **Answer**: In the second method, the result at $n+1$ depends on the result at $n$: $P_H^{n+1} = \frac{n}{n+1}P_H^n + \frac{x}{n+1}$, where $x=0$ or $1$. My opinion is that the plot associated with this method appears artifically smooth. 
+
 ## Sample Space
 
 1. An experiment involves tossing a coin 3x. What is the sample space of this experiment?
 2. How many of the outcomes in the sample space had two heads? 
 3. Define event $A$ to be that the experiment yields two heads. Define event $B$ as the experiment yielding two tails. What is $A \cup B$ and $A \cap B$?
+
+**Answer**
+
+1. The sample space has 8 elements ($2^3$). This list can be found using a tree diagram as shown below.
+
+    ```
+            H   => HHH
+        H -
+            T   => HHT
+    H -        
+            H   => HTH
+        T -
+            T   => HTT
+
+            H   => THH
+        H -
+            T   => THT
+    T -        
+            H   => TTH
+        T -
+            T   => TTT
+
+    ```
+2. $3$ by inspection of the table above. Also, suppose that we have three unique coins $T$, $H_1$, and $H_2$. There are $3!$ unique permutations. If we drop the subscripts, then the number of unique permutations is divided by 2. So $3!/2=3$.
+
+3. By inspection of the list from 1., $A \cup B = 6$ and  $A \cap B = \emptyset$.
+
+In the above, I assumed "experiement yields two heads" to mean "the experiment yielded exactly two heads" and not "the experiement yielded two or more heads".
 
 ## Set Notation
 
@@ -61,6 +105,28 @@ The law of addition for any three events $A$, $B$, and $C$, is
 $P(A\cup B\cup C) = P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B\cap C)$
 
 Provide a visual way of justifying this. Be prepared to present your answer in class.
+
+**Answer**
+
+<img src="solns/HW1_3.svg" width="500px"/>
+
+From the figure on the left, we can count all of the dots that are in $A$ or $B$ (or both) by counting all the dots in $A$ and adding this to the number of dots in $B$ and then subtracting the dots that were counted twice, which are shown highlighted. The result is
+
+$n(A\cup B) = n(A) + n(B) - n(A\cap B)$
+
+(Dividing by $N$ and taking the limit gives probability.)
+
+The figure on the right shows a new region, $C$. To also count dots in $C$, we add all of the dots in $C$, $n(C)$ and then remove double--counted dots.
+
+The region of the two left--most highlighted dots is $n(A\cap C)$ must be subtracted out. The region of the right--most highighted dot must be subtracted out, but $n(B\cap C)$ includes the middle highlighted dot, so $n(A\cap B)-n(A\cap B\cap C)$ must be subtracted. Thus
+
+$n(A\cup B) = n(A) + n(B) - n(A\cap B) + \Big[n(C) - n(A\cap C) - n(B\cap C) + n(A\cap B\cap C)\Big]$
+
+or, dividing by $N$ and re--arranging,
+
+$P(A\cup B\cup C) = P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B\cap C)$
+
+The general formula for an arbitrary number of regions is given on p 99 of ...
 
 ## Law of Addition and Set Notation
 
@@ -88,6 +154,16 @@ Generate sets `V`, `M`, and `X` in Python. They use set operations and the `len(
 
 (Hint: For 2. and 3., you will need to create a set $M'$ using the the sample space $S={1, 2, ..., 100}$, $M$, and a set operation.)
 
+**Solution**:
+
+See [HW1_5.py](https://github.com/rweigel/stats/tree/main/solns). Problem is solved with and without using NumPy, which prints
+
+```
+1. 0.65 = Prob. selected student has at least one of the two types of cards
+2. 0.35 = Prob. selected student has neither card type
+3. 0.25 = Prob. selected student has a Visa but not MasterCard
+```
+
 ## Random Walk Simulation
 
 A random walk is a process analogous to flipping a fair coin. An example in physics is a cylinder constrained to move in one dimension being struck by air particles (and the cylinder moves without friction). Each strike sends the cylinder a small step to the left or right. The probability of a step to the left is the same as that of a step to the right. See also [Chapter 1 of Kittel and Kroemer](http://www.fulviofrisone.com/attachments/article/413/Kittel%20-%20Thermodynamics.pdf) for a description in the context of statistical physics.
@@ -99,9 +175,22 @@ We could do an experiment where we randomly select values of $-1$ or $1$ with eq
 1. How many possible step configurations are possible? That is, what is the sample space of the experiment of taking three steps to right or left, with equal probability for each direction?
 2. Write a program for a simulation that gives an estimate the probability that the cylinder is one step to the right of its initial position after three steps.
 
-%3. What is the general formula for the probability that the cylinder is $k$ steps away from its initial position after $N$ steps?
+**Answer**:
 
-%4. Simulate $10,000$ steps and plot a histogram of the final position relative to its initial position. Add dots to show the values predicted from the formula found in part 3.
+1. $2^3=8$. See problem 1.2.1 and replace $H$ with $L$ (for left step) and $T$ with $R$ (for left step).
+
+2. See [HW1_6.py](https://github.com/rweigel/stats/tree/main/solns), which has the following output.
+
+   ```
+   From 10000 experiments:
+     P(sum = -3) = 0.1264
+     P(sum = -2) = 0.0
+     P(sum = -1) = 0.3649
+     P(sum =  0) = 0.0
+     P(sum =  1) = 0.3782
+     P(sum =  2) = 0.0
+     P(sum =  3) = 0.1305
+   ```
 
 # HW 2
 

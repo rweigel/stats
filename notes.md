@@ -321,95 +321,125 @@ $$
 P(A|B) = P(A)\cdot\frac{P(B|A)}{P(B)}
 $$
 
-Bayes' rule can be "accidentally" discovered if we had computed
+Also called "Bayes' Law" and "Bayes' Theorem". Different forms are also used.
 
-$$P(V|M') = \frac{P(V\cap M)}{P(M')}$$
+### Simple Derivation
 
-and then compared with
+Definition of conditional probability for two events:
 
-$$P(M'|V) = \frac{P(M'\cap V)}{P(V)}$$
+$$P(A|B) = \frac{P(A\cap B)}{P(B)}$$
 
-The numerators are identical because $V\cap M = M'\cap V$. Combining these two equations gives Bayes' rule.
+Swapping letters gives
+
+$$P(B|A) = \frac{P(B\cap A)}{P(A)}$$
+
+The numerators are identical because $A\cap B =B\cap A$. Combining these two equations gives Bayes' rule.
 
 ### Terminology
 
-* Posterior: left--hand side
-* Prior: $P(A)$
+$$
+P(A|B) = P(B|A)\frac{P(A)}{P(B)}
+$$
+
+* Posterior: $P(B|A)$ (probability after knowing $B$ occured)
+* Prior: $P(A)$ (probability prior to knowing $B$ occured)
 * Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
 * Likelihood: conditional probability on right--hand side, $P(B|A)$
-* Odds ratio or relative likelihood: $P(A)/P(B)$, so posterior = likelihood x prior
+* Odds ratio or relative likelihood: $P(A)/P(B)$
 
-In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity) and [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html)),
+Other forms of Bayes include
 
-* Sensitivity (true positive rate): $P(T^+|D^+)$, where $T^+$ is a positive test result and $D^+$ means "disease present), or (number of true positives)/(n true positives + n false negatives) = (true positives)/(total number with disease
-* Sensitivity (true negative rate): $P(T^-|D^-)$, where $T^-$ is a negative test result and $D^-$ means "disease present" or (number of true negatives)/(number of true negatives + number of false positives) = (number of true negatives)/(total number without disease).
+posterior = odds $\bfcdot$ prior
+
+and the proportionality
+
+posterior $\sim$ liklihood $\bfcdot$ prior
+
+See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/articles/understanding-bayes-theorem-with-ratios/), which uses 
+
+original odds $\bfcdot$ evidence adjustment = new odds
+
+In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),
+
+* Sensitivity, $S_e$ (true positive rate):
+
+   $P(T^+|D^+)$  = (number of true positives)/(n true positives + n false negatives)
+   
+   $P(T^+|D^+)$ = (true positives)/(total number with disease)
+
+   where $T^+$ is a positive test result and $D^+$ means "disease present"
+
+* Specificity, $S_p$ (true negative rate):
+
+   $P(T^-|D^-)$ = (number of true negatives)/(number of true negatives + number of false positives)
+
+   $P(T^-|D^-)$ = (number of true negatives)/(total number without disease).
+
+   where $T^-$ is a negative test result and $D^-$ means "disease present"
+
+* Likelihood ratio: (See also [The likelihood ratio and its graphical representation](https://pmc.ncbi.nlm.nih.gov/articles/PMC6457916/)): $LR(r) = P(r|D^+)/P(r|D^-)$, where $r$ is the test result (could be a continuous variable such as "HDL colesterol") Then
+
+   Post-test odds of $D^+$ = LR(r) $\bfcdot$ Pre-test odds of $D^+$
+   
+   If $r$ is dichotomous (test result is positive or negative), then
+   
+   $LR^+ = P(T^+|D^+)/P(T^+|D^-)= S_e/(1-S_p)$
+   
+   and
+   
+   $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/Sp$
 
 ### Visual Derivation
 
-Also called "Bayes' Law" and "Bayes' Theorem". Different forms are also used.
+<img src="notes/figures/bayes_venn.svg"/>
 
-You only need to know these two laws in order to derive Bayes' theorem: Sum law and Product law
+**Figure 1**
 
-----
-
-[[Image:Image1.png|thumb|left|Image 1]]
-
-**Question:** What is $n(A \text{ and } B)$ in Image 1? That is, how many dots have labels of $A$ or $B$? (Give a number)
-
-**Answer**: All of them; $n(A) + n(B) = 11$
-
-**Question:** What is $n(A \text{ and } B)$ in Image 1?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
-
-**Answer**: zero
-
-----
-
-[[Image:Image2.png|left|thumb|Image 2]]
-
-**Question:** What is $n(A \text{ and } B)$ in Image 2?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
+**Question:** What is $n(A \text{ and } B)$ in Figure 1?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
 
 **Answer**: 2
 
-**Question:** What is $n(B \text{ and } A)$ in Image 2?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
+**Question:** What is $n(B \text{ and } A)$ in Figure 1?  That is, how many dots have labels of both $A$ and $B$?  (Give a number)
 
 **Answer**: 2
 
 ----
 
-**Question:** In terms of $n(A), n(B), n(A \text{ and } B)$, what is $n(A \text{ or } B)$ in Image 2?  That is, how many dots have labels of $A$ or $B$?
+**Question:** In terms of $n(A), n(B), n(A \text{ and } B)$, what is $n(A \text{ or } B)$ in Figure 1?  That is, how many dots have labels of $A$ or $B$?
 
 **Answer**: $n(A \text{ or } B) = n(A) + n(B) - n(A \text{ and } B)$
 
-**Question:** In terms of n(B), P(A|B), what is n(A and B) in Image 2?
+**Question:** In terms of $n(B)$ and $P(A|B)$, what is $n(A \text{ and } B)$ in Figure 1?
 
 $$n(A \mbox{ and } B) = n(B)\cdot P(A|B)$$
 
-**Question:** In terms of n(A), P(B|A), what is n(B and A) in Image 2?
-
+**Question:** In terms of $n(A)$ and $P(B|A)$, what is $n(B \text{ and } A)$ in Figure 1?
 
 $n(B \mbox{ and } A) = n(A)\cdot P(B|A)$
 
-[[Image:Image3.png|thumb|left|Image 3 (X Y Z, A B grid)]]
 
-'''Question:''' In terms of $n(A), n(B), n(X), P(X|A)$, and $P(A|X)$, what is $n(A and X)$ in Image 3?
+<img src="notes/figures/bayes_table.svg">
+
+**Figure 2**
+
+**Question:** In terms of $n(A), n(B), n(X), P(X|A)$, and $P(A|X)$, what is $n(A \text{ and } X)$ in Figure 2?
 
 $$n(A \mbox{ and } X) = n(A)\cdot P(X|A)$$
 
-'''Question:''' In terms of n(A), n(B), n(X), P(X|A), and P(A|X), what is n(X and A) in Image 3?
+**Question:** In terms of $n(A), n(B), n(X), P(X|A)$, and $P(A|X)$, what is $n(X \text{ and } A)$ in Figure 2?
 
 **Answer:**
 $n(X \mbox{ and } A) = n(X)\cdot P(A|X)$
 
-**Question:** In reference to Image 2, what is P(A|B) in terms of n(A), n(B), n(A and B), and n(B and A)?
-|style="vertical-align:top"|
+**Question:** In reference to Figure 2, what is $P(A|B)$ in terms of $n(A), n(B), n(A \text{ and } B)$, and $n(B \text{ and } A)$?
 
 $$P(A|B) = \frac{n(A \mbox{ and } B)}{n(B)}$$
 
-**Question**: In reference to Image 2, what is 
+**Question**: In reference to Figure 2, what is 
 
 $$\frac{n(A \mbox{ and } B)}{n(B \mbox{ and } A)}$$
 
-in terms of n(A), n(B), P(A|B), and P(B|A)? 
+in terms of$ n(A), n(B), P(A|B)$, and $P(B|A)$? 
 
 **Answer:**
 
@@ -427,11 +457,11 @@ $$
 P(B) = P(A)\cdot\frac{P(B|A)}{P(A|B)}
 $$
 
-**Question:** In reference to Image 3, what is 
+**Question:** In reference to Figure 2, what is 
 
 $$\frac{n(A \mbox{ and } X)}{n(X \mbox{ and } A)}$$
 
-in terms of n(A), n(X), P(A|X), and P(X|A)? 
+in terms of $n(A), n(X), P(A|X)$, and $P(X|A)$? 
 
 **Answer**
 
@@ -628,7 +658,7 @@ A computation based on all values in a population.
 * [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★)
 * [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★)
 
-The _weak law of large numbers_ [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★): given an arbitrarily small $\delta > 0$ and $\epsilon > 0$, there is an integer $n$ for which the quantity $\overline{X}\equiv (1/n)(X_1+...+X_n)$ (with $X$ iid) will be in a small window centered on $\mu$ with a probability near 1, that is,
+The _weak law of large numbers_ [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★): given a $\delta > 0$ and $\epsilon > 0$, there is an integer $n$ for which the quantity $\overline{X}\equiv (1/n)(X_1+...+X_n)$ (with $X$ iid) will be in a small window centered on $\mu$ with a probability greater than $1-\delta$, that is,
 
 $$\mu-\epsilon\le \overline{X} \le \mu + \epsilon$$
 
@@ -639,11 +669,11 @@ $|\overline{X}-\mu| \le \epsilon$
 
 with a probability greater than $1-\delta$. This means we can choose very small $\epsilon$ and $\delta$ values and there will always be a value of $n$ for which the constraints are satisfied.
 
-It follows from _The Strong Law of Large Numbers_ that $\lim_{n\rightarrow\infty}\overline{X}$ exists and is equal to $\mu$ with a probability of 1 [Rosanov, p 70]. (The Strong Law may seem equivalent to the Weak Law, but their statements are not quite equivalent.)
-
 ## Central Limit Theorem
 
-[Devore p 225]()
+See also Devore p 225.
 
-The Law of Large Numbers tells use that if we require $\overline{X}$ to fall in range that we specify around $\mu$ with a probability that we specify, we can find an $n$ value to satisfy our requirement. The central limit theorem says that for large $n$, $\overline{X}$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$. With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
+The Law of Large Numbers tells use that if we require $\overline{X}$ to fall in range that we specify around $\mu$ with a probability that we specify, we can find an $n$ value to satisfy our requirement. The central limit theorem says that for large $n$, $\overline{X}$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$.
+
+With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
 
