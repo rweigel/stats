@@ -27,7 +27,7 @@ if not slow_method:
   import numpy as np
 
   print("Fast method")
-  n_max = 100000
+  n_max = 1000000
   rel_freqs = np.full(n_max, np.nan) # Create an array of n_max elements, all NaN
   N = np.arange(1, n_max + 1)
   for n in N:
@@ -41,13 +41,14 @@ if not slow_method:
 
 from matplotlib import pyplot as plt
 if n < 1000:
-  plt.plot(N, rel_freqs, marker='.', linestyle='-', color='blue')
+  plt.plot(N, rel_freqs, marker='.', linestyle='None', color='black')
 else:
-  plt.semilogx(N, rel_freqs, marker='.', linestyle='-', color='blue')
+  plt.semilogx(N, rel_freqs, marker='.', linestyle='None', color='black')
 plt.grid()
 plt.axhline(0.5, color='red', linestyle='--')
-plt.xlabel('Number Coin Flips')
-plt.ylabel('Relative Frequency of Heads')
+plt.title("Experiment: Select from $[0, 1]$ with relacement")
+plt.xlabel('Number Experiments')
+plt.ylabel('Relative Frequency of $1$')
 #plt.show()
 print("Writing HW1_1.png")
-plt.savefig('HW1_1.png', dpi=300)
+plt.savefig('HW1_1.png', dpi=300, transparent=True)

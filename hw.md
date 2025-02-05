@@ -64,6 +64,14 @@ Comments on in--class discussion questions:
 
   **Answer**: In the second method, the result at $n+1$ depends on the result at $n$: $P_H^{n+1} = \frac{n}{n+1}P_H^n + \frac{x}{n+1}$, where $x=0$ or $1$. My opinion is that the plot associated with this method appears artifically smooth. 
 
+**Comments on Student Submissions**
+
+* Please follow submission instructions. I am able to look at solutions in more detail if I don't have to spend time finding things or running your code to see the results.
+
+* I avoid titles and legends that are redundant. E.g., if ylabel is rf, and xlabel is n, no need to say 'rf vs n' in title or in legend.
+
+* https://github.com/NCotie746/astrostats
+
 ## Sample Space
 
 1. An experiment involves tossing a coin 3x. What is the sample space of this experiment?
