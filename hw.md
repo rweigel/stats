@@ -269,7 +269,7 @@ With the Central Limit theorem, we can make statements such as "I took a sample 
 In the previous problem, you computed a histogram of $10,000$ $\overline{X}$. Based on the Central Limit Theorem
 
 1. This histogram should be approximately Gaussian;
-2. The mean of $\overline{X}$ should be approximately $\mu$, which is the population standard deviation; and
+2. The mean of $\overline{X}$ should be approximately $\mu$, which is the population mean; and
 3. This standard deviation of $\overline{X}$ should be approximately $\sigma/\sqrt{n}$, where $\sigma$ is the population standard deviation.
 4. 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ should include ("trap") $\mu$
 
