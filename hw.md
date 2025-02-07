@@ -302,6 +302,8 @@ In problem 1, a part is shown in a box that is due before class starts (this par
 
 Also, do the reading given in item 4. before class starts.
 
+See [code]
+
 ## Binomial Distribution
 
 A Bernoulli trial has 
