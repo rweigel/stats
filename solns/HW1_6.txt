@@ -1,0 +1,8 @@
+From 10000 experiments:
+  P(sum = -3) = 0.1174
+  P(sum = -2) = 0.0
+  P(sum = -1) = 0.3754
+  P(sum =  0) = 0.0
+  P(sum =  1) = 0.3802
+  P(sum =  2) = 0.0
+  P(sum =  3) = 0.127
