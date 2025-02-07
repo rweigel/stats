@@ -323,6 +323,13 @@ $$
 
 Also called "Bayes' Law" and "Bayes' Theorem". Different forms are also used.
 
+https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy
+
+https://www.sciencedirect.com/science/article/pii/S073567572030543X
+
+https://www.mcgrayne.com/disc.htm
+
+
 ### Simple Derivation
 
 Definition of conditional probability for two events:
@@ -724,6 +731,21 @@ $|\overline{X}-\mu| \le \epsilon$
 
 with a probability greater than $1-\delta$. This means we can choose very small $\epsilon$ and $\delta$ values and there will always be a value of $n$ for which the constraints are satisfied.
 
+
+The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
+
+$$\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$$
+
+will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
+
+To answer the following questions, you do not need to understand the Law of Large Numbers. However, if you are interested, more formal definitions and proofs are given in
+
+* [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
+* [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★)
+* [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★)
+* [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★)
+
+
 ## Central Limit Theorem
 
 See also Devore p 225.
@@ -731,6 +753,14 @@ See also Devore p 225.
 The Law of Large Numbers tells use that if we require $\overline{X}$ to fall in range that we specify around $\mu$ with a probability that we specify, we can find an $n$ value to satisfy our requirement. The central limit theorem says that for large $n$, $\overline{X}$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$.
 
 With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
+
+The Central Limit Theorem says that for large $n$, $\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$.
+
+Important: this theorem (usually) applies even if the distribution of the values used in computing 
+$\overline{X}$ are not Gaussian--distributed.
+
+With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
+
 
 ## Probability Distributions
 
@@ -761,6 +791,8 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
 #### Binomial
 
+https://personal.math.ubc.ca/~feldman/m302/binomial.pdf
+
 #### Geometric
 
 #### Hypergeometric
@@ -768,6 +800,43 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 #### Negative Binomial
 
 #### Poisson
+
+References
+
+* The original Possion paper is in French but discussed in [Stigler 1982](https://jhanley.biostat.mcgill.ca/statbook/StiglerPoisson.pdf)
+* Derived independently in (Rutherford, Geiger, and Bateman, 1910)[https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf]
+* [An simple derivation in lecture notes by D.S.G. Pollock](https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf)
+* How used in physics lab experiments using Geiger counters: [1](https://pages.uoregon.edu/dlivelyb/phys391/labs/lab3_391.pdf), [2](https://wanda.fiu.edu/boeglinw/courses/Modern_lab_manual3/counting_statistics.html), [3](https://122.physics.ucdavis.edu/sites/default/files/files/Nuclear%20Decay/Counting%20Statistics.pdf)
+
+If
+
+1.  in a sufficiently short amount of time, $\Delta t$, only 0 or 1 event can occur (two or more simultaneous events are impossible);
+2.  the probability of exactly 1 event occurring in $\Delta t$ is equal to $\lambda \Delta t$, where $\lambda$ is a constant; and
+3.  any non-overlapping intervals of length $\Delta t$ are independent Bernoulli trials,
+
+the probability of $k$ events occurring in the time interval $t=N\Delta t$ is
+
+$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
+
+for sufficiently large $N$.
+
+
+There were quite a few questions about this problem. It may make more sense to derive it without reference to time and then insert the time dependence at the end. 
+
+If $p$ is the probability of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
+
+$$P(k)=\frac{(p\frac{t}{\Delta t})^k e^{-p \frac{t}{\Delta t}}}{k!}$$
+
+Next, using the definition $t\equiv N\Delta t$,
+
+$$P(k)=\frac{(p N)^k e^{-p N}}{k!}$$
+
+The interpretation is that if the probability of a success in a trial is $p$, then the probability of $k$ successes in $N$ trials is $P(k)$. 
+
+A common use case for this equation is when an event takes a certain amount of time $\Delta t$ to occur (e.g., a hurricane or large solar flare). In this case, it makes sense to define a rate parameter which is the number events per unit time, which is $\lambda=p/\Delta t$, where $p$ is the probability of an event in $\Delta t$. This variable corresponds with how we would describe the probability of an event, e.g., on average 0.01 hurricanes occur per day or in 100 days, 1 hurricane will occur.
+
+It also make sense to talk not about the number of "trials", but rather the number of $\Delta t$s, where each $\Delta t$ corresponds to a trial. In this case, we can define a time as $t=N\Delta t$. This definition allows us to say "given 0.01 hurricanes occur per day, what is the probability that 2 hurricanes occur in a month".
+
 
 ### Continuous
 
@@ -798,6 +867,13 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
    $$P(\mu-1.96\sigma\le x\le \mu+1.96\sigma) = 0.95 = \int_{\mu-1.96\sigma}^{\mu+1.96\sigma}p(x)dx$$
 
    To compute a probability density from a histogram, divide the height of each histogram bar by the total number of obervations and the width of each bar. The sum of the resulting bar heights will be unity.
+
+#### Normal
+
+https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
+
+https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/
+
 
 ## Expectation values
 
