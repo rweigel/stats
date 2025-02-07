@@ -66,11 +66,7 @@ Comments on in--class discussion questions:
 
 **Comments on Student Submissions**
 
-* Please follow submission instructions. I am able to look at solutions in more detail if I don't have to spend time finding things or running your code to see the results.
-
-* I avoid titles and legends that are redundant. E.g., if ylabel is rf, and xlabel is n, no need to say 'rf vs n' in title or in legend.
-
-* https://github.com/NCotie746/astrostats
+Please follow submission instructions. I am able to look at solutions in more detail if I don't have to spend time finding things or running your code to see the results.
 
 ## Sample Space
 
@@ -134,7 +130,7 @@ or, dividing by $N$ and re--arranging,
 
 $P(A\cup B\cup C) = P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B\cap C)$
 
-The general formula for an arbitrary number of regions is given on p 99 of ...
+The general formula for an arbitrary number of regions is given on [p 99 of Feller](https://drive.google.com/file/d/1lJv7o3TPLyZK7r5ad1IDVtkcaMpuaf5N/view?usp=drive_link★★★★★remove★★★★★)
 
 ## Law of Addition and Set Notation
 
@@ -145,6 +141,13 @@ What is the probability that a randomly selected person:
 2. does not do at least one of the two activities?
 
 Use a Venn diagram (or any visual method) in the way that was used in class to demonstrate your answers.
+
+**Answer**
+
+Given: $P(E) = 0.55$, $P(A) = 0.45$, and $P(E\cup A) = 0.7$
+
+1. $P(E \cap A) = P(E) + P(A) - P(E \cup A) = 0.3$
+2. $P\big( (E \cup A)' \big) = 1 - P(E \cup A) = 1 - 0.7 = 0.3$
 
 ## Set Operations in Python
 
