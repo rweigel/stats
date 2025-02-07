@@ -302,7 +302,7 @@ In problem 1, a part is shown in a box that is due before class starts (this par
 
 Also, do the reading given in item 4. before class starts.
 
-See [pmf.py](https://github.com/rweigel/stats/tree/main/notes/code) for suggesting on creating a plot of a probability mass function (aka discrete probability distribution function)
+See [pmf.py](https://github.com/rweigel/stats/tree/main/notes/code) for suggesting on creating a plot of a probability mass function (aka discrete probability distribution function) in Python.
 
 ## Binomial Distribution
 
