@@ -425,4 +425,4 @@ In class, I'll show how to prove that $S_b^2$ is a biased estimator mathematical
 
 ## Reading
 
-
+Will update soon.
