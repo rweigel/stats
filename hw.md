@@ -320,7 +320,8 @@ In [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★
 
 (As noted in class, sometimes we write $P(k; n,p)$ to indicate that we are interested in the function $P(k)$, which has parameters $n$ and $p$ that affect its shape. Also, I am using $k$ here, but in class, I used $x$; I think $k$ is a better choice because we usually think of $k$ as an integer and $x$ as a real number.)
 
-1. Use a random number generator to simulate 10,000 Binomial trials with $n=100$ and $p=0.4$ and plot $P(k)$. On the same axes, plot $P(k)$ expected from the equation above using the given $n$ and $p$.
+1. Use a random number generator to simulate 10,000 Binomial experiments with $n=100$ and $p=0.4$ and plot $P(k)$. That is, execute 10,000 experiments in which the experiment is selecting 100 values from the list `[0, 1]` with the probability of selecting a $1$ being $p$. On the same axes, plot $P(k)$ expected from the equation above using the given $n$ and $p$. 
+
 2. In the next class, I'll show that as $n\rightarrow \infty$, and for $k \ll np$,
 
     $$P(k)\rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(k-np)^2/2npq}$$
