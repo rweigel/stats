@@ -21,6 +21,8 @@ HW:
 [1](hw.html#hw-1)
 |
 [2](hw.html#hw-2)
+|
+[3](hw.html#hw-3)
 
 # Class Notes
 
