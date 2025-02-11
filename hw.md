@@ -377,8 +377,6 @@ Use a random number generator to create a dataset that simulates the following r
 
    c. $P_B(k)$ expected from the **B**inomial distribution, from which the Poisson distribution was derived.
 
-https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf
-
 2. From your dataset, derive a new dataset, the time between flares, and plot a histogram of the time between flares.
 
 Save your code as `HW3_2.py` and the plot as `HW3_2.png`. Spend time thinking about the label axes, title, legend, colors, and annotations. As discussed, you want to have enough detail on the plot so that a reader can start to make interpretations without having to read or hear a long description. 
