@@ -250,9 +250,9 @@ Consider 1000 recreations of the indident in which 850 vehicles are orange and 1
 
 We want to know the probability the cab is Green when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of time this claim is correct is $170$.
 
-So the probability is
+So the probability the cap is Green given the Witness claimed Blue is
 
-$$\frac{170}{120+170}\approx 0.59$$
+$$P(G|W_B) = \frac{170}{120+170}\approx 0.59$$
 
 **Method 2**
 
@@ -267,7 +267,6 @@ $$
 P(G|W_B) = P(W_B|G)\frac{P(G)}{P(W_B)}
 $$
 
-
 The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$.
 
 $$
@@ -276,7 +275,9 @@ $$
 
 Multiplying the numerator and the denominator by $1000$ gives the same equation for **Method 1**.
 
-
+$$
+P(G|W_B) = \frac{170}{120 + 170} \approx 0.59
+$$
 
 ## Law of Large Numbers
 
@@ -293,7 +294,7 @@ To answer the following questions, you do not need to understand the Law of Larg
 * [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★)
 * [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★)
 
-### a
+**a**
 
 1. Draw $n=100$ values from a population of Gaussian-distributed numbers with mean $\mu=0$ and standard deviation $\sigma=1$.
 2. Compute $\overline{X}$.
@@ -301,7 +302,15 @@ To answer the following questions, you do not need to understand the Law of Larg
 
 Save your program as `HW2_3a.py` and the associated plot as `HW2_3a.png`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title and it should write the file `HW2_3a.png`.
 
-### b
+**Answer**
+
+See [HW2_3a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3a.py).
+
+From the following plot, it should be clear that when we draw $100$ values from a population with a mean of zero, the average of the $100$ values will not always be zero. The standard deviation appears to be approximately $0.1$, which is smaller than $\sigma$ by a factor of $10$.
+
+<img src="solns/HW2_3a.svg"/>
+
+**b**
 
 1. For $n=100$, what fraction of the $10,000$ $\overline{X}$s were in the range $[-0.01, 0.01]$?
 2. How does the fraction depend on $n$? <sup>+</sup>
@@ -314,6 +323,20 @@ Save your program as `HW2_3a.py` and the associated plot as `HW2_3a.png`. When I
 Save your program as `HW2_3b.py`. Save your answers in a file named `HW2_3b.pdf`.
 
 **590 students**: Be prepared to discuss in class how this experiement is related to the Weak Law of Large Numbers.
+
+**Answer**
+
+See [HW2_3b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3b.py)
+
+1. 7.6%
+2. The following plot shows the dependence. As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
+
+   <img src="hws/figures/HW2_3b2.svg"/>
+3. 25.8%
+4. The following plot shows the dependence.
+
+   <img src="hws/figures/HW2_3b4.svg"/>
+5. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed; the distribution of $\overline{X}$ is still Gaussian. In [HW2_3a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
 
 ## Central Limit Theorem
 

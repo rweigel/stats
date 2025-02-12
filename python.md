@@ -3268,3 +3268,4 @@ plt.title('$\mu= %.2f$, $n=%d$, $\overline{X} = $ %.2f' % (mu, n, np.mean(x)))
 plt.xlabel('$X$')
 plt.ylabel('# in bin')
 ```
+

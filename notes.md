@@ -784,10 +784,10 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
    To compute a probability mass function from a histogram, scale the histogram heights by the total number of observations.
 
    ```Python
-   # src=code/pmf.py
+   # src=notes/code/pmf.py
    ```
 
-   <img src="code/figures/pmf.svg"/>
+   <img src="notes/code/figures/pmf.numpy_bar.svg"/>
 
 #### Binomial
 
@@ -803,8 +803,8 @@ https://personal.math.ubc.ca/~feldman/m302/binomial.pdf
 
 References
 
-* The original Possion paper is in French but discussed in [Stigler 1982](https://jhanley.biostat.mcgill.ca/statbook/StiglerPoisson.pdf)
-* Derived independently in (Rutherford, Geiger, and Bateman, 1910)[https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf]
+* The original Possion paper is in French but is covered in English by [Stigler 1982](https://jhanley.biostat.mcgill.ca/statbook/StiglerPoisson.pdf). Possion used limit of Binomial distribution and Stigler notes De Moivre derived a related approximation to the Poisson formula.
+* Derived independently by Bateman using a differential equation approach in [Rutherford, Geiger, and Bateman, 1910](https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf)
 * [An simple derivation in lecture notes by D.S.G. Pollock](https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf)
 * How used in physics lab experiments using Geiger counters: [1](https://pages.uoregon.edu/dlivelyb/phys391/labs/lab3_391.pdf), [2](https://wanda.fiu.edu/boeglinw/courses/Modern_lab_manual3/counting_statistics.html), [3](https://122.physics.ucdavis.edu/sites/default/files/files/Nuclear%20Decay/Counting%20Statistics.pdf)
 
