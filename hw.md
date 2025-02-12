@@ -231,6 +231,53 @@ Save your answer as `HW2_2.pdf`.
 
 **590 Students**: Create a plot that answers the question: How does the answer depend on the witness's reliability (ability to correctly identify)? We will critique these plots with regard to how clearly they answer the question during class (I won't show the names of those who created the plot). Save your plot as `HW2_2.png`.
 
+**Answer**
+
+
+**Method 1**
+
+Consider 1000 recreations of the indident in which 850 vehicles are orange and 150 vehicles are red. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
+
+```
+              850*0.80 = 680 - Is Green, claims Green
+       850  
+              850*0.20 = 170 - Is Green, claims Blue
+1000
+              150*0.80 = 120 - Is Blue, claims Blue
+       150
+              150*0.20 = 30  - Is Blue, claims Green
+```
+
+We want to know the probability the cab is Green when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of time this claim is correct is $170$.
+
+So the probability is
+
+$$\frac{170}{120+170}\approx 0.59$$
+
+**Method 2**
+
+To use Bayes' theorem, we start by writing the given probabilities
+
+* $P(G) = 0.85$ (Probability a cab is Green)
+* $P(B) = 0.15$ (Probability a cab is Blue)
+* $P(W_B|B) = 0.80$ (Probability Witness claims Blue when Blue)
+* $P(W_B|G) = 0.20$ (Probability Witness claims Blue when Green)
+
+$$
+P(G|W_B) = P(W_B|G)\frac{P(G)}{P(W_B)}
+$$
+
+
+The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$.
+
+$$
+P(G|W_B) = 0.20\frac{0.85}{0.15\cdot 0.80 + 0.85\cdot 0.20} = \frac{0.17}{0.12 + 0.17}
+$$
+
+Multiplying the numerator and the denominator by $1000$ gives the same equation for **Method 1**.
+
+
+
 ## Law of Large Numbers
 
 The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
