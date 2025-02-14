@@ -225,7 +225,7 @@ A cab was involved in a hit-and-run accident at night. Two cab companies, the Gr
 
    * 85% of the cabs in the city are Green and 15% are Blue. A witness identified the cab as Blue. The court tested the reliability of the witness under the circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.
 
-What is the probability that the cab involved in the accident was Blue rather than Green?  Use the two approaches (equation- and diagram- based) employed in the example problem related to the breast cancer example covered in class.
+What is the probability that the cab involved in the accident was Blue rather than Green?  Use the two approaches (equation- and diagram- based) employed in the example problem related to the breast cancer problem covered in class.
 
 Save your answer as `HW2_2.pdf`.
 
@@ -236,28 +236,27 @@ Save your answer as `HW2_2.pdf`.
 
 **Method 1**
 
-Consider 1000 recreations of the indident in which 850 vehicles are green and 150 vehicles are blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
+Consider 1000 recreations of the indident in which 850 vehicles are Green and 150 vehicles are Blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
 
 ```
-              850*0.80 = 680 - Is Green, claims Green
-       850  
-              850*0.20 = 170 - Is Green, claims Blue
+                        850*0.80 = 680 - Is Green, claims Green
+       850 Are Green 
+                        850*0.20 = 170 - Is Green, claims Blue
 1000
-              150*0.80 = 120 - Is Blue, claims Blue
-       150
-              150*0.20 = 30  - Is Blue, claims Green
+                        150*0.80 = 120 - Is Blue, claims Blue
+       150 Are Blue
+                        150*0.20 = 30  - Is Blue, claims Green
 ```
 
-We want to know the probability the cab is Green when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of time this claim is correct is $170$.
+We want to know the probability the cab is Blue when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of times this claim is correct is $120$.
 
-So the probability the cap is Green given the Witness claimed Blue is
+So the probability the cab is Blue given the witness claimed Blue is
 
-$$P(G|W_B) = \frac{170}{120+170}\approx 0.59$$
+$$P(B|W_B) = \frac{120}{120+170}\approx 0.41$$
 
 **Method 2**
 
-The following [spreadsheet](https://docs.google.com/spreadsheets/d/1a3ty9V5bsDWKugk02zNPkO8LDG5FKQ-Mzs_Cxc-_S5o/edit?usp=sharing) is an alternative visualization of the tree diagram of **Method 1**. Notice that because there are many Green cabs, even though the witness is 80% accurate, they still have a large _number_ of failed identifications.
-
+The following [spreadsheet](https://docs.google.com/spreadsheets/d/1a3ty9V5bsDWKugk02zNPkO8LDG5FKQ-Mzs_Cxc-_S5o/edit?usp=sharing) is an alternative visualization of the tree diagram of **Method 1**.
 <img src="solns/HW2_2.png">
 
 **Method 3**
@@ -266,23 +265,23 @@ To use Bayes' theorem, we start by writing the given probabilities
 
 * $P(G) = 0.85$ (Probability a cab is Green)
 * $P(B) = 0.15$ (Probability a cab is Blue)
-* $P(W_B|B) = 0.80$ (Probability Witness claims Blue when Blue)
-* $P(W_B|G) = 0.20$ (Probability Witness claims Blue when Green)
+* $P(W_B|B) = 0.80$ (Probability witness claims Blue when Blue)
+* $P(W_B|G) = 0.20$ (Probability witness claims Blue when Green)
 
 $$
-P(G|W_B) = P(W_B|G)\frac{P(G)}{P(W_B)}
+P(B|W_B) = P(W_B|B)\frac{P(B)}{P(W_B)}
 $$
 
-The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$.
+The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$. Thus,
 
 $$
-P(G|W_B) = 0.20\frac{0.85}{0.15\cdot 0.80 + 0.85\cdot 0.20} = \frac{0.17}{0.12 + 0.17}
+P(B|W_B) = 0.80\frac{0.15}{0.15\cdot 0.80 + 0.85\cdot 0.20} = \frac{0.12}{0.12 + 0.17}
 $$
 
 Multiplying the numerator and the denominator by $1000$ gives the same equation for **Method 1**.
 
 $$
-P(G|W_B) = \frac{170}{120 + 170} \approx 0.59
+P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
 $$
 
 ## Law of Large Numbers
@@ -342,7 +341,7 @@ See [HW2_3b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3b.py)
 4. The following plot shows the dependence (four $n$ values were used).
 
    <img src="solns/HW2_3b4.svg"/>
-5. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed; the distribution of $\overline{X}$ is still Gaussian. In [HW2_3a.py](https://github.com/rweigel/astrostats/blob/main/solns/HW2_3a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
+5. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed; the distribution of $\overline{X}$ is still Gaussian. In [HW2_3a.py](https://github.com/rweigel/astrostats/blob/main/solns/HW2_3a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $X$s.
 
 ## Central Limit Theorem
 
