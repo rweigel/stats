@@ -236,7 +236,7 @@ Save your answer as `HW2_2.pdf`.
 
 **Method 1**
 
-Consider 1000 recreations of the indident in which 850 vehicles are orange and 150 vehicles are red. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
+Consider 1000 recreations of the indident in which 850 vehicles are green and 150 vehicles are blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
 
 ```
               850*0.80 = 680 - Is Green, claims Green
@@ -255,6 +255,12 @@ So the probability the cap is Green given the Witness claimed Blue is
 $$P(G|W_B) = \frac{170}{120+170}\approx 0.59$$
 
 **Method 2**
+
+The following [spreadsheet](https://docs.google.com/spreadsheets/d/1a3ty9V5bsDWKugk02zNPkO8LDG5FKQ-Mzs_Cxc-_S5o/edit?usp=sharing) is an alternative visualization of the tree diagram of **Method 1**. Notice that because there are many Green cabs, even though the witness is 80% accurate, they still have a large _number_ of failed identifications.
+
+<img src="solns/HW2_2.png">
+
+**Method 3**
 
 To use Bayes' theorem, we start by writing the given probabilities
 
@@ -329,14 +335,14 @@ Save your program as `HW2_3b.py`. Save your answers in a file named `HW2_3b.pdf`
 See [HW2_3b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3b.py)
 
 1. 7.6%
-2. The following plot shows the dependence. As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
+2. The following plot shows the dependence (four $n$ values were used). As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
 
-   <img src="hws/figures/HW2_3b2.svg"/>
-3. 25.8%
-4. The following plot shows the dependence.
+   <img src="solns/HW2_3b2.svg"/>
+3. `[-0.258, 0.258]`
+4. The following plot shows the dependence (four $n$ values were used).
 
-   <img src="hws/figures/HW2_3b4.svg"/>
-5. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed; the distribution of $\overline{X}$ is still Gaussian. In [HW2_3a.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
+   <img src="solns/HW2_3b4.svg"/>
+5. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed; the distribution of $\overline{X}$ is still Gaussian. In [HW2_3a.py](https://github.com/rweigel/astrostats/blob/main/solns/HW2_3a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $\overline{X}$s.
 
 ## Central Limit Theorem
 
@@ -453,6 +459,16 @@ Save your code as `HW3_2.py` and the plot as `HW3_2.png`. Spend time thinking ab
 
 Be prepared to justify any differences between the three cases in class.
 
+**Solution**
+
+See [HW3_2.py](https://github.com/rweigel/astrostats/blob/main/solns/HW3_2.py)
+
+<img src="solns/HW3_2.svg"/>
+
+<img src="solns/HW3_2-error.svg"/>
+
+<img src="solns/HW3_2-dt.svg"/>
+
 ## Expectation Values and Biased Estimator
 
 A summary (or descriptive) statistic is a quantity that summarizes an aspect of a collection of data. Examples include the mean and standard deviation. Descriptive statistics are always based on a computation done on a **sample** (subset) of the population of data. 
@@ -494,6 +510,152 @@ Demonstrate using a simulation that $S_{b}^2$ is biased by drawing $n=10$ values
 
 In class, I'll show how to prove that $S_b^2$ is a biased estimator mathematically.
 
+<img src="solns/HW3_3.svg"/>
+
 ## Reading
 
 [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★) Ch 6 and 7.1-7.2.
+
+# HW 4
+
+## Proof that $S_b^2$ is a Biased Estimator of $\sigma^2$
+
+(Note that Devore p 245 has a briefer proof with many steps skipped; I'd prefer you fill in the gaps in my proof outlined below, but if you use Devore's method, justify the steps he skipped.)
+
+In class, I gave part of the proof that $E\left[S^2_b\right] = \sigma^2(n-1)/n$, where $S_b^2=\frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2$, which was
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
+
+expanding the square gives
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i^2-2X_i\overline{X}+\overline{X}^2) \right]$$
+
+or, equivalently,
+
+$$I.\qquad E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\frac{2}{n}\sum_{i=1}^nX_i\overline{X}+\frac{1}{n}\sum_{i=1}^n\overline{X}^2 \right]$$
+
+The second term in the square braces in Equation $I.$ can be simplified by noting that $\overline{X}$ does not depend on $i$, so it can be factored out:
+
+$$\frac{2}{n}\sum_{i=1}^nX_i\overline{X}=2\overline{X}\left(\frac{1}{n}\sum_{i=1}^nX_i\right)$$
+
+Using this and the definition $\overline{X}\equiv (1/n)\sum_{i=1}^nX_i$, the second term in Equation $I.$ is
+
+$$\frac{2}{n}\sum_{i=1}^nX_i\overline{X}=2\overline{X}^2$$
+
+The third term is 
+
+$$\frac{1}{n}\sum_{i=1}^n\overline{X}^2=\frac{1}{n}n\overline{X}^2=\overline{X}^2$$
+
+Therefore, the second and third terms combine to be $-2\overline{X}^2+\overline{X}^2=-\overline{X}^2$ and Equation $I.$ simplifies to
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\overline{X}^2\right]$$
+
+Distributing the $E$ to each of the two terms by using $E[a+b]=E[a]+E[b]$ gives
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2\right]-E\left[\overline{X}^2\right]$$
+
+or
+
+$$E\left[S^2_b\right] = \frac{1}{n}\left( E[X_1^2] + E[X_2]^2 + ...\right)-E\left[\overline{X}^2\right]$$
+
+Note that $E[X_1^2]$ means "the expectation of the first value of the sample". The first value drawn can take on any value in the population, so $E[X_1^2]=E[X^2]$. Using this, we have
+
+$$II.\qquad E\left[S^2_b\right] = E\left[X^2\right]-E\left[\overline{X}^2\right]$$
+
+Both of the terms in Equation $II.$ can be re-written using $\mu$, $\sigma$, and $n$.
+
+The first term simplifies to
+
+$$E\left[X^2\right]=\mu^2+\sigma^2,$$
+
+which follows from the definition
+
+$\sigma^2 \equiv E\left[(X-\mu)^2\right]$, expanding the square and using $E[a+b]=E[a]+E[b]$ to give
+
+$$\sigma^2 = E\left[X^2-2\mu X+\mu^2\right] = E\left[X^2\right]-2\mu E[X]+E[\mu^2]$$
+
+Using the definition $\mu \equiv E[X]$ and the fact that $E[\mu^2]=\mu^2$ because $\mu$ is a constant, this simplifies to
+
+$$\sigma^2 = E[X^2]-\mu^2$$
+
+giving $E\left[X^2\right]=\mu^2+\sigma^2$ as claimed.
+
+Therefore, the first term in Equation $II.$ is
+
+$$\frac{1}{n}\sum_{i=1}^n E\left[ X_i^2 \right]=\frac{1}{n}\sum_{i=1}^n (\mu^2+\sigma^2)=\frac{1}{n}n(\mu^2+\sigma^2)=\mu^2+\sigma^2$$
+
+The second term in Equation $II.$, $E[\overline{X}^2]$, can be rewritten as
+
+$$E\left[\overline{X}^2\right]=E\left[\left(\frac{1}{n}\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]$$
+
+The square of the sum,
+
+$$\left(\sum_{i=1}^nX_i\right)^2=(X_1+X_2+...)(X_1+X_2+...)$$
+
+expands to 
+
+$X_1^2+X_1(X_2+X_3+...+X_n)+$
+
+$X_2^2+X_2(X_1+X_3+X_4+...+X_n)+$
+
+$...$
+
+$X_n^2+X_n(X_1+X_2+...+X_{n-1})$
+
+Let $X^\prime=X-\mu$. Then, the above can be written as 
+
+$(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)$
+
+$(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...+X^{\prime}_n+\mu)+$
+
+$...$
+
+$(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
+
+We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because the values in the sample are uncorrelated.
+
+**Problems**
+
+1. Show that
+
+   $E\left[X^\prime\right]=0$, 
+
+   $E\left[X^{\prime 2}\right]=\sigma^2$.
+
+2. Finish the proof that $E\left[S^2_b\right] = \sigma^2(n-1)/n$.
+
+## Bootstraping Sampling Distribution of $S^2$
+
+By definition, $S^2$, the point estimate of the population variance, $\sigma^2$, is defined by
+
+$$S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$$
+
+Suppose an experiment is drawing a sample of $n$ values from a Gaussian distribution with $\mu=0$ and $\sigma^2=1$.
+
+You want to assess the uncertainty by using $S^2$ as an approximation of $\sigma^2$. If you were able to do many experiments, you could compute many $S^2$ values and plot its histogram (as done in HW 3.3) to numerically generate the sampling distribution of $S^2$; this approach is called the "parametric bootstrap" and is only possible when you know (or have high confidence that you know) the population distribution's functional form and any parameter in the function.
+
+As an alternative to resampling the population to create many $S^2$ values, you can resample the experimental data (this is referred to as non--parametric bootstrap resampling).
+
+1. Draw a sample of $10$ values from a Gaussian distribution with $\mu=0$ and $\sigma^2=1$ and compute $S^2$.
+2. Create a bootstrap sample by drawing $10$ values, with replacement, from the sample from part 1. and compute this sample's $S^2$.
+3. Repeat 2. $10,000$ times and plot the probability distribution function of the $10,000$ $S^2$ values. Display the mean and variance of the $10,000$ $S^2$ values in the title.
+4. Suppose someone handed you a sample of $10$ values (instead of you generating it) and said, "I used a Gaussian distribution with mean of $0$, but I don't know the value of $\sigma^2$ I used except that it was greater than $2$". How would you use your results to assess their claim about the $\sigma^2$ used?
+
+5. **590 only**: Find an equation (derivation not needed, but cite source) for the exact sampling distribution of $S^2$ and add it to the plot. Add to the title the mean and variance of this exact sampling distribution.
+
+## Solar Flare Data
+
+The file [xray.txt](http://mag.gmu.edu/git-data/astrostats/SOLAR_FLARES/xray.txt), contains rows that correspond to the year, month, day, hour, and min of a solar flare.
+
+1. Plot the probability distribution function for the number of solar flares per day.
+2. Use the data to determine the $\lambda$ parameter in the Poisson distribution and plot the distribution on the same axes used in part 1.
+3. Do the data conform to the assumptions of the Poisson distribution?
+4. **590 Only**: The Poisson distribution follows from the Binomial distribution. Add to the plot the values expected using the Binomial distribution
+
+## Reading
+
+Read Chapter 7 of [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★). In class, I will ask how we could use the bootstrap method (both non--parametric or parametric) to check the claims in the chapter such as 7.5, 7.10, 7.15, and 7.17.
+
+
+
+

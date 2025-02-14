@@ -6,7 +6,7 @@ np.random.seed(3)
 debug = False
 
 Ns = 100    # Number of samples per experiment
-Ne = 10000  # Number of expriments
+Ne = 10000  # Number of experiments
 
 # 1
 
@@ -40,13 +40,13 @@ plt.grid(which='minor', color=(0.9, 0.9, 0.9))
 plt.grid(which='major', color=(0.2, 0.2, 0.2))
 plt.loglog(Ns, F, marker=".")
 plt.xlabel('n')
-plt.title('Fraction of %d $\overline{X}$s in range [-0.01,0.01]' % Ne)
-plt.savefig("figures/HW1_1b2.png", format="png", transparent=True)
-plt.savefig("figures/HW1_1b2.svg", format="svg", transparent=True)
+plt.title('Fraction of %d $\\bar{X}$s in range [-0.01,0.01]' % Ne)
+plt.savefig("HW2_3b2.png", format="png", transparent=True)
+plt.savefig("HW2_3b2.svg", format="svg", transparent=True)
 
 # 3
 Ns = 100    # Number of samples per experiment
-Ne = 10000  # Number of expriments
+Ne = 10000  # Number of experiments
 X = np.random.randn(Ns, Ne)
 Xbar = np.mean(X, axis=0) # Compute average of each column
 
@@ -68,7 +68,7 @@ import time as time
 np.random.seed(int(time.time()))
 
 Ns = 100    # Number of samples per experiment
-Ne = 10000  # Number of expriments
+Ne = 10000  # Number of experiments
 
 Eps = []
 Ns = 10**np.arange(0, 4, 1)
@@ -100,11 +100,11 @@ plt.figure()
 plt.grid(which='minor', color=(0.9, 0.9, 0.9))
 plt.grid(which='major', color=(0.2, 0.2, 0.2))
 plt.loglog(Ns, Eps, marker=".")
-plt.xlabel('$n$ values used for each $\overline{X}$ calculation')
-plt.ylabel('$\epsilon$')
-plt.title('99% of $\overline{X}s$ in range [-$\epsilon$,$\epsilon$]')
-plt.savefig("figures/HW1_1b4.png", format="png", transparent=True)
-plt.savefig("figures/HW1_1b4.svg", format="svg", transparent=True)
+plt.xlabel('$n$ values used for each $\\bar{X}$ calculation')
+plt.ylabel('$\\epsilon$')
+plt.title('99% of $\\bar{X}s$ in range [-$\\epsilon$,$\\epsilon$]')
+plt.savefig("HW2_3b4.png", format="png", transparent=True)
+plt.savefig("HW2_3b4.svg", format="svg", transparent=True)
 
 # 5
 

@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 np.random.seed(1)
 
 n = 100    # Number of samples per experiment
-Ne = 100000  # Number of expriments
+Ne = 100000  # Number of experiments
 
 # 1
 X = np.random.randn(n)

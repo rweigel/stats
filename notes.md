@@ -768,6 +768,17 @@ In the experiments done in the homework, the $X_i$ values are **random samples**
 
 The probability distribution of the $\overline{X}$s, each computed using $n$ samples, is called the **sampling distribution**.
 
+### pdf (two versions) and pmf
+
+Probability Distribution Functions: Continuous (e.g., Gaussian) or Discrete (e.g., Binomial)
+
+pdf can mean probability **distribution** function (dimensionless) or probability **density** function (has units of 1/$\delta x$)
+
+$p(x) = e^{-x^2/2}/\sqrt{2\pi}$ is a probability distribution function. Suppose that $x$ is a length in $m$.
+
+pmf means probability **mass** function. Its sum is $1$. A pmf is a probability **distribution** function
+
+Continuous probability distribution functions must sum to $1$.
 
 ### Discrete
 
@@ -791,7 +802,11 @@ The probability distribution of the $\overline{X}$s, each computed using $n$ sam
 
 #### Binomial
 
-https://personal.math.ubc.ca/~feldman/m302/binomial.pdf
+[Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) has good derivation of Binomial using a heads/tails example.
+
+Unique approach in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★)
+
+[Mean and variance derivation](https://personal.math.ubc.ca/~feldman/m302/binomial.pdf)
 
 #### Geometric
 
@@ -875,6 +890,10 @@ https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/pro
 https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/
 
 
+#### Exponential
+
+Can be derived from [Poisson](https://neurophysics.ucsd.edu/courses/physics_171/exponential.pdf)
+
 ## Expectation values
 
 The general definition of the expectation operator $E[\cdot]$ is, for discrete $x$,
@@ -890,3 +909,43 @@ By definition, $\mu=E\left[X\right]$. That is $\mu$ is the average of $X$ over t
 $$\sigma^2=E\left[(X-\mu)^2\right]$$
 
 When we invent a statistic (a quantity computed from a sample) that is intended to be used as an estimate of a similar quantity from a population, we want the statistic to be unbiased. That is, the expectation value of the statistic should equal the population value. Two statistics that were considered are the mean and variance.
+
+## Point Estimates
+
+> A point estimate of a parameter $\theta$ is a single number that can be regarded as a sensible value for $\theta$. A point estimate is obtained by selecting a suitable statistic and computing its value from the given sample data. The selected statistic is called the point estimator of $\theta$. (Devore p 243)
+
+$\hat{\theta}$ is usually a point estimate of a population statistic $\theta$ based on a sample of the population. (Why "point"? Probably because we get a single value.)
+
+## Point Estimate Sampling Distribution
+
+## Unbiased Point Estimator
+
+> A point estimator $\hat{\theta}$ is said to be an unbiased estimator of $\theta$ if $E[\hat{\theta}]$ for every possible value of $\theta$. If $\hat{\theta}$ is not unbiased, the difference $E[\hat{\theta}] - \theta$ is called the bias of $\hat{\theta}$.
+
+Examples: If $n$ values drawn from $b(n, p)$ and $x$ are `1`, then $\hat{p}=x/n$ is is unbiased estimator of $p$ (Devore p 244, but stated in different way).
+
+> If X1, X2, . . . , Xn is a random sample from a distribution with mean $\mu$, then \overline{X} is an unbiased estimator of $\mu$. If in addition the distribution is continuous and symmetric, then $\widetilde{X}$ and any trimmed mean are also unbiased estimators of $\mu$. (Devore p 246)
+
+### Un-biased point estimator of $\mu$: $\overline{X}$
+
+Proof that the point estimator $\overline{X}$ is an unbiased estimator of $\mu$.
+
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
+
+Taking the expectation, we have
+
+$$E[\overline{X}]=E\left[\frac{1}{n}\sum_{i=1}^n X_i\right]$$
+
+Note that 
+
+$$E\left[X\right] = \sum_{\text{all }x}xP(x)$$
+
+which means the right-hand side is a double sum. We can swap the order of the sum, giving
+
+$$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = E[X_1] + E[X_2] + ...$$
+
+The term $E[X_1]$ means the expectation value of all possible first-selected values from the sample. All possible first-selected values from the sample is the same as all possible values of $X$. Thus, $E[X_1]=E[X]$. Using the definition, $\mu=E\left[X\right]$, we have
+
+$$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] + ... ) = \frac{1}{n}(\mu + \mu + ...) = \frac{1}{n}(n\mu) = \mu$$
+
+### Un-biased point estimator of $\sigma^2$: $\ds S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$
