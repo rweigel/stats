@@ -284,6 +284,10 @@ $$
 P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
 $$
 
+A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50% reliably, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful and a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city. What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
+
+<img src='solns/HW2_2.svg'>
+
 ## Law of Large Numbers
 
 The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
@@ -360,6 +364,12 @@ In the previous problem, you computed a histogram of $10,000$ $\overline{X}$. Ba
 4. 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ should include ("trap") $\mu$
 
 Create one or two plots that demonstrate these points. Pay careful attention to your annotations. Save your code as `HW2_4.py` and plots as `HW2_4.png` (use subplots).
+
+**Answer**
+
+See [HW2_4.py](solns/HW2_4.py)
+
+<img src="solns/HW2_4.svg">
 
 ## Reading
 
