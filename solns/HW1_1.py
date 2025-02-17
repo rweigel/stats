@@ -23,7 +23,7 @@ if slow_method:
     if n == 10:
       print("...")
 
-if not slow_method:
+else:
   import numpy as np
 
   print("Fast method")
@@ -40,6 +40,8 @@ if not slow_method:
       print("...")
 
 from matplotlib import pyplot as plt
+plt.rcParams["font.family"] = "Times New Roman"
+
 if n < 1000:
   plt.plot(N, rel_freqs, marker='.', linestyle='None', color='black')
 else:
@@ -49,6 +51,5 @@ plt.axhline(0.5, color='red', linestyle='--')
 plt.title("Experiment: Select from $[0, 1]$ with relacement")
 plt.xlabel('Number Experiments')
 plt.ylabel('Relative Frequency of $1$')
-#plt.show()
 print("Writing HW1_1.png")
 plt.savefig('HW1_1.png', dpi=300, transparent=True)

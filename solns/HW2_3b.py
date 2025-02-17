@@ -1,5 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
+plt.rcParams["font.family"] = "Times New Roman"
+plt.rcParams['mathtext.default'] = 'regular'
 
 np.random.seed(3)
 
@@ -22,12 +24,12 @@ print('Fraction between [-%.2g,%.2g] = %.2g' % (eps, eps, f))
 # 2
 
 F = []
-Ns = 10**np.arange(0, 4, 1)
+Ns = 10**np.arange(0, 5, 1)
 F = np.zeros(Ns.shape)
 
 i = 0
 for n in Ns:
-    X = np.random.randn(n,Ne) 
+    X = np.random.randn(n, Ne) 
     Xbar = np.mean(X, axis=0)
     eps = 0.01
     idx = np.abs(Xbar) < eps
@@ -36,12 +38,18 @@ for n in Ns:
     i = i + 1
 
 plt.figure()
-plt.grid(which='minor', color=(0.9, 0.9, 0.9))
-plt.grid(which='major', color=(0.2, 0.2, 0.2))
-plt.loglog(Ns, F, marker=".")
-plt.xlabel('n')
-plt.title('Fraction of %d $\\bar{X}$s in range [-0.01,0.01]' % Ne)
-plt.savefig("HW2_3b2.png", format="png", transparent=True)
+plt.grid(which='minor', color=(0.8, 0.8, 0.8))
+plt.grid(which='major', color=(0.3, 0.3, 0.3))
+plt.loglog(Ns, F, "k.", label='Computed values')
+coefficients = np.polyfit(np.log10(Ns), np.log10(F), 1)
+best_fit_line = np.poly1d(coefficients)
+label = f"Best fit line: f = {10**coefficients[1]:.3f}n$^{{{coefficients[0]:.3f}}}$"
+plt.loglog(Ns, 10**best_fit_line(np.log10(Ns)), "k--", label=label)
+plt.legend()
+plt.xlabel('$n$ values used for each $\\overline{X}$ calculation')
+plt.ylabel('$f$')
+plt.title('Fraction, $f$, of %d $\\overline{X}$s in range $[-0.01,0.01]$' % Ne)
+plt.savefig("HW2_3b2.png", format="png")
 plt.savefig("HW2_3b2.svg", format="svg", transparent=True)
 
 # 3
@@ -97,13 +105,18 @@ for n in Ns:
     i = i + 1
 
 plt.figure()
-plt.grid(which='minor', color=(0.9, 0.9, 0.9))
+plt.grid(which='minor', color=(0.8, 0.8, 0.8))
 plt.grid(which='major', color=(0.2, 0.2, 0.2))
-plt.loglog(Ns, Eps, marker=".")
-plt.xlabel('$n$ values used for each $\\bar{X}$ calculation')
+plt.loglog(Ns, Eps, 'k.', markersize=10, label='Computed values')
+coefficients = np.polyfit(np.log10(Ns), np.log10(Eps), 1)
+best_fit_line = np.poly1d(coefficients)
+label = f"Best fit line: $\\epsilon$ = {10**coefficients[1]:.1f}n$^{{{coefficients[0]:.3f}}}$"
+plt.loglog(Ns, 10**best_fit_line(np.log10(Ns)), "k--", label=label)
+plt.legend()
+plt.xlabel('$n$ values used for each $\\overline{X}$ calculation')
 plt.ylabel('$\\epsilon$')
-plt.title('99% of $\\bar{X}s$ in range [-$\\epsilon$,$\\epsilon$]')
-plt.savefig("HW2_3b4.png", format="png", transparent=True)
+plt.title('99% of $\\overline{X}s$ in range [-$\\epsilon$,$\\epsilon$]')
+plt.savefig("HW2_3b4.png", format="png")
 plt.savefig("HW2_3b4.svg", format="svg", transparent=True)
 
 # 5

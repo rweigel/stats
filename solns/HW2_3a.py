@@ -1,9 +1,11 @@
 import numpy as np
 from matplotlib import pyplot as plt
+plt.rcParams["font.family"] = "Times New Roman"
+plt.rcParams['mathtext.default'] = 'regular'
 
 np.random.seed(1)
 
-n = 100    # Number of samples per experiment
+n = 100      # Number of samples per experiment
 Ne = 100000  # Number of experiments
 
 # 1
@@ -40,7 +42,7 @@ plt.grid(axis='y', color=[0.2,0.2,0.2], linewidth=0.2)
 
 if True:
     # To plot histogram
-    cnts = plt.hist(Xbar,bins=bins)
+    cnts = plt.hist(Xbar, bins=bins, color='k', width=bw*0.97)[0]
     plt.ylabel('# in bin')
 
 if False:
@@ -54,8 +56,8 @@ if False:
     plt.bar(bw/2. + bins[0:-1], cnts[0]/np.sum(cnts[0]), width=bw*(0.99))
     plt.ylabel('Probability Distribution')
 
-plt.title('$n=%d$, $mean(\\bar{X}) = $ %.2g' % (n, np.mean(Xbar)))
+plt.title('$n$ = %d, mean($\\bar{X}$) = %.2g' % (n, np.mean(Xbar)))
 plt.xlabel('$\\bar{X}$')
 
-plt.savefig("HW2_3a.png", format="png", transparent=True)
+plt.savefig("HW2_3a.png", format="png")
 plt.savefig("HW2_3a.svg", format="svg", transparent=True)
