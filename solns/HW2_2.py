@@ -23,5 +23,5 @@ plt.arrow(0.5, 0.0725, 0.05, 0, head_width=0.02, head_length=0.02, fc='k', ec='k
 plt.text(0.58, 0.0725, 'Witness provides useful info.', ha='left', va='center')
 plt.legend(['Witness Reliability', 'P(B) = 0.15'])
 plt.grid()
-plt.savefig("HW2_2.png")
-plt.savefig("HW2_2.svg", transparent=True)
+plt.savefig("HW2_2b.png")
+plt.savefig("HW2_2b.svg", transparent=True)

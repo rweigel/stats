@@ -257,7 +257,8 @@ $$P(B|W_B) = \frac{120}{120+170}\approx 0.41$$
 **Method 2**
 
 The following [spreadsheet](https://docs.google.com/spreadsheets/d/1a3ty9V5bsDWKugk02zNPkO8LDG5FKQ-Mzs_Cxc-_S5o/edit?usp=sharing) is an alternative visualization of the tree diagram of **Method 1**.
-<img src="solns/HW2_2.png">
+
+<img src="solns/HW2_2a.png" width="800px">
 
 **Method 3**
 
@@ -286,7 +287,7 @@ $$
 
 A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50% reliably, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful and a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city. What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
 
-<img src='solns/HW2_2.svg'>
+<img src='solns/HW2_2b.svg'>
 
 ## Law of Large Numbers
 
