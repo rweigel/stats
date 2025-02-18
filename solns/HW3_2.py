@@ -1,5 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
+plt.rcParams["font.family"] = "Times New Roman"
+plt.rcParams['savefig.dpi'] = 300
 
 # Average probability of event in each hour
 po = 900/(1000*24)
@@ -47,31 +49,31 @@ for k in range(len(P_B)):
 # TODO: When no blue dot, P_S = 0. Add an annotation to make this more obvious.
 plt.figure()
 plt.grid()
-plt.semilogy(x, P_B, 'r.')
-plt.semilogy(x, P_P, 'g.')
-plt.semilogy(x, P_S, 'b.')
+plt.semilogy(x, P_B, 'ro', markersize=12, markerfacecolor='none')
+plt.semilogy(x, P_P, 'k.', markersize=12)
+plt.semilogy(x, P_S, 'm.', markersize=8)
+
 plt.xticks(x)
 plt.xlabel('Events per day (k)')
-plt.ylabel('PMF')
+plt.ylabel('Probability')
 plt.legend(['Binomial','Poisson: ($\lambda t)^ke^{\lambda t}/k!$','Simulated (1000 days)'])
 plt.title('$t=%d$ hrs; $\lambda$=%.3f/hr' % (t, lambda_))
 
-plt.savefig('figures/HW4_3.svg', transparent=True)
-plt.savefig('figures/HW4_3.png', transparent=True)
+plt.savefig('HW3_2a.svg', transparent=True)
+plt.savefig('HW3_2a.png')
 
 plt.figure()
 plt.grid()
-plt.semilogy(x, np.abs(P_P-P_B), 'g.')
-plt.semilogy(x, np.abs(P_S-P_B), 'b.')
+plt.semilogy(x, np.abs(P_P-P_B), 'k.', markersize=12)
+plt.semilogy(x, np.abs(P_S-P_B), 'm.', markersize=8)
 plt.xticks(x)
 plt.xlabel('Events per day (k)')
-plt.ylabel('PMF difference')
+plt.ylabel('Probability difference')
 plt.legend(['|Poisson - Binomial|','|Simulated - Binomial|'])
 plt.title('$t=%d$ hrs; $\lambda$=%.3f/hr' % (t, lambda_))
 
-plt.savefig('figures/HW4_3-error.svg', transparent=True)
-plt.savefig('figures/HW4_3-error.png', transparent=True)
-
+plt.savefig('HW3_2b.svg', transparent=True)
+plt.savefig('HW3_2b.png')
 
 # Part 2.
 # Create a list of 1000*24 zeros and ones, with a 1 having probability po.
@@ -87,12 +89,12 @@ P_dte, _ = np.histogram(dte, density=True, bins=bin_edges)
 
 plt.figure()
 plt.grid()
-plt.plot(bin_centers, P_dte,'.')
+plt.plot(bin_centers, P_dte, 'k.')
 xticks = plt.gca().get_xticks()
-xticks = np.arange(25, np.max(dte)+1, 25)
-plt.gca().set_xticks([1,*xticks])
-plt.ylabel('PMF')
+xticks = np.arange(24, np.max(dte)+1, 24)
+plt.gca().set_xticks([1, *xticks])
+plt.ylabel('Probability')
 plt.xlabel('hours between flares')
 
-plt.savefig('figures/HW4_3-dt.svg', transparent=True)
-plt.savefig('figures/HW4_3-dt.png', transparent=True)
+plt.savefig('HW3_2c.svg', transparent=True)
+plt.savefig('HW3_2c.png', dpi=300)

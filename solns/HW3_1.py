@@ -1,7 +1,24 @@
+import math
 import numpy as np
 from matplotlib import pyplot as plt
-import matplotlib_inline
-matplotlib_inline.backend_inline.set_matplotlib_formats('svg')
+
+plt.rcParams["font.family"] = "Times New Roman"
+plt.rcParams['savefig.dpi'] = 300
+
+def set_latex(use_latex):
+    import matplotlib as mpl
+    if use_latex:
+        mpl.rcParams['text.usetex'] = True
+        mpl.rcParams['text.latex.preamble'] = r'\usepackage{amsmath}'
+    else:
+        mpl.rcParams['mathtext.default'] = 'regular'
+        mpl.rcParams['text.usetex'] = False
+
+use_latex = True  # Set to False if you don't want to use LaTeX
+import shutil
+if shutil.which("latex"):
+    print("LaTeX is installed")
+    set_latex(use_latex)
 
 debug = False # True prints output
 
@@ -10,7 +27,6 @@ Nt = 100    # Number of trials per experiment
 po = 0.4
 px = 0.44
 
-import math
 def nCk(n,k):
     return math.factorial(n)/(math.factorial(n-k)*math.factorial(k))
 
@@ -67,16 +83,16 @@ plt.step(bin_centers, hist1[0]/np.sum(hist1[0]), where='mid', color='k')
 hist2 = np.histogram(n2, bins=bin_edges)
 plt.step(bin_centers, hist2[0]/np.sum(hist2[0]), where='mid', color='r')
 
-plt.bar(np.arange(len(P)), P)
+plt.bar(np.arange(len(P)), P, width=0.96)
 
-plt.xlabel('# heads in experiment')
-plt.ylabel('P of # heads in experiment')
-plt.title('# trials/experiment = {0:d}; # experiments = {1:d}'.format(Nt, Ne))
+plt.xlabel('\# heads in experiment')
+plt.ylabel('P of \# heads in experiment')
+plt.title('\# trials/experiment = {0:d}; \# experiments = {1:d}'.format(Nt, Ne))
 plt.xlim(x_lim)
 plt.legend(['Experiment 1. p=0.4','Experiment 2. p varies','Binomial Formula'])
 
-plt.savefig("HW3_1.png", format="png", transparent=True)
-plt.savefig("HW3_1.svg", format="svg", transparent=True)
+plt.savefig("HW3_1.png")
+plt.savefig("HW3_1.svg", transparent=True)
 
 ##############################################################################
 # Solution using np.random.binomial()
@@ -97,22 +113,29 @@ for j in range(n1.size):  # Loop over experiments
             r2[i] = np.random.binomial(n=1, p=po, size=1)
     n2[j] = np.sum(r2)
 
+plt.close()
 plt.figure()
-plt.grid(axis='y', color='k')
 
 hist1 = np.histogram(n1, bins=bin_edges)
-plt.step(bin_centers, hist1[0]/np.sum(hist1[0]), where='mid', color='k')
+plt.step(bin_centers, hist1[0]/np.sum(hist1[0]),
+         where='mid', color='k', label='Experiment 1. $p = 0.4$')
 
 hist2 = np.histogram(n2, bins=bin_edges)
-plt.step(bin_centers, hist2[0]/np.sum(hist2[0]), where='mid', color='r')
+plt.step(bin_centers, hist2[0]/np.sum(hist2[0]),
+         where='mid', color='r', label='Experiment 2. $p$ varies')
 
-plt.bar(np.arange(len(P)), P)
+xg = np.arange(x_lim[0], x_lim[1]+1)
+Pg = (1/np.sqrt(2*np.pi*Nt*po*(1-po)))*np.exp(-(xg-Nt*po)**2/(2*Nt*po*(1-po)))
+plt.plot(xg, Pg, 'k--', label='$e^{-(x-np)^2/2npq}/\sqrt{2\pi npq}$')
 
-plt.xlabel('# heads in experiment')
-plt.ylabel('P of # heads in experiment')
-plt.title('# trials/experiment = {0:d}; # experiments = {1:d}'.format(Nt, Ne))
+plt.bar(np.arange(len(P)), P, width=0.95, label='$\\binom{n}{k}(1-p)^{n-k}p^k$')
+
+plt.grid(axis='y', color='k')
+plt.xlabel('\# heads in experiment')
+plt.ylabel('P of \# heads in experiment')
+plt.title('\# trials/experiment = {0:d}; \# experiments = {1:d}'.format(Nt, Ne))
 plt.xlim(x_lim)
-plt.legend(['Experiment 1. p=0.4','Experiment 2. p varies','Binomial Formula'])
+plt.legend(fontsize=10)
 
+plt.savefig('HW3_1.png')
 plt.savefig('HW3_1.svg', transparent=True)
-plt.savefig('HW3_1.png', transparent=True)
