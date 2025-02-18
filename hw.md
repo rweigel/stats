@@ -526,7 +526,11 @@ Demonstrate using a simulation that $S_{b}^2$ is biased by drawing $n=10$ values
 
 In class, I'll show how to prove that $S_b^2$ is a biased estimator mathematically.
 
-<img src="solns/HW3_3.svg"/>
+**Solution**
+
+See [HW3_3.py](https://github.com/rweigel/astrostats/blob/main/solns/HW3_3.py)
+
+<img src="solns/HW3_3.png" width="600px"/>
 
 ## Reading
 
