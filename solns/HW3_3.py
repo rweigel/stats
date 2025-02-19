@@ -24,22 +24,21 @@ def pmf(bin_edges, data, color='k'):
   plt.bar(bin_centers, pmf, width=db, color=color, edgecolor='w', linewidth=0.5)
 
 def set_latex(use_latex):
-  import matplotlib as mpl
-  if use_latex:
-    mpl.rcParams['text.usetex'] = True
-    mpl.rcParams['text.latex.preamble'] = r'\usepackage{amsmath}'
-  else:
-    mpl.rcParams['mathtext.default'] = 'regular'
-    mpl.rcParams['text.usetex'] = False
 
   import shutil
+  import matplotlib
+
   if use_latex and shutil.which("latex"):
       print("LaTeX is installed")
       use_latex = True
-      set_latex(use_latex)
+      matplotlib.rcParams['text.usetex'] = True
+      matplotlib.rcParams['text.latex.preamble'] = r'\usepackage{amsmath}'
   else:
       print("LaTeX is not installed")
+      matplotlib.rcParams['text.usetex'] = False
       use_latex = False
+
+  return use_latex
 
 use_latex = set_latex(use_latex)
 
