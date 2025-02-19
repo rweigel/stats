@@ -1,20 +1,32 @@
 import numpy as np
 from matplotlib import pyplot as plt
+from scipy.stats import norm
 
 plt.rcParams["font.family"] = "Times New Roman"
 plt.rcParams['mathtext.default'] = 'regular'
 
 #np.random.seed(1)
-mu = 0
-sigma = 1
 
+s = 1.96
 n = 100  # Number of samples per experiment
 ne = 1000 # Number of experiments
 
-s = 1.96
-delta = s/np.sqrt(n)
+#dist_name = 'gaussian'
+dist_name = 'uniform'
+if dist_name == 'gaussian':
+  dist_symbol = 'N(0, 1)'
+  mu = 0
+  sigma = 1
+  X = np.random.normal(loc=mu, scale=sigma, size=(n, ne))
+if dist_name == 'uniform':
+  dist_symbol = 'U(-3, 3)'
+  low =  -2
+  high =  2
+  mu = (high+low)/2
+  sigma = np.sqrt((high-low)**2/12)
+  X = np.random.uniform(low=low, high=high, size=(n, ne))
 
-X = np.random.normal(loc=mu, scale=sigma, size=(n, ne))
+delta = s*sigma/np.sqrt(n)
 
 Xbar = np.mean(X, axis=0)
 
@@ -48,20 +60,25 @@ print("(std of X_bar)*sqrt(n) = {:.8f}".format(np.std(Xbar)*np.sqrt(n)))
 fig, ax = plt.subplots(2, 1, figsize=(5, 9))
 plt.subplots_adjust(hspace=0.4)
 
-ax[0].axvline(x=-delta, color=(0.5, 0.5, 0.5), linestyle='--')
+ax[0].axvline(x=-delta, color=(0.5, 0.5, 0.5), linestyle='--', label=f'$\\pm {s:0.2f}/\\sqrt{{n}}$')
 ax[0].axvline(x=+delta, color=(0.5, 0.5, 0.5), linestyle='--')
 
-ax[0].bar(bin_c, nXbar, width=dx*0.99, color='k')
+ax[0].bar(bin_c, nXbar, width=dx*0.99, color='k', label='Simulated')
+
+norm.pdf(bin_c, loc=mu, scale=sigma/np.sqrt(n))
+ax[0].plot(bin_c, ne*dx*norm.pdf(bin_c, loc=mu, scale=sigma/np.sqrt(n)), 'r.', label='CLT limit')
+
+ax[0].legend(loc='upper left', fontsize=10, facecolor='white', framealpha=1)
+
 ax[0].set_xlabel('$\\overline{X}$')
 ax[0].set_ylabel('# in bin')
-ax[0].set_title(f'Gray: Range $[\\overline{{X}}-{s:0.2f}/\\sqrt{{n}},\\overline{{X}}+{s:0.2f}/\\sqrt{{n}}]$ does not trap $\\mu$', fontsize=10)
+ax[0].set_title(f'{ne} samples of length $n={n}$ from $X$ ~ {dist_symbol}\nGray: Range $[\\overline{{X}}-{s:0.2f}/\\sqrt{{n}},\\overline{{X}}+{s:0.2f}/\\sqrt{{n}}]$ does not trap $\\mu$', fontsize=10)
 ax[0].set_xlim(-0.5, 0.5)
 ax[0].set_xticks(bin_c)
-ax[0].legend([f'$\\pm {s:0.2f}/\\sqrt{{n}}$'], loc='upper left')
 ax[0].axvspan(-delta, ax[0].get_xlim()[0], color='gray', alpha=0.5)
 ax[0].axvspan(+delta, ax[0].get_xlim()[1], color='gray', alpha=0.5)
-ax[0].text(0.21, ax[0].get_ylim()[1]*0.7, f'Fraction: {1-f_above:0.3f}', fontsize=10, bbox=dict(facecolor='white', alpha=0.0))
-ax[0].text(-0.49, ax[0].get_ylim()[1]*0.7, f'Fraction: {1-f_below:0.3f}', fontsize=10, bbox=dict(facecolor='white', alpha=0.0))
+ax[0].text(0.25, ax[0].get_ylim()[1]*0.6, f'Fraction: {1-f_above:0.3f}', fontsize=10, bbox=dict(facecolor='white', alpha=0.0))
+ax[0].text(-0.45, ax[0].get_ylim()[1]*0.6, f'Fraction: {1-f_below:0.3f}', fontsize=10, bbox=dict(facecolor='white', alpha=0.0))
 
 n_out = 0
 for i in range(0, ne):
@@ -76,12 +93,10 @@ for i in range(0, ne):
 
 ax[1].grid()
 ax[1].axvline(x=0, color='k', linestyle='--')
-#title = f'Fraction of {ne} experiments where\nrange does not contain 0: {n_out/ne:.4f}'
-#print(title)
 ax[1].set_title(f"Sample of ranges; red => no trapping of $\\mu = {mu}$")
 ax[1].set_ylabel('Experiment number')
 ax[1].set_xlabel('Value in range')
 
-fig.savefig("HW2_4.svg", transparent=True)
-fig.savefig("HW2_4.png", dpi=300)
+fig.savefig(f"HW2_4.{dist_name}.svg", transparent=True)
+fig.savefig(f"HW2_4.{dist_name}.png", dpi=300)
 
