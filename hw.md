@@ -287,7 +287,7 @@ $$
 
 A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50% reliably, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful and a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city. What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
 
-<img src='solns/HW2_2b.svg'>
+    <img src='solns/HW2_2b.svg'>
 
 ## Law of Large Numbers
 

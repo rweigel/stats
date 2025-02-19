@@ -916,7 +916,20 @@ When we invent a statistic (a quantity computed from a sample) that is intended 
 
 $\hat{\theta}$ is usually a point estimate of a population statistic $\theta$ based on a sample of the population. (Why "point"? Probably because we get a single value.)
 
+## Generating Point Estimates
+
+Given a population pdf with parameters that we want to estimate, we often can write down a point estimate by inspection. For example, for the point estimate of the mean and standard deviation, we use their definitions for the population. In Example 6.13 of Devore, he arrives at estimates that we would arrive at without using the method of moments but by solving for the gamma distribution parameters $alpha$ and $beta$ using the known relationships $\mu=\alpha\beta$ and $\sigma^2=\alpha\beta$. So why do we need it? See the example on page 2 https://www.its.caltech.edu/~mshum/stats/lect6.pdf, which mentions Pearson's original paper.
+
+There are two approaches for generating point estimates
+* Method of Moments
+* Maximum Likelihood (Devore claims preferred because of certain efficiency properties but sometime require more computation than MoM estimators)
+
+They are not gauranteed to provide an unbiased estimator.
+
 ## Point Estimate Sampling Distribution
+
+* [Sampling Distribution of Sample Mean](https://online.stat.psu.edu/stat414/lesson/26/26.2)
+* [Sampling Distribution of Sample Variance](https://online.stat.psu.edu/stat414/lesson/26/26.3)
 
 ## Unbiased Point Estimator
 

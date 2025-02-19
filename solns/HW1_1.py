@@ -27,7 +27,7 @@ else:
   import numpy as np
 
   print("Fast method")
-  n_max = 1000000
+  n_max = 100000
   rel_freqs = np.full(n_max, np.nan) # Create an array of n_max elements, all NaN
   N = np.arange(1, n_max + 1)
   for n in N:
@@ -36,8 +36,8 @@ else:
 
     if n < 10:
       print(f"n = {n} experiments. P_H = {sum(result) / n}")
-    if n == 10:
-      print("...")
+    if n in [10, 100, 1000, 10000]:
+      print(f"n = {n} experiments. P_H = {sum(result) / n}")
 
 from matplotlib import pyplot as plt
 plt.rcParams["font.family"] = "Times New Roman"
@@ -48,7 +48,7 @@ else:
   plt.semilogx(N, rel_freqs, marker='.', linestyle='None', color='black')
 plt.grid()
 plt.axhline(0.5, color='red', linestyle='--')
-plt.title("Experiment: Select from $[0, 1]$ with relacement")
+plt.title("Experiment: Select from $[0, 1]$ with replacement")
 plt.xlabel('Number Experiments')
 plt.ylabel('Relative Frequency of $1$')
 print("Writing HW1_1.png")

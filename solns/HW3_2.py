@@ -1,3 +1,4 @@
+import math
 import numpy as np
 from matplotlib import pyplot as plt
 plt.rcParams["font.family"] = "Times New Roman"
@@ -38,7 +39,6 @@ n_S = np.sum(e_Sr,axis=0)
 P_S, _ = np.histogram(n_S, density=True, bins=-0.5+np.arange(len(P_P)+1))
 
 # Exact solution
-import math
 def nCk(n,k):
     return math.factorial(n)/(math.factorial(n-k)*math.factorial(k))
 
