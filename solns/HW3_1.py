@@ -5,20 +5,25 @@ from matplotlib import pyplot as plt
 plt.rcParams["font.family"] = "Times New Roman"
 plt.rcParams['savefig.dpi'] = 300
 
+use_latex = True
 def set_latex(use_latex):
-    import matplotlib as mpl
-    if use_latex:
-        mpl.rcParams['text.usetex'] = True
-        mpl.rcParams['text.latex.preamble'] = r'\usepackage{amsmath}'
-    else:
-        mpl.rcParams['mathtext.default'] = 'regular'
-        mpl.rcParams['text.usetex'] = False
 
-use_latex = True  # Set to False if you don't want to use LaTeX
-import shutil
-if shutil.which("latex"):
-    print("LaTeX is installed")
-    set_latex(use_latex)
+  import shutil
+  import matplotlib
+
+  if use_latex and shutil.which("latex"):
+      print("LaTeX is installed")
+      use_latex = True
+      matplotlib.rcParams['text.usetex'] = True
+      matplotlib.rcParams['text.latex.preamble'] = r'\usepackage{amsmath}'
+  else:
+      print("LaTeX is not installed")
+      matplotlib.rcParams['text.usetex'] = False
+      use_latex = False
+
+  return use_latex
+
+set_latex(use_latex)
 
 debug = False # True prints output
 
@@ -85,9 +90,9 @@ plt.step(bin_centers, hist2[0]/np.sum(hist2[0]), where='mid', color='r')
 
 plt.bar(np.arange(len(P)), P, width=0.96)
 
-plt.xlabel('\# heads in experiment')
-plt.ylabel('P of \# heads in experiment')
-plt.title('\# trials/experiment = {0:d}; \# experiments = {1:d}'.format(Nt, Ne))
+plt.xlabel('num. heads in experiment')
+plt.ylabel('P of num. heads in experiment')
+plt.title('num. trials/experiment = {0:d}; num. experiments = {1:d}'.format(Nt, Ne))
 plt.xlim(x_lim)
 plt.legend(['Experiment 1. p=0.4','Experiment 2. p varies','Binomial Formula'])
 
@@ -108,9 +113,9 @@ for j in range(n1.size):  # Loop over experiments
     n1[j] = np.sum(r1)
     for i in range(Nt):  # Loop over trials
         if i > 1 and r2[i-1] == 1 and r2[i-2] == 1:
-            r2[i] = np.random.binomial(n=1, p=px, size=1)
+            r2[i] = np.random.binomial(n=1, p=px)
         else:
-            r2[i] = np.random.binomial(n=1, p=po, size=1)
+            r2[i] = np.random.binomial(n=1, p=po)
     n2[j] = np.sum(r2)
 
 plt.close()
@@ -126,14 +131,14 @@ plt.step(bin_centers, hist2[0]/np.sum(hist2[0]),
 
 xg = np.arange(x_lim[0], x_lim[1]+1)
 Pg = (1/np.sqrt(2*np.pi*Nt*po*(1-po)))*np.exp(-(xg-Nt*po)**2/(2*Nt*po*(1-po)))
-plt.plot(xg, Pg, 'k--', label='$e^{-(x-np)^2/2npq}/\sqrt{2\pi npq}$')
+plt.plot(xg, Pg, 'k--', label='$e^{-(x-np)^2/2npq}/\\sqrt{2\\pi npq}$')
 
 plt.bar(np.arange(len(P)), P, width=0.95, label='$\\binom{n}{k}(1-p)^{n-k}p^k$')
 
-plt.grid(axis='y', color='k')
-plt.xlabel('\# heads in experiment')
-plt.ylabel('P of \# heads in experiment')
-plt.title('\# trials/experiment = {0:d}; \# experiments = {1:d}'.format(Nt, Ne))
+plt.grid(axis='y', color=3*[0.5], ls=':')
+plt.xlabel('$k$')
+plt.ylabel('P(k)')
+plt.title('num. trials/experiment = {0:d}; num. experiments = {1:d}'.format(Nt, Ne))
 plt.xlim(x_lim)
 plt.legend(fontsize=10)
 
