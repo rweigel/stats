@@ -678,6 +678,8 @@ Read Chapter 7 of [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7Sz
 
 # HW 5
 
+(Note -- I decided not to give a problem on the exponential distribution that I started in class. I decided that it was better to build on a previous HW problem.)
+
 ## Confidence Interval on $S^2$
 
 On page 295 of Devore, the $100(1-\alpha)$% confidence interval for the variance $\sigma^2$ of $n$ values drawn from a normal population with mean $\mu$ and variance $\sigma^2$ is
@@ -702,9 +704,9 @@ To compute the 95% confidence interval for the bootstrap case, and if you comput
 1. Using the values on page 296 in Devore, compute a confidence interval for $\sigma^2$ using the bootstrap method.
 2. In part 1., you should have found a confidence interval with an upper limit of $\sim 200,000$. This is much less than the value he quoted of $318, 064.4$. The number of samples is only $ 17 $, which is small for the bootstrap. To test the claim that the large difference in the confidence intervals is due to a small number of samples, generate $n=100$ values from a Gaussian distribution with the same mean and variance as data used in part 1. Then, compute a confidence interval using the method of example 7.15 of Devore and the bootstrap method.
 
-##
+## Textbook Confidence Interval
 
-Soon
+In problem 5.2, you compared a "textbook" confidence interval with that using the bootstrap. Find a problem in a textbook (or online resource) where the data is given an a confidence interval is computed using a formula. Then compute a confidence interval using the bootstrap.
 
 ## Reading
 
