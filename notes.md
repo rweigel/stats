@@ -512,11 +512,11 @@ Divide both sides by $n$ to arrive at the result.
 
 ## Multiplication Rule for $P(A\cap B)$
 
-$P(A\cap B) = \frac{P(A|B)P(B)}$
+$P(A\cap B) = P(A|B)P(B)$
 
 ## General Bayes' Rule
 
-When $A_1, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
+When $A_1$, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
 
 $$
 P(A_j|B) = \frac{P(B|A_j)P(A_j)}{P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)}

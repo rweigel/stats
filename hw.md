@@ -686,7 +686,11 @@ Read Chapter 7 of [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7Sz
 >
 >Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
 >
->$$P\left(-z_{\alpha}/2 < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha}/2\right)\simeq 1-\alpha$$
+>$$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
+
+>Equation 7.10
+>
+>
 
 >Equation 7.15
 >

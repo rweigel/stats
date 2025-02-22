@@ -28,8 +28,51 @@ HW:
 
 # Class Notes
 
-## Thursday, January 30th
+## May 1st
 
+Last class
+
+## April 24th
+
+## April 17th
+
+## April 10th
+
+## April 3rd
+
+## April 3rd
+
+## March 27th
+
+## March 20th
+
+Mid--term
+
+## March 13th
+
+No class -- Spring Break
+
+## March 6th
+
+## February 28th
+
+Hypothesis Testing
+
+Discuss Mid-term dates
+
+## February 21st
+
+Point Estimation
+
+## February 14th
+
+Expectation Values
+
+## February 7th
+
+Probability Distributions
+
+## January 30th
 
 **In-class problems**
 
@@ -51,13 +94,13 @@ HW:
 
 4. Devise a numerical experiment to test the statement of the Central Limit Theorem
 
-## Thursday, January 23rd
+## January 23rd
 
 * Introductions
 
 * Discuss Syllabus Questions. **Preparation**: Read the syllabus before class.
 
-* Cover Probability topics in [Devore Chapter 2]((https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★); see also  [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing★★★★★remove★★★★★), [Rozanov Chapters 1 and 2](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★), [Larson Chapters 1 and 2](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) and [DeGroot Chapter 1](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★).
+* Cover Probability topics in [Devore Chapter 2]((https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★); see also [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing★★★★★remove★★★★★), [Rozanov Chapters 1 and 2](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★), [Larson Chapters 1 and 2](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) and [DeGroot Chapter 1](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★).
 
    **Preparation**: Read [Devore Chapter 2](https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link★★★★★remove★★★★★), write down all of the definitions of key terms, and be prepared to define without referring to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.
 
