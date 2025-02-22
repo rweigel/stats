@@ -717,7 +717,7 @@ In problem 4.3, you simulated the sampling distribution of $S^2$ using the boots
 
 To compute the 95% confidence interval for the bootstrap case, and if you computed $n_b$ resamples, sort the list of $n_b$ $S^2$ values, and the lower confidence limit is the $0.025n_b$ element's value, and the upper confidence limit is the $0.975n_b$ element's value.
 
-1. Using the values on page 296 in Devore, compute a confidence interval for $\sigma^2$ using the bootstrap method.
+1. Using the values on page 296 in Devore, compute a 95% confidence interval for $\sigma^2$ using the bootstrap method.
 2. In part 1., you should have found a confidence interval with an upper limit of $\sim 200,000$. This is much less than the value he quoted of $318, 064.4$. The number of samples is only $ 17 $, which is small for the bootstrap. To test the claim that the large difference in the confidence intervals is due to a small number of samples, generate $n=100$ values from a Gaussian distribution with the same mean and variance as data used in part 1. Then, compute a confidence interval using the method of example 7.15 of Devore and the bootstrap method.
 
 ## Textbook Confidence Interval
