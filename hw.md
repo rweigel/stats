@@ -678,9 +678,29 @@ Read Chapter 7 of [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7Sz
 
 # HW 5
 
-##
+## Confidence Interval on $S^2$
 
-Soon
+On page 295 of Devore, the $100(1-\alpha)$% confidence interval for the variance $\sigma^2$ of $n$ values drawn from a normal population with mean $\mu$ and variance $\sigma^2$ is
+
+$$\left(\frac{(n-1)S^2}{\chi^2_{\alpha/2, n-1}},
+\quad\frac{(n-1)S^2}{\chi^2_{1-\alpha/2, n-1}}\right)$$
+
+where
+
+$$S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$$
+
+and the $\chi^2$ values are described in Figure 7.11 on page 295. What this means is if you have $n$ values drawn from a Gaussian distribution with unknown $\mu$ and $\sigma^2$, you can estimate $\sigma^2$ using $S^2$ and associate with $S^2$ a confidence interval as given above.
+
+Suppose that you did not know the sampling distribution of $S^2$. In this case, you would not know the equation for the confidence interval. All you have is a list of $n$ values from a single sample from a population.
+
+In problem 3.3, you simulated the sampling distribution of $S_b^2$ (and could do so equivalently for $S^2$). You did this by drawing $n$ values from a known population distribution many times and plotting the distribution of the $S^2$ values. In this case, you knew $\mu$, $\sigma^2$, and the population distribution. As a result, this method is not useful for this problem.
+
+In problem 4.3, you simulated the sampling distribution of $S^2$ using the bootstrap method. Instead of drawing $n$ values from a population many times and computing $S^2$ for each draw, you drew $n$ values from a single population sample (with replacement) many times and plotted the corresponding "resampled" $S^2$ values.
+
+To compute the 95% confidence interval for the bootstrap case, and if you computed $n_b$ resamples, sort the list of $n_b$ $S^2$ values, and the lower confidence limit is the $0.025n_b$ element's value, and the upper confidence limit is the $0.975n_b$ element's value.
+
+1. Using the values on page 296 in Devore, compute a confidence interval for $\sigma^2$ using the bootstrap method.
+2. In part 1., you should have found a confidence interval with an upper limit of $\sim 200,000$. This is much less than the value he quoted of $318, 064.4$. The number of samples is only $ 17 $, which is small for the bootstrap. To test the claim that the large difference in the confidence intervals is due to a small number of samples, generate $n=100$ values from a Gaussian distribution with the same mean and variance as data used in part 1. Then, compute a confidence interval using the method of example 7.15 of Devore and the bootstrap method.
 
 ##
 
