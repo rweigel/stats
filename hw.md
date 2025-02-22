@@ -676,36 +676,16 @@ The file [xray.txt](http://mag.gmu.edu/git-data/astrostats/SOLAR_FLARES/xray.txt
 
 Read Chapter 7 of [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★). In class, I will ask how we could use the bootstrap method (both non--parametric or parametric) to check the claims in the chapter such as Equations 7.5, 7.10, 7.15, and 7.17.
 
->Equation 7.5
->
->A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
->
->$$\left(\overline{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \quad \overline{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right)$$
+# HW 5
 
->Equation 7.9 
->
->Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
->
->$$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
+##
 
->Equation 7.10
->
->
+Soon
 
->Equation 7.15
->
->Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
->
->$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
+##
 
->Equation 7.17
->
->$$P\left(\chi^2_{1-\alpha/2, n-1} < \frac{(n-1)S^2}{\sigma^2} < -\chi^2_{\alpha/2, n-1}\right) = 1-\alpha$$
->
->A $100(1-\alpha)$% confidence interval for the variance $\sigma^2$ of a normal population is
->
->$$\left( \frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}, \quad\frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}}\right)$$
->
->where
->
->$$s^2=\frac{1}{n-1}\sum_{i=1}^n(x_i-\overline{x})^2$$
+Soon
+
+## Reading
+
+Read Chapter 8.1, 8.2, and 8.4 of [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★).

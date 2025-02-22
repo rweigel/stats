@@ -512,11 +512,11 @@ Divide both sides by $n$ to arrive at the result.
 
 ## Multiplication Rule for $P(A\cap B)$
 
-$P(A\cap B) = P(A|B)P(B)$
+$P(A\cap B) = \frac{P(A|B)P(B)}$
 
 ## General Bayes' Rule
 
-When $A_1$, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
+When $A_1, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
 
 $$
 P(A_j|B) = \frac{P(B|A_j)P(A_j)}{P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)}
@@ -916,20 +916,7 @@ When we invent a statistic (a quantity computed from a sample) that is intended 
 
 $\hat{\theta}$ is usually a point estimate of a population statistic $\theta$ based on a sample of the population. (Why "point"? Probably because we get a single value.)
 
-## Generating Point Estimates
-
-Given a population pdf with parameters that we want to estimate, we often can write down a point estimate by inspection. For example, for the point estimate of the mean and standard deviation, we use their definitions for the population. In Example 6.13 of Devore, he arrives at estimates that we would arrive at without using the method of moments but by solving for the gamma distribution parameters $alpha$ and $beta$ using the known relationships $\mu=\alpha\beta$ and $\sigma^2=\alpha\beta$. So why do we need it? See the example on page 2 https://www.its.caltech.edu/~mshum/stats/lect6.pdf, which mentions Pearson's original paper.
-
-There are two approaches for generating point estimates
-* Method of Moments
-* Maximum Likelihood (Devore claims preferred because of certain efficiency properties but sometime require more computation than MoM estimators)
-
-They are not gauranteed to provide an unbiased estimator.
-
 ## Point Estimate Sampling Distribution
-
-* [Sampling Distribution of Sample Mean](https://online.stat.psu.edu/stat414/lesson/26/26.2)
-* [Sampling Distribution of Sample Variance](https://online.stat.psu.edu/stat414/lesson/26/26.3)
 
 ## Unbiased Point Estimator
 
@@ -962,3 +949,39 @@ The term $E[X_1]$ means the expectation value of all possible first-selected val
 $$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] + ... ) = \frac{1}{n}(\mu + \mu + ...) = \frac{1}{n}(n\mu) = \mu$$
 
 ### Un-biased point estimator of $\sigma^2$: $\ds S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$
+
+## Confidence Intervals
+
+>Equation 7.5
+>
+>A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
+>
+>$$\left(\overline{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \quad \overline{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right)$$
+
+>Equation 7.9 
+>
+>Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
+>
+>$$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
+
+>Equation 7.10
+>
+>
+
+>Equation 7.15
+>
+>Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
+>
+>$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
+
+>Equation 7.17
+>
+>$$P\left(\chi^2_{1-\alpha/2, n-1} < \frac{(n-1)S^2}{\sigma^2} < -\chi^2_{\alpha/2, n-1}\right) = 1-\alpha$$
+>
+>A $100(1-\alpha)$% confidence interval for the variance $\sigma^2$ of a normal population is
+>
+>$$\left( \frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}, \quad\frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}}\right)$$
+>
+>where
+>
+>$$s^2=\frac{1}{n-1}\sum_{i=1}^n(x_i-\overline{x})^2$$
