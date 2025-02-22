@@ -98,3 +98,9 @@ plt.xlabel('hours between flares')
 
 plt.savefig('HW3_2c.svg', transparent=True)
 plt.savefig('HW3_2c.png', dpi=300)
+
+plt.grid(which='minor', axis='y')
+plt.yscale('log')
+plt.ylim([1e-3, 1e-1])
+plt.savefig('HW3_2d.svg', transparent=True)
+plt.savefig('HW3_2d.png', dpi=300)

@@ -137,7 +137,7 @@ plt.bar(np.arange(len(P)), P, width=0.95, label='$\\binom{n}{k}(1-p)^{n-k}p^k$')
 
 plt.grid(axis='y', color=3*[0.5], ls=':')
 plt.xlabel('$k$')
-plt.ylabel('P(k)')
+plt.ylabel('P(k) (prob. of num. of $1$s in experiment)')
 plt.title('num. trials/experiment = {0:d}; num. experiments = {1:d}'.format(Nt, Ne))
 plt.xlim(x_lim)
 plt.legend(fontsize=10)

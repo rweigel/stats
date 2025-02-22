@@ -485,6 +485,22 @@ See [HW3_2.py](https://github.com/rweigel/astrostats/blob/main/solns/HW3_2.py)
 
 <img src="solns/HW3_2c.svg"/>
 
+Same as above but semilogy.
+
+<img src="solns/HW3_2d.svg"/>
+
+**Student Solution Comments**
+
+Many students presented their solution in the following form. For the first plot, the bin edge less than zero is potentially confusing. In my plot for HW3_1, I used bars and made them a bit thinner; this too may be misleading and very thin bar may be argued to be more appropriate. The connected lines are inappropriate because all x--values are integer. 
+
+For the second plot, the bin width is not integer, but should be because the data are integer. One could again use thin bars. In my case, thin bars or stems made the plot look too cluttered, so I went with dots.
+
+Note that I generally don't take points off for minor presentation issues like this. However, I do comment on them in the hopes that you make improvements in future homeworks. (Quite often I find myself revising my plots because I think something is not clear enough. It is much like revising writing -- you revise until you run out of ideas for improvement.)
+
+<img src="solns/HW3_2a.example.png"/>
+
+<img src="solns/HW3_2b.example.png"/>
+
 ## Expectation Values and Biased Estimator
 
 A summary (or descriptive) statistic is a quantity that summarizes an aspect of a collection of data. Examples include the mean and standard deviation. Descriptive statistics are always based on a computation done on a **sample** (subset) of the population of data. 
