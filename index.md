@@ -25,6 +25,8 @@ HW:
 [3](hw.html#hw-3)
 |
 [4](hw.html#hw-4)
+|
+[5](hw.html#hw-5)
 
 # Class Notes
 
