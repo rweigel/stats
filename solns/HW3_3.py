@@ -20,6 +20,7 @@ def pmf(bin_edges, data, color='k'):
 
   n, _ = np.histogram(data, bins=bin_edges)
   pmf = n/len(data)
+  #print(np.sum(pmf))
   plt.grid(axis='y', color=[0.5, 0.5, 0.5], ls=':')
   plt.bar(bin_centers, pmf, width=db, color=color, edgecolor='w', linewidth=0.5)
 
@@ -48,8 +49,14 @@ for i in range(nb):
   Sb2[i] = (1/n)*np.sum( np.power(X - np.mean(X), 2))
   #Sb2[i] = np.var(X, ddof=0) # Alternative way to compute Sb2
 
+# Avoid loop:
+#X = np.random.normal(loc=0.0, scale=1.0, size=(n, nb))
+#Sb2 = np.var(X, axis=0, ddof=0)
+
+
 bin_edges = np.arange(0, 4.0, 0.1)
 pmf(bin_edges, Sb2)
+
 title = f'Draw $n$ = {n} samples from Gaussian with $\\mu = 0$ and $\\sigma^2 = 1$'
 title += f' $N_e$ = {nb} times'
 plt.title(title, fontsize=11)
@@ -65,5 +72,5 @@ plt.axvline(x=np.mean(Sb2), color=3*[0.5], ls='-', label=f'mean($S_b^2$) = {np.m
 plt.legend()
 plt.xlabel('$S_b^2$')
 plt.ylabel('Probability')
-plt.savefig('HW3_3.png', transparent=True)
+plt.savefig('HW3_3.png')
 plt.savefig('HW3_3.svg', transparent=True)
