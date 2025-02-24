@@ -660,6 +660,116 @@ We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because 
 
 2. Finish the proof that $E\left[S^2_b\right] = \sigma^2(n-1)/n$.
 
+**Answer**
+
+1\.
+
+$E[X'] = E[X-\mu] = E[X] - \mu = \mu - \mu = 0$
+
+$E\left[X^{\prime 2}\right] = E\left[X^2 - 2\mu X - \mu^2\right] = E\left[X^2] - E[2\mu X] - E[\mu^2\right] = E[X^2] - 2\mu^2 - \mu^2=E[X^2] - \mu^2$
+   
+Earlier it was shown that $E\left[X^2\right]=\mu^2+\sigma^2$, so substitution gives
+
+$E\left[X^{\prime 2}\right] = \sigma^2$
+
+2\.
+
+Consider the first row of the expansion of $\left(\sum_{i=1}^nX_i\right)^2$
+
+$(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)$
+
+$(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...+X^{\prime}_n+\mu)+$
+
+$...$
+
+$(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
+
+Its first term, $(X^{\prime}_1+\mu)^2$, is $X_1^2$, which has an expectation value of $E[X]$, which was shown earlier to be $\mu^2+\sigma^2$.
+
+In the second term,
+
+$(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu),$
+
+there are $n-1$ $\mu$ terms so it can be re--written as
+
+$$X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...\mu(n-1)\mu$$
+
+Becuase $E[X_i^\prime X_j^\prime] = 0$, 
+
+$$E\big[X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...+\mu^2(n-1)\big]=\mu^2(n-1)$$
+
+Thus,
+
+$E\left[(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)\right]=\mu^2+\sigma^2 + \mu^2(n-1) = \sigma^2+n\mu$
+
+We only considered one row. There are a total of $n$ rows, so
+
+$$E\left[\overline{X}^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}(n\sigma^2+n^2\mu)=\mu^2+\sigma^2/n$$
+
+In summary, we have shown that $E[X^2]=\mu^2+\sigma^2$ and $E[\overline{X}^2]=\mu^2+\sigma^2/n$. As a result, Equation $II.$ simplifies to
+
+$$E[S_{b}^2] = E\left[ X^2 \right] - E\left[ \overline{X}^2 \right] =\mu^2+\sigma^2-\left( \mu^2+\sigma^2/n\right) = \sigma^2-\sigma^2 /n$$
+
+or,
+
+$$E[S_{b}^2] = \frac{n-1}{n}\sigma^2$$
+
+with the interpretation that $S_b^2$ is downward biased by a factor of $(n-1)/n$.
+
+This equation makes sense in one limit - suppose we draw a single sample from a distribution with variance $\sigma^2$. $S_b^2$ will always be zero, which is less than $\sigma^2$ for any nonzero $\sigma$.
+
+It follows from the calculation above that an unbiased estimate of the variance of a population is
+
+$$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
+
+because $E[S^2]=\sigma^2$. Note that when $n=1$, $S^2$ is $0/0$, which indeterminate; this makes sense as -- we don't expect to be able to estimate the variance of a population with only one sample.
+
+Recall that, in contrast, an unbiased estimate of $\mu$ is
+
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
+
+which has $n$ and not $n-1$.
+
+----
+
+Devore on pg 245 starts with the observation that for the variance of random variable $Y$, $V(Y)$, can be written 
+
+$$V(Y)=E[Y^2]-(E[Y])^2$$
+
+or, rearranging,
+
+$$A.\qquad E[Y^2]=V(Y)+(E[Y])^2,$$
+
+which is stated without proof. The formula is also given on page 112, but a proof is not given.
+
+Next, he states that it follows from the definition
+
+$$S^2 = \frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
+
+that
+
+$$S^2 = \frac{1}{n-1}\left[\sum_{i=1}^nX_i^2-\frac{1}{n}\left(\sum_{i=1}^nX_i\right)^2\right].$$
+
+Taking the expectation and moving it inside of the sum in the first term gives
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^nE[X_i^2]-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
+
+Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X$ is $E[X^2]=V(X)+(E[X])^2=\sigma^2+\mu^2$ using the definitions of $\sigma$ and $\mu$. Using this, the above equation can be re-written as
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
+
+Using equation $A.$ again, which is $E[Y^2]=V(Y)+(E[Y])^2$, this time with $Y=\sum_{i=1}^n X_i$ gives
+
+$$E\left[\left(\sum_{i=1}^n X_i\right)^2\right]=V\left(\sum_{i=1}^n X_i\right)+\left(E\left[\sum_{i=1}^n X_i\right]\right)^2=n\sigma^2+(n\mu)^2$$
+
+so now
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}\left[n\sigma^2+(n\mu)^2\right]\right)$$
+
+or
+
+$$E[S^2] = \frac{1}{n-1}\left(n(\sigma^2+\mu^2)-\frac{1}{n}(n\sigma^2+n^2\mu^2)\right)=\sigma^2$$
+
 ## Bootstraping Sampling Distribution of $S^2$
 
 By definition, $S^2$, the point estimate of the population variance, $\sigma^2$, is defined by
