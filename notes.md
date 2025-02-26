@@ -952,6 +952,27 @@ $$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] +
 
 ## Confidence Intervals
 
+> An alternative to reporting a single sensible value for the parameter being estimated is to calcu- late and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267) 
+
+> it is tempting to conclude that $\mu$ is within this fixed interval with probability .95. ... It is therefore incorrect to write the statement P($\mu$ lies in (79.3, 80.7)) = .95. (Devore p 270)
+
+Another way of rebutting $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ is to consider two experiments. If experiment $a$ yields a 95% CI of $(1,2)$ and we conclude
+
+$P(\mu \text{ lies in }(1, 2)) = 0.95$
+
+and experiment $b$ yields
+
+$P(\mu \text{ lies in }(2, 3)) = 0.95$
+
+Visually, the confidence intervals for experiment $a$ and $b$ are
+```
+0      1       2      3        4
+       aaaaaaaabbbbbbbb
+```
+
+The above statements are $\mu$ is in range $(1,2)$ with probability $0.95$ and $\mu$ is in the range $(2,3)$ with probability $0.95$. This implies that $\mu$ is in the range $(1,3)$ with probability of $0.95+0.95$, which is greater than $1$. Clearly the interpretation of confidence intervals as $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ cannot be correct.
+
+
 >Equation 7.5
 >
 >A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
@@ -985,3 +1006,33 @@ $$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] +
 >where
 >
 >$$s^2=\frac{1}{n-1}\sum_{i=1}^n(x_i-\overline{x})^2$$
+
+Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
+
+It is best to always think of the $\alpha/2$ values as corresponding to a small
+
+## Hypothesis Test
+
+> The null hypothesis, denoted by H0, is the claim that is initially assumed to be true (the “prior belief” claim). The alternative hypothesis, denoted by Ha, is the assertion that is contradictory to H0.
+> 
+> The null hypothesis will be rejected in favor of the alternative hypothe- sis only if sample evidence suggests that H0 is false. If the sample does not strongly contradict H0, we will continue to believe in the plausibility of the null hypothesis. The two possible conclusions from a hypothesis-testing analysis are then reject H0 or fail to reject H0.
+>
+> Devore p 301
+
+> A test procedure is specified by the following:
+> 1. A test statistic, a function of the sample data on which the decision (reject H0 or do not reject H0) is to be based
+> 2. A rejection region, the set of all test statistic values for which H0 will be rejected
+>
+> The null hypothesis will then be rejected if and only if the observed or computed test statistic value falls in the rejection region.
+>
+> Devore p 303
+
+> A type I error consists of rejecting the null hypothesis H0 when it is true. A type II error involves not rejecting H0 when H0 is false. Devore p 304
+
+## $p$ value
+
+> Using the rejection region method to test hypotheses entails first selecting a signifi- cance level a. Then after computing the value of the test statistic, the null hypothe- sis H0 is rejected if the value falls in the rejection region and is otherwise not rejected. We now consider another way of reaching a conclusion in a hypothesis test- ing analysis. This alternative approach is based on calculation of a certain probabil- ity called a P-value. One advantage is that the P-value provides an intuitive measure of the strength of evidence in the data against H0. (Devore p 328)
+
+> The P-value is the probability, calculated assuming that the null hypothesis is true, of obtaining a value of the test statistic at least as contradictory to H0 as the value calculated from the available sample. (Devore p 329)
+
+> Beware: The P-value is not the probability that H0 is true, nor is it an error probability!

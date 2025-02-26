@@ -62,6 +62,8 @@ Hypothesis Testing
 
 Discuss Mid-term dates
 
+Discuss [Midterm](hws#midterm)
+
 ## February 21st
 
 Point Estimation

@@ -370,7 +370,9 @@ Create one or two plots that demonstrate these points. Pay careful attention to 
 
 See [HW2_4.py](solns/HW2_4.py)
 
-<img src="solns/HW2_4.svg">
+<img src="solns/HW2_4.gaussian.svg">
+
+<img src="solns/HW2_4.uniform.svg">
 
 ## Reading
 
@@ -837,3 +839,23 @@ In problem 5.2, you compared a "textbook" confidence interval with that using th
 ## Reading
 
 Read Chapter 8.1, 8.2, and 8.4 of [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★).
+
+# Midterm
+
+The midtem will have four problems:
+
+1. Bayes -- Compute a posterier probablity as done in class examples and homework problems and provide a visual explanation of the calculation.
+2. Derivation -- one of
+   * expectation value (we did for mean, variance, and slope in linear regression; I'll find another problem that is short enough for a Midterm)
+   * Binomial to Gaussian or Binomial to Poisson
+3. Interpretation of confidence intervals, $p$--value, and rejecting $H_0$
+4. Instructions/Pseduo code -- Solve a homework problem without instructions on implementation. For example
+   * "Use a function `normal` that takes inputs of $\mu$, $\sigma$, and $n$ that returns $n$ gaussian distributed values drawn from a population with mean $\mu$ and standard deviation $\sigma$ to generate the sampling distribution of $\overline{x}$."
+   * "Given $n$ values, compute a bootstrap sampling distribution of $\overline{x}$"
+   * "Given $n$ values, compute a bootstrap sampling distribution of $\overline{x}$ and use it to estimate the 95% confidence for $\overline{x}$"
+
+   What I am looking for in the solutions is evidence that you understand the procedure. You do not need to provide Python code or memorize its syntax. I am looking for statements in the form of instructions, which can be in the form of pseudo code. I'll give examples of this in class before the Midterm.
+
+If you pose your own hypothetical problem and post it to Discord with your solution, I will comment on your solution (and if it is too complex for a Mid--term problem).
+
+Grading: A grade of 85% on a given problem means I have found evidence that you understood the concept associated with the question and if I said "this calculation does not look correct", you'd would quickly identify the issue. Scores higher than 85% correspond to fewer such "minor issues". (There is an execption -- when a "minor issue" leads to a non--sensical final answer and the fact that the final answer does not make sense is not noted, I will conclude that you don't understand the concept.)
