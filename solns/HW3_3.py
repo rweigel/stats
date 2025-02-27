@@ -72,5 +72,5 @@ plt.axvline(x=np.mean(Sb2), color=3*[0.5], ls='-', label=f'mean($S_b^2$) = {np.m
 plt.legend()
 plt.xlabel('$S_b^2$')
 plt.ylabel('Probability')
-plt.savefig('HW3_3.png')
+plt.savefig('HW3_3.png', transparent=True)
 plt.savefig('HW3_3.svg', transparent=True)
