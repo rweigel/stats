@@ -791,6 +791,18 @@ As an alternative to resampling the population to create many $S^2$ values, you 
 
 5. **590 only**: Find an equation (derivation not needed, but cite source) for the exact sampling distribution of $S^2$ and add it to the plot. Add to the title the mean and variance of this exact sampling distribution.
 
+**Solution**
+
+See [HW4_2.py](https://github.com/rweigel/astrostats/blob/main/solns/HW4_2.py)
+
+I've plotted the solution for $n=10$ and $n=100$.
+
+For part 5., we can state that the the bootstrap sampling distribution was such that $S^2 > 2$ occured in a small fraction of the bootstrap resamples. As a result, if the bootstrap sampling distribution is a good representation of the actual sampling distribution of $S^2$, we can say that the liklihood that your sample was from a population with $\sigma^2>2$ is small. That is, it is possible for your claim to be true, but when we simulate many experiments, we find that only $n_{>}$ in $1000$ experiments yielded $S^2 > 2$. The value of $n_{>}$ is determined by counting the number $S^{*2}$ that are greater than $2$.
+
+<img src="solns/HW4_2.n_10.png" width="600px"/>
+
+<img src="solns/HW4_2.n_100.png" width="600px"/>
+
 ## Solar Flare Data
 
 The file [xray.txt](http://mag.gmu.edu/git-data/astrostats/SOLAR_FLARES/xray.txt), contains rows that correspond to the year, month, day, hour, and min of a solar flare.
@@ -842,7 +854,7 @@ Read Chapter 8.1, 8.2, and 8.4 of [Devore](https://drive.google.com/file/d/1szqK
 
 # Midterm
 
-The midtem will have four problems:
+The closed--book and closed--notes midtem will have four problems:
 
 1. Bayes -- Compute a posterier probablity as done in class examples and homework problems and provide a visual explanation of the calculation.
 2. Derivation -- one of

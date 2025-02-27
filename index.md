@@ -58,11 +58,102 @@ No class -- Spring Break
 
 ## February 28th
 
-Hypothesis Testing
+* HW 4 comments
+  * Try using more NumPy. Will be faster and usually easier to read.
+  * Part 4. Gave full credit. This is not something I covered, but I want you to ponder the question before I discuss a method for assessing claims like this.
+  * Common issues.
+* Review of Sampling Distributions and their Simulation (see notes below)
+  * Code I'll cover in class [`sampling_dists.py`](notes/code/sampling_dists.py)
 
-Discuss Mid-term dates
+* Mid-term
+  * Date (nominally March 20th)
+  * [Content](hws#midterm)
+* Project discussion
+* Hypothesis Testing (see notes below)
 
-Discuss [Midterm](hws#midterm)
+## Sampling Distribution Notes
+
+
+* HW 4 comments
+  * Try using more NumPy. Will be faster and usually easier to read.
+  * Part 4. Gave full credit. This is not something I covered, but I want you to ponder the question before I discuss a method for assessing claims like this.
+  * Common issues.
+* Review of Sampling Distributions and their Simulation (see notes below)
+  * Code I'll cover in class [`sampling_dists.py`](notes/code/sampling_dists.py)
+
+* Mid-term
+  * Date (nominally March 20th)
+  * [Content](hws#midterm)
+* Project discussion
+* Hypothesis Testing (see notes below)
+
+## Sampling Distribution Notes
+
+On the homeworks, you have used sampling distributions many times. There are two types of sampling distributions: exact and simulated. There are many ways of simulating a sampling distribution.
+
+When we take a sample from a population and compute a statistc, for example the sample mean, we want to know the uncertainty in the statistic. That is, we want to know the probability distribution of the means. That is, if we repeated the experiment many times, what would be the distribution of the sample means for all experiments. The probability distribution of the test statistic is the sampling distribution.
+
+If the sampling distribution is known, we use it to compute error bars on a test statistic. Sampling distributions are also needed for hypothesis testing.
+
+In [HW 2.3](hw.html#hw-2), we derived a sampling distribution numerically. It was found that when $n$ values of $X$ were drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$ and the statistic 
+
+$$\overline{X} = \frac{1}{n}\sum_{i=1}^nX_i$$
+
+was computed $10,000$ times, 95% of the time the range
+
+$$\left[\overline{X}-1.96\frac{\sigma}{\sqrt{n}}\text{ },\text{ } \overline{X}+1.96\frac{\sigma}{\sqrt{n}}\right]$$
+
+included $\mu$. (We say that this range "traps" $\mu$ 95% of the time.) We actually did not need to do the numerical experiment when $n$ is large. We know the expected result from the Central Limit Theorem.
+
+<details><summary>It's a trap</summary>
+![](notes/figures/its_a_trap.jpg)
+</details>
+
+The sampling distribution of a test statistic depends on the equation for the test statistic and the population distribution. There are a limited number of test statistic/population distributions for which we know the exact sampling distribution of the test statistic. Simulation can be used in other cases.
+
+### Parametric Simulation
+
+Values are drawn from a population with known pdf and pdf parameters and a sample statistic is computed. This process is repeated many times to create a pdf of the sample statistic.
+
+This procedure was used in HWs [HW 2.3](hw.html#hw-2), [HW 2.4](hw.html#hw-2), and [HW 3.3](hw.html#hw-3).
+
+Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$. Repeat $n_s$ and plot the pdf or histogram of the $n_s$ $\overline{x}$ values.
+
+This method does not have practical value -- if you know the distribution and its parameters, you can simply use the analytical equation for the pdf. I generally have students use a parametric simulation to reinforce the idea of the meaning of the sampling distribution of a test statistic -- that it is a hypothetical distribution that would result if you could do many repeated experiments.
+
+### Bootstrap
+
+[The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." 
+
+### Parametric Bootstrap
+
+Values are drawn from a population with known pdf and unknown pdf parameters, and a sample statistic is computed. The parameters of the population pdf are estimated using the sample. The process is to draw $n$ values from a population and compute a sample statistic. Resample the $n$ values with replacement and compute sample statistic again. Repeat the resampling step $n_b$ times.
+
+For small $n$, "clustering" can occur because a given value can appear more than once in a bootstrap sample. One way to address this is to add a small random value to each value in the bootstrap sample.
+
+Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, draw $n$ values from $\mathcal{N}(\overline{x},s)$ and compute $\overline{x}^*$ and repeat this process $n_b$ times.
+
+### Non-parametric bootstrap
+
+Values are drawn from a population with unknown pdf (both functional form and its parameters) and a sample statistic is computed.
+
+Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, create a new sample of size $n$ by resampling the $n$ values with replacement and compute $\overline{x}^*$; repeat the resampling process $n_b$ times.
+
+This procedure was used in [HW 4.2](hw.html#hw-4).
+
+## Hypothesis Testing Notes
+
+Typical problem (Devore Example 8.6)
+
+<img src="Devore_Example_8.6a.png"/>
+
+<img src="Devore_Example_8.6b.png"/>
+
+<img src="HW7_2a.svg"/>
+
+<img src="HW7_2b.svg"/>
+
+<img src="HW7_2c.svg"/>
 
 ## February 21st
 
@@ -296,7 +387,8 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 * https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior
 * https://link.springer.com/article/10.3758/s13423-016-1221-4
 * [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★)
-
+* [Introduction to Computational Finance](https://bookdown.org/compfinezbook/introcompfinr/)
+* [Greenland et al., 2016, Statistical tests, $P$ values, confidence intervals, and power: a guide to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf)
 ## Astronomy
 
 1. Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.

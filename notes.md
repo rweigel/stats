@@ -661,15 +661,17 @@ A computation based on all values in a population.
 
 A computation based on a sample from a population that gives an estimate of the equivalent value that would be obtained if the same computation was performed on the population (see also Devore p214).
 
-### Random samples
+### Random Samples
 
 By random samples, we mean a value drawn from a population with a certain probability distribution. In general **random samples** implies "independent and identically distributed random variables" (often abbreviated iid). 
 
-### Sampling distribution
+### Sampling Distribution
 
-When we take a sample from a population and compute a statistc, for example a mean, we want to know the uncertainty in the statistic. That is, we want to know what the probability distribution of the means would be if we took many samples and computed many means. The probability histogram of the test statistic is the sampling distribution. If the sampling distribution is known, we can easily put error bars on our test statistic.
+When we take a sample from a population and compute a statistc, for example the sample mean, we want to know the uncertainty in the statistic. That is, we want to know the probability distribution of the means. That is, if we repeated the experiment many times, what would be the distribution of the sample means for all experiments. The probability distribution of the test statistic is the sampling distribution.
 
-In [HW #1](hw.html#hw-1), we derived a sampling distribution numerically. It was found that when $n$ values of $X$ were drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$ and the statistic 
+If the sampling distribution is known, we use it to compute error bars on a test statistic. Sampling distributions are also needed for hypothesis testing.
+
+In [HW 2.3](hw.html#hw-1), we derived a sampling distribution numerically. It was found that when $n$ values of $X$ were drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$ and the statistic 
 
 $$\overline{X} = \frac{1}{n}\sum_{i=1}^nX_i$$
 
@@ -679,13 +681,45 @@ $$\left[\overline{X}-1.96\frac{\sigma}{\sqrt{n}}\text{ },\text{ } \overline{X}+1
 
 included $\mu$. (We say that this range "traps" $\mu$ 95% of the time.) We actually did not need to do the numerical experiement when $n$ is large. We know the expected result from the Central Limit Theorem.
 
-#### Parametric bootstrap distribution
+<details><summary>It's a trap</summary>
+![](notes/figures/its_a_trap.jpg)
+</details>
 
-A pmf or pdf created by simulating many experiments and the calculation of a sample statistic for each experiment. For example, suppose that we wanted to know the distribution of the sample statistic $Y=X_1^2 + X_2^2 + ... + X_n^2$, where an experiment consists of drawing $n$ values, $X$, which are Gaussian distribution with a known mean and standard deviation. We could use a random number generator so simulate many experiements and for each experiment compute $Y$. If a theoretical distribution for $Y$ is not known, this method can be used.
+The sampling distribution of a test statistic depends on the equation for the test statistic and the population distribution. There are a limited number of test statistic/population distributions for which we know the exact sampling distribution of the test statistic. Simulation can be used in other cases.
 
-#### Non-parametric bootstrap distribution
+### Sampling Distribution Simulation
 
-[The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." If we don't know the sampling distribution of $X$, we can't use a random number generator to simulate many experiments. In this case, we use the only available resource: the measurments from one experiment. This done by drawing a sample of $n$ with replacement from the $n$ measurements. Each such draw is called a bootstrap sample (or experiment) and the test statistic computed from it is indicated by $Y^*$. The bootstrap pmf or pdf is computed from the histogram of the $Y^*$s.
+See [sampling_dists.py](notes/code/sampling_dists.py)
+
+#### Parametric Simulation
+
+Values are drawn from a population with known pdf and pdf parameters and a sample statistic is computed. This process is repeated many times to create a pdf of the sample statistic.
+
+This procedure was used in HWs 2.3, 2.4, and 3.3.
+
+Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$. Repeat $n_s$ and plot the pdf or histogram of the $n_s$ $\overline{x}$ values.
+
+This method does not have practical value -- if you know the distribution and its parameters, you can simply use the analytical equation for the pdf. I generally have students use a parametric simulation to reinforce the idea of the meaning of the sampling distribution of a test statistic -- that it is a hypothetical distribution that would result if you could do many repeated experiments.
+
+#### Bootstrap
+
+[The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." 
+
+#### Parametric Bootstrap
+
+Values are drawn from a population with known pdf and unknown pdf parameters and a sample statistic is computed. The parameters of the population pdf are estimated using the sample. The process is to draw $n$ values from a population and compute a sample statistic. Resample the $n$ values with replacement and compute sample statistic again. Repeat the resampling step $n_b$ times.
+
+For small $n$, "clustering" can occur because a given value can appear more than once in a bootstrap sample. One way to address this is to add a small random value to each value in the bootstrap sample.
+
+Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, draw $n$ values from $\mathcal{N}(\overline{x},s)$ and compute $\overline{x}^*$ and repeat this process $n_b$ times.
+
+#### Non-parametric bootstrap
+
+Values are drawn from a population with unknown pdf (both functional form and its parameters) and a sample statistic is computed.
+
+Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, create a new sample of size $n$ by resampling the $n$ values with replacement and compute $\overline{x}^*$; repeat the resampling process $n_b$ times.
+
+This procedure was used in HW 4.2.
 
 ### Random Variable
 
@@ -1028,6 +1062,32 @@ It is best to always think of the $\alpha/2$ values as corresponding to a small
 > Devore p 303
 
 > A type I error consists of rejecting the null hypothesis H0 when it is true. A type II error involves not rejecting H0 when H0 is false. Devore p 304
+
+> The conclusion drawn from a two-tailed confidence interval is usually the same as the conclusion drawn from a two-tailed hypothesis test. In other words, if the the 95% confidence interval contains the hypothesized parameter, then a hypothesis test at the 0.05 level will almost always fail to reject the null hypothesis. If the 95% confidence interval does not contain the hypothesize parameter, then a hypothesis test at the 0.05 level will almost always reject the null hypothesis.
+>
+> https://online.stat.psu.edu/stat200/lesson/6/6.6
+
+A confidence interval can be framed as a hypothesis test.
+
+* $H_0$: Population parameter $\theta=\theta_o$ is inside the CI ("outside the CI" is the rejection region).
+* $H_a$: $H_0$ not true.
+
+1. Test statistic: $\hat{\theta}$
+2. Rejection region: outside the CI
+
+The above is a composite hypothesis test. We could write as
+
+* $H_0$: Population parameter $\theta=\theta_o$ ("outside the CI" is the rejection region).
+* $H_a$: $H_0$ not true.
+
+1. Test statistic: $\hat{\theta}$
+2. Rejection region: $\hat{\theta}$ outside the CI
+
+We can repeat the above hypothesis test for any $\theta_o$ inside the CI. We will not reject $H_0$ for any $\theta_o$ in the rejection region.
+
+"Rejecting $H_0$" does not mean $H_0$ is false. It means $H_0$ is unlikely, where the unlikelyness threshold is determined by the confidence interval width.
+
+Misconceptions: https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf
 
 ## $p$ value
 
