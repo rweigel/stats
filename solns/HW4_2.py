@@ -6,8 +6,10 @@ plt.rcParams['savefig.dpi'] = 300
 plt.rcParams['mathtext.default'] = 'regular'
 
 use_latex = True  # Set to False if you don't want to use LaTeX
-n  = 50    # Number of samples per experiment
+n  = 100    # Number of samples per experiment
 nb = 10000 # Number of bootstrap resamples
+sigma = 1
+max_x = 2.5
 
 def pmf(bin_edges, data, color='k'):
   import warnings
@@ -45,38 +47,42 @@ def set_latex(use_latex):
   return use_latex
 
 S2 = np.full(nb, np.nan)
-X = np.random.normal(loc=0.0, scale=1.0, size=(n, ))
+X = np.random.normal(loc=0.0, scale=sigma, size=(n, ))
+S2o = np.var(X, ddof=1)
 for i in range(nb):
   Xb = np.random.choice(X, size=(n, ), replace=True)
   S2[i] = np.var(Xb, ddof=1)
 
-#Xb = np.random.choice(X, size=(n, nb), replace=True)
-#S2 = np.var(Xb, axis=0, ddof=1)
-
 db = 0.05
-bin_edges = np.arange(0, 4.0, db)
+bin_edges = np.arange(0, max_x, db)
 
-pmf(bin_edges, S2)
+use_latex = set_latex(use_latex)
 
+plt.hist(S2, bins=bin_edges, color='black', edgecolor='w', linewidth=0.5, density=True)
+#pmf(bin_edges, S2)
 if True:
-  x = np.arange(0, 4.0, db/10)
+  x = np.arange(0, 3.0, db/10)
   #https://online.stat.psu.edu/stat414/lesson/26/26.3
-  # (n-1)/sigma^2 S^2 ~ chi^2(n-1)
-  chi2 = chi2.pdf(x*(n-1), df=n-1)
-  plt.plot(x, 10*chi2/sum(chi2), '.', ms=1, color=3*[0.5], label=f'Exact sampling dist: $\\chi^2_{{{n-1}}}$')
+  # (n-1)/sigma^2 S^2 ~ chi^2_{n-1}
+  bin_centers = bin_edges[0:-1] + db/2
+  chi2 = chi2.pdf(bin_centers*(n-1)/sigma**2, df=n-1)
+  plt.stairs(chi2/(db*sum(chi2)), bin_edges, color=3*[0.5], label=f'Exact sampling dist: $\\chi^2_{{{n-1}}}$')
 
 eqn = '\n\n$\\displaystyle S^2 = \\frac{1}{n-1}\\sum_{i=1}^{n} (x_i - \\overline{x})^2$'
-if not set_latex(use_latex):
+if not use_latex:
   eqn = eqn.replace('\\displaystyle ', '')
-plt.text(2.0, 0.062, eqn, fontsize=16)
+plt.text(max_x, 1.2, eqn, fontsize=14, ha='right')
 
-plt.axvline(x=1, color=[0,0,1], ls='-', label='$\\sigma^2 = 1$')
-plt.axvline(x=np.mean(S2), color=[0,1,0], ls='--', label=f'mean($S^2$) = {np.mean(S2):.3f}')
+plt.axvline(x=1, color=3*[0.5], ls=':', label='$\\sigma^2 = 1$')
+plt.axvline(x=S2o, color=[1,0,0], ls='-', lw=3, label=f'$S^2$ = {S2o:.3f}')
+plt.axvline(x=np.mean(S2), color=[0,1,0], ls='--', label=fr'$\langle S^{{*2}}\rangle$ = {np.mean(S2):.3f}')
 
-title = f'Bootstrap sampling distribution of $S^2$; $N_b = {nb}$'
+title = f'Bootstrap sampling distribution of $S^2$; $n_b = {nb}$'
 title += f'\n$n={n}$ values of $x$ drawn from Gaussian with $\\mu = 0$ and $\\sigma^2 = 1$'
 plt.title(title)
+plt.grid(ls=':')
 plt.legend()
-plt.ylabel('Probability')
+plt.ylabel('Probability Density')
+plt.xlabel('$S^2$')
 plt.savefig("HW4_2.svg", transparent=True)
 plt.savefig("HW4_2.png")

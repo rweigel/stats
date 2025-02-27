@@ -72,7 +72,7 @@ for k in ks:
   P_P[k] = mu**k/np.math.factorial(k) * np.exp(-mu)
 
 print(p_o)
-
+po = np.sum(fpd)/
 P_B = stats.binom.pmf(ks, 24, p_o)
 print(P_B)
 n, _ = np.histogram(fpd, bins=range(0, int(np.max(fpd))+1))
