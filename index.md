@@ -73,22 +73,6 @@ No class -- Spring Break
 
 ## Sampling Distribution Notes
 
-
-* HW 4 comments
-  * Try using more NumPy. Will be faster and usually easier to read.
-  * Part 4. Gave full credit. This is not something I covered, but I want you to ponder the question before I discuss a method for assessing claims like this.
-  * Common issues.
-* Review of Sampling Distributions and their Simulation (see notes below)
-  * Code I'll cover in class [`sampling_dists.py`](notes/code/sampling_dists.py)
-
-* Mid-term
-  * Date (nominally March 20th)
-  * [Content](hws#midterm)
-* Project discussion
-* Hypothesis Testing (see notes below)
-
-## Sampling Distribution Notes
-
 On the homeworks, you have used sampling distributions many times. There are two types of sampling distributions: exact and simulated. There are many ways of simulating a sampling distribution.
 
 When we take a sample from a population and compute a statistc, for example the sample mean, we want to know the uncertainty in the statistic. That is, we want to know the probability distribution of the means. That is, if we repeated the experiment many times, what would be the distribution of the sample means for all experiments. The probability distribution of the test statistic is the sampling distribution.

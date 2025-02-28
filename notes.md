@@ -1047,52 +1047,100 @@ It is best to always think of the $\alpha/2$ values as corresponding to a small
 
 ## Hypothesis Test
 
-> The null hypothesis, denoted by H0, is the claim that is initially assumed to be true (the “prior belief” claim). The alternative hypothesis, denoted by Ha, is the assertion that is contradictory to H0.
+Devore p 301
+> The null hypothesis, denoted by $H_0$, is the claim that is initially assumed to be true (the “prior belief” claim). The alternative hypothesis, denoted by $H_a$, is the assertion that is contradictory to $H_0$.
 > 
-> The null hypothesis will be rejected in favor of the alternative hypothe- sis only if sample evidence suggests that H0 is false. If the sample does not strongly contradict H0, we will continue to believe in the plausibility of the null hypothesis. The two possible conclusions from a hypothesis-testing analysis are then reject H0 or fail to reject H0.
+> The null hypothesis will be rejected in favor of the alternative hypothesis only if sample evidence suggests that $H_0$ is false. If the sample does not strongly contradict $H_0$, we will continue to believe in the plausibility of the null hypothesis. The two possible conclusions from a hypothesis-testing analysis are then reject $H_0$ or fail to reject $H_0$.
 >
-> Devore p 301
 
+Devore p 302
+> $H_0$ will generally be stated as an equality claim. If $\theta$ denotes the parameter of interest, the null hypothesis will have the form $H_0$: $\theta = \theta_0$, where $\theta_0$ is a specified number called the null value of the parameter (value claimed for $\theta$ by the null hypothesis). 
+
+Devore p 303
 > A test procedure is specified by the following:
-> 1. A test statistic, a function of the sample data on which the decision (reject H0 or do not reject H0) is to be based
-> 2. A rejection region, the set of all test statistic values for which H0 will be rejected
+> 1. A test statistic, a function of the sample data on which the decision (reject $H_0$ or do not reject $H_0$) is to be based [example $\overline{x}$]
+> 2. A rejection region, the set of all test statistic values for which $H_0$ will be rejected
 >
 > The null hypothesis will then be rejected if and only if the observed or computed test statistic value falls in the rejection region.
->
-> Devore p 303
 
-> A type I error consists of rejecting the null hypothesis H0 when it is true. A type II error involves not rejecting H0 when H0 is false. Devore p 304
+
+Devore p 304
+> A type I error consists of rejecting the null hypothesis $H_0$ when it is true.
+>
+> A type II error involves not rejecting $H_0$ when $H_0$ is false.
 
 > The conclusion drawn from a two-tailed confidence interval is usually the same as the conclusion drawn from a two-tailed hypothesis test. In other words, if the the 95% confidence interval contains the hypothesized parameter, then a hypothesis test at the 0.05 level will almost always fail to reject the null hypothesis. If the 95% confidence interval does not contain the hypothesize parameter, then a hypothesis test at the 0.05 level will almost always reject the null hypothesis.
 >
 > https://online.stat.psu.edu/stat200/lesson/6/6.6
 
-A confidence interval can be framed as a hypothesis test.
+**Summary of Algorithm**
 
-* $H_0$: Population parameter $\theta=\theta_o$ is inside the CI ("outside the CI" is the rejection region).
-* $H_a$: $H_0$ not true.
+1. Choose a population parameter, $\theta$ that you want to subject to an equality claim ("null hypothesis", $H_0$) of the form $\theta=\theta_0$, where $\theta_0$ is the "null value".
+   
+   For example, suppose we want to test the claim that the mean of a population is 1.0; then $\theta=\mu$ and $\theta_0 = 1.0$ and $H_0$ is $\mu=1.0$.
 
-1. Test statistic: $\hat{\theta}$
-2. Rejection region: outside the CI
+2. Choose an alternative hypothesis, $H_a$. For example $\mu\ne 1.0$. The "rejection region" described below depends on the alternative hypothesis.
 
-The above is a composite hypothesis test. We could write as
+2. Find the equation for $\hat{\theta}$, an unbiased estimator of $\theta$.
+   
+   For example if we want to test the claim that $\mu=1.0$, and unbiased estimator of $\mu$ is $\overline{x}$, so $\hat{\theta}=\overline{x}$.
 
-* $H_0$: Population parameter $\theta=\theta_o$ ("outside the CI" is the rejection region).
-* $H_a$: $H_0$ not true.
+3. Determine the sampling distribution of $\hat{\theta}$. This sampling distribution will depend on the population distribution (which is rarely known). In most textbook examples, the exact sampling distribution is known because the population distribution is assumed to be known. Also, textbook sampling distributions for $\hat{\theta}$ are usually from a short list of common distributions: $\mathcal{N}$, $t$, $\chi^2$, $F$.
+  
+  Example: If population is $\mathcal{N}(\mu, \sigma)$, the sampling distribution of $\hat{\theta}=\overline{x}$ is $\mathcal{N}(\mu, \sigma/\sqrt{n})$
 
-1. Test statistic: $\hat{\theta}$
-2. Rejection region: $\hat{\theta}$ outside the CI
+  Example: If population is $\mathcal{N}(\mu, \sigma)$, the sampling distribution of $\hat{\theta}=s^2$ is $\frac{\sigma^2}{n-1}\chi^2_{n-1}$
 
-We can repeat the above hypothesis test for any $\theta_o$ inside the CI. We will not reject $H_0$ for any $\theta_o$ in the rejection region.
+4. Choose a rejection region in the sampling distribution. If the value of $\hat{\theta}$ from the sample, $\hat{\theta}_{\text{sample}}$, is in this region, the equality claim will be rejected. The rejection region has associated with it an area, $\alpha$. If $H_a$ is $\theta \ne \theta_o$, the rejection region is values of $\hat{\theta}$ in the the lower $\alpha/2$ and upper $\alpha/2$ region of the sampling distribution.
 
-"Rejecting $H_0$" does not mean $H_0$ is false. It means $H_0$ is unlikely, where the unlikelyness threshold is determined by the confidence interval width.
+   Example:
+   
+   If we assume population is $\mathcal{N}(\mu=0, \sigma=1)$ and execute an experiment of drawing $n$ values from it and compute $\overline{x}_\text{sample}$, we reject the null that $\mu=0$ if $\overline{x}_\text{sample}$ is in the "rare" region of the sampling distribution for $\overline{x}$. We do not reject the null hypothesis otherwise.
+   
+   Based on the assumptions about the population distribution and the fact that the sampling distribution of $\overline{x}$ is $\mathcal{N}(\mu=0, \sigma=1/\sqrt{n})$ if these assumptions are true, we exect $|\overline{x}_\text{sample}|>1.96\sigma/\sqrt{n}$ to occur in 5% of hypothetical experiments.
 
-Misconceptions: https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf
+   Based on this example, when we reject, we are claiming "if we could repeat the experiment many times and compute many $\overline{x}_\text{sample}$ values, values in my selected rejection region are rare, so I'll reject the hypothesis if an expeirment yields an $\overline{x}_\text{sample}$ is in the rejection region; otherwise, I won't reject the null hypothesis". Notice that the statements don't involve claims that $H_0$ is true or false. They only involve statements about whether the observation is likely or not. In a similar way, a jury's conclusion of "guilty of murder" is a usually a statement that "not guilty" is unlikely given the information they were presented. The jury rarely has undisputable evidence that the defendent murdered someone; they usually only have information about motive, means, and opportunity.
+
+   In summary, a hypotheis test has the logic: Given claim + experimental observation, if a given observation is unlikely based what we know about the probability of every possible experimental observation that could occur, reject claim; otherwise, don't reject claim (it is tempting to say "accept claim", but that is equivalent to making a statement that the claim is true).
+   
+   See also https://online.stat.psu.edu/stat500/lesson/6a/6a.1
+
+A confidence interval can be framed as a hypothesis test (See also Bulmer p 169). Consider the test
+
+* $H_0$: $\theta=\theta_o$
+* $H_a$: $H_0\ne \theta_o$
+
+1. Test statistic: $\hat{\theta}$, which is an unbiased estimate of $\theta$.
+2. Rejection region: $\hat{\theta}$ of sample outside the CI. For a 95% CI, the region is the values of $\hat{\theta}$ associated with the left tail of area $0.025$ and the right tail area of $0.975$
+
+We can repeat the above hypothesis test for any $\theta_0$ inside the CI. We will not reject $H_0$ for any $\theta_0$ in the rejection region.
+
+* $H_0$: Population parameter $\theta$ is inside the CI of $\hat{\theta}_\text{sample}$ (so $\theta_0$ is any value in the CI).
+* $H_a$: Population parameter $\theta$ is outside the CI of $\hat{\theta}_\text{sample}$.
+
+**Interpretaion**
+
+* "Rejecting $H_0$" does not mean $H_0$ is false. It means $H_0$ is unlikely, where the unlikelyness threshold is determined by the confidence interval width.
+
+* Bulmer, p 165
+  > The rejection of a hypothesis at the 5% level does not imply that the probability that the hypothesis is false is 95%; it merely implies that the observed result belongs to a class of results whos overall probability of occurrence, if the null hypothesis is true, is 5%. This provides good reason, in the sense of a rational degreee of belief, for supposing the hypothesis to be false, but no numerical value can be placed upon this degree of belief.
+
+* [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★)
+  > Confidence intervals have recently been promoted over the use of hypothesis tests for a litany of unsupported reasons. (a) Among its supposed benefits is the assertion that confidence intervals provide more confidence than do hypothesis tests. This is based on the fallacy that confidence intervals are based on some system of probability theory other than that of hypothesis tests, when in fact they
+are the same. (b) Another prevalent misconception is confidence intervals must be symmetric.
+* [Statistical tests, P values, confidence intervals, and power: a guide
+to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf)
 
 ## $p$ value
 
-> Using the rejection region method to test hypotheses entails first selecting a signifi- cance level a. Then after computing the value of the test statistic, the null hypothe- sis H0 is rejected if the value falls in the rejection region and is otherwise not rejected. We now consider another way of reaching a conclusion in a hypothesis test- ing analysis. This alternative approach is based on calculation of a certain probabil- ity called a P-value. One advantage is that the P-value provides an intuitive measure of the strength of evidence in the data against H0. (Devore p 328)
+Devore p 328:
 
-> The P-value is the probability, calculated assuming that the null hypothesis is true, of obtaining a value of the test statistic at least as contradictory to H0 as the value calculated from the available sample. (Devore p 329)
+> Using the rejection region method to test hypotheses entails first selecting a significance level $\alpha$. Then after computing the value of the test statistic, the null hypothesis $H_0$ is rejected if the value falls in the rejection region and is otherwise not rejected. We now consider another way of reaching a conclusion in a hypothesis testing analysis. This alternative approach is based on calculation of a certain probability called a $P$-value. One advantage is that the $P$-value provides an intuitive measure of the strength of evidence in the data against $H_0$.
 
-> Beware: The P-value is not the probability that H0 is true, nor is it an error probability!
+Devore p 329:
+
+> The $P$-value is the probability, calculated assuming that the null hypothesis is true, of obtaining a value of the test statistic at least as contradictory to $H_0$ as the value calculated from the available sample.
+
+Devore p 329:
+
+> Beware: The $P$-value is not the probability that $H_0$ is true, nor is it an error probability!
