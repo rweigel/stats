@@ -339,23 +339,26 @@ Save your program as `HW2_3b.py`. Save your answers in a file named `HW2_3b.pdf`
 See [HW2_3b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3b.py)
 
 1. 7.6%
-2. The following plot shows the dependence (four $n$ values were used). As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$.
+2. The following plot shows the dependence (four $n$ values were used). As $n$ increases, the standard deviation of the histogram of $\overline{X}$ decreases so that more of the distribution is in the range $[-0.01, 0.01]$. A fit was given because the scaling seemed to be a power law (for larger $n$, it won't be).
 
    <img src="solns/HW2_3b2.svg"/>
 3. `[-0.258, 0.258]`
 4. The following plot shows the dependence (four $n$ values were used).
 
    <img src="solns/HW2_3b4.svg"/>
-5. If you choose parameters for these distributions such that their mean is zero, the results are unchanged. This is a consequence of the Central Limit Theorem. It does not matter how the $n$ $X$s are distributed; the distribution of $\overline{X}$ is still Gaussian. In [HW2_3a.py](https://github.com/rweigel/astrostats/blob/main/solns/HW2_3a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian even though a uniform distribution was used for the $n$ $X$s.
+5. In [HW2_3a.py](https://github.com/rweigel/astrostats/blob/main/solns/HW2_3a.py), there is a line with `np.random.uniform` commented out. Try running the code with it uncommented and notice that the histogram is still Gaussian--ish even though a uniform distribution was used for the $n$ $X$s.
 
 ## Central Limit Theorem
 
-The Central Limit Theorem says that for large $n$, $\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$.
+The Central Limit Theorem says that as $n\rightarrow\infty$, the sampling distribution of $\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$ is a Gaussian with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$. (A key limitation of this statement is that the limiting distribution is a delta function and the CLT does not tell us what $n$ is required to give use a sampling distribution that is Gaussian within some tolerance; the answer depends on the distribution of $X$. The statement also required $\sigma$ to be finite.)
 
-Important: this theorem (usually) applies even if the distribution of the values used in computing 
-$\overline{X}$ are not Gaussian--distributed.
+Important: this theorem (usually) applies even if the distribution of the values used in computing $\overline{X}$ are not Gaussian--distributed (this statement assumes that $n$ is large enough that the sampling distribution of $\overline{X}$ is close enough to Gaussian so as not to affect our results).
 
-With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
+With the Central Limit theorem, and if
+* the sampling distribution of $X$ is not Gaussian, but $n$ is large enough so that the Gaussian approximation applies (this would need to be justified analytically or via simulation), or
+* the sampling distribution of $X$ is Gaussian
+ 
+we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
 
 In the previous problem, you computed a histogram of $10,000$ $\overline{X}$. Based on the Central Limit Theorem
 
