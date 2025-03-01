@@ -291,18 +291,13 @@ A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 
 
 ## Law of Large Numbers
 
-The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
+The Law of Large Numbers tells us, roughly, that as $n\rightarrow \infty$ the sample average defined by
 
 $$\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$$
 
 will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
 
-To answer the following questions, you do not need to understand the Law of Large Numbers. However, if you are interested, more formal definitions and proofs are given in
-
-* [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
-* [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★)
-* [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★)
-* [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★)
+To answer the following questions, you do not need to understand the Law of Large Numbers. However, if you are interested, more formal definitions and proofs are given in [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf), [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★), and [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★). Note that there the definition of the law of large numbers is not consistent in these references.
 
 **a**
 
@@ -350,15 +345,13 @@ See [HW2_3b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3b.py)
 
 ## Central Limit Theorem
 
-The Central Limit Theorem says that as $n\rightarrow\infty$, the sampling distribution of $\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$ is a Gaussian with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$. (A key limitation of this statement is that the limiting distribution is a delta function and the CLT does not tell us what $n$ is required to give use a sampling distribution that is Gaussian within some tolerance; the answer depends on the distribution of $X$. The statement also required $\sigma$ to be finite.)
+The Central Limit Theorem (very roughly) says that as $n\rightarrow\infty$, the sampling distribution of $\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$ approaches a Gaussian with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$. 
 
-Important: this theorem (usually) applies even if the distribution of the values used in computing $\overline{X}$ are not Gaussian--distributed (this statement assumes that $n$ is large enough that the sampling distribution of $\overline{X}$ is close enough to Gaussian so as not to affect our results).
+(The statement also requires $\sigma$ to be finite and non--zero; see DeGroot Chapter 6 and Rozanov p 78 for a formal definition. A key limitation of this statement is that the limiting distribution is a delta function and the CLT does not tell us what $n$ is required to give use a sampling distribution that is Gaussian within some tolerance; the answer depends on the distribution of $X$. )
 
-With the Central Limit theorem, and if
-* the sampling distribution of $X$ is not Gaussian, but $n$ is large enough so that the Gaussian approximation applies (this would need to be justified analytically or via simulation), or
-* the sampling distribution of $X$ is Gaussian
- 
-we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
+Important: this theorem applies even if the distribution of the values used in computing $\overline{X}$ are not Gaussian--distributed (this statement assumes that $n$ is large enough that the sampling distribution of $\overline{X}$ is close enough to Gaussian so as not to affect our results).
+
+With the Central Limit theorem, and if the sampling distribution of $X$ is not Gaussian, but $n$ is large enough so that the sampling distribution of $\overline{X}$ is "close enough" to Gaussian (this would need to be justified analytically or via simulation), or if the sampling distribution of $X$ is Gaussian (in which case the sampling distribution of $\overline{X}$ is Gaussain for any $n$) we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
 
 In the previous problem, you computed a histogram of $10,000$ $\overline{X}$. Based on the Central Limit Theorem
 
@@ -883,26 +876,19 @@ Read Chapter 8.1, 8.2, and 8.4 of [Devore](https://drive.google.com/file/d/1szqK
 
 # HW 6
 
-Due _Friday_ March 7th at 11:59 pm.
-
-Please prepare a draft of a response to 6.3 before class.
-
 ## Confidence Intervals and Hypothesis Tests
 
-Consider the following experiment: you are given a sample of $n=100$ values. You are told that they were generated by a Gaussian random number generator with mean $\mu=2$ and variance $\sigma^2=2$. You are certain the gaussian and $\sigma^2$ claims are correct (this seems unrealistic, but simplifies the analysis), but suspect the $\mu=2$ claim is wrong because you find $\overline{x}$ of the sample is 2.4.
+Consider the following experiment: you are given a sample of $n=100$ values. You are told that they were generated by a gaussian random number generator with mean $\mu=2$ and variance $\sigma^2=2$. You are certain about the gaussian and $\sigma^2$ claim (this seems unrealistic, but simplifies the analysis), but suspect the $\mu=2$ claim is wrong because you find $\overline{x}$ of the sample is 2.4.
 
 1. Compute a 95% confidence interval for $\mu$.
-2. Use a hypothesis test to assess the claim $\mu=2$. Use a significance level of 95% and let $H_0$ be $\mu=2$ and $H_a$ be $\mu \ne 2$.
-3. Make an assessment about the chances that your hypothesis test conclusion (which will be "reject" or "don't reject") is wrong. There are two ways you can be wrong (only one will apply):
+2. Use a hypothesis test to assess the claim about $\mu$. Use a significance level of 95% and let $H_0$ be $\mu=2$ and $H_a$ be $\mu \ne 2$.
+3. Make an assessment about the chances that your hypothesis test conclusion (which will be reject or don't reject) is wrong. There two ways you can be wrong (only one will apply):
    * You rejected $H_0$ and $H_0$ is true (Type I error)
-   * You didn't reject $H_0$ and $H_0$ is false (Type II error). Note that $H_0$ can be false for an infinite number of reasons because an infinite number of $\mu$ values could have been used to generate the $n$ values.
+   * You didn't reject $H_0$ and $H_0$ is false (Type II error). Note that $H_0$ can be false because for an infinite number of reasons because there are an infinite number of $\mu$ values that could have been used to generate the $n$ values. As a result, assess only the chances that your hypothesis test conclusion is wrong assuming $\mu=2$.
 
-4. Suppose you found $\overline{x}=2.1$. In this case, you should not reject $H_0$, but it could be that $\mu=2.2$ was used to generate the $n$ values. Given this, what are the chances that your non--rejection is a Type II error?
+4. Suppose you found $\overline{x}=2.1$. In this case you should not reject $H_0$, but it could be that $\mu=2.2$ was used to generate the $n$ values. Given this, what are the chances that your non--rejection is a Type II error?
 
-5. **590 only** plot the probability of a Type II error versus $
-mu$.
-
-6. Explain how the confidence interval and the results of parts 2. and 3. are related.
+5. Explain how the confidence interval and the results of parts 2. and 3. are related.
 
 In class, I used visual representations of [confidence intervals](http://localhost:2025/notes/code/sampling_dists.py) and a hypothesis test problem such as [Devore 8.6](http://localhost:2025/index.md!#hypothesis-testing-notes&l=128&c=1) to explain their interpretation and meaning. To support and explain your answers, use plots and annotations.
 
@@ -910,15 +896,9 @@ Save your hand--written answers as `HW6_1.pdf`, plots as `HW6_1{a,b,etc}.png`, a
 
 ## $P$--value
 
-Instead using a hypothesis test on a claim such as $H_0$: $\mu=2$ and $H_a$: $\mu \ne 2$ with a significance level of $\alpha$ as done in part 2. of the previous problem, some researchers would simply state "$\mu \ne 2$ with $P=0.0047$". What does this mean? Where does the value $0.0047$ come from?Provide a written and visual explanation.
+Instead of performing a hypothesis test on a claim such as $H_0$: $\mu=2$ and $H_a$: $\mu \ne 2$ with a significance level of $\alpha$, some researchers will simply state "$\mu \ne 2$ with $P=0.0047$". What does this mean? Provide a visual explanation.
 
-Save your hand--written answers as `HW6_2.pdf`, plots as `HW6_2.png`, and code as `HW6_2.py`. (If your annotations are sufficient to answer the question, the pdf may be omitted.)
-
-## Interpretation results of HW 6.1 and 6.2
-
-Write an interpretation of the results of problems 6.1 and 6.2 that is wrong in as many ways as possible. For inspiration, see cautions about interpretation in chapter 7 and 8 of Devore, [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★), [Greenland et al., 2016, Statistical tests, $P$ values, confidence intervals, and power: a guide to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf), or any other reference.
-
-In class, we will vote on the "best worst" answer. Attempt to pack as many mistakes in as few words as possible.
+Save your hand--written answers as `HW6_2.pdf`, plots as `HW6_2.png`, and code as `HW6_2.py`. (If your annotations are sufficient to answer the question, the pdf may be ommitted.)
 
 # Midterm
 
