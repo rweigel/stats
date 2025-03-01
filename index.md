@@ -320,6 +320,13 @@ The following references are not needed for this course, but you may find them u
 1. [Introduction to Probability Theory and Statistical Inference (3rd ed), H.J. Larson](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) 
 1. [Introduction to Probabability, 2019 (2nd ed) J.K. Blitzstein and J. Hwang](https://projects.iq.harvard.edu/stat110/home)
 1. [Introduction to Probability Theory](https://online.stat.psu.edu/stat414/)
+1. [Introduction to Computational Finance](https://bookdown.org/compfinezbook/introcompfinr/)
+
+## Misinterpretation
+
+* [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★)
+* [Greenland et al., 2016, Statistical tests, $P$ values, confidence intervals, and power: a guide to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf)
+* [Brewer 1985, Behavioral Statistics Textbooks: Source of Myths and Misconceptions?](https://doi.org/10.2307/1164796)
 
 ## Bayes
 
@@ -369,10 +376,14 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 * http://www2.denizyuret.com/ref/aitkin/posterior-bayes-factors.pdf
 * https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d
 * https://stats.stackexchange.com/questions/2356/are-there-any-examples-where-bayesian-credible-intervals-are-obviously-inferior
+<<<<<<< HEAD
 * https://link.springer.com/article/10.3758/s13423-016-1221-4
 * [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★)
 * [Introduction to Computational Finance](https://bookdown.org/compfinezbook/introcompfinr/)
 * [Greenland et al., 2016, Statistical tests, $P$ values, confidence intervals, and power: a guide to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf)
+=======
+* [The Bayesian New Statistics: Hypothesis testing, estimation, meta-analysis, and power analysis from a Bayesian perspective](https://link.springer.com/article/10.3758/s13423-016-1221-4)
+>>>>>>> e1a0861ed97089bbc3c0a79c863a51c0f1d7a278
 
 ## Astronomy
 

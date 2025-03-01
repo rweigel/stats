@@ -1,6 +1,6 @@
-# Probability Definitions
+# Probability
 
-## Probability
+## Definition of Probability
 
 > The term probability refers to the study of randomness and uncertainty. In any situation in which one of a number of possible outcomes may occur, the discipline of probability provides methods for quantifying the chances, or likeli- hoods, associated with the various outcomes. (Devore p 50)
 

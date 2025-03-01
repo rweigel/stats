@@ -10,6 +10,7 @@ Ne = 100000  # Number of experiments
 
 # 1
 X = np.random.randn(n)
+#X = np.random.uniform(-1.0, 1.0, size=(n,))
 
 #2
 

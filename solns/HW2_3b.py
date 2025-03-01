@@ -6,6 +6,7 @@ plt.rcParams['mathtext.default'] = 'regular'
 np.random.seed(3)
 
 debug = False
+dist = 'uniform'
 
 Ns = 100    # Number of samples per experiment
 Ne = 10000  # Number of experiments
@@ -13,6 +14,9 @@ Ne = 10000  # Number of experiments
 # 1
 
 X = np.random.randn(Ns, Ne)
+if dist == 'uniform':
+    X = np.random.uniform(-1.0, 1.0, size=(Ns, Ne))
+
 Xbar = np.mean(X, axis=0) # Compute average of each column
 eps = 0.01
 idx = np.abs(Xbar) < eps
@@ -29,13 +33,19 @@ F = np.zeros(Ns.shape)
 
 i = 0
 for n in Ns:
-    X = np.random.randn(n, Ne) 
+    X = np.random.randn(n, Ne)
+    if dist == 'uniform':
+        X = np.random.uniform(-1.0, 1.0, size=(n, Ne))
     Xbar = np.mean(X, axis=0)
     eps = 0.01
     idx = np.abs(Xbar) < eps
     f = np.sum(idx)/Ne
     F[i] = f
     i = i + 1
+
+# Remove zero F values to avoid log(0) error
+Ns = Ns[F > 0]
+F = F[F > 0]
 
 plt.figure()
 plt.grid(which='minor', color=(0.8, 0.8, 0.8))
@@ -85,7 +95,8 @@ Eps = np.zeros(Ns.shape)
 i = 0
 for n in Ns:
     X = 10*np.random.randn(n, Ne)
-    #X = np.random.uniform(-1.0, 1.0, size=(n,Ne))
+    if dist == 'uniform':
+        X = np.random.uniform(-1.0, 1.0, size=(n,Ne))
     Xbar = np.mean(X, axis=0) # Compute average of each column
 
     flast = np.nan
@@ -123,5 +134,5 @@ plt.savefig("HW2_3b4.svg", format="svg", transparent=True)
 
 """
 If a distribution is selected that has a zero mean, the general trend
-is the same. This is expected based on the Central Limit Theorem.
+is the same.
 """
