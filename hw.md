@@ -915,7 +915,7 @@ Save your hand--written answers as `HW6_2.pdf`, plots as `HW6_2.png`, and code a
 
 Write an interpretation of the results of problems 6.1 and 6.2 that is wrong in as many ways as possible. For inspiration, see cautions about interpretation in chapter 7 and 8 of Devore, [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★), [Greenland et al., 2016, Statistical tests, $P$ values, confidence intervals, and power: a guide to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf), or any other reference.
 
-In class, we will vote on the "best worst" answer. Attempt to pack as many mistakes in as few words as possible.
+In class, we will vote on the "best worst" answer. Attempt to pack as many mistakes in as few words as possible. Save your answer in `HW6_3.pdf`.
 
 # Midterm
 

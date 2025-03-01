@@ -919,14 +919,55 @@ It also make sense to talk not about the number of "trials", but rather the numb
 
 #### Normal
 
-https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
+Can be derived from Binomial [1](https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf); [2](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/)
 
-https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/
+The "Standard Normal" is the **sampling distribution** of the quantity
 
+$$z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+
+**Constraint**: $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$ and $n\rightarrow \infty$ (unless the random variable is normally distributed, which case any $n$)
+
+A standardized variable will have a histogram that is centered on the origin and a standard deviation of unity.
+
+If $X$ is a random variable from _almost any_ probability distribution with mean $\mu$ and standard deviation $\sigma$, the sampling distribution of $z$ is the Standard Normal as $n\rightarrow\infty$
+
+#### $t$
+
+The "Student $t$" distribution is the **sampling distribution** of the quantity
+
+$$t = \frac{\overline{X}-\mu}{S/\sqrt{n}}$$
+
+where
+
+$$S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X-\overline{X})^2}$$
+
+**Constraint**: $X$ is a Gaussian--distributed random variable. Both the numerator and denominator of $t$ will vary from sample to sample and so we expect that the histogram of 
+
+$$t=\frac{\overline{X}-\mu}{S/\sqrt{n}}$$
+
+to be "fatter" or have "fatter tails" than
+
+$$z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+
+The $t$ distribution is actually a family of distributions that depend on $n$ and so "$t$ distribution" is ambiguous. We usually discuss "a $t$ distribution with $\nu$" degrees of freedom, where $\nu \equiv n-1$.
+
+<img src="notes/code/figures/compare_gaussian_and_t.svg"/>
+
+#### $\chi^2$
+
+The Chi-square ($\chi^2$) distribution is the sampling distribution of the quantity $e^2$ (think "error" as in the sum--of--square error) 
+
+$e^2 = X_1^2 + ... + X_n^2$
+
+**Constraint**: $X$ is a Gaussian--distributed random variable.
+
+Similar to the $t$ distribution, the $\chi^2$ distribution is actually a family of distributions that depends on $n$.
+
+We use the $\chi^2$ distribution deriving error bars and confidence intervals for mean-square errors and power spectra.
 
 #### Exponential
 
-Can be derived from [Poisson](https://neurophysics.ucsd.edu/courses/physics_171/exponential.pdf)
+[Can be derived from Poisson](https://neurophysics.ucsd.edu/courses/physics_171/exponential.pdf)
 
 ## Expectation values
 
@@ -958,7 +999,9 @@ $\hat{\theta}$ is usually a point estimate of a population statistic $\theta$ ba
 
 Examples: If $n$ values drawn from $b(n, p)$ and $x$ are `1`, then $\hat{p}=x/n$ is is unbiased estimator of $p$ (Devore p 244, but stated in different way).
 
-> If X1, X2, . . . , Xn is a random sample from a distribution with mean $\mu$, then \overline{X} is an unbiased estimator of $\mu$. If in addition the distribution is continuous and symmetric, then $\widetilde{X}$ and any trimmed mean are also unbiased estimators of $\mu$. (Devore p 246)
+Devore p 246
+
+> If $X_1$, $X_2$, ..., $X_n$ is a random sample from a distribution with mean $\mu$, then $\overline{X}$ is an unbiased estimator of $\mu$. If in addition the distribution is continuous and symmetric, then $\widetilde{X}$ and any trimmed mean are also unbiased estimators of $\mu$.
 
 ### Un-biased point estimator of $\mu$: $\overline{X}$
 
@@ -982,13 +1025,63 @@ The term $E[X_1]$ means the expectation value of all possible first-selected val
 
 $$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] + ... ) = \frac{1}{n}(\mu + \mu + ...) = \frac{1}{n}(n\mu) = \mu$$
 
-### Un-biased point estimator of $\sigma^2$: $\ds S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$
+### Un-biased point estimator of $\sigma^2$: $S^2$
+
+$\ds S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$
+
+See [HW 4.4](hw.html#proof-that-s_b-2-is-a-biased-estimator-of-sigma-2)
+
+### Un-biased point estimator of slope in linear regression
+
+In your physics labs, you use the equation
+
+$$b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+as an estimate of the population parameter $\beta$ in the model equation
+    
+$$y_i = \beta x_i + \alpha + \epsilon_i$$
+    
+were $\epsilon_i$ are independent and randomly distributed values from a Gaussian distribution with zero mean and standard deviation $\sigma$.
+
+Note that $x_i-\bar{x}$ is not a random variable because $x_i$ values are given, so it can be treated as a constant. Thus
+
+$$E[b]
+=E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]
+=\frac{E\left[\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}
+$$
+
+and
+
+$$
+E[b] = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})E\left[(y_i-\bar{y})\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}
+$$
+
+$$E\left[y_i-\bar{y}\right]=E\left[\beta x_i+
+\alpha+\epsilon_i-\bar{y}\right]=E\left[\beta x_i] +
+E[\alpha]+E[\epsilon_i]-E[\bar{y}\right]
+$$
+
+$$E\left[y_i-\bar{y}\right]=\beta x_i+\alpha - E[\overline{y}]$$
+
+$$E[\overline{y}] = E[\beta \overline{x} + \alpha + \overline{\epsilon}] = \beta \overline{x} + \alpha + E[\overline{\epsilon}] = \beta \overline{x} + \alpha$$
+
+Thus,
+
+$$E\left[y_i-\bar{y}\right]=\beta(x_i-\overline{x})$$
+
+and so
+
+$$E[b]=\beta$$
 
 ## Confidence Intervals
 
-> An alternative to reporting a single sensible value for the parameter being estimated is to calcu- late and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267) 
+Devore p 267
 
-> it is tempting to conclude that $\mu$ is within this fixed interval with probability .95. ... It is therefore incorrect to write the statement P($\mu$ lies in (79.3, 80.7)) = .95. (Devore p 270)
+> An alternative to reporting a single sensible value for the parameter being estimated is to calcu- late and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly).
+
+Devore p 270
+
+> it is tempting to conclude that $\mu$ is within this fixed interval with probability .95. ... It is therefore incorrect to write the statement P($\mu$ lies in (79.3, 80.7)) = .95.
 
 Another way of rebutting $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ is to consider two experiments. If experiment $a$ yields a 95% CI of $(1,2)$ and we conclude
 
@@ -1007,30 +1100,29 @@ Visually, the confidence intervals for experiment $a$ and $b$ are
 The above statements are $\mu$ is in range $(1,2)$ with probability $0.95$ and $\mu$ is in the range $(2,3)$ with probability $0.95$. This implies that $\mu$ is in the range $(1,3)$ with probability of $0.95+0.95$, which is greater than $1$. Clearly the interpretation of confidence intervals as $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ cannot be correct.
 
 
->Equation 7.5
->
+Devore Equation 7.5
+
 >A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
 >
 >$$\left(\overline{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \quad \overline{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right)$$
 
->Equation 7.9 
->
+Devore Equation 7.9 
+
 >Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
 >
 >$$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
 
->Equation 7.10
->
+Devore Equation 7.10
 >
 
->Equation 7.15
->
+Devore Equation 7.15
+
 >Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
 >
 >$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
 
->Equation 7.17
->
+Devore Equation 7.17
+
 >$$P\left(\chi^2_{1-\alpha/2, n-1} < \frac{(n-1)S^2}{\sigma^2} < -\chi^2_{\alpha/2, n-1}\right) = 1-\alpha$$
 >
 >A $100(1-\alpha)$% confidence interval for the variance $\sigma^2$ of a normal population is
@@ -1043,7 +1135,7 @@ The above statements are $\mu$ is in range $(1,2)$ with probability $0.95$ and $
 
 Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
 
-It is best to always think of the $\alpha/2$ values as corresponding to a small
+It is best to always think of the $\alpha/2$ values as corresponding to a small area.
 
 ## Hypothesis Test
 

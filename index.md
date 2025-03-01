@@ -373,6 +373,7 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 * [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★)
 * [Introduction to Computational Finance](https://bookdown.org/compfinezbook/introcompfinr/)
 * [Greenland et al., 2016, Statistical tests, $P$ values, confidence intervals, and power: a guide to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf)
+
 ## Astronomy
 
 1. Markov Chain Monte Carlo Methods for Bayesian Data Analysis in Astronomy (2017), S. Sharma.
