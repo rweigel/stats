@@ -884,7 +884,7 @@ Consider the following experiment: you are given a sample of $n=100$ values. You
 2. Use a hypothesis test to assess the claim about $\mu$. Use a significance level of 5% and let $H_0$ be $\mu=2$ and $H_a$ be $\mu \ne 2$.
 3. Make an assessment about the chances that your hypothesis test conclusion (which will be reject or don't reject) is wrong. There two ways you can be wrong (only one will apply):
    * You rejected $H_0$ and $H_0$ is true (Type I error)
-   * You didn't reject $H_0$ and $H_0$ is false (Type II error). Note that $H_0$ can be false because for an infinite number of reasons because there are an infinite number of $\mu$ values that could have been used to generate the $n$ values. As a result, assess only the chances that your hypothesis test conclusion is wrong assuming $\mu=2$.
+   * You didn't reject $H_0$ and $H_0$ is false (Type II error). Note that $H_0$ can be false because for an infinite number of reasons because there are an infinite number of $\mu$ values that could have been used to generate the $n$ values. As a result, assess only the chances that your hypothesis test conclusion is wrong assuming $\mu=2.2$.
 
 4. Suppose you found $\overline{x}=2.1$. In this case you should not reject $H_0$, but it could be that $\mu=2.2$ was used to generate the $n$ values. Given this, what are the chances that your non--rejection is a Type II error?
 
