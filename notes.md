@@ -795,6 +795,40 @@ $\overline{X}$ are not Gaussian--distributed.
 
 With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
 
+The above statements are consistent with typical textbook statements such as
+
+Rozanov p 79
+
+> Roughly speaking, the central limit theorem asserts that the distribution of the sum of a large number of independent identically distributed random variables is approximately normal.
+
+Bulmer p 109
+> The real reason for the importance of the normal distribution lies in the central limit theorem which states that the sum of a large number of independent random variables will be approximately normally distributed almost regardless of their individual distributions; any random variable which can be regarded as the sum of a large number of small, independent contributions is thus likely to follow the normal distribution approximately.
+
+However, technically, they are not consistent with the mathematical statement of the CLT, which is
+
+> DEFINITION. Given a sequence of random variables $\xi_k$, $k = 1, 2, ...$ with finite means $a_k = E[\xi_k]$ and variances $\sigma^2_k = D[\xi_k]$, consider the "normalized sum"
+>
+> $$S^*=\frac{S_n - E[S_n]}{\sqrt{D[S_n]}}$$
+>
+> where
+> 
+> $$S_n =\sum_{k=1}^n\xi_k$$
+>
+> Then the sequence $\xi_k$, $k = 1, 2, ...$ is said to satisfy the central limit theorem if
+>
+> $$\lim_{n\rightarrow \infty} P (x' < S^{*} < x'') = \frac{1}{\sqrt{2\pi}}\int_{x'}^{x''}e^{-x^2/2}dx$$
+
+Note that $D[S_n]\equiv\sum_{k=1}^n\sigma^2_k$
+
+Also, Degroot p 361,
+
+> Central Limit Theorem (Lindeberg and Le'vy). If the random variables $X_1$, ..., $X_n$ form a random sample of size $n$ from a given distribution with mean $\mu$ and variance $\sigma^2$ ($0 < \sigma^2 < \infty)$, then for each fixed number $x$,
+>
+> $$\lim_{n\rightarrow \infty} P \left(\frac{\overline{X}_n-\mu}{\sigma/\sqrt{n}}\right) = \Phi(x)$$
+>
+> where $\Phi$ denotes the c.d.f. of the standard normal distribution.
+
+Neither forms of the CLT state that for large $n$, the sampling distribution of $X_n$ is Gaussian. It states that if you compute $\overline{X}_n$ many times, the probability that $\overline{X}_n$ is in the range $[x',x'']$ will be the same as that for the Gaussian in the limit that $n\rightarrow \infty$. It suggests that the difference between $P (x' < S^{\*} < x'')$ and that expected from a Gaussian decreases as $n$ increases, which is why we say, inaccurately, "the sampling distribution of $\overline{X}_n$ is approximately Gaussian for large $n$". This statement is inaccurate because "large" and "approximately" is not defined. Also, the CLT not state that the difference $\left|P (x' < S^{\*} < x'') - \int_{x'}^{x''}e^{-x^2/2}dx\right|$ is monotonically decreasing for all $n$. 
 
 ## Probability Distributions
 

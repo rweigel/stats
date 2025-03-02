@@ -347,11 +347,11 @@ See [HW2_3b.py](https://github.com/rweigel/astrostats/blob/main/hws/HW2_3b.py)
 
 The Central Limit Theorem (very roughly) says that as $n\rightarrow\infty$, the sampling distribution of $\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$ approaches a Gaussian with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$. 
 
-(The statement also requires $\sigma$ to be finite and non--zero; see DeGroot Chapter 6 and Rozanov p 78 for a formal definition. A key limitation of this statement is that the limiting distribution is a delta function and the CLT does not tell us what $n$ is required to give use a sampling distribution that is Gaussian within some tolerance; the answer depends on the distribution of $X$. )
+(The statement also requires $\sigma$ to be finite and non--zero and $X$ iid; see DeGroot Chapter 6 and Rozanov p 78 for a formal definition. A key limitation of this statement is that the limiting distribution is a delta function and the CLT does not tell us what $n$ is required to give use a sampling distribution that is Gaussian within some tolerance; the answer depends on the distribution of $X$. )
 
 Important: this theorem applies even if the distribution of the values used in computing $\overline{X}$ are not Gaussian--distributed.
 
-With the Central Limit theorem, and if the sampling distribution of $X$ is not Gaussian, but $n$ is large enough so that the sampling distribution of $\overline{X}$ is "close enough" to Gaussian (this would need to be justified analytically or via simulation), or if the sampling distribution of $X$ is Gaussian (in which case the sampling distribution of $\overline{X}$ is Gaussain for any $n$) we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
+With the Central Limit theorem, and if the sampling distribution of $X$ is not Gaussian, but $n$ is large enough so that the sampling distribution of $\overline{X}$ is "close enough" to Gaussian (this would need to be justified analytically or via simulation), or if the sampling distribution of $X$ is Gaussian (in which case the sampling distribution of $\overline{X}$ is Gaussain for any $n$, which can be shown without the CLT) we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, approximately 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
 
 In the previous problem, you computed a histogram of $10,000$ $\overline{X}$. Based on the Central Limit Theorem
 

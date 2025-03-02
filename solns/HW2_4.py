@@ -11,17 +11,18 @@ s = 1.96
 n = 100  # Number of samples per experiment
 ne = 1000 # Number of experiments
 
-#dist_name = 'gaussian'
-dist_name = 'uniform'
+dist_name = 'gaussian'
+#dist_name = 'uniform'
 if dist_name == 'gaussian':
   dist_symbol = 'N(0, 1)'
   mu = 0
   sigma = 1
   X = np.random.normal(loc=mu, scale=sigma, size=(n, ne))
+
 if dist_name == 'uniform':
-  dist_symbol = 'U(-3, 3)'
   low =  -2
   high =  2
+  dist_symbol = f'U({low}, {high})'
   mu = (high+low)/2
   sigma = np.sqrt((high-low)**2/12)
   X = np.random.uniform(low=low, high=high, size=(n, ne))
@@ -65,8 +66,15 @@ ax[0].axvline(x=+delta, color=(0.5, 0.5, 0.5), linestyle='--')
 
 ax[0].bar(bin_c, nXbar, width=dx*0.99, color='k', label='Simulated')
 
-norm.pdf(bin_c, loc=mu, scale=sigma/np.sqrt(n))
-ax[0].plot(bin_c, ne*dx*norm.pdf(bin_c, loc=mu, scale=sigma/np.sqrt(n)), 'r.', label='CLT limit')
+bin_integrals = []
+for i in range(len(bin_e) - 1):
+  integral = norm.cdf(bin_e[i+1], loc=mu, scale=sigma/np.sqrt(n)) - norm.cdf(bin_e[i], loc=mu, scale=sigma/np.sqrt(n))
+  bin_integrals.append(integral)
+
+bin_integrals = np.array(bin_integrals) * ne
+ax[0].stairs(bin_integrals, bin_e, color='b', label=r'Gaussian')
+#norm.pdf(bin_c, loc=mu, scale=sigma/np.sqrt(n))
+#ax[0].plot(bin_c, ne*dx*norm.pdf(bin_c, loc=mu, scale=sigma/np.sqrt(n)), 'r.', label='CLT limit')
 
 ax[0].legend(loc='upper left', fontsize=10, facecolor='white', framealpha=1)
 
