@@ -830,7 +830,12 @@ Also, Degroot p 361,
 
 Neither forms of the CLT state that for large $n$, the sampling distribution of $X_n$ is Gaussian. It states that if you compute $\overline{X}_n$ many times, the probability that $\overline{X}_n$ is in the range $[x',x'']$ will be the same as that for the Gaussian in the limit that $n\rightarrow \infty$. It suggests that the difference between $P (x' < S^{\*} < x'')$ and that expected from a Gaussian decreases as $n$ increases, which is why we say, inaccurately, "the sampling distribution of $\overline{X}_n$ is approximately Gaussian for large $n$". This statement is inaccurate because "large" and "approximately" is not defined. Also, the CLT not state that the difference $\left|P (x' < S^{\*} < x'') - \int_{x'}^{x''}e^{-x^2/2}dx\right|$ is monotonically decreasing for all $n$. 
 
+* See also https://online.stat.psu.edu/stat414/book/export/html/750
+https://www.bmj.com/rapid-response/2011/11/01/note-correct-interpretation-central-limit-theorem
+
 ## Probability Distributions
+
+[Univariate Distribution Relationships](https://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
 
 In the experiments done in the homework, the $X_i$ values are **random samples** from a **probability distribution** with **expectation values** for the mean and variance defined by $E[X]\equiv\mu$ and $E[(X-\mu)^2]\equiv\sigma^2$.
 
