@@ -12,6 +12,7 @@ def _ci_bootstrap(xstar, sigma):
 
   # Alternative method to compute CI using bootstrap SE
   # https://bookdown.org/compfinezbook/introcompfinr/The-Nonparametric-Bootstrap.html
+  # See also Devore p 252
   #se_boot = np.std(xstar_s2, ddof=1)
   #ci_bootstrap = [sigma^2 - 2*se_boot, sigma^2 + 2*se_boot]
 
@@ -53,7 +54,7 @@ def plot(xstar, bins, x_std, xlim, ylim, title):
   plt.title(title, fontsize=11)
 
 n_b = 1000
-xlim = [30000, 350000]
+xlim = [3000, 350000]
 ylim = [0, 0.25]
 
 # Devore pg 295 data
@@ -75,6 +76,7 @@ xstar = np.random.choice(x, size=(n, n_b), replace=True)
 print(f"Part 1. Nonparametric Bootstrap; n_b = {n_b}")
 plot(xstar, bins, x_std, xlim, ylim, title)
 plt.savefig('HW5_1a.png', dpi=300)
+plt.savefig('HW5_1a.svg', transparent=True)
 plt.close()
 
 # Part 2.
@@ -86,6 +88,7 @@ title = 'Parametric Bootstrap 95% CI for $S^2$\nSample mean and variance used to
 print(f"\nPart 2. Parametric Bootstrap; n = {n}, n_b = {n_b}")
 plot(xstar, bins, x_std, xlim, ylim, title)
 plt.savefig('HW5_1b.png', dpi=300)
+plt.savefig('HW5_1b.svg', transparent=True)
 plt.close()
 
 # Part 3.

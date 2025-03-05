@@ -834,6 +834,52 @@ The file [xray.txt](http://mag.gmu.edu/git-data/astrostats/SOLAR_FLARES/xray.txt
 3. Do the data conform to the assumptions of the Poisson distribution?
 4. **590 Only**: The Poisson distribution follows from the Binomial distribution. Add to the plot the values expected using the Binomial distribution
 
+**Answer**
+
+See [HW4_3.py](https://github.com/rweigel/astrostats/blob/main/solns/HW4_3.py)
+
+**Comments on Student Solutions**
+
+Many had a slightly different PMF for the data. I believe this is due to not accounting for days with no flares. This is the type of calculation for which I would create a simulated data file where I have zero flares on day 1, one on day 2, etc. and confirm that my code gives the correct result.
+
+In my case, I have a close match between Binomial and Poisson because I used as $p$ the probability of a flare in a given minute. The Poisson follows from the Binomial when the probability is small, and so using a time scale of one minute to compute $\lambda$ gives a better match between the two.
+
+3\.
+
+I accepted most answers. What I was looking for was some insight or ideas on how to answer this question. Students who use flare data for their project will consider analysis to explain why there are differences (as does Wheatland, 2000).
+
+Based on PMF, it seems not. Would should do a test on the different between the distributions, however. I also looked to see there were any trends in the number of flares per days. These data were considered in [Wheatland, 2000](https://iopscience.iop.org/article/10.1086/312739). The fit to both a binomial and Poisson distribution is poor. This is somewhat expected given that the probability that a flare occured in a given minute depends on whether a flare occured in the previous minute. From the data, I find the
+
+$P(F_t)=0.004973$
+
+$P(F_t|F_{t-1})=0.0001912$
+
+$P(F_t|\overline{F}_{t-1})=0.004998$
+
+$P(\overline{F}_t)=0.99502568$
+
+$P(\overline{F}\_t|\overline{F}_{t-1})=0.99500130$
+
+$P(\overline{F}\_t|F_{t-1})=0.99980876$
+
+where $F_t$ indicates a flare in minute $t$ and $\overline{F}_t$ indicates no flare. One assumption of the binomial distribution is that the probability of an event does not depend on whether an event occured in the previous "trial" (here a trial is the measurement of a flare or no flare in a given minute).
+
+Recall that events $A$ and $B$ are independent if $P(A|B) = P(A)$.
+
+To be consistent with this independence, we should have
+
+$P(F_t) = P(F_t|F_{t-1})=P(F_t|\overline{F}_{t-1})$
+
+$P(\overline{F}_t)=P(\overline{F}\_t|\overline{F}_{t-1})=P(\overline{F}\_t|F_{t-1})$
+
+Visually, $P(F_t|F_{t-1})$ too small. However we would need to confirm that it is smaller than expected in a statistical sense using a hypothesis test. In the homework solution, I created time series with the same probability of a flare and assumed a binomial distribution to get a sense of the variability of the above probabilities.
+
+There are many other checks that once can make. For example, does the rate of flares depend on time (it does, see Wheatland Figure 2.)
+
+<img src="solns/HW4_3a.svg"/>
+
+<img src="solns/HW4_3b.svg"/>
+
 ## Reading
 
 Read Chapter 7 of [Devore](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★). In class, I will ask how we could use the bootstrap method (both non--parametric or parametric) to check the claims in the chapter such as Equations 7.5, 7.10, 7.15, and 7.17.
@@ -865,6 +911,12 @@ To compute the 95% confidence interval for the bootstrap case, and if you comput
 
 1. Using the values on page 296 in Devore, compute a 95% confidence interval for $\sigma^2$ using the bootstrap method.
 2. In part 1., you should have found a confidence interval with an upper limit of $\sim 200,000$. This is much less than the value he quoted of $318, 064.4$. The number of samples is only $ 17 $, which is small for the bootstrap. To test the claim that the large difference in the confidence intervals is due to a small number of samples, generate $n=100$ values from a Gaussian distribution with the same mean and variance as data used in part 1. Then, compute a confidence interval using the method of example 7.15 of Devore and the bootstrap method.
+
+**Answer**
+
+<img src="solns/HW5_1a.svg"/>
+
+<img src="solns/HW5_1b.svg"/>
 
 ## Textbook Confidence Interval
 

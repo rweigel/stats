@@ -1,7 +1,6 @@
 import numpy as np
 from scipy.stats import norm
 from matplotlib import pyplot as plt
-from scipy.stats import t
 
 n_b = 1000
 

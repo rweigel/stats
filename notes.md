@@ -84,21 +84,29 @@ Defined in Null Event definition. Also referred to as "pairwise disjoint".
 
 ## Axioms of Probability
 
-(Devore p 56); Often referred to as Kolmogorov's Axioms
+Devore p 56
 
-1. For any event $A$, $P(A) \ge 0$.
-2. $P(\mathcal{S})=1$
-3. If $A_1$, $A_2$, ... is an infinite collection of disjoint events, then
-     
-   $$P(A_1 \cup A_2 ....) = P\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty P(A_i)$$
+> Often referred to as Kolmogorov's Axioms
+>
+>1. For any event $A$, $P(A) \ge 0$.
+>2. $P(\mathcal{S})=1$
+>3. If $A_1$, $A_2$, ... is an infinite collection of disjoint events, then
+>
+>   $$P(A_1 \cup A_2 ....) = P\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty P(A_i)$$
+>
+>   Corallary
+>
+>   $$P(A_1 \cup A_2 .... \cup A_k) = \sum_{i=1}^k P(A_i)$$
+>
+>   Note that many textbooks give the third axiom in terms of a sum over two events instead of a sum over an infinite set of events.
 
-   Corallary
+Devore p 57
 
-   $$P(A_1 \cup A_2 .... \cup A_k) = \sum_{i=1}^k P(A_i)$$
+> Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsisten with our intuitve notions of probability.
 
-   Note that many textbooks give the third axiom in terms of a sum over two events instead of a sum over an infinite set of events.
+Corallary to Axiom 3 (Devore p 59 calls this a proposition):
 
-> Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsisten with our intuitve notions of probability. (Devore p 57)
+> For any event $A$, $P(A)\le 1$
 
 ## Geometric Series
 
@@ -117,11 +125,15 @@ $1 = P(E_1) + P(E_2) + P(E_3) + ....$
 
 ## Relative Frequency and Interpretation of Proability
 
-> ... most frequently used an most easily understood is based on the notation of relative frequencies. (Devore p 57)
+Devore p 57
+
+> ... most frequently used an most easily understood is based on the notation of relative frequencies.
 
 Repeat experiment $n$ times (each repetition is called a "replication"). If event $A$ occurs $n(A)$ times in $n$ replications, then relative frequency is $n(A)/n$.
 
-> The _objective interpretation of probability_ identifies this limiting relative frequency to $P(A)$. (Devore p 57)
+Devore p 57
+
+> The _objective interpretation of probability_ identifies this limiting relative frequency to $P(A)$
 
 Said another way,
   
@@ -158,11 +170,6 @@ print(f"  rf(1) = {results.count(1) / n}")
 
 > For any event $A$, $P(A)+P(A')=1$, from which $P(A)=1-P(A')$. (Devore p 59)
 
-## Corallary to Axiom 3
-
-(Devore only calls this a proposition) 
-
-> For any event $A$, $P(A)\le 1$. (Devore p 59)
 
 ## Law of Addition
 
@@ -223,7 +230,7 @@ _Answers_:
 
 (Devore does not name but gives as proposition on p 65)
 
-> If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$. (Devore p 65)
+> If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
 
 ## Tree Diagram
 
@@ -233,9 +240,13 @@ Use for visually justifying product rule and counting permutations (Devore p 66)
 
 A "$k$--tuple" is an ordered collection of $k$ objects. (Devore p 66)
 
-## General Product Rule (or Product Rule for $k$-Tuples)
+## General Product Rule
 
-> Suppose a set consists of ordered collections of $k$ elements ($k$-tuples) and that there are $n_1$ possible choices for the first element; for each choice of the first element, there are $n_2$ possible choices of the second element; ...; for each possible choice of the first $k-1$ elements, there are $n_k$ choices of the $k$th element. Then there are $n_1n_2...n_k$ possible $k$-tuples. (Devore p 66).
+AKA Product Rule for $k$-Tuples
+
+Devore p 66
+
+> Suppose a set consists of ordered collections of $k$ elements ($k$-tuples) and that there are $n_1$ possible choices for the first element; for each choice of the first element, there are $n_2$ possible choices of the second element; ...; for each possible choice of the first $k-1$ elements, there are $n_k$ choices of the $k$th element. Then there are $n_1n_2...n_k$ possible $k$-tuples.
 
 Note that "elements" is used here, but in definition of tuple, objects is used.
 
@@ -512,21 +523,21 @@ Divide both sides by $n$ to arrive at the result.
 
 ## Multiplication Rule for $P(A\cap B)$
 
-$P(A\cap B) = \frac{P(A|B)P(B)}$
+$$P(A\cap B) = P(A|B)P(B)$$
 
 ## General Bayes' Rule
 
-When $A_1, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
+When $A_1$, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
 
 $$
 P(A_j|B) = \frac{P(B|A_j)P(A_j)}{P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)}
 $$
 
-# Set Operations in Python
+## Set Operations in Python
 
 See [Python notes](python.html#sets)
 
-# Counting
+## Counting
 
 Three types of problems:
 
@@ -540,7 +551,7 @@ Three types of problems:
 
 3. Combinations: Same as 2. except counting all sets with the same elements as equivalent. (e.g., if set = {a, b} only one combination is possible: {a, b}).
 
-## Product rule examples
+### Product rule examples
 
 One can use a tree diagram, table, or $x$--$y$ plot to prove.
 
@@ -588,7 +599,7 @@ In the third box, put one of the three $I$s; in the fourth box, put one of the t
 
 This is not the list possible teams because $AB$ is the same as $BA$ (That is, order is not important.). The list of possible teams is $3$, by inspection.
 
-## Permutation examples
+### Permutation examples
 
 **Example**
 
@@ -622,7 +633,7 @@ _Answer_:
 1. Consider list of $r$ passengers and each can be assigned number $1, ...n$: $n^r$ 
 2. Have $n$ choices for first passenger, $n-1$, for second, ... $n-r-1$ for the last: $\ds\frac{n(n-1)...(n-r-1)}{n^r}$
 
-## Combination examples
+### Combination examples
 
 **Example**
 
@@ -649,7 +660,9 @@ Select two players from a list of three.
 
 ### Statistic
 
-> A statistic is any quantity whose value can be calculated from sample data. Prior to obtaining data, there is uncertainty as to what value of any particular statistic will result. Therefore, a statistic is a random variable and will be denoted by an uppercase letter; a lowercase letter is used to represent the calculated or observed value of the statistic. (Devore p 214)
+Devore p 214
+
+> A statistic is any quantity whose value can be calculated from sample data. Prior to obtaining data, there is uncertainty as to what value of any particular statistic will result. Therefore, a statistic is a random variable and will be denoted by an uppercase letter; a lowercase letter is used to represent the calculated or observed value of the statistic.
 
 Note that the sample can contain all data, so alternatively, a statistic is a quantity computed based on values in population (the population mean is a statistic).
 
@@ -703,7 +716,7 @@ This method does not have practical value -- if you know the distribution and it
 
 #### Bootstrap
 
-[The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." 
+[The definition of the idiom "bootstrapping"](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping)is "get (oneself or something) into or out of a situation using existing resources." 
 
 #### Parametric Bootstrap
 
@@ -743,6 +756,18 @@ See James p27
 ### Independent
 
 See James p27
+
+Events $A$ and $B$ are independent if
+
+$P(A\cap𝐵) = P(A)P(B)$
+
+Devore p 83
+
+> Two events $A$ and $B$ are independent if $P(A|B) = P(A)$ and are dependent otherwise. 
+
+Devore p 84
+
+> $A$ and $B$ are independent if and only if (iff) $P(A\cap B) = P(A)P(B)$
 
 ### Bernoulli Trial
 
@@ -796,9 +821,55 @@ $\overline{X}$ are not Gaussian--distributed.
 With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
 
 [Brewer 1985](https://drive.google.com/file/d/1JQm9ujph9p0NvbWrGEhO_qAc6q5MKYWp/view?usp=drive_link★★★★★remove★★★★★), citing Freund 1962, Mathematical statistics
-> Sometimes the Central Limit Theorem is interpreted in that the distribution of $\overline{x} approaches a normal distribution. This is incorrect, inasmuch as under the conditions of Theorem 7.9 the variance of \overline{x} approaches 0 as $n\rightarrow infty$. On the other hand, Theorem 79 justifies _approximating_ the distribution of $overline{x}$ with a normal distribution whose mean is $\mu$ and whose variance is $\sigma^2$/n$, when $n$ is sufficently large (p. 187).
 
+> Sometimes the Central Limit Theorem is interpreted in that the distribution of $\overline{x}$ approaches a normal distribution. This is incorrect, inasmuch as under the conditions of Theorem 7.9 the variance of $\overline{x}$ approaches 0 as $n\rightarrow \infty$. On the other hand, Theorem 7.9 justifies _approximating_ the distribution of $overline{x}$ with a normal distribution whose mean is $\mu$ and whose variance is $\sigma^2/n$, when $n$ is sufficently large (p. 187).
+
+The above statements are consistent with typical textbook statements such as
+
+Rozanov p 79
+
+> Roughly speaking, the central limit theorem asserts that the distribution of the sum of a large number of independent identically distributed random variables is approximately normal.
+
+Bulmer p 109
+
+> The real reason for the importance of the normal distribution lies in the central limit theorem which states that the sum of a large number of independent random variables will be approximately normally distributed almost regardless of their individual distributions; any random variable which can be regarded as the sum of a large number of small, independent contributions is thus likely to follow the normal distribution approximately.
+
+However, technically, they are not consistent with the mathematical statement of the CLT, which is
+
+> DEFINITION. Given a sequence of random variables $\xi_k$, $k = 1, 2, ...$ with finite means $a_k = E[\xi_k]$ and variances $\sigma^2_k = D[\xi_k]$, consider the "normalized sum"
+>
+> $$S^*=\frac{S_n - E[S_n]}{\sqrt{D[S_n]}}$$
+>
+> where
+> 
+> $$S_n =\sum_{k=1}^n\xi_k$$
+>
+> Then the sequence $\xi_k$, $k = 1, 2, ...$ is said to satisfy the central limit theorem if
+>
+> $$\lim_{n\rightarrow \infty} P (x' < S^{*} < x'') = \frac{1}{\sqrt{2\pi}}\int_{x'}^{x''}e^{-x^2/2}dx$$
+
+Note that $D[S_n]\equiv\sum_{k=1}^n\sigma^2_k$
+
+Also, Degroot p 361,
+
+> Central Limit Theorem (Lindeberg and Le'vy). If the random variables $X_1$, ..., $X_n$ form a random sample of size $n$ from a given distribution with mean $\mu$ and variance $\sigma^2$ ($0 < \sigma^2 < \infty)$, then for each fixed number $x$,
+>
+> $$\lim_{n\rightarrow \infty} P \left(\frac{\overline{X}_n-\mu}{\sigma/\sqrt{n}}\right) = \Phi(x)$$
+>
+> where $\Phi$ denotes the c.d.f. of the standard normal distribution.
+
+Neither forms of the CLT state that for large $n$, the sampling distribution of $X_n$ is Gaussian. It states that if you compute $\overline{X}_n$ many times, the probability that $\overline{X}_n$ is in the range $[x',x'']$ will be the same as that for the Gaussian in the limit that $n\rightarrow \infty$. It suggests that the difference between $P (x' < S^{\*} < x'')$ and that expected from a Gaussian decreases as $n$ increases, which is why we say, inaccurately, "the sampling distribution of $\overline{X}_n$ is approximately Gaussian for large $n$". This statement is inaccurate because "large" and "approximately" is not defined. Also, the CLT not state that the difference $\left|P (x' < S^{\*} < x'') - \int_{x'}^{x''}e^{-x^2/2}dx\right|$ is monotonically decreasing for all $n$. 
+
+* See also https://online.stat.psu.edu/stat414/book/export/html/750
+https://www.bmj.com/rapid-response/2011/11/01/note-correct-interpretation-central-limit-theorem
+[Brewer 1985](https://drive.google.com/file/d/1JQm9ujph9p0NvbWrGEhO_qAc6q5MKYWp/view?usp=drive_link★★★★★remove★★★★★), citing Freund 1962, Mathematical statistics
+
+> Sometimes the Central Limit Theorem is interpreted in that the distribution of $\overline{x} approaches a normal distribution. This is incorrect, inasmuch as under the conditions of Theorem 7.9 the variance of \overline{x} approaches 0 as $n\rightarrow infty$. On the other hand, Theorem 79 justifies _approximating_ the distribution of $overline{x}$ with a normal distribution whose mean is $\mu$ and whose variance is $\sigma^2$/n$, when $n$ is sufficently large (p. 187).
+ 
 ## Probability Distributions
+
+[Univariate Distribution Relationships](https://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
+
 
 In the experiments done in the homework, the $X_i$ values are **random samples** from a **probability distribution** with **expectation values** for the mean and variance defined by $E[X]\equiv\mu$ and $E[(X-\mu)^2]\equiv\sigma^2$.
 
@@ -921,10 +992,54 @@ It also make sense to talk not about the number of "trials", but rather the numb
 
 #### Normal
 
+Can be derived from Binomial [1](https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf); [2](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/)
+
+The "Standard Normal" is the **sampling distribution** of the quantity
+
+$$z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+
+**Constraint**: $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$ and $n\rightarrow \infty$ (unless the random variable is normally distributed, which case any $n$)
+
+A standardized variable will have a histogram that is centered on the origin and a standard deviation of unity.
+
+If $X$ is a random variable from _almost any_ probability distribution with mean $\mu$ and standard deviation $\sigma$, the sampling distribution of $z$ is the Standard Normal as $n\rightarrow\infty$
+
+#### $t$
+
+The "Student $t$" distribution is the **sampling distribution** of the quantity
+
+$$t = \frac{\overline{X}-\mu}{S/\sqrt{n}}$$
+
+where
+
+$$S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X-\overline{X})^2}$$
+
+**Constraint**: $X$ is a Gaussian--distributed random variable. Both the numerator and denominator of $t$ will vary from sample to sample and so we expect that the histogram of 
+
+$$t=\frac{\overline{X}-\mu}{S/\sqrt{n}}$$
+
+to be "fatter" or have "fatter tails" than
+
+$$z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+
+The $t$ distribution is actually a family of distributions that depend on $n$ and so "$t$ distribution" is ambiguous. We usually discuss "a $t$ distribution with $\nu$" degrees of freedom, where $\nu \equiv n-1$.
+
+<img src="notes/code/figures/compare_gaussian_and_t.svg"/>
+
+#### $\chi^2$
+
+The Chi-square ($\chi^2$) distribution is the sampling distribution of the quantity $e^2$ (think "error" as in the sum--of--square error) 
+
+$e^2 = X_1^2 + ... + X_n^2$
+
 https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
-
+ 
+**Constraint**: $X$ is a Gaussian--distributed random variable.
 https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/
+ 
+Similar to the $t$ distribution, the $\chi^2$ distribution is actually a family of distributions that depends on $n$.
 
+We use the $\chi^2$ distribution deriving error bars and confidence intervals for mean-square errors and power spectra.
 
 #### Exponential
 
@@ -984,81 +1099,148 @@ The term $E[X_1]$ means the expectation value of all possible first-selected val
 
 $$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] + ... ) = \frac{1}{n}(\mu + \mu + ...) = \frac{1}{n}(n\mu) = \mu$$
 
-### Un-biased point estimator of $\sigma^2$: $\ds S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$
+### Un-biased point estimator of $\sigma^2$: $S^2$
+
+$\ds S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$
+
+See [HW 4.4](hw.html#proof-that-s_b-2-is-a-biased-estimator-of-sigma-2)
+
+### Un-biased point estimator of slope in linear regression
+
+In your physics labs, you use the equation
+
+$$b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+as an estimate of the population parameter $\beta$ in the model equation
+    
+$$y_i = \beta x_i + \alpha + \epsilon_i$$
+    
+were $\epsilon_i$ are independent and randomly distributed values from a Gaussian distribution with zero mean and standard deviation $\sigma$.
+
+Note that $x_i-\bar{x}$ is not a random variable because $x_i$ values are given, so it can be treated as a constant. Thus
+
+$$E[b]
+=E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]
+=\frac{E\left[\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}
+$$
+
+and
+
+$$
+E[b] = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})E\left[(y_i-\bar{y})\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}
+$$
+
+$$E\left[y_i-\bar{y}\right]=E\left[\beta x_i+
+\alpha+\epsilon_i-\bar{y}\right]=E\left[\beta x_i] +
+E[\alpha]+E[\epsilon_i]-E[\bar{y}\right]
+$$
+
+$$E\left[y_i-\bar{y}\right]=\beta x_i+\alpha - E[\overline{y}]$$
+
+$$E[\overline{y}] = E[\beta \overline{x} + \alpha + \overline{\epsilon}] = \beta \overline{x} + \alpha + E[\overline{\epsilon}] = \beta \overline{x} + \alpha$$
+
+Thus,
+
+$$E\left[y_i-\bar{y}\right]=\beta(x_i-\overline{x})$$
+
+and so
+
+$$E[b]=\beta$$
+
+Alternative:
+
+Subsitution of
+
+$$y_i = \beta x_i + \alpha + \epsilon_i$$
+
+into
+    
+$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+gives
+    
+$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})( \beta x_i + \alpha + \epsilon_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+Using
+
+$$\overline{y} = \alpha + \beta \overline{x}$$
+    
+gives
+
+$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})\left[\beta (x_i - \overline{x}) - \epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+or
+
+$$b = \frac{\displaystyle\sum_{i=1}^{n}\left[\beta (x_i - \overline{x})^2 - (x_i-\overline{x})\epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2} = \beta - \frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+Finally, using
+
+$$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
 
 ## Confidence Intervals
+ 
+Devore p 267
 
-> An alternative to reporting a single sensible value for the parameter being estimated is to calcu- late and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267) 
+> An alternative to reporting a single sensible value for the parameter being estimated is to calcu- late and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly).
 
-> it is tempting to conclude that $\mu$ is within this fixed interval with probability .95. ... It is therefore incorrect to write the statement P($\mu$ lies in (79.3, 80.7)) = .95. (Devore p 270)
+Devore p 270
 
+> it is tempting to conclude that $\mu$ is within this fixed interval with probability .95. ... It is therefore incorrect to write the statement P($\mu$ lies in (79.3, 80.7)) = .95.
+ 
 Another way of rebutting $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ is to consider two experiments. If experiment $a$ yields a 95% CI of $(1,2)$ and we conclude
-
-$P(\mu \text{ lies in }(1, 2)) = 0.95$
-
-and experiment $b$ yields
-
-$P(\mu \text{ lies in }(2, 3)) = 0.95$
-
-Visually, the confidence intervals for experiment $a$ and $b$ are
-```
-0      1       2      3        4
-       aaaaaaaabbbbbbbb
-```
-
+ 
 The above statements are $\mu$ is in range $(1,2)$ with probability $0.95$ and $\mu$ is in the range $(2,3)$ with probability $0.95$. This implies that $\mu$ is in the range $(1,3)$ with probability of $0.95+0.95$, which is greater than $1$. Clearly the interpretation of confidence intervals as $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ cannot be correct.
+ 
+ 
+Devore Equation 7.5
 
+> A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
+>
+> $$\left(\overline{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \quad \overline{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right)$$
+ 
+Devore Equation 7.9 
 
->Equation 7.5
+> Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
 >
->A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
+> $$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
+ 
+Devore Equation 7.10
 >
->$$\left(\overline{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \quad \overline{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right)$$
+>
+ 
+Devore Equation 7.15
 
->Equation 7.9 
->
->Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
->
->$$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
-
->Equation 7.10
->
->
-
->Equation 7.15
->
->Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
+> Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
 >
 >$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
+ 
+Devore Equation 7.17
 
->Equation 7.17
->
 >$$P\left(\chi^2_{1-\alpha/2, n-1} < \frac{(n-1)S^2}{\sigma^2} < -\chi^2_{\alpha/2, n-1}\right) = 1-\alpha$$
 >
 >A $100(1-\alpha)$% confidence interval for the variance $\sigma^2$ of a normal population is
->
->$$\left( \frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}, \quad\frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}}\right)$$
->
->where
->
->$$s^2=\frac{1}{n-1}\sum_{i=1}^n(x_i-\overline{x})^2$$
 
 Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
+ 
+It is best to always think of the $\alpha/2$ values as corresponding to a small area.
 
-It is best to always think of the $\alpha/2$ values as corresponding to a small
-
-## Hypothesis Test
+## Hypothesis Tests
 
 Devore p 301
+
 > The null hypothesis, denoted by $H_0$, is the claim that is initially assumed to be true (the “prior belief” claim). The alternative hypothesis, denoted by $H_a$, is the assertion that is contradictory to $H_0$.
 > 
 > The null hypothesis will be rejected in favor of the alternative hypothesis only if sample evidence suggests that $H_0$ is false. If the sample does not strongly contradict $H_0$, we will continue to believe in the plausibility of the null hypothesis. The two possible conclusions from a hypothesis-testing analysis are then reject $H_0$ or fail to reject $H_0$.
->
+
 
 Devore p 302
+
 > $H_0$ will generally be stated as an equality claim. If $\theta$ denotes the parameter of interest, the null hypothesis will have the form $H_0$: $\theta = \theta_0$, where $\theta_0$ is a specified number called the null value of the parameter (value claimed for $\theta$ by the null hypothesis). 
 
 Devore p 303
+
 > A test procedure is specified by the following:
 > 1. A test statistic, a function of the sample data on which the decision (reject $H_0$ or do not reject $H_0$) is to be based [example $\overline{x}$]
 > 2. A rejection region, the set of all test statistic values for which $H_0$ will be rejected
@@ -1071,9 +1253,9 @@ Devore p 304
 >
 > A type II error involves not rejecting $H_0$ when $H_0$ is false.
 
+https://online.stat.psu.edu/stat200/lesson/6/6.6
+
 > The conclusion drawn from a two-tailed confidence interval is usually the same as the conclusion drawn from a two-tailed hypothesis test. In other words, if the the 95% confidence interval contains the hypothesized parameter, then a hypothesis test at the 0.05 level will almost always fail to reject the null hypothesis. If the 95% confidence interval does not contain the hypothesize parameter, then a hypothesis test at the 0.05 level will almost always reject the null hypothesis.
->
-> https://online.stat.psu.edu/stat200/lesson/6/6.6
 
 **Summary of Algorithm**
 
@@ -1146,3 +1328,170 @@ Devore p 329:
 Devore p 329:
 
 > Beware: The $P$-value is not the probability that $H_0$ is true, nor is it an error probability!
+
+# Applications
+
+## Linear Regression
+
+See also Devore Chapter 12.
+
+When fitting a straight line to data using the equation $y=bx + a$, we most often make the following assumptions about the process that generated the data. First, we assume that each of the sampled $y_i$ ($i=1,...,n$) values were generated by drawing a value from a Gaussian distribution with $\mu=0$ and standard deviation $\sigma$ and then adding to it $\beta x_i + \alpha$, where $x_i$ are values that we choose. The values of $\alpha$ and $\beta$ are unknown quantities that we seek to estimate given a limited set of $n$ measurements of the population and equations for $b$ and $a$ that you typically first encounter in a physics lab.
+
+To simulate the process of generating $y_i$ values described above, choose a value for $x_i$. Next, draw a value from a Gaussian distribution with a mean of zero and standard deviation of $\sigma$, the value of which is represented by the variable $\epsilon_i$. Then solve for $y_i$ using
+
+$$y_i = \beta x_i + \alpha + \epsilon_i$$
+
+Repeating this process $n$ times will yield $n$ values of $y$ and $x$. When we do linear regression on a set of measurements, we assume that the system we took measurements from works in a way that is equivalent to the above process -- we give the system an input of $x_i$ and it returns an output $y_i$ based on this process.
+
+In this problem, you will create a population of $N$ values using a linear relationship and then draw a sample of $n$ $(x,y)$ values. Then, you will compute $a$ and $b$, which are estimates of the respective population parameters $\alpha$ and $\beta$.
+
+1. Create a population of $N=1000$ $(x,y)$ pairs using $\alpha=1$, $\beta=1$, and $\sigma=0.2$. For values of $x$, use $0, 1/N, 2/N, ..., (N-1)/N$. Create a scatter plot of these $N$ $(x,y)$ values.
+2. Randomly draw $n=20$ $(x,y)$ pairs with replacement from the population and plot them on the same axis as the previous plot.
+3. Use the equations used in your physics labs to compute $a$ and $b$ using the 20 values drawn in step 2. When your code is executed, it should print out $a$ and $b$.
+4. Find a Python library that will compute $a$ and $b$ for you. When your code is executed it should print out the values of $a$ and $b$ computed with the library.
+
+In your physics labs, you were typically given an equation for the uncertainty (a confidence interval) in $a$ and $b$. In this problem, you will use the non--parametric bootstrap to obtain an estimate of the uncertainty.
+
+5. Randomly draw $n=20$ $(x,y)$ pairs with replacement $N_B=10,000$ times. For each draw, compute $a$ and $b$. Use the histogram of $a$ and $b$ to estimate 95% confidence intervals for $a$ and $b$ computed using the method in step 3. (or 4).
+
+Save your code for parts 1.-5. in `HW6_I.py`. When executed, a plot should appear for parts 1. and 2. and a separate plot for part 5. In addition, answers to parts 3. and 4. should be printed to the console.
+
+
+For parts 6. and 7., see [Bulmer, 1979, Chapter 12](https://drive.google.com/file/d/1B5y51uJ37jL_MYcoiS4TKiQQbo8wjKS7/★★★★remove★★★★).
+
+6. Use a $t$ test to compute the 95% confidence interval for $b$. (You'll have to research the appropriate test statistic to perform the $t$ test on.) Provide brief justifications or references for any equations.
+
+7. In your physics labs, you use the equation
+
+    $$b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+    as an estimate of the population parameter $\beta$ in the model equation
+    
+    $$y_i = \beta x_i + \alpha + \epsilon_i$$
+    
+    where $\epsilon_i$ are independent and randomly distributed values from a Gaussian distribution with zero mean and standard deviation $\sigma$.
+
+    Show analytically that $b$ is an unbiased estimate of $\beta$.
+
+8.  In part 5., $N_B$ values for $a$ and $b$ were computed. Use the values to test the claim that the errors in the estimate $a$ and $b$, given by $a-\alpha$ and $b-\beta$, respectively, are not independent. (This lack of independence was mentioned in Bulmer; take an observational/experimental approach to answer this question.)
+
+Save your answers for parts 6.-8. as `HW6_II.pdf`.
+
+Save your code for part 8. as `HW6_II.py`.
+
+## Correlation
+
+## Autocorrelation
+
+The lag $k$ autocovariance of a sequence $z_t$ with $t$ integer is defined as
+
+$\gamma_k=\text{acov}[z_t,z_{t+k}]=E[(z_t-\mu)(z_{t+k}-\mu)]$
+
+where $E[\cdot]$ is the expectation operator. The autocorrelation at lag $k$ is
+
+$$\rho_k=\text{acorr}[z_t,z_{t+k}]=\frac{\gamma_k}{\gamma_0}=\frac{E[(z_t-\mu)(z_{t+k}-\mu)]}{\sigma_z^2}$$
+
+where $\mu$ is the population mean of $z$ and $\sigma_z$ is the population standard deviation.
+
+For a finite sequence of length $n$ with $t=1,...,n$, according to [Box, Jenkins, and Reinsel (p31; 1994)](http://bobweigel.info/csi763/images/Box_1994_Time_Series_Analysis-pages_1-44.pdf), "... the most satisfactory estimate of the lag $k$th [population] autocorrelation $\rho_k$ is"
+
+$$r_k=\frac{c_k}{c_0}$$
+
+where
+
+$$c_k=\frac{1}{n}\sum_{t=1}^{N-k}(z_t-\bar{z})(z_{t+k}-\bar{z})$$
+
+### Computing $r_k$
+
+Create a sequence of $N=1000$ measurements using
+
+$z_{t} = a_1z_{t-1} + a_2z_{t-2} + \epsilon_t$
+
+where $\epsilon_t$ are drawn from a gaussian distribution with zero mean and unit variance. Use $a_1=0.7$ and $a_2=-0.2$.
+
+1. Compute and plot $r_k$.
+2. The values of the population autocorrelation $\rho_k$ (which Wilks calls the "theoretical autocorrelation") can be computed using Equations 10.33a and b and 10.25 of [Wilks, 2019; pg 504](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★). Compute $\rho_k$ and plot it on the same axes as $r_k$.
+3. Use the parametric bootstrap to estimate the sampling distribution of $r_1$. Use this sampling distribution to estimate a 99% confidence interval for $r_1$ computed in part 1.
+4. Use equation 2.1.11 of [Box, Jenkins, and Reinsel (p31; 1994)](http://bobweigel.info/csi763/images/Box_1994_Time_Series_Analysis-pages_1-44.pdf) and $\rho_k$ from part 2. to compute $\text{var}[r_1]$. Compare this variance with the variance of the sampling distribution found in part 3.
+
+### Estimating $a_1$ and $a_2$
+
+Using the same sequence of $z_t$ values used for part 1. of the previous problem, use equations 10.29a and b of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★) to compute $a_1$ and $a_2$. Use either the parametric or non--parametric bootrap to estimate a 99\% confidence interval for the computed $a_1$ and $a_2$.
+
+### Estimating $\sigma_\epsilon$
+
+In class, a student asked if given a sequence of $z_t$ values if we can estimate properties of the driver function (assuming the model is correct). Equation 10.26 of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★) is an estimate of the variance of $\epsilon_t$ in terms of $a_1$, $a_2$, and the population autocorrelations. Use this formula to estimate $\sigma_\epsilon$ using $a_1=0.7$, $a_2=-0.2$ and the values of $\rho_k$ found earlier.
+
+## Discrete Fourier Transforms
+
+(Follow-up based on issues with previous HWs)
+
+In class, I defined the periodogram coefficients as
+
+$\ds a_0 = \frac{1}{N}\sum_{t=1}^{N} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{sin}(2\pi f_i t)$
+
+where $\ds f_i \equiv \frac{i}{N}$.
+
+FFT algorithms typically compute (see the [numpy.fft](https://numpy.org/doc/stable/reference/routines.fft.html#implementation-details) documentation)
+
+$$c_k = \sum_{t=0}^{N-1} y_t e^{-2\pi j(k t)/N}$$
+
+with $k=0, ..., N-1$.
+
+1. For the signal $y = [0, 1, 0, -1]$, compute all $a$, $b$, and $c$ values
+2. Write a function that takes an input of an arbitrary signal $y$, uses `numpy.fft` to compute $c$ and then returns the $a, b$, and $f$ values computed from $c$. Your function should not have a `for` loop.
+
+## Raw Periodogram
+
+The fourier series model for $y$ having an odd number $N$ time steps is
+
+$$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t$$
+
+and has least-squares estimates of $\alpha$ and $\beta$ (the fact that these are the least-square estimates can be shown) of
+
+$\ds a_0 = \frac{1}{N}\sum_{t=1}^{N} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{sin}(2\pi f_i t)$
+
+where $\ds f_i \equiv \frac{i}{N}$
+
+with $i=1,2,...,q$ and $q = (N - 1)/2$, so that there is a total of $N$ unknown parameters in the model equation.
+
+If $N$ is even, then $q=N/2$ and $b_q = 0$ and the number of free parameters in the model equation is still $N$.  Also, the last $a$ terms simplifies: $\ds a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
+
+The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$.
+
+The raw periodogram is defined as
+
+$$I(f_i) = \frac{N}{2}\left(a_i^2 + b_i^2\right)$$
+
+for $i = 1,2,...,q$.
+
+1. Create a "white noise" signal by creating a time series with $N=1000$ values drawn from a gaussian with zero mean an unit variance and plot $I(f_i)$ vs $f_i$.
+
+2. Use the parametric bootstrap to estimate the sampling distribution of $f_2$. Use this sampling distribution to estimate a 99\% confidence interval for $I(f_2)$ computed in part 1.
+
+3. What is the theoretical sampling distribution of $I(f_2)$? Derive this or cite a reference.
+
+**Answer**
+
+See [HW9_2.py](hws/HW9_2.py).
+
+The sampling distribution of $I(f_i)$ is $\chi^2_2$ (Chi-squared with two degrees of freedom) unless $i=0$ or $i=N/2$ when $N$ is even, in which case it is $\chi^2_1$ (Chi-squared with two degrees of freedom). See Wilks 2016 Eqn 10.79 (pg 541); see also [some lecture notes](https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/20.pdf). The Chi-square distribution arises when one adds the squares of $\mathcal{N}(0,\sigma^2)$--distributed values. (Recall that the sum--of--square error for linear regression was Chi--squared distributed.)
+
+## Spectrograms and STFT
+
+Quite often, the periodicities in a signal change with time. For example for the first half a measurement of a time series, there may be a single dominant frequency. In the second half, the dominant frequency may have changed. If one computes the periodogram of the entire time series, there will be peaks at the two dominant frequencies, but the fact that the dominant frequency was time dependent is lost.
+
+A spectrogram is based on a series of "Short--Time Fourier Transforms" (STFTs). The procedure is to split the full time series into segments and compute the Fourier coefficients for each segment.
+
+1. Create a time series segment of length $N=1000$ that is a sin wave of period $20$. Append to this a time series segment of length $N=1000$ that is a sin wave with period $10$. Plot the combined time series.
+2. Compute and plot the periodogram of the combined time series. 
+3. Compute and plot the periodogram of each segment. Put the periodograms in a `numpy` array with two rows. Plot the periodograms on the same axis.
+4. Compute $n=200$ periodograms by splitting the full time series (length $2000$) into non--overlapping subsegments of length $10$. Put the periodograms into a `numpy` array with $200$ rows. Plot the matrix as [a heatmap](https://seaborn.pydata.org/generated/seaborn.heatmap.html). The $x$ axis should be the subsegment number ($1, ..., 200)$, the $y$ axis should be frequency, and the colorbar should correspond to $I$.
