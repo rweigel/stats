@@ -103,7 +103,9 @@ This procedure was used in HWs [HW 2.3](hw.html#hw-2), [HW 2.4](hw.html#hw-2), a
 
 Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$. Repeat $n_s$ and plot the pdf or histogram of the $n_s$ $\overline{x}$ values.
 
-This method does not have practical value -- if you know the distribution and its parameters, you can simply use the analytical equation for the pdf. I generally have students use a parametric simulation to reinforce the idea of the meaning of the sampling distribution of a test statistic -- that it is a hypothetical distribution that would result if you could do many repeated experiments.
+This method does not always have practical value -- if you know the distribution and its parameters, you can simply use the analytical equation for the pdf. (However, one can come invent a case where the population is based on known pdfs but the composite pdf is unknown; for example if the probability of a value in a population is given by a complex product of known pdfs)
+
+I generally have students use a parametric simulation to reinforce the idea of the meaning of the sampling distribution of a test statistic -- that it is a hypothetical distribution that would result if you could do many repeated experiments.
 
 ### Bootstrap
 
@@ -318,6 +320,7 @@ The following references are not needed for this course, but you may find them u
 1. [Probability and Statistics, M.H. DeGroot and M.J. Schervish (4th ed)](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★) -- Similar in scope and coverage of Devore.
 1.  [Probability Theory: A Concise Course, Y.A. Rozanov](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★)
 1. [Introduction to Probability Theory and Statistical Inference (3rd ed), H.J. Larson](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) 
+1. [Statistical Methods in the Atmospheric Sciences, Wilks 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/view?usp=drive_link★★★★★remove★★★★★)
 1. [Introduction to Probabability, 2019 (2nd ed) J.K. Blitzstein and J. Hwang](https://projects.iq.harvard.edu/stat110/home)
 1. [Introduction to Probability Theory](https://online.stat.psu.edu/stat414/)
 1. [Introduction to Computational Finance](https://bookdown.org/compfinezbook/introcompfinr/)
