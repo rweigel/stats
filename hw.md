@@ -914,13 +914,23 @@ To compute the 95% confidence interval for the bootstrap case, and if you comput
 
 **Answer**
 
+[HW5_1.py](solns/HW5_1.py)
+
 <img src="solns/HW5_1a.svg"/>
+
+Note that the width of the boostrap confidence interval is similar to the "textbook" confidence interval, but the centers differ. The bootstrap $\langle S^2\rangle$ is biased downwards from the sample $S^2$. This is a known problem with bootstrap confidence intervals, and there are [alternatives](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Methods_for_bootstrap_confidence_intervals). In general, one should try several confidence intervals and also attempt to understand bootstrap confidence intervals using simulations with data having known sampling distributions, as was done here.
 
 <img src="solns/HW5_1b.svg"/>
 
 ## Textbook Confidence Interval
 
 In problem 5.2, you compared a "textbook" confidence interval with that using the bootstrap. Find a problem in a textbook (or online resource) where the data is given an a confidence interval is computed using a formula. Then compute a confidence interval using the bootstrap.
+
+**Answer**
+
+[HW5_2.py](solns/HW5_2.py)
+
+<img src="solns/HW5_2.svg"/>
 
 ## Reading
 

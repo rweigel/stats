@@ -1192,8 +1192,7 @@ Devore p 270
 Another way of rebutting $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ is to consider two experiments. If experiment $a$ yields a 95% CI of $(1,2)$ and we conclude
  
 The above statements are $\mu$ is in range $(1,2)$ with probability $0.95$ and $\mu$ is in the range $(2,3)$ with probability $0.95$. This implies that $\mu$ is in the range $(1,3)$ with probability of $0.95+0.95$, which is greater than $1$. Clearly the interpretation of confidence intervals as $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ cannot be correct.
- 
- 
+
 Devore Equation 7.5
 
 > A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
@@ -1225,6 +1224,10 @@ Devore Equation 7.17
 Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
  
 It is best to always think of the $\alpha/2$ values as corresponding to a small area.
+
+### Boostrap
+
+[Several method](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Methods_for_bootstrap_confidence_intervals)
 
 ## Hypothesis Tests
 
