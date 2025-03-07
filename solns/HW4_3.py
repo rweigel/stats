@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import datetime as datetime
 import scipy.stats as stats
 
-test = True
+test = False
 
 def pmf(bin_edges, data, **kwargs):
   import warnings

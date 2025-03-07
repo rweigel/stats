@@ -19,7 +19,7 @@ hist_kwargs = {
 }
 
 def _savefig(fig):
-  plt.savefig(f'ci_examples_{fig}.png', dpi=300, bbox_inches='tight')
+  plt.savefig(f'figures/sampling_dists_{fig}.png', dpi=300, bbox_inches='tight')
   plt.close()
 
 def _annotate(title=''):
@@ -53,7 +53,7 @@ x_bar_grid = np.linspace(-4*σ/np.sqrt(n), 4*σ/np.sqrt(n), 1000)
 d = np.sqrt(2*np.pi)*(σ/np.sqrt(n))
 x_bar_sampling_dist = (1/d)*np.exp(-(x_bar_grid-μ)**2/(2*(σ/np.sqrt(n))**2))
 # Or
-#x_bar_sampling_dist = scipy.stats.norm(loc=μ, scale=σ/np.sqrt(n)).pdf(x_bar)
+#x_bar_sampling_dist = scipy.stats.norm(loc=μ, scale=σ/np.sqrt(n)).pdf(x_bar_grid)
 
 # If we re-run this code many times, green line will move around. Most often
 # it will be near zero.
