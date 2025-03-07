@@ -960,6 +960,8 @@ Save your hand--written answers as `HW6_1.pdf`, plots as `HW6_1{a,b,etc}.png`, a
 
 **Answer**
 
+[HW6_1.py](solns/HW6_1.py)
+
 1. 95% CI is [2.12, 2.68]. See Figure 1.
 2. 2.4 is in the rejection region for $H_0\Rightarrow$ Reject claim.
 3. Here we rejected, so probability this was incorrect is 5%. See Figure 2.
@@ -987,6 +989,22 @@ Figure 4: $\beta$ for a range of $\mu'$ values. Note that the $\mu'=\mu=2$ case 
 Instead of performing a hypothesis test on a claim such as $H_0$: $\mu=2$ and $H_a$: $\mu \ne 2$ with a significance level of $\alpha$, some researchers will simply state "$\mu \ne 2$ with $P=0.0047$". What does this mean? Provide a visual explanation.
 
 Save your hand--written answers as `HW6_2.pdf`, plots as `HW6_2.png`, and code as `HW6_2.py`. (If your annotations are sufficient to answer the question, the pdf may be omitted.)
+
+**Answer**
+
+Code for figure is in [HW6_1.py](solns/HW6_1.py).
+
+The figure below is Figure 2. from the previous problem modified so the total rejection area is $p/2$. When one states "$\mu \ne 2$ with $P=0.0047$", it means $\overline{x}_{\text{sample}}$ was such that the rejection area $H_0$ is $p$. Usually the researcher will state what $\overline{x}_{\text{sample}}$ is. Based on the statement and the fact that the non--rejection region limits are $[1.6, 2.4]$, we can conclude that the researcher's sample yielded $\overline{x}=1.6$ or $\overline{x}=2.4$.
+
+The logic associated with "$\mu \ne 2$ with $P=0.0047$" is
+
+* $\alpha=0.0047$
+* $H_0$: $\mu=2$
+* $H_a$: $\mu\ne 2$
+
+The experiment gave $\overline{x}_{\text{sample}}=2.4$ (or 1.6) $\Rightarrow$ reject $H_0$.
+
+<img src="solns/HW6_2.svg"/>
 
 ## Interpretation results of HW 6.1 and 6.2
 

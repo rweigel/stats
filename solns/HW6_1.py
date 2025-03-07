@@ -26,16 +26,16 @@ def _annotate():
   plt.ylabel('Probability density')
   plt.grid()
 
-def _plot_type_I_areas(x_bar_grid, x_bar_sampling_dist, alpha_limits):
+def _plot_type_I_areas(x_bar_grid, x_bar_sampling_dist, alpha_limits, alpha='0.05'):
   plt.fill_between(x_bar_grid, x_bar_sampling_dist,
                   where=(x_bar_grid >= alpha_limits[0]) & (x_bar_grid <= alpha_limits[1]),
                   color='green', alpha=0.5, label='non-rejection region for $H_0$: $\\mu=2$')
   plt.fill_between(x_bar_grid, x_bar_sampling_dist,
                   where=(x_bar_grid < alpha_limits[0]),
-                  color='red', alpha=0.5, label='rejection region for $H_0$')
+                  color='red', alpha=1.0, label=f'rejection region for $H_0$. Area = $\\alpha$ = {alpha}')
   plt.fill_between(x_bar_grid, x_bar_sampling_dist,
                   where=(x_bar_grid > alpha_limits[1]),
-                  color='red', alpha=0.5)
+                  color='red', alpha=1.0)
 
 def _plot_type_II_area(μ_prime_grid, μ_prime_sampling_dist, alpha_limits, beta):
   #print(f"Area under the $\\mu'$ curve between CI limits for μ_prime: {beta:.4f}")
@@ -79,6 +79,32 @@ plt.text(alpha_limits[1], -0.02, f'{alpha_limits[1]:.2f}',
 
 plt.legend(loc='upper left', fontsize=8, facecolor='white', framealpha=1)
 _savefig("b")
+
+# HW6_2
+# Find p value for x=x_bar
+p_value = 2 * (1 - norm.cdf(np.abs(x_bar - μ) / (σ / np.sqrt(n))))
+print(f'p value for x={x_bar}: {p_value:.4f}')
+
+# Find x_bar values associated with p=0.0047
+plt.close()
+_plot_pdf(x_bar_grid, x_bar_sampling_dist)
+_annotate()
+p_value = 0.0047
+z_value = norm.ppf(p_value/2)
+x_sample_value = (σ/np.sqrt(n))*z_value + μ
+print(f'z value associated with p={p_value}: {z_value:.4f}')
+alpha_limits = [x_sample_value, 2*μ - x_sample_value]
+print(f'alpha = {100*p_value:0.2}% limits: [{alpha_limits[0]:.2f}, {alpha_limits[1]:.2f}]')
+_plot_type_I_areas(x_bar_grid, x_bar_sampling_dist, alpha_limits, alpha=f'{p_value:.4f}')
+plt.xlim([1.5, 2.5])
+plt.ylim([0, 3])
+#plt.text(alpha_limits[0], -0.02, f'{alpha_limits[0]:.2f}',
+#         horizontalalignment='center', verticalalignment='top', color='red')
+#plt.text(alpha_limits[1], -0.02, f'{alpha_limits[1]:.2f}',
+#         horizontalalignment='center', verticalalignment='top', color='red')
+plt.legend(loc='upper left', fontsize=8, facecolor='white', framealpha=1)
+plt.savefig('HW6_2.png', dpi=300, bbox_inches='tight')
+plt.savefig('HW6_2.svg', transparent=True)
 
 # Part 3
 plt.close()
