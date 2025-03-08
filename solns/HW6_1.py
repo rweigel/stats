@@ -21,6 +21,8 @@ def _annotate():
   title = f'$\\overline{{x}}_{{sample}}$ based on $n={n}$ values of $x$ drawn from $N(\\mu={μ}, \\sigma^2={σ2})$'
   plt.title(title)
   plt.ylim([0, 3.0])
+  plt.gca().spines['top'].set_visible(False)
+  plt.gca().spines['right'].set_visible(False)
 
   plt.axvline(μ, color='k', linewidth=3)
   plt.text(μ, 2.9, f' $\\mu={μ}$', ha='left')
