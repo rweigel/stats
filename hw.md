@@ -1057,7 +1057,8 @@ For parts 6. and 7., see [Devore Chapter 12]((https://drive.google.com/file/d/1b
 
 10. In 2--D regression model, $y_i = \beta_1 x_{1i} + \beta_2 x_{2i} + + \beta_3 x_{3i} \alpha + \epsilon_i$, problems occur if $x_{1i}$ and $x_{2i}$ are correlated (called "multicollinearity"). 
 
-   On [this web page](https://statisticsbyjim.com/regression/multicollinearity-in-regression-analysis/), an example is given using real data. The author, Jim, notes that the problems created by multicollinearity include:
+   On [this web page](https://statisticsbyjim.com/regression/multicollinearity-in-regression-analysis/), an example is given using real data. 
+   The author, Jim, notes that the problems created by multicollinearity include:
    
     * The coefficient estimates can swing wildly based on which other independent variables are in the model.
     * The coefficients become very sensitive to small changes in the model.
