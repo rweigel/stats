@@ -20,7 +20,7 @@ def _annotate():
 
   title = f'$\\overline{{x}}_{{sample}}$ based on $n={n}$ values of $x$ drawn from $N(\\mu={μ}, \\sigma^2={σ2})$'
   plt.title(title)
-  plt.ylim([0, 4.5])
+  plt.ylim([0, 3.0])
   plt.axvline(μ, color='k', linewidth=3, label=r'$\mu$')
   plt.xlabel('$\\overline{x}$')
   plt.ylabel('Probability density')
@@ -28,14 +28,14 @@ def _annotate():
 
 def _plot_type_I_areas(x_bar_grid, x_bar_sampling_dist, alpha_limits, alpha='0.05'):
   plt.fill_between(x_bar_grid, x_bar_sampling_dist,
-                  where=(x_bar_grid >= alpha_limits[0]) & (x_bar_grid <= alpha_limits[1]),
-                  color='green', alpha=0.5, label='non-rejection region for $H_0$: $\\mu=2$')
-  plt.fill_between(x_bar_grid, x_bar_sampling_dist,
                   where=(x_bar_grid < alpha_limits[0]),
-                  color='red', alpha=1.0, label=f'rejection region for $H_0$. Area = $\\alpha$ = {alpha}')
+                  color='red', alpha=1.0, label=f'rejection region for $H_0$: $\\mu=2$. Area = $\\alpha$ = {alpha}')
   plt.fill_between(x_bar_grid, x_bar_sampling_dist,
                   where=(x_bar_grid > alpha_limits[1]),
                   color='red', alpha=1.0)
+  plt.fill_between(x_bar_grid, x_bar_sampling_dist,
+                  where=(x_bar_grid >= alpha_limits[0]) & (x_bar_grid <= alpha_limits[1]),
+                  color='green', alpha=0.5, label='non-rejection region for $H_0$. Area = $1-\\alpha$')
 
 def _plot_type_II_area(μ_prime_grid, μ_prime_sampling_dist, alpha_limits, beta):
   #print(f"Area under the $\\mu'$ curve between CI limits for μ_prime: {beta:.4f}")
@@ -49,12 +49,19 @@ def _plot_pdf(x_bar_grid, x_bar_sampling_dist, ls='-'):
   else:
     var = "\\mu'"
   label = f'Sampling distribution of $\\overline{{x}}$ = $N({var}, \\sigma^2/n)$'
-  plt.plot(x_bar_grid, x_bar_sampling_dist, ls=ls, color='black', label=label)
+  plt.plot(x_bar_grid, x_bar_sampling_dist, ls=ls, linewidth=1, color='black', label=label)
 
 def _savefig(fig):
   plt.savefig(f'HW6_1{fig}.png', dpi=300, bbox_inches='tight')
-  plt.savefig(f'HW6_1{fig}.svg', transparent=True)
+  plt.savefig(f'HW6_1{fig}.svg', transparent=True, bbox_inches='tight')
 
+legend_kwargs = {
+  'loc': 'upper center',
+  'bbox_to_anchor': (0.5, -0.15),
+  'fontsize': 10,
+  'facecolor': 'white',
+  'framealpha': 0
+}
 x_bar_grid, x_bar_sampling_dist = _norm_pdf(μ, σ/np.sqrt(n))
 
 # Part 1
@@ -64,7 +71,7 @@ _plot_pdf(x_bar_grid, x_bar_sampling_dist)
 _annotate()
 plt.axvline(x_bar, linestyle=':', color='k', linewidth=3, label=r'$\overline{x}_{sample}$')
 plt.plot(ci, [0, 0], 'b', linewidth=5, label=f'95% CI for $\\mu$ given $\\overline{{x}}_{{sample}}={x_bar}$: [{ci[0]:.2f}, {ci[1]:.2f}]')
-plt.legend(loc='upper left', fontsize=8, facecolor='white', framealpha=1)
+plt.legend(**legend_kwargs)
 _savefig("a")
 
 # Part 2
@@ -77,7 +84,7 @@ plt.text(alpha_limits[0], -0.02, f'{alpha_limits[0]:.2f}',
 plt.text(alpha_limits[1], -0.02, f'{alpha_limits[1]:.2f}',
          horizontalalignment='center', verticalalignment='top', color='red')
 
-plt.legend(loc='upper left', fontsize=8, facecolor='white', framealpha=1)
+plt.legend(**legend_kwargs)
 _savefig("b")
 
 # HW6_2
@@ -93,16 +100,13 @@ p_value = 0.0047
 z_value = norm.ppf(p_value/2)
 x_sample_value = (σ/np.sqrt(n))*z_value + μ
 print(f'z value associated with p={p_value}: {z_value:.4f}')
-alpha_limits = [x_sample_value, 2*μ - x_sample_value]
-print(f'alpha = {100*p_value:0.2}% limits: [{alpha_limits[0]:.2f}, {alpha_limits[1]:.2f}]')
-_plot_type_I_areas(x_bar_grid, x_bar_sampling_dist, alpha_limits, alpha=f'{p_value:.4f}')
+alpha_limits_p = [x_sample_value, 2*μ - x_sample_value]
+print(f'alpha = {100*p_value:0.2}% limits: [{alpha_limits_p[0]:.2f}, {alpha_limits_p[1]:.2f}]')
+_plot_type_I_areas(x_bar_grid, x_bar_sampling_dist, alpha_limits_p, alpha=f'{p_value:.4f}')
 plt.xlim([1.5, 2.5])
 plt.ylim([0, 3])
-#plt.text(alpha_limits[0], -0.02, f'{alpha_limits[0]:.2f}',
-#         horizontalalignment='center', verticalalignment='top', color='red')
-#plt.text(alpha_limits[1], -0.02, f'{alpha_limits[1]:.2f}',
-#         horizontalalignment='center', verticalalignment='top', color='red')
-plt.legend(loc='upper left', fontsize=8, facecolor='white', framealpha=1)
+plt.title('')
+plt.legend(**legend_kwargs)
 plt.savefig('HW6_2.png', dpi=300, bbox_inches='tight')
 plt.savefig('HW6_2.svg', transparent=True)
 
@@ -116,7 +120,8 @@ _plot_pdf(x_bar_grid, x_bar_sampling_dist)
 _plot_pdf(μ_prime_grid, μ_prime_sampling_dist, ls=':')
 _plot_type_I_areas(x_bar_grid, x_bar_sampling_dist, alpha_limits)
 _plot_type_II_area(μ_prime_grid, μ_prime_sampling_dist, alpha_limits, beta)
-plt.legend(loc='upper left', fontsize=8, facecolor='white', framealpha=1)
+plt.legend(**legend_kwargs)
+plt.title('')
 _savefig("c")
 
 # Part 4
