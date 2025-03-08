@@ -1053,6 +1053,19 @@ For parts 6. and 7., see [Devore Chapter 12]((https://drive.google.com/file/d/1b
 
 9. Compute the correlation coefficient, cc, between $a-\alpha$ and $b-\beta$ using the values from part 5. Test the hypothesis $H_0$: cc $= 0$, $H_a$: cc $\ne 0$ and state at what significance level $H_0$ can be rejected (that is, compute the $P$ value).
 
+**Extra credit**
+
+10. In 2--D regression model, $y_i = \beta_1 x_{1i} + \beta_2 x_{2i} + + \beta_3 x_{3i} \alpha + \epsilon_i$, problems occur if $x_{1i}$ and $x_{2i}$ are correlated (called "multicollinearity"). 
+
+   On [this web page](https://statisticsbyjim.com/regression/multicollinearity-in-regression-analysis/), an example is given using real data. The author, Jim, notes that the problems created by multicollinearity include:
+   
+    * The coefficient estimates can swing wildly based on which other independent variables are in the model.
+    * The coefficients become very sensitive to small changes in the model.
+   
+   Jim also notes that "Multicollinearity affects the coefficients and p-values, but it does not influence the predictions, precision of the predictions, and the goodness-of-fit statistics. If your primary goal is to make predictions, and you don’t need to understand the role of each independent variable, you don’t need to reduce severe multicollinearity.""
+
+   Devise a numerical experiment using data that you create that demonstrates the above statements by Jim. Save your code and plots with the prefix `HW7_1_Jim`
+
 ## DFT and the Raw Periodogram
 
 The Fourier series model for $y$ having an odd number $N$ time steps is
