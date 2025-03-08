@@ -10,6 +10,20 @@ n = 100
 x_bar = 2.4
 μ_prime = 2.2
 
+text_kwargs = {
+  'horizontalalignment': 'center',
+  'verticalalignment': 'bottom',
+  'bbox': {'facecolor': 'white', 'edgecolor': 'white'}
+}
+
+legend_kwargs = {
+  'loc': 'upper center',
+  'bbox_to_anchor': (0.5, -0.15),
+  'fontsize': 10,
+  'facecolor': 'white',
+  'framealpha': 0
+}
+
 def _norm_pdf(μ, σ, x=None):
   if x is None:
     x = μ + np.linspace(-4*σ, 4*σ, 1000)
@@ -24,8 +38,8 @@ def _annotate():
   plt.gca().spines['top'].set_visible(False)
   plt.gca().spines['right'].set_visible(False)
 
-  plt.axvline(μ, color='k', linewidth=3)
-  plt.text(μ, 3.0, f' $\\mu={μ}$', ha='left', va='bottom')
+  plt.plot([μ, μ], [0, 3], color='k', linewidth=3)
+  plt.text(μ, 3.07, ' $\\mu$', **text_kwargs)
   plt.xlabel('$\\overline{x}$')
   plt.ylabel('Probability density')
   plt.grid()
@@ -62,13 +76,6 @@ def _savefig(fig):
   plt.savefig(f'HW6_1{fig}.png', dpi=300, bbox_inches='tight')
   plt.savefig(f'HW6_1{fig}.svg', transparent=True, bbox_inches='tight')
 
-legend_kwargs = {
-  'loc': 'upper center',
-  'bbox_to_anchor': (0.5, -0.15),
-  'fontsize': 10,
-  'facecolor': 'white',
-  'framealpha': 0
-}
 x_bar_grid, x_bar_sampling_dist = _norm_pdf(μ, σ/np.sqrt(n))
 
 # Part 1
@@ -76,8 +83,9 @@ ci = [x_bar - 1.96*σ/np.sqrt(n), x_bar + 1.96*σ/np.sqrt(n)]
 print(f'95% CI for μ given x_bar={x_bar}: [{ci[0]:.2f}, {ci[1]:.2f}]')
 _plot_pdf(x_bar_grid, x_bar_sampling_dist)
 _annotate()
-plt.axvline(x_bar, linestyle=':', color='k', linewidth=3)
-plt.text(x_bar, 3.0, r' $\overline{x}_{sample}$', va='bottom')
+plt.plot([x_bar, x_bar], [0, 3], linestyle=':', color='k', linewidth=3)
+plt.text(x_bar, 3.07, r' $\overline{x}_{sample}$', **text_kwargs)
+
 plt.plot(ci, [0, 0], 'b', linewidth=5, label=f'95% CI for $\\mu$ given $\\overline{{x}}_{{sample}}={x_bar}$: [{ci[0]:.2f}, {ci[1]:.2f}]')
 plt.legend(**legend_kwargs)
 _savefig("a")
@@ -121,8 +129,8 @@ plt.savefig('HW6_2.svg', transparent=True)
 plt.close()
 beta = norm.cdf(ci[1], loc=μ_prime, scale=σ/np.sqrt(n)) - norm.cdf(ci[0], loc=μ_prime, scale=σ/np.sqrt(n))
 _annotate()
-plt.axvline(μ_prime, linestyle=':', color='k', linewidth=3)
-plt.text(μ_prime, 2.9, r" $\mu'$")
+plt.plot([μ_prime, μ_prime], [0, 3.0], linestyle=':', color='k', linewidth=3)
+plt.text(μ_prime, 3.07, r" $\mu'$", **text_kwargs)
 _plot_pdf(x_bar_grid, x_bar_sampling_dist)
 μ_prime_grid, μ_prime_sampling_dist = _norm_pdf(μ_prime, σ/np.sqrt(n))
 _plot_pdf(μ_prime_grid, μ_prime_sampling_dist, ls=':', label=False)
