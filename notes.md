@@ -1445,39 +1445,62 @@ with $k=0, ..., N-1$.
 1. For the signal $y = [0, 1, 0, -1]$, compute all $a$, $b$, and $c$ values
 2. Write a function that takes an input of an arbitrary signal $y$, uses `numpy.fft` to compute $c$ and then returns the $a, b$, and $f$ values computed from $c$. Your function should not have a `for` loop.
 
-## Raw Periodogram
+## DFT and the Raw Periodogram
 
-The fourier series model for $y$ having an odd number $N$ time steps is
+The Fourier series model for $y$ having an odd number $N$ time steps is
 
-$$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t$$
+$$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t\thinspace,$$
 
-and has least-squares estimates of $\alpha$ and $\beta$ (the fact that these are the least-square estimates can be shown) of
+where $\ds f_i \equiv \frac{i}{N}$ and has least-squares estimates of $\alpha$ and $\beta$ of
 
-$\ds a_0 = \frac{1}{N}\sum_{t=1}^{N} y_t \equiv \overline{y}$ 
+$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
 $\quad$
-$\ds a_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{cos}(2\pi f_i t)$
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
 $\quad$
-$\ds b_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{sin}(2\pi f_i t)$
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
 
-where $\ds f_i \equiv \frac{i}{N}$
+with $i=1,2,...,q$ and 
 
-with $i=1,2,...,q$ and $q = (N - 1)/2$, so that there is a total of $N$ unknown parameters in the model equation.
+$
+q = 
+\begin{cases}
+  N/2 &       \text{if } N \text{ even} \\
+  (N - 1)/2 & \text{if } N \text{ odd}
+\end{cases}
+$
 
-If $N$ is even, then $q=N/2$ and $b_q = 0$ and the number of free parameters in the model equation is still $N$.  Also, the last $a$ terms simplifies: $\ds a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
+The values of $a$ and $b$ are also called the discrete fourier transform (DFT) coefficients.
 
-The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$.
+There are a total of $N$ unknown parameters in the model equation. If $N$ is even, $b_q = 0$ and so the number of free parameters in the model equation is still $N$; also, the last $a$ terms simplifies: $a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
 
-The raw periodogram is defined as
+(The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the Fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$. In the E&M book by Griffiths, he calls this "Fourier's trick".)
+
+The raw periodogram is defined as ([Box and Jenkins, 2016](https://drive.google.com/file/d/19hUNP5eYHSxP1oJTK_FOGKIZT1LELmo2/view?usp=sharing★★★★remove★★★★))
 
 $$I(f_i) = \frac{N}{2}\left(a_i^2 + b_i^2\right)$$
 
-for $i = 1,2,...,q$.
+for $i = 1,2,...,q$. To understand it, suppose $a_1=A$ and $b_1=B$, then $\left(A^2 + B^2\right)$ is the maximum value of $A\cos(2\pi t) + B\sin(2\pi t)$. When you compute the power of a wave, you compute $A^2+B^2$, so the quantity $I(f_i)$ is related to the "raw power spectrum" by a scaling factor.
 
-1. Create a "white noise" signal by creating a time series with $N=1000$ values drawn from a gaussian with zero mean an unit variance and plot $I(f_i)$ vs $f_i$.
+Similar to the issue with "probability distribution", "power spectrum" is ambiguous. It could mean $2I/N$ so the units are the units of $y$ squared or it could be a "density", $(2I/N)/(f_1)$, so the units are (units of $y^2$)/(units of frequency). I typically avoid this issue by either labeling my y--axis as $I$ with caption (periodogram) or by using the label $|\text{DFT}|^2$ and caption "Magnitude of discrete Fourier transform amplitudes" if I am plotting $2I/N$.
 
-2. Use the parametric bootstrap to estimate the sampling distribution of $f_2$. Use this sampling distribution to estimate a 99\% confidence interval for $I(f_2)$ computed in part 1.
+As an example of ambiguity, consider the two plots in the [Wikipedia entry for Periodogram](https://en.m.wikipedia.org/w/index.php?title=Periodogram&oldid=1133547799). The y--axis is labeled "Spectrum" and the title is "Periodogram". In my definition above, the "spectrum" is the $2/N$ times the periodogram, $I$ so these annotations are confusing.
 
-3. What is the theoretical sampling distribution of $I(f_2)$? Derive this or cite a reference.
+1. This part is not related to statistics, but I find myself doing this when I am trying to figure out what someone did to compute a plot and also to understand various other aspects of DFT calculations. The reason it is so complicated is the definition issue above, indexing (MATLAB uses 1--based indexing, Python 0--based), and the fact that $q$ depends on if $N$ is even or odd.
+
+   Consider the signal $y=[0, 1, 0, -1]$.
+   
+   Compute all $a$ and $b$ values using the above formulas.
+   
+   Use a library (e.g., `numpy.fft`) to compute $a$ and $b$. Note that most libraries compute a quantity related to $a$ and $b$ and their output is an array of complex values.
+
+2. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean an unit variance and plot $I(f_i)$ vs $f_i$. The plot of $I$ should be noisy. One problem with raw periodograms is that they are noisy. There are entire books dedicated to dealing with this.
+
+3. Plot the histogram of $I$ values.
+
+**590 Only**
+
+4. Look up the sampling distribution of $I$ and add it on to the histogram.
+5. Modify the white noise time series by adding a periodic signal $A\sin(2\pi t/100)$ and plot $I$. At what value of $A$ can you "see" evidence of the periodic signal? Suppose you were given only the values of $I$ and want to determine there is evidence of a periodic signal. Describe in words the analysis that you would perform.
 
 **Answer**
 
