@@ -44,8 +44,6 @@ Last class
 
 ## April 3rd
 
-## April 3rd
-
 ## March 27th
 
 ## March 20th

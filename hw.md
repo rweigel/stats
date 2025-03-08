@@ -1012,6 +1012,27 @@ Write an interpretation of the results of problems 6.1 and 6.2 that is wrong in 
 
 In class, we will vote on the "best worst" answer. Attempt to pack as many mistakes in as few words as possible. Save your answer in `HW6_3.pdf`.
 
+# HW 7
+
+Due Friday, March 28th at 11:59 pm. I expect that most student will be mostly finished by class on Thursday, March 27th; I am giving an extra day so that you can ask questions during a class.
+
+##
+
+##
+
+## Project
+
+Perform exploratory data analysis on your project data. The objective is find ways of presenting the data that "tells the story" of its key features. What you choose to present will depend on the data and your creativity.
+
+Save the code and plots in a subdirectory named `project` in your repository. Save your code as `project_I.py` and plots as `project_I{a,b,...}.png`.
+
+In class on April 3rd (or March 27th if you are ready), you will
+
+1. give a 2--minute description about the project data (where from, what values are in it, what it is used for); and
+2. present at least three plots in class. If your data are time series, the first plot should be a time series of all of the data.
+
+Do not create a PowerPoint presentation. For part 1., use the whiteboard if needed. For 2. I will show the plots when you ask me to and you will explain them.
+
 # Midterm
 
 The closed--book and closed--notes midtem will have four problems:
