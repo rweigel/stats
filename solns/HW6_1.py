@@ -21,7 +21,9 @@ def _annotate():
   title = f'$\\overline{{x}}_{{sample}}$ based on $n={n}$ values of $x$ drawn from $N(\\mu={μ}, \\sigma^2={σ2})$'
   plt.title(title)
   plt.ylim([0, 3.0])
-  plt.axvline(μ, color='k', linewidth=3, label=r'$\mu$')
+
+  plt.axvline(μ, color='k', linewidth=3)
+  plt.text(μ, 2.9, f' $\\mu={μ}$', ha='left')
   plt.xlabel('$\\overline{x}$')
   plt.ylabel('Probability density')
   plt.grid()
@@ -43,13 +45,16 @@ def _plot_type_II_area(μ_prime_grid, μ_prime_sampling_dist, alpha_limits, beta
                   where=(μ_prime_grid <= alpha_limits[1]) & (μ_prime_grid >= alpha_limits[0]),
                   hatch='xx', alpha=0, label=f'Type II error region; area = $\\beta$ = {beta:0.2f}')
 
-def _plot_pdf(x_bar_grid, x_bar_sampling_dist, ls='-'):
+def _plot_pdf(x_bar_grid, x_bar_sampling_dist, ls='-', label=True):
   if ls == '-':
     var = '\\mu'
   else:
     var = "\\mu'"
-  label = f'Sampling distribution of $\\overline{{x}}$ = $N({var}, \\sigma^2/n)$'
-  plt.plot(x_bar_grid, x_bar_sampling_dist, ls=ls, linewidth=1, color='black', label=label)
+  plt.plot(x_bar_grid, x_bar_sampling_dist, ls=ls, linewidth=1, color='black')
+  if label:
+    label = f'Sampling dist. of\n$\\overline{{x}}$ = $N({var}, \\sigma^2/n)$'
+    plt.annotate(label, xytext=(1.55, 2.5), xy=(1.88, 2.0),
+                arrowprops=dict(arrowstyle="->"), ha='left', va='center')
 
 def _savefig(fig):
   plt.savefig(f'HW6_1{fig}.png', dpi=300, bbox_inches='tight')
@@ -69,7 +74,8 @@ ci = [x_bar - 1.96*σ/np.sqrt(n), x_bar + 1.96*σ/np.sqrt(n)]
 print(f'95% CI for μ given x_bar={x_bar}: [{ci[0]:.2f}, {ci[1]:.2f}]')
 _plot_pdf(x_bar_grid, x_bar_sampling_dist)
 _annotate()
-plt.axvline(x_bar, linestyle=':', color='k', linewidth=3, label=r'$\overline{x}_{sample}$')
+plt.axvline(x_bar, linestyle=':', color='k', linewidth=3)
+plt.text(x_bar, 2.9, r' $\overline{x}_{sample}$')
 plt.plot(ci, [0, 0], 'b', linewidth=5, label=f'95% CI for $\\mu$ given $\\overline{{x}}_{{sample}}={x_bar}$: [{ci[0]:.2f}, {ci[1]:.2f}]')
 plt.legend(**legend_kwargs)
 _savefig("a")
@@ -114,10 +120,11 @@ plt.savefig('HW6_2.svg', transparent=True)
 plt.close()
 beta = norm.cdf(ci[1], loc=μ_prime, scale=σ/np.sqrt(n)) - norm.cdf(ci[0], loc=μ_prime, scale=σ/np.sqrt(n))
 _annotate()
-plt.axvline(μ_prime, linestyle=':', color='k', linewidth=3, label=f"$\\mu'={μ_prime}$")
+plt.axvline(μ_prime, linestyle=':', color='k', linewidth=3)
+plt.text(μ_prime, 2.9, r" $\mu'$")
 _plot_pdf(x_bar_grid, x_bar_sampling_dist)
 μ_prime_grid, μ_prime_sampling_dist = _norm_pdf(μ_prime, σ/np.sqrt(n))
-_plot_pdf(μ_prime_grid, μ_prime_sampling_dist, ls=':')
+_plot_pdf(μ_prime_grid, μ_prime_sampling_dist, ls=':', label=False)
 _plot_type_I_areas(x_bar_grid, x_bar_sampling_dist, alpha_limits)
 _plot_type_II_area(μ_prime_grid, μ_prime_sampling_dist, alpha_limits, beta)
 plt.legend(**legend_kwargs)
