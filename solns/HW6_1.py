@@ -11,9 +11,9 @@ x_bar = 2.4
 μ_prime = 2.2
 
 text_kwargs = {
-  'horizontalalignment': 'center',
+  'horizontalalignment': 'left',
   'verticalalignment': 'bottom',
-  'bbox': {'facecolor': 'white', 'edgecolor': 'white'}
+  'bbox': {'alpha': 0, 'facecolor': 'white', 'edgecolor': 'white'}
 }
 
 legend_kwargs = {

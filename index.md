@@ -133,15 +133,15 @@ This procedure was used in [HW 4.2](hw.html#hw-4).
 
 Typical problem (Devore Example 8.6)
 
-<img src="Devore_Example_8.6a.png"/>
+<img src="notes/figures/Devore_Example_8.6a.png"/>
 
-<img src="Devore_Example_8.6b.png"/>
+<img src="notes/figures/Devore_Example_8.6b.png"/>
 
-<img src="HW7_2a.svg"/>
+<img src="notes/figures/HW7_2a.svg"/>
 
-<img src="HW7_2b.svg"/>
+<img src=notes/figures/"HW7_2b.svg"/>
 
-<img src="HW7_2c.svg"/>
+<img src="notes/figures/HW7_2c.svg"/>
 
 ## February 21st
 

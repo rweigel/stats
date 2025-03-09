@@ -983,6 +983,7 @@ Figure 3.
 Figure 4: $\beta$ for a range of $\mu'$ values. Note that the $\mu'=\mu=2$ case is not plotted ($d=0$) because $\beta$ is associated with the probability of not rejecting $H_0$ when it is false so it only makes sense to check $\mu'$ values that are false with respect to $H_0$; if $\mu'=\mu$, $H_0$ is true.
 
 <img src="solns/HW6_1d.svg"/>
+----
 
 ## $P$--value
 
