@@ -1,14 +1,21 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Read CSV created by querying_the_GOES_event_list.py into a DataFrame
-df = pd.read_csv('data/querying_the_GOES_event_list.csv')
+# infile = 'data/querying_the_GOES_event_list.2000.csv'
+# print(f"Reading {infile}")
+# df = pd.read_csv(infile)
+
+# (Faster)
+# Read PKL created by querying_the_GOES_event_list.py into a DataFrame
+infile = 'data/querying_the_GOES_event_list.2000.pkl'
+print(f"Reading {infile}")
+df = pd.read_pickle(infile)
 
 # Display the first few rows of the DataFrame
 print(df.head())
 
-import matplotlib.pyplot as plt
-
-# Extract only rows where the 4th column starts with "M"
+# Extract only rows where the 4th column starts with "M" (r = reduced)
 dfr = df[df.iloc[:, 3].str.startswith('M')]
 
 # Remove the "X" from the start of the 4th column
