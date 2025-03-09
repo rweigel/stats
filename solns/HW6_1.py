@@ -1,19 +1,22 @@
 import numpy as np
-from matplotlib import pyplot as plt
 from scipy.stats import norm
+from matplotlib import pyplot as plt
 
-n = 100
-# Sample from a normal distribution with mean 0 and standard deviation 1
-μ = 2
-σ2 = 2
-σ = np.sqrt(σ2)
-x_bar = 2.4
+n       = 100
+μ       = 2
+σ2      = 2
+σ       = np.sqrt(σ2)
+x_bar   = 2.4
 μ_prime = 2.2
 
 text_kwargs = {
   'horizontalalignment': 'left',
   'verticalalignment': 'bottom',
-  'bbox': {'alpha': 0, 'facecolor': 'white', 'edgecolor': 'white'}
+  'bbox': {
+    'alpha': 0,
+    'facecolor': 'white',
+    'edgecolor': 'white'
+  }
 }
 
 legend_kwargs = {
@@ -174,4 +177,3 @@ plt.text(0.2, 0.1, "  $\\mu'=2.2$",
 plt.title("Type II error probability")
 plt.grid()
 _savefig("d")
-

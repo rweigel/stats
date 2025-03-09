@@ -2,8 +2,8 @@
 
 The data from my project is from two files
 
-* [HW4_3.xray.txt](../HW4_3.xray.txt)
-* Data obtained using [download.py](data/download.py) in the `data` directory of this repository.
+* [HW4_3.xray.txt](../HW4_3.xray.txt), which created by code in [csi763](https://github.com/rweigel/csi763/tree/main/flares).
+* Data obtained using [download.py](data/download.py) in the `data` directory of this repository. The code uses SunPy, which downloads data from [HEK](https://www.lmsal.com/hek/). The provenance of the downloaded data from HEK [seems to be not publicly available](https://community.openastronomy.org/t/what-are-the-sunpy-hek-sources/1213). However, the information for the first two flares in year 2000 match the first two in [this file](https://www.ngdc.noaa.gov/stp/space-weather/solar-data/solar-features/solar-flares/x-rays/goes/xrs/goes-xrs-report_2000.txt) (see [header documentation](https://www.ngdc.noaa.gov/stp/space-weather/solar-data/solar-features/solar-flares/x-rays/goes/xrs/documentation/miscellaneous/software/xraydatareports.pro)).
 
 # Exploratory Data Analysis
 
@@ -18,5 +18,4 @@ Figure 1: Time series of $M$-class flares in [querying_the_GOES_event_list.2000.
 # TODO
 
 * Look up more references using Google Scholar with query "GOES flare event list".
-* Find original source of GOES data that is downloaded by[querying_the_GOES_event_list.py](data/querying_the_GOES_event_list.py). (This code pull the data from NOAA data files.)
 

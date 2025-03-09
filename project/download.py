@@ -10,7 +10,7 @@ log.setLevel('DEBUG')
 event_type = "FL"
 observatory = "GOES"
 
-for year in range(2000, 2024):
+for year in range(1988, 2000):
     tstart = f"{year}/01/01"
     tend = f"{year}/12/31"
 
@@ -31,5 +31,4 @@ for year in range(2000, 2024):
 
     fname = f"download.{year}"
     print(f"Writing {fname}." + "{csv, pkl}")
-    df.to_csv(f"{fname}.csv", index=False)
-    df.to_pickle(f"{fname}.pkl")
+    df.to_csv(f"data/{fname}.csv", index=False)

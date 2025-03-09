@@ -1129,7 +1129,7 @@ As an example of ambiguity, consider the two plots in the [Wikipedia entry for P
 
 Perform exploratory data analysis on your project data. The objective is find ways of presenting the data that "tells the story" of its key features. What you choose to plot will depend on the data and your creativity.
 
-If your project involves solar flare data, use the same data as used in HW #4 for now. (I will extend the dataset to cover more years soon.)
+If your project involves solar flare data, use the same data as used in HW #4 to start. More solar flare data is available at [project](project).
 
 Save the code and plots in a subdirectory named `project` in your repository. Save your code as `project_I.py` and plots as `project_I{a,b,...}.png`.
 
