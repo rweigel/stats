@@ -29,6 +29,8 @@ HW:
 [5](hw.html#hw-5)
 |
 [6](hw.html#hw-6)
+|
+[7](hw.html#hw-7)
 
 # Class Notes
 
@@ -41,8 +43,6 @@ Last class
 ## April 17th
 
 ## April 10th
-
-## April 3rd
 
 ## April 3rd
 
