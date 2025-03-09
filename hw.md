@@ -963,10 +963,10 @@ Save your hand--written answers as `HW6_1.pdf`, plots as `HW6_1{a,b,etc}.png`, a
 [HW6_1.py](solns/HW6_1.py)
 
 1. 95% CI is [2.12, 2.68]. See Figure 1.
-2. 2.4 is in the rejection region for $H_0\Rightarrow$ Reject claim.
+2. 2.4 is in the rejection region (see Figure 2) for $H_0\Rightarrow$ Reject claim.
 3. Here we rejected, so probability this was incorrect is 5%. See Figure 2.
-4. If $\overline{x}_{\text{sample}}=2.1$, we do not reject $H_0$. This non--rejection could be wrong if true $\mu=2.2$. Figure 3. shows how this probability is computed. 
-5. If the confidence interval does not include $\mu=2.0$, we reject the hypothesis that $\mu = 2.0$. When $\overline{x}_{\text{sample}}$ is in the range $[1.72, 2.28]$ (values shown on Figure 2), we do not reject the hypothesis that $\mu=2.0$. So the confidence interval conveys the same information as the hypothesis test and when seeing only a confidence interval, you should recognize the implied hypothesis test.
+4. If $\overline{x}_{\text{sample}}=2.1$, we do not reject $H_0$. This non--rejection could be wrong if true population mean is $\mu'=2.2$. Figure 3. shows how this probability is computed. 
+5. If the confidence interval does not include $\mu=2.0$, we reject the hypothesis that $\mu = 2.0$. When $\overline{x}_{\text{sample}}$ is in the range $[1.72, 2.28]$ (values shown on Figure 2), the blue confidence interval includes $\mu=2$ and we do not reject the hypothesis that $\mu=2.0$. So the confidence interval conveys the same information as the hypothesis test and when seeing only a confidence interval, you should recognize the implied hypothesis test.
 
 Figure 1.
 
@@ -980,10 +980,9 @@ Figure 3.
 
 <img src="solns/HW6_1c.svg"/>
 
-Figure 4: $\beta$ for a range of $\mu'$ values. Note that the $\mu'=\mu=2$ case is not plotted ($d=0$) because $\beta$ is associated with the probability of not rejecting $H_0$ when it is false so it only makes sense to check $\mu'$ values that are false with respect to $H_0$; if $\mu'=\mu$, $H_0$ is true.
+Figure 4: $\beta$ for a range of $\mu'$ values. ($\mu'$ is used for values of the population mean that are not equal to the one considered in $H_0$.) Note that the $\mu'=2$ case is not plotted ($d=0$) because $\beta$ is associated with the probability of not rejecting $H_0$ when it is false so it only makes sense to check $\mu'$ values that are false with respect to $H_0$; if $\mu'=\mu$, $H_0$ is true.
 
 <img src="solns/HW6_1d.svg"/>
-----
 
 ## $P$--value
 
@@ -1012,6 +1011,10 @@ The experiment gave $\overline{x}_{\text{sample}}=2.4$ (or 1.6) $\Rightarrow$ re
 Write an interpretation of the results of problems 6.1 and 6.2 that is wrong in as many ways as possible. For inspiration, see cautions about interpretation in chapter 7 and 8 of Devore, [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★), [Greenland et al., 2016, Statistical tests, $P$ values, confidence intervals, and power: a guide to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf), or any other reference.
 
 In class, we will vote on the "best worst" answer. Attempt to pack as many mistakes in as few words as possible. Save your answer in `HW6_3.pdf`.
+
+**Comments**
+
+There were many great answers, and I can see that students spent quite a bit of time understanding correct interpretations in order to produce incorrect statements that seems reasonable.
 
 # HW 7
 
