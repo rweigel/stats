@@ -1,15 +1,11 @@
 # Modified version of code from (on 2025-03-08):
 # https://docs.sunpy.org/en/stable/generated/gallery/acquiring_data/querying_the_GOES_event_list.html
-
-"""
-==================================
-Querying the GOES flare event list
-==================================
-
-How to retrieve the GOES flare event list, sort and save the results.
-"""
 from sunpy.net import Fido
 from sunpy.net import attrs as a
+
+import logging
+log = logging.getLogger('sunpy')
+log.setLevel('DEBUG')
 
 event_type = "FL"
 observatory = "GOES"
@@ -33,7 +29,7 @@ for year in range(2000, 2024):
 
     df = filtered_results.to_pandas()
 
-    fname = f"querying_the_GOES_event_list.{year}"
+    fname = f"download.{year}"
     print(f"Writing {fname}." + "{csv, pkl}")
-    df.to_csv("{fname}.csv", index=False)
+    df.to_csv(f"{fname}.csv", index=False)
     df.to_pickle(f"{fname}.pkl")

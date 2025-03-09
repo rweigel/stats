@@ -1,14 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Read CSV created by querying_the_GOES_event_list.py into a DataFrame
-# infile = 'data/querying_the_GOES_event_list.2000.csv'
-# print(f"Reading {infile}")
-# df = pd.read_csv(infile)
-
-# (Faster)
 # Read PKL created by querying_the_GOES_event_list.py into a DataFrame
-infile = 'data/querying_the_GOES_event_list.2000.pkl'
+infile = 'data/download.2000.pkl'
 print(f"Reading {infile}")
 df = pd.read_pickle(infile)
 
