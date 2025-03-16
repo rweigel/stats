@@ -139,7 +139,7 @@ Typical problem (Devore Example 8.6)
 
 <img src="notes/figures/HW7_2a.svg"/>
 
-<img src=notes/figures/"HW7_2b.svg"/>
+<img src="notes/figures/HW7_2b.svg"/>
 
 <img src="notes/figures/HW7_2c.svg"/>
 
