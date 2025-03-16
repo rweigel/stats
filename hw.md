@@ -1053,7 +1053,7 @@ For parts 6. and 7., see [Devore Chapter 12]((https://drive.google.com/file/d/1b
 
 **590 only**
 
-8. In part 5., the non--parametric bootstrap was used to compute confidence intervals. How would the procedure be modified to use either a parametric simulation or the parametric bootstrap? (See [my notes](#sampling-distribution-notes) for definitions).
+8. In part 5., the non--parametric bootstrap was used to compute confidence intervals. How would the procedure be modified to use either a parametric simulation or the parametric bootstrap? (See [my notes](index.html#sampling-distribution-notes) for definitions).
 
 9. Compute the correlation coefficient, cc, between $a-\alpha$ and $b-\beta$ using the values from part 5. Test the hypothesis $H_0$: cc $= 0$, $H_a$: cc $\ne 0$ and state at what significance level $H_0$ can be rejected (that is, compute the $P$ value).
 
