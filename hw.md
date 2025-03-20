@@ -966,7 +966,7 @@ Save your hand--written answers as `HW6_1.pdf`, plots as `HW6_1{a,b,etc}.png`, a
 2. 2.4 is in the rejection region (see Figure 2) for $H_0\Rightarrow$ Reject claim.
 3. Here we rejected, so probability this was incorrect is 5%. See Figure 2.
 4. If $\overline{x}_{\text{sample}}=2.1$, we do not reject $H_0$. This non--rejection could be wrong if true population mean is $\mu'=2.2$. Figure 3. shows how this probability is computed. 
-5. If the confidence interval does not include $\mu=2.0$, we reject the hypothesis that $\mu = 2.0$. When $\overline{x}_{\text{sample}}$ is in the range $[1.72, 2.28]$ (values shown on Figure 2), the blue confidence interval includes $\mu=2$ and we do not reject the hypothesis that $\mu=2.0$. So the confidence interval conveys the same information as the hypothesis test and when seeing only a confidence interval, you should recognize the implied hypothesis test.
+5. If the confidence interval does not include $\mu=2.0$, we reject the hypothesis that $\mu = 2.0$. When $\overline{x}_{\text{sample}}$ is in the range $[1.72, 2.28]$ (values shown on Figure 2), the blue confidence interval includes $\mu=2$ and we do not reject the hypothesis that $\mu=2.0$. So the confidence interval conveys the same information as the hypothesis test and when seeing only a confidence interval, you should recognize the implied hypothesis test. (The CI provides more information because it is the 95% "trapping" interval for $\mu$; also, if we test a null hypothesis with any $\mu$ outside the CI, we will reject.)
 
 Figure 1.
 
@@ -994,7 +994,7 @@ Save your hand--written answers as `HW6_2.pdf`, plots as `HW6_2.png`, and code a
 
 Code for figure is in [HW6_1.py](solns/HW6_1.py).
 
-The figure below is Figure 2. from the previous problem modified so the total rejection area is $p/2$. When one states "$\mu \ne 2$ with $P=0.0047$", it means $\overline{x}_{\text{sample}}$ was such that the rejection area $H_0$ is $p$. Usually the researcher will state what $\overline{x}_{\text{sample}}$ is. Based on the statement and the fact that the non--rejection region limits are $[1.6, 2.4]$, we can conclude that the researcher's sample yielded $\overline{x}=1.6$ or $\overline{x}=2.4$.
+The figure below is Figure 2. from the previous problem modified so the total rejection area is $p/2$. When one states "$\mu \ne 2$ with $P=0.0047$", it means $\overline{x}_{\text{sample}}$ was such that the rejection area for $H_0$: $\mu=2$ is $P$. Usually the researcher will state what $\overline{x}_{\text{sample}}$ is. Based on the statement and the fact that the non--rejection region limits are $[1.6, 2.4]$, we can conclude that the researcher's sample yielded $\overline{x}=1.6$ or $\overline{x}=2.4$.
 
 The logic associated with "$\mu \ne 2$ with $P=0.0047$" is
 
