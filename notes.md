@@ -822,7 +822,7 @@ With the Central Limit theorem, we can make statements such as "I took a sample 
 
 [Brewer 1985](https://drive.google.com/file/d/1JQm9ujph9p0NvbWrGEhO_qAc6q5MKYWp/view?usp=drive_link★★★★★remove★★★★★), citing Freund 1962, Mathematical statistics
 
-> Sometimes the Central Limit Theorem is interpreted in that the distribution of $\overline{x}$ approaches a normal distribution. This is incorrect, inasmuch as under the conditions of Theorem 7.9 the variance of $\overline{x}$ approaches 0 as $n\rightarrow \infty$. On the other hand, Theorem 7.9 justifies _approximating_ the distribution of $overline{x}$ with a normal distribution whose mean is $\mu$ and whose variance is $\sigma^2/n$, when $n$ is sufficently large (p. 187).
+> Sometimes the Central Limit Theorem is interpreted in that the distribution of $\overline{x}$ approaches a normal distribution. This is incorrect, inasmuch as under the conditions of Theorem 7.9 the variance of $\overline{x}$ approaches 0 as $n\rightarrow \infty$. On the other hand, Theorem 7.9 justifies _approximating_ the distribution of $\overline{x}$ with a normal distribution whose mean is $\mu$ and whose variance is $\sigma^2/n$, when $n$ is sufficently large (p. 187).
 
 The above statements are consistent with typical textbook statements such as
 
