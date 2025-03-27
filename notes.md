@@ -992,7 +992,7 @@ It also make sense to talk not about the number of "trials", but rather the numb
 
 #### Normal
 
-Can be derived from Binomial [1](https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf); [2](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/)
+Can be derived from Binomial [1](https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf); [2](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/). Simple derivation in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★). The key is to identify a small parameter, $m=N_r-N_l$ (r=right, l=left), the number of steps from the origin after $N=N_r+N_l$ steps, and then rewrite equation using it. This allows approximations involving $x/N$.
 
 The "Standard Normal" is the **sampling distribution** of the quantity
 
@@ -1309,8 +1309,6 @@ We can repeat the above hypothesis test for any $\theta_0$ inside the CI. We wil
 
 * "Rejecting $H_0$" does not mean $H_0$ is false. It means $H_0$ is unlikely, where the unlikelyness threshold is determined by the confidence interval width.
 
-* "Not rejecting $H_0$" does not mean "accepting $H_0$". It means there is insufficient evidence to reject. Suppose I am forming a basketball team of 5 and have 20 candidates. If all I know is their heights and I reject the shortest 3 of the 20, I have not accepted the remaing 17 for my team.
-
 * Bulmer, p 165
   > The rejection of a hypothesis at the 5% level does not imply that the probability that the hypothesis is false is 95%; it merely implies that the observed result belongs to a class of results whos overall probability of occurrence, if the null hypothesis is true, is 5%. This provides good reason, in the sense of a rational degreee of belief, for supposing the hypothesis to be false, but no numerical value can be placed upon this degree of belief.
 
@@ -1320,7 +1318,7 @@ are the same. (b) Another prevalent misconception is confidence intervals must b
 * [Statistical tests, P values, confidence intervals, and power: a guide
 to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf)
 
-## $p$ value
+### $p$ value
 
 Devore p 328:
 
@@ -1333,6 +1331,14 @@ Devore p 329:
 Devore p 329:
 
 > Beware: The $P$-value is not the probability that $H_0$ is true, nor is it an error probability!
+
+### Power
+
+https://www.statisticsdonewrong.com/power.html
+
+John M Hoenig & Dennis M Heisey (2001) The Abuse of Power, The American Statistician, 55:1, 19-24, DOI: 10.1198/000313001300339897
+
+See references in https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/
 
 # Applications
 
