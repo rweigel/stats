@@ -1143,7 +1143,73 @@ In class on April 3rd (or March 27th if you are ready), you will
 
 Do not create a PowerPoint presentation. For part 1., use the whiteboard if needed. For part 2., I will show the plots when you ask me to, and you will explain them.
 
-# Midterm
+# HW 8
+
+Due April 3rd at 11:59 pm.
+
+## Midterm Revision
+
+Provide a revision of your mid-term by April 3rd at 4:30 pm. Turn in both your mid--term and new answers (on paper). Your mid--term grade will be based on your original and revised answers. See the [Notes](#midterm) regarding common errors.
+
+You may not discuss these problems with any other students. You are welcome to ask me questions. If you use Discord, use a direct message.
+
+## Project
+
+Provide a revision to your project based on my comments (I will post comments in repositories on Saturday, March 29th for those who did not present on Thursday, March 27th).
+
+## Bayes and Statistical Inference
+
+**References**
+
+Additional background on this problem is covered in the following references.
+* [Silva 2006, Chapter 2.1](https://drive.google.com/file/d/1RdCvNifZtI2PlIDVNYpMBIrD6NClNtEe/view?usp=sharing★★★★remove★★★★). In this problem, I am walking you through the steps needed to create Figures 1. and 2. This book uses a somewhat unconventional notation by explicitly including the variable $I$. You can safely ignore it in the equations written.
+* The coin-tossing experiment is covered at a basic level in Chapters [1](https://drive.google.com/file/d/1WCPb_fRtBbqfwyTAYo5fBQFbv6qH3OAf/view?usp=drive_link★★★★remove★★★★) and [4](https://drive.google.com/file/d/1trp5JzZI1TQ0SPSnydYcp5StBMiRA4tP/view?usp=sharing★★★★remove★★★★) of Stone.
+* A much more mathematically advanced description of this problem is given in [Liu and Wasserman 2014](https://drive.google.com/file/d/13EdWDSdM2tvR7A33msj3xCg5lOQenLNG/view?usp=drive_link★★★★remove★★★★).
+
+Let $\theta$ be an unknown parameter, such as a length or, as considered in this problem, a probability. 
+
+Let $\mathcal{D}$ be data from an experiment, for example, the results of coin flips, e.g., $\mathcal{D}=[H,T,H,T]$. 
+With these variables, Bayes' theorem is
+
+$$P(\theta|\mathcal{D})=P(\mathcal{D}|\theta)\frac{P(\theta)}{P(\mathcal{D})}$$
+
+When $\theta$ can take on continuous values, we can express this equation in terms of probability densities (using lowercase $p$) by replacing $P(\mathcal{D}|\theta)$ with $p(\mathcal{D}|\theta)d\theta$ and $P(\theta)$ with $p(\theta)d\theta$, giving
+
+$$p(\theta|\mathcal{D})=P(\mathcal{D}|\theta)\frac{p(\theta)}{P(\mathcal{D})}$$
+
+Recall that probability densities $p$ have the property that $\int_{x}p(x)dx=1$. 
+
+A typical Bayesian inference problem seeks to assign a probability of $\theta$ given a set of measurements (data). That is, to assign a value to $p(\theta|\mathcal{D})$. In class, I discussed the case where we only had one or two measurements from coin tosses, that is, $\mathcal{D}=[H]$, and $\mathcal{D}=[H, H]$, respectively. In this problem, you will consider these two cases in detail.
+
+Recall that for a coin-tossing problem, the probability is given by
+
+$P(\mathcal{D}|\theta)={N\choose k}\theta^k(1-\theta)^{N-k}$. 
+
+For $\mathcal{D}=[H]$,
+
+1. Use the above equation to compute the probability of $\mathcal{D}$ given a probability of heads. That is, find an expression for the likelihood term $P(\mathcal{D}|\theta)$, which will be a function that depends on $\theta$.
+
+The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you are an alien, know nothing about coin-manufacturing machines, and have never seen a coin toss. Based on your lack of subjective prior knowledge, you would say all values of $\theta$ are equally likely, and thus $p(\theta)=\text{const}$. This is called a "diffuse" prior -- we are saying, perhaps unrealistically based on experience, that coins can have any bias with equal probability. Using the fact that $p(\theta)$ is a probability density function, $\int_{0}^1p(\theta)d\theta=1$, so $\text{const}=1$.
+
+2. In class, I mentioned that we often don't need to worry about the term $P(\mathcal{D})$ because it is a constant that will "cancel". To elaborate, we are often interested in a ratio of probabilities such as $P(\theta_1|\mathcal{D})/P(\theta_2|\mathcal{D})$. For example, given a sequence of coin tosses from a coin manufactured by a new machine, we would want to know the ratio of the probability that a coin has a probability of heads of $\theta_1$ to the ratio that the probability of heads is $\theta_2$. However, it is sometimes useful to compute this term explicitly. In this case, the law of total probability can be used:
+
+   When $\theta$ is a parameter that can take on discrete values only, the Law of Total Probability is
+
+   $$P(\mathcal{D})=\sum_\theta P(\theta)P(\mathcal{D}|\theta)$$
+
+   When $\theta$ is a continuous parameter, replace $P(\theta)$ with $p(\theta)d\theta$ and integrate instead of sum
+
+   $$P(\mathcal{D})=\int_\theta p(\theta)d\theta P(\mathcal{D}|\theta)$$
+
+3.  Plot of $p(\theta|\mathcal{D})$ vs $\theta$.
+
+4. Repeat parts 1.-3. for $\mathcal{D}=[H,T]$.
+
+5. You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $p(\theta) \propto e^{(\theta-0.5)^2/0.1}$. Using this, plot $p(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
+
+Save your hand calculations in a file named `HW8_3.pdf`. Save your code in a file named `HW8_3.py` and plots as `HW8_3a.py`, ....
+
+# Midterm Study Guide
 
 The closed--book and closed--notes midtem will have four problems:
 
@@ -1162,3 +1228,39 @@ The closed--book and closed--notes midtem will have four problems:
 If you pose your own hypothetical problem and post it to Discord with your solution, I will comment on your solution (and if it is too complex for a Mid--term problem).
 
 Grading: A grade of 85% on a given problem means I have found evidence that you understood the concept associated with the question and if I said "this calculation does not look correct", you'd would quickly identify the issue. Scores higher than 85% correspond to fewer such "minor issues". (There is an execption -- when a "minor issue" leads to a non--sensical final answer and the fact that the final answer does not make sense is not noted, I will conclude that you don't understand the concept.)
+
+# Midterm
+
+## 
+
+1. Provide a visual derivation of $P(B|A)=P(A|B)P(B)/P(A)$
+
+> Some students gave an example of the use of this formula but did not provide either a mathematical or visual derivation. I covered several derivations in class, and they also appear in many textbooks.
+
+2. One bag contains only white balls, while another bag contains 30 white balls and 10 black balls. A bag is selected at random, and a ball from that bag is selected at random. The selected ball is white. What is the probability that the selected ball was from the bag with only white balls?
+
+##
+
+Derive the Gaussian distribution from the Binomial distribution.
+
+> In class, I mentioned key steps used in statistical mechanics to arrive at the Gaussian distribution in the random walk problem: Defining $m=N_{\text{right}}-N_\text{left}$, using Stirling's approximation, using $m/N\ll 1$ for $N$ large, and $\ln(1+\epsilon)\simeq \epsilon$ for $\epsilon \ll 1$.
+
+##
+
+Explain the interpretation of 
+
+1. a confidence interval,
+2. not rejecting a null hypothesis, and
+3. a $P$ value.
+
+Provide examples to support your explanation, if needed.
+
+> Most students gave a definition and not an interpretation for 2. and 3. I spend much time discussing the interpretation of a confidence interval in terms of repeated experiments. The same reasoning applies to 2. and 3.
+
+##
+
+1. You are given a list of $100$ numbers and asked to compute a 95% confidence interval on their average. Describe how you would calculate the confidence interval using the non--parametric bootstrap. Provide enough details so that your description can be implemented in code without ambiguity.
+
+2. Describe how you would use a parametric simulation to determine if a sample statistic is biased.
+
+> The wording of part 2. could have been better, or I should have put part 2. as a separate problem. Stated a different way that is perhaps to revealing, I am asking: suppose you have a sample statistic that is meant to be a proxy for a population statistic. You know the population distribution and its parameters. Instead of doing this analytically as was done for $\overline{x}$, $S^2_b$, and the slope parameter in regression in class, how would you use a simulation to determine if the sample statistic is biased?

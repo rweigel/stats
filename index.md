@@ -31,6 +31,8 @@ HW:
 [6](hw.html#hw-6)
 |
 [7](hw.html#hw-7)
+|
+[8](hw.html#hw-8)
 
 # Class Notes
 
