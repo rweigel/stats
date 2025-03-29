@@ -1161,7 +1161,8 @@ Provide a revision to your project based on my comments (I will post comments in
 
 **References**
 
-Additional background on this problem is covered in the following references.
+Additional background on this problem is covered in the following references. (You should be able to solve this problem without them, however.)
+
 * [Silva 2006, Chapter 2.1](https://drive.google.com/file/d/1RdCvNifZtI2PlIDVNYpMBIrD6NClNtEe/view?usp=sharing★★★★remove★★★★). In this problem, I am walking you through the steps needed to create Figures 1. and 2. This book uses a somewhat unconventional notation by explicitly including the variable $I$. You can safely ignore it in the equations written.
 * The coin-tossing experiment is covered at a basic level in Chapters 1 and 4 of [Stone, 2016](https://drive.google.com/file/d/1Zy5jLQsiyXFJxoswkoEC1OovrB9yQuHf/view?usp=sharing★★★★remove★★★★).
 * A much more mathematically advanced description of this problem is given in [Liu and Wasserman 2014](https://drive.google.com/file/d/13EdWDSdM2tvR7A33msj3xCg5lOQenLNG/view?usp=drive_link★★★★remove★★★★).
