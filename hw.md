@@ -1163,7 +1163,7 @@ Provide a revision to your project based on my comments (I will post comments in
 
 Additional background on this problem is covered in the following references.
 * [Silva 2006, Chapter 2.1](https://drive.google.com/file/d/1RdCvNifZtI2PlIDVNYpMBIrD6NClNtEe/view?usp=sharing★★★★remove★★★★). In this problem, I am walking you through the steps needed to create Figures 1. and 2. This book uses a somewhat unconventional notation by explicitly including the variable $I$. You can safely ignore it in the equations written.
-* The coin-tossing experiment is covered at a basic level in Chapters [1](https://drive.google.com/file/d/1WCPb_fRtBbqfwyTAYo5fBQFbv6qH3OAf/view?usp=drive_link★★★★remove★★★★) and [4](https://drive.google.com/file/d/1trp5JzZI1TQ0SPSnydYcp5StBMiRA4tP/view?usp=sharing★★★★remove★★★★) of Stone.
+* The coin-tossing experiment is covered at a basic level in Chapters 1 and 4 of [Stone, 2016](https://drive.google.com/file/d/1Zy5jLQsiyXFJxoswkoEC1OovrB9yQuHf/view?usp=sharing★★★★remove★★★★).
 * A much more mathematically advanced description of this problem is given in [Liu and Wasserman 2014](https://drive.google.com/file/d/13EdWDSdM2tvR7A33msj3xCg5lOQenLNG/view?usp=drive_link★★★★remove★★★★).
 
 Let $\theta$ be an unknown parameter, such as a length or, as considered in this problem, a probability. 
