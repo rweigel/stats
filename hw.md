@@ -1174,23 +1174,33 @@ With these variables, Bayes' theorem is
 
 $$P(\theta|\mathcal{D})=P(\mathcal{D}|\theta)\frac{P(\theta)}{P(\mathcal{D})}$$
 
-When $\theta$ can take on continuous values, we can express this equation in terms of probability densities (using lowercase $p$) by replacing $P(\mathcal{D}|\theta)$ with $p(\mathcal{D}|\theta)d\theta$ and $P(\theta)$ with $p(\theta)d\theta$, giving
+When $\theta$ can take on continuous values, we can express this equation in terms of probability densities (using lowercase $p$) by replacing $P(\theta|\mathcal{D})$ with $p(\theta|\mathcal{D})d\theta$ and $P(\theta)$ with $p(\theta)d\theta$, giving
 
 $$p(\theta|\mathcal{D})=P(\mathcal{D}|\theta)\frac{p(\theta)}{P(\mathcal{D})}$$
 
-Recall that probability densities $p$ have the property that $\int_{x}p(x)dx=1$. 
+Recall that probability densities $p$ have the property that $\int_{x}p(x)dx=1$, where the subscript $x$ on the integral means the range of possible values of $x$.
 
 A typical Bayesian inference problem seeks to assign a probability of $\theta$ given a set of measurements (data). That is, to assign a value to $p(\theta|\mathcal{D})$. In class, I discussed the case where we only had one or two measurements from coin tosses, that is, $\mathcal{D}=[H]$, and $\mathcal{D}=[H, H]$, respectively. In this problem, you will consider these two cases in detail.
 
-Recall that for a coin-tossing problem, the probability is given by
+Recall that for a coin-tossing problem, the probability of $k$ "successes" in $N$ trials
 
-$P(\mathcal{D}|\theta)={N\choose k}\theta^k(1-\theta)^{N-k}$. 
+$$P_k={N\choose k}\theta^k(1-\theta)^{N-k}$$
+
+where the probability of success is $\theta$.
+
+%This is a pmf because $\sum_k P_k=1$.
+
+We can rewrite this in terms of conditional notation by noting that the probability of an outcome resulting in $\mathcal{D}$ is given by
+
+$$P(\mathcal{D}|\theta)={N\choose k}\theta^k(1-\theta)^{N-k}$$
+
+%Note that this is not a pmf because $\sum_{\text{all }\mathcal{D}} P(\mathcal{D}|\theta) \ne 1$. However, we can convert it to a pmf by finding the proportionality constant $A$ such that $\sum_{\text{all }\mathcal{D}} AP(\mathcal{D}|\theta) = 1$. However, this will not be necessary because this proporinality constant will appear in the numerator and denominator on the right--hand side of the Bayes equation.
 
 For $\mathcal{D}=[H]$,
 
 1. Use the above equation to compute the probability of $\mathcal{D}$ given a probability of heads. That is, find an expression for the likelihood term $P(\mathcal{D}|\theta)$, which will be a function that depends on $\theta$.
 
-The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you are an alien, know nothing about coin-manufacturing machines, and have never seen a coin toss. Based on your lack of subjective prior knowledge, you would say all values of $\theta$ are equally likely, and thus $p(\theta)=\text{const}$. This is called a "diffuse" prior -- we are saying, perhaps unrealistically based on experience, that coins can have any bias with equal probability. Using the fact that $p(\theta)$ is a probability density function, $\int_{0}^1p(\theta)d\theta=1$, so $\text{const}=1$.
+The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you are an alien, know nothing about coin-manufacturing machines, and have never seen a coin toss. Based on your lack of subjective prior knowledge, you would say all values of $\theta$ are equally likely, and thus $p(\theta)=\text{const}$. This is called a "diffuse" prior -- we are saying that coins can have any bias with equal probability. Using the fact that $p(\theta)$ is a probability density function, $\int_{0}^1p(\theta)d\theta=1$, so $\text{const}=1$.
 
 2. In class, I mentioned that we often don't need to worry about the term $P(\mathcal{D})$ because it is a constant that will "cancel". To elaborate, we are often interested in a ratio of probabilities such as $P(\theta_1|\mathcal{D})/P(\theta_2|\mathcal{D})$. For example, given a sequence of coin tosses from a coin manufactured by a new machine, we would want to know the ratio of the probability that a coin has a probability of heads of $\theta_1$ to the ratio that the probability of heads is $\theta_2$. However, it is sometimes useful to compute this term explicitly. In this case, the law of total probability can be used:
 
