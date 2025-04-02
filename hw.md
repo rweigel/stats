@@ -1200,7 +1200,8 @@ For $\mathcal{D}=[H]$,
 
 1. Use the above equation to compute the probability of $\mathcal{D}$ given a probability of heads. That is, find an expression for the likelihood term $P(\mathcal{D}|\theta)$, which will be a function that depends on $\theta$.
 
-The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you are an alien, know nothing about coin-manufacturing machines, and have never seen a coin toss. Based on your lack of subjective prior knowledge, you would say all values of $\theta$ are equally likely, and thus $p(\theta)=\text{const}$. This is called a "diffuse" prior -- we are saying that coins can have any bias with equal probability. Using the fact that $p(\theta)$ is a probability density function, $\int_{0}^1p(\theta)d\theta=1$, so $\text{const}=1$.
+The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you are an alien, know nothing about coin-manufacturing machines, and have never seen a coin toss. Based on your lack of subjective prior knowledge, you would say all values of $\theta$ are equally likely, and thus $p(\theta)=\text{const}$. This is called a "diffuse" 
+prior -- we are saying that coins can have any bias with equal probability. Using the fact that $p(\theta)$ is a probability density function, $\int_{0}^1p(\theta)d\theta=1$, so $\text{const}=1$.
 
 2. In class, I mentioned that we often don't need to worry about the term $P(\mathcal{D})$ because it is a constant that will "cancel". To elaborate, we are often interested in a ratio of probabilities such as $P(\theta_1|\mathcal{D})/P(\theta_2|\mathcal{D})$. For example, given a sequence of coin tosses from a coin manufactured by a new machine, we would want to know the ratio of the probability that a coin has a probability of heads of $\theta_1$ to the ratio that the probability of heads is $\theta_2$. However, it is sometimes useful to compute this term explicitly. In this case, the law of total probability can be used:
 
