@@ -1213,6 +1213,8 @@ prior -- we are saying that coins can have any bias with equal probability. Usin
 
    $$P(\mathcal{D})=\int_\theta p(\theta)d\theta P(\mathcal{D}|\theta)$$
 
+   Compute $P(\mathcal{D})$.
+
 3.  Plot of $p(\theta|\mathcal{D})$ vs $\theta$.
 
 4. Repeat parts 1.-3. for $\mathcal{D}=[H,T]$.
