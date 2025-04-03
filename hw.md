@@ -1119,6 +1119,80 @@ As an example of ambiguity, consider the two plots in the [Wikipedia entry for P
    
    Use a library (e.g., `numpy.fft`) to compute $a$ and $b$. Note that most libraries compute a quantity related to $a$ and $b$ and their output is an array of complex values.
 
+**Answer**
+
+$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+
+Using $y=[0, 1, 0, -1]$, $N=4$ and $i=1, ..., 4$
+
+$$a_1 = (2/N)\left[0\cdot\cos(2\pi (1/4)\cdot 0) + 1\cdot\cos(2\pi (1/4)\cdot 1) + 0\cdot\cos(2\pi (1/4)\cdot 2) + (-1)\cdot\cos(2\pi (1/4)\cdot 3)\right]$$
+
+$$a_1 = (2/N)\left[0 + 0 + 0 + 0\right] = 0$$
+
+Using the same process as above, we find
+
+$$a_1 = 0$$
+
+$$a_2 = 0$$
+
+$$b_1 = 1$$
+
+$$b_2 = 0$$
+
+`numpy.fft` computes the DFT of $y_t$ with $t=0,...,N-1$ using
+
+$$Y_i = \sum_{t=0}^{N-1} y_t e^{-j2\pi t i/N}$$
+
+The output of `numpy.fft` is an array of complex numbers, e.g.,
+
+```
+import numpy
+y = np.array([0, 1, 0, -1])
+Y = np.fft.fft(y)
+print(Y)
+# [0. + 0.j, 0. -2.j, 0. + 0.j, 0. + 2.j]
+```
+
+Expanding the complex exponential gives
+
+$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(-2\pi  t i/N) + iy_n\sin(-2\pi  t i/N)\right]$$
+
+Using $f_i = i/N$ gives
+
+$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(-2\pi  f_i t) + iy_n\sin(-2\pi  f_i t)\right]$$
+
+or, equivalently,
+
+$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(2\pi  f_i t) - iy_n\sin(2\pi  f_i t)\right]$$
+
+For $N$ even, we need to compute
+
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+
+for $i = 0, ..., N/2$.
+
+From this, we conclude that the $a_i$ terms are real part of the $Y_i$ array times $N/2$ for $i = 0, ..., N/2$ and using 
+
+`Y = [0. + 0.j, 0. - 2.j, 0. + 0.j, 0. + 2.j]`
+
+$$a_0 = 2\cdot 0/N = 0$$
+
+$$a_1 = 2\cdot 0/N = 0$$
+
+$$a_2 = 2\cdot 0/N = 0$$
+
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+
+we see that the $b_i$ terms are the imaginary part of the $Y_i$ array times $-jN/2$ for $i = 1, ..., N/2$
+
+$$b_1 = 2j\cdot (-2j)/N = 1$$
+
+$$b_2 = 2j\cdot 0/N = 0$$
+
 2. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean and unit variance and plot $I(f_i)$ vs $f_i$. The plot of $I$ should be noisy. One problem with raw periodograms is that they are noisy. Entire books are dedicated to dealing with this.
 
 3. Plot the histogram of $I$ values.
@@ -1219,7 +1293,7 @@ prior -- we are saying that coins can have any bias with equal probability. Usin
 
 4. Repeat parts 1.-3. for $\mathcal{D}=[H,T]$.
 
-5. You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $p(\theta) \propto e^{(\theta-0.5)^2/0.1}$. Using this, plot $p(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
+5. You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $p(\theta) \propto e^{-(\theta-0.5)^2/0.1}$. Using this, plot $p(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
 
 Save your hand calculations in a file named `HW8_3.pdf`. Save your code in a file named `HW8_3.py` and plots as `HW8_3a.py`, ....
 
