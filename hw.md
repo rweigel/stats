@@ -1133,17 +1133,9 @@ $$a_1 = (2/N)\left[0\cdot\cos(2\pi (1/4)\cdot 0) + 1\cdot\cos(2\pi (1/4)\cdot 1)
 
 $$a_1 = (2/N)\left[0 + 0 + 0 + 0\right] = 0$$
 
-Using the same process as above, we find
+Using the same process as above, we find $a_2 = 0$, $b_1 = 1$, $b_2 = 0$.
 
-$$a_1 = 0$$
-
-$$a_2 = 0$$
-
-$$b_1 = 1$$
-
-$$b_2 = 0$$
-
-`numpy.fft` computes the DFT of $y_t$ with $t=0,...,N-1$ using
+`numpy.fft` computes the DFT of $y_t$ with $t=0,...,N-1$ using a formula of the form
 
 $$Y_i = \sum_{t=0}^{N-1} y_t e^{-j2\pi t i/N}$$
 
@@ -1159,39 +1151,43 @@ print(Y)
 
 Expanding the complex exponential gives
 
-$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(-2\pi  t i/N) + iy_n\sin(-2\pi  t i/N)\right]$$
+$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(-2\pi  t i/N) + jy_n\sin(-2\pi  t i/N)\right]$$
 
-Using $f_i = i/N$ gives
+Using $f_i = i/N$, $\cos(-x)=\cos x$, $\sin(-x)=-\sin x$ gives
 
-$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(-2\pi  f_i t) + iy_n\sin(-2\pi  f_i t)\right]$$
-
-or, equivalently,
-
-$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(2\pi  f_i t) - iy_n\sin(2\pi  f_i t)\right]$$
+$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(2\pi  f_i t) - jy_n\sin(2\pi  f_i t)\right]$$
 
 For $N$ even, we need to compute
 
-$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
 
-for $i = 0, ..., N/2$.
+and 
 
-From this, we conclude that the $a_i$ terms are real part of the $Y_i$ array times $N/2$ for $i = 0, ..., N/2$ and using 
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$ for $i = 1, ..., N/2$.
+
+From this, we conclude that the $a_i$ terms are $(2/N)$(the real part of corresponding terms in the $Y_i$ array) for $i = 1, ..., N/2$. Using 
 
 `Y = [0. + 0.j, 0. - 2.j, 0. + 0.j, 0. + 2.j]`
 
-$$a_0 = 2\cdot 0/N = 0$$
+gives
 
-$$a_1 = 2\cdot 0/N = 0$$
+$$a_1 = (2/N)\cdot 0 = 0$$
 
-$$a_2 = 2\cdot 0/N = 0$$
+$$a_2 = (2/N)\cdot 0 = 0$$
 
-$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+Also,
 
-we see that the $b_i$ terms are the imaginary part of the $Y_i$ array times $-jN/2$ for $i = 1, ..., N/2$
+$a_0 = N$real$(Y_0) = 0$
 
-$$b_1 = 2j\cdot (-2j)/N = 1$$
+Comparing the formula for $Y_i$ above with
 
-$$b_2 = 2j\cdot 0/N = 0$$
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$ for $i=1,...,N/2$,
+
+we see that the $b_i$ terms are  $(-2/jN)$(the imaginary part of corresponding terms in the $Y_i$ array) for $i = 1, ..., N/2$. Using `Y = [0. + 0.j, 0. - 2.j, 0. + 0.j, 0. + 2.j]` again,
+
+$$b_1 = (-2/4j)\cdot (-2j) = 1$$
+
+$$b_2 = (-2/4j)\cdot (0) = 0$$
 
 2. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean and unit variance and plot $I(f_i)$ vs $f_i$. The plot of $I$ should be noisy. One problem with raw periodograms is that they are noisy. Entire books are dedicated to dealing with this.
 

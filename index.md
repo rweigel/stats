@@ -42,13 +42,27 @@ Last class
 
 ## April 24th
 
+% SVD
+% Bayes IV - Use emcee for Bayes III
+
 ## April 17th
+
+% Non-linear fitting
+% Bayes III - estimate mean and std
 
 ## April 10th
 
+% STFT
+% Bayes III - estimate mean 
+
 ## April 3rd
 
+% Autocorrelation
+% Bayes II - Credible
+
 ## March 27th
+
+% Bayes I - Coin tosses, basic concepts and terms
 
 ## March 20th
 
