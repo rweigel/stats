@@ -1071,7 +1071,7 @@ For parts 6. and 7., see [Devore Chapter 12]((https://drive.google.com/file/d/1b
 
    Devise a numerical experiment using data that you create that demonstrates the above statements by Jim. Save your code and plots with the prefix `HW7_1_Jim`
 
-## DFT and the Raw Periodogram
+## DFT and the Raw Periodogram I
 
 The Fourier series model for $y$ having an odd number $N$ time steps is
 
@@ -1227,7 +1227,7 @@ You may not discuss these problems with any other students. You are welcome to a
 
 Provide a revision to your project based on my comments (I will post comments in repositories on Saturday, March 29th for those who did not present on Thursday, March 27th).
 
-## Bayes and Statistical Inference
+## Bayes and Statistical Inference I
 
 **References**
 
@@ -1291,7 +1291,35 @@ prior -- we are saying that coins can have any bias with equal probability. Usin
 
 5. You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $p(\theta) \propto e^{-(\theta-0.5)^2/0.1}$. Using this, plot $p(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
 
+
 Save your hand calculations in a file named `HW8_3.pdf`. Save your code in a file named `HW8_3.py` and plots as `HW8_3a.py`, ....
+
+**Answer**
+
+%Analytic parts in comments in [HW8_3.py](solns/HW8_3.py).
+
+<img src="solns/HW8_3a.svg"/>
+
+<img src="solns/HW8_3b.svg"/>
+
+<img src="solns/HW8_3c.svg"/>
+
+# HW 9
+
+## Project
+
+## Bayes and Statistical Inference II
+
+## DFT and the Raw Periodogram II
+
+1. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean and unit variance.
+2. Plot the probability density function of the $I$ values.
+3. The sampling distribution of $I$ is $\chi^2_2$. That is, $\text{pdf}(I) = \chi^2_2$. Add this curve to the plot from part 2. Find the value of $I$, $I_o$, for which $0.99 = \int_0^{I_o} \text{pdf}(I)dI$.
+4. What percentage of the $I$ values computed in part 1. are above $I_o$?
+
+**590 Only**
+
+5. Previously you computed the modified the white noise time series by adding a periodic signal $A\sin(2\pi t/100)$ and plotted  $I(f_i)$ vs $f_i$ and visually determined when you could "see" this signal in $I$. What was the corresponding value of $I$, $I_\text{vis}$, for this and what is $\int_0^{I_\text{vis}} \text{pdf}(I)dI$?
 
 # Midterm Study Guide
 
