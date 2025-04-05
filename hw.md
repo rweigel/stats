@@ -1296,6 +1296,43 @@ The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you a
 
 Save your hand calculations in a file named `HW8_3.pdf`. Save your code in a file named `HW8_3.py` and plots as `HW8_3a.py`, ....
 
+**Answer**
+
+%Analytic parts in comments in [HW8_3.py](solns/HW8_3.py).
+
+<img src="solns/HW8_3a.svg"/>
+
+<img src="solns/HW8_3b.svg"/>
+
+<img src="solns/HW8_3c.svg"/>
+
+# HW 9
+
+## Project
+
+Make the additions and modifications to your project analysis as discussed in class and/or as documented in my comments in your README.md file (you should have posted your summary what was discussed in class on April 3rd and I will have made comments on your summary by April 5th before midnight).
+
+## Bayes and Statistical Inference II
+
+TBD
+
+## DFT and the Raw Periodogram II
+
+1. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean and unit variance.
+2. Plot the probability density function of the $I$ (periodogram) values (see HW 7).
+3. The sampling distribution of $I$ is $\chi^2_2$. That is, $\text{pdf}(I) = \chi^2_2(I)$. Add this $\text{pdf}$ curve to the plot from part 2. Find the value of $I$, $I_{0.99}$, for which $0.99 = \int_0^{I_o} \text{pdf}(I)dI$.
+4. What percentage of the $I$ values computed in part 1. are above $I_{0.99}$?
+5. Repeat parts 1. and 4. 1000 times and compute the average of the percentage of the $I$ values that are above $I_{0.99}$.
+
+**590 Only**
+
+5. Previously, you computed the modified a white noise time series by adding a periodic signal $A\sin(2\pi f_o t)$, with $f_o=1/100$ and plotted  $I(f_i)$ vs $f_i$ and visually determined when you could "see" this signal in $I$. What was the corresponding value of $I(f_o)$, $I_\text{vis}$, for this, and what is $\int_0^{I_\text{vis}} \text{pdf}(I)dI$?
+6. Part 5. suggests a simple hypothesis test for the case where we know the standard deviation of the white noise signal is $1$ (if it is not $1$, this approach can still be used, but the pdf is different): $H_0$: $A=0$ and $H_a$: $A\ne 0$. If we reject $H_0$ using $p=0.01$, what is the probability of a type II error when $A=0.01$? 
+
+Be prepared to explain 5. and 6. in class. I am also going to ask a very subtle question. In part 6. we tested the hypothesis that there was a signal at a single frequency, $f_o$. Suppose we want to test the hypothesis that there is a statistically significant periodic signal at any frequency.
+
+Notes: The method outlined above for determining if there is a statistically significant peak at a given frequency assumed that we know the signal is white noise with a known variance. In reality, we cannot be certain of either. If we are certain that the signal is white noise, but the variance is unknown, Fisher's $g$--statistic can be used ([1](https://www.mathworks.com/help/signal/ug/significance-testing-for-periodic-component.html), [2](https://drive.google.com/file/d/1vyMtouwblDUob6sU-BtIchjDA9lsKqGe/view?usp=drive_link★★★★remove★★★★), [3](https://drive.google.com/file/d/1gwclmF8Xw68lHtpOxv7uNXp0pCU2nXsD/view?usp=drive_link★★★★remove★★★★)). Also note that there are alternatives to using the raw periodogram for identifying significant peaks, for example, by instead splitting the time series into segments, computing the periodgram for each segment, and averaging the segment periodograms. The point here is that identifying statistically significant peaks is non--trivial, and you should hope that your data are such that the peak is so large that a plot of the periogram is such that there is no doubt that the peak is not explained by random fluctuations in the periodogram. (But, of course, if this is the case, it is unlikely that someone has not already observed and published the observation.)
+
 # Midterm Study Guide
 
 The closed--book and closed--notes midtem will have four problems:
