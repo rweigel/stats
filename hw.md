@@ -1071,7 +1071,7 @@ For parts 6. and 7., see [Devore Chapter 12]((https://drive.google.com/file/d/1b
 
    Devise a numerical experiment using data that you create that demonstrates the above statements by Jim. Save your code and plots with the prefix `HW7_1_Jim`
 
-## DFT and the Raw Periodogram
+## DFT and the Raw Periodogram I
 
 The Fourier series model for $y$ having an odd number $N$ time steps is
 
@@ -1133,17 +1133,9 @@ $$a_1 = (2/N)\left[0\cdot\cos(2\pi (1/4)\cdot 0) + 1\cdot\cos(2\pi (1/4)\cdot 1)
 
 $$a_1 = (2/N)\left[0 + 0 + 0 + 0\right] = 0$$
 
-Using the same process as above, we find
+Using the same process as above, we find $a_2 = 0$, $b_1 = 1$, $b_2 = 0$.
 
-$$a_1 = 0$$
-
-$$a_2 = 0$$
-
-$$b_1 = 1$$
-
-$$b_2 = 0$$
-
-`numpy.fft` computes the DFT of $y_t$ with $t=0,...,N-1$ using
+`numpy.fft` computes the DFT of $y_t$ with $t=0,...,N-1$ using a formula of the form
 
 $$Y_i = \sum_{t=0}^{N-1} y_t e^{-j2\pi t i/N}$$
 
@@ -1159,39 +1151,43 @@ print(Y)
 
 Expanding the complex exponential gives
 
-$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(-2\pi  t i/N) + iy_n\sin(-2\pi  t i/N)\right]$$
+$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(-2\pi  t i/N) + jy_n\sin(-2\pi  t i/N)\right]$$
 
-Using $f_i = i/N$ gives
+Using $f_i = i/N$, $\cos(-x)=\cos x$, $\sin(-x)=-\sin x$ gives
 
-$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(-2\pi  f_i t) + iy_n\sin(-2\pi  f_i t)\right]$$
-
-or, equivalently,
-
-$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(2\pi  f_i t) - iy_n\sin(2\pi  f_i t)\right]$$
+$$Y_i = \sum_{t=0}^{N-1} \left[y_t\cos(2\pi  f_i t) - jy_n\sin(2\pi  f_i t)\right]$$
 
 For $N$ even, we need to compute
 
-$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
 
-for $i = 0, ..., N/2$.
+and 
 
-From this, we conclude that the $a_i$ terms are real part of the $Y_i$ array times $N/2$ for $i = 0, ..., N/2$ and using 
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$ for $i = 1, ..., N/2$.
+
+From this, we conclude that the $a_i$ terms are $(2/N)$(the real part of corresponding terms in the $Y_i$ array) for $i = 1, ..., N/2$. Using 
 
 `Y = [0. + 0.j, 0. - 2.j, 0. + 0.j, 0. + 2.j]`
 
-$$a_0 = 2\cdot 0/N = 0$$
+gives
 
-$$a_1 = 2\cdot 0/N = 0$$
+$$a_1 = (2/N)\cdot 0 = 0$$
 
-$$a_2 = 2\cdot 0/N = 0$$
+$$a_2 = (2/N)\cdot 0 = 0$$
 
-$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+Also,
 
-we see that the $b_i$ terms are the imaginary part of the $Y_i$ array times $-jN/2$ for $i = 1, ..., N/2$
+$a_0 = N$real$(Y_0) = 0$
 
-$$b_1 = 2j\cdot (-2j)/N = 1$$
+Comparing the formula for $Y_i$ above with
 
-$$b_2 = 2j\cdot 0/N = 0$$
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$ for $i=1,...,N/2$,
+
+we see that the $b_i$ terms are  $(-2/jN)$(the imaginary part of corresponding terms in the $Y_i$ array) for $i = 1, ..., N/2$. Using `Y = [0. + 0.j, 0. - 2.j, 0. + 0.j, 0. + 2.j]` again,
+
+$$b_1 = (-2/4j)\cdot (-2j) = 1$$
+
+$$b_2 = (-2/4j)\cdot (0) = 0$$
 
 2. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean and unit variance and plot $I(f_i)$ vs $f_i$. The plot of $I$ should be noisy. One problem with raw periodograms is that they are noisy. Entire books are dedicated to dealing with this.
 
@@ -1231,7 +1227,7 @@ You may not discuss these problems with any other students. You are welcome to a
 
 Provide a revision to your project based on my comments (I will post comments in repositories on Saturday, March 29th for those who did not present on Thursday, March 27th).
 
-## Bayes and Statistical Inference
+## Bayes and Statistical Inference I
 
 **References**
 
@@ -1274,7 +1270,8 @@ For $\mathcal{D}=[H]$,
 
 1. Use the above equation to compute the probability of $\mathcal{D}$ given a probability of heads. That is, find an expression for the likelihood term $P(\mathcal{D}|\theta)$, which will be a function that depends on $\theta$.
 
-The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you are an alien, know nothing about coin-manufacturing machines, and have never seen a coin toss. Based on your lack of subjective prior knowledge, you would say all values of $\theta$ are equally likely, and thus $p(\theta)=\text{const}$. This is called a "diffuse" prior -- we are saying that coins can have any bias with equal probability. Using the fact that $p(\theta)$ is a probability density function, $\int_{0}^1p(\theta)d\theta=1$, so $\text{const}=1$.
+The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you are an alien, know nothing about coin-manufacturing machines, and have never seen a coin toss. Based on your lack of subjective prior knowledge, you would say all values of $\theta$ are equally likely, and thus $p(\theta)=\text{const}$. This is called a "diffuse" 
+prior -- we are saying that coins can have any bias with equal probability. Using the fact that $p(\theta)$ is a probability density function, $\int_{0}^1p(\theta)d\theta=1$, so $\text{const}=1$.
 
 2. In class, I mentioned that we often don't need to worry about the term $P(\mathcal{D})$ because it is a constant that will "cancel". To elaborate, we are often interested in a ratio of probabilities such as $P(\theta_1|\mathcal{D})/P(\theta_2|\mathcal{D})$. For example, given a sequence of coin tosses from a coin manufactured by a new machine, we would want to know the ratio of the probability that a coin has a probability of heads of $\theta_1$ to the ratio that the probability of heads is $\theta_2$. However, it is sometimes useful to compute this term explicitly. In this case, the law of total probability can be used:
 
@@ -1293,6 +1290,7 @@ The $p(\theta)$ term in Bayes theorem above is the so-called prior. Assume you a
 4. Repeat parts 1.-3. for $\mathcal{D}=[H,T]$.
 
 5. You are not an alien. Suppose your subjective judgment is that it is difficult to manufacture a coin with a probability of heads that differs much from 0.5. In equation form, you decide to use a sharply peaked Gaussian to represent this experience. That is, $p(\theta) \propto e^{-(\theta-0.5)^2/0.1}$. Using this, plot $p(\theta|\mathcal{D})$ vs. $\theta$ for $\mathcal{D}=[H,T]$.
+
 
 Save your hand calculations in a file named `HW8_3.pdf`. Save your code in a file named `HW8_3.py` and plots as `HW8_3a.py`, ....
 
