@@ -1296,7 +1296,7 @@ Save your hand calculations in a file named `HW8_3.pdf`. Save your code in a fil
 
 **Answer**
 
-%Analytic parts in comments in [HW8_3.py](solns/HW8_3.py).
+Analytic parts in comments in [HW8_3.py](solns/HW8_3.py).
 
 <img src="solns/HW8_3a.svg"/>
 
@@ -1312,7 +1312,20 @@ Make the additions and modifications to your project analysis as discussed in cl
 
 ## Bayes and Statistical Inference II
 
-TBD
+In HW 8.3, $p(\theta|\mathcal{D})$ was computed for a coin tossing experiment. $p(\theta|\mathcal{D})$ contains information that allows us to determine how confident we are that the coin had any value of $\theta$; it can also be used to determine how "confident" we are that the coin has a value over any range of $\theta$ (by integration of the pdf over that range). In frequentist analysis, this confidence is summarized by a confidence interval. In Bayesian analysis, a different term is used: a Credible Interval, defined as the shortest interval that contains a certain fraction of the probability in the posterior pdf $p(\theta|\mathcal{D})$. In this problem, use a fraction of 0.95. Computation of the Credible Interval is not as simple as that for the confidence interval. Numerically, it can be computed by brute force by generating a list of lower boundary and interval length pairs and computing the integral of $p(\theta|\mathcal{D})$ for each pair. The pair that has an integral of $0.95$ and the shortest interval length form the Credible Interval. There are also software packages that can be used.
+
+In problem [HW9_2.py](solns/HW9_2.py), I have computed the credible interval for the posterior found in HW 8.3.5.
+
+<img src="solns/HW9_2.svg"/>
+
+1. Suppose $\mathcal{D}=[H, H, T, T, H, T, T, H]$. Use a diffuse prior and compute $p(\theta|\mathcal{D})$.
+2. Modify [HW9_2.py](solns/HW9_2.py) so it computes the credible interval for this $\mathcal{D}$ and the diffuse prior.
+3. Read [Devore 8.3](https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★) and think about an answer to question 4. below.
+
+**590 Only**
+
+4. Write a short paragraph that describes a numerical experiment that you could do to compare a credible interval to a confidence interval for the coin tossing problem using one or more of the formulas in [Devore 8.3](https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★).
+
 
 ## DFT and the Raw Periodogram II
 

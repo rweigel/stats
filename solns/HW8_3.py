@@ -61,28 +61,3 @@ plt.title(r'p(θ)$\propto$exp(-(θ-0.5)$^2$/0.1)', fontname='Times New Roman')
 plt.grid()
 plt.savefig('HW8_3c.png', dpi=300, bbox_inches='tight')
 plt.savefig('HW8_3c.svg', transparent=True, bbox_inches='tight')
-
-θ = np.linspace(0, 1, 1000)
-dθ = θ[1] - θ[0]
-pdf = θ*(1-θ)*np.exp((-(θ-0.5)**2/0.1))/0.113363
-cdf = dθ*np.cumsum(pdf)
-print(cdf[-1]) # 0.9999967412650484 (not 1 b/c using numerical integration)
-
-def integrate_pdf(idx_1, idx_2, dθ):
-  pdf = θ*(1-θ)*np.exp((-(θ-0.5)**2/0.1))/0.113363
-  return dθ*np.sum(pdf[idx_1:idx_2])
-
-results = []
-for lb_idx in range(len(θ)-1):
-  lb = θ[lb_idx]
-  for ub_idx in range(lb_idx, len(θ)-1):
-    ub = θ[ub_idx]
-    if integrate_pdf(lb_idx, ub_idx, dθ) > 0.95:
-      print(f"lb = {lb:.3f}, ub = {ub:.3f}, ub-lb = {ub - lb:.3f}")
-      results.append((lb, ub))
-      break
-
-results = np.array(results)
-lengths = results[:, 1] - results[:, 0]
-idx = np.argmin(lengths)
-print(f"95% Credible interval: [{results[idx, 0]:.3f}, {results[idx, 1]:.3f}]")
