@@ -1119,8 +1119,18 @@ As an example of ambiguity, consider the two plots in the [Wikipedia entry for P
    
    Use a library (e.g., `numpy.fft`) to compute $a$ and $b$. Note that most libraries compute a quantity related to $a$ and $b$ and their output is an array of complex values.
 
+2. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean and unit variance and plot $I(f_i)$ vs $f_i$. The plot of $I$ should be noisy. One problem with raw periodograms is that they are noisy. Entire books are dedicated to dealing with this.
+
+3. Plot the histogram of $I$ values.
+
+**590 Only**
+
+4. Look up the sampling distribution of $I$ and add it to the histogram.
+5. Modify the white noise time series by adding a periodic signal $A\sin(2\pi t/100)$ and plot $I$. At what value of $A$ can you "see" evidence of the periodic signal? Suppose you were given only the values of $I$ and want to determine if there is evidence of a periodic signal. Describe in words the analysis that you would perform.
+
 **Answer**
 
+1\.
 $\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
 $\quad$
 $\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
@@ -1189,14 +1199,23 @@ $$b_1 = (-2/4j)\cdot (-2j) = 1$$
 
 $$b_2 = (-2/4j)\cdot (0) = 0$$
 
-2. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean and unit variance and plot $I(f_i)$ vs $f_i$. The plot of $I$ should be noisy. One problem with raw periodograms is that they are noisy. Entire books are dedicated to dealing with this.
+2\. See [HW7_2.py](solsn/HW7_2.py)
 
-3. Plot the histogram of $I$ values.
+<img src="solns/HW7_2a.svg">
 
-**590 Only**
+<img src="solns/HW7_2b.svg">
 
-4. Look up the sampling distribution of $I$ and add it to the histogram.
-5. Modify the white noise time series by adding a periodic signal $A\sin(2\pi t/100)$ and plot $I$. At what value of $A$ can you "see" evidence of the periodic signal? Suppose you were given only the values of $I$ and want to determine if there is evidence of a periodic signal. Describe in words the analysis that you would perform.
+3\. 
+
+<img src="solns/HW7_2c.svg">
+
+4\. 
+
+<img src="solns/HW7_2d.svg">
+
+5\. When I recreate the following image many times, the value of $I$ at $f_o$ seems unusual for $A=0.2$. I've also plotted $(N/2)A^2$, which is what $I$ would be at $f_o$ if the signal was $A\sin(2\pi t/100)$.
+
+<img src="solns/HW7_2e.svg">
 
 ## Project
 
@@ -1305,6 +1324,8 @@ Analytic parts in comments in [HW8_3.py](solns/HW8_3.py).
 <img src="solns/HW8_3c.svg"/>
 
 # HW 9
+
+9.1 due on Thursday, April 10th before class. 9.2 and 9.3 due on Friday, April 11th at 11:59 pm.
 
 ## Project
 
