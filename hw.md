@@ -1371,7 +1371,7 @@ Derive the Gaussian distribution from the Binomial distribution.
 
 ##
 
-Explain the interpretation of 
+Explain the interpretation of
 
 1. a confidence interval,
 2. not rejecting a null hypothesis, and
