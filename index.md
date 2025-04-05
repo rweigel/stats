@@ -33,6 +33,8 @@ HW:
 [7](hw.html#hw-7)
 |
 [8](hw.html#hw-8)
+|
+[9](hw.html#hw-9)
 
 # Class Notes
 
@@ -142,6 +144,7 @@ Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and 
 Values are drawn from a population with unknown pdf (both functional form and its parameters) and a sample statistic is computed.
 
 Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, create a new sample of size $n$ by resampling the $n$ values with replacement and compute $\overline{x}^*$; repeat the resampling process $n_b$ times.
+
 
 This procedure was used in [HW 4.2](hw.html#hw-4).
 
