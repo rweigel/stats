@@ -1213,7 +1213,7 @@ $$b_2 = (-2/4j)\cdot (0) = 0$$
 
 <img src="solns/HW7_2d.svg">
 
-5\. When I recreate the following image many times, the value of $I$ at $f_o$ seems unusual for $A=0.2$. I've also plotted $(N/2)A^2$, which is what $I$ would be at $f_o$ if the signal was $A\sin(2\pi t/100)$.
+5\. When I recreate the following image many times, the value of $I$ at $f_o$ seems unusual for $A=0.2$. I've also plotted $(N/2)A^2$, which is what $I$ would be at $f_o$ if the signal was $A\sin(2\pi t/100)$. I've also plotted 1000 values from $\chi^2_2$ as a reference.
 
 <img src="solns/HW7_2e.svg">
 
