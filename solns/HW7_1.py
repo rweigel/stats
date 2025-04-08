@@ -20,7 +20,7 @@ def _savefig(letter):
 y = beta*x + alpha + np.random.normal(loc=0.0, scale=sigma, size=(N))
 
 plt.plot(x, y, '.')
-plt.title('$y=x + 1 + \\epsilon$; $\\epsilon \\sim \\mathcal{N}(0,0.2)$')
+plt.title('$y=x + 1 + \\epsilon$; $\\epsilon \\sim \\mathcal{N}(0,0.2^2)$')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.grid()
@@ -55,6 +55,8 @@ print("SciPy     : a = {0:.3f};   b = {1:.3f}".format(a2, b2))
 
 print("Difference: a = {0:.1e}; b = {1:.1e}".format(a1-a2, b1-b2))
 
+# 5.
+
 B = 1000
 a = np.full(B, np.nan)
 b = np.full(B, np.nan)
@@ -79,8 +81,6 @@ s_b = np.std(b, ddof=1)
 
 s_a_boot = np.std(a_boot, ddof=1)
 s_b_boot = np.std(b_boot, ddof=1)
-
-# 5.
 
 a_ci_boot = np.percentile(a, [2.5, 97.5])
 print('95% CI for a using non-parametric bootstrap: [{0:.2f}, {1:.2f}]'.format(a_ci_boot[0], a_ci_boot[1]))

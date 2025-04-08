@@ -1071,6 +1071,46 @@ For parts 6. and 7., see [Devore Chapter 12]((https://drive.google.com/file/d/1b
 
    Devise a numerical experiment using data that you create that demonstrates the above statements by Jim. Save your code and plots with the prefix `HW7_1_Jim`
 
+**Answer**
+
+See [HW7_1.py](solns/HW7_1.py)
+
+1\. and 2\.
+
+<img src="solns/HW7_1a.svg"/>
+
+3\. and 4\.
+
+```
+Manual    : a = 1.046;   b = 0.880
+SciPy     : a = 1.046;   b = 0.880
+Difference: a = 2.2e-16; b = -2.2e-16
+```
+
+5\. Problem wording implies to use non--parametric bootstrap. Results for bootstrap will change when code is reexecuted.
+
+```
+95% CI for a using non-parametric bootstrap: [0.81, 1.18]
+95% CI for b using non-parametric bootstrap: [0.66, 1.34]
+95% CI for b using t distribution:           [0.64, 1.25]
+```
+
+6\. See above.
+
+<img src="solns/HW7_1b.svg"/>
+
+7\. A scatter plot of $b-\beta$ vs $a-\alpha$ shows an inverse correlation.
+
+<img src="solns/HW7_1c.svg"/>
+
+Another way to visually assess if they are independent is in the following plot. If $b-\beta$ and $a-\alpha$ are independent, the two histograms would have more overlap.
+
+<img src="solns/HW7_1d.svg"/>
+
+8\. Instead of resampling single $n=20$ sample from population with replacement $N_B$ times, draw $n=20$ values from population with replacement $N_B$ times.
+
+9\. Results of hypothesis test are shown in title of plot for part 7.
+
 ## DFT and the Raw Periodogram I
 
 The Fourier series model for $y$ having an odd number $N$ time steps is
@@ -1364,6 +1404,12 @@ In problem [HW9_2.py](solns/HW9_2.py), I have computed the credible interval for
 Be prepared to explain 5. and 6. in class. I am also going to ask a very subtle question. In part 6. we tested the hypothesis that there was a signal at a single frequency, $f_o$. Suppose we want to test the hypothesis that there is a statistically significant periodic signal at any frequency.
 
 Notes: The method outlined above for determining if there is a statistically significant peak at a given frequency assumed that we know the signal is white noise with a known variance. In reality, we cannot be certain of either. If we are certain that the signal is white noise, but the variance is unknown, Fisher's $g$--statistic can be used ([1](https://www.mathworks.com/help/signal/ug/significance-testing-for-periodic-component.html), [2](https://drive.google.com/file/d/1vyMtouwblDUob6sU-BtIchjDA9lsKqGe/view?usp=drive_link★★★★remove★★★★), [3](https://drive.google.com/file/d/1gwclmF8Xw68lHtpOxv7uNXp0pCU2nXsD/view?usp=drive_link★★★★remove★★★★)). Also note that there are alternatives to using the raw periodogram for identifying significant peaks, for example, by instead splitting the time series into segments, computing the periodgram for each segment, and averaging the segment periodograms. The point here is that identifying statistically significant peaks is non--trivial, and you should hope that your data are such that the peak is so large that a plot of the periogram is such that there is no doubt that the peak is not explained by random fluctuations in the periodogram. (But, of course, if this is the case, it is unlikely that someone has not already observed and published the observation.)
+
+**Answer**
+
+<img src="solns/HW9_3a.svg"/>
+
+<img src="solns/HW9_3b.svg"/>
 
 # Midterm Study Guide
 
