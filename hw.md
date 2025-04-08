@@ -1093,19 +1093,22 @@ Difference: a = 2.2e-16; b = -2.2e-16
 95% CI for a using non-parametric bootstrap: [0.81, 1.18]
 95% CI for b using non-parametric bootstrap: [0.66, 1.34]
 95% CI for b using t distribution:           [0.64, 1.25]
+Fraction of t-distribution CIs for b that trap beta: 0.951
 ```
-
-6\. See above.
 
 <img src="solns/HW7_1b.svg"/>
 
+<img src="solns/HW7_1c.svg"/>
+
+6\. See above.
+
 7\. A scatter plot of $b-\beta$ vs $a-\alpha$ shows an inverse correlation.
 
-<img src="solns/HW7_1c.svg"/>
+<img src="solns/HW7_1d.svg"/>
 
 Another way to visually assess if they are independent is in the following plot. If $b-\beta$ and $a-\alpha$ are independent, the two histograms would have more overlap.
 
-<img src="solns/HW7_1d.svg"/>
+<img src="solns/HW7_1e.svg"/>
 
 8\. Instead of resampling single $n=20$ sample from population with replacement $N_B$ times, draw $n=20$ values from population with replacement $N_B$ times.
 

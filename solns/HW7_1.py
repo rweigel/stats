@@ -13,8 +13,8 @@ idx_N = np.arange(0, N)
 x = idx_N/N
 
 def _savefig(letter):
-  plt.savefig(f'HW7_1{letter}.png', dpi=300)
-  plt.savefig(f'HW7_1{letter}.svg', transparent=True)
+  plt.savefig(f'HW7_1{letter}.png', dpi=300, bbox_inches='tight')
+  plt.savefig(f'HW7_1{letter}.svg', transparent=True, bbox_inches='tight')
 
 # 1
 y = beta*x + alpha + np.random.normal(loc=0.0, scale=sigma, size=(N))
@@ -90,21 +90,6 @@ print('95% CI for b using non-parametric bootstrap: [{0:.2f}, {1:.2f}]'.format(b
 
 bins = np.linspace(0.4, 1.6, 50)
 
-plt.figure()
-plt.grid()
-plt.hist(a, density=True, bins=bins, color='k')
-plt.title('$\\overline{{a}}$={0:.2f}; 95% CI: [{1:.2f}, {2:.2f}]'.format(abar,a_ci_boot[0], a_ci_boot[1]))
-plt.xlabel('$a$')
-plt.ylabel('pdf($a$)')
-_savefig('b')
-
-plt.figure()
-plt.grid()
-plt.title('$\\overline{{b}}$={0:.2f}; 95% CI: [{1:.2f}, {2:.2f}]'.format(bbar,b_ci_boot[0], b_ci_boot[1]))
-plt.hist(b, density=True, bins=bins, color='k')
-plt.xlabel('$b$')
-plt.ylabel('pdf($b$)')
-
 # 6.
 # Confidence intervals are given in many books and online resources. For
 # example, https://en.wikipedia.org/wiki/Simple_linear_regression#Normality_assumption
@@ -117,6 +102,25 @@ s_betahat = np.sqrt( (1/(n-2))*np.sum( (y[idx_n] - yhat)**2 )/np.sum( (x[idx_n]-
 t = stats.t.ppf(0.975, n-2)
 b_ci = [b1-t*s_betahat, b1+t*s_betahat]
 print('95% CI for b using t distribution:           [{0:.2f}, {1:.2f}]'.format(b_ci[0], b_ci[1]))
+
+plt.figure()
+plt.grid()
+plt.hist(a, density=True, bins=bins, color='k')
+title = '$\\overline{{a}}$={0:.2f}; Bootstrap 95% CI: [{1:.2f}, {2:.2f}]'.format(abar,a_ci_boot[0], a_ci_boot[1])
+plt.title(title)
+plt.xlabel('$a$')
+plt.ylabel('pdf($a$)')
+_savefig('b')
+
+plt.figure()
+plt.grid()
+title = f'$\\overline{{b}}$={bbar:.2f}\nBootstrap 95% CI: [{b_ci_boot[0]:.2f}, {b_ci_boot[1]:.2f}]'
+title = title +  f'\nt-dist 95% CI: [{b_ci[0]:.2f}, {b_ci[1]:.2f}]'
+plt.title(title)
+plt.hist(b, density=True, bins=bins, color='k')
+plt.xlabel('$b$')
+plt.ylabel('pdf($b$)')
+_savefig('c')
 
 # Check of 6. Compute B CIs and see how often they trap beta.
 cnt = 0
@@ -143,7 +147,7 @@ plt.xlabel('$a-\\alpha$')
 plt.ylabel('$b-\\beta$')
 #plt.gca().set_aspect('equal')
 plt.title('cc = {0:.2f}; Reject hyp. that cc = 0\n with significance level of p = {1:.1g}'.format(cc,p))
-_savefig('c')
+_savefig('d')
 
 bins = np.arange(-0.7, 0.75, 0.05)
 idx_p = a-alpha > 0
@@ -159,5 +163,5 @@ t, p = stats.ttest_ind(b[idx_p]-beta, b[idx_n]-beta)
 
 plt.title('Reject hyp. that means are same\nwith significance level p = {0:.1e}'.format(p))
 
-_savefig('d')
+_savefig('e')
 
