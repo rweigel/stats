@@ -1436,7 +1436,7 @@ Save you answer as `HW8_2.py`. When executed, the pdf should be shown.
 
 **Answer**
 
-See [HW10_2_notes.py](solns/HW10_1_notes.py)
+See [HW10_1_notes.py](solns/HW10_1_notes.py)
 
 The exact answer is
 
