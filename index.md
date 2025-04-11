@@ -38,6 +38,25 @@ HW:
 
 # Class Notes
 
+## May 8th
+
+4:30-7:10 pm
+
+Project presenations (~10-20 minutes; during final exam slot)
+
+Guidelines:
+1. Present exploratory data analysis results that are relevant to part 2.
+2. Discuss question that you want to answer that requires statistical methods. Discuss related literature, if relevant.
+3. Review theory
+4. Present results related to question
+
+You may use PPT or present from your README.md file.
+
+Grading:
+* All revisions discussed during previous class presentations addressed
+* Theory correct
+* Results correct
+
 ## May 1st
 
 Last class

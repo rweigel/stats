@@ -37,12 +37,12 @@ idx = np.argmin(lengths) # Find index of minimum interval length
 print(f"95% Credible interval: [{results[idx, 0]:.3f}, {results[idx, 1]:.3f}]")
 # 95% Credible interval: [0.160, 0.825]
 
-plt.plot(θ, pdf, 'k-')
-plt.fill_between(θ, pdf, where=(θ > results[idx, 0]) & (θ < results[idx, 1]), color='gray', alpha=0.5)
+plt.plot(θ, pdf, 'k-', label='p(θ|$\mathcal{D}$)')
+label = f'95% Credible Interval: [{results[idx, 0]:.3f}, {results[idx, 1]:.3f}]'
+plt.plot([results[idx, 0], results[idx, 1]], [0, 0], 'r', lw=5, label=label)
 plt.xlabel('θ')
-plt.ylabel('pdf(θ)')
-plt.title(f'95% Credible Interval: [{results[idx, 0]:.3f}, {results[idx, 1]:.3f}]')
-plt.ylim([0, 2.5])
+plt.ylim([0, 2.7])
+plt.legend(loc='upper left')
 plt.grid()
 plt.savefig('HW9_2.png', dpi=300, bbox_inches='tight')
 plt.savefig('HW9_2.svg', transparent=True, bbox_inches='tight')

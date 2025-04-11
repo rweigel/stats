@@ -61,3 +61,43 @@ plt.title(r'p(θ)$\propto$exp(-(θ-0.5)$^2$/0.1)', fontname='Times New Roman')
 plt.grid()
 plt.savefig('HW8_3c.png', dpi=300, bbox_inches='tight')
 plt.savefig('HW8_3c.svg', transparent=True, bbox_inches='tight')
+plt.close()
+
+# Demonstration of the effect of prior on posterior
+# In general, we expect prior to dominate when we have little data and
+# have less influence as we get more data.
+
+# Suppose 100 tosses and 40 heads, 60 tails
+# P(𝒟|θ) ∝ θ^40 (1-θ)^60
+# If diffuse prior,
+# P(θ|𝒟) ∝ P(𝒟|θ)
+# If gaussian prior,
+# P(θ|𝒟) ∝ P(𝒟|θ) e^(-(θ-0.5)^2/0.1)
+
+θ = np.linspace(0, 1, 1000)
+dθ = θ[1] - θ[0]
+
+P_D_given_θ = θ**40 * (1-θ)**60
+
+# Diffuse prior
+P_θ_d = 1
+P_θ_given_D_d = P_D_given_θ*P_θ_d
+P_θ_given_D_d = P_θ_given_D_d / (dθ*np.sum(P_θ_given_D_d))
+# Note that this is approximate - could compute denominator analytically
+
+# Gaussian prior
+P_θ_g = np.exp((-(θ-0.5)**2/0.1))
+P_θ_g = P_θ_g / (dθ*np.sum(P_θ_g))
+P_θ_given_D_g = P_D_given_θ*P_θ_g
+P_θ_given_D_g = P_θ_given_D_g / (dθ*np.sum(P_θ_given_D_g))
+# Note that this is approximate - could compute denominator analytically
+
+plt.title(r'$\mathcal{D}$ = 40 heads, 60 tails')
+plt.plot(θ, P_θ_given_D_d, 'k--', label='p(θ|$\\mathcal{D}$) for Diffuse prior')
+plt.plot(θ, P_θ_given_D_g, 'k-', label='p(θ|$\\mathcal{D}$) for Gaussian prior')
+plt.plot(θ, P_θ_g, 'k:', label='Gaussian prior p(θ)')
+plt.grid()
+plt.xlabel('θ')
+plt.legend()
+plt.savefig('HW8_3d.png', dpi=300, bbox_inches='tight')
+plt.savefig('HW8_3d.svg', transparent=True, bbox_inches='tight')
