@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['mathtext.fontset'] = 'cm'
 
-run = 2
+run = 1
 
 xo = 0.5
 sigma = 1
@@ -27,21 +27,29 @@ binsx = np.arange(-5, 5 + dx, dx)
 # bin centers
 binsxc = binsx[0:-1] + dx/2
 
+print("bin edges:   {0}".format(binsx))
+print("bin centers: {0}".format(binsxc))
+# Find the index of of the bin that contains the point xo by looking for when
+# the difference between a bin center and xo is less than or equal to dx/2.
+idx = np.where(np.abs(binsxc - xo) <= dx/2)[0]
+if (idx.size > 1):
+    print('xo is on boundary of two bins. Using the bin to the left.')
+idx = idx[0]
+print(f"x_o = {xo:.1f} is in bin #{idx:d}")
+print(f"x_o is in bin with range [{binsx[idx]:.1f}, {binsx[idx+1]:.1f}] and center {binsxc[idx]:.1f}")
 
 P_D_theta = np.full(thetas.size, np.nan)
 P_D_theta_exactish = np.full(thetas.size, np.nan)
 data = np.full((N, thetas.size), np.nan)
 for i in range(thetas.size):
+
     x = np.random.normal(thetas[i], 1, size=N)
     data[:,i] = x
     # Count the number of points in each bin
     n, _ = np.histogram(x, bins=binsx)
 
-    idx = np.where(np.abs(binsxc - xo) <= dx/2)[0][0]
-    if (idx.size > 1):
-        print('xo is on boundary of two bins.')
-        idx = idx[0]
-
+    # Compute the probability of the data given theta by finding
+    # the number of points in the bin that contains x_o divided by N.
     P_D_theta[i] = n[idx]/N
 
     # The following is called exactish because to be exact the integral of 
