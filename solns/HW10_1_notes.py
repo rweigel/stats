@@ -34,6 +34,7 @@ data = np.full((N, thetas.size), np.nan)
 for i in range(thetas.size):
     x = np.random.normal(thetas[i], 1, size=N)
     data[:,i] = x
+    # Count the number of points in each bin
     n, _ = np.histogram(x, bins=binsx)
 
     idx = np.where(np.abs(binsxc - xo) <= dx/2)[0][0]
