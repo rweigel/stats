@@ -1418,6 +1418,27 @@ Notes: The method outlined above for determining if there is a statistically sig
 
 <img src="solns/HW9_3b.svg"/>
 
+# HW 10
+
+Problem 1 is due before class starts on Thursday, April 17th.
+
+Problems 2 and 3 is due on Friday, April 18th at 11:59 pm. However, I want to go over draft solutions during class, so please work on it before then.
+
+## Project
+
+Continue working on the project and updating your README.md file. The requirements for the final presenation are on the main class page.
+
+## Posterior related to Gaussian distribution - 1 unknown
+
+Modify [HW10_1_notes.py](solns/HW10_1_notes.py) so that is uses a prior of $p(\theta)\propto e^{-\theta^2}$
+
+## Posterior related to Gaussian distribution - 2 unknowns
+
+**590 Only**
+
+Modify [HW10_2_notes.py](solns/HW10_2_notes.py) to use [Jeffrey's priors](https://en.wikipedia.org/wiki/Jeffreys_prior). For this problem, this means $p(\theta_1) = \text{const}$ and $p(\theta_2) 
+\propto 1/\theta_2$.
+
 # HW 10$^+$ Notes
 
 The following are notes related to problems that will be assigned on HWs 10, ...
@@ -1518,27 +1539,6 @@ N = 10^3; Area = 1.34400000
 N = 10^4; Area = 1.34680000
 N = 10^5; Area = 1.33782000
 ```
-
-# HW 11
-
-Problem 1 is due before class starts on Thursday, April 17th.
-
-Problems 2 and 3 is due on Friday, April 18th at 11:59 pm. However, I want to go over draft solutions during class, so please work on it before then.
-
-## Project
-
-Continue working on the project and updating your README.md file. The requirements for the final presenation are on the main class page.
-
-## Posterior related to Gaussian distribution - 1 unknown
-
-Modify [HW10_1_notes.py](solns/HW10_1_notes.py) so that is uses a prior of $p(\theta)\propto e^{-\theta^2}$
-
-## Posterior related to Gaussian distribution - 2 unknowns
-
-**590 Only**
-
-Modify [HW10_2_notes.py](solns/HW10_2_notes.py) to use [Jeffrey's priors](https://en.wikipedia.org/wiki/Jeffreys_prior). For this problem, this means $p(\theta_1) = \text{const}$ and $p(\theta_2) 
-\propto 1/\theta_2$.
 
 # Midterm Study Guide
 
