@@ -1422,7 +1422,7 @@ Notes: The method outlined above for determining if there is a statistically sig
 
 Problem 1 is due before class starts on Thursday, April 17th.
 
-Problems 2 and 3 is due on Friday, April 18th at 11:59 pm. However, I want to go over draft solutions during class, so please work on it before then.
+Problems 2 and 3 are due on Friday, April 18th at 11:59 pm. However, I want to go over draft solutions during class, so please work on it before then.
 
 ## Project
 
