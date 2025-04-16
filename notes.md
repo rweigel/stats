@@ -720,9 +720,7 @@ This method does not have practical value -- if you know the distribution and it
 
 #### Parametric Bootstrap
 
-Values are drawn from a population with known pdf and unknown pdf parameters and a sample statistic is computed. The parameters of the population pdf are estimated using the sample. The process is to draw $n$ values from a population and compute a sample statistic. Resample the $n$ values with replacement and compute sample statistic again. Repeat the resampling step $n_b$ times.
-
-For small $n$, "clustering" can occur because a given value can appear more than once in a bootstrap sample. One way to address this is to add a small random value to each value in the bootstrap sample.
+Values are drawn from a population with known pdf and unknown pdf parameters and a sample statistic is computed. The parameters of the population pdf are estimated using the sample. The process is to draw $n$ values from a pdf with these estimated parameters and compute a sample statistic and repeat $n_b$ times.
 
 Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, draw $n$ values from $\mathcal{N}(\overline{x},s)$ and compute $\overline{x}^*$ and repeat this process $n_b$ times.
 
@@ -733,6 +731,8 @@ Values are drawn from a population with unknown pdf (both functional form and it
 Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, create a new sample of size $n$ by resampling the $n$ values with replacement and compute $\overline{x}^*$; repeat the resampling process $n_b$ times.
 
 This procedure was used in HW 4.2.
+
+For small $n$, "clustering" can occur because a given value can appear more than once in a bootstrap sample. One way to address this is to add a small random value to each value in the bootstrap sample.
 
 ### Random Variable
 
@@ -1180,7 +1180,9 @@ $$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\display
 because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
 
 ## Confidence Intervals
- 
+
+### Parametric
+
 Devore p 267
 
 > An alternative to reporting a single sensible value for the parameter being estimated is to calcu- late and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly).
@@ -1225,9 +1227,9 @@ Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ su
  
 It is best to always think of the $\alpha/2$ values as corresponding to a small area.
 
-### Boostrap
+### Bootstrap
 
-[Several method](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Methods_for_bootstrap_confidence_intervals)
+[Several methods](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Methods_for_bootstrap_confidence_intervals)
 
 ## Hypothesis Tests
 

@@ -79,7 +79,7 @@ if run == 1:
     plt.legend()
     plt.yticks(binsxc)
     plt.xlabel('$\\theta$ (population mean)')
-    plt.ylabel('$x$ bin centers')
+    plt.ylabel('$x$')
     plt.title('Grid and values used for computing experiment-derived posterior\nEach $\\theta$ value has 10 points.')
     plt.xticks(thetas)
     plt.savefig('HW10_1_notes_a_run-{0:d}.svg'.format(run), bbox_inches='tight', transparent=True)
