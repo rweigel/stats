@@ -1402,17 +1402,30 @@ In problem [HW9_2.py](solns/HW9_2.py), I have computed the credible interval for
 
 2. See 2. [HW9_2.py](solns/HW9_2.py) and figure below.
 
-<img src="solns/HW9_2b.svg"/>
+   <img src="solns/HW9_2b.svg"/>
 
 4. The formulas in Devore 8.3 assume $np\ge 10$ and $n(1-p)\ge 10$. Here we have $n=8$ and $\hat{p}=0.5$, so $np = 4$ and $n(1-p)-4$ and neither of the equalities are satisfied.
 
   Devore 8.3 references Devore 7.2, which gives a confidence interval for $p$ under the same constraints.
 
-  So the answer is "you can't".
+  So the answer is "you can't". This is a common issue that you will encounter -- the textbook formulas don't apply and as a result, you need to search the literature. There are [several options](https://sigmazone.com/binomial-confidence-intervals/) for the case where the above inequalites are not satisfied.
 
-  Given these formulas do not apply, we can perform a simulation to determine a confidence interval for our observed value of $p$ of $0.5$. To do this, we need the sampling distribution of $p_H = n_H/8$, where $n_H$ is the number of heads that result from eight coin tosses. We can use a parametric bootstrap simulation where the experiment is to flip a coin eight times with $p_H=0.5$ and compute $p_H^*$. Then we repeat this $n_B$ times and use the distribution of $p^*$ to determine a confidence interval.
+  Given these formulas do not apply, we can perform a simulation to determine a confidence interval for our observed value of $p$ of $n_H/n$. To do this, we need the sampling distribution of $n_H/n$, where $n_H$ is the number of heads that result from $n$ coin tosses. We can use a parametric bootstrap simulation where the experiment is to flip a coin $n$ times with $p=0.5$ and compute the fraction of heads, $p^*$. Then we repeat this $n_B$ times and use the distribution of $p^*$ to determine a confidence interval.
   
-  Alternatively, we can note that that sampling distribution of $p_H$ is $p(k) = {n\choose k} 0.5^8$.
+  However, it is easier to note that that sampling distribution of $\theta$ given the data.
+
+  $$P(\mathcal{D}|\theta) = \dbinom{n}{n_H} \left(\frac{n_H}{n}\right)^{n_H} \left(1-\frac{n_H}{n}\right)^{n_T}$$
+  
+  where $n_H$ is the number of heads in $n$ tosses.
+
+  This pmf is shown in the following figure for $\mathcal{D}$: $n_H=20$; $n=40$ along with using Devore Eqn. 7.11 for the confidence interval. I have switched to using discrete values of $\theta$ because of how the frequentist confident interval problem is framed. We use a sampling distribution that is based on the fraction of heads observed. Because the problem is discrete, we can only ever encounter a discrete set of fractions of heads (corresponding to $\theta$). (This discrete issue is related to the "coverage probability" problem discussed in 7.2 of Devore 7th Ed.)
+
+   <img src="solns/HW9_2d.svg"/>
+
+   The following figure shows that his confidence interval is close to the credibile interval for the same $\mathcal{D}$ (which is expected whe the prior is diffuse).
+
+   <img src="solns/HW9_2c.svg"/>
+
 
 ## DFT and the Raw Periodogram II
 

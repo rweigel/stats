@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 plt.rcParams['font.family'] = 'Times New Roman'
 plt.rcParams['mathtext.fontset'] = 'cm'
 
-xo = 0.5
+xo = 0.75
 
 N = 100000
 dtheta = 0.1

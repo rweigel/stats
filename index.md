@@ -73,7 +73,6 @@ Last class
 
 ## April 10th
 
-% STFT
 % Bayes III - estimate mean 
 
 ## April 3rd
