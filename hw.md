@@ -1473,7 +1473,29 @@ Modify [HW10_1_notes.py](solns/HW10_1_notes.py) so that is uses a prior of $p(\t
 Modify [HW10_2_notes.py](solns/HW10_2_notes.py) to use [Jeffrey's priors](https://en.wikipedia.org/wiki/Jeffreys_prior). For this problem, this means $p(\theta_1) = \text{const}$ and $p(\theta_2) 
 \propto 1/\theta_2$.
 
-# HW 10$^+$ Notes
+# HW 11
+
+## Project
+
+Continue working on the project and updating your README.md file.
+
+## Using MCMC
+
+In HW 10, you computed a posterior with $\mathcal{D}$ being a single value. As discussed, the method is inefficient but is useful for demonstrating the concepts.
+
+(HW11_demo.py)[solns/HW11_demo.py] is the script that I discussed in class that computes a posterior using MCMC.
+
+Experiment with this program and be prepared to discuss your results when I meet with groups individually during the next class period. What I am looking for is for you to make modifications to this program and be able to expain the results. I am also looking for you to extend the program to solve slightly different problems and to be able to explain why the results are expected.
+
+## Using MCMC II
+
+**590 Only**
+
+1. Modify (HW11_demo.py)[solns/HW11_demo.py] to produce the heat map in [HW10_2_notes.py](solns/HW10_2_notes.py) by computing the posterior using MCMC and also computing the exactish posterior. Modify your program to allow for more values in $\mathcal{D}$ and be prepared to expain the results.
+
+2. Read https://emcee.readthedocs.io/en/develop/user/line/ and modify the program so that it solves a simple linear regression problem (so $f=0$). Be prepared to explain where the likelihood function comes from and what analysis you did to determine if the results make sense. The idea here is that before using a new statistical method on a real problem, you should attempt to use the new method on generated data for which you know, or can compute, an exact answer.
+
+# HW 10 Notes
 
 The following are notes related to problems that will be assigned on HWs 10, ...
 
