@@ -35,6 +35,10 @@ HW:
 [8](hw.html#hw-8)
 |
 [9](hw.html#hw-9)
+|
+[10](hw.html#hw-10)
+|
+[11](hw.html#hw-11)
 
 # Class Notes
 
