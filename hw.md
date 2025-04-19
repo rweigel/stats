@@ -1491,9 +1491,9 @@ Experiment with this program and be prepared to discuss your results when I meet
 
 **590 Only**
 
-1. Modify (HW11_demo.py)[solns/HW11_demo.py] to produce the heat map in [HW10_2_notes.py](solns/HW10_2_notes.py) by computing the posterior using MCMC and also computing the exactish posterior. Modify your program to allow for more values in $\mathcal{D}$ and be prepared to expain the results.
+Modify [HW11_demo.py](solns/HW11_demo.py) to produce the heat map in [HW10_2_notes.py](solns/HW10_2_notes.py) by computing the posterior using MCMC and also computing the exactish posterior. Modify your program to allow for more values in $\mathcal{D}$ and be prepared to expain the results.
 
-2. Read https://emcee.readthedocs.io/en/develop/user/line/ and modify the program so that it solves a simple linear regression problem (so $f=0$). Be prepared to explain where the likelihood function comes from and what analysis you did to determine if the results make sense. The idea here is that before using a new statistical method on a real problem, you should attempt to use the new method on generated data for which you know, or can compute, an exact answer.
+%2. Read https://emcee.readthedocs.io/en/develop/user/line/ and modify the program so that it solves a simple linear regression problem (so $f=0$). Be prepared to explain where the likelihood function comes from and what analysis you did to determine if the results make sense. The idea here is that before using a new statistical method on a real problem, you should attempt to use the new method on generated data for which you know, or can compute, an exact answer.
 
 # HW 10 Notes
 
