@@ -1483,7 +1483,7 @@ Continue working on the project and updating your README.md file.
 
 In HW 10, you computed a posterior with $\mathcal{D}$ being a single value. As discussed, the method is inefficient but is useful for demonstrating the concepts.
 
-(HW11_demo.py)[solns/HW11_demo.py] is the script that I discussed in class that computes a posterior using MCMC.
+[HW11_demo.py](solns/HW11_demo.py) is the script that I discussed in class that computes a posterior using MCMC.
 
 Experiment with this program and be prepared to discuss your results when I meet with groups individually during the next class period. What I am looking for is for you to make modifications to this program and be able to expain the results. I am also looking for you to extend the program to solve slightly different problems and to be able to explain why the results are expected.
 
