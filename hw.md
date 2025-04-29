@@ -1466,6 +1466,14 @@ Continue working on the project and updating your README.md file. The requiremen
 
 Modify [HW10_1_notes.py](solns/HW10_1_notes.py) so that is uses a prior of $p(\theta)\propto e^{-\theta^2}$
 
+**Answer**
+
+Note that the range of considered $\theta$s must be expanded because the prior is not constrained to $[-1, 1]$.
+
+[HW10_2.py](solns/HW10_2.py)
+
+<img src="solns/HW10_2d.svg">
+
 ## Posterior related to Gaussian distribution - 2 unknowns
 
 **590 Only**
