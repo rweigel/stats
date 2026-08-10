@@ -19,206 +19,10 @@ Subtitle: ASTR/PHYS 390/590<br>Spring, 2025
 
 HW: 
 [1](hw.html#hw-1)
-|
-[2](hw.html#hw-2)
-|
-[3](hw.html#hw-3)
-|
-[4](hw.html#hw-4)
-|
-[5](hw.html#hw-5)
-|
-[6](hw.html#hw-6)
-|
-[7](hw.html#hw-7)
-|
-[8](hw.html#hw-8)
-|
-[9](hw.html#hw-9)
-|
-[10](hw.html#hw-10)
-|
-[11](hw.html#hw-11)
 
 # Class Notes
 
-## May 8th
-
-4:30-7:10 pm
-
-Project presenations (~10-20 minutes; during final exam slot)
-
-Guidelines:
-1. Present exploratory data analysis results that are relevant to part 2.
-2. Discuss question that you want to answer that requires statistical methods. Discuss related literature, if relevant.
-3. Review theory
-4. Present results related to question
-
-You may use PPT or present from your README.md file.
-
-Grading:
-* All revisions discussed during previous class presentations addressed
-* Theory correct
-* Results correct
-
-## May 1st
-
-Last class
-
-## April 24th
-
-% SVD
-% Bayes IV - Use emcee for Bayes III
-
-## April 17th
-
-% Non-linear fitting
-% Bayes III - estimate mean and std
-
-## April 10th
-
-% Bayes III - estimate mean 
-
-## April 3rd
-
-% Autocorrelation
-% Bayes II - Credible
-
-## March 27th
-
-% Bayes I - Coin tosses, basic concepts and terms
-
-## March 20th
-
-Mid--term
-
-## March 13th
-
-No class -- Spring Break
-
-## March 6th
-
-## February 28th
-
-* HW 4 comments
-  * Try using more NumPy. Will be faster and usually easier to read.
-  * Part 4. Gave full credit. This is not something I covered, but I want you to ponder the question before I discuss a method for assessing claims like this.
-  * Common issues.
-* Review of Sampling Distributions and their Simulation (see notes below)
-  * Code I'll cover in class [`sampling_dists.py`](notes/code/sampling_dists.py)
-
-* Mid-term
-  * Date (nominally March 20th)
-  * [Content](hws#midterm)
-* Project discussion
-* Hypothesis Testing (see notes below)
-
-## Sampling Distribution Notes
-
-On the homeworks, you have used sampling distributions many times. There are two types of sampling distributions: exact and simulated. There are many ways of simulating a sampling distribution.
-
-When we take a sample from a population and compute a statistc, for example the sample mean, we want to know the uncertainty in the statistic. That is, we want to know the probability distribution of the means. That is, if we repeated the experiment many times, what would be the distribution of the sample means for all experiments. The probability distribution of the test statistic is the sampling distribution.
-
-If the sampling distribution is known, we use it to compute error bars on a test statistic. Sampling distributions are also needed for hypothesis testing.
-
-In [HW 2.3](hw.html#hw-2), we derived a sampling distribution numerically. It was found that when $n$ values of $X$ were drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$ and the statistic 
-
-$$\overline{X} = \frac{1}{n}\sum_{i=1}^nX_i$$
-
-was computed $10,000$ times, 95% of the time the range
-
-$$\left[\overline{X}-1.96\frac{\sigma}{\sqrt{n}}\text{ },\text{ } \overline{X}+1.96\frac{\sigma}{\sqrt{n}}\right]$$
-
-included $\mu$. (We say that this range "traps" $\mu$ 95% of the time.) We actually did not need to do the numerical experiment when $n$ is large. We know the expected result from the Central Limit Theorem.
-
-<details><summary>It's a trap</summary>
-![](notes/figures/its_a_trap.jpg)
-</details>
-
-The sampling distribution of a test statistic depends on the equation for the test statistic and the population distribution. There are a limited number of test statistic/population distributions for which we know the exact sampling distribution of the test statistic. Simulation can be used in other cases.
-
-### Parametric Simulation
-
-Values are drawn from a population with known pdf and pdf parameters and a sample statistic is computed. This process is repeated many times to create a pdf of the sample statistic.
-
-This procedure was used in HWs [HW 2.3](hw.html#hw-2), [HW 2.4](hw.html#hw-2), and [HW 3.3](hw.html#hw-3).
-
-Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$. Repeat $n_s$ and plot the pdf or histogram of the $n_s$ $\overline{x}$ values.
-
-This method does not always have practical value -- if you know the distribution and its parameters, you can simply use the analytical equation for the pdf. (However, one can come invent a case where the population is based on known pdfs but the composite pdf is unknown; for example if the probability of a value in a population is given by a complex product of known pdfs)
-
-I generally have students use a parametric simulation to reinforce the idea of the meaning of the sampling distribution of a test statistic -- that it is a hypothetical distribution that would result if you could do many repeated experiments.
-
-### Bootstrap
-
-[The definition](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping) of the idiom "bootstrapping" is "get (oneself or something) into or out of a situation using existing resources." 
-
-### Parametric Bootstrap
-
-Values are drawn from a population with known pdf and unknown pdf parameters, and a sample statistic is computed. The parameters of the population pdf are estimated using the sample. The process is to draw $n$ values from a population and compute a sample statistic. Resample the $n$ values with replacement and compute sample statistic again. Repeat the resampling step $n_b$ times.
-
-For small $n$, "clustering" can occur because a given value can appear more than once in a bootstrap sample. One way to address this is to add a small random value to each value in the bootstrap sample.
-
-Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, draw $n$ values from $\mathcal{N}(\overline{x},s)$ and compute $\overline{x}^*$ and repeat this process $n_b$ times.
-
-### Non-parametric bootstrap
-
-Values are drawn from a population with unknown pdf (both functional form and its parameters) and a sample statistic is computed.
-
-Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, create a new sample of size $n$ by resampling the $n$ values with replacement and compute $\overline{x}^*$; repeat the resampling process $n_b$ times.
-
-
-This procedure was used in [HW 4.2](hw.html#hw-4).
-
-## Hypothesis Testing Notes
-
-Typical problem (Devore Example 8.6)
-
-<img src="notes/figures/Devore_Example_8.6a.png"/>
-
-<img src="notes/figures/Devore_Example_8.6b.png"/>
-
-<img src="notes/figures/HW7_2a.svg"/>
-
-<img src="notes/figures/HW7_2b.svg"/>
-
-<img src="notes/figures/HW7_2c.svg"/>
-
-## February 21st
-
-Point Estimation
-
-## February 14th
-
-Expectation Values
-
-## February 7th
-
-Probability Distributions
-
-## January 30th
-
-**In-class problems**
-
-1. 2% of people age 50–60 who participate in routine screening have colon cancer. 80% of people with colon cancer will test positive. 9.6% of those without colon cancer will also test positive. A person in this age group had a positive test in a routine screening. What is the probability that they actually have colon cancer?
-
-2. A box in a certain supply room contains four 40-W light-bulbs, five 60-W bulbs, and six 75-W bulbs. Suppose that three bulbs are randomly selected.
-
-   a. What is the probability that exactly two of the selected bulbs are rated at 75-W?
-
-   b. What is the probability that all three of the selected bulbs have the same rating?
-
-   c. What is the probability that one bulb of each type is selected?
-
-   d. Suppose now that bulbs are to be selected one by one until a 75-W bulb is found. What is the probability that it is necessary to examine at least 6 bulbs?
-
-   e. How would you use a numerical simulation to estimate the answer to a. (assume you don't know the formulas for permutations and combinations)?
-
-3. Devise a numerical experiment to test the statement of the Weak Law of Large Numbers
-
-4. Devise a numerical experiment to test the statement of the Central Limit Theorem
-
-## January 23rd
+## August 27th
 
 * Introductions
 
@@ -439,19 +243,17 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 1. [EMCEE Overview](https://arxiv.org/pdf/1202.3665.pdf)
  [EMCEE software documentation](https://emcee.readthedocs.io/en/stable/)
 
-# General Policies
+# Course-Specific Policies
 
-## Academic Integrity
+## AI
 
-Mason is an Honor Code university; please see the Office for Academic Integrity for a full description of the code and the honor committee process. The principle of academic integrity is taken very seriously and violations are treated gravely. What does academic integrity mean in this course? Essentially this: when you are responsible for a task, you will perform that task. When you rely on someone else’s work in an aspect of the performance of that task, you will give full credit in the proper, accepted form. Any student use of Generative-AI tools should follow the fundamental principles of the Honor Code.
+1. What are your expectations for how work should be completed in class?
 
-## Disability
+2. What are your expectations for when generative Artificial Intelligence (AI) may and may not be used?
 
-Disability Services at George Mason University is committed to providing equitable access to learning opportunities for all students by upholding the laws that ensure equal treatment of people with disabilities. If you are seeking accommodations for this class, please first visit http://ds.gmu.edu/ for detailed information about the Disability Services registration process. Then please discuss your approved accommodations with me. Disability Services is located in Student Union Building I (SUB I), Suite 2500. Email:ods@gmu.edu | Phone: (703) 993-2474.
+3. When can students collaborate with each other and when do they need to work alone?
 
-## Diversity and Inclusion
-
-We seek to create a learning environment that fosters respect for people across identities. We welcome and value individuals and their differences, including gender expression and identity, race, economic status, sex, sexuality, ethnicity, national origin, first language, religion, age, and ability. We encourage all members of the learning environment to engage with the material personally but to also be open to exploring and learning from experiences different than their own. Mason’s nondiscrimination policy is at https://universitypolicy.gmu.edu/policies/non-discrimination-policy/.
+4. How should students request permission if they want to build on a project that they started in a previous class?
 
 ## Communication
 
@@ -459,7 +261,71 @@ If you have a question whose answer may be of interest to other students, please
 
 If you need to send communicate with me about something private, please send it to `rweigel@gmu.edu` from your MasonLive email address.
 
-## University Resources
+
+
+# Common Policies
+
+Common Policies Affecting All Courses at George Mason University All Courses at George Mason University
+ 
+https://stearnscenter.gmu.edu/home/gmu-common-course-policies/
+
+Updated for August 2026
+
+These four policies affect students in all courses at George Mason University. This Course Policy Addendum must be made available to students in all courses (see [Catalog Policy AP.2.5](https://catalog.gmu.edu/policies/academic/course-information/#AP-2-5)).
+
+Additional policies affecting this course, and additional resources or guidance regarding these policies, may be provided to students by the instructor.
+
+## Academic Standards
+
+Academic Standards exist to promote authentic scholarship, support the institution’s goal of maintaining high standards of academic excellence, and encourage continued ethical behavior of faculty and students to cultivate an educational community which values integrity and produces graduates who carry this commitment forward into professional practice. 
+
+As members of the George Mason University community, we are committed to fostering an environment of trust, respect, and scholarly excellence. Our academic standards are the foundation of this commitment, guiding our behavior and interactions within this academic community. The practices for implementing these standards adapt to modern practices, disciplinary contexts, and technological advancements. Our standards are embodied in our courses, policies, and scholarship, and are upheld in the following principles: 
+
+* Honesty: Providing accurate information in all academic endeavors, including communications, assignments, and examinations.  
+Acknowledgement: Giving proper credit for all contributions to one’s work. This involves the use of accurate citations and references for any ideas, words, or materials created by others in the style appropriate to the discipline. It also includes acknowledging shared authorship in group projects, co-authored pieces, and project reports.  
+* Uniqueness of Work: Ensuring that all submitted work is the result of one’s own effort and is original, including free from self-plagiarism. This principle extends to written assignments, code, presentations, exams, and all other forms of academic work. 
+* Violations of these standards—including but not limited to plagiarism, fabrication, and cheating—are taken seriously and will be addressed in accordance with university policies. The process for reporting, investigating, and adjudicating violations is [outlined in the university’s procedures](https://academicstandards.gmu.edu/). Consequences of violations may include academic sanctions, disciplinary actions, and other measures necessary to uphold the integrity of our academic community. 
+
+The principles outlined in these academic standards reflect our collective commitment to upholding the highest standards of honesty, acknowledgement, and uniqueness of work. By adhering to these principles, we ensure the continued excellence and integrity of George Mason University’s academic community. 
+
+**Student responsibility**: Students are responsible for understanding how these general expectations regarding academic standards apply to each course, assignment, or exam they participate in; students should ask their instructor for clarification on any aspect that is not clear to them.
+
+## Accommodations for Students with Disabilities
+
+Disability Services at George Mason University is committed to upholding the letter and spirit of the laws that ensure equal treatment of people with disabilities. Under the administration of University Life, Disability Services implements and coordinates reasonable accommodations and disability-related services that afford equal access to university programs and activities. Students can begin the registration process with Disability Services at any time during their enrollment at George Mason University. If you are seeking accommodations, please visit https://ds.gmu.edu/ for detailed information about the Disability Services registration process. Disability Services is located in Student Union Building I (SUB I), Suite 2500. Email: ods@gmu.edu. Phone: (703) 993-2474.
+
+Student responsibility: Students are responsible for registering with Disability Services and communicating about their approved accommodations with their instructor in advance of any relevant class meeting, assignment, or exam.
+
+## FERPA and Use of GMU Email Addresses for Course Communication
+
+The [Family Educational Rights and Privacy Act (FERPA)](https://studentprivacy.ed.gov/ferpa) governs the disclosure of [education records for eligible students](https://registrar.gmu.edu/ferpa/) and is an essential aspect of any course. **Students must use their GMU email account** to receive important University information, including communications related to this class. Instructors will not respond to messages sent from or send messages regarding course content to a non-GMU email address.
+
+**Student responsibility**: Students are responsible for checking their GMU email regularly for course-related information, and/or ensuring that GMU email messages are forwarded to an account they do check.
+
+## Title IX and Non-Discrimination: Access and Compliance with George Mason’s Nondiscrimination Policies
+
+George Mason University is committed to providing a safe and non-discriminatory learning, living, and working environment across all educational programs, services, and activities for all members of the University community. University educational programs, services, and activities will be free from discrimination on the basis of race, color, religion, ethnic national origin (including shared ancestry and/or ethnic characteristics), sex, disability, military status (including veteran status), sexual orientation, gender identity, gender expression, age, marital status, pregnancy status, genetic information, or any other characteristic protected by law.   
+
+**Required Reporting**
+
+**All non-confidential employees, including your faculty members, have a legal requirement to report all relevant details, obtained directly or indirectly, about any incident of discrimination or harassment, including Title IX Prohibited Conduct, to the Office of Access, Compliance, and Community (OACC), which includes the Title IX Coordinator.**
+
+Reportable Conduct by an employee, a student, or a third party includes: 
+
+* Discrimination and harassment under Title VI or Title VII, which can include unequal and unfavorable treatment in the educational/work environment or conduct (oral, written, graphic) that is physically threatening, harmful, or humiliating. 
+* Prohibited Conduct under Title IX, which can include sexual harassment, sexual assault, gender-based stalking, or dating/domestic violence.  
+
+Upon notification, OACC professionals will assess the report and determine if outreach is required. If outreach is required, the potentially harmed individual (the “Complainant”) will receive a communication, likely in the form of an email, with an offer to meet with a representative of the appropriate team. 
+
+**Applicable Policies and Resources**
+
+* [University Policy 1201](https://oacc.gmu.edu/access-services/non-discrimination): Non-Discrimination; Contact masoneo@gmu.edu with related questions. 
+* [University Policy 1202](https://universitypolicy.gmu.edu/policies/sexual-harassment-policy/): Sexual and Gender-Based Harassment and Other Interpersonal Violence; Contact titleix@gmu.edu with related questions. 
+* [University Policy 1204](https://universitypolicy.gmu.edu/policies/prohibited-relationships-with-students/): Prohibited Relationships with Students; General questions may be directed to OACC at oacc@gmu.edu, or by phone at 703-993-8730, or in person on the Fairfax campus in Aquia 373 or at Mason Square in Van Metre Hall Suite 222. 
+
+**Student opportunity**: If you prefer to speak to someone confidentially, please contact one of Mason’s confidential employees in [Student Support and Advocacy](https://ssac.gmu.edu/) (SSAC), [Counseling and Psychological Services](https://caps.gmu.edu/) (CAPS), [Student Health Services](https://shs.gmu.edu/) (SHS), and/or the [Office of the University Ombudsperson](https://ombuds.gmu.edu/).
+
+# University Resources
 
 * Learning Services https://learningservices.gmu.edu/
 * Student Support and Advocacy Center https://ssac.gmu.edu/
