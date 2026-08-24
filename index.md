@@ -1,5 +1,5 @@
 ```mdextension
-Title: Statistical Methods in Physics
+Title: Statistical Methods in Physics and Astro Statistics
 Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 ```
 
@@ -42,7 +42,7 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 
 # Summary
 
-This course covers fundamental statistical methods that apply to most data--related (both measurement and simulation) problems. I emphasize the development of a deep understanding of the interpretation of statistical results.
+This course covers fundamental statistical methods that apply to most data--related (both measurement and simulation) problems. I emphasize the development of a deep understanding of the interpretation of statistical results by having students develop simulations that test the expectations of theory.
 
 I encourage students doing data-related research projects to use their data for a project in which the statistical methods covered in class are applied to their data.
 
@@ -95,11 +95,13 @@ Many additional references and resources are listed in the [References](#referen
 
 # Evaluation
 
-* **Homework**: 20% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of real data. Assignments are due before class starts. 
-* **Quizzes**: 20% - Approximately one per week. Closed book and computer.
-* **Midterm**: 30%
+Students registered in 590 will be required to solve extra homework, quiz, and midterm problems; the scope of their final project will be larger.
+
+* **Homework**: 20% - Approximately one per week. Most homework assignments will include at least one problem that requires the use of real data. Assignments are due before class starts. 
+* **Quizzes**: 20% - Approximately one per week. Closed book and computer. You will be told the topic covered on the quiz a week before it is given.
+* **Midterm**: 30% - In-class; closed book, computer, and notes.
 * **Final project**: 30%
-* **Final course**: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, < 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).
+* **Final course**: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, < 60% F. For graduate students, the scale is the same except that 70% and lower is an F (the graduate grade scale does not have a D).
 
 # Topics
 
@@ -258,15 +260,15 @@ TBD
 
 ## Communication
 
-If you have a question whose answer may be of interest to other students, please post it to Discord and make it visible to other students. You can set the post so that you are anonymous.
+If you have a question whose answer may be of interest to other students, please post it to Discord and make it visible to other students. (You can post anonymously, if desired.)
 
 If you need to send communicate with me about something private, please send it to `rweigel@gmu.edu` from your MasonLive email address.
 
 # Common Policies
 
 Common Policies Affecting All Courses at George Mason University All Courses at George Mason University
- 
-https://stearnscenter.gmu.edu/home/gmu-common-course-policies/
+
+Source: https://stearnscenter.gmu.edu/home/gmu-common-course-policies/
 
 Updated for August 2026
 
@@ -280,8 +282,8 @@ Academic Standards exist to promote authentic scholarship, support the instituti
 
 As members of the George Mason University community, we are committed to fostering an environment of trust, respect, and scholarly excellence. Our academic standards are the foundation of this commitment, guiding our behavior and interactions within this academic community. The practices for implementing these standards adapt to modern practices, disciplinary contexts, and technological advancements. Our standards are embodied in our courses, policies, and scholarship, and are upheld in the following principles: 
 
-* Honesty: Providing accurate information in all academic endeavors, including communications, assignments, and examinations.  
-Acknowledgement: Giving proper credit for all contributions to one’s work. This involves the use of accurate citations and references for any ideas, words, or materials created by others in the style appropriate to the discipline. It also includes acknowledging shared authorship in group projects, co-authored pieces, and project reports.  
+* Honesty: Providing accurate information in all academic endeavors, including communications, assignments, and examinations.
+* Acknowledgement: Giving proper credit for all contributions to one’s work. This involves the use of accurate citations and references for any ideas, words, or materials created by others in the style appropriate to the discipline. It also includes acknowledging shared authorship in group projects, co-authored pieces, and project reports.  
 * Uniqueness of Work: Ensuring that all submitted work is the result of one’s own effort and is original, including free from self-plagiarism. This principle extends to written assignments, code, presentations, exams, and all other forms of academic work. 
 * Violations of these standards—including but not limited to plagiarism, fabrication, and cheating—are taken seriously and will be addressed in accordance with university policies. The process for reporting, investigating, and adjudicating violations is [outlined in the university’s procedures](https://academicstandards.gmu.edu/). Consequences of violations may include academic sanctions, disciplinary actions, and other measures necessary to uphold the integrity of our academic community. 
 
