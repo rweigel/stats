@@ -1,14 +1,14 @@
 ```mdextension
 Title: Statistical Methods in Physics
-Subtitle: ASTR/PHYS 390/590<br>Spring, 2025
+Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 ```
 
-https://stearnscenter.gmu.edu/knowledge-center/designing-your-syllabus/
+%https://stearnscenter.gmu.edu/knowledge-center/designing-your-syllabus/
 
 # Course Information
 
 * **Day and Time**: Thursday from 4:30 - 7:10 pm
-* **Location**: 220 Planetary Hall
+* **Location**: L111 Exploratory Hall
 * **Instructor**: Bob Weigel
 * **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
 * **Office Hour**: Thursday 3:30-4:30 pm
@@ -32,7 +32,7 @@ https://stearnscenter.gmu.edu/knowledge-center/designing-your-syllabus/
 
 * Cover Probability topics in [Devore Chapter 2]((https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★); see also [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing★★★★★remove★★★★★), [Rozanov Chapters 1 and 2](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★), [Larson Chapters 1 and 2](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) and [DeGroot Chapter 1](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★).
 
-   **Preparation**: Read [Devore Chapter 2](https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link★★★★★remove★★★★★), write down all of the definitions of key terms, and be prepared to define without referring to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.
+   **Preparation**: Scan [Devore Chapter 2](https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link★★★★★remove★★★★★), write down definitions of key terms, and be prepared to define without referring to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.
 
    At the start of class, I will ask students for key terms, write them on the board, and then ask for volunteers to provide a definition (ideally without referring to your notes).
 
@@ -95,7 +95,8 @@ Many additional references and resources are listed in the [References](#referen
 
 # Evaluation
 
-* **Homework**: 40% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of real data. Assignments are due before class starts. 
+* **Homework**: 20% - Approximately one per week; extra problems will be assigned for students registered in 590. Most homework assignments will include at least one problem that requires the use of real data. Assignments are due before class starts. 
+* **Quizzes**: 20% - Approximately one per week. Closed book and computer.
 * **Midterm**: 30%
 * **Final project**: 30%
 * **Final course**: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, < 60% F. For graduate students, 70% and lower is an F (the graduate grade scale does not have a D).
@@ -247,23 +248,19 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 
 # Course-Specific Policies
 
+## Collaboration
+
+Students may collaborate on homework. However, they may not turn in identical solutions. I expect you to work out a solution in your own way and in your own style first and then collaborate with students to check your results and modify your solutions as-needed.
+
 ## AI
 
-1. What are your expectations for how work should be completed in class?
-
-2. What are your expectations for when generative Artificial Intelligence (AI) may and may not be used?
-
-3. When can students collaborate with each other and when do they need to work alone?
-
-4. How should students request permission if they want to build on a project that they started in a previous class?
+TBD
 
 ## Communication
 
 If you have a question whose answer may be of interest to other students, please post it to Discord and make it visible to other students. You can set the post so that you are anonymous.
 
 If you need to send communicate with me about something private, please send it to `rweigel@gmu.edu` from your MasonLive email address.
-
-
 
 # Common Policies
 
