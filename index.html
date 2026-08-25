@@ -12,7 +12,7 @@
     }
 
     body {
-      background-image: url("https://rweigel.github.io/biedit/biedit/ui/img/paper.png")
+      background-image: url("https://rweigel.github.io/biedit/img/paper.png")
     }
 
     .body {
@@ -20,7 +20,7 @@
       min-width: 50%;
       max-height: 100%;
       position: absolute;
-      background-image: url("https://rweigel.github.io/biedit/biedit/ui/img/paper.png");
+      background-image: url("https://rweigel.github.io/biedit/img/paper.png");
     }
 
     #toc {
@@ -382,6 +382,10 @@
       font-size: inherit !important;
     }
 
+    .katex-warning {
+      border-right: 0.5em solid red;
+    }
+
     .katex-display {
       text-align: center;
       margin: 0em;
@@ -391,16 +395,6 @@
     .katex-display.fleqn>.katex {
       padding-left: 0em;
       margin: 0em;
-    }
-
-    .katex-warning {
-      border-right: 0.5em solid red;
-    }
-
-    .katex-error-expression {}
-
-    .katex-error-message {
-      color: red;
     }
 
     .page-break {
@@ -428,14 +422,8 @@
         margin: 0.5in 0.75in 0.75in;
       }
 
-      body,
-      html {
-        margin: 0px;
-        padding: 0px;
-        color: rgb(0, 0, 0);
-        background-color: rgb(255, 255, 255);
-        overflow: auto;
-        display: inline;
+      .katex .hide-tail {
+        overflow: hidden !important;
       }
 
       .page-break {
@@ -514,10 +502,6 @@
         border-color: currentcolor;
         border-image: none;
         overflow-wrap: break-word;
-      }
-
-      .katex .hide-tail {
-        overflow: hidden !important;
       }
 
       .katex {
@@ -685,7 +669,7 @@
                 </a>
               </li>
               <li>
-                <a href="#bayesian-vs.-frequentist">
+                <a href="#bayesian-vs-frequentist">
                   <span class="toctext">Bayesian vs. Frequentist</span>
                 </a>
               </li>
@@ -729,8 +713,8 @@
             </a>
           </li>
           <li>
-            <a href="#ai">
-              <span class="toctext">AI</span>
+            <a href="#ai-and-other-resources-on-homework-solutions">
+              <span class="toctext">AI and Other Resources on Homework Solutions</span>
             </a>
           </li>
           <li>
@@ -883,7 +867,7 @@
               <p>Cover Probability topics in <a href="https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 2</a>; see also <a href="https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bulmer Chapters 1 and 2</a>, <a href="https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bonamente Chapter 1</a>, <a href="https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Rozanov Chapters 1 and 2</a>, <a href="https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Larson Chapters 1 and 2</a> and <a href="https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">DeGroot Chapter 1</a>.</p>
             </div>
             <div class="block">
-              <p><strong>Preparation</strong>: Scan <a href="https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 2</a>, write down definitions of key terms, and be prepared to define without referring to your notes. You don’t have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.</p>
+              <p class="active"><strong>Preparation</strong>: Scan <a href="https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 2</a>, write down definitions of key terms, and be prepared to define without referring to your notes. You don’t have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.</p>
             </div>
             <div class="block">
               <p>At the start of class, I will ask students for key terms, write them on the board, and then ask for volunteers to provide a definition (ideally without referring to your notes).</p>
@@ -1502,7 +1486,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="bayesian-vs.-frequentist" class="anchor hanchor" href="#bayesian-vs.-frequentist"><span class="hnumber">10.3.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
+        <h3><a name="bayesian-vs-frequentist" class="anchor hanchor" href="#bayesian-vs-frequentist"><span class="hnumber">10.3.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
       </div>
       <div class="block">
         <ol class="compact">
@@ -1714,10 +1698,53 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="ai" class="anchor hanchor" href="#ai"><span class="hnumber">11.2</span>&nbsp;<span class="htext">AI</span></a></h2>
+        <h2><a name="ai-and-other-resources-on-homework-solutions" class="anchor hanchor" href="#ai-and-other-resources-on-homework-solutions"><span class="hnumber">11.2</span>&nbsp;<span class="htext">AI and Other Resources on Homework Solutions</span></a></h2>
       </div>
       <div class="block">
-        <p>TBD</p>
+        <p>You may use any resource, including AI, for your homework solutions.</p>
+      </div>
+      <div class="block">
+        <p><strong>Recommendations</strong></p>
+      </div>
+      <div class="block">
+        <ol class="loose">
+          <li>
+            <div class="block">
+              <p>Try to solve the problem first with as little assistance as possible, ideally only looking up the defintions of functions. You will never get good at crosswords or Sodoku if you look up each answer with little thought. Be Vigilant!</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>If you use AI to review your code, keep track of the corrections it makes. Try to come up with an explanation on your own for why its method is better. Be Vigilant!</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p><strong>Requirements</strong></p>
+      </div>
+      <div class="block">
+        <ol class="loose">
+          <li>
+            <div class="block">
+              <p>Document specifically where you used AI or another resource.</p>
+            </div>
+            <div class="block">
+              <p>Example (in class)</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Understand every line of analysis code you submit<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>. If I see advanced programming techniques that I suspect that you don’t understand, I will deduct points ask you in person to explain the technique in my office hour if you feel that you did not understand the technique. If I am satisfied that you understand the code, I will remove the deduction.</p>
+            </div>
+            <div class="block">
+              <p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span> An exception is plotting code.</p>
+            </div>
+            <div class="block">
+              <p>Example (in class)</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
     <div class="section">
