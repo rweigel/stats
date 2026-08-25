@@ -254,9 +254,29 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 
 Students may collaborate on homework. However, they may not turn in identical solutions. I expect you to work out a solution in your own way and in your own style first and then collaborate with students to check your results and modify your solutions as-needed.
 
-## AI
+## AI and Other Resources on Homework Solutions
 
-TBD
+You may use any resource, including AI, for your homework solutions.
+
+**Recommendations**
+
+1. Try to solve the problem first with as little assistance as possible, ideally only looking up the defintions of functions. You will never get good at crosswords or Sodoku if you look up each answer with little thought. Be Vigilant!
+
+2. If you use AI to review your code, keep track of the corrections it makes. Try to come up with an explanation on your own for why its method is better. Be Vigilant!
+
+**Requirements**
+
+1. Document specifically where you used AI or another resource.
+
+   Example (in class)
+
+2. Understand every line of analysis code you submit$^*$. If I see advanced programming techniques that I suspect that you don't understand, I will deduct points ask you in person to explain the technique in my office hour if you feel that you did not understand the technique. If I am satisfied that you understand the code, I will remove the deduction.
+   
+   $^*$ An exception is plotting code.
+
+   Example (in class)
+
+
 
 ## Communication
 
