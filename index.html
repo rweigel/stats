@@ -12,7 +12,7 @@
     }
 
     body {
-      background-image: url("https://rweigel.github.io/biedit/img/paper.png")
+      background-image: url("https://rweigel.github.io/biedit/biedit/ui/img/paper.png")
     }
 
     .body {
@@ -20,7 +20,7 @@
       min-width: 50%;
       max-height: 100%;
       position: absolute;
-      background-image: url("https://rweigel.github.io/biedit/img/paper.png");
+      background-image: url("https://rweigel.github.io/biedit/biedit/ui/img/paper.png");
     }
 
     #toc {
@@ -382,10 +382,6 @@
       font-size: inherit !important;
     }
 
-    .katex-warning {
-      border-right: 0.5em solid red;
-    }
-
     .katex-display {
       text-align: center;
       margin: 0em;
@@ -395,6 +391,16 @@
     .katex-display.fleqn>.katex {
       padding-left: 0em;
       margin: 0em;
+    }
+
+    .katex-warning {
+      border-right: 0.5em solid red;
+    }
+
+    .katex-error-expression {}
+
+    .katex-error-message {
+      color: red;
     }
 
     .page-break {
@@ -422,8 +428,14 @@
         margin: 0.5in 0.75in 0.75in;
       }
 
-      .katex .hide-tail {
-        overflow: hidden !important;
+      body,
+      html {
+        margin: 0px;
+        padding: 0px;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        overflow: auto;
+        display: inline;
       }
 
       .page-break {
@@ -502,6 +514,10 @@
         border-color: currentcolor;
         border-image: none;
         overflow-wrap: break-word;
+      }
+
+      .katex .hide-tail {
+        overflow: hidden !important;
       }
 
       .katex {
@@ -669,7 +685,7 @@
                 </a>
               </li>
               <li>
-                <a href="#bayesian-vs-frequentist">
+                <a href="#bayesian-vs.-frequentist">
                   <span class="toctext">Bayesian vs. Frequentist</span>
                 </a>
               </li>
@@ -864,7 +880,7 @@
           </li>
           <li>
             <div class="block">
-              <p>Cover Probability topics in <a href="(https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 2</a>; see also <a href="https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bulmer Chapters 1 and 2</a>, <a href="https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bonamente Chapter 1</a>, <a href="https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Rozanov Chapters 1 and 2</a>, <a href="https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Larson Chapters 1 and 2</a> and <a href="https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">DeGroot Chapter 1</a>.</p>
+              <p>Cover Probability topics in <a href="https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 2</a>; see also <a href="https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bulmer Chapters 1 and 2</a>, <a href="https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Bonamente Chapter 1</a>, <a href="https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Rozanov Chapters 1 and 2</a>, <a href="https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Larson Chapters 1 and 2</a> and <a href="https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">DeGroot Chapter 1</a>.</p>
             </div>
             <div class="block">
               <p><strong>Preparation</strong>: Scan <a href="https://drive.google.com/file/d/1exeJzUFx8D1PC_rDpq1ORP6Y9Ce0wzkl/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 2</a>, write down definitions of key terms, and be prepared to define without referring to your notes. You don’t have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.</p>
@@ -1486,7 +1502,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="bayesian-vs-frequentist" class="anchor hanchor" href="#bayesian-vs-frequentist"><span class="hnumber">10.3.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
+        <h3><a name="bayesian-vs.-frequentist" class="anchor hanchor" href="#bayesian-vs.-frequentist"><span class="hnumber">10.3.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
       </div>
       <div class="block">
         <ol class="compact">
