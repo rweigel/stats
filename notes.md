@@ -1,13 +1,10 @@
+Why definitions are important.
+
 # Probability
 
-## Definition of Probability
+## Problem
 
-> The term probability refers to the study of randomness and uncertainty. In any situation in which one of a number of possible outcomes may occur, the discipline of probability provides methods for quantifying the chances, or likelihoods, associated with the various outcomes. (Devore p 50)
-
-> Given an experiment and a sample space $\mathcal{S}$, the objective of probability is to assign to each event $A$ a number $P(A)$, called the probability of the event $A$, which will give a precise measure of the chance that $A$ will occur. (Devore p 55)
-
-> A statistical probability is thus the limiting value of the relative frequency
-with which some event occurs. (Bulmer p 4)
+After going over the following four definitions, I will ask you to describe something that requires the use of the terms "Experiment", "Outcome", "Sample Space", and "Event".
 
 ## Experiment
 
@@ -17,13 +14,22 @@ with which some event occurs. (Bulmer p 4)
 
 > An experiment is any process, real or hypothetical, in which the possible outcomes can be identified ahead of time. (DeGroot p 5)
 
+Note that different experiments can be assigned to an activity:
+
+* Experiment: Flip a coin 2x and record result of each flip.
+* Experiment: Flip a coin 2x and record number of heads.
+
 ## Outcome
 
 The result of an experiment.
 
+_Question_: Is the result of each flip in the above an "outcome"?
+
 ## Sample Space, $\mathcal{S}$ (or Event Space)
 
 > ... the set of all possible outcomes of an experiement. (Devore p 51)
+
+> The collection of all possible outcomes of an experiment is called the _sample space_ of the experiment.
 
 The outcomes in a sample space are noted using the shorthand
   
@@ -37,17 +43,42 @@ If the experiment is tossing a coin twice and writing down the result of the fir
 
 $\mathcal S = $ {$HH$, $HT$, $TH$, $TT$}
 
-We can define a compound event: $A$ is the outcome of the experiment yielding one tail.
+We can define a compound event for both experiments: $A$ is the outcome of the experiment yielding one tail.
+
+_Question_: Experiment: Each day, shoot free throws until you miss. What are the outcomes that make up $\mathcal{S}$?
+
+## Demonstration
+
+Simulate the experiment assuming you make 80\% of your free throws. In how many of 365 experiments will you make exactly $10$ shots?
 
 ## Event
 
 > An event is any collection (subset) of outcomes contained in the sample space $\mathcal{S}$. An event is simple if it consists of exactly one outcome and compound if it consists of more than one outcome. (Devore p 52)
 
-> An event is just a set. (Devore p 53)
-
 > An event is a well-defined set of possible outcomes of the experiment. (DeGroot p 5)
 
 Can we also say a sample space is the set of all possible simple events?
+
+## Problem
+
+Describe something that requires the use of the terms "Experiment", "Outcome", "Sample Space", and "Event".
+
+## Demonstration
+
+The following program draws draws $10$ random numbers to form list $x$ and $10$ random number to form list $y$ and plots the results. Ordinary least squares regression is used to find the line of best fit. We may be interested in the outcome that the best fit slope is greater than $0.1$.
+
+We can define an experiment to be the determination if the slope is greater than $0.1$. In this case, $\mathcal{S} =${$m_{>}, m_{\le}$}.
+
+## Definition of Probability
+
+> The term probability refers to the study of randomness and uncertainty. In any situation in which one of a number of possible outcomes may occur, the discipline of probability provides methods for quantifying the chances, or likelihoods, associated with the various outcomes. (Devore p 50)
+
+> Given an experiment and a sample space $\mathcal{S}$, the objective of probability is to assign to each event $A$ a number $P(A)$, called the probability of the event $A$, which will give a precise measure of the chance that $A$ will occur. (Devore p 55)
+
+> A statistical probability is thus the limiting value of the relative frequency
+with which some event occurs. (Bulmer p 4)
+
+> Probability will be the way that we quantify how likely something is to occur (in the sense of one of the interpretations in Sec. 1.2. [Frequency Interpretation, Classical Interpretation, and Subjective Interpretation]). (DeGroot p 5)
 
 ## Set Operations
 
