@@ -30,9 +30,9 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 
 * Discuss Syllabus Questions. **Preparation**: Read the syllabus before class.
 
-* Cover Probability topics in [Devore Chapter 2](https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★); see also [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing★★★★★remove★★★★★), [Rozanov Chapters 1 and 2](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★), [Larson Chapters 1 and 2](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) and [DeGroot Chapter 1](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★).
+* Cover Probability topics in [Devore Chapter 2](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/view?usp=sharing★★★★★remove★★★★★); see also [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing★★★★★remove★★★★★), [Rozanov Chapters 1 and 2](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★), [Larson Chapters 1 and 2](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) and [DeGroot Chapter 1](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★).
 
-   **Preparation**: Scan [Devore Chapter 2](https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★), write down definitions of key terms, and be prepared to define without referring to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.
+   **Preparation**: Scan [Devore Chapter 2](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/view?usp=sharing★★★★★remove★★★★★), write down definitions of key terms, and be prepared to define without referring to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.
 
    At the start of class, I will ask students for key terms, write them on the board, and then ask for volunteers to provide a definition (ideally without referring to your notes).
 
@@ -254,9 +254,29 @@ standard-deviation from data by Travis E. Oliphant, 2006](https://scholarsarchiv
 
 Students may collaborate on homework. However, they may not turn in identical solutions. I expect you to work out a solution in your own way and in your own style first and then collaborate with students to check your results and modify your solutions as-needed.
 
-## AI
+## AI and Other Resources on Homework Solutions
 
-TBD
+You may use any resource, including AI, for your homework solutions.
+
+**Recommendations**
+
+1. Try to solve the problem first with as little assistance as possible, ideally only looking up the defintions of functions. You will never get good at crosswords or Sodoku if you look up each answer with little thought. Be Vigilant!
+
+2. If you use AI to review your code, keep track of the corrections it makes. Try to come up with an explanation on your own for why its method is better. Be Vigilant!
+
+**Requirements**
+
+1. Document specifically where you used AI or another resource.
+
+   Example (in class)
+
+2. Understand every line of analysis code you submit$^*$. If I see advanced programming techniques that I suspect that you don't understand, I will deduct points ask you in person to explain the technique in my office hour if you feel that you did not understand the technique. If I am satisfied that you understand the code, I will remove the deduction.
+   
+   $^*$ An exception is plotting code.
+
+   Example (in class)
+
+
 
 ## Communication
 
