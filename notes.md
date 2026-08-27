@@ -1,8 +1,4 @@
-Why definitions are important.
-
 # Probability
-
-## Problem
 
 After going over the following four definitions, I will ask you to describe something that requires the use of the terms "Experiment", "Outcome", "Sample Space", and "Event".
 
@@ -16,40 +12,42 @@ After going over the following four definitions, I will ask you to describe some
 
 Note that different experiments can be assigned to an activity:
 
-* Experiment: Flip a coin 2x and record result of each flip.
-* Experiment: Flip a coin 2x and record number of heads.
+* Experiment: Flip a coin 2x and record result of each flip. Can ask what fraction of experiments had head for the first flip.
+* Experiment: Flip a coin 2x and record number of heads and tails. Can ask what fraction of experiments had one head.
 
 ## Outcome
 
-The result of an experiment.
-
-_Question_: Is the result of each flip in the above an "outcome"?
+The result of part of an experiment or the result of the full experiment. (Not generally defined; the first definition implies it is the result of the full experiment, which is inconsistent with the implicit definition in the first definition.)
 
 ## Sample Space, $\mathcal{S}$ (or Event Space)
 
 > ... the set of all possible outcomes of an experiement. (Devore p 51)
 
-> The collection of all possible outcomes of an experiment is called the _sample space_ of the experiment.
+> The collection of all possible outcomes of an experiment is called the _sample space_ of the experiment. (DeGroot p 6)
 
 The outcomes in a sample space are noted using the shorthand
   
-$\mathcal S = ${outcome 1, outcome 2, ...}
+$\mathcal S = $ {outcome 1, outcome 2, ...}
   
-For example, if the experiment is tossing a coin twice and counting the number of heads and tails, the three simple events are ${1H1T, 2T, 2H}$, and the sample space is
-
-$\mathcal S = $ {$1H1T$, $2T$, $2H$}
-
-If the experiment is tossing a coin twice and writing down the result of the first toss in box 1 and the result of the second toss in box 2,
+For example, if the experiment is tossing a coin twice and writing down the result of the first toss in box 1 and the result of the second toss in box 2,
 
 $\mathcal S = $ {$HH$, $HT$, $TH$, $TT$}
 
-We can define a compound event for both experiments: $A$ is the outcome of the experiment yielding one tail.
+If the experiment is tossing a coin twice and counting the total number of heads and tails, the three simple events are ${1H1T, 2T, 2H}$, and the sample space is
+
+$\mathcal S = $ {$1H1T$, $2T$, $2H$}
+
+We can define a compound event (event defined next) for both experiments: $A$ is the outcome of the experiment yielding one tail.
 
 _Question_: Experiment: Each day, shoot free throws until you miss. What are the outcomes that make up $\mathcal{S}$?
 
 ## Demonstration
 
-Simulate the experiment assuming you make 80\% of your free throws. In how many of 365 experiments will you make exactly $10$ shots?
+Simulate the experiment of shooting a free throw 10 times. Assume you make 80\% of your free throws.
+
+_Question_: How would you use the simulation to estimate the chances that you get $10$ in a row?
+
+_Question_: How many outcomes are in $S$?
 
 ## Event
 
@@ -57,17 +55,26 @@ Simulate the experiment assuming you make 80\% of your free throws. In how many 
 
 > An event is a well-defined set of possible outcomes of the experiment. (DeGroot p 5)
 
-Can we also say a sample space is the set of all possible simple events?
+_Question_: Can we also say a sample space is the set of all possible simple events?
 
-## Problem
+## Set 
 
-Describe something that requires the use of the terms "Experiment", "Outcome", "Sample Space", and "Event".
+> The sample space of an experiment can be thought of as a _set_, or a collection, of different possible outcomes; and each outcome can be thought of as a _point_, or an _element_, in the sample space. Similarly, event can be thought of as subsets of the sample space. (Devore p 6)
 
-## Demonstration
+## _Problem_
 
-The following program draws draws $10$ random numbers to form list $x$ and $10$ random number to form list $y$ and plots the results. Ordinary least squares regression is used to find the line of best fit. We may be interested in the outcome that the best fit slope is greater than $0.1$.
+Describe an activity that requires the use of the terms "Experiment", "Outcome", "Sample Space", and "Event". Bonus for not using coin tosses. Double bonus if funny.
 
-We can define an experiment to be the determination if the slope is greater than $0.1$. In this case, $\mathcal{S} =${$m_{>}, m_{\le}$}.
+## _Demonstration and Prelude to Error Bars and Hypothesis Tests_
+
+The following program draws draws $10$ random numbers to form list $x$ and $10$ random number to form list $y$ and plots the results. Ordinary least squares regression is used to find the line of best fit. We are interested in the outcome that the best fit slope is greater than $0.1$.
+
+```python
+```
+
+_Question_: What is the experiment? What are outcomes in $\mathcal S$? What are the events?
+
+%We can define an experiment to be the determination if the slope is greater than $0.1$. In this case, $\mathcal{S} =${$m_{>}, m_{\le}$}.
 
 ## Definition of Probability
 
@@ -80,98 +87,17 @@ with which some event occurs. (Bulmer p 4)
 
 > Probability will be the way that we quantify how likely something is to occur (in the sense of one of the interpretations in Sec. 1.2. [Frequency Interpretation, Classical Interpretation, and Subjective Interpretation]). (DeGroot p 5)
 
-## Set Operations
+## Replication
 
-### Compliment
+A repetition of an experiment.
 
-"Not $A$" is represented by four symbols: $A^\prime$ $\quad$ $\overline{A}$ $\quad$ ${\sim}A$ $\quad$ $\neg A$
+## Relative Frequency and Interpretation of Probability
 
-> The complement of an event $A$, denoted by $A'$, is the set of all outcomes in $\mathcal{S}$ that are not contained in $A$. (Devore p 53)
-
-### Difference
-
-(Rozanov p 14): $A-B$ means the event in which $A$ occurs but not $B$.
-
-### Subset
-
-(Rozanov p 15): $A\subset B$ means the set $A$ is a subset of $B$.
-
-### Union
-
-"Or" (union; inclusive or) is typically represented by $\cup$
-
-> The union of two events $A$ and $B$, denoted by $A \cup B$ "$A$ or $B$" is the event consisting of all outcomes that are _either in_ $A$ _or in_ $B$ _or in both events_ (so that the union includes outcomes for which both $A$ and $B$ occur as well as outcomes for which exactly one occurs) -- that is, all outcomes in at least one of the events. (Devore p 53)
-
-### XOR
-
-XOR -- "Exclusive or": $A \oplus B$ means the event that is in $A$ or $B$, but not both.
-
-### Intersection
-
-"And" (intersect) is represented by four symbols: $\cap$ $\quad$ & $\quad$ $\,$ $\quad$ $$
-
-> The intersection of two events $A$ and $B$, denoted by $A \cap B$ and read "$A$ and $B$," is the event consisting of all outcomes that are in _both_ $A$ _and_ $B$. (Devore p 53)
-
-## Null Event
-
-> Let $\varnothing$ denote the null event (the event consisting of no outcomes whatsoever). When $A\cap B = \varnothing$, $A$ and $B$ are said to be mutually exclusive or disjoint events. (Devore p 54)
-
-## Mutually Exclusive
-
-Defined in Null Event definition. Also referred to as "pairwise disjoint".
-
-## Axioms of Probability
-
-Devore p 56
-
-> Often referred to as Kolmogorov's Axioms
->
->1. For any event $A$, $P(A) \ge 0$.
->2. $P(\mathcal{S})=1$
->3. If $A_1$, $A_2$, ... is an infinite collection of disjoint events, then
->
->   $$P(A_1 \cup A_2 ....) = P\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty P(A_i)$$
->
->   Corallary
->
->   $$P(A_1 \cup A_2 .... \cup A_k) = \sum_{i=1}^k P(A_i)$$
->
->   Note that many textbooks give the third axiom in terms of a sum over two events instead of a sum over an infinite set of events.
-
-Devore p 57
-
-> Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsisten with our intuitve notions of probability.
-
-Corallary to Axiom 3 (Devore p 59 calls this a proposition):
-
-> For any event $A$, $P(A)\le 1$
-
-## Geometric Series
-
-$$a + ar + ar^2 + ... = \frac{a}{1-r}$$
-
-In an experiment where the event is either true (with probability $1-p$) or false (with probability $p$) and we run experiments until we get a false, the sample space of all experiments is
-  $E_1=F$, $E_2=TF$, $E_3=TTF$, ... and by Axiom 3.
-
-$1 = P(E_1) + P(E_2) + P(E_3) + ....$
-
-and we will learn later why $P(E_1)=p$, $P(E_2)=(1-p)p$, $P(E_3)=(1-p)^2p$, ...
-
-This is a geometric series with $a=p$ and $r=1-p$ and thus
-
-$1 = P(E_1) + P(E_2) + P(E_3) + ....$
-
-## Relative Frequency and Interpretation of Proability
-
-Devore p 57
-
-> ... most frequently used an most easily understood is based on the notation of relative frequencies.
+> ... most frequently used an most easily understood is based on the notation of relative frequencies. (Devore p 57)
 
 Repeat experiment $n$ times (each repetition is called a "replication"). If event $A$ occurs $n(A)$ times in $n$ replications, then relative frequency is $n(A)/n$.
 
-Devore p 57
-
-> The _objective interpretation of probability_ identifies this limiting relative frequency to $P(A)$
+> The _objective interpretation of probability_ identifies this limiting relative frequency to $P(A)$ (Devore p 57)
 
 Said another way,
   
@@ -202,16 +128,121 @@ print(f"  rf(0) = {results.count(0) / n}")
 print(f"  rf(1) = {results.count(1) / n}")
 ```
 
+## Set Operators
+
+### Compliment
+
+"Not $A$" is represented by four symbols: $A^\prime$ $\quad$ $\overline{A}$ $\quad$ ${\sim}A$ $\quad$ $\neg A$
+
+> The complement of an event $A$, denoted by $A'$, is the set of all outcomes in $\mathcal{S}$ that are not contained in $A$. (Devore p 53)
+
+### Difference
+
+$A-B$ means the events in which $A$ occurs but not $B$.
+
+### Subset (or containment)
+
+$A\subset B$ means the set $A$ is a subset of $B$.
+
+### Union
+
+"Or" (union; inclusive or) is typically represented by $\cup$
+
+> The union of two events $A$ and $B$, denoted by $A \cup B$ "$A$ or $B$" is the event consisting of all outcomes that are _either in_ $A$ _or in_ $B$ _or in both events_ (so that the union includes outcomes for which both $A$ and $B$ occur as well as outcomes for which exactly one occurs) -- that is, all outcomes in at least one of the events. (Devore p 53)
+
+### XOR
+
+XOR -- "Exclusive or": $A \oplus B$ means the event that is in $A$ or $B$, but not both.
+
+### Intersection
+
+"And" (intersect) is represented by three symbols: $\cap$ $\quad$ & $\quad$ $,$ $\quad$
+
+> The intersection of two events $A$ and $B$, denoted by $A \cap B$ and read "$A$ and $B$," is the event consisting of all outcomes that are in _both_ $A$ _and_ $B$. (Devore p 53)
+
+### In Python
+
+See [Python notes](python.html#sets)
+
+## Null Event
+
+> Let $\varnothing$ denote the null event (the event consisting of no outcomes whatsoever). When $A\cap B = \varnothing$, $A$ and $B$ are said to be mutually exclusive or disjoint events. (Devore p 54)
+
+## Mutually Exclusive
+
+Defined in Null Event definition. Also referred to as "pairwise disjoint".
+
+## Venn Diagrams
+
+Venn diagrams are useful for visually describing set operators. It is debatable if they are the best option for describing the relationships between sets for anything else.
+
+Try drawing the Venn diagram for experiment with 2 flips where $A$ is one or more heads and $B$ is one or more tails.
+
+<img src="notes/figures/Venn1.png"/>
+
+Use set notation to describe the region of $A$ that is not shaded in Figure (b).
+
+Use set notation to desribe the region outside of $A$ and $B$ in Figure (a).
+## Axioms of Probability
+
+> Often referred to as Kolmogorov's Axioms
+>
+>1. For any event $A$, $P(A) \ge 0$.
+>2. $P(\mathcal{S})=1$
+>3. If $A_1$, $A_2$, ... is an infinite collection of disjoint events, then
+>
+>   $$P(A_1 \cup A_2 ....) = P\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty P(A_i)$$
+>
+>   Corallary
+>
+>   $$P(A_1 \cup A_2 .... \cup A_k) = \sum_{i=1}^k P(A_i)$$
+>
+>   Note that many textbooks give the third axiom in terms of a sum over two events instead of a sum over an infinite set of events.
+>
+> (Devore p 56)
+
+> Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsisten with our intuitve notions of probability. (Devore p 57)
+
+Corallary to Axiom 3 (Devore p 59 calls this a proposition):
+
+> For any event $A$, $P(A)\le 1$
+
+## Geometric Series
+
+In an trial where the result is either true (with probability $1-p$) or false (with probability $p$) and we run trials until we get a false, the sample space of all experiments is $\mathcal S = $ {$A_1$, $A_2$, $A_3$, ...}, where
+ 
+  $A_1=F$, $A_2=T,F$, $A_3=T,T,F$, ...
+  
+By Axioms 2 and 3, we expect
+
+$P(A_1) + P(A_2) + P(A_3) + ....$
+
+to equal $1$ because the $A_i$s are disjoint. We will learn later why $P(A_1)=p$, $P(A_2)=(1-p)p$, $P(A_3)=(1-p)^2p$, ... 
+
+Using this, we have
+
+$P(A_1) + P(A_2) + P(A_3) + .... = p + (1-p)p + (1-p)^2p + ...$
+
+Recall the formula for an infinite geometric series:
+
+$\displaystyle a + ar + ar^2 + ... = \frac{a}{1-r}$ $\qquad |r|<1$
+
+With $a=p$ and $r=1-p$, we conclude
+
+$P(A_1) + P(A_2) + P(A_3) + .... = 1$
+
+See also Devore Example 2.12.
+
 ## Law of Compliments
 
-(Devore does not use this, however)
+(Devore does not use this term, however)
 
 > For any event $A$, $P(A)+P(A')=1$, from which $P(A)=1-P(A')$. (Devore p 59)
 
 
 ## Law of Addition
 
-(Devore does not use this, however)
+(Devore does not use this term, however)
 
 For any two events $A$ and $B$ that are mutually exclusive,
   
@@ -219,7 +250,7 @@ $P(A\cup B) = P(A) + P(B)$
 
 ## General Law of Addition
 
-(Devore does not use this, however)
+(Devore does not use this term, however)
 
 > For any two events $A$ and $B$,
 >
@@ -239,18 +270,6 @@ Divide by the total number of dots, $n$, use the relative frequency interpretati
 
 $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
 
-**Example**
-
-If you are in a firing line and two people have guns that shoot a real bullet instead of a blank with probability of 1/3, what is the probability that you get shot (assuming the marksmen never miss?)  D draw a tree diagram and a Venn diagram to explain the answer.
-
-*Answer*
-
-$P(A \text{ or } B) = 1/3 + 1/3 - 1/9 = 5/9$
-
-or, $P(\overline{A\text{ or } B}) = (2/3)(2/3) = 4/9$
-
-Check: $P(\overline{A\text{ or } B}) = 1 - P(A \text{ or } B)$
-
 **Example** (Devore Chapter 2, problem 12)
   
 Consider randomly selecting a student at a certain university, and let $A$ denote the event that the elected individual has a Visa credit card and $B$ be the analogous event for a MasterCard. Suppose that $P(A) = 0.5$, $P(B)=0.4$, and $P(A\cap B) = 0.25$.
@@ -263,62 +282,6 @@ _Answers_:
 1. $P(A\cup B)=P(A)+P(B)-P(A\cap B) = 0.5+0.4-0.25=0.65$
 2. $P(A'\cap B') = 1-P(A\cup B) = 0.35$ (Based on visual derivation)
 3. $P(A \cup B') = P(A) - P(A\cap B) = 0.5-0.25=0.25$ (Based on visual derivation)
-
-## Product Rule (or Law of Multiplication)
-
-(Devore does not name but gives as proposition on p 65)
-
-> If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
-
-## Tree Diagram
-
-Use for visually justifying product rule and counting permutations (Devore p 66)
-
-## Tuple
-
-A "$k$--tuple" is an ordered collection of $k$ objects. (Devore p 66)
-
-## General Product Rule
-
-AKA Product Rule for $k$-Tuples
-
-Devore p 66
-
-> Suppose a set consists of ordered collections of $k$ elements ($k$-tuples) and that there are $n_1$ possible choices for the first element; for each choice of the first element, there are $n_2$ possible choices of the second element; ...; for each possible choice of the first $k-1$ elements, there are $n_k$ choices of the $k$th element. Then there are $n_1n_2...n_k$ possible $k$-tuples.
-
-Note that "elements" is used here, but in definition of tuple, objects is used.
-
-## Permutation
-
-An ordered arrangement of distinct objects, where each arrangement has no duplicate objects. Usually relevant in problems that involve "without replacement".
-
-Suppose you have $n$ distinct objects and you want to put them in boxes labeled $1$, $2$, ..., $k$. You select one object and put it in the first box. You select a second object from the remaining $n-1$ objects and put it in box $2$, ....
-  
-The number of ways to do this is denoted $P_{k,n}$ (or $_nP_k$) and is
-  
-$$P_{k,n}=\frac{n!}{(n-k)!} = n\cdot (n-1) ... \cdot (n-k)=\frac{n\cdot (n-1) \cdot (n-2) ... \cdot (n-k) \cdot (n-k-1) ... 1}{\phantom{n\cdot (n-1) \cdot (n-2) ... \cdot}(n-k)\cdot(n-k-1) ... 1}$$
-
-Do see this, consider
-  
-$$6\cdot 5\cdot 4=\frac{6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1}{\phantom{6\cdot 5\cdot 4\cdot}3\cdot 2\cdot 1}$$
-
-## Combination (un-ordered subset)
-
-The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the team picking example, there are $3$ team combinations. 
-
-Each permutation can be regarded as group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permuations. For example, if the two permutations
-
-$(1,2)$
-
-$(2,1)$
-
-are regarded as equivalent, then there is only one group containing the numbers $1$ and $2$. To determine the number of possible orderings of each permutation, ask how many ways a set of $k$ elements can be arranged. The answer is $k!$.
-
-So, to find the number of combinations, divide the number of permutations by $k!$.
-
-$$C_{n,k}=\frac{P_{n,k}}{k!}=\frac{\ds\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}$$
-
-$C_{n,k}$ is often called a binomial coefficient and the denoted by $\ds{N\choose k}$ and referred to as "$n$ choose $k$".
 
 ## Conditional Probability
 
@@ -563,6 +526,26 @@ Divide both sides by $n$ to arrive at the result.
 
 $$P(A\cap B) = P(A|B)P(B)$$
 
+**Example**
+
+If you are in a firing line and two people have guns that shoot a real bullet instead of a blank with probability of 1/3, what is the probability that you get shot (assuming the marksmen never miss?)
+
+*Answer*
+
+$P(A \text{ or } B) = P(A) + P(B) - P(A\cap B)$
+
+$P(A\cap B) = P(A|B)P(B)$
+
+If $A$ and $B$ are independent, $P(A|B)=P(A)$, so
+
+$P(A\cap B) = P(A)P(B)$. Thus
+
+$P(A \text{ or } B) = 1/3 + 1/3 - (1/3)(1/3) = 5/9$
+
+or, $P(\overline{A\text{ or } B}) = (2/3)(2/3) = 4/9$
+
+Check: $P(\overline{A\text{ or } B}) = 1 - P(A \text{ or } B)$
+
 ## General Bayes' Rule
 
 When $A_1$, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
@@ -571,9 +554,6 @@ $$
 P(A_j|B) = \frac{P(B|A_j)P(A_j)}{P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)}
 $$
 
-## Set Operations in Python
-
-See [Python notes](python.html#sets)
 
 ## Counting
 
@@ -589,11 +569,29 @@ Three types of problems:
 
 3. Combinations: Same as 2. except counting all sets with the same elements as equivalent. (e.g., if set = {a, b} only one combination is possible: {a, b}).
 
-### Product rule examples
+### Product Rule (or Law of Multiplication)
+
+(Devore does not name but gives as proposition on p 65)
+
+> If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
 
 One can use a tree diagram, table, or $x$--$y$ plot to prove.
 
-If there are $n_1$ ways of doing operation $1$ and  $n_2$ ways of doing operation 2, then both operations can be performed in $n_1n_2$ ways.  
+**Tree Diagram**
+
+Use for visually justifying product rule and counting permutations (Devore p 66)
+
+**Tuple**
+
+A "$k$--tuple" is an ordered collection of $k$ objects. (Devore p 66)
+
+***General Product Rule***
+
+AKA Product Rule for $k$-Tuples
+
+> Suppose a set consists of ordered collections of $k$ elements ($k$-tuples) and that there are $n_1$ possible choices for the first element; for each choice of the first element, there are $n_2$ possible choices of the second element; ...; for each possible choice of the first $k-1$ elements, there are $n_k$ choices of the $k$th element. Then there are $n_1n_2...n_k$ possible $k$-tuples. (Devore p 66)
+
+Note that "elements" is used here, but in definition of tuple, objects is used.
 
 **Example**
 
@@ -637,7 +635,19 @@ In the third box, put one of the three $I$s; in the fourth box, put one of the t
 
 This is not the list possible teams because $AB$ is the same as $BA$ (That is, order is not important.). The list of possible teams is $3$, by inspection.
 
-### Permutation examples
+### Permutation
+
+An ordered arrangement of distinct objects, where each arrangement has no duplicate objects. Usually relevant in problems that involve "without replacement".
+
+Suppose you have $n$ distinct objects and you want to put them in boxes labeled $1$, $2$, ..., $k$. You select one object and put it in the first box. You select a second object from the remaining $n-1$ objects and put it in box $2$, ....
+  
+The number of ways to do this is denoted $P_{k,n}$ (or $_nP_k$) and is
+  
+$$P_{k,n}=\frac{n!}{(n-k)!} = n\cdot (n-1) ... \cdot (n-k)=\frac{n\cdot (n-1) \cdot (n-2) ... \cdot (n-k) \cdot (n-k-1) ... 1}{\phantom{n\cdot (n-1) \cdot (n-2) ... \cdot}(n-k)\cdot(n-k-1) ... 1}$$
+
+To see this, consider
+  
+$$6\cdot 5\cdot 4=\frac{6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1}{\phantom{6\cdot 5\cdot 4\cdot}3\cdot 2\cdot 1}$$
 
 **Example**
 
@@ -671,7 +681,23 @@ _Answer_:
 1. Consider list of $r$ passengers and each can be assigned number $1, ...n$: $n^r$ 
 2. Have $n$ choices for first passenger, $n-1$, for second, ... $n-r-1$ for the last: $\ds\frac{n(n-1)...(n-r-1)}{n^r}$
 
-### Combination examples
+### Combination (un-ordered subset)
+
+The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the team picking example, there are $3$ team combinations. 
+
+Each permutation can be regarded as group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permuations. For example, if the two permutations
+
+$(1,2)$
+
+$(2,1)$
+
+are regarded as equivalent, then there is only one group containing the numbers $1$ and $2$. To determine the number of possible orderings of each permutation, ask how many ways a set of $k$ elements can be arranged. The answer is $k!$.
+
+So, to find the number of combinations, divide the number of permutations by $k!$.
+
+$$C_{n,k}=\frac{P_{n,k}}{k!}=\frac{\ds\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}$$
+
+$C_{n,k}$ is often called a binomial coefficient and the denoted by $\ds{N\choose k}$ and referred to as "$n$ choose $k$".
 
 **Example**
 
