@@ -45,12 +45,33 @@ Simulate the experiment of shooting a free throw 10 times. Assume you make 80\% 
 
 _Question_: How would you use the simulation to estimate the chances that you get $10$ in a row? Start with the sample code that follows.
 
+Partial answer to a simpler problem.
 ```python
+# Simulate the experiment of shooting a free throw 2 times.
+# Assume you make 50% of your free throws.
+
+# How would you use the simulation to estimate the chances that you get 10 in a row?
 # Start with native Python library. Will consider better options later.
 import random
+#a = [1, 1, 1, 1, 1, 1, 1, 1, 0, 0]
 a = [0, 1]
 # Randomly select an element from the list a
 result = random.choice(a)
+n_e = 100000 # Number of experiments
+n_t = 2 # Number of tosses per experiment
+
+m = 0 # Number of experiments when we make all shots
+for experiment in range(n_e):
+  n = 0
+  for toss in range(n_t):
+    result = random.choice(a)
+    if result == 1:
+      n = n + 1
+  if n == n_t:
+    m = m + 1
+    print(f"Experiment {experiment+1:d}: {n_t} in a row")
+
+print(m/n_e)
 ```
 
 %import numpy as np
@@ -445,6 +466,71 @@ $$P(B|A) = \frac{P(B\cap A)}{P(A)}$$
 
 The numerators are identical because $A\cap B =B\cap A$. Combining these two equations gives Bayes' rule.
 
+### Example
+
+A cab was involved in a hit-and-run accident at night. Two cab companies, the Green and the Blue, operate in the city. You are given the following data:
+
+   * 85% of the cabs in the city are Green and 15% are Blue. A witness identified the cab as Blue. The court tested the reliability of the witness under the circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.
+
+What is the probability that the cab involved in the accident was Blue rather than Green?  Use the two approaches (equation- and diagram- based).
+
+**Answer**
+
+**Method 1**
+
+Consider 1000 recreations of the indident in which 850 vehicles are Green and 150 vehicles are Blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
+
+```
+                        850*0.80 = 680 - Is Green, claims Green
+       850 Are Green 
+                        850*0.20 = 170 - Is Green, claims Blue
+1000
+                        150*0.80 = 120 - Is Blue, claims Blue
+       150 Are Blue
+                        150*0.20 = 30  - Is Blue, claims Green
+```
+
+We want to know the probability the cab is Blue when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of times this claim is correct is $120$.
+
+So the probability the cab is Blue given the witness claimed Blue is
+
+$$P(B|W_B) = \frac{120}{120+170}\approx 0.41$$
+
+**Method 2**
+
+The following is an alternative visualization of the tree diagram of **Method 1**.
+
+<img src="notes/figures/bayes_cab.png" width="800px">
+
+**Method 3**
+
+To use Bayes' theorem, we start by writing the given probabilities
+
+* $P(G) = 0.85$ (Probability a cab is Green)
+* $P(B) = 0.15$ (Probability a cab is Blue)
+* $P(W_B|B) = 0.80$ (Probability witness claims Blue when Blue)
+* $P(W_B|G) = 0.20$ (Probability witness claims Blue when Green)
+
+$$
+P(B|W_B) = P(W_B|B)\frac{P(B)}{P(W_B)}
+$$
+
+The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$. Thus,
+
+$$
+P(B|W_B) = 0.80\frac{0.15}{0.15\cdot 0.80 + 0.85\cdot 0.20} = \frac{0.12}{0.12 + 0.17}
+$$
+
+Multiplying the numerator and the denominator by $1000$ gives the same equation for **Method 1**.
+
+$$
+P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
+$$
+
+A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful and a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city. What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
+
+<img src="notes/figures/bayes_cab_reliability.svg">
+
 ### Terminology
 
 $$
@@ -680,33 +766,57 @@ If operation 1 is moving north, south, east, or west and operation 2 is moving u
 
 Two teams of twelve players each. How many unique handshakes between members of opposing teams?
 
+Use a tree diagram.
+
+<details><summary></summary>
 *Answer*: $n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
+</details>
 
-Demonstrate method computing using loops in Python.
+**Example**: Roll a die five times. How many $5$-tuples? 
 
-Tree diagram
+<details><summary></summary>
+Create a five boxes. There are six possible "choices" for first box, six possible choices for second box, ..... So there are $6^5$ possible $k$--tuples.
+</details>
 
-**Example**: Roll a die five times. How many $5$-tuples? Create a five boxes. There are six possible "choices" for first box, six possible choices for second box, ..... So there are $6^5$ possible $k$--tuples.
+**Example**: Flip a coin 2 times.
 
-**Example**: Flip a coin 2 times. There number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the secon box.)
+<details><summary></summary>
+There number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the secon box.)
+</details>
   
-**Example**: Given three circles of different diameter and four squares of different side length, put a circle in the first box and a square in the second. The number of $2$--tuples is $3\cdot 4$.
-
 **Example**: Each clinic has two $O$ doctors and three $P$ doctors and you must select two doctors from the same clinic. How many possible pairs of $O$s and $P$s are there?
-  
+
+<details><summary></summary>
 In the first box, put one of the four $O$s. For each $O$, there are $3$ $P$s to choose from and put in the second box. So $n=4\cdot 3$.
+</details>
   
 If each clinic also has three $I$s and two $G$s, how many possible choices for four doctors?
   
+<details><summary></summary>
 In the third box, put one of the three $I$s; in the fourth box, put one of the three $G$s. Then $n=4\cdot 3\cdot 3\cdot 2$.
+</details>
 
-**Example**: Suppose you want to pick a team of two tennis players from $3$ players, $A$, $B$, and $C$. The number of ways you can pick the team is $3\cdot 2$: $AB$, $AC$, $BA$, $BC$, $CA$, and $CB$.
+**Example**: Suppose you want to pick a team of two tennis players from $3$ players, $A$, $B$, and $C$. 
+
+<details><summary></summary>
+The number of ways you can pick the team is $3\cdot 2$: $AB$, $AC$, $BA$, $BC$, $CA$, and $CB$.
 
 This is not the list possible teams because $AB$ is the same as $BA$ (That is, order is not important.). The list of possible teams is $3$, by inspection.
+</details>
 
 ### Permutation
 
 An ordered arrangement of distinct objects, where each arrangement has no duplicate objects. Usually relevant in problems that involve "without replacement".
+
+**Example**:
+
+You have stickers labled $1$, ..., $6$ that are used to form a license plate.
+
+How many unique license plates of length $4$ can you form? *Answer*: $6\cdot 5\cdot 4$
+
+To see relationship to $P_{k,n}$ formula given next, consider
+  
+$$6\cdot 5\cdot 4=\frac{6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1}{\phantom{6\cdot 5\cdot 4\cdot}3\cdot 2\cdot 1}$$
 
 Suppose you have $n$ distinct objects and you want to put them in boxes labeled $1$, $2$, ..., $k$. You select one object and put it in the first box. You select a second object from the remaining $n-1$ objects and put it in box $2$, ....
   
@@ -714,23 +824,12 @@ The number of ways to do this is denoted $P_{k,n}$ (or $_nP_k$) and is
   
 $$P_{k,n}=\frac{n!}{(n-k)!} = n\cdot (n-1) ... \cdot (n-k)=\frac{n\cdot (n-1) \cdot (n-2) ... \cdot (n-k) \cdot (n-k-1) ... 1}{\phantom{n\cdot (n-1) \cdot (n-2) ... \cdot}(n-k)\cdot(n-k-1) ... 1}$$
 
-To see this, consider
-  
-$$6\cdot 5\cdot 4=\frac{6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1}{\phantom{6\cdot 5\cdot 4\cdot}3\cdot 2\cdot 1}$$
-
 **Example**
 
 Step {N, S, E, W}. Then take another step, but not in the same direction as first.
 
 *Answer*: $4\cdot 3 = 12$
 
-**Example**:
-
-You have stickers labled $1$, ..., $6$ that are used to form a license plate.
-
-How many unique license plates of length $6$ can you form? *Answer*: $6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1$
-
-How many unique license plates of length $2$ can you form? *Answer*: $6\cdot 5 = 30$
 
 **Example**
 
@@ -752,7 +851,7 @@ _Answer_:
 
 ### Combination (un-ordered subset)
 
-The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the team picking example, there are $3$ team combinations. 
+The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the tennis team picking example, there are $3$ team combinations. 
 
 Each permutation can be regarded as group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permuations. For example, if the two permutations
 

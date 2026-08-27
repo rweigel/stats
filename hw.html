@@ -592,13 +592,13 @@
             </a>
           </li>
           <li>
-            <a href="#set-notation">
-              <span class="toctext">Set Notation</span>
+            <a href="#law-of-addition-and-set-notation">
+              <span class="toctext">Law of Addition and Set Notation</span>
             </a>
           </li>
           <li>
-            <a href="#law-of-addition-and-set-notation">
-              <span class="toctext">Law of Addition and Set Notation</span>
+            <a href="#bayes-rule">
+              <span class="toctext">Bayes’ Rule</span>
             </a>
           </li>
         </ol>
@@ -613,13 +613,13 @@
         <h1><a name="hw-1" class="anchor hanchor" href="#hw-1"><span class="hnumber">1</span>&nbsp;<span class="htext">HW 1</span></a></h1>
       </div>
       <div class="block">
-        <p>Due Thursday, August 27th at 11:59 pm.</p>
+        <p>Due Thursday, September 3rd at 11:59 pm.</p>
       </div>
       <div class="block">
         <ol class="compact">
           <li>
             <div class="block">
-              <p>Save your answers in a GitHub repository named <code>astrostats</code>. Under <code>Setting</code> in the GitHub repository, set me (<code>rweigel</code>) as a collaborator.</p>
+              <p>Save your answers in a GitHub repository named <code>stats</code>. Under <code>Setting</code> in the GitHub repository, set me (<code>rweigel</code>) as a collaborator.</p>
             </div>
           </li>
           <li>
@@ -683,19 +683,19 @@
         <pre class="language-python"><div class="block"><code><span class="hljs-keyword">import</span> random</code><div class="line-number">1</div></div><div class="block"><code></code><div class="line-number">2</div></div><div class="block"><code>a = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>]</code><div class="line-number">3</div></div><div class="block"><code></code><div class="line-number">4</div></div><div class="block"><code><span class="hljs-comment"># Experiment: Randomly select an element from the list a</span></code><div class="line-number">5</div></div><div class="block"><code>result = random.choice(a)</code><div class="line-number">6</div></div><div class="block"><code></code><div class="line-number">7</div></div><div class="block"><code><span class="hljs-comment"># Repeat the experiment n times</span></code><div class="line-number">8</div></div><div class="block"><code>n = <span class="hljs-number">2</span></code><div class="line-number">9</div></div><div class="block"><code>results = []</code><div class="line-number">10</div></div><div class="block"><code><span class="hljs-keyword">for</span> exp <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>):</code><div class="line-number">11</div></div><div class="block"><code>  result = random.choice(a)</code><div class="line-number">12</div></div><div class="block"><code>  results.append(result)</code><div class="line-number">13</div></div><div class="block"><code></code><div class="line-number">14</div></div><div class="block"><code>print(<span class="hljs-string">f"n = <span class="hljs-subst">{n}</span> experiments:"</span>)</code><div class="line-number">15</div></div><div class="block"><code>print(<span class="hljs-string">f"  Results: <span class="hljs-subst">{results}</span>"</span>)</code><div class="line-number">16</div></div><div class="block"><code><span class="hljs-comment"># rf = relative frequency</span></code><div class="line-number">17</div></div><div class="block"><code>print(<span class="hljs-string">f"  rf(0) = <span class="hljs-subst">{results.count(<span class="hljs-number">0</span>) / n}</span>"</span>)</code><div class="line-number">18</div></div><div class="block"><code>print(<span class="hljs-string">f"  rf(1) = <span class="hljs-subst">{results.count(<span class="hljs-number">1</span>) / n}</span>"</span>)</code><div class="line-number">19</div></div></pre>
       </div>
       <div class="block">
-        <p>2. For a trial of size <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span>, how many possible outcomes are there? That is, how many elements are in the sample space? (You do not need to list them.)</p>
+        <p>2. For a trial of size <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span>, how many possible outcomes are there? That is, how many elements are in the sample space? (You do not need to list them.) Put your answer in a comment in in <code>HW1_1.py</code>.</p>
       </div>
       <div class="block">
         <p>3. (590 only)</p>
       </div>
       <div class="block">
-        <p>Modify this program so a loop is not required by using a NumPy function. Save your answer as <code>HW1_2.py</code>.</p>
+        <p>Modify this program so a loop is not required by using a NumPy function. Save your answer in <code>HW1_1.py</code>.</p>
       </div>
       <div class="block">
         <p>4.</p>
       </div>
       <div class="block">
-        <p>In class, I will raise the following questions (you don’t need to answer this on what you turn in):</p>
+        <p>In class, I will raise the following questions (you don’t need to turn anything in):</p>
       </div>
       <div class="block">
         <ul class="loose">
@@ -739,6 +739,9 @@
           </li>
         </ol>
       </div>
+      <div class="block">
+        <p>Save your code in a file named <code>HW1_2.py</code>.</p>
+      </div>
     </div>
     <div class="section">
       <div class="block">
@@ -763,24 +766,13 @@
           </li>
         </ol>
       </div>
-    </div>
-    <div class="section">
       <div class="block">
-        <h2><a name="set-notation" class="anchor hanchor" href="#set-notation"><span class="hnumber">1.4</span>&nbsp;<span class="htext">Set Notation</span></a></h2>
-      </div>
-      <div class="block">
-        <p>The law of addition for any three events <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, is</p>
-      </div>
-      <div class="block">
-        <p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∪</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span></p>
-      </div>
-      <div class="block">
-        <p>Provide a visual way of justifying this. Be prepared to present your answer in class.</p>
+        <p>Save your answer in a file named <code>HW1_3.pdf</code>.</p>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="law-of-addition-and-set-notation" class="anchor hanchor" href="#law-of-addition-and-set-notation"><span class="hnumber">1.5</span>&nbsp;<span class="htext">Law of Addition and Set Notation</span></a></h2>
+        <h2><a name="law-of-addition-and-set-notation" class="anchor hanchor" href="#law-of-addition-and-set-notation"><span class="hnumber">1.4</span>&nbsp;<span class="htext">Law of Addition and Set Notation</span></a></h2>
       </div>
       <div class="block">
         <p>Suppose 55% of people exercise and 45% drink alcohol. Also, 70% do at least one of these.</p>
@@ -804,6 +796,20 @@
       </div>
       <div class="block">
         <p>Use a Venn diagram (or any visual method) in the way that was used in class to demonstrate your answers.</p>
+      </div>
+      <div class="block">
+        <p>Save your answer in a file named <code>HW1_4.pdf</code>.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="bayes-rule" class="anchor hanchor" href="#bayes-rule"><span class="hnumber">1.5</span>&nbsp;<span class="htext">Bayes’ Rule</span></a></h2>
+      </div>
+      <div class="block">
+        <p>Study the cab example in the <a href="notes.html">Bayes’ rule section of the notes</a>.</p>
+      </div>
+      <div class="block">
+        <p>You do not need to turn anything in for this. At the start of the next class, I will ask you to solve a similar problem without notes. This will be the first quiz. This quiz will not be graded. If you attend class, you’ll get full credit.</p>
       </div>
     </div>
   </div>
