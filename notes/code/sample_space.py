@@ -1,4 +1,5 @@
-# Write all possible outcomes of experiment of flipping a coin three times. Each outcome should be represented as a string of 'H' (heads) and 'T' (tails).
+# Write all possible outcomes of experiment of flipping a coin three times.
+# Each outcome should be represented as a string of 'H' (heads) and 'T' (tails).
 # That is, create sample space
 
 if False:

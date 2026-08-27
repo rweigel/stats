@@ -1,7 +1,5 @@
 # Probability
 
-After going over the following four definitions, I will ask you to describe something that requires the use of the terms "Experiment", "Outcome", "Sample Space", and "Event".
-
 ## Experiment
 
 > An experiment is any activity or process whose outcome is subject to uncertainty. ...
@@ -41,13 +39,32 @@ We can define a compound event (event defined next) for both experiments: $A$ is
 
 _Question_: Experiment: Each day, shoot free throws until you miss. What are the outcomes that make up $\mathcal{S}$?
 
-## Demonstration
+**Demonstration**
 
 Simulate the experiment of shooting a free throw 10 times. Assume you make 80\% of your free throws.
 
-_Question_: How would you use the simulation to estimate the chances that you get $10$ in a row?
+_Question_: How would you use the simulation to estimate the chances that you get $10$ in a row? Start with the sample code that follows.
 
-_Question_: How many outcomes are in $S$?
+```python
+# Start with native Python library. Will consider better options later.
+import random
+a = [0, 1]
+# Randomly select an element from the list a
+result = random.choice(a)
+```
+
+%import numpy as np
+%rng = np.random.default_rng()
+%elements = [10, 20, 30, 40]
+%probabilities = [0.1, 0.6, 0.2, 0.1]  # Must sum up to exactly 1.0
+%print(rng.choice(elements, p=probabilities))
+%print(rng.choice(elements, size=10, p=probabilities))
+
+_Question_: How many exprimental outcomes are in $S$? If you execute this number of experiments with your code, will all experimental outcomes in $S$ have been generated?
+
+_Question_: Describe how you would use a program to print all outcomes.
+
+% See notes/code/sample_space.py
 
 ## Event
 
@@ -59,7 +76,7 @@ _Question_: Can we also say a sample space is the set of all possible simple eve
 
 ## Set 
 
-> The sample space of an experiment can be thought of as a _set_, or a collection, of different possible outcomes; and each outcome can be thought of as a _point_, or an _element_, in the sample space. Similarly, event can be thought of as subsets of the sample space. (Devore p 6)
+> The sample space of an experiment can be thought of as a _set_, or a collection, of different possible outcomes; and each outcome can be thought of as a _point_, or an _element_, in the sample space. Similarly, events can be thought of as subsets of the sample space. (DeGroot p 6)
 
 ## _Problem_
 
@@ -73,6 +90,38 @@ The following program draws draws $10$ random numbers to form list $x$ and $10$ 
 ```
 
 _Question_: What is the experiment? What are outcomes in $\mathcal S$? What are the events?
+
+Code. We will do many such experiments on homeworks.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate random data on interval [0, 1]
+x = np.random.rand(10)
+print(x)
+y = np.random.rand(10)
+print(y)
+
+# Perform ordinary least squares regression
+# We'll cover this later in the semester.
+# Solve y = Ax + b for the best fit line parameters m and c
+A = np.vstack([x, np.ones(len(x))]).T
+print(A)
+
+fit = np.linalg.lstsq(A, y, rcond=None)
+print(fit)
+
+m, c = fit[0]
+
+# Discuss issues with this plot and my expectations for homework submissions.
+plt.scatter(x, y, label='Data points')
+plt.plot(x, m*x + c, 'r', label='Best fit line')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+```
 
 %We can define an experiment to be the determination if the slope is greater than $0.1$. In this case, $\mathcal{S} =${$m_{>}, m_{\le}$}.
 
@@ -93,7 +142,7 @@ A repetition of an experiment.
 
 ## Relative Frequency and Interpretation of Probability
 
-> ... most frequently used an most easily understood is based on the notation of relative frequencies. (Devore p 57)
+> The interpretation [of probability] most frequently used and most easily understood is based on the notation of relative frequencies. (Devore p 57)
 
 Repeat experiment $n$ times (each repetition is called a "replication"). If event $A$ occurs $n(A)$ times in $n$ replications, then relative frequency is $n(A)/n$.
 
@@ -174,15 +223,16 @@ Defined in Null Event definition. Also referred to as "pairwise disjoint".
 
 ## Venn Diagrams
 
-Venn diagrams are useful for visually describing set operators. It is debatable if they are the best option for describing the relationships between sets for anything else.
-
-Try drawing the Venn diagram for experiment with 2 flips where $A$ is one or more heads and $B$ is one or more tails.
+Venn diagrams are useful for visually describing set operators. It is debatable if they are the best option for describing the relationships between sets for much else.
 
 <img src="notes/figures/Venn1.png"/>
+
+Drawing the Venn diagram for experiment with 2 flips where $A$ is one or more heads and $B$ is one or more tails.
 
 Use set notation to describe the region of $A$ that is not shaded in Figure (b).
 
 Use set notation to desribe the region outside of $A$ and $B$ in Figure (a).
+
 ## Axioms of Probability
 
 > Often referred to as Kolmogorov's Axioms
@@ -201,13 +251,13 @@ Use set notation to desribe the region outside of $A$ and $B$ in Figure (a).
 >
 > (Devore p 56)
 
-> Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsisten with our intuitve notions of probability. (Devore p 57)
+> Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsistent with our intuitve notions of probability. (Devore p 57)
 
 Corallary to Axiom 3 (Devore p 59 calls this a proposition):
 
 > For any event $A$, $P(A)\le 1$
 
-## Geometric Series
+**Example**
 
 In an trial where the result is either true (with probability $1-p$) or false (with probability $p$) and we run trials until we get a false, the sample space of all experiments is $\mathcal S = $ {$A_1$, $A_2$, $A_3$, ...}, where
  
@@ -266,7 +316,7 @@ Imagine overlapping targets $A$ and $B$ and darts are thrown towards target.
 
 Viusally, the number of ways $A$ or $B$ occured: $n(A \cup B) = n(A) + n(B) - n(A \text{ and } B)$
   
-Divide by the total number of dots, $n$, use the relative frequency interpretation of probability, and use $\cap$ in place of "and":
+Divide by the total number of dots, $n$, use the relative frequency interpretation of probability, and replace $\cap$ with "and":
 
 $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
 
@@ -277,31 +327,50 @@ Consider randomly selecting a student at a certain university, and let $A$ denot
 1. Compute the probability that the selected individual has at least one of the two types of card (i.e., the probability of the event $A\cup B$).
 2. What is the probability that the selected individual has neither type of card?
 3. Describe, in terms of $A$ and $B$, the event that the selected student has a Visa card but not a MasterCard, and then compute the probability of this event.
-  
-_Answers_:
+
+Provide both visual "proofs" or mathmatical calculations.
+
+<details><summary>Answers:</summary>
+
 1. $P(A\cup B)=P(A)+P(B)-P(A\cap B) = 0.5+0.4-0.25=0.65$
 2. $P(A'\cap B') = 1-P(A\cup B) = 0.35$ (Based on visual derivation)
 3. $P(A \cup B') = P(A) - P(A\cap B) = 0.5-0.25=0.25$ (Based on visual derivation)
 
-## Conditional Probability
+Typically, we don't do mathematical proofs on sets -- demonstrations with Venn diagrams are usually sufficient.
+</details>
 
-We want to know the probability of event $A$ given event $B$ occured. One way to do this is by counting writing down how we expect the number of times $A$ occured given event $B$ occured in terms of set operations.
+## DeMorgan's Laws
+
+(Not covered)
+
+$(A\cup B)' = A' \cap B'$
+
+$(A \cap B)' = A' \cup B'$
+
+[Proofs](https://en.wikipedia.org/wiki/De_Morgan%27s_laws)
+
+## Conditional Probability and the Multiplication Rule
+
+
+We want to know the probability of event $A$ given event $B$ occured. One way to do this is by counting writing down how we expect the number of times $A$ occured given event $B$ occured in terms of set operations. First, consider the fraction
 
 $$
-n(A|B) = \frac{n(A\cap B)}{n(A\cap B) + n(A'\cap B)}
+F(A \text { given } B) = \frac{n(A\cap B)}{n(A\cap B) + n(A'\cap B)}
 $$
 
 The numerator is the number of times $A$ and $B$ occured.
 
-The denominator is the number of times $B$ occured - it can occur when $A$ did not did not occur.
+The denominator is the number of times $B$ occured -- it can occur when $A$ did not did not occur.
 
-Note that $A\cap B$ + $A'\cap B$ are mutually exclusive, so  $(A\cap B) \cup (A'\cap B) = B$, so we can also write
+Note that $A\cap B$ and $A'\cap B$ are mutually exclusive, so  $(A\cap B) \cup (A'\cap B) = B$, so we can also write
 
 $$
-n(A|B) = \frac{n(A\cap B)}{n(B)}
+F(A\text { given }B) = \frac{n(A\cap B)}{n(B)}
 $$
 
-Dividing all terms by $n$ and using the definition of probability in terms of relative frequency gives
+which is also visually obvious from a diagram.
+
+Dividing all terms on the right-hand side by $n$, using the definition of probability in terms of relative frequency, and introducing the symbol "$|$" gives the definition of conditional probability:
 
 $$
 P(A|B) = \frac{P(A\cap B)}{P(B)}
@@ -309,9 +378,13 @@ $$
 
 We were given that the probability of a student having a Visa is 0.5; the the probability of a student having a MasterCard is 0.4; and the probability that they have both is 0.25.
 
-We were asked to find the probability that the student has a Visa but not MasterCard.
+We were asked to find the probability that the student has a Visa but not a MasterCard.
 
 How is this different from the statement "given the student has a Visa, what is the probability that they do not have a MasterCard?"
+
+<details><summary>Answer</summary>
+In the first case, we don't know anything about any of the students. In the second case, we are told to only consider a subset of all students. Our new sample space contains only the $B$ part of the original sample space.
+</details>
 
 "The probability that the student has a Visa but not MasterCard" can be written in terms of a conditional probability: $P(M'|V)$; based on the statement, we know the student has a Visa, so we are given that $V$ is true. We want to find the probability that the student does not have a MasterCard.
 
@@ -327,6 +400,29 @@ Based on the Venn diagram, we know $P(M'\cap V)=0.25$ and we were given $P(V)=0.
 
 $$P(M'|V) = \frac{1}{2}$$
 
+$P(A\cap B) = P(A|B)P(B)$ is sometimes called the multiplication rule
+
+**Example**
+
+If you are in a firing line and two people have guns that shoot a real bullet instead of a blank with probability of 1/3, what is the probability that you get shot (assuming the marksmen never miss?)
+
+*Answer*
+
+$P(A \text{ or } B) = P(A) + P(B) - P(A\cap B)$
+
+$P(A\cap B) = P(A|B)P(B)$
+
+If $A$ and $B$ are independent, $P(A|B)=P(A)$, so
+
+$P(A\cap B) = P(A)P(B)$. Thus
+
+$P(A \text{ or } B) = 1/3 + 1/3 - (1/3)(1/3) = 5/9$
+
+or, $P(\overline{A\text{ or } B}) = (2/3)(2/3) = 4/9$
+
+Check: $P(\overline{A\text{ or } B}) = 1 - P(A \text{ or } B)$
+
+
 ## Bayes' Rule
 
 $$
@@ -335,12 +431,7 @@ $$
 
 Also called "Bayes' Law" and "Bayes' Theorem". Different forms are also used.
 
-https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy
-
-https://www.sciencedirect.com/science/article/pii/S073567572030543X
-
-https://www.mcgrayne.com/disc.htm
-
+Further reading [1](https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy), [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X), [3](https://www.mcgrayne.com/disc.htm)
 
 ### Simple Derivation
 
@@ -378,6 +469,7 @@ See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/a
 
 original odds $\bfcdot$ evidence adjustment = new odds
 
+<details><summary/>
 In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),
 
 * Sensitivity, $S_e$ (true positive rate):
@@ -407,8 +499,9 @@ In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensi
    and
    
    $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/Sp$
+</details>
 
-### Visual Derivation
+**Visual Derivation/Exploration**
 
 <img src="notes/figures/bayes_venn.svg"/>
 
@@ -521,30 +614,6 @@ Using $P(B|A_1) = n(B|A_1)/n(A_1)$, etc., we have
 $n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + n(B|A_3)n(A_3)$
 
 Divide both sides by $n$ to arrive at the result.
-
-## Multiplication Rule for $P(A\cap B)$
-
-$$P(A\cap B) = P(A|B)P(B)$$
-
-**Example**
-
-If you are in a firing line and two people have guns that shoot a real bullet instead of a blank with probability of 1/3, what is the probability that you get shot (assuming the marksmen never miss?)
-
-*Answer*
-
-$P(A \text{ or } B) = P(A) + P(B) - P(A\cap B)$
-
-$P(A\cap B) = P(A|B)P(B)$
-
-If $A$ and $B$ are independent, $P(A|B)=P(A)$, so
-
-$P(A\cap B) = P(A)P(B)$. Thus
-
-$P(A \text{ or } B) = 1/3 + 1/3 - (1/3)(1/3) = 5/9$
-
-or, $P(\overline{A\text{ or } B}) = (2/3)(2/3) = 4/9$
-
-Check: $P(\overline{A\text{ or } B}) = 1 - P(A \text{ or } B)$
 
 ## General Bayes' Rule
 

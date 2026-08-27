@@ -30,6 +30,8 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 
 * Discuss Syllabus Questions. **Preparation**: Read the syllabus before class.
 
+* Cover Discord
+
 * Cover Probability topics in [Devore Chapter 2](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/view?usp=sharing★★★★★remove★★★★★); see also [Bulmer Chapters 1 and 2](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★), [Bonamente Chapter 1](https://drive.google.com/file/d/1Z4uN1ReMXAUMZck_UmavM3lIGrbE1U-C/view?usp=sharing★★★★★remove★★★★★), [Rozanov Chapters 1 and 2](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★), [Larson Chapters 1 and 2](https://drive.google.com/file/d/1Cc65FWiptQLqtXiKHpB2JJDLe-dh7WtX/view?usp=drive_link★★★★★remove★★★★★) and [DeGroot Chapter 1](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★).
 
    **Preparation**: Scan [Devore Chapter 2](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/view?usp=sharing★★★★★remove★★★★★), write down definitions of key terms, and be prepared to define without referring to your notes. You don't have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.
@@ -38,7 +40,6 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 
 * Cover GitHub; **Preparation**: Create a [GitHub](https://github.com) account before class starts.
 
-* Cover Discord
 
 # Summary
 
@@ -65,6 +66,10 @@ Students will
 1. learn to present data and results at the level of quality seen in seminars, journal articles, and meeting posters; and
 1. learn to write code in a way that is easy for others to understand and modify.
 
+# Feedback
+
+Anonymous feedback may be provided in [a Google Doc](https://docs.google.com/document/d/1UT8FGnJPvE87VWi5o9PjKZTD6IWPMtnENjgJ0ct0-Rs/_remove_). You must remove the `_remove_` in the URL to see this document. Open in Incognito Mode if you want to be anonymous.
+
 # Methods of Instruction
 
 * In-class time will be approximately 50% lecture/demonstration and 50% in-class discussion.
@@ -72,6 +77,8 @@ Students will
 * You will be asked to participate in class discussions during class and on Discord. Talking and writing about statistics will help you understand statistics.
 * Homework assignments will be approximately 50% hand-written and 50% programs. I will ask students to present their solutions during class and for others to comment.
 * After the midterm, students will propose a project, and part of each subsequent homework assignment will be an additional analysis related to your project. The required analysis will be based on what you propose and ideas that are generated when you give a brief ($\sim$5--minute) update on your progress.
+
+> This instruction style, including how homework questions are written, is sometimes difficult and frustrating for one or two students per semester. Please feel free to meet with me if this is the case.
 
 %* I give detailed solutions to homework problems. However, I will not always be able to provide detailed feedback or identify many errors in your code. I will discuss general types of issues that I observed on the homework problems during class.
 
@@ -81,7 +88,6 @@ Students will
 
 * You may use any programming language for homework and the final project. I will write my solutions in Python.
 * I assume that you are proficient in Python (or another language) at the level of a B grade in PHYS 251. The topics that you should be familiar with are covered in my [notes for PHYS 251](python.html).
-* I have provided an extensive set of notes on Python techniques that you will use and should be familiar with.
 
 # Textbook
 
