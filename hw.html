@@ -582,6 +582,11 @@
             </a>
           </li>
           <li>
+            <a href="#random-walk-simulation">
+              <span class="toctext">Random Walk Simulation</span>
+            </a>
+          </li>
+          <li>
             <a href="#sample-space">
               <span class="toctext">Sample Space</span>
             </a>
@@ -687,13 +692,7 @@
         <p>Modify this program so a loop is not required by using a NumPy function. Save your answer as <code>HW1_2.py</code>.</p>
       </div>
       <div class="block">
-        <p>4. (590 only)</p>
-      </div>
-      <div class="block">
-        <p>In class, I generated a plot by tossing a coin <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> times and then recording the relative frequency for that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>. I did this for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">....1000</span></span></span></span>, so I did <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1000</span></span></span></span> independent coin tossing trials. Another student tossed a coin <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1000</span></span></span></span> times (one trial) and used the first <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> numbers to compute the relative frequency for that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> (it also appears that this is how <a href="https://drive.google.com/file/d/1MB1aYqKonKjNiSYy1vNWMqm6MZqRuMe6/view?usp=drive_link%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore</a> generated Figure 2.2). Be prepared to discuss the difference in interpreation of the results from the two approaches.</p>
-      </div>
-      <div class="block">
-        <p>5.</p>
+        <p>4.</p>
       </div>
       <div class="block">
         <p>In class, I will raise the following questions (you don’t need to answer this on what you turn in):</p>
@@ -715,7 +714,35 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="sample-space" class="anchor hanchor" href="#sample-space"><span class="hnumber">1.2</span>&nbsp;<span class="htext">Sample Space</span></a></h2>
+        <h2><a name="random-walk-simulation" class="anchor hanchor" href="#random-walk-simulation"><span class="hnumber">1.2</span>&nbsp;<span class="htext">Random Walk Simulation</span></a></h2>
+      </div>
+      <div class="block">
+        <p>A random walk is a process analogous to flipping a fair coin. An example in physics is a cylinder constrained to move in one dimension being struck by air particles (and the cylinder moves without friction). Each strike sends the cylinder a small step to the left or right. The probability of a step to the left is the same as that of a step to the right. See also <a href="http://www.fulviofrisone.com/attachments/article/413/Kittel%20-%20Thermodynamics.pdf">Chapter 1 of Kittel and Kroemer</a> for a description in the context of statistical physics.</p>
+      </div>
+      <div class="block">
+        <p>Suppose we want to know the probability that after three strikes, the cylinder is one step the right of its initial position using a simulation (we will cover an exact answer later).</p>
+      </div>
+      <div class="block">
+        <p>We could do an experiment where we randomly select values of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span> or <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> with equal probability using <code>random.choice([-1, 1])</code> three times (<code>np.random.choice()</code> can also be used for efficiency). A result could be <code>[1, 1, -1]</code>. The final position after these steps is <code>sum([1, 1, -1]) = 1</code>. To compute the probability that the final position is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, we can repeat this experiment many times and count the number of times the final position is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</p>
+      </div>
+      <div class="block">
+        <ol class="compact">
+          <li>
+            <div class="block">
+              <p>How many possible step configurations are possible? That is, what is the sample space of the experiment of taking three steps to right or left, with equal probability for each direction?</p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p>Write a program for a simulation that gives an estimate the probability that the cylinder is one step to the right of its initial position after three steps.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="sample-space" class="anchor hanchor" href="#sample-space"><span class="hnumber">1.3</span>&nbsp;<span class="htext">Sample Space</span></a></h2>
       </div>
       <div class="block">
         <ol class="compact">
@@ -739,7 +766,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="set-notation" class="anchor hanchor" href="#set-notation"><span class="hnumber">1.3</span>&nbsp;<span class="htext">Set Notation</span></a></h2>
+        <h2><a name="set-notation" class="anchor hanchor" href="#set-notation"><span class="hnumber">1.4</span>&nbsp;<span class="htext">Set Notation</span></a></h2>
       </div>
       <div class="block">
         <p>The law of addition for any three events <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, is</p>
@@ -753,7 +780,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="law-of-addition-and-set-notation" class="anchor hanchor" href="#law-of-addition-and-set-notation"><span class="hnumber">1.4</span>&nbsp;<span class="htext">Law of Addition and Set Notation</span></a></h2>
+        <h2><a name="law-of-addition-and-set-notation" class="anchor hanchor" href="#law-of-addition-and-set-notation"><span class="hnumber">1.5</span>&nbsp;<span class="htext">Law of Addition and Set Notation</span></a></h2>
       </div>
       <div class="block">
         <p>Suppose 55% of people exercise and 45% drink alcohol. Also, 70% do at least one of these.</p>

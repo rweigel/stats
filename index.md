@@ -98,7 +98,7 @@ Many additional references and resources are listed in the [References](#referen
 Students registered in 590 will be required to solve extra homework, quiz, and midterm problems; the scope of their final project will be larger.
 
 * **Homework**: 20% - Approximately one per week. Most homework assignments will include at least one problem that requires the use of real data. Assignments are due before class starts. 
-* **Quizzes**: 20% - Approximately one per week. Closed book and computer. You will be told the topic covered on the quiz a week before it is given.
+* **Quizzes**: 20% - Approximately one per week. Closed book and computer. You will be told the topic covered on the quiz a week before it is given. In general, the problems will be based on examples covered in class or on a homework.
 * **Midterm**: 30% - In-class; closed book, computer, and notes.
 * **Final project**: 30%
 * **Final course**: Grades for undergraduates are determined from numerical course grades using 90%–100% A, 80%–90% B, 70%–80% C, 60%–70% D, < 60% F. For graduate students, the scale is the same except that 70% and lower is an F (the graduate grade scale does not have a D).

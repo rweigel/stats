@@ -12,7 +12,7 @@
     }
 
     body {
-      background-image: url("https://rweigel.github.io/biedit/img/paper.png")
+      background-image: url("https://rweigel.github.io/biedit/biedit/ui/img/paper.png")
     }
 
     .body {
@@ -20,7 +20,7 @@
       min-width: 50%;
       max-height: 100%;
       position: absolute;
-      background-image: url("https://rweigel.github.io/biedit/img/paper.png");
+      background-image: url("https://rweigel.github.io/biedit/biedit/ui/img/paper.png");
     }
 
     #toc {
@@ -382,10 +382,6 @@
       font-size: inherit !important;
     }
 
-    .katex-warning {
-      border-right: 0.5em solid red;
-    }
-
     .katex-display {
       text-align: center;
       margin: 0em;
@@ -395,6 +391,16 @@
     .katex-display.fleqn>.katex {
       padding-left: 0em;
       margin: 0em;
+    }
+
+    .katex-warning {
+      border-right: 0.5em solid red;
+    }
+
+    .katex-error-expression {}
+
+    .katex-error-message {
+      color: red;
     }
 
     .page-break {
@@ -422,8 +428,14 @@
         margin: 0.5in 0.75in 0.75in;
       }
 
-      .katex .hide-tail {
-        overflow: hidden !important;
+      body,
+      html {
+        margin: 0px;
+        padding: 0px;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        overflow: auto;
+        display: inline;
       }
 
       .page-break {
@@ -502,6 +514,10 @@
         border-color: currentcolor;
         border-image: none;
         overflow-wrap: break-word;
+      }
+
+      .katex .hide-tail {
+        overflow: hidden !important;
       }
 
       .katex {
@@ -669,7 +685,7 @@
                 </a>
               </li>
               <li>
-                <a href="#bayesian-vs-frequentist">
+                <a href="#bayesian-vs.-frequentist">
                   <span class="toctext">Bayesian vs. Frequentist</span>
                 </a>
               </li>
@@ -706,7 +722,7 @@
         <a href="#course-specific-policies">
           <span class="toctext">Course-Specific Policies</span>
         </a>
-        <ol class="toc" style="display: none;">
+        <ol class="toc" style="display: block;">
           <li>
             <a href="#collaboration">
               <span class="toctext">Collaboration</span>
@@ -869,14 +885,10 @@
             <div class="block">
               <p><strong>Preparation</strong>: Scan <a href="https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/view?usp=sharing%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85remove%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85">Devore Chapter 2</a>, write down definitions of key terms, and be prepared to define without referring to your notes. You don’t have to fully understand all of the examples; I will go over examples and problems in class, and it will help if you are familiar with all of the definitions.</p>
             </div>
+            <div class="block">
+              <p>At the start of class, I will ask students for key terms, write them on the board, and then ask for volunteers to provide a definition (ideally without referring to your notes).</p>
+            </div>
           </li>
-        </ul>
-      </div>
-      <div class="block">
-        <p>At the start of class, I will ask students for key terms, write them on the board, and then ask for volunteers to provide a definition (ideally without referring to your notes).</p>
-      </div>
-      <div class="block">
-        <ul class="loose">
           <li>
             <div class="block">
               <p>Cover GitHub; <strong>Preparation</strong>: Create a <a href="https://github.com">GitHub</a> account before class starts.</p>
@@ -892,7 +904,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h1><a name="summary" class="anchor hanchor active" href="#summary"><span class="hnumber">3</span>&nbsp;<span class="htext">Summary</span></a></h1>
+        <h1><a name="summary" class="anchor hanchor" href="#summary"><span class="hnumber">3</span>&nbsp;<span class="htext">Summary</span></a></h1>
       </div>
       <div class="block">
         <p>This course covers fundamental statistical methods that apply to most data–related (both measurement and simulation) problems. I emphasize the development of a deep understanding of the interpretation of statistical results by having students develop simulations that test the expectations of theory.</p>
@@ -1081,7 +1093,7 @@
           </li>
           <li>
             <div class="block">
-              <p><strong>Quizzes</strong>: 20% - Approximately one per week. Closed book and computer. You will be told the topic covered on the quiz a week before it is given.</p>
+              <p><strong>Quizzes</strong>: 20% - Approximately one per week. Closed book and computer. You will be told the topic covered on the quiz a week before it is given. In general, the problems will be based on examples covered in class or on a homework.</p>
             </div>
           </li>
           <li>
@@ -1490,7 +1502,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="bayesian-vs-frequentist" class="anchor hanchor" href="#bayesian-vs-frequentist"><span class="hnumber">10.3.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
+        <h3><a name="bayesian-vs.-frequentist" class="anchor hanchor" href="#bayesian-vs.-frequentist"><span class="hnumber">10.3.2</span>&nbsp;<span class="htext">Bayesian vs. Frequentist</span></a></h3>
       </div>
       <div class="block">
         <ol class="compact">
