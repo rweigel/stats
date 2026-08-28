@@ -452,7 +452,7 @@ $$
 
 Also called "Bayes' Law" and "Bayes' Theorem". Different forms are also used.
 
-Further reading [1](https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy), [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X), [3](https://www.mcgrayne.com/disc.htm)
+Further reading: [1](https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy), [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X), [3](https://www.mcgrayne.com/disc.htm)
 
 ### Simple Derivation
 
