@@ -10,7 +10,7 @@
 
 Note that different experiments can be assigned to an activity:
 
-* Experiment: Flip a coin 2x and record result of each flip. Can ask what fraction of experiments had head for the first flip.
+* Experiment: Flip a coin 2x and record the result of each flip. Can ask what fraction of experiments had a head on the first flip.
 * Experiment: Flip a coin 2x and record number of heads and tails. Can ask what fraction of experiments had one head.
 
 ## Outcome
@@ -19,7 +19,7 @@ The result of part of an experiment or the result of the full experiment. (Not g
 
 ## Sample Space, $\mathcal{S}$ (or Event Space)
 
-> ... the set of all possible outcomes of an experiement. (Devore p 51)
+> ... the set of all possible outcomes of an experiment. (Devore p 51)
 
 > The collection of all possible outcomes of an experiment is called the _sample space_ of the experiment. (DeGroot p 6)
 
@@ -126,7 +126,7 @@ print(y)
 
 # Perform ordinary least squares regression
 # We'll cover this later in the semester.
-# Solve y = Ax + b for the best fit line parameters m and c
+# Solve y = Ax + b for the best-fit line parameters m and c
 A = np.vstack([x, np.ones(len(x))]).T
 print(A)
 
@@ -165,7 +165,7 @@ A repetition of an experiment.
 
 > The interpretation [of probability] most frequently used and most easily understood is based on the notation of relative frequencies. (Devore p 57)
 
-Repeat experiment $n$ times (each repetition is called a "replication"). If event $A$ occurs $n(A)$ times in $n$ replications, then relative frequency is $n(A)/n$.
+Repeat the experiment $n$ times (each repetition is called a "replication"). If event $A$ occurs $n(A)$ times in $n$ replications, then relative frequency is $n(A)/n$.
 
 > The _objective interpretation of probability_ identifies this limiting relative frequency to $P(A)$ (Devore p 57)
 
@@ -173,7 +173,7 @@ Said another way,
   
 $$P(A) = \lim_{n\rightarrow \infty}\frac{n(A)}{n}$$
 
-If exeriment is not repeatable, prior information must be used to determine $P(A)$ and not everyone may conclude the same $P(A)$; in this case $P(A)$ has a subjective interpretation. See DeGroot 2012 and [Ross 2022](https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/interpretations-of-probability.html) for a discussion of interpretations of probability.
+If an experiment is not repeatable, prior information must be used to determine $P(A)$ and not everyone may conclude the same $P(A)$; in this case, $P(A)$ has a subjective interpretation. See DeGroot 2012 and [Ross 2022](https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/interpretations-of-probability.html) for a discussion of interpretations of probability.
 
 Python example of Figure 2.2 Devore:
   
@@ -248,7 +248,7 @@ Venn diagrams are useful for visually describing set operators. It is debatable 
 
 <img src="notes/figures/Venn1.png"/>
 
-Drawing the Venn diagram for experiment with 2 flips where $A$ is one or more heads and $B$ is one or more tails.
+Drawing the Venn diagram for an experiment with 2 flips where $A$ is one or more heads and $B$ is one or more tails.
 
 Use set notation to describe the region of $A$ that is not shaded in Figure (b).
 
@@ -272,15 +272,15 @@ Use set notation to desribe the region outside of $A$ and $B$ in Figure (a).
 >
 > (Devore p 56)
 
-> Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsistent with our intuitve notions of probability. (Devore p 57)
+> Axioms do not completely determine an assignment of probabilities to events. The axioms serve only to rule out assignments inconsistent with our intuitive notions of probability. (Devore p 57)
 
-Corallary to Axiom 3 (Devore p 59 calls this a proposition):
+Corollary to Axiom 3 (Devore p 59 calls this a proposition):
 
 > For any event $A$, $P(A)\le 1$
 
 **Example**
 
-In an trial where the result is either true (with probability $1-p$) or false (with probability $p$) and we run trials until we get a false, the sample space of all experiments is $\mathcal S = $ {$A_1$, $A_2$, $A_3$, ...}, where
+In a trial where the result is either true (with probability $1-p$) or false (with probability $p$), and we run trials until we get a false, the sample space of all experiments is $\mathcal S = $ {$A_1$, $A_2$, $A_3$, ...}, where
  
   $A_1=F$, $A_2=T,F$, $A_3=T,T,F$, ...
   
@@ -304,7 +304,7 @@ $P(A_1) + P(A_2) + P(A_3) + .... = 1$
 
 See also Devore Example 2.12.
 
-## Law of Compliments
+## Law of Complements
 
 (Devore does not use this term, however)
 
@@ -333,7 +333,7 @@ $P(A\cup B) = P(A) + P(B)$
 
 **Visual proof for two events**
 
-Imagine overlapping targets $A$ and $B$ and darts are thrown towards target.
+Imagine overlapping targets $A$ and $B$, and darts are thrown towards the targets.
 
 Viusally, the number of ways $A$ or $B$ occured: $n(A \cup B) = n(A) + n(B) - n(A \text{ and } B)$
   
@@ -349,7 +349,7 @@ Consider randomly selecting a student at a certain university, and let $A$ denot
 2. What is the probability that the selected individual has neither type of card?
 3. Describe, in terms of $A$ and $B$, the event that the selected student has a Visa card but not a MasterCard, and then compute the probability of this event.
 
-Provide both visual "proofs" or mathmatical calculations.
+Provide both visual "proofs" or mathematical calculations.
 
 <details><summary>Answers:</summary>
 
@@ -373,15 +373,15 @@ $(A \cap B)' = A' \cup B'$
 ## Conditional Probability and the Multiplication Rule
 
 
-We want to know the probability of event $A$ given event $B$ occured. One way to do this is by counting writing down how we expect the number of times $A$ occured given event $B$ occured in terms of set operations. First, consider the fraction
+We want to know the probability of event $A$ given event $B$ occurred. One way to do this is by counting and writing down how we expect the number of times $A$ occurred given event $B$ occurred in terms of set operations. First, consider the fraction
 
 $$
 F(A \text { given } B) = \frac{n(A\cap B)}{n(A\cap B) + n(A'\cap B)}
 $$
 
-The numerator is the number of times $A$ and $B$ occured.
+The numerator is the number of times $A$ and $B$ occurred.
 
-The denominator is the number of times $B$ occured -- it can occur when $A$ did not did not occur.
+The denominator is the number of times $B$ occurred -- it can occur when $A$ did not occur.
 
 Note that $A\cap B$ and $A'\cap B$ are mutually exclusive, so  $(A\cap B) \cup (A'\cap B) = B$, so we can also write
 
@@ -391,13 +391,13 @@ $$
 
 which is also visually obvious from a diagram.
 
-Dividing all terms on the right-hand side by $n$, using the definition of probability in terms of relative frequency, and introducing the symbol "$|$" gives the definition of conditional probability:
+Dividing all terms on the right-hand side by $n$, using the definition of probability in terms of relative frequency and introducing the symbol "$|$" gives the definition of conditional probability:
 
 $$
 P(A|B) = \frac{P(A\cap B)}{P(B)}
 $$
 
-We were given that the probability of a student having a Visa is 0.5; the the probability of a student having a MasterCard is 0.4; and the probability that they have both is 0.25.
+We were given that the probability of a student having a Visa is 0.5; the probability of a student having a MasterCard is 0.4; and the probability that they have both is 0.25.
 
 We were asked to find the probability that the student has a Visa but not a MasterCard.
 
@@ -425,7 +425,7 @@ $P(A\cap B) = P(A|B)P(B)$ is sometimes called the multiplication rule
 
 **Example**
 
-If you are in a firing line and two people have guns that shoot a real bullet instead of a blank with probability of 1/3, what is the probability that you get shot (assuming the marksmen never miss?)
+If you are in a firing line and two people have guns that shoot a real bullet instead of a blank with probability of 1/3, what is the probability that you get shot (assuming the marksmen never miss)?
 
 *Answer*
 
@@ -470,7 +470,7 @@ The numerators are identical because $A\cap B =B\cap A$. Combining these two equ
 
 A cab was involved in a hit-and-run accident at night. Two cab companies, the Green and the Blue, operate in the city. You are given the following data:
 
-   * 85% of the cabs in the city are Green and 15% are Blue. A witness identified the cab as Blue. The court tested the reliability of the witness under the circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.
+   * 85% of the cabs in the city are Green, and 15% are Blue. A witness identified the cab as Blue. The court tested the reliability of the witness under the circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.
 
 What is the probability that the cab involved in the accident was Blue rather than Green?  Use the two approaches (equation- and diagram- based).
 
@@ -734,7 +734,7 @@ One can use a tree diagram, table, or $x$--$y$ plot to prove.
 
 **Tree Diagram**
 
-Use for visually justifying product rule and counting permutations (Devore p 66)
+Use for visually justifying the product rule and counting permutations (Devore p 66)
 
 **Tuple**
 
@@ -746,7 +746,7 @@ AKA Product Rule for $k$-Tuples
 
 > Suppose a set consists of ordered collections of $k$ elements ($k$-tuples) and that there are $n_1$ possible choices for the first element; for each choice of the first element, there are $n_2$ possible choices of the second element; ...; for each possible choice of the first $k-1$ elements, there are $n_k$ choices of the $k$th element. Then there are $n_1n_2...n_k$ possible $k$-tuples. (Devore p 66)
 
-Note that "elements" is used here, but in definition of tuple, objects is used.
+Note that "elements" is used here, but in the definition of a tuple, objects is used.
 
 **Example**
 
@@ -781,10 +781,10 @@ Create a five boxes. There are six possible "choices" for first box, six possibl
 **Example**: Flip a coin 2 times.
 
 <details><summary></summary>
-There number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the secon box.)
+There number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the second box.)
 </details>
   
-**Example**: Each clinic has two $O$ doctors and three $P$ doctors and you must select two doctors from the same clinic. How many possible pairs of $O$s and $P$s are there?
+**Example**: Each clinic has two $O$ doctors and three $P$ doctors, and you must select two doctors from the same clinic. How many possible pairs of $O$s and $P$s are there?
 
 <details><summary></summary>
 In the first box, put one of the four $O$s. For each $O$, there are $3$ $P$s to choose from and put in the second box. So $n=4\cdot 3$.
@@ -801,7 +801,7 @@ In the third box, put one of the three $I$s; in the fourth box, put one of the t
 <details><summary></summary>
 The number of ways you can pick the team is $3\cdot 2$: $AB$, $AC$, $BA$, $BC$, $CA$, and $CB$.
 
-This is not the list possible teams because $AB$ is the same as $BA$ (That is, order is not important.). The list of possible teams is $3$, by inspection.
+This is not the list of possible teams because $AB$ is the same as $BA$ (That is, order is not important.). The list of possible teams is $3$, by inspection.
 </details>
 
 ### Permutation
@@ -810,7 +810,7 @@ An ordered arrangement of distinct objects, where each arrangement has no duplic
 
 **Example**:
 
-You have stickers labled $1$, ..., $6$ that are used to form a license plate.
+You have stickers labeled $1$, ..., $6$ that are used to form a license plate.
 
 How many unique license plates of length $4$ can you form? *Answer*: $6\cdot 5\cdot 4$
 
@@ -853,7 +853,7 @@ _Answer_:
 
 The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the tennis team picking example, there are $3$ team combinations. 
 
-Each permutation can be regarded as group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permuations. For example, if the two permutations
+Each permutation can be regarded as a group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permutations. For example, if the two permutations
 
 $(1,2)$
 
@@ -881,874 +881,3 @@ Select two players from a list of three.
 * How many hands of size $5$ can be formed using a $52$-card deck?
 
    *Answer*: Each permutation can be rearranged in $5!$ ways. So the number of hands (combinations) is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
-
-# Statistics
-
-## Definitions
-
-### Population
-
-"All" of the data is called the population. A population can be finite or infinite. An example of a finite population is all US citizens. An example of an infinite population are values from a continuous probability density function. (Technically, when you draw a value from a continuous probability distribution, you are actually drawing from a discrete distribution, because there are finite number of values that can be represented as 64--bit floating point numbers.)
-
-### Statistic
-
-Devore p 214
-
-> A statistic is any quantity whose value can be calculated from sample data. Prior to obtaining data, there is uncertainty as to what value of any particular statistic will result. Therefore, a statistic is a random variable and will be denoted by an uppercase letter; a lowercase letter is used to represent the calculated or observed value of the statistic.
-
-Note that the sample can contain all data, so alternatively, a statistic is a quantity computed based on values in population (the population mean is a statistic).
-
-### Population statistic
-
-A computation based on all values in a population.
-
-### Sample statistic
-
-A computation based on a sample from a population that gives an estimate of the equivalent value that would be obtained if the same computation was performed on the population (see also Devore p214).
-
-### Random Samples
-
-By random samples, we mean a value drawn from a population with a certain probability distribution. In general **random samples** implies "independent and identically distributed random variables" (often abbreviated iid). 
-
-### Sampling Distribution
-
-When we take a sample from a population and compute a statistc, for example the sample mean, we want to know the uncertainty in the statistic. That is, we want to know the probability distribution of the means. That is, if we repeated the experiment many times, what would be the distribution of the sample means for all experiments. The probability distribution of the test statistic is the sampling distribution.
-
-If the sampling distribution is known, we use it to compute error bars on a test statistic. Sampling distributions are also needed for hypothesis testing.
-
-In [HW 2.3](hw.html#hw-1), we derived a sampling distribution numerically. It was found that when $n$ values of $X$ were drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$ and the statistic 
-
-$$\overline{X} = \frac{1}{n}\sum_{i=1}^nX_i$$
-
-was computed $10,000$ times, 95% of the time the range
-
-$$\left[\overline{X}-1.96\frac{\sigma}{\sqrt{n}}\text{ },\text{ } \overline{X}+1.96\frac{\sigma}{\sqrt{n}}\right]$$
-
-included $\mu$. (We say that this range "traps" $\mu$ 95% of the time.) We actually did not need to do the numerical experiement when $n$ is large. We know the expected result from the Central Limit Theorem.
-
-<details><summary>It's a trap</summary>
-![](notes/figures/its_a_trap.jpg)
-</details>
-
-The sampling distribution of a test statistic depends on the equation for the test statistic and the population distribution. There are a limited number of test statistic/population distributions for which we know the exact sampling distribution of the test statistic. Simulation can be used in other cases.
-
-### Sampling Distribution Simulation
-
-See [sampling_dists.py](notes/code/sampling_dists.py)
-
-#### Parametric Simulation
-
-Values are drawn from a population with known pdf and pdf parameters and a sample statistic is computed. This process is repeated many times to create a pdf of the sample statistic.
-
-This procedure was used in HWs 2.3, 2.4, and 3.3.
-
-Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$. Repeat $n_s$ and plot the pdf or histogram of the $n_s$ $\overline{x}$ values.
-
-This method does not have practical value -- if you know the distribution and its parameters, you can simply use the analytical equation for the pdf. I generally have students use a parametric simulation to reinforce the idea of the meaning of the sampling distribution of a test statistic -- that it is a hypothetical distribution that would result if you could do many repeated experiments.
-
-#### Bootstrap
-
-[The definition of the idiom "bootstrapping"](https://www.oxfordlearnersdictionaries.com/us/definition/english/bootstrap_2?q=bootstrapping)is "get (oneself or something) into or out of a situation using existing resources." 
-
-#### Parametric Bootstrap
-
-Values are drawn from a population with known pdf and unknown pdf parameters and a sample statistic is computed. The parameters of the population pdf are estimated using the sample. The process is to draw $n$ values from a pdf with these estimated parameters and compute a sample statistic and repeat $n_b$ times.
-
-Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, draw $n$ values from $\mathcal{N}(\overline{x},s)$ and compute $\overline{x}^*$ and repeat this process $n_b$ times.
-
-#### Non-parametric bootstrap
-
-Values are drawn from a population with unknown pdf (both functional form and its parameters) and a sample statistic is computed.
-
-Example: Draw $n$ values from $\mathcal{N}(0,1)$ and compute $\overline{x}$ and $s$. Next, create a new sample of size $n$ by resampling the $n$ values with replacement and compute $\overline{x}^*$; repeat the resampling process $n_b$ times.
-
-This procedure was used in HW 4.2.
-
-For small $n$, "clustering" can occur because a given value can appear more than once in a bootstrap sample. One way to address this is to add a small random value to each value in the bootstrap sample.
-
-### Random Variable
-
-* Discrete
-* Continuous
-
-### Probability Mass Distribution
-
-### Probability Density Distribution
-
-### Distribution Notation
-
-### Cumulative Distribution Function
-
-### Expectation Value
-
-### Uncorrelated
-
-See James p27
-
-### Independent
-
-See James p27
-
-Events $A$ and $B$ are independent if
-
-$P(A\cap𝐵) = P(A)P(B)$
-
-Devore p 83
-
-> Two events $A$ and $B$ are independent if $P(A|B) = P(A)$ and are dependent otherwise. 
-
-Devore p 84
-
-> $A$ and $B$ are independent if and only if (iff) $P(A\cap B) = P(A)P(B)$
-
-### Bernoulli Trial
-
-### Type I and II Errors
-
-## Law of Large Numbers
-
-* [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
-* [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★)
-* [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★)
-
-The _weak law of large numbers_ [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★): given a $\delta > 0$ and $\epsilon > 0$, there is an integer $n$ for which the quantity $\overline{X}\equiv (1/n)(X_1+...+X_n)$ (with $X$ iid) will be in a small window centered on $\mu$ with a probability greater than $1-\delta$, that is,
-
-$$\mu-\epsilon\le \overline{X} \le \mu + \epsilon$$
-
-or, equivalently,
-
-$|\overline{X}-\mu| \le \epsilon$
-
-
-with a probability greater than $1-\delta$. This means we can choose very small $\epsilon$ and $\delta$ values and there will always be a value of $n$ for which the constraints are satisfied.
-
-
-The Law of Large Numbers tells us that as $n\rightarrow \infty$ the sample average defined by
-
-$$\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$$
-
-will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
-
-To answer the following questions, you do not need to understand the Law of Large Numbers. However, if you are interested, more formal definitions and proofs are given in
-
-* [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf)
-* [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★)
-* [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★)
-* [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★)
-
-
-## Central Limit Theorem
-
-See also Devore p 225.
-
-The Law of Large Numbers tells use that if we require $\overline{X}$ to fall in range that we specify around $\mu$ with a probability that we specify, we can find an $n$ value to satisfy our requirement. The central limit theorem says that for large $n$, $\overline{X}$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$.
-
-With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
-
-The Central Limit Theorem says that for large $n$, $\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$ is Gaussian-distributed with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$.
-
-Important: this theorem (usually) applies even if the distribution of the values used in computing 
-$\overline{X}$ are not Gaussian--distributed.
-
-With the Central Limit theorem, we can make statements such as "I took a sample of $n$ values and computed $\overline{X}$. If I took many samples and computed many $\overline{X}s$, 95\% of the time the range $[\overline{X}-1.96\sigma/\sqrt{n},\overline{X}+1.96\sigma/\sqrt{n}]$ would include ("trap") $\mu$.
-
-[Brewer 1985](https://drive.google.com/file/d/1JQm9ujph9p0NvbWrGEhO_qAc6q5MKYWp/view?usp=drive_link★★★★★remove★★★★★), citing Freund 1962, Mathematical statistics
-
-> Sometimes the Central Limit Theorem is interpreted in that the distribution of $\overline{x}$ approaches a normal distribution. This is incorrect, inasmuch as under the conditions of Theorem 7.9 the variance of $\overline{x}$ approaches 0 as $n\rightarrow \infty$. On the other hand, Theorem 7.9 justifies _approximating_ the distribution of $\overline{x}$ with a normal distribution whose mean is $\mu$ and whose variance is $\sigma^2/n$, when $n$ is sufficently large (p. 187).
-
-The above statements are consistent with typical textbook statements such as
-
-Rozanov p 79
-
-> Roughly speaking, the central limit theorem asserts that the distribution of the sum of a large number of independent identically distributed random variables is approximately normal.
-
-Bulmer p 109
-
-> The real reason for the importance of the normal distribution lies in the central limit theorem which states that the sum of a large number of independent random variables will be approximately normally distributed almost regardless of their individual distributions; any random variable which can be regarded as the sum of a large number of small, independent contributions is thus likely to follow the normal distribution approximately.
-
-However, technically, they are not consistent with the mathematical statement of the CLT, which is
-
-> DEFINITION. Given a sequence of random variables $\xi_k$, $k = 1, 2, ...$ with finite means $a_k = E[\xi_k]$ and variances $\sigma^2_k = D[\xi_k]$, consider the "normalized sum"
->
-> $$S^*=\frac{S_n - E[S_n]}{\sqrt{D[S_n]}}$$
->
-> where
-> 
-> $$S_n =\sum_{k=1}^n\xi_k$$
->
-> Then the sequence $\xi_k$, $k = 1, 2, ...$ is said to satisfy the central limit theorem if
->
-> $$\lim_{n\rightarrow \infty} P (x' < S^{*} < x'') = \frac{1}{\sqrt{2\pi}}\int_{x'}^{x''}e^{-x^2/2}dx$$
-
-Note that $D[S_n]\equiv\sum_{k=1}^n\sigma^2_k$
-
-Also, Degroot p 361,
-
-> Central Limit Theorem (Lindeberg and Le'vy). If the random variables $X_1$, ..., $X_n$ form a random sample of size $n$ from a given distribution with mean $\mu$ and variance $\sigma^2$ ($0 < \sigma^2 < \infty)$, then for each fixed number $x$,
->
-> $$\lim_{n\rightarrow \infty} P \left(\frac{\overline{X}_n-\mu}{\sigma/\sqrt{n}}\right) = \Phi(x)$$
->
-> where $\Phi$ denotes the c.d.f. of the standard normal distribution.
-
-Neither forms of the CLT state that for large $n$, the sampling distribution of $X_n$ is Gaussian. It states that if you compute $\overline{X}_n$ many times, the probability that $\overline{X}_n$ is in the range $[x',x'']$ will be the same as that for the Gaussian in the limit that $n\rightarrow \infty$. It suggests that the difference between $P (x' < S^{\*} < x'')$ and that expected from a Gaussian decreases as $n$ increases, which is why we say, inaccurately, "the sampling distribution of $\overline{X}_n$ is approximately Gaussian for large $n$". This statement is inaccurate because "large" and "approximately" is not defined. Also, the CLT not state that the difference $\left|P (x' < S^{\*} < x'') - \int_{x'}^{x''}e^{-x^2/2}dx\right|$ is monotonically decreasing for all $n$. 
-
-* See also https://online.stat.psu.edu/stat414/book/export/html/750
-https://www.bmj.com/rapid-response/2011/11/01/note-correct-interpretation-central-limit-theorem
-[Brewer 1985](https://drive.google.com/file/d/1JQm9ujph9p0NvbWrGEhO_qAc6q5MKYWp/view?usp=drive_link★★★★★remove★★★★★), citing Freund 1962, Mathematical statistics
-
-> Sometimes the Central Limit Theorem is interpreted in that the distribution of $\overline{x} approaches a normal distribution. This is incorrect, inasmuch as under the conditions of Theorem 7.9 the variance of \overline{x} approaches 0 as $n\rightarrow infty$. On the other hand, Theorem 79 justifies _approximating_ the distribution of $overline{x}$ with a normal distribution whose mean is $\mu$ and whose variance is $\sigma^2$/n$, when $n$ is sufficently large (p. 187).
- 
-## Probability Distributions
-
-[Univariate Distribution Relationships](https://www.math.wm.edu/~leemis/chart/UDR/UDR.html)
-
-
-In the experiments done in the homework, the $X_i$ values are **random samples** from a **probability distribution** with **expectation values** for the mean and variance defined by $E[X]\equiv\mu$ and $E[(X-\mu)^2]\equiv\sigma^2$.
-
-The probability distribution of the $\overline{X}$s, each computed using $n$ samples, is called the **sampling distribution**.
-
-### pdf (two versions) and pmf
-
-Probability Distribution Functions: Continuous (e.g., Gaussian) or Discrete (e.g., Binomial)
-
-pdf can mean probability **distribution** function (dimensionless) or probability **density** function (has units of 1/$\delta x$)
-
-$p(x) = e^{-x^2/2}/\sqrt{2\pi}$ is a probability distribution function. Suppose that $x$ is a length in $m$.
-
-pmf means probability **mass** function. Its sum is $1$. A pmf is a probability **distribution** function
-
-Continuous probability distribution functions must sum to $1$.
-
-### Discrete
-
-   Devore (p 97) calls the discrete case a "probability mass function" and I've been using the variable $P$. If $x$ is a discrete variable, then
-
-   $$1 = \sum_{\text{all x}}P(x)$$
-
-   and
-
-   $$P(x)\ge 0$$
-
-   An example probability mass function that we've used is $P(0)=0.5$, $P(1)=0.5$, which can be used to simulate the outcome of a fair coin toss, where $x=0$ represents tails and $x=1$ represents heads. The Binomial Distribution is another discrete probability distribution.
-
-   To compute a probability mass function from a histogram, scale the histogram heights by the total number of observations.
-
-   ```Python
-   # src=notes/code/pmf.py
-   ```
-
-   <img src="notes/code/figures/pmf.numpy_bar.svg"/>
-
-#### Binomial
-
-[Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) has good derivation of Binomial using a heads/tails example.
-
-Unique approach in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★)
-
-[Mean and variance derivation](https://personal.math.ubc.ca/~feldman/m302/binomial.pdf)
-
-#### Geometric
-
-#### Hypergeometric
-
-#### Negative Binomial
-
-#### Poisson
-
-References
-
-* The original Possion paper is in French but is covered in English by [Stigler 1982](https://jhanley.biostat.mcgill.ca/statbook/StiglerPoisson.pdf). Possion used limit of Binomial distribution and Stigler notes De Moivre derived a related approximation to the Poisson formula.
-* Derived independently by Bateman using a differential equation approach in [Rutherford, Geiger, and Bateman, 1910](https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf)
-* [An simple derivation in lecture notes by D.S.G. Pollock](https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf)
-* How used in physics lab experiments using Geiger counters: [1](https://pages.uoregon.edu/dlivelyb/phys391/labs/lab3_391.pdf), [2](https://wanda.fiu.edu/boeglinw/courses/Modern_lab_manual3/counting_statistics.html), [3](https://122.physics.ucdavis.edu/sites/default/files/files/Nuclear%20Decay/Counting%20Statistics.pdf)
-
-If
-
-1.  in a sufficiently short amount of time, $\Delta t$, only 0 or 1 event can occur (two or more simultaneous events are impossible);
-2.  the probability of exactly 1 event occurring in $\Delta t$ is equal to $\lambda \Delta t$, where $\lambda$ is a constant; and
-3.  any non-overlapping intervals of length $\Delta t$ are independent Bernoulli trials,
-
-the probability of $k$ events occurring in the time interval $t=N\Delta t$ is
-
-$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
-
-for sufficiently large $N$.
-
-
-There were quite a few questions about this problem. It may make more sense to derive it without reference to time and then insert the time dependence at the end. 
-
-If $p$ is the probability of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
-
-$$P(k)=\frac{(p\frac{t}{\Delta t})^k e^{-p \frac{t}{\Delta t}}}{k!}$$
-
-Next, using the definition $t\equiv N\Delta t$,
-
-$$P(k)=\frac{(p N)^k e^{-p N}}{k!}$$
-
-The interpretation is that if the probability of a success in a trial is $p$, then the probability of $k$ successes in $N$ trials is $P(k)$. 
-
-A common use case for this equation is when an event takes a certain amount of time $\Delta t$ to occur (e.g., a hurricane or large solar flare). In this case, it makes sense to define a rate parameter which is the number events per unit time, which is $\lambda=p/\Delta t$, where $p$ is the probability of an event in $\Delta t$. This variable corresponds with how we would describe the probability of an event, e.g., on average 0.01 hurricanes occur per day or in 100 days, 1 hurricane will occur.
-
-It also make sense to talk not about the number of "trials", but rather the number of $\Delta t$s, where each $\Delta t$ corresponds to a trial. In this case, we can define a time as $t=N\Delta t$. This definition allows us to say "given 0.01 hurricanes occur per day, what is the probability that 2 hurricanes occur in a month".
-
-
-### Continuous
-
-   See also the [lecture notes by Orloff and Bloom](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading5b.pdf)
-
-   The discrete case is called the "probability density function", and I've been using the variable $p$. The requirements are
-
-   $$1 = \int_{-\infty}^\infty p(x)dx$$
-
-   and
-
-   $$p(x)\ge 0$$
-
-   In the continuous case, the probability that $x$ is a given value is $p(x)dx$, which is a differential. As a result, it only makes sense to talk about the probability that $x$ is in a range, e.g.,
-
-   $$P(a\le x\le b) = \int_a^bp(x)dx$$
-
-   An example of a continuous distribution is the Gaussian or Normal:
-    
-   $$p(x)=\frac{1}{\sigma\sqrt{2\pi}} e^{{-(x-\mu)^2}/{2\sigma^2}}$$
-    
-   which satisfies $p(x)\ge 1$ and
-
-   $$\int_{-\infty}^\infty p(x)dx=1$$
-
-   You are already familiar with statements such as "95% of the time a value of $x$ drawn a Gaussian will be in the range $[\mu-1.96\sigma,\mu+1.96\sigma]$, or
-
-   $$P(\mu-1.96\sigma\le x\le \mu+1.96\sigma) = 0.95 = \int_{\mu-1.96\sigma}^{\mu+1.96\sigma}p(x)dx$$
-
-   To compute a probability density from a histogram, divide the height of each histogram bar by the total number of obervations and the width of each bar. The sum of the resulting bar heights will be unity.
-
-#### Normal
-
-Can be derived from Binomial [1](https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf); [2](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/). Simple derivation in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★). The key is to identify a small parameter, $m=N_r-N_l$ (r=right, l=left), the number of steps from the origin after $N=N_r+N_l$ steps, and then rewrite equation using it. This allows approximations involving $x/N$.
-
-The "Standard Normal" is the **sampling distribution** of the quantity
-
-$$z = \frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
-
-**Constraint**: $X$ is a random variable with mean $\mu$ and standard deviation $\sigma$ and $n\rightarrow \infty$ (unless the random variable is normally distributed, which case any $n$)
-
-A standardized variable will have a histogram that is centered on the origin and a standard deviation of unity.
-
-If $X$ is a random variable from _almost any_ probability distribution with mean $\mu$ and standard deviation $\sigma$, the sampling distribution of $z$ is the Standard Normal as $n\rightarrow\infty$
-
-#### $t$
-
-The "Student $t$" distribution is the **sampling distribution** of the quantity
-
-$$t = \frac{\overline{X}-\mu}{S/\sqrt{n}}$$
-
-where
-
-$$S = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (X-\overline{X})^2}$$
-
-**Constraint**: $X$ is a Gaussian--distributed random variable. Both the numerator and denominator of $t$ will vary from sample to sample and so we expect that the histogram of 
-
-$$t=\frac{\overline{X}-\mu}{S/\sqrt{n}}$$
-
-to be "fatter" or have "fatter tails" than
-
-$$z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
-
-The $t$ distribution is actually a family of distributions that depend on $n$ and so "$t$ distribution" is ambiguous. We usually discuss "a $t$ distribution with $\nu$" degrees of freedom, where $\nu \equiv n-1$.
-
-<img src="notes/code/figures/compare_gaussian_and_t.svg"/>
-
-#### $\chi^2$
-
-The Chi-square ($\chi^2$) distribution is the sampling distribution of the quantity $e^2$ (think "error" as in the sum--of--square error) 
-
-$e^2 = X_1^2 + ... + X_n^2$
-
-https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf
- 
-**Constraint**: $X$ is a Gaussian--distributed random variable.
-https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/
- 
-Similar to the $t$ distribution, the $\chi^2$ distribution is actually a family of distributions that depends on $n$.
-
-We use the $\chi^2$ distribution deriving error bars and confidence intervals for mean-square errors and power spectra.
-
-#### Exponential
-
-Can be derived from [Poisson](https://neurophysics.ucsd.edu/courses/physics_171/exponential.pdf)
-
-## Expectation values
-
-The general definition of the expectation operator $E[\cdot]$ is, for discrete $x$,
-
-$$E \left[X\right] = \sum_{\text{all }x}xP(x)$$
-
-or, for continuous $x,$
-
-$$E\left[X\right] = \int_{x}xp(x)dx$$
-
-By definition, $\mu=E\left[X\right]$. That is $\mu$ is the average of $X$ over the population. The variance of a population is defined as
-
-$$\sigma^2=E\left[(X-\mu)^2\right]$$
-
-When we invent a statistic (a quantity computed from a sample) that is intended to be used as an estimate of a similar quantity from a population, we want the statistic to be unbiased. That is, the expectation value of the statistic should equal the population value. Two statistics that were considered are the mean and variance.
-
-## Point Estimates
-
-> A point estimate of a parameter $\theta$ is a single number that can be regarded as a sensible value for $\theta$. A point estimate is obtained by selecting a suitable statistic and computing its value from the given sample data. The selected statistic is called the point estimator of $\theta$. (Devore p 243)
-
-$\hat{\theta}$ is usually a point estimate of a population statistic $\theta$ based on a sample of the population. (Why "point"? Probably because we get a single value.)
-
-## Point Estimate Sampling Distribution
-
-## Unbiased Point Estimator
-
-> A point estimator $\hat{\theta}$ is said to be an unbiased estimator of $\theta$ if $E[\hat{\theta}]$ for every possible value of $\theta$. If $\hat{\theta}$ is not unbiased, the difference $E[\hat{\theta}] - \theta$ is called the bias of $\hat{\theta}$.
-
-Examples: If $n$ values drawn from $b(n, p)$ and $x$ are `1`, then $\hat{p}=x/n$ is is unbiased estimator of $p$ (Devore p 244, but stated in different way).
-
-> If X1, X2, . . . , Xn is a random sample from a distribution with mean $\mu$, then \overline{X} is an unbiased estimator of $\mu$. If in addition the distribution is continuous and symmetric, then $\widetilde{X}$ and any trimmed mean are also unbiased estimators of $\mu$. (Devore p 246)
-
-### Un-biased point estimator of $\mu$: $\overline{X}$
-
-Proof that the point estimator $\overline{X}$ is an unbiased estimator of $\mu$.
-
-$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
-
-Taking the expectation, we have
-
-$$E[\overline{X}]=E\left[\frac{1}{n}\sum_{i=1}^n X_i\right]$$
-
-Note that 
-
-$$E\left[X\right] = \sum_{\text{all }x}xP(x)$$
-
-which means the right-hand side is a double sum. We can swap the order of the sum, giving
-
-$$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = E[X_1] + E[X_2] + ...$$
-
-The term $E[X_1]$ means the expectation value of all possible first-selected values from the sample. All possible first-selected values from the sample is the same as all possible values of $X$. Thus, $E[X_1]=E[X]$. Using the definition, $\mu=E\left[X\right]$, we have
-
-$$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] + ... ) = \frac{1}{n}(\mu + \mu + ...) = \frac{1}{n}(n\mu) = \mu$$
-
-### Un-biased point estimator of $\sigma^2$: $S^2$
-
-$\ds S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2$
-
-See [HW 4.4](hw.html#proof-that-s_b-2-is-a-biased-estimator-of-sigma-2)
-
-### Un-biased point estimator of slope in linear regression
-
-In your physics labs, you use the equation
-
-$$b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
-
-as an estimate of the population parameter $\beta$ in the model equation
-    
-$$y_i = \beta x_i + \alpha + \epsilon_i$$
-    
-were $\epsilon_i$ are independent and randomly distributed values from a Gaussian distribution with zero mean and standard deviation $\sigma$.
-
-Note that $x_i-\bar{x}$ is not a random variable because $x_i$ values are given, so it can be treated as a constant. Thus
-
-$$E[b]
-=E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]
-=\frac{E\left[\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}
-$$
-
-and
-
-$$
-E[b] = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})E\left[(y_i-\bar{y})\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}
-$$
-
-$$E\left[y_i-\bar{y}\right]=E\left[\beta x_i+
-\alpha+\epsilon_i-\bar{y}\right]=E\left[\beta x_i] +
-E[\alpha]+E[\epsilon_i]-E[\bar{y}\right]
-$$
-
-$$E\left[y_i-\bar{y}\right]=\beta x_i+\alpha - E[\overline{y}]$$
-
-$$E[\overline{y}] = E[\beta \overline{x} + \alpha + \overline{\epsilon}] = \beta \overline{x} + \alpha + E[\overline{\epsilon}] = \beta \overline{x} + \alpha$$
-
-Thus,
-
-$$E\left[y_i-\bar{y}\right]=\beta(x_i-\overline{x})$$
-
-and so
-
-$$E[b]=\beta$$
-
-Alternative:
-
-Subsitution of
-
-$$y_i = \beta x_i + \alpha + \epsilon_i$$
-
-into
-    
-$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
-
-gives
-    
-$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})( \beta x_i + \alpha + \epsilon_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
-
-Using
-
-$$\overline{y} = \alpha + \beta \overline{x}$$
-    
-gives
-
-$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})\left[\beta (x_i - \overline{x}) - \epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
-
-or
-
-$$b = \frac{\displaystyle\sum_{i=1}^{n}\left[\beta (x_i - \overline{x})^2 - (x_i-\overline{x})\epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2} = \beta - \frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
-
-Finally, using
-
-$$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
-
-because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
-
-## Confidence Intervals
-
-### Parametric
-
-Devore p 267
-
-> An alternative to reporting a single sensible value for the parameter being estimated is to calcu- late and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly).
-
-Devore p 270
-
-> it is tempting to conclude that $\mu$ is within this fixed interval with probability .95. ... It is therefore incorrect to write the statement P($\mu$ lies in (79.3, 80.7)) = .95.
- 
-Another way of rebutting $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ is to consider two experiments. If experiment $a$ yields a 95% CI of $(1,2)$ and we conclude
- 
-The above statements are $\mu$ is in range $(1,2)$ with probability $0.95$ and $\mu$ is in the range $(2,3)$ with probability $0.95$. This implies that $\mu$ is in the range $(1,3)$ with probability of $0.95+0.95$, which is greater than $1$. Clearly the interpretation of confidence intervals as $P(\mu \text{ lies in }(CI_l, CI_u)) = 1-\alpha$ cannot be correct.
-
-Devore Equation 7.5
-
-> A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
->
-> $$\left(\overline{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \quad \overline{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right)$$
- 
-Devore Equation 7.9 
-
-> Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
->
-> $$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
- 
-Devore Equation 7.10
->
->
- 
-Devore Equation 7.15
-
-> Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
->
->$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
- 
-Devore Equation 7.17
-
->$$P\left(\chi^2_{1-\alpha/2, n-1} < \frac{(n-1)S^2}{\sigma^2} < -\chi^2_{\alpha/2, n-1}\right) = 1-\alpha$$
->
->A $100(1-\alpha)$% confidence interval for the variance $\sigma^2$ of a normal population is
-
-Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
- 
-It is best to always think of the $\alpha/2$ values as corresponding to a small area.
-
-### Bootstrap
-
-[Several methods](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)#Methods_for_bootstrap_confidence_intervals)
-
-## Hypothesis Tests
-
-Devore p 301
-
-> The null hypothesis, denoted by $H_0$, is the claim that is initially assumed to be true (the “prior belief” claim). The alternative hypothesis, denoted by $H_a$, is the assertion that is contradictory to $H_0$.
-> 
-> The null hypothesis will be rejected in favor of the alternative hypothesis only if sample evidence suggests that $H_0$ is false. If the sample does not strongly contradict $H_0$, we will continue to believe in the plausibility of the null hypothesis. The two possible conclusions from a hypothesis-testing analysis are then reject $H_0$ or fail to reject $H_0$.
-
-
-Devore p 302
-
-> $H_0$ will generally be stated as an equality claim. If $\theta$ denotes the parameter of interest, the null hypothesis will have the form $H_0$: $\theta = \theta_0$, where $\theta_0$ is a specified number called the null value of the parameter (value claimed for $\theta$ by the null hypothesis). 
-
-Devore p 303
-
-> A test procedure is specified by the following:
-> 1. A test statistic, a function of the sample data on which the decision (reject $H_0$ or do not reject $H_0$) is to be based [example $\overline{x}$]
-> 2. A rejection region, the set of all test statistic values for which $H_0$ will be rejected
->
-> The null hypothesis will then be rejected if and only if the observed or computed test statistic value falls in the rejection region.
-
-
-Devore p 304
-> A type I error consists of rejecting the null hypothesis $H_0$ when it is true.
->
-> A type II error involves not rejecting $H_0$ when $H_0$ is false.
-
-https://online.stat.psu.edu/stat200/lesson/6/6.6
-
-> The conclusion drawn from a two-tailed confidence interval is usually the same as the conclusion drawn from a two-tailed hypothesis test. In other words, if the the 95% confidence interval contains the hypothesized parameter, then a hypothesis test at the 0.05 level will almost always fail to reject the null hypothesis. If the 95% confidence interval does not contain the hypothesize parameter, then a hypothesis test at the 0.05 level will almost always reject the null hypothesis.
-
-**Summary of Algorithm**
-
-1. Choose a population parameter, $\theta$ that you want to subject to an equality claim ("null hypothesis", $H_0$) of the form $\theta=\theta_0$, where $\theta_0$ is the "null value".
-   
-   For example, suppose we want to test the claim that the mean of a population is 1.0; then $\theta=\mu$ and $\theta_0 = 1.0$ and $H_0$ is $\mu=1.0$.
-
-2. Choose an alternative hypothesis, $H_a$. For example $\mu\ne 1.0$. The "rejection region" described below depends on the alternative hypothesis.
-
-2. Find the equation for $\hat{\theta}$, an unbiased estimator of $\theta$.
-   
-   For example if we want to test the claim that $\mu=1.0$, and unbiased estimator of $\mu$ is $\overline{x}$, so $\hat{\theta}=\overline{x}$.
-
-3. Determine the sampling distribution of $\hat{\theta}$. This sampling distribution will depend on the population distribution (which is rarely known). In most textbook examples, the exact sampling distribution is known because the population distribution is assumed to be known. Also, textbook sampling distributions for $\hat{\theta}$ are usually from a short list of common distributions: $\mathcal{N}$, $t$, $\chi^2$, $F$.
-  
-  Example: If population is $\mathcal{N}(\mu, \sigma)$, the sampling distribution of $\hat{\theta}=\overline{x}$ is $\mathcal{N}(\mu, \sigma/\sqrt{n})$
-
-  Example: If population is $\mathcal{N}(\mu, \sigma)$, the sampling distribution of $\hat{\theta}=s^2$ is $\frac{\sigma^2}{n-1}\chi^2_{n-1}$
-
-4. Choose a rejection region in the sampling distribution. If the value of $\hat{\theta}$ from the sample, $\hat{\theta}_{\text{sample}}$, is in this region, the equality claim will be rejected. The rejection region has associated with it an area, $\alpha$. If $H_a$ is $\theta \ne \theta_o$, the rejection region is values of $\hat{\theta}$ in the the lower $\alpha/2$ and upper $\alpha/2$ region of the sampling distribution.
-
-   Example:
-   
-   If we assume population is $\mathcal{N}(\mu=0, \sigma=1)$ and execute an experiment of drawing $n$ values from it and compute $\overline{x}_\text{sample}$, we reject the null that $\mu=0$ if $\overline{x}_\text{sample}$ is in the "rare" region of the sampling distribution for $\overline{x}$. We do not reject the null hypothesis otherwise.
-   
-   Based on the assumptions about the population distribution and the fact that the sampling distribution of $\overline{x}$ is $\mathcal{N}(\mu=0, \sigma=1/\sqrt{n})$ if these assumptions are true, we exect $|\overline{x}_\text{sample}|>1.96\sigma/\sqrt{n}$ to occur in 5% of hypothetical experiments.
-
-   Based on this example, when we reject, we are claiming "if we could repeat the experiment many times and compute many $\overline{x}_\text{sample}$ values, values in my selected rejection region are rare, so I'll reject the hypothesis if an expeirment yields an $\overline{x}_\text{sample}$ is in the rejection region; otherwise, I won't reject the null hypothesis". Notice that the statements don't involve claims that $H_0$ is true or false. They only involve statements about whether the observation is likely or not. In a similar way, a jury's conclusion of "guilty of murder" is a usually a statement that "not guilty" is unlikely given the information they were presented. The jury rarely has undisputable evidence that the defendent murdered someone; they usually only have information about motive, means, and opportunity.
-
-   In summary, a hypotheis test has the logic: Given claim + experimental observation, if a given observation is unlikely based what we know about the probability of every possible experimental observation that could occur, reject claim; otherwise, don't reject claim (it is tempting to say "accept claim", but that is equivalent to making a statement that the claim is true).
-   
-   See also https://online.stat.psu.edu/stat500/lesson/6a/6a.1
-
-A confidence interval can be framed as a hypothesis test (See also Bulmer p 169). Consider the test
-
-* $H_0$: $\theta=\theta_o$
-* $H_a$: $H_0\ne \theta_o$
-
-1. Test statistic: $\hat{\theta}$, which is an unbiased estimate of $\theta$.
-2. Rejection region: $\hat{\theta}$ of sample outside the CI. For a 95% CI, the region is the values of $\hat{\theta}$ associated with the left tail of area $0.025$ and the right tail area of $0.975$
-
-We can repeat the above hypothesis test for any $\theta_0$ inside the CI. We will not reject $H_0$ for any $\theta_0$ in the rejection region.
-
-* $H_0$: Population parameter $\theta$ is inside the CI of $\hat{\theta}_\text{sample}$ (so $\theta_0$ is any value in the CI).
-* $H_a$: Population parameter $\theta$ is outside the CI of $\hat{\theta}_\text{sample}$.
-
-**Interpretaion**
-
-* "Rejecting $H_0$" does not mean $H_0$ is false. It means $H_0$ is unlikely, where the unlikelyness threshold is determined by the confidence interval width.
-
-* Bulmer, p 165
-  > The rejection of a hypothesis at the 5% level does not imply that the probability that the hypothesis is false is 95%; it merely implies that the observed result belongs to a class of results whos overall probability of occurrence, if the null hypothesis is true, is 5%. This provides good reason, in the sense of a rational degreee of belief, for supposing the hypothesis to be false, but no numerical value can be placed upon this degree of belief.
-
-* [Sawilowsky, 2011, Statistal Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing★★★★★remove★★★★★)
-  > Confidence intervals have recently been promoted over the use of hypothesis tests for a litany of unsupported reasons. (a) Among its supposed benefits is the assertion that confidence intervals provide more confidence than do hypothesis tests. This is based on the fallacy that confidence intervals are based on some system of probability theory other than that of hypothesis tests, when in fact they
-are the same. (b) Another prevalent misconception is confidence intervals must be symmetric.
-* [Statistical tests, P values, confidence intervals, and power: a guide
-to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf)
-
-### $p$ value
-
-Devore p 328:
-
-> Using the rejection region method to test hypotheses entails first selecting a significance level $\alpha$. Then after computing the value of the test statistic, the null hypothesis $H_0$ is rejected if the value falls in the rejection region and is otherwise not rejected. We now consider another way of reaching a conclusion in a hypothesis testing analysis. This alternative approach is based on calculation of a certain probability called a $P$-value. One advantage is that the $P$-value provides an intuitive measure of the strength of evidence in the data against $H_0$.
-
-Devore p 329:
-
-> The $P$-value is the probability, calculated assuming that the null hypothesis is true, of obtaining a value of the test statistic at least as contradictory to $H_0$ as the value calculated from the available sample.
-
-Devore p 329:
-
-> Beware: The $P$-value is not the probability that $H_0$ is true, nor is it an error probability!
-
-### Power
-
-https://www.statisticsdonewrong.com/power.html
-
-John M Hoenig & Dennis M Heisey (2001) The Abuse of Power, The American Statistician, 55:1, 19-24, DOI: 10.1198/000313001300339897
-
-See references in https://machinelearningmastery.com/statistical-power-and-power-analysis-in-python/
-
-# Applications
-
-## Linear Regression
-
-When fitting a straight line to data using the equation $y = bx + a$, we most often make the following assumptions about the process that generated the data. First, we assume that each of the sampled $y_i$ ($i=1,...,n$) values were generated by drawing a value from a Gaussian distribution with $\mu=0$ and standard deviation $\sigma$ and then adding to it $\beta x_i + \alpha$, where $x_i$ are values that are known with zero uncertainty. The values of $\alpha$ and $\beta$ are unknown quantities that we seek to estimate given a limited set of $n$ measurements of the population and equations for $a$ and $b$ (involving $x_i$ and $y_i$) that you typically first encounter in a physics lab.
-
-To simulate the process of generating $y_i$ values described above, choose a value for $x_i$. Next, draw a value from a Gaussian distribution with a mean of zero and standard deviation of $\sigma$, the value of which is represented by the variable $\epsilon_i$. Then solve for $y_i$ using
-
-$$y_i = \beta x_i + \alpha + \epsilon_i$$
-
-Repeating this process $n$ times will yield $n$ values of $y$ and $x$. When we do linear regression on a set of measurements, we assume that the system we took measurements from works in a way that is equivalent to the above process -- we give the system an input of an $x_i$ value and it returns an output $y_i$ based on this process.
-
-In this problem, you will create a population of $N$ $(x,y)$ pairs using the above process and then draw a sample of $n$ $(x,y)$ pairs. Then, you will compute $a$ and $b$, which are estimates of the respective population parameters $\alpha$ and $\beta$.
-
-1. Create a population of $N=1000$ $(x,y)$ pairs using $\alpha=1$, $\beta=1$, and $\sigma=0.2$. For values of $x$, use $0, 1/N, 2/N, ..., (N-1)/N$. Create a scatter plot of these $N$ $(x,y)$ values.
-2. Randomly draw $n=20$ $(x,y)$ pairs with replacement from the population and plot them on the same axis as the previous plot.
-3. Use the equations used in your physics labs to compute $a$ and $b$ using the 20 values drawn in step 2. When your code is executed, it should print out $a$ and $b$.
-4. Find a Python (if you are using Python) library that will compute $a$ and $b$ for you. When your code is executed it should print out the values of $a$ and $b$ computed with the library.
-
-Add the values of $a$ and $b$ from parts 3. and 4. as annotations to your plot. Save your plot using `plt.savefig('HW7_1a.png', dpi=300)` if you are using Python.
-
-In your physics labs, you were typically given an equation for the uncertainty (a confidence interval) in $a$ and $b$. In this problem, you will use the non--parametric bootstrap to obtain an estimate of the uncertainty.
-
-5. From your sample of $20$ values in part 1., randomly draw $20$ $(x,y)$ pairs with replacement $N_B=10,000$ times. For each draw, compute $a$ and $b$ (using equations or library). Use the histogram of $a$ and $b$ to estimate their 95% confidence intervals. Plot your histograms on a single page as two subplots. Add an annotation to indicate the 95% confidence intervals. Save your plot as `HW7_1b.png`.
-
-For parts 6. and 7., see [Devore Chapter 12]((https://drive.google.com/file/d/1bN68ELL0DBrgVwbE0m74LPuTwoHqXw2M/view?usp=sharing★★★★★remove★★★★★) or [Bulmer Chapter 12](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★).
-
-6. Use a $t$ test to compute the 95% confidence interval for $b$. (You'll have to research the appropriate test statistic to perform the $t$ test on.) Provide brief justifications or references for any equations. Add this confidence interval as an annotation to the plot for part 5. 
-
-   Note that some libraries will compute confidence intervals, but I want you to look up the equations because it is not always the case that a library will compute confidence intervals, and if it does, you should compute it on your own and compare to the library result to ensure (1) the library is producing the correct result and (2) your understanding of what the library is doing is correct. Most commonly used libraries have been tested by many users, so their calculation is usually correct, and thus doing the check for (1) may seem excessive. However, quite often we mis--interpret the documentation for the library, which will be revealed by the check for (2).
-
-7. In part 5., $N_B$ values for $a$ and $b$ were computed. Use the values to test the claim that the errors in the estimate $a$ and $b$, given by $a-\alpha$ and $b-\beta$, respectively, are not independent. (This lack of independence was mentioned in Bulmer; take an informal observational/experimental approach to answer this question; a plot and some words will suffice).
-
-**590 only**
-
-8. In part 5., the non--parametric bootstrap was used to compute confidence intervals. How would the procedure be modified to use either a parametric simulation or the parametric bootstrap? (See [my notes](index.md!#sampling-distribution-notes) for definitions).
-
-9. Compute the correlation coefficient, cc, between $a-\alpha$ and $b-\beta$ using the values from part 5. Test the hypothesis $H_0$: cc $= 0$, $H_a$: cc $\ne 0$ and state at what significance level $H_0$ can be rejected (that is, compute the $P$ value).
-
-## Correlation
-
-## Autocorrelation
-
-The lag $k$ autocovariance of a sequence $z_t$ with $t$ integer is defined as
-
-$\gamma_k=\text{acov}[z_t,z_{t+k}]=E[(z_t-\mu)(z_{t+k}-\mu)]$
-
-where $E[\cdot]$ is the expectation operator. The autocorrelation at lag $k$ is
-
-$$\rho_k=\text{acorr}[z_t,z_{t+k}]=\frac{\gamma_k}{\gamma_0}=\frac{E[(z_t-\mu)(z_{t+k}-\mu)]}{\sigma_z^2}$$
-
-where $\mu$ is the population mean of $z$ and $\sigma_z$ is the population standard deviation.
-
-For a finite sequence of length $n$ with $t=1,...,n$, according to [Box, Jenkins, and Reinsel (p31; 1994)](http://bobweigel.info/csi763/images/Box_1994_Time_Series_Analysis-pages_1-44.pdf), "... the most satisfactory estimate of the lag $k$th [population] autocorrelation $\rho_k$ is"
-
-$$r_k=\frac{c_k}{c_0}$$
-
-where
-
-$$c_k=\frac{1}{n}\sum_{t=1}^{N-k}(z_t-\bar{z})(z_{t+k}-\bar{z})$$
-
-### Computing $r_k$
-
-Create a sequence of $N=1000$ measurements using
-
-$z_{t} = a_1z_{t-1} + a_2z_{t-2} + \epsilon_t$
-
-where $\epsilon_t$ are drawn from a gaussian distribution with zero mean and unit variance. Use $a_1=0.7$ and $a_2=-0.2$.
-
-1. Compute and plot $r_k$.
-2. The values of the population autocorrelation $\rho_k$ (which Wilks calls the "theoretical autocorrelation") can be computed using Equations 10.33a and b and 10.25 of [Wilks, 2019; pg 504](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★). Compute $\rho_k$ and plot it on the same axes as $r_k$.
-3. Use the parametric bootstrap to estimate the sampling distribution of $r_1$. Use this sampling distribution to estimate a 99% confidence interval for $r_1$ computed in part 1.
-4. Use equation 2.1.11 of [Box, Jenkins, and Reinsel (p31; 1994)](http://bobweigel.info/csi763/images/Box_1994_Time_Series_Analysis-pages_1-44.pdf) and $\rho_k$ from part 2. to compute $\text{var}[r_1]$. Compare this variance with the variance of the sampling distribution found in part 3.
-
-### Estimating $a_1$ and $a_2$
-
-Using the same sequence of $z_t$ values used for part 1. of the previous problem, use equations 10.29a and b of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★) to compute $a_1$ and $a_2$. Use either the parametric or non--parametric bootrap to estimate a 99\% confidence interval for the computed $a_1$ and $a_2$.
-
-### Estimating $\sigma_\epsilon$
-
-In class, a student asked if given a sequence of $z_t$ values if we can estimate properties of the driver function (assuming the model is correct). Equation 10.26 of [Wilks, 2019](https://drive.google.com/file/d/1-XO5xXqBC4vwlNlve525shF9hihoR6F0/★★★★remove★★★★) is an estimate of the variance of $\epsilon_t$ in terms of $a_1$, $a_2$, and the population autocorrelations. Use this formula to estimate $\sigma_\epsilon$ using $a_1=0.7$, $a_2=-0.2$ and the values of $\rho_k$ found earlier.
-
-## Discrete Fourier Transforms
-
-(Follow-up based on issues with previous HWs)
-
-In class, I defined the periodogram coefficients as
-
-$\ds a_0 = \frac{1}{N}\sum_{t=1}^{N} y_t \equiv \overline{y}$ 
-$\quad$
-$\ds a_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{cos}(2\pi f_i t)$
-$\quad$
-$\ds b_i = \frac{2}{N}\sum_{t=1}^{N}y_t\mbox{sin}(2\pi f_i t)$
-
-where $\ds f_i \equiv \frac{i}{N}$.
-
-FFT algorithms typically compute (see the [numpy.fft](https://numpy.org/doc/stable/reference/routines.fft.html#implementation-details) documentation)
-
-$$c_k = \sum_{t=0}^{N-1} y_t e^{-2\pi j(k t)/N}$$
-
-with $k=0, ..., N-1$.
-
-1. For the signal $y = [0, 1, 0, -1]$, compute all $a$, $b$, and $c$ values
-2. Write a function that takes an input of an arbitrary signal $y$, uses `numpy.fft` to compute $c$ and then returns the $a, b$, and $f$ values computed from $c$. Your function should not have a `for` loop.
-
-## DFT and the Raw Periodogram
-
-The Fourier series model for $y$ having an odd number $N$ time steps is
-
-$$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t\thinspace,$$
-
-where $\ds f_i \equiv \frac{i}{N}$ and has least-squares estimates of $\alpha$ and $\beta$ of
-
-$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
-$\quad$
-$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
-$\quad$
-$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
-
-with $i=1,2,...,q$ and 
-
-$
-q = 
-\begin{cases}
-  N/2 &       \text{if } N \text{ even} \\
-  (N - 1)/2 & \text{if } N \text{ odd}
-\end{cases}
-$
-
-The values of $a$ and $b$ are also called the discrete fourier transform (DFT) coefficients.
-
-There are a total of $N$ unknown parameters in the model equation. If $N$ is even, $b_q = 0$ and so the number of free parameters in the model equation is still $N$; also, the last $a$ terms simplifies: $a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
-
-(The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the Fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$. In the E&M book by Griffiths, he calls this "Fourier's trick".)
-
-The raw periodogram is defined as ([Box and Jenkins, 2016](https://drive.google.com/file/d/19hUNP5eYHSxP1oJTK_FOGKIZT1LELmo2/view?usp=sharing★★★★remove★★★★))
-
-$$I(f_i) = \frac{N}{2}\left(a_i^2 + b_i^2\right)$$
-
-for $i = 1,2,...,q$. To understand it, suppose $a_1=A$ and $b_1=B$, then $\left(A^2 + B^2\right)$ is the maximum value of $A\cos(2\pi t) + B\sin(2\pi t)$. When you compute the power of a wave, you compute $A^2+B^2$, so the quantity $I(f_i)$ is related to the "raw power spectrum" by a scaling factor.
-
-Similar to the issue with "probability distribution", "power spectrum" is ambiguous. It could mean $2I/N$ so the units are the units of $y$ squared or it could be a "density", $(2I/N)/(f_1)$, so the units are (units of $y^2$)/(units of frequency). I typically avoid this issue by either labeling my y--axis as $I$ with caption (periodogram) or by using the label $|\text{DFT}|^2$ and caption "Magnitude of discrete Fourier transform amplitudes" if I am plotting $2I/N$.
-
-As an example of ambiguity, consider the two plots in the [Wikipedia entry for Periodogram](https://en.m.wikipedia.org/w/index.php?title=Periodogram&oldid=1133547799). The y--axis is labeled "Spectrum" and the title is "Periodogram". In my definition above, the "spectrum" is the $2/N$ times the periodogram, $I$ so these annotations are confusing.
-
-1. This part is not related to statistics, but I find myself doing this when I am trying to figure out what someone did to compute a plot and also to understand various other aspects of DFT calculations. The reason it is so complicated is the definition issue above, indexing (MATLAB uses 1--based indexing, Python 0--based), and the fact that $q$ depends on if $N$ is even or odd.
-
-   Consider the signal $y=[0, 1, 0, -1]$.
-   
-   Compute all $a$ and $b$ values using the above formulas.
-   
-   Use a library (e.g., `numpy.fft`) to compute $a$ and $b$. Note that most libraries compute a quantity related to $a$ and $b$ and their output is an array of complex values.
-
-2. Create a "white noise" time series by creating a time series with $N=1000$ values drawn from a Gaussian with zero mean an unit variance and plot $I(f_i)$ vs $f_i$. The plot of $I$ should be noisy. One problem with raw periodograms is that they are noisy. There are entire books dedicated to dealing with this.
-
-3. Plot the histogram of $I$ values.
-
-**590 Only**
-
-4. Look up the sampling distribution of $I$ and add it on to the histogram.
-5. Modify the white noise time series by adding a periodic signal $A\sin(2\pi t/100)$ and plot $I$. At what value of $A$ can you "see" evidence of the periodic signal? Suppose you were given only the values of $I$ and want to determine there is evidence of a periodic signal. Describe in words the analysis that you would perform.
-
-**Answer**
-
-See [HW9_2.py](hws/HW9_2.py).
-
-The sampling distribution of $I(f_i)$ is $\chi^2_2$ (Chi-squared with two degrees of freedom) unless $i=0$ or $i=N/2$ when $N$ is even, in which case it is $\chi^2_1$ (Chi-squared with two degrees of freedom). See Wilks 2016 Eqn 10.79 (pg 541); see also [some lecture notes](https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/20.pdf). The Chi-square distribution arises when one adds the squares of $\mathcal{N}(0,\sigma^2)$--distributed values. (Recall that the sum--of--square error for linear regression was Chi--squared distributed.)
-
-## Spectrograms and STFT
-
-Quite often, the periodicities in a signal change with time. For example for the first half a measurement of a time series, there may be a single dominant frequency. In the second half, the dominant frequency may have changed. If one computes the periodogram of the entire time series, there will be peaks at the two dominant frequencies, but the fact that the dominant frequency was time dependent is lost.
-
-A spectrogram is based on a series of "Short--Time Fourier Transforms" (STFTs). The procedure is to split the full time series into segments and compute the Fourier coefficients for each segment.
-
-1. Create a time series segment of length $N=1000$ that is a sin wave of period $20$. Append to this a time series segment of length $N=1000$ that is a sin wave with period $10$. Plot the combined time series.
-2. Compute and plot the periodogram of the combined time series. 
-3. Compute and plot the periodogram of each segment. Put the periodograms in a `numpy` array with two rows. Plot the periodograms on the same axis.
-4. Compute $n=200$ periodograms by splitting the full time series (length $2000$) into non--overlapping subsegments of length $10$. Put the periodograms into a `numpy` array with $200$ rows. Plot the matrix as [a heatmap](https://seaborn.pydata.org/generated/seaborn.heatmap.html). The $x$ axis should be the subsegment number ($1, ..., 200)$, the $y$ axis should be frequency, and the colorbar should correspond to $I$.
