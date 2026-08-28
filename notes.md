@@ -533,6 +533,8 @@ A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 
 
 ### Terminology
 
+(Not covered yet -- will need in future.)
+
 $$
 P(A|B) = P(B|A)\frac{P(A)}{P(B)}
 $$
