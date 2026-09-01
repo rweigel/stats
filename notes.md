@@ -45,6 +45,7 @@ Simulate the experiment of shooting a free throw 10 times. Assume you make 80\% 
 
 _Question_: How would you use the simulation to estimate the chances that you get $10$ in a row? Start with the sample code that follows.
 
+
 Partial answer to a simpler problem.
 ```python
 # Simulate the experiment of shooting a free throw 2 times.
@@ -206,9 +207,6 @@ print(f"  rf(1) = {results.count(1) / n}")
 
 > The complement of an event $A$, denoted by $A'$, is the set of all outcomes in $\mathcal{S}$ that are not contained in $A$. (Devore p 53)
 
-### Difference
-
-$A-B$ means the events in which $A$ occurs but not $B$.
 
 ### Subset (or containment)
 
@@ -220,6 +218,8 @@ $A\subset B$ means the set $A$ is a subset of $B$.
 
 > The union of two events $A$ and $B$, denoted by $A \cup B$ "$A$ or $B$" is the event consisting of all outcomes that are _either in_ $A$ _or in_ $B$ _or in both events_ (so that the union includes outcomes for which both $A$ and $B$ occur as well as outcomes for which exactly one occurs) -- that is, all outcomes in at least one of the events. (Devore p 53)
 
+In some texts, $A\cup B$ is written as $A+B$ (e.g., Rosanov).
+
 ### XOR
 
 XOR -- "Exclusive or": $A \oplus B$ means the event that is in $A$ or $B$, but not both.
@@ -229,6 +229,12 @@ XOR -- "Exclusive or": $A \oplus B$ means the event that is in $A$ or $B$, but n
 "And" (intersect) is represented by three symbols: $\cap$ $\quad$ & $\quad$ $,$ $\quad$
 
 > The intersection of two events $A$ and $B$, denoted by $A \cap B$ and read "$A$ and $B$," is the event consisting of all outcomes that are in _both_ $A$ _and_ $B$. (Devore p 53)
+
+In some texts, $A\cap B$ is written as $AB$ (e.g., Rosanov).
+
+### Difference
+
+$A-B$ means the events in which $A$ occurs but not $B$, equivalent to $A\cap B'$
 
 ### In Python
 
@@ -252,7 +258,15 @@ Drawing the Venn diagram for an experiment with 2 flips where $A$ is one or more
 
 Use set notation to describe the region of $A$ that is not shaded in Figure (b).
 
+<details><summary>Answer</summary>
+$A\cap B'$ or $A-B$.
+</details>
+
 Use set notation to desribe the region outside of $A$ and $B$ in Figure (a).
+
+<details><summary>Answer</summary>
+$(A\cup B)'$
+</details>
 
 ## Axioms of Probability
 
@@ -351,7 +365,7 @@ Consider randomly selecting a student at a certain university, and let $A$ denot
 
 Provide both visual "proofs" or mathematical calculations.
 
-<details><summary>Answers:</summary>
+<details><summary>Answers</summary>
 
 1. $P(A\cup B)=P(A)+P(B)-P(A\cap B) = 0.5+0.4-0.25=0.65$
 2. $P(A'\cap B') = 1-P(A\cup B) = 0.35$ (Based on visual derivation)
@@ -557,7 +571,7 @@ See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/a
 
 original odds $\bfcdot$ evidence adjustment = new odds
 
-<details><summary/>
+<details><summary>Notes</summary>
 In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),
 
 * Sensitivity, $S_e$ (true positive rate):
@@ -770,37 +784,37 @@ Two teams of twelve players each. How many unique handshakes between members of 
 
 Use a tree diagram.
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 *Answer*: $n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
 </details>
 
 **Example**: Roll a die five times. How many $5$-tuples? 
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 Create a five boxes. There are six possible "choices" for first box, six possible choices for second box, ..... So there are $6^5$ possible $k$--tuples.
 </details>
 
 **Example**: Flip a coin 2 times.
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 There number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the second box.)
 </details>
   
 **Example**: Each clinic has two $O$ doctors and three $P$ doctors, and you must select two doctors from the same clinic. How many possible pairs of $O$s and $P$s are there?
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 In the first box, put one of the four $O$s. For each $O$, there are $3$ $P$s to choose from and put in the second box. So $n=4\cdot 3$.
 </details>
   
 If each clinic also has three $I$s and two $G$s, how many possible choices for four doctors?
   
-<details><summary></summary>
+<details><summary>Answer</summary>
 In the third box, put one of the three $I$s; in the fourth box, put one of the three $G$s. Then $n=4\cdot 3\cdot 3\cdot 2$.
 </details>
 
 **Example**: Suppose you want to pick a team of two tennis players from $3$ players, $A$, $B$, and $C$. 
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 The number of ways you can pick the team is $3\cdot 2$: $AB$, $AC$, $BA$, $BC$, $CA$, and $CB$.
 
 This is not the list of possible teams because $AB$ is the same as $BA$ (That is, order is not important.). The list of possible teams is $3$, by inspection.
