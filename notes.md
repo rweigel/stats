@@ -240,7 +240,7 @@ See [Python notes](python.html#sets)
 
 ## Mutually Exclusive
 
-Defined in Null Event definition. Also referred to as "pairwise disjoint".
+Defined implicitly in Null Event definition. Also referred to as "pairwise disjoint".
 
 ## Venn Diagrams
 
@@ -381,7 +381,7 @@ $$
 
 The numerator is the number of times $A$ and $B$ occurred.
 
-The denominator is the number of times $B$ occurred -- it can occur when $A$ did not occur.
+The denominator is the number of times $B$ occurred -- it can occur when $A$ did  or did not occur.
 
 Note that $A\cap B$ and $A'\cap B$ are mutually exclusive, so  $(A\cap B) \cup (A'\cap B) = B$, so we can also write
 
@@ -450,11 +450,11 @@ $$
 P(A|B) = P(A)\cdot\frac{P(B|A)}{P(B)}
 $$
 
-Also called "Bayes' Law" and "Bayes' Theorem". Different forms are also used.
+Also called "Bayes' Law" and "Bayes' Theorem".
 
 Further reading: [1](https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy), [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X), [3](https://www.mcgrayne.com/disc.htm)
 
-### Simple Derivation
+**Simple Derivation**
 
 Definition of conditional probability for two events:
 
@@ -466,130 +466,7 @@ $$P(B|A) = \frac{P(B\cap A)}{P(A)}$$
 
 The numerators are identical because $A\cap B =B\cap A$. Combining these two equations gives Bayes' rule.
 
-### Example
-
-A cab was involved in a hit-and-run accident at night. Two cab companies, the Green and the Blue, operate in the city. You are given the following data:
-
-   * 85% of the cabs in the city are Green, and 15% are Blue. A witness identified the cab as Blue. The court tested the reliability of the witness under the circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.
-
-What is the probability that the cab involved in the accident was Blue rather than Green?  Use the two approaches (equation- and diagram- based).
-
-**Answer**
-
-**Method 1**
-
-Consider 1000 recreations of the indident in which 850 vehicles are Green and 150 vehicles are Blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
-
-```
-                        850*0.80 = 680 - Is Green, claims Green
-       850 Are Green 
-                        850*0.20 = 170 - Is Green, claims Blue
-1000
-                        150*0.80 = 120 - Is Blue, claims Blue
-       150 Are Blue
-                        150*0.20 = 30  - Is Blue, claims Green
-```
-
-We want to know the probability the cab is Blue when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of times this claim is correct is $120$.
-
-So the probability the cab is Blue given the witness claimed Blue is
-
-$$P(B|W_B) = \frac{120}{120+170}\approx 0.41$$
-
-**Method 2**
-
-The following is an alternative visualization of the tree diagram of **Method 1**.
-
-<img src="notes/figures/bayes_cab.png" width="800px">
-
-**Method 3**
-
-To use Bayes' theorem, we start by writing the given probabilities
-
-* $P(G) = 0.85$ (Probability a cab is Green)
-* $P(B) = 0.15$ (Probability a cab is Blue)
-* $P(W_B|B) = 0.80$ (Probability witness claims Blue when Blue)
-* $P(W_B|G) = 0.20$ (Probability witness claims Blue when Green)
-
-$$
-P(B|W_B) = P(W_B|B)\frac{P(B)}{P(W_B)}
-$$
-
-The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$. Thus,
-
-$$
-P(B|W_B) = 0.80\frac{0.15}{0.15\cdot 0.80 + 0.85\cdot 0.20} = \frac{0.12}{0.12 + 0.17}
-$$
-
-Multiplying the numerator and the denominator by $1000$ gives the same equation for **Method 1**.
-
-$$
-P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
-$$
-
-A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful and a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city. What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
-
-<img src="notes/figures/bayes_cab_reliability.svg">
-
-### Terminology
-
-(Not covered yet -- will need in future.)
-
-$$
-P(A|B) = P(B|A)\frac{P(A)}{P(B)}
-$$
-
-* Posterior: $P(B|A)$ (probability after knowing $B$ occured)
-* Prior: $P(A)$ (probability prior to knowing $B$ occured)
-* Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
-* Likelihood: conditional probability on right--hand side, $P(B|A)$
-* Odds ratio or relative likelihood: $P(A)/P(B)$
-
-Other forms of Bayes include
-
-posterior = odds $\bfcdot$ prior
-
-and the proportionality
-
-posterior $\sim$ liklihood $\bfcdot$ prior
-
-See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/articles/understanding-bayes-theorem-with-ratios/), which uses 
-
-original odds $\bfcdot$ evidence adjustment = new odds
-
-<details><summary/>
-In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),
-
-* Sensitivity, $S_e$ (true positive rate):
-
-   $P(T^+|D^+)$  = (number of true positives)/(n true positives + n false negatives)
-   
-   $P(T^+|D^+)$ = (true positives)/(total number with disease)
-
-   where $T^+$ is a positive test result and $D^+$ means "disease present"
-
-* Specificity, $S_p$ (true negative rate):
-
-   $P(T^-|D^-)$ = (number of true negatives)/(number of true negatives + number of false positives)
-
-   $P(T^-|D^-)$ = (number of true negatives)/(total number without disease).
-
-   where $T^-$ is a negative test result and $D^-$ means "disease present"
-
-* Likelihood ratio: (See also [The likelihood ratio and its graphical representation](https://pmc.ncbi.nlm.nih.gov/articles/PMC6457916/)): $LR(r) = P(r|D^+)/P(r|D^-)$, where $r$ is the test result (could be a continuous variable such as "HDL colesterol") Then
-
-   Post-test odds of $D^+$ = LR(r) $\bfcdot$ Pre-test odds of $D^+$
-   
-   If $r$ is dichotomous (test result is positive or negative), then
-   
-   $LR^+ = P(T^+|D^+)/P(T^+|D^-)= S_e/(1-S_p)$
-   
-   and
-   
-   $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/Sp$
-</details>
-
-**Visual Derivation/Exploration**
+<details><summary>Visual Derivation/Exploration</summary>
 
 <img src="notes/figures/bayes_venn.svg"/>
 
@@ -684,6 +561,133 @@ check
 $$
 \frac{5}{13} = \frac{7}{13}\cdot\frac{\frac{2}{7}}{\frac{2}{5}}
 $$
+</details>
+
+### Example
+
+A cab was involved in a hit-and-run accident at night. Two cab companies, the Green and the Blue, operate in the city. You are given the following data:
+
+   * 85% of the cabs in the city are Green, and 15% are Blue. A witness identified the cab as Blue. The court tested the reliability of the witness under the circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.
+
+What is the probability that the cab involved in the accident was Blue rather than Green?  Use the two approaches (equation- and diagram- based).
+
+**Answer**
+
+**Method 1**
+
+Consider 1000 recreations of the indident in which 850 vehicles are Green and 150 vehicles are Blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
+
+```
+                        850*0.80 = 680 - Is Green, claims Green
+       850 Are Green 
+                        850*0.20 = 170 - Is Green, claims Blue
+1000
+                        150*0.80 = 120 - Is Blue, claims Blue
+       150 Are Blue
+                        150*0.20 = 30  - Is Blue, claims Green
+```
+
+We want to know the probability the cab is Blue when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of times this claim is correct is $120$.
+
+So the probability the cab is Blue given the witness claimed Blue is
+
+$$P(B|W_B) = \frac{120}{120+170}\approx 0.41$$
+
+**Method 2**
+
+The following is an alternative visualization of the tree diagram of **Method 1**.
+
+<img src="notes/figures/bayes_cab.png" width="800px">
+
+**Method 3**
+
+To use Bayes' theorem, we start by writing the given probabilities
+
+* $P(G) = 0.85$ (Probability a cab is Green)
+* $P(B) = 0.15$ (Probability a cab is Blue)
+* $P(W_B|B) = 0.80$ (Probability witness claims Blue when Blue)
+* $P(W_B|G) = 0.20$ (Probability witness claims Blue when Green)
+
+$$
+P(B|W_B) = P(W_B|B)\frac{P(B)}{P(W_B)}
+$$
+
+The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$. Thus,
+
+$$
+P(B|W_B) = 0.80\frac{0.15}{0.15\cdot 0.80 + 0.85\cdot 0.20} = \frac{0.12}{0.12 + 0.17}
+$$
+
+Multiplying the numerator and the denominator by $1000$ gives the same equation for **Method 1**.
+
+$$
+P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
+$$
+
+A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful; a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city.
+
+What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
+
+<img src="notes/figures/bayes_cab_reliability.svg">
+
+### Terminology
+
+(Not covered yet -- will need in future.)
+
+$$
+P(A|B) = P(B|A)\frac{P(A)}{P(B)}
+$$
+
+* Posterior: $P(B|A)$ (probability after knowing $B$ occured)
+* Prior: $P(A)$ (probability prior to knowing $B$ occured)
+* Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
+* Likelihood: conditional probability on right--hand side, $P(B|A)$
+* Odds ratio or relative likelihood: $P(A)/P(B)$
+
+Other forms of Bayes include
+
+posterior = odds $\bfcdot$ prior
+
+and the proportionality
+
+posterior $\sim$ liklihood $\bfcdot$ prior
+
+See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/articles/understanding-bayes-theorem-with-ratios/), which uses 
+
+original odds $\bfcdot$ evidence adjustment = new odds
+
+<details><summary>More Terminology</summary>
+In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),
+
+* Sensitivity, $S_e$ (true positive rate):
+
+   $P(T^+|D^+)$  = (number of true positives)/(n true positives + n false negatives)
+   
+   $P(T^+|D^+)$ = (true positives)/(total number with disease)
+
+   where $T^+$ is a positive test result and $D^+$ means "disease present"
+
+* Specificity, $S_p$ (true negative rate):
+
+   $P(T^-|D^-)$ = (number of true negatives)/(number of true negatives + number of false positives)
+
+   $P(T^-|D^-)$ = (number of true negatives)/(total number without disease).
+
+   where $T^-$ is a negative test result and $D^-$ means "disease present"
+
+* Likelihood ratio: (See also [The likelihood ratio and its graphical representation](https://pmc.ncbi.nlm.nih.gov/articles/PMC6457916/)): $LR(r) = P(r|D^+)/P(r|D^-)$, where $r$ is the test result (could be a continuous variable such as "HDL colesterol") Then
+
+   Post-test odds of $D^+$ = LR(r) $\bfcdot$ Pre-test odds of $D^+$
+   
+   If $r$ is dichotomous (test result is positive or negative), then
+   
+   $LR^+ = P(T^+|D^+)/P(T^+|D^-)= S_e/(1-S_p)$
+   
+   and
+   
+   $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/Sp$
+</details>
+
 
 ## Law of Total Probability
 
@@ -702,6 +706,7 @@ Using $P(B|A_1) = n(B|A_1)/n(A_1)$, etc., we have
 $n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + n(B|A_3)n(A_3)$
 
 Divide both sides by $n$ to arrive at the result.
+</details>
 
 ## General Bayes' Rule
 
@@ -711,8 +716,7 @@ $$
 P(A_j|B) = \frac{P(B|A_j)P(A_j)}{P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)}
 $$
 
-
-## Counting
+# Counting
 
 Three types of problems:
 
@@ -931,3 +935,84 @@ How many hands of size $5$ can be formed using a $52$-card deck?
 <details><summary></summary>
 Each permutation can be rearranged in $5!$ ways. So the number of hands (combinations) is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
 </details>
+
+# Random Variables and Distributions
+
+> For a given sample space of some experiment, a random variable (rv) is $\mathcal{S}$ any rule that associates a number with each outcome in. In mathematical language, a random variable is a function whose domain is the sample space and whose range is the set of real numbers. (Devore p 93)
+
+Example: $\mathcal{S} = {T,F}$ with $X(T)=1$ and $X(F)=0$ defines the discrete random variable $X$ that maps events in $\mathcal{S}$ to a number.
+
+Example: If an experiment is to flip a coint until a $H$ is encountered, $\mathcal{S} = {H, TH, TTH, ...}$ and $X(H)=1$, $X(TH)=2$, $X(TTH)=3$ defines the random variable $X$ as the number of flips until a $T$ is encountered.
+
+> A **discrete** random variable is an rv whose possible values either constitute a finite set or else can be listed in an infinite sequence in which there is a first element, a second element, and so on ("countably" infinite).
+>
+> A random variable is **continuous** if both of the following apply:
+> 1. Its set of possible values consists either of all numbers in a single interval on the number line (possibly infinite in extent, e.g., from $-\infty$ to $\infty$) or all numbers in a disjoint union of such intervals (e.g., [0, 10] $\cup$ [20, 30]).
+>
+> 2. No possible value of the variable has positive probability, that is, $P(X = c) = 0$ for any possible value $c$.
+>
+> (Devore p 95)
+
+A countably infinite set means one can match each element in the set to a natural number (0, 1, 2, ...). A non-countable set is the real numbers in the interval $[0, 1]$, as proved by [Cantor](https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument).
+
+## Discrete Random Variables
+
+> Any random variable whose only possible values are 0 and 1 is called a Bernoulli random variable. (Devore p 94)
+
+## Discrete Probability Distribution Definition
+
+> The probability distribution or probability mass function (pmf) of a discrete rv is defined for every number $x$ by $p(x) = P(X=x) = P(\text{all } s \in \mathcal{S}: X(s)=x)$. 
+
+$p(x)\ge 0$ and $\sum_xp(x)=1$ are required for any pmf.
+
+A cumulative distribution function (cdf) is the running sum of the pmf. The notation $P(X\le x)$ is used to describe. Its interpretation is the probability that the observed value $X$ will be at most $x$.
+
+$$P(X\le x) = \sum_{y\le x}p(y)$$
+
+## Discrete Expectation Values
+
+$E(h(X))$ or $E[h(x)]$ is the notation.
+
+> If the random variable $X$ has a set of possible values $D$ and pmf $p(x)$, then the expected value of any function $h(X)$, denoted by $E[h(X)]$ or $\mu_{h(X)}$, is computed by
+>
+> $$E[h(X)] = \sum_D h(x) p(x)$$
+>
+> (Devore p 109)
+
+### Mean
+
+$h(x)=x$ and we define $\mu$ according to $E[X]=\mu$
+
+### Variance
+
+$h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(x-\mu)^2]$.
+
+We also define the standard deviation as $\sigma_X=\sqrt{\sigma^2_X}$.
+
+It can be shown that
+
+$V(X) = E[X^2] - (E[X])^2 =  \sum_D x^2 p(x) - \mu^2$
+
+## Discrete Probability Mass Functions
+
+There are several key probability mass functions. For each distribution, we want to know properties such as its mean and variance.
+
+### Binomial
+
+[Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) has good derivation of Binomial using a heads/tails example.
+
+Unique approach in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★)
+
+[Mean and variance derivation](https://personal.math.ubc.ca/~feldman/m302/binomial.pdf)
+
+### Hypergeometric
+
+### Negative Binomial
+
+### Poisson
+
+
+
+## Continuous Random Variables
+
+## Continuous Probability Distributions
