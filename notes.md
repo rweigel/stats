@@ -726,13 +726,48 @@ Three types of problems:
 
 3. Combinations: Same as 2. except counting all sets with the same elements as equivalent. (e.g., if set = {a, b} only one combination is possible: {a, b}).
 
+
+<details><summary>Stirling's Approximation</summary>
+
+You will often enounter $N!$ in counting problems. It is useful to know Stirling's approximation to estimate $N!$ for large $N$:
+
+$\ln N!\simeq N\ln N - N$
+
+or 
+
+$\ln N!\simeq N\ln N - N + \ln\sqrt{2\pi N}$
+
+From this form, it follows that
+
+$N! \simeq N^N e^{-n} \sqrt{2\pi N}$
+
+I recommend remembering the first form $\ln N!\simeq N\ln N - N$ for a rough approximation, but note that the longer equation is an approximation that converges to the exact value for large $N$. See [stirling.py](notes/code/stirling.py).
+
+$N=10$
+
+$N! \simeq 3.63\cdot 10^6$
+
+$e^{N\ln(N) - N}  \simeq 4.54\cdot 10^5$
+
+$e^{N\ln(N) - N  + \ln\sqrt{2\pi N}}  \simeq 3.60\cdot 10^6$
+
+
+$N=100$
+
+$N! \simeq 9.33\cdot 10^{157}$
+
+$e^{N\ln(N) - N}  \simeq 3.72\cdot 10^{156}$
+
+$e^{N\ln(N) - N  + \ln\sqrt{2\pi N}}  \simeq 9.32\cdot 10^{157}$
+</details>
+
 ### Product Rule (or Law of Multiplication)
 
 (Devore does not name but gives as proposition on p 65)
 
 > If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
 
-One can use a tree diagram, table, or $x$--$y$ plot to prove.
+One can use a tree diagram, table, or $x$--$y$ plot to justify.
 
 **Tree Diagram**
 
@@ -814,7 +849,9 @@ An ordered arrangement of distinct objects, where each arrangement has no duplic
 
 You have stickers labeled $1$, ..., $6$ that are used to form a license plate.
 
-How many unique license plates of length $4$ can you form? *Answer*: $6\cdot 5\cdot 4$
+How many unique license plates of length $4$ can you form?
+
+*Answer*: $6\cdot 5\cdot 4$
 
 To see relationship to $P_{k,n}$ formula given next, consider
   
@@ -830,26 +867,29 @@ $$P_{k,n}=\frac{n!}{(n-k)!} = n\cdot (n-1) ... \cdot (n-k)=\frac{n\cdot (n-1) \c
 
 Step {N, S, E, W}. Then take another step, but not in the same direction as first.
 
-*Answer*: $4\cdot 3 = 12$
-
+<details><summary></summary>
+$4\cdot 3 = 12$
+</details>
 
 **Example**
 
 A four-volume work is placed in random order on a bookshelf. What is the probability of the volumes being in proper order (1, 2, 3, 4)?
 
-_Answer_: $1/4!$
+<details><summary></summary>
+$1/4!$
+</details>
 
-*Example*
+**Example**
 
 A subway train made up of $n$ cars is boarded by $r$ passengers ($r\le n$), each entering a car completely at random. 
 
 1. What is the number of ways the passengers can board?
 2. What is the probability of the passengers all ending up in different cars?
 
-_Answer_:
-
+<details><summary></summary>
 1. Consider list of $r$ passengers and each can be assigned number $1, ...n$: $n^r$ 
 2. Have $n$ choices for first passenger, $n-1$, for second, ... $n-r-1$ for the last: $\ds\frac{n(n-1)...(n-r-1)}{n^r}$
+</details>
 
 ### Combination (un-ordered subset)
 
@@ -877,9 +917,17 @@ Select two players from a list of three.
 2. If there is no assignment of a captain, how many unique teams?
 
 **Example**:
-* How many unique ordered hands of size $5$ can be formed using a $52$-card deck?
 
-   *Answer*: This is a permutation problem: $52\cdot 51\cdot 50\cdot 49\cdot 48$ permutations.
-* How many hands of size $5$ can be formed using a $52$-card deck?
+How many unique ordered hands of size $5$ can be formed using a $52$-card deck?
 
-   *Answer*: Each permutation can be rearranged in $5!$ ways. So the number of hands (combinations) is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
+<details><summary></summary>
+This is a permutation problem: $52\cdot 51\cdot 50\cdot 49\cdot 48$ permutations.
+</details>
+
+**Example**:
+
+How many hands of size $5$ can be formed using a $52$-card deck?
+
+<details><summary></summary>
+Each permutation can be rearranged in $5!$ ways. So the number of hands (combinations) is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
+</details>
