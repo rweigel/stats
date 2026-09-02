@@ -638,7 +638,7 @@ $$
 P(A|B) = P(B|A)\frac{P(A)}{P(B)}
 $$
 
-* Posterior: $P(B|A)$ (probability after knowing $B$ occured)
+* Posterior: $P(A|B)$ (probability after knowing $B$ occured)
 * Prior: $P(A)$ (probability prior to knowing $B$ occured)
 * Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
 * Likelihood: conditional probability on right--hand side, $P(B|A)$
@@ -726,7 +726,7 @@ Three types of problems:
 
    B. Given $k$ ordered boxes and $n$ choices for first box, $n$ for second, ...
 
-2. Permutations: Given **one** set of length $n$, how many distinct _ordered_ sets with no duplicates of $k$ elements can be created? (e.g., set = {a, b}, permutations are {a, b}, {b, a}. Similar to a product rule B. problem where $n_1=n$, $n_2=n-1$, ....
+2. Permutations: Given **one** set of length $n$, how many distinct _ordered_ sets with no duplicates of $k$ elements can be created? (e.g., set = {a, b}, permutations are {a, b}, {b, a}). Similar to a product rule B problem where $n_1=n$, $n_2=n-1$, ....
 
 3. Combinations: Same as 2. except counting all sets with the same elements as equivalent. (e.g., if set = {a, b} only one combination is possible: {a, b}).
 
@@ -924,7 +924,7 @@ Select two players from a list of three.
 
 How many unique ordered hands of size $5$ can be formed using a $52$-card deck?
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 This is a permutation problem: $52\cdot 51\cdot 50\cdot 49\cdot 48$ permutations.
 </details>
 
@@ -932,9 +932,15 @@ This is a permutation problem: $52\cdot 51\cdot 50\cdot 49\cdot 48$ permutations
 
 How many hands of size $5$ can be formed using a $52$-card deck?
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 Each permutation can be rearranged in $5!$ ways. So the number of hands (combinations) is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
 </details>
+
+Given balls numbered 1, 2, and 3.
+
+How many ways can the balls be ordered?
+
+
 
 # Random Variables and Distributions
 
@@ -985,7 +991,7 @@ $h(x)=x$ and we define $\mu$ according to $E[X]=\mu$
 
 ### Variance
 
-$h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(x-\mu)^2]$.
+$h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(X-\mu)^2]$.
 
 We also define the standard deviation as $\sigma_X=\sqrt{\sigma^2_X}$.
 
@@ -999,6 +1005,8 @@ There are several key probability mass functions. For each distribution, we want
 
 ### Binomial
 
+Discovered by James Bernoulli in ${\sim}1700$ (Bulmer p 81).
+
 [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) has good derivation of Binomial using a heads/tails example.
 
 Unique approach in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★)
@@ -1011,6 +1019,7 @@ Unique approach in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/fi
 
 ### Poisson
 
+Limiting form of binomial discovered by S.D. Poisson in ${\sim} 1837$. The exponential distribution can be regarded as a contiuous analog of the Poisson distribution (Bulmer p 81).
 
 
 ## Continuous Random Variables
