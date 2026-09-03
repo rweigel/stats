@@ -638,7 +638,7 @@ $$
 P(A|B) = P(B|A)\frac{P(A)}{P(B)}
 $$
 
-* Posterior: $P(A|B)$ (probability after knowing $B$ occured)
+* Posterior: $P(B|A)$ (probability after knowing $B$ occured)
 * Prior: $P(A)$ (probability prior to knowing $B$ occured)
 * Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
 * Likelihood: conditional probability on right--hand side, $P(B|A)$
@@ -726,7 +726,7 @@ Three types of problems:
 
    B. Given $k$ ordered boxes and $n$ choices for first box, $n$ for second, ...
 
-2. Permutations: Given **one** set of length $n$, how many distinct _ordered_ sets with no duplicates of $k$ elements can be created? (e.g., set = {a, b}, permutations are {a, b}, {b, a}). Similar to a product rule B problem where $n_1=n$, $n_2=n-1$, ....
+2. Permutations: Given **one** set of length $n$, how many distinct _ordered_ sets with no duplicates of $k$ elements can be created? (e.g., set = {a, b}, permutations are {a, b}, {b, a}. Similar to a product rule B. problem where $n_1=n$, $n_2=n-1$, ....
 
 3. Combinations: Same as 2. except counting all sets with the same elements as equivalent. (e.g., if set = {a, b} only one combination is possible: {a, b}).
 
@@ -924,7 +924,7 @@ Select two players from a list of three.
 
 How many unique ordered hands of size $5$ can be formed using a $52$-card deck?
 
-<details><summary>Answer</summary>
+<details><summary></summary>
 This is a permutation problem: $52\cdot 51\cdot 50\cdot 49\cdot 48$ permutations.
 </details>
 
@@ -932,15 +932,9 @@ This is a permutation problem: $52\cdot 51\cdot 50\cdot 49\cdot 48$ permutations
 
 How many hands of size $5$ can be formed using a $52$-card deck?
 
-<details><summary>Answer</summary>
+<details><summary></summary>
 Each permutation can be rearranged in $5!$ ways. So the number of hands (combinations) is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
 </details>
-
-Given balls numbered 1, 2, and 3.
-
-How many ways can the balls be ordered?
-
-
 
 # Random Variables and Distributions
 
@@ -991,7 +985,7 @@ $h(x)=x$ and we define $\mu$ according to $E[X]=\mu$
 
 ### Variance
 
-$h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(X-\mu)^2]$.
+$h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(x-\mu)^2]$.
 
 We also define the standard deviation as $\sigma_X=\sqrt{\sigma^2_X}$.
 
@@ -1005,13 +999,120 @@ There are several key probability mass functions. For each distribution, we want
 
 ### Binomial
 
-Discovered by James Bernoulli in ${\sim}1700$ (Bulmer p 81).
+> There are many experiments that conform either exactly or approximately to the following list of requirements:
+> 1. The experiment consists of a sequence of $n$ smaller experiments called trials, where $n$ is fixed in advance of the experiment.
+> 2. Each trial can result in one of the same two possible outcomes (dichotomous
+trials), which we generically denote by success (S) and failure (F).
+> 3. The trials are independent, so that the outcome on any particular trial does not influence the outcome on any other trial.
+> 4. The probability of success $P(S)$ is constant from trial to trial; we denote this probability by $p$.
+> An experiment for which Conditions 1-4 are satisfied is called a binomial experiment. (Devore p 114)
 
-[Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) has good derivation of Binomial using a heads/tails example.
+> The binomial random variable $X$ associated with a binomial experiment consisting of $n$ trials is defined as
+>
+> $X$ = the number of $S$’s among the $n$ trials
+>
+> (Devore p 114)
 
-Unique approach in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★)
+The pmf of a binomial random variable is
 
-[Mean and variance derivation](https://personal.math.ubc.ca/~feldman/m302/binomial.pdf)
+$$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x}$$
+
+Notation: for any pmf that has a name, we sometimes write, e.g., 
+
+$$X \sim b(x; n,p)$$
+
+To mean the random variable $X$ has a pmf given by $b$.
+
+#### Derivation of Binomial Coefficients
+
+General problem: Given $n$ objects, $x$ of one type and $n-x$ of another, how many combinations, $C_{n,x}$ are possible?
+
+Use the label $p$ for the $x$ objects and $q$ for the $n-x$ objects. Suppose $n=3$. All possible permutations are listed. The ones that satisfy $x=2$ are indicated with a $*$. Thus, $C_{3,2}=3$. 
+
+```
+ppp
+ppq *
+pqp *
+pqq
+qpp *
+qpq
+qqp
+qqq
+```
+
+Also, by inspection, $C_{3,0}=1$, $C_{3,1}=3$, and $C_{3,3}=1$. In summary
+
+$C_{3,0}=1$, $C_{3,1}=3$, $C_{3,2}=3$, $C_{3,3}=1$
+
+We want a general equation that allows us to compute $C_{n,x}$.
+
+**Method I**
+
+A mathematical shortcut for finding $C_{n,x}$ is to note that the above table can be generated using $(p + q)^3$, which has $8$ terms when expanded, corresponding the rows in the table. However, it simplifies to
+
+$(p + q)^3 = p^3 + 3p^2q + 3pq^2 + q^3$
+
+The simplified form contains a list of unique combinations, which is what we want.
+
+(Note that the coefficients of $1, 3, 3, 1$ are in the third row of [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle).)
+
+We happen to have an equation that gives us the simplified form. The binomial theorem is
+
+$$(p + q)^n = \sum_{x=0}^n {n \choose k} p^xq^{n-x}$$
+
+where
+
+$${n \choose k} = \frac{n!}{x!(n-x)!}$$
+
+Therefore, we conclude
+
+$$C_{n,x}={n \choose x}$$
+
+**Method II**
+
+See [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) and [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★).
+
+#### Derivation of Binomial Distribution
+
+General problem: Given $n$ objects, $x$ of one type and $n-x$ of another, what is the probability of each $C_{n,x}$?
+
+Recall the table
+
+```
+ppp
+ppq
+pqp
+pqq
+qpp
+qpq
+qqp
+qqq
+```
+
+If we regard $p$ as a probability and define $q=1-p$, then the probability of each row is obtained multiplication. But some rows are result in the same value with multiplication. Based on this, we can conclude that
+
+$C_{3,0}$ has probability $p^3$
+
+$C_{3,1}$ has probability 3$pq^2=3p(1-p)^2$
+
+$C_{3,2}$ has probability 3$p^2q=3p^2(1-p)$
+
+$C_{3,3}$ has probability $q^3=(1-p)^3$
+
+or
+
+$$P(x)={n \choose x} p^x(1-p)^{n-k}$$
+
+We write probability in a more specific form as
+
+$$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x}$$
+
+where the values after the semicolon are constants.
+
+#### Mean and Variance
+
+[Derivation](https://personal.math.ubc.ca/~feldman/m302/binomial.pdf)
+
 
 ### Hypergeometric
 
@@ -1019,7 +1120,6 @@ Unique approach in [Chapter 1 of Kittel and Kroemer](https://drive.google.com/fi
 
 ### Poisson
 
-Limiting form of binomial discovered by S.D. Poisson in ${\sim} 1837$. The exponential distribution can be regarded as a contiuous analog of the Poisson distribution (Bulmer p 81).
 
 
 ## Continuous Random Variables
