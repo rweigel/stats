@@ -20,12 +20,12 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 * **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in physics.
 
 HWs: 
-[1](hw.html#hw-1)
+[1](hw.html#hw-1) | [2](hw.html#hw-2)
 
 # Class Notes
 
 ## September 3rd
-* Cover Discord
+
 * "Quiz" problem mentioned on [HW 1](hw.html#hw-1)
 * Cover Bayes and Counting (permutations and combinations)
 * Cover Random Variables and Distributions
