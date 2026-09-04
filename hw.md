@@ -94,11 +94,11 @@ Use a Venn diagram (or any visual method) in the way that was used in class to d
 
 Save your answer in a file named `HW1_4.pdf`.
 
-## Quiz: Bayes' Rule
+# Quiz 1
 
 Study the cab example in the [Bayes' rule section of the notes](notes.html).
 
-You do not need to turn anything in for this. At the start of the next class, I will ask you to solve a similar problem without notes. This will be the first quiz. This quiz will not be graded. If you attend class, you'll get full credit.
+At the start of the Sept. 3rd class, I will ask you to solve a similar problem without notes. This will be the first quiz. This quiz will not be graded. If you attend class, you'll get full credit.
 
 Problem given:
 
@@ -207,6 +207,6 @@ Save your code as `HW2_4.py` and the plot as `HW2_4.png`.
 
 %<img src="solns/HW2_4.svg">
 
-## Quiz: Counting
+# Quiz 2
 
-I'll give one of the problems on counting that I covered in class (recall that there were three types: product rule, permutations, and combinations).
+The quiz on Sept 10th will be on of the problems on counting that I covered in class (recall that there were three types: product rule, permutations, and combinations). The quiz will is closed book, closed notes, and closed computer and will be graded.
