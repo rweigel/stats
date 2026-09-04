@@ -22,13 +22,19 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 HWs: 
 [1](hw.html#hw-1) | [2](hw.html#hw-2)
 
+Quizzes:
+[1](hw.html#quiz-1)
+
 # Class Notes
 
 ## September 3rd
 
-* "Quiz" problem mentioned on [HW 1](hw.html#hw-1)
-* Cover Bayes and Counting (permutations and combinations)
-* Cover Random Variables and Distributions
+* [Quiz 1](hw.html#quiz-1) on [Bayes](notes.html#bayes-rule)
+* Discuss Quiz
+* Cover [Counting](notes.html#counting) (law of multiplication, permutations, and combinations)
+* Cover [Discrete Random Variables and the Binomial Probability Mass Function](notes.html#random-variables-and-distributions)
+* Showed and discussed a few students solutions to [HW 1](hw.html#hw-1)
+* Finished getting everyone set up on GitHub
 
 ## August 27th
 
