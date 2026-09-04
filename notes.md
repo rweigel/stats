@@ -11,7 +11,7 @@
 Note that different experiments can be assigned to an activity:
 
 * Experiment: Flip a coin 2x and record the result of each flip. Can ask what fraction of experiments had a head on the first flip.
-* Experiment: Flip a coin 2x and record number of heads and tails. Can ask what fraction of experiments had one head.
+* Experiment: Flip a coin 2x and record the number of heads and tails. Can ask what fraction of experiments had one head.
 
 ## Outcome
 
@@ -106,14 +106,14 @@ Describe an activity that requires the use of the terms "Experiment", "Outcome",
 
 ## _Demonstration and Prelude to Error Bars and Hypothesis Tests_
 
-The following program draws draws $10$ random numbers to form list $x$ and $10$ random number to form list $y$ and plots the results. Ordinary least squares regression is used to find the line of best fit. We are interested in the outcome that the best fit slope is greater than $0.1$.
+The following program draws $10$ random numbers to form list $x$ and $10$ random numbers to form list $y$ and plots the results. Ordinary least squares regression is used to find the line of best fit. We are interested in the outcome that the best fit slope is greater than $0.1$.
 
 ```python
 ```
 
 _Question_: What is the experiment? What are outcomes in $\mathcal S$? What are the events?
 
-Code. We will do many such experiments on homeworks.
+Code. We will do many such experiments on homework.
 
 ```python
 import numpy as np
@@ -246,7 +246,7 @@ See [Python notes](python.html#sets)
 
 ## Mutually Exclusive
 
-Defined in Null Event definition. Also referred to as "pairwise disjoint".
+Defined implicitly in Null Event definition. Also referred to as "pairwise disjoint".
 
 ## Venn Diagrams
 
@@ -278,7 +278,7 @@ $(A\cup B)'$
 >
 >   $$P(A_1 \cup A_2 ....) = P\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty P(A_i)$$
 >
->   Corallary
+> Corollary
 >
 >   $$P(A_1 \cup A_2 .... \cup A_k) = \sum_{i=1}^k P(A_i)$$
 >
@@ -387,7 +387,7 @@ $(A \cap B)' = A' \cup B'$
 ## Conditional Probability and the Multiplication Rule
 
 
-We want to know the probability of event $A$ given event $B$ occurred. One way to do this is by counting and writing down how we expect the number of times $A$ occurred given event $B$ occurred in terms of set operations. First, consider the fraction
+We want to know the probability of event $A$ given event $B$ occurred. One way to do this is to count and write down how we expect the number of times $A$ occurred, given that event $B$ occurred, in terms of set operations. First, consider the fraction
 
 $$
 F(A \text { given } B) = \frac{n(A\cap B)}{n(A\cap B) + n(A'\cap B)}
@@ -395,7 +395,7 @@ $$
 
 The numerator is the number of times $A$ and $B$ occurred.
 
-The denominator is the number of times $B$ occurred -- it can occur when $A$ did not occur.
+The denominator is the number of times $B$ occurred -- it can occur when $A$ did or did not occur.
 
 Note that $A\cap B$ and $A'\cap B$ are mutually exclusive, so  $(A\cap B) \cup (A'\cap B) = B$, so we can also write
 
@@ -411,7 +411,7 @@ $$
 P(A|B) = \frac{P(A\cap B)}{P(B)}
 $$
 
-We were given that the probability of a student having a Visa is 0.5; the probability of a student having a MasterCard is 0.4; and the probability that they have both is 0.25.
+We were given that the probability of a student having a Visa is 0.5; the probability of a student having a MasterCard is 0.4; and the probability of a student having both is 0.25.
 
 We were asked to find the probability that the student has a Visa but not a MasterCard.
 
@@ -457,6 +457,24 @@ or, $P(\overline{A\text{ or } B}) = (2/3)(2/3) = 4/9$
 
 Check: $P(\overline{A\text{ or } B}) = 1 - P(A \text{ or } B)$
 
+## Law of Total Probability
+
+> Let $A_1$, ... , $A_k$ be mutually exclusive and exhaustive events. Then for any other event $B$,
+>
+> $P(B) = P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)$
+
+Explain this using a table and a Venn diagram.
+
+Consider a square partitioned by three non-overlapping rectangles. Draw $B$ as a rectangle inside the square. We can count the number of elements in $B$ using conditional counts:
+
+$n(B) = n(B|A_1) + n(B|A_2) + n(B|A_3)$
+
+Using $P(B|A_1) = n(B|A_1)/n(A_1)$, etc., we have
+
+$n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + n(B|A_3)n(A_3)$
+
+Divide both sides by $n$ to arrive at the result.
+</details>
 
 ## Bayes' Rule
 
@@ -464,11 +482,11 @@ $$
 P(A|B) = P(A)\cdot\frac{P(B|A)}{P(B)}
 $$
 
-Also called "Bayes' Law" and "Bayes' Theorem". Different forms are also used.
+Also called "Bayes' Law" and "Bayes' Theorem".
 
-Further reading: [1](https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy), [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X), [3](https://www.mcgrayne.com/disc.htm)
+Further reading: [The Prosecutor's Fallacy](https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy); [The Sally Clark Case](https://www.mcgrayne.com/disc.htm); [Bayes' theorem, COVID19, and screening tests](https://www.sciencedirect.com/science/article/pii/S073567572030543X)
 
-### Simple Derivation
+**Simple Derivation**
 
 Definition of conditional probability for two events:
 
@@ -480,130 +498,7 @@ $$P(B|A) = \frac{P(B\cap A)}{P(A)}$$
 
 The numerators are identical because $A\cap B =B\cap A$. Combining these two equations gives Bayes' rule.
 
-### Example
-
-A cab was involved in a hit-and-run accident at night. Two cab companies, the Green and the Blue, operate in the city. You are given the following data:
-
-   * 85% of the cabs in the city are Green, and 15% are Blue. A witness identified the cab as Blue. The court tested the reliability of the witness under the circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.
-
-What is the probability that the cab involved in the accident was Blue rather than Green?  Use the two approaches (equation- and diagram- based).
-
-**Answer**
-
-**Method 1**
-
-Consider 1000 recreations of the indident in which 850 vehicles are Green and 150 vehicles are Blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
-
-```
-                        850*0.80 = 680 - Is Green, claims Green
-       850 Are Green 
-                        850*0.20 = 170 - Is Green, claims Blue
-1000
-                        150*0.80 = 120 - Is Blue, claims Blue
-       150 Are Blue
-                        150*0.20 = 30  - Is Blue, claims Green
-```
-
-We want to know the probability the cab is Blue when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of times this claim is correct is $120$.
-
-So the probability the cab is Blue given the witness claimed Blue is
-
-$$P(B|W_B) = \frac{120}{120+170}\approx 0.41$$
-
-**Method 2**
-
-The following is an alternative visualization of the tree diagram of **Method 1**.
-
-<img src="notes/figures/bayes_cab.png" width="800px">
-
-**Method 3**
-
-To use Bayes' theorem, we start by writing the given probabilities
-
-* $P(G) = 0.85$ (Probability a cab is Green)
-* $P(B) = 0.15$ (Probability a cab is Blue)
-* $P(W_B|B) = 0.80$ (Probability witness claims Blue when Blue)
-* $P(W_B|G) = 0.20$ (Probability witness claims Blue when Green)
-
-$$
-P(B|W_B) = P(W_B|B)\frac{P(B)}{P(W_B)}
-$$
-
-The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$. Thus,
-
-$$
-P(B|W_B) = 0.80\frac{0.15}{0.15\cdot 0.80 + 0.85\cdot 0.20} = \frac{0.12}{0.12 + 0.17}
-$$
-
-Multiplying the numerator and the denominator by $1000$ gives the same equation for **Method 1**.
-
-$$
-P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
-$$
-
-A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful and a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city. What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
-
-<img src="notes/figures/bayes_cab_reliability.svg">
-
-### Terminology
-
-(Not covered yet -- will need in future.)
-
-$$
-P(A|B) = P(B|A)\frac{P(A)}{P(B)}
-$$
-
-* Posterior: $P(B|A)$ (probability after knowing $B$ occured)
-* Prior: $P(A)$ (probability prior to knowing $B$ occured)
-* Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
-* Likelihood: conditional probability on right--hand side, $P(B|A)$
-* Odds ratio or relative likelihood: $P(A)/P(B)$
-
-Other forms of Bayes include
-
-posterior = odds $\bfcdot$ prior
-
-and the proportionality
-
-posterior $\sim$ liklihood $\bfcdot$ prior
-
-See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/articles/understanding-bayes-theorem-with-ratios/), which uses 
-
-original odds $\bfcdot$ evidence adjustment = new odds
-
-<details><summary>Notes</summary>
-In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),
-
-* Sensitivity, $S_e$ (true positive rate):
-
-   $P(T^+|D^+)$  = (number of true positives)/(n true positives + n false negatives)
-   
-   $P(T^+|D^+)$ = (true positives)/(total number with disease)
-
-   where $T^+$ is a positive test result and $D^+$ means "disease present"
-
-* Specificity, $S_p$ (true negative rate):
-
-   $P(T^-|D^-)$ = (number of true negatives)/(number of true negatives + number of false positives)
-
-   $P(T^-|D^-)$ = (number of true negatives)/(total number without disease).
-
-   where $T^-$ is a negative test result and $D^-$ means "disease present"
-
-* Likelihood ratio: (See also [The likelihood ratio and its graphical representation](https://pmc.ncbi.nlm.nih.gov/articles/PMC6457916/)): $LR(r) = P(r|D^+)/P(r|D^-)$, where $r$ is the test result (could be a continuous variable such as "HDL colesterol") Then
-
-   Post-test odds of $D^+$ = LR(r) $\bfcdot$ Pre-test odds of $D^+$
-   
-   If $r$ is dichotomous (test result is positive or negative), then
-   
-   $LR^+ = P(T^+|D^+)/P(T^+|D^-)= S_e/(1-S_p)$
-   
-   and
-   
-   $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/Sp$
-</details>
-
-**Visual Derivation/Exploration**
+<details><summary>Visual Derivation/Exploration</summary>
 
 <img src="notes/figures/bayes_venn.svg"/>
 
@@ -698,24 +593,132 @@ check
 $$
 \frac{5}{13} = \frac{7}{13}\cdot\frac{\frac{2}{7}}{\frac{2}{5}}
 $$
+</details>
 
-## Law of Total Probability
+### Example
 
-> Let $A_1$, ... , $A_k$ be mutually exclusive and exhaustive events. Then for any other event $B$,
->
-> $P(B) = P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)$
+A cab was involved in a hit-and-run accident at night. Two cab companies, the Green and the Blue, operate in the city. You are given the following data:
 
-Explain this using a table and a Venn diagram.
+   * 85% of the cabs in the city are Green, and 15% are Blue. A witness identified the cab as Blue. The court tested the reliability of the witness under the circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.
 
-Consider a square partitioned by three non-overlapping rectangles. Draw $B$ as a rectangle inside the square. We can count the number of elements in $B$ using conditional counts:
+What is the probability that the cab involved in the accident was Blue rather than Green?  Use the two approaches (equation- and diagram- based).
 
-$n(B) = n(B|A_1) + n(B|A_2) + n(B|A_3)$
+**Answer**
 
-Using $P(B|A_1) = n(B|A_1)/n(A_1)$, etc., we have
+**Method 1**
 
-$n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + n(B|A_3)n(A_3)$
+Consider 1000 recreations of the incident in which 850 vehicles are Green, and 150 vehicles are Blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
 
-Divide both sides by $n$ to arrive at the result.
+```
+                        850*0.80 = 680 - Is Green, claims Green
+       850 Are Green 
+                        850*0.20 = 170 - Is Green, claims Blue
+1000
+                        150*0.80 = 120 - Is Blue, claims Blue
+       150 Are Blue
+                        150*0.20 = 30  - Is Blue, claims Green
+```
+
+We want to know the probability the cab is Blue when the witness claimed Blue. The number of times in the last column where the witness claimed Blue is $170+120$ (middle two rows). The number of times this claim is correct is $120$.
+
+So the probability the cab is Blue given the witness claimed Blue is
+
+$$P(B|W_B) = \frac{120}{120+170}\approx 0.41$$
+
+**Method 2**
+
+The following is an alternative visualization of the tree diagram of **Method 1**.
+
+<img src="notes/figures/bayes_cab.png" width="800px">
+
+**Method 3**
+
+To use Bayes' theorem, we start by writing the given probabilities
+
+* $P(G) = 0.85$ (Probability a cab is Green)
+* $P(B) = 0.15$ (Probability a cab is Blue)
+* $P(W_B|B) = 0.80$ (Probability witness claims Blue when Blue)
+* $P(W_B|G) = 0.20$ (Probability witness claims Blue when Green)
+
+$$
+P(B|W_B) = P(W_B|B)\frac{P(B)}{P(W_B)}
+$$
+
+The denominator is $P(W_B)=P(B)P(W_B|B) + P(G)P(W_B|G) = 0.15\cdot 0.80 + 0.85\cdot 0.20 = 0.12 + 0.17$. Thus,
+
+$$
+P(B|W_B) = 0.80\frac{0.15}{0.15\cdot 0.80 + 0.85\cdot 0.20} = \frac{0.12}{0.12 + 0.17}
+$$
+
+Multiplying the numerator and the denominator by $1000$ gives the same equation for **Method 1**.
+
+$$
+P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
+$$
+
+A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful; a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city.
+
+What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
+
+<img src="notes/figures/bayes_cab_reliability.svg">
+
+### Terminology
+
+(Not covered yet -- will need in future.)
+
+$$
+P(A|B) = P(B|A)\frac{P(A)}{P(B)}
+$$
+
+* Posterior: $P(A|B)$ (probability after knowing $B$ occured)
+* Prior: $P(A)$ (probability prior to knowing $B$ occured)
+* Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
+* Likelihood: conditional probability on right--hand side, $P(B|A)$
+* Odds ratio or relative likelihood: $P(A)/P(B)$
+
+Other forms of Bayes include
+
+posterior = odds $\bfcdot$ prior
+
+and the proportionality
+
+posterior $\sim$ liklihood $\bfcdot$ prior
+
+See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/articles/understanding-bayes-theorem-with-ratios/), which uses 
+
+original odds $\bfcdot$ evidence adjustment = new odds
+
+<details><summary>Notes</summary>
+In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),
+
+* Sensitivity, $S_e$ (true positive rate):
+
+   $P(T^+|D^+)$  = (number of true positives)/(n true positives + n false negatives)
+   
+   $P(T^+|D^+)$ = (true positives)/(total number with disease)
+
+   where $T^+$ is a positive test result and $D^+$ means "disease present"
+
+* Specificity, $S_p$ (true negative rate):
+
+   $P(T^-|D^-)$ = (number of true negatives)/(number of true negatives + number of false positives)
+
+   $P(T^-|D^-)$ = (number of true negatives)/(total number without disease).
+
+   where $T^-$ is a negative test result and $D^-$ means "disease present"
+
+* Likelihood ratio: (See also [The likelihood ratio and its graphical representation](https://pmc.ncbi.nlm.nih.gov/articles/PMC6457916/)): $LR(r) = P(r|D^+)/P(r|D^-)$, where $r$ is the test result (could be a continuous variable such as "HDL colesterol") Then
+
+   Post-test odds of $D^+$ = LR(r) $\bfcdot$ Pre-test odds of $D^+$
+   
+   If $r$ is dichotomous (test result is positive or negative), then
+   
+   $LR^+ = P(T^+|D^+)/P(T^+|D^-)= S_e/(1-S_p)$
+   
+   and
+   
+   $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/Sp$
+</details>
 
 ## General Bayes' Rule
 
@@ -725,8 +728,7 @@ $$
 P(A_j|B) = \frac{P(B|A_j)P(A_j)}{P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)}
 $$
 
-
-## Counting
+# Counting
 
 Three types of problems:
 
@@ -743,7 +745,7 @@ Three types of problems:
 
 <details><summary>Stirling's Approximation</summary>
 
-You will often enounter $N!$ in counting problems. It is useful to know Stirling's approximation to estimate $N!$ for large $N$:
+You will often encounter $N!$ in counting problems. It is useful to know Stirling's approximation to estimate $N!$ for large $N$:
 
 $\ln N!\simeq N\ln N - N$
 
@@ -777,7 +779,7 @@ $e^{N\ln(N) - N  + \ln\sqrt{2\pi N}}  \simeq 9.32\cdot 10^{157}$
 
 ### Product Rule (or Law of Multiplication)
 
-(Devore does not name but gives as proposition on p 65)
+(Devore does not name it but gives it as a proposition on p 65)
 
 > If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
 
@@ -801,9 +803,9 @@ Note that "elements" is used here, but in the definition of a tuple, objects is 
 
 **Example**
 
-Take two steps, each step is North, South, East or West. 
+Take two steps; each step is North, South, East, or West. 
 
-Put one of N, S, E, W in first box and same for second box. Result is $16$ unique step pairs.
+Put one of N, S, E, W in the first box and the same for the second box. Result is $16$ unique step pairs.
 
 Tree diagram.
 
@@ -817,7 +819,7 @@ If operation 1 is moving north, south, east, or west and operation 2 is moving u
 
 Two teams of twelve players each. How many unique handshakes between members of opposing teams?
 
-Use a tree diagram.
+Use a tree diagram for teams of $3$ first, then generalize.
 
 <details><summary>Answer</summary>
 *Answer*: $n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
@@ -832,11 +834,13 @@ Create a five boxes. There are six possible "choices" for first box, six possibl
 **Example**: Flip a coin 2 times.
 
 <details><summary>Answer</summary>
+<details><summary>Answer</summary>
 There number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the second box.)
 </details>
   
 **Example**: Each clinic has two $O$ doctors and three $P$ doctors, and you must select two doctors from the same clinic. How many possible pairs of $O$s and $P$s are there?
 
+<details><summary>Answer</summary>
 <details><summary>Answer</summary>
 In the first box, put one of the four $O$s. For each $O$, there are $3$ $P$s to choose from and put in the second box. So $n=4\cdot 3$.
 </details>
@@ -844,15 +848,17 @@ In the first box, put one of the four $O$s. For each $O$, there are $3$ $P$s to 
 If each clinic also has three $I$s and two $G$s, how many possible choices for four doctors?
   
 <details><summary>Answer</summary>
+<details><summary>Answer</summary>
 In the third box, put one of the three $I$s; in the fourth box, put one of the three $G$s. Then $n=4\cdot 3\cdot 3\cdot 2$.
 </details>
 
 **Example**: Suppose you want to pick a team of two tennis players from $3$ players, $A$, $B$, and $C$. 
 
 <details><summary>Answer</summary>
+<details><summary>Answer</summary>
 The number of ways you can pick the team is $3\cdot 2$: $AB$, $AC$, $BA$, $BC$, $CA$, and $CB$.
 
-This is not the list of possible teams because $AB$ is the same as $BA$ (That is, order is not important.). The list of possible teams is $3$, by inspection.
+This is not the list of possible teams because $AB$ is the same as $BA$ (that is, order is not important). The list of possible teams is $3$, by inspection.
 </details>
 
 ### Permutation
@@ -865,7 +871,9 @@ You have stickers labeled $1$, ..., $6$ that are used to form a license plate.
 
 How many unique license plates of length $4$ can you form?
 
-*Answer*: $6\cdot 5\cdot 4$
+<details><summary>Answer</summary>
+$6\cdot 5\cdot 4$
+</details>
 
 To see relationship to $P_{k,n}$ formula given next, consider
   
@@ -881,7 +889,7 @@ $$P_{k,n}=\frac{n!}{(n-k)!} = n\cdot (n-1) ... \cdot (n-k)=\frac{n\cdot (n-1) \c
 
 Step {N, S, E, W}. Then take another step, but not in the same direction as first.
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 $4\cdot 3 = 12$
 </details>
 
@@ -889,7 +897,7 @@ $4\cdot 3 = 12$
 
 A four-volume work is placed in random order on a bookshelf. What is the probability of the volumes being in proper order (1, 2, 3, 4)?
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 $1/4!$
 </details>
 
@@ -900,16 +908,16 @@ A subway train made up of $n$ cars is boarded by $r$ passengers ($r\le n$), each
 1. What is the number of ways the passengers can board?
 2. What is the probability of the passengers all ending up in different cars?
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 1. Consider list of $r$ passengers and each can be assigned number $1, ...n$: $n^r$ 
 2. Have $n$ choices for first passenger, $n-1$, for second, ... $n-r-1$ for the last: $\ds\frac{n(n-1)...(n-r-1)}{n^r}$
 </details>
 
 ### Combination (un-ordered subset)
 
-The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the tennis team picking example, there are $3$ team combinations. 
+The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the tennis team-picking example, there are $3$ possible team combinations. 
 
-Each permutation can be regarded as a group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permutations. For example, if the two permutations
+Each permutation can be regarded as a group of $k$. If we regard groups as equivalent if they have the same elements, then there are fewer groups than permutations. For example, if the two permutations
 
 $(1,2)$
 
@@ -945,3 +953,226 @@ How many hands of size $5$ can be formed using a $52$-card deck?
 <details><summary></summary>
 Each permutation can be rearranged in $5!$ ways. So the number of hands (combinations) is $52\cdot 51\cdot 50\cdot 49\cdot 48/(5\cdot 4\cdot 3\cdot 2\cdot 1)$
 </details>
+
+# Random Variables and Distributions
+
+> For a given sample space $\mathcal{S}$ of some experiment, a random variable (rv) is any rule that associates a number with each outcome in $\mathcal{S}$. In mathematical language, a random variable is a function whose domain is the sample space and whose range is the set of real numbers. (Devore p 93)
+
+Example: $\mathcal{S} = \{T,F\}$ with $X(T)=1$ and $X(F)=0$ defines the discrete random variable $X$ that maps events in $\mathcal{S}$ to a number.
+
+Example: If an experiment is to flip a coin until a $H$ is encountered, $\mathcal{S} = \{H, TH, TTH, ...\}$ and $X(H)=1$, $X(TH)=2$, $X(TTH)=3$ defines the random variable $X$ as the number of flips until a $T$ is encountered.
+
+> Any random variable whose only possible values are 0 and 1 is called a Bernoulli random variable. (Devore p 94)
+
+## Discrete Random Variables
+
+> A **discrete** random variable is an rv whose possible values either constitute a finite set or else can be listed in an infinite sequence in which there is a first element, a second element, and so on ("countably" infinite).
+>
+> A random variable is **continuous** if both of the following apply:
+> 1. Its set of possible values consists either of all numbers in a single interval on the number line (possibly infinite in extent, e.g., from $-\infty$ to $\infty$) or all numbers in a disjoint union of such intervals (e.g., [0, 10] $\cup$ [20, 30]).
+>
+> 2. No possible value of the variable has positive probability, that is, $P(X = c) = 0$ for any possible value $c$.
+>
+> (Devore p 95)
+
+A countably infinite set means one can match each element in the set to a natural number (0, 1, 2, ...). A non-countable set is the real numbers in the interval $[0, 1]$, as proved by [Cantor](https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument).
+
+## Discrete Probability Mass Distribution Definition
+
+> The probability distribution or probability mass function (pmf) of a discrete rv is defined for every number $x$ by $p(x) = P(X=x) = P(\text{all } s \in \mathcal{S}: X(s)=x)$. 
+
+$p(x)\ge 0$ and $\sum_xp(x)=1$ are required for any pmf.
+
+A cumulative distribution function (cdf) is the running sum of the pmf. The notation $P(X\le x)$ is used to describe. Its interpretation is the probability that the observed value $X$ will be at most $x$.
+
+$$P(X\le x) = \sum_{y\le x}p(y)$$
+
+Example: $P(X=1) = 0.2$, $P(X=2) = 0.3$, $P(X=3)=0.5$ defines a pmf for random variable $X$ that can take on values 1, 2, and 3. It has a cdf of
+
+$P(X \le 1) = 0.2$
+
+$P(X \le 2) = 0.2 + 0.3 = 0.5$
+
+$P(X \le 3) = 0.2 + 0.3 + 0.5 = 1$
+
+## Discrete Expectation Values
+
+$E(h(X))$ or $E[h(x)]$ is the notation.
+
+> If the random variable $X$ has a set of possible values $D$ and pmf $p(x)$, then the expected value of any function $h(X)$, denoted by $E[h(X)]$ or $\mu_{h(X)}$, is computed by
+>
+> $$E[h(X)] = \sum_D h(x) p(x)$$
+>
+> (Devore p 109)
+
+Example:
+
+$E[X^2]$ where $X$ is the random variable with pmf of $P(X=1) = 0.2$, $P(X=2) = 0.3$, $P(X=3)=0.5$ is
+
+$E[X^2] = 1^2\cdot 0.2 + 2^2\cdot 0.3 + 3^2\cdot 0.5 = 10.9$
+
+### Mean
+
+$h(x)=x$ and we define $\mu$ according to $E[X]=\mu$
+
+### Variance
+
+$h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(X-\mu)^2]$.
+
+We also define the standard deviation as $\sigma_X=\sqrt{\sigma^2_X}$.
+
+It can be shown that
+
+$V(X) = E[(x-\mu)^2] = E[X^2] - (E[X])^2$
+
+or equivalently
+
+$V(X)  = E[X^2] - \mu^2 = \sum_D x^2 p(x) - \mu^2$
+
+We will use this result later when we consider estimating $V$ by taking random samples from a population (instead of using the full population).
+
+<details><summary>Justification</summary>
+
+$E[(X-\mu)^2] = E[X^2 - 2\mu X + \mu^2] = E[X^2] - E[2\mu X] + E[\mu^2]$
+
+Using
+
+$E[2\mu X] = 2\mu E[X] = 2\mu^2$ gives
+
+$E[(X-\mu)^2] = E[X^2] - \mu^2$
+</details>
+
+## Discrete Probability Mass Functions
+
+There are several key probability mass functions. For each distribution, we want to know properties such as its mean and variance.
+
+### Binomial
+
+> There are many experiments that conform either exactly or approximately to the following list of requirements:
+> 1. The experiment consists of a sequence of $n$ smaller experiments called trials, where $n$ is fixed in advance of the experiment.
+> 2. Each trial can result in one of the same two possible outcomes (dichotomous
+trials), which we generically denote by success (S) and failure (F).
+> 3. The trials are independent, so that the outcome on any particular trial does not influence the outcome on any other trial.
+> 4. The probability of success $P(S)$ is constant from trial to trial; we denote this probability by $p$.
+> An experiment for which Conditions 1-4 are satisfied is called a binomial experiment. (Devore p 114)
+
+> The binomial random variable $X$ associated with a binomial experiment consisting of $n$ trials is defined as
+>
+> $X$ = the number of $S$’s among the $n$ trials
+>
+> (Devore p 114)
+
+The pmf of a binomial random variable is
+
+$$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x}$$
+
+Notation: for any pmf that has a name, we sometimes write, e.g., 
+
+$$X \sim b(x; n,p)$$
+
+To mean the random variable $X$ has a pmf given by $b$.
+
+#### Derivation of Binomial Coefficients
+
+General problem: Given $n$ objects, $x$ of one type and $n-x$ of another, how many combinations, $C_{n,x}$ are possible?
+
+Use the label $p$ for the $x$ objects and $q$ for the $n-x$ objects. Suppose $n=3$. All possible permutations are listed. The ones that satisfy $x=2$ are indicated with a $*$. Thus, $C_{3,2}=3$. 
+
+```
+ppp
+ppq *
+pqp *
+pqq
+qpp *
+qpq
+qqp
+qqq
+```
+
+Also, by inspection, $C_{3,0}=1$, $C_{3,1}=3$, and $C_{3,3}=1$. In summary
+
+$C_{3,0}=1$, $C_{3,1}=3$, $C_{3,2}=3$, $C_{3,3}=1$
+
+We want a general formula for computing $C_{n,x}$.
+
+**Method I**
+
+A mathematical shortcut for finding $C_{n,x}$ is to note that the above table can be generated using $(p + q)^3$, which has $8$ terms when expanded, corresponding to the rows in the table. However, it simplifies to
+
+$(p + q)^3 = p^3 + 3p^2q + 3pq^2 + q^3$
+
+The simplified form contains a list of unique combinations, which is what we want.
+
+(Note that the coefficients of $1, 3, 3, 1$ are in the third row of [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle).)
+
+We happen to have an equation that gives us the simplified form. The binomial theorem is
+
+$$(p + q)^n = \sum_{x=0}^n {n \choose k} p^xq^{n-x}$$
+
+where
+
+$${n \choose k} = \frac{n!}{x!(n-x)!}$$
+
+Therefore, we conclude
+
+$$C_{n,x}={n \choose x}$$
+
+**Method II**
+
+See [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) and [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★).
+
+#### Derivation of Binomial Distribution
+
+General problem: Given $n$ objects, $x$ of one type and $n-x$ of another, what is the probability of each $C_{n,x}$?
+
+Recall the table
+
+```
+ppp
+ppq
+pqp
+pqq
+qpp
+qpq
+qqp
+qqq
+```
+
+If we regard $p$ as a probability and define $q=1-p$, then the probability of each row is obtained multiplication. But some rows are result in the same value with multiplication. Based on this, we can conclude that
+
+$C_{3,0}$ has probability $p^3$
+
+$C_{3,1}$ has probability 3$pq^2=3p(1-p)^2$
+
+$C_{3,2}$ has probability 3$p^2q=3p^2(1-p)$
+
+$C_{3,3}$ has probability $q^3=(1-p)^3$
+
+or
+
+$$P(x)={n \choose x} p^x(1-p)^{n-k}$$
+
+We write the probability in a more specific form as
+
+$$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x}$$
+
+where the values after the semicolon are constants.
+
+#### Mean and Variance
+
+[Derivation](https://personal.math.ubc.ca/~feldman/m302/binomial.pdf)
+
+
+### Hypergeometric
+
+### Negative Binomial
+
+### Poisson
+
+
+
+## Continuous Random Variables
+
+## Continuous Probability Distributions
+
+
