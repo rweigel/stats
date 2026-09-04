@@ -26,7 +26,9 @@ HWs:
 
 ## September 3rd
 * Cover Discord
+* "Quiz" problem mentioned on [HW 1](hw.html#hw-1)
 * Cover Bayes and Counting (permutations and combinations)
+* Cover Random Variables and Distributions
 
 ## August 27th
 

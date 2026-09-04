@@ -11,7 +11,7 @@
 Note that different experiments can be assigned to an activity:
 
 * Experiment: Flip a coin 2x and record the result of each flip. Can ask what fraction of experiments had a head on the first flip.
-* Experiment: Flip a coin 2x and record number of heads and tails. Can ask what fraction of experiments had one head.
+* Experiment: Flip a coin 2x and record the number of heads and tails. Can ask what fraction of experiments had one head.
 
 ## Outcome
 
@@ -105,14 +105,14 @@ Describe an activity that requires the use of the terms "Experiment", "Outcome",
 
 ## _Demonstration and Prelude to Error Bars and Hypothesis Tests_
 
-The following program draws draws $10$ random numbers to form list $x$ and $10$ random number to form list $y$ and plots the results. Ordinary least squares regression is used to find the line of best fit. We are interested in the outcome that the best fit slope is greater than $0.1$.
+The following program draws $10$ random numbers to form list $x$ and $10$ random numbers to form list $y$ and plots the results. Ordinary least squares regression is used to find the line of best fit. We are interested in the outcome that the best fit slope is greater than $0.1$.
 
 ```python
 ```
 
 _Question_: What is the experiment? What are outcomes in $\mathcal S$? What are the events?
 
-Code. We will do many such experiments on homeworks.
+Code. We will do many such experiments on homework.
 
 ```python
 import numpy as np
@@ -264,7 +264,7 @@ Use set notation to desribe the region outside of $A$ and $B$ in Figure (a).
 >
 >   $$P(A_1 \cup A_2 ....) = P\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^\infty P(A_i)$$
 >
->   Corallary
+> Corollary
 >
 >   $$P(A_1 \cup A_2 .... \cup A_k) = \sum_{i=1}^k P(A_i)$$
 >
@@ -373,7 +373,7 @@ $(A \cap B)' = A' \cup B'$
 ## Conditional Probability and the Multiplication Rule
 
 
-We want to know the probability of event $A$ given event $B$ occurred. One way to do this is by counting and writing down how we expect the number of times $A$ occurred given event $B$ occurred in terms of set operations. First, consider the fraction
+We want to know the probability of event $A$ given event $B$ occurred. One way to do this is to count and write down how we expect the number of times $A$ occurred, given that event $B$ occurred, in terms of set operations. First, consider the fraction
 
 $$
 F(A \text { given } B) = \frac{n(A\cap B)}{n(A\cap B) + n(A'\cap B)}
@@ -381,7 +381,7 @@ $$
 
 The numerator is the number of times $A$ and $B$ occurred.
 
-The denominator is the number of times $B$ occurred -- it can occur when $A$ did  or did not occur.
+The denominator is the number of times $B$ occurred -- it can occur when $A$ did or did not occur.
 
 Note that $A\cap B$ and $A'\cap B$ are mutually exclusive, so  $(A\cap B) \cup (A'\cap B) = B$, so we can also write
 
@@ -397,7 +397,7 @@ $$
 P(A|B) = \frac{P(A\cap B)}{P(B)}
 $$
 
-We were given that the probability of a student having a Visa is 0.5; the probability of a student having a MasterCard is 0.4; and the probability that they have both is 0.25.
+We were given that the probability of a student having a Visa is 0.5; the probability of a student having a MasterCard is 0.4; and the probability of a student having both is 0.25.
 
 We were asked to find the probability that the student has a Visa but not a MasterCard.
 
@@ -443,6 +443,24 @@ or, $P(\overline{A\text{ or } B}) = (2/3)(2/3) = 4/9$
 
 Check: $P(\overline{A\text{ or } B}) = 1 - P(A \text{ or } B)$
 
+## Law of Total Probability
+
+> Let $A_1$, ... , $A_k$ be mutually exclusive and exhaustive events. Then for any other event $B$,
+>
+> $P(B) = P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)$
+
+Explain this using a table and a Venn diagram.
+
+Consider a square partitioned by three non-overlapping rectangles. Draw $B$ as a rectangle inside the square. We can count the number of elements in $B$ using conditional counts:
+
+$n(B) = n(B|A_1) + n(B|A_2) + n(B|A_3)$
+
+Using $P(B|A_1) = n(B|A_1)/n(A_1)$, etc., we have
+
+$n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + n(B|A_3)n(A_3)$
+
+Divide both sides by $n$ to arrive at the result.
+</details>
 
 ## Bayes' Rule
 
@@ -452,7 +470,7 @@ $$
 
 Also called "Bayes' Law" and "Bayes' Theorem".
 
-Further reading: [1](https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy), [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X), [3](https://www.mcgrayne.com/disc.htm)
+Further reading: [The Prosecutor's Fallacy](https://www.cebm.ox.ac.uk/news/views/the-prosecutors-fallacy); [The Sally Clark Case](https://www.mcgrayne.com/disc.htm); [Bayes' theorem, COVID19, and screening tests](https://www.sciencedirect.com/science/article/pii/S073567572030543X)
 
 **Simple Derivation**
 
@@ -575,7 +593,7 @@ What is the probability that the cab involved in the accident was Blue rather th
 
 **Method 1**
 
-Consider 1000 recreations of the indident in which 850 vehicles are Green and 150 vehicles are Blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
+Consider 1000 recreations of the incident in which 850 vehicles are Green, and 150 vehicles are Blue. Based on a correct identification of 80\% the expected number for each possible witness claim is shown in the last column.
 
 ```
                         850*0.80 = 680 - Is Green, claims Green
@@ -638,7 +656,7 @@ $$
 P(A|B) = P(B|A)\frac{P(A)}{P(B)}
 $$
 
-* Posterior: $P(B|A)$ (probability after knowing $B$ occured)
+* Posterior: $P(A|B)$ (probability after knowing $B$ occured)
 * Prior: $P(A)$ (probability prior to knowing $B$ occured)
 * Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
 * Likelihood: conditional probability on right--hand side, $P(B|A)$
@@ -688,26 +706,6 @@ In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensi
    $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/Sp$
 </details>
 
-
-## Law of Total Probability
-
-> Let $A_1$, ... , $A_k$ be mutually exclusive and exhaustive events. Then for any other event $B$,
->
-> $P(B) = P(B|A_1)P(A_1) + ... + P(B|A_k)P(A_k)$
-
-Explain this using a table and a Venn diagram.
-
-Consider a square partitioned by three non-overlapping rectangles. Draw $B$ as a rectangle inside the square. We can count the number of elements in $B$ using conditional counts:
-
-$n(B) = n(B|A_1) + n(B|A_2) + n(B|A_3)$
-
-Using $P(B|A_1) = n(B|A_1)/n(A_1)$, etc., we have
-
-$n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + n(B|A_3)n(A_3)$
-
-Divide both sides by $n$ to arrive at the result.
-</details>
-
 ## General Bayes' Rule
 
 When $A_1$, ..., $A_k$ are mutually exclusive and exhaustive and $P(B)>0$, we can write
@@ -733,7 +731,7 @@ Three types of problems:
 
 <details><summary>Stirling's Approximation</summary>
 
-You will often enounter $N!$ in counting problems. It is useful to know Stirling's approximation to estimate $N!$ for large $N$:
+You will often encounter $N!$ in counting problems. It is useful to know Stirling's approximation to estimate $N!$ for large $N$:
 
 $\ln N!\simeq N\ln N - N$
 
@@ -767,7 +765,7 @@ $e^{N\ln(N) - N  + \ln\sqrt{2\pi N}}  \simeq 9.32\cdot 10^{157}$
 
 ### Product Rule (or Law of Multiplication)
 
-(Devore does not name but gives as proposition on p 65)
+(Devore does not name it but gives it as a proposition on p 65)
 
 > If the first element or object of an ordered pair can be selected in $n_1$ ways, and for each of these $n_1$ ways the second element of the pair can be selected in $n_2$ ways, then the number of pairs is $n_1n_2$.
 
@@ -791,9 +789,9 @@ Note that "elements" is used here, but in the definition of a tuple, objects is 
 
 **Example**
 
-Take two steps, each step is North, South, East or West. 
+Take two steps; each step is North, South, East, or West. 
 
-Put one of N, S, E, W in first box and same for second box. Result is $16$ unique step pairs.
+Put one of N, S, E, W in the first box and the same for the second box. Result is $16$ unique step pairs.
 
 Tree diagram.
 
@@ -807,42 +805,42 @@ If operation 1 is moving north, south, east, or west and operation 2 is moving u
 
 Two teams of twelve players each. How many unique handshakes between members of opposing teams?
 
-Use a tree diagram.
+Use a tree diagram for teams of $3$ first, then generalize.
 
-<details><summary></summary>
-*Answer*: $n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
+<details><summary>Answer</summary>
+$n_a=12$, $n_b=12$, $N=12\cdot 12=144$.
 </details>
 
 **Example**: Roll a die five times. How many $5$-tuples? 
 
-<details><summary></summary>
-Create a five boxes. There are six possible "choices" for first box, six possible choices for second box, ..... So there are $6^5$ possible $k$--tuples.
+<details><summary>Answer</summary>
+Create five boxes. There are six possible "choices" for the first box, six possible choices for the second box, ..... So there are $6^5$ possible $5$--tuples.
 </details>
 
 **Example**: Flip a coin 2 times.
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 There number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the second box.)
 </details>
   
 **Example**: Each clinic has two $O$ doctors and three $P$ doctors, and you must select two doctors from the same clinic. How many possible pairs of $O$s and $P$s are there?
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 In the first box, put one of the four $O$s. For each $O$, there are $3$ $P$s to choose from and put in the second box. So $n=4\cdot 3$.
 </details>
   
 If each clinic also has three $I$s and two $G$s, how many possible choices for four doctors?
   
-<details><summary></summary>
+<details><summary>Answer</summary>
 In the third box, put one of the three $I$s; in the fourth box, put one of the three $G$s. Then $n=4\cdot 3\cdot 3\cdot 2$.
 </details>
 
 **Example**: Suppose you want to pick a team of two tennis players from $3$ players, $A$, $B$, and $C$. 
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 The number of ways you can pick the team is $3\cdot 2$: $AB$, $AC$, $BA$, $BC$, $CA$, and $CB$.
 
-This is not the list of possible teams because $AB$ is the same as $BA$ (That is, order is not important.). The list of possible teams is $3$, by inspection.
+This is not the list of possible teams because $AB$ is the same as $BA$ (that is, order is not important). The list of possible teams is $3$, by inspection.
 </details>
 
 ### Permutation
@@ -855,7 +853,9 @@ You have stickers labeled $1$, ..., $6$ that are used to form a license plate.
 
 How many unique license plates of length $4$ can you form?
 
-*Answer*: $6\cdot 5\cdot 4$
+<details><summary>Answer</summary>
+$6\cdot 5\cdot 4$
+</details>
 
 To see relationship to $P_{k,n}$ formula given next, consider
   
@@ -871,7 +871,7 @@ $$P_{k,n}=\frac{n!}{(n-k)!} = n\cdot (n-1) ... \cdot (n-k)=\frac{n\cdot (n-1) \c
 
 Step {N, S, E, W}. Then take another step, but not in the same direction as first.
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 $4\cdot 3 = 12$
 </details>
 
@@ -879,7 +879,7 @@ $4\cdot 3 = 12$
 
 A four-volume work is placed in random order on a bookshelf. What is the probability of the volumes being in proper order (1, 2, 3, 4)?
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 $1/4!$
 </details>
 
@@ -890,16 +890,16 @@ A subway train made up of $n$ cars is boarded by $r$ passengers ($r\le n$), each
 1. What is the number of ways the passengers can board?
 2. What is the probability of the passengers all ending up in different cars?
 
-<details><summary></summary>
+<details><summary>Answer</summary>
 1. Consider list of $r$ passengers and each can be assigned number $1, ...n$: $n^r$ 
 2. Have $n$ choices for first passenger, $n-1$, for second, ... $n-r-1$ for the last: $\ds\frac{n(n-1)...(n-r-1)}{n^r}$
 </details>
 
 ### Combination (un-ordered subset)
 
-The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the tennis team picking example, there are $3$ team combinations. 
+The number of unique $k$--tuples if $k$--tuples with the same elements (but in a different order) are treated as the same. In the tennis team-picking example, there are $3$ possible team combinations. 
 
-Each permutation can be regarded as a group of $k$. If we regard a group as equivalent if they have the same elements, then there are fewer groups than permutations. For example, if the two permutations
+Each permutation can be regarded as a group of $k$. If we regard groups as equivalent if they have the same elements, then there are fewer groups than permutations. For example, if the two permutations
 
 $(1,2)$
 
@@ -938,11 +938,15 @@ Each permutation can be rearranged in $5!$ ways. So the number of hands (combina
 
 # Random Variables and Distributions
 
-> For a given sample space of some experiment, a random variable (rv) is $\mathcal{S}$ any rule that associates a number with each outcome in. In mathematical language, a random variable is a function whose domain is the sample space and whose range is the set of real numbers. (Devore p 93)
+> For a given sample space $\mathcal{S}$ of some experiment, a random variable (rv) is any rule that associates a number with each outcome in $\mathcal{S}$. In mathematical language, a random variable is a function whose domain is the sample space and whose range is the set of real numbers. (Devore p 93)
 
-Example: $\mathcal{S} = {T,F}$ with $X(T)=1$ and $X(F)=0$ defines the discrete random variable $X$ that maps events in $\mathcal{S}$ to a number.
+Example: $\mathcal{S} = \{T,F\}$ with $X(T)=1$ and $X(F)=0$ defines the discrete random variable $X$ that maps events in $\mathcal{S}$ to a number.
 
-Example: If an experiment is to flip a coint until a $H$ is encountered, $\mathcal{S} = {H, TH, TTH, ...}$ and $X(H)=1$, $X(TH)=2$, $X(TTH)=3$ defines the random variable $X$ as the number of flips until a $T$ is encountered.
+Example: If an experiment is to flip a coin until a $H$ is encountered, $\mathcal{S} = \{H, TH, TTH, ...\}$ and $X(H)=1$, $X(TH)=2$, $X(TTH)=3$ defines the random variable $X$ as the number of flips until a $T$ is encountered.
+
+> Any random variable whose only possible values are 0 and 1 is called a Bernoulli random variable. (Devore p 94)
+
+## Discrete Random Variables
 
 > A **discrete** random variable is an rv whose possible values either constitute a finite set or else can be listed in an infinite sequence in which there is a first element, a second element, and so on ("countably" infinite).
 >
@@ -955,11 +959,7 @@ Example: If an experiment is to flip a coint until a $H$ is encountered, $\mathc
 
 A countably infinite set means one can match each element in the set to a natural number (0, 1, 2, ...). A non-countable set is the real numbers in the interval $[0, 1]$, as proved by [Cantor](https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument).
 
-## Discrete Random Variables
-
-> Any random variable whose only possible values are 0 and 1 is called a Bernoulli random variable. (Devore p 94)
-
-## Discrete Probability Distribution Definition
+## Discrete Probability Mass Distribution Definition
 
 > The probability distribution or probability mass function (pmf) of a discrete rv is defined for every number $x$ by $p(x) = P(X=x) = P(\text{all } s \in \mathcal{S}: X(s)=x)$. 
 
@@ -968,6 +968,14 @@ $p(x)\ge 0$ and $\sum_xp(x)=1$ are required for any pmf.
 A cumulative distribution function (cdf) is the running sum of the pmf. The notation $P(X\le x)$ is used to describe. Its interpretation is the probability that the observed value $X$ will be at most $x$.
 
 $$P(X\le x) = \sum_{y\le x}p(y)$$
+
+Example: $P(X=1) = 0.2$, $P(X=2) = 0.3$, $P(X=3)=0.5$ defines a pmf for random variable $X$ that can take on values 1, 2, and 3. It has a cdf of
+
+$P(X \le 1) = 0.2$
+
+$P(X \le 2) = 0.2 + 0.3 = 0.5$
+
+$P(X \le 3) = 0.2 + 0.3 + 0.5 = 1$
 
 ## Discrete Expectation Values
 
@@ -979,19 +987,42 @@ $E(h(X))$ or $E[h(x)]$ is the notation.
 >
 > (Devore p 109)
 
+Example:
+
+$E[X^2]$ where $X$ is the random variable with pmf of $P(X=1) = 0.2$, $P(X=2) = 0.3$, $P(X=3)=0.5$ is
+
+$E[X^2] = 1^2\cdot 0.2 + 2^2\cdot 0.3 + 3^2\cdot 0.5 = 10.9$
+
 ### Mean
 
 $h(x)=x$ and we define $\mu$ according to $E[X]=\mu$
 
 ### Variance
 
-$h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(x-\mu)^2]$.
+$h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(X-\mu)^2]$.
 
 We also define the standard deviation as $\sigma_X=\sqrt{\sigma^2_X}$.
 
 It can be shown that
 
-$V(X) = E[X^2] - (E[X])^2 =  \sum_D x^2 p(x) - \mu^2$
+$V(X) = E[(x-\mu)^2] = E[X^2] - (E[X])^2$
+
+or equivalently
+
+$V(X)  = E[X^2] - \mu^2 = \sum_D x^2 p(x) - \mu^2$
+
+We will use this result later when we consider estimating $V$ by taking random samples from a population (instead of using the full population).
+
+<details><summary>Justification</summary>
+
+$E[(X-\mu)^2] = E[X^2 - 2\mu X + \mu^2] = E[X^2] - E[2\mu X] + E[\mu^2]$
+
+Using
+
+$E[2\mu X] = 2\mu E[X] = 2\mu^2$ gives
+
+$E[(X-\mu)^2] = E[X^2] - \mu^2$
+</details>
 
 ## Discrete Probability Mass Functions
 
@@ -1044,11 +1075,11 @@ Also, by inspection, $C_{3,0}=1$, $C_{3,1}=3$, and $C_{3,3}=1$. In summary
 
 $C_{3,0}=1$, $C_{3,1}=3$, $C_{3,2}=3$, $C_{3,3}=1$
 
-We want a general equation that allows us to compute $C_{n,x}$.
+We want a general formula for computing $C_{n,x}$.
 
 **Method I**
 
-A mathematical shortcut for finding $C_{n,x}$ is to note that the above table can be generated using $(p + q)^3$, which has $8$ terms when expanded, corresponding the rows in the table. However, it simplifies to
+A mathematical shortcut for finding $C_{n,x}$ is to note that the above table can be generated using $(p + q)^3$, which has $8$ terms when expanded, corresponding to the rows in the table. However, it simplifies to
 
 $(p + q)^3 = p^3 + 3p^2q + 3pq^2 + q^3$
 
@@ -1103,7 +1134,7 @@ or
 
 $$P(x)={n \choose x} p^x(1-p)^{n-k}$$
 
-We write probability in a more specific form as
+We write the probability in a more specific form as
 
 $$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x}$$
 
@@ -1125,3 +1156,5 @@ where the values after the semicolon are constants.
 ## Continuous Random Variables
 
 ## Continuous Probability Distributions
+
+
