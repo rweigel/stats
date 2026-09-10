@@ -1024,6 +1024,34 @@ $E[2\mu X] = 2\mu E[X] = 2\mu^2$ gives
 $E[(X-\mu)^2] = E[X^2] - \mu^2$
 </details>
 
+## Moment Generating Function
+
+(Not covered) A trick that allows one to quickly compute expection values of the form $E[X^k]$. Covered in Bulmer and Larson. The trick is to instead compute $E[e^{tX}]$. Once computed, it is easy to extract $E[X^k]$ from it.
+
+Example:
+
+Let $M(t)=E[e^{tX}]$. Then $dM/dt|_{t=0}=E[X]$,  $d^2 M/dt^2|_{t=0}=E[X^2]$, ....
+
+For the binomial pmf
+
+$$M(t)=E[e^{tX}]=\sum_{x=0}^{n} e^{xt} {n\choose x} p^x q^{n-x} = \sum_{x=0}^{n} {n\choose x} (pe^t)^x q^{n-x}$$
+
+Using the identity
+
+$(a+b)^n = \sum_{x=0}^{n} {n\choose x} a^x b^{n-x}$
+
+with $a=pe^t$ and $b=q$ gives
+
+$$M(t)=E[e^{tX}]=(pe^t + q)^b$$
+
+$$E[X] = \left. \frac{dM}{dt}\right |_{t=0} = \left . n(pe^t + q)^{n-1}p\right|_{t=0} = np(p+q)^{n-1}=np$$
+
+Higher order terms can be computed in a similar way, e.g.,
+
+$$E[X^2] =  \left. \frac{d^2 M}{dt^2}\right |_{t=0}$$
+
+To understand why this works, consider the Taylor series expansion of $e^{xt}$, which has terms of $xt$, $(xt)^2$, ....
+
 ## Discrete Probability Mass Functions
 
 There are several key probability mass functions. For each distribution, we want to know properties such as its mean and variance.
@@ -1085,7 +1113,7 @@ $(p + q)^3 = p^3 + 3p^2q + 3pq^2 + q^3$
 
 The simplified form contains a list of unique combinations, which is what we want.
 
-(Note that the coefficients of $1, 3, 3, 1$ are in the third row of [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle).)
+(Note that the coefficients of $1, 3, 3, 1$ are in the third row of [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle). See also Larson p46 for derivation of rule that relates rows in Pascal's triangel.
 
 We happen to have an equation that gives us the simplified form. The binomial theorem is
 
@@ -1120,7 +1148,7 @@ qqp
 qqq
 ```
 
-If we regard $p$ as a probability and define $q=1-p$, then the probability of each row is obtained multiplication. But some rows are result in the same value with multiplication. Based on this, we can conclude that
+If we regard $p$ as a probability and define $q=1-p$, then the probability of each row is obtained multiplication. But some rows result in the same value with multiplication. For examples, $pqq = qpq = qqp$. Based on this, we can conclude that
 
 $C_{3,0}$ has probability $p^3$
 
@@ -1149,8 +1177,47 @@ where the values after the semicolon are constants.
 
 ### Negative Binomial
 
-### Poisson
+### Poisson Distribution and Poisson Process
 
+
+References
+
+* The original Possion paper is in French but is covered in English by [Stigler 1982](https://jhanley.biostat.mcgill.ca/statbook/StiglerPoisson.pdf). Possion used limit of Binomial distribution and Stigler notes De Moivre derived a related approximation to the Poisson formula.
+* Derived independently by Bateman using a differential equation approach in [Rutherford, Geiger, and Bateman, 1910](https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf)
+* A simple derivation in [lecture notes by D.S.G. Pollock](https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf)
+* How used in physics lab experiments using Geiger counters: [1](https://pages.uoregon.edu/dlivelyb/phys391/labs/lab3_391.pdf), [2](https://wanda.fiu.edu/boeglinw/courses/Modern_lab_manual3/counting_statistics.html), [3](https://122.physics.ucdavis.edu/sites/default/files/files/Nuclear%20Decay/Counting%20Statistics.pdf)
+
+The Poisson probability distribution function is
+
+$$P(x)=\frac{\mu^xe^{-\mu}}{x!}$$
+
+The symbol $\mu$ was chosen because $E[X]=\mu$ for the Poisson. This distribution can be derived from the Binomial distribution in the limit $n\rightarrow \infty$ with $x$ and $\mu\equiv np$ fixed. That is, we let $n$ become large at the same rate that $p$ becomes small. So this corresponds to a Binomial experiment where the probability of a success is small. 
+
+The Poisson process is a process that satisfies
+
+1.  in a sufficiently short amount of time, $\Delta t$, only 0 or 1 event can occur (two or more simultaneous events are impossible);
+2.  the probability of exactly 1 event occurring in $\Delta t$ is equal to $\lambda \Delta t$, where $\lambda$ is a constant; and
+3.  any non-overlapping intervals of length $\Delta t$ are independent Bernoulli trials,
+
+the probability of $k$ events occurring in the time interval $t=N\Delta t$ is
+
+$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
+
+for sufficiently large $N$.
+
+If $p$ is the probability of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
+
+$$P(k)=\frac{(p\frac{t}{\Delta t})^k e^{-p \frac{t}{\Delta t}}}{k!}$$
+
+Next, using the definition $t\equiv N\Delta t$,
+
+$$P(k)=\frac{(p N)^k e^{-p N}}{k!}$$
+
+The interpretation is that if the probability of a success in a trial is $p$, then the probability of $k$ successes in $N$ trials is $P(k)$. 
+
+A common use case for this equation is when an event takes a certain amount of time $\Delta t$ to occur (e.g., a hurricane or large solar flare). In this case, it makes sense to define a rate parameter which is the number events per unit time, which is $\lambda=p/\Delta t$, where $p$ is the probability of an event in $\Delta t$. This variable corresponds with how we would describe the probability of an event, e.g., on average 0.01 hurricanes occur per day or in 100 days, 1 hurricane will occur.
+
+It also makes sense to talk not about the number of "trials", but rather the number of $\Delta t$s, where each $\Delta t$ corresponds to a trial. In this case, we can define a time as $t=N\Delta t$. This definition allows us to say "given 0.01 hurricanes occur per day, what is the probability that 2 hurricanes occur in a month?".
 
 
 ## Continuous Random Variables

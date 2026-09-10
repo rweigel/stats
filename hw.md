@@ -61,6 +61,13 @@ In class, I will raise the following questions (you don't need to turn anything 
 
 * Suppose that you wanted to know the probability of getting three heads in $n=3$ tosses _and_ you don't know the formula for computing this. How you you use a computer program to _estimate_ this probability?
 
+<details>
+<summary>Answer</summary>
+See [HW1_1.py](https://github.com/rweigel/stats/tree/main/solns). Problem is solved with and without using NumPy.
+
+<img src="solns/HW1_1.png" width="500px"/>
+</details>
+
 ## Random Walk Simulation
 
 A random walk is a process analogous to flipping a fair coin. An example in physics is a cylinder constrained to move in one dimension being struck by air particles (and the cylinder moves without friction). Each strike sends the cylinder a small step to the left or right. The probability of a step to the left is the same as that of a step to the right. See also [Chapter 1 of Kittel and Kroemer](http://www.fulviofrisone.com/attachments/article/413/Kittel%20-%20Thermodynamics.pdf) for a description in the context of statistical physics.
@@ -74,6 +81,24 @@ We could do an experiment where we randomly select values of $-1$ or $1$ with eq
 
 Save your code in a file named `HW1_2.py`.
 
+<details>
+<summary>Answer</summary>
+1. $2^3=8$. See also problem 1.3 with replacement of $H$ with $L$ (for left step) and $T$ with $R$ (for left step).
+
+2. See [HW1_2.py](https://github.com/rweigel/stats/tree/main/solns), which has the following output.
+
+   ```
+   From 10000 experiments:
+     P(sum = -3) = 0.1264
+     P(sum = -2) = 0.0
+     P(sum = -1) = 0.3649
+     P(sum =  0) = 0.0
+     P(sum =  1) = 0.3782
+     P(sum =  2) = 0.0
+     P(sum =  3) = 0.1305
+   ```
+</details>
+
 ## Sample Space
 
 1. An experiment involves tossing a coin 3x. What is the sample space of this experiment?
@@ -81,6 +106,36 @@ Save your code in a file named `HW1_2.py`.
 3. Define event $A$ to be that the experiment yields two heads. Define event $B$ as the experiment yielding two tails. What is $A \cup B$ and $A \cap B$?
 
 Save your answer in a file named `HW1_3.pdf`.
+
+<details>
+<summary>Answer</summary>
+
+1. The sample space has 8 elements ($2^3$). This list can be found using a tree diagram as shown below.
+
+    ```
+            H       HHH
+        H -
+            T       HHT
+    H -        
+            H       HTH
+        T -
+            T       HTT
+
+            H       THH
+        H -
+            T       THT
+    T -        
+            H       TTH
+        T - 
+            T       TTT
+
+    ```
+2. $3$ by inspection of the table above. Also, suppose that we have three unique coins $T$, $H_1$, and $H_2$. There are $3!$ unique permutations. If we drop the subscripts, then the number of unique permutations is divided by 2. So $3!/2=3$.
+
+3. By inspection of the list from 1., $A \cup B = 6$ and  $A \cap B = \emptyset$.
+
+In the above, I assumed "experiement yields two heads" to mean "the experiment yielded exactly two heads" and not "the experiement yielded two or more heads".
+</details>
 
 ## Law of Addition and Set Notation
 
@@ -93,6 +148,15 @@ What is the probability that a randomly selected person:
 Use a Venn diagram (or any visual method) in the way that was used in class to demonstrate your answers.
 
 Save your answer in a file named `HW1_4.pdf`.
+
+<details>
+<summary>Answer</summary>
+
+Given: $P(E) = 0.55$, $P(A) = 0.45$, and $P(E\cup A) = 0.7$
+
+1. $P(E \cap A) = P(E) + P(A) - P(E \cup A) = 0.3$
+2. $P\big( (E \cup A)' \big) = 1 - P(E \cup A) = 1 - 0.7 = 0.3$
+</details>
 
 # Quiz 1
 
@@ -108,11 +172,13 @@ Problem given:
 
 What is the probability that you actually have cancer?
 
-Answer:
+<details>
+<summary>Answer</summary>
 
-$$\frac{16}{196+16} = \frac{0.02\cdot 0.8}{0.02\cdot 0.8 + 0.98\cdot 0.2}\simeq 7.5\%$$
+$$\frac{16}{196+16} = \frac{0.02\cdot 0.8}{0.02\cdot 0.8 + 0.98\cdot 0.2}\simeq 7.5{\%}$$
 
 where the first fraction is determined using Method II in the cab problem and the second using Method III.
+</details>
 
 # HW 2
 
