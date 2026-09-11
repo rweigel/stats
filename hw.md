@@ -174,7 +174,37 @@ Due Thursday, September 10th at 11:59 pm.
 You take a test and it claims cancer.
 
 1. What is actual probability that you have cancer?
-2. Why is this answer different from the quiz answer?
+2. Why is this answer different from the answer to Quiz 1?
+
+<details><summary>Answer</summary>
+1. $\simeq 0.145$
+
+   $$P(C|T^+) = \frac{ P(T^+|C)P(C)}{P(C)P(T^+|C) + P(C')P(T^+|C')}$$
+
+   $$P(C|T^+) = \frac{0.02\cdot 0.8}{0.02\cdot 0.8 + 0.98\cdot 0.096}\simeq 14.5{\%}$$
+
+   See also a [solution using a visual method](https://docs.google.com/spreadsheets/d/1a3ty9V5bsDWKugk02zNPkO8LDG5FKQ-Mzs_Cxc-_S5o/edit?gid=1074592884#gid=1074592884)
+
+
+2. In Quiz 1, the rate of false detection was 20\%. In this problem, the rate is lower, 9.6\%. The difference in the calculation is in bold below.
+
+   Quiz 1 solution:
+
+   $$\frac{0.02\cdot 0.8}{0.02\cdot 0.8 + 0.98\cdot \mathbf{0.2}}\simeq 7.5{\%}$$
+
+   This problem:
+
+   $$\frac{0.02\cdot 0.8}{0.02\cdot 0.8 + 0.98\cdot \mathbf{0.096}}\simeq 14.5{\%}$$
+
+   To see this more clearly, re--write the denominator
+
+   $$\frac{0.02\cdot 0.8}{0.02\cdot 0.8(1 + \frac{0.98}{0.8\cdot 0.2}\cdot P(T^+|C'))}$$
+   
+   This simplifies to
+   
+   $$\frac{1}{1 +6.1\cdot P(T^+|C')}$$
+   
+</details>
 
 Save your answer as `HW2_1.pdf` and upload it to your GitHub account.
 
@@ -210,15 +240,49 @@ $$E[h(X)] = \sum_{\text{all vals of }X} h(x) p(x)$$
    
    because $p+q=1$.
 
-%$E[X] = \sum_{x=0}^3 x P(x) = \sum_{x=0}^3 x {n\choose x} p^{1/2}q^{1/2}$
+<details><summary>Answer</summary>
+1.
 
-%$E[X] = 0\cdot \frac{3!}{0!3!}(\frac{1}{2})^3 + 1\cdot\frac{3!}{1!2!}(\frac{1}{2})^3 + 2\cdot\frac{3!}{2!1!}(\frac{1}{2})^3 + 3\cdot\frac{3!}{3!0!}(\frac{1}{2})^3$
+$$E[X] = \sum_{x=0}^3 x P(x) = \sum_{x=0}^3 x {n\choose x} p^{1/2}q^{1/2}$$
 
-%$E[X] = 0 + 3(\frac{1}{2})^3 + 2\cdot 3(\frac{1}{2})^3 + 3\cdot 1(\frac{1}{2})^3$
+$$E[X] = 0\cdot \frac{3!}{0!3!}\left(\frac{1}{2}\right)^3 + 1\cdot\frac{3!}{1!2!}\left(\frac{1}{2}\right)^3 + 2\cdot\frac{3!}{2!1!}\left(\frac{1}{2}\right)^3 + 3\cdot\frac{3!}{3!0!}\left(\frac{1}{2}\right)^3$$
 
-%$E[X] = 0 + 3(\frac{1}{2})^3 + 6(\frac{1}{2})^3 + 3(\frac{1}{2})^3$
+$$E[X] = 0 + 3\left(\frac{1}{2}\right)^3 + 2\cdot 3\left(\frac{1}{2}\right)^3 + 3\cdot 1\left(\frac{1}{2}\right)^3$$
 
-%$E[X] = 0 + 3/8 + 6/8 + 3/8 = 12/8 = 1.5$
+$$E[X] = 0 + 3/8 + 6/8 + 3/8 = 12/8 = 1.5$$
+
+2.
+
+$$P(X=x)={n \choose x}p^x(1-p)^{n-x}$$
+
+$$E[X] = \sum_{\text{all vals of }X} x {n \choose x}p^x(1-p)^{n-x} = \sum_{n=0}^n x {n \choose x}p^x(1-p)^{n-x}$$
+
+Expanding the sum gives
+
+$$E[X] = (1)\frac{n!}{1!(n-1)!}p^1q^{n-1} + (2)\frac{n!}{2!(n-2)!}p^2q^{n-2} + ... + (n)\frac{n!}{n!0!}p^nq^{0}$$
+
+We are told that the answer is $np$, so factor it out.
+
+$$E[X] = np\left[(1)\frac{(n-1)!}{1!(n-1)!}p^0q^{n-1} + (2)\frac{(n-1)!}{2!(n-2)!}p^1q^{n-2} + ... + (n)\frac{(n-1)!}{n!0!}p^{n-1}q^{0}\right]$$
+
+Now simplify by combining the terms $(1), (2), ...$ with the first factorial in the denominators.
+
+$$E[X] = np\left[\frac{(n-1)!}{1!(n-1)!}p^0q^{n-1} + \frac{(n-1)!}{1!(n-2)!}p^1q^{n-2} + ... + \frac{(n-1)!}{(n-1)!0!}p^{n-1}q^{0}\right]$$
+
+Let $m=n-1$. Then
+
+$$E[X] = np\left[\frac{m!}{1!m!}p^0q^{m} + \frac{m!}{1!(m-1)!}p^1q^{m-1} + ... + \frac{m!}{m!0!}p^mq^{0}\right]$$
+
+The term in brackets is almost what we need. The only problem is the $1!$ term should be $0!$. However, $1!=0!$, so we have
+
+$$E[X] = np\left[\frac{m!}{0!m!}p^0q^{m} + \frac{m!}{1!(m-1)!}p^2q^{m-1} + ... + \frac{m!}{m!0!}p^mq^{0}\right]$$
+
+$$E[X] = np\sum_{i=0}^m{m \choose x}p^x(1-p)^{m-x}$$
+
+Using the identiy given as a hint gives the answer.
+
+$$E[X] = np(p+q)^m = np(1)^m=np$$
+</details>
 
 Save your answer as `HW2_3.pdf` and upload to GitHub.
 

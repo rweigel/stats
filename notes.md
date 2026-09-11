@@ -1038,11 +1038,11 @@ $$M(t)=E[e^{tX}]=\sum_{x=0}^{n} e^{xt} {n\choose x} p^x q^{n-x} = \sum_{x=0}^{n}
 
 Using the identity
 
-$(a+b)^n = \sum_{x=0}^{n} {n\choose x} a^x b^{n-x}$
+$$(a+b)^n = \sum_{x=0}^{n} {n\choose x} a^x b^{n-x}$$
 
 with $a=pe^t$ and $b=q$ gives
 
-$$M(t)=E[e^{tX}]=(pe^t + q)^b$$
+$$M(t)=E\left[e^{tX}\right]=(pe^t + q)^b$$
 
 $$E[X] = \left. \frac{dM}{dt}\right |_{t=0} = \left . n(pe^t + q)^{n-1}p\right|_{t=0} = np(p+q)^{n-1}=np$$
 
