@@ -163,28 +163,6 @@ Given: $P(E) = 0.55$, $P(A) = 0.45$, and $P(E\cup A) = 0.7$
 2. $P\big( (E \cup A)' \big) = 1 - P(E \cup A) = 1 - 0.7 = 0.3$
 </details>
 
-# Quiz 1
-
-Study the cab example in the [Bayes' rule section of the notes](notes.html).
-
-At the start of the Sept. 3rd class, I will ask you to solve a similar problem without notes. This will be the first quiz. This quiz will not be graded. If you attend class, you'll get full credit.
-
-Problem given:
-
-* 2\% of the population has cancer
-* A screening test for cancer is correct 80\% of the time.
-* Your screening test claimed cancer.
-
-What is the probability that you actually have cancer?
-
-<details>
-<summary>Answer</summary>
-
-$$\frac{16}{196+16} = \frac{0.02\cdot 0.8}{0.02\cdot 0.8 + 0.98\cdot 0.2}\simeq 7.5{\%}$$
-
-where the first fraction is determined using Method II in the cab problem and the second using Method III.
-</details>
-
 # HW 2
 
 Due Thursday, September 10th at 11:59 pm.
@@ -278,6 +256,142 @@ Save your code as `HW2_4.py` and the plot as `HW2_4.png`.
 
 <img src="solns/HW2_4.svg">
 
+# HW 3
+
+## Poisson Distribution
+
+The Poisson distribution can be derived as a limit of the Binomial distribution; see [Devore 3.6](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★).
+
+If
+
+1. in a sufficiently short amount of time, $\Delta t$, only 0 or 1 event can occur (two or more simultaneous events are impossible); and
+2. the probability of exactly one event occurring in $\Delta t$ is equal to $\lambda \Delta t$, where $\lambda$ is a constant.
+
+the probability of $k$ events occurring in the time interval $t=n\Delta t$ is
+
+$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
+
+for sufficiently large $n$. Said another way, if you measure events with a recording device, choose the sampling rate of the recording device to be small enough that two events never occur in the same $\Delta t$, and let the device record for a time of $t=n\Delta t$, the probability of recording $k$ events in a recording time of $t$ is given by the above formula. To estimate $\lambda$, one can use $p$ using $k/n$ and $\lambda = p/\Delta t$.
+
+In class, I derived the formula
+
+$$P(k)=\frac{\mu^k e^{-\mu}}{k!}$$
+
+where $\mu \equiv pn$.
+
+The two forms for $P(k)$ are related by using $t\equiv n\Delta t$, to give
+
+$$P(k)=\frac{\ds\left(p\frac{t}{\Delta t}\right)^k e^{-p\large\frac{t}{\Delta t}}}{k!}$$
+
+and $\lambda \equiv p/\Delta t$, which is the average number of events per $\Delta t$ to give
+
+$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
+
+Use a random number generator to create a dataset that simulates the following result. Every hour, the number of x-ray flares is tabulated. It is found that over $1,000$ days, $900$ flares occurred so that the average probability of a flare in a given hour is $900/(1000\cdot 24)$.
+
+1. Plot
+
+   a. $P_S(k)$, the probability of $k$ flare events occurring **per day** for the **S**imulated dataset,
+
+   b. $P_P(k)$ expected from the equation above using the value of $\lambda$ computed based on the **P**oisson distribution equation above, and
+
+   c. $P_B(k)$ expected from the **B**inomial distribution, from which the Poisson distribution was derived.
+
+   Note that in class, we computed by hand $P_P(2)$ and $P_B(2)$, so use these values to check your plots for b. and c.
+
+2. From your dataset, derive a new dataset, the time between flares, and plot a histogram of the time between flares.
+
+Save your code as `HW3_1.py` and the plot as `HW3_1.png`. Spend time thinking about the label axes, title, legend, colors, and annotations. As discussed, you want to have enough detail on the plot so that a reader can start to make interpretations without having to read or hear a long description. 
+
+Be prepared to justify any differences between the three cases in class.
+
+## Law of Large Numbers
+
+The Law of Large Numbers tells us, roughly, that as $n\rightarrow \infty$ the sample average defined by
+
+$$\overline{X}\equiv\frac{1}{n}\sum_{i=1}^n X_i$$
+
+will be near the population average $\mu$ with a given probability. Given $n$ samples from a population, we don't expect $\overline{X}$ to exactly match $\mu$. The Law of Large Numbers allows us to make a statement about the difference $\overline{X}-\mu$. Specifically, the statement involves the probability that $|\overline{X}-\mu|$ is smaller that a certain value.
+
+To answer the following questions, you do not need to understand the Law of Large Numbers. However, if you are interested, more formal definitions and proofs are given in [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf), [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★), and [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★). Note that there the definition of the law of large numbers is not consistent in these references.
+
+**a**
+
+1. Draw $n=100$ values from a population of Gaussian-distributed numbers with mean $\mu=0$ and standard deviation $\sigma=1$.
+2. Compute $\overline{X}$.
+3. Repeat 1. and 2. $10,000$ times and plot a histogram of $\overline{X}$.
+
+Save your program as `HW2_3a.py` and the associated plot as `HW2_3a.png`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title and it should write the file `HW2_3a.png`.
+
+**b**
+
+1. For $n=100$, what fraction of the $10,000$ $\overline{X}$s were in the range $[-0.01, 0.01]$?
+2. How does the fraction depend on $n$? <sup>+</sup>
+3. For $n=100$, what is the range $[-\epsilon,\epsilon]$ for which $99$% of the $10,000$ $\overline{X}$s fall in? 
+4. How does $\epsilon$ depend on $n$? <sup>+</sup>
+5. How does your answer change if the distribution changes (that is, if you draw values from a distribution other than Gaussian)?
+
+<sup>+</sup> You may explain this using one or more of words, tables, and plots.
+
+Save your program as `HW2_3b.py`. Save your answers in a file named `HW2_3b.pdf`.
+
+**590 students**: Be prepared to discuss in class at the whiteboard how this experiement is related to the Weak Law of Large Numbers and the Central Limit Theorem. You'll need to find resources that define and explain these.
+
+# Sampling Distribution
+
+A **statistic** is a quantity that is calculated from a sample of a population. An example is the sample mean, usually denoted as $\overline{X}$.
+
+A **point estimate** is a statistic that is compute from a sample that is an estimate of a population parameter. If the population mean is $\mu$, then we use $\overline{X}$ as a point estimate of $\mu$.
+
+When we draw a sample from a population and compute a point estimate such as $\overline{X}$, we won't get exactly $\mu$. Each sample will vary a bit. A **sampling distribution** characterizes the distribution of values (histogram or probability distribution) of $\overline{X}$ that we would get if we took many independent samples and computed many $\overline{X}$s.
+
+We compute error bars based on the sampling distribution of point estimates.
+
+## Sampling Distribution of $\overline{X}$
+
+## Sampling Distribution of $S_b^2$
+
+You may have guessed that if a population of $N$ values has a variance of $\sigma^2$, where
+
+$$\sigma^2=\frac{1}{N}\sum_{i=1}^N(x_i-\mu)^2$$
+
+that a reasonable point estimate of $\sigma^2$ for a sample of $n$ values from the population is
+
+$$S_b^2=\frac{1}{n}\sum_{i=1}^n(x_i-\overline{X})^2$$
+
+To determine if this is the case,
+Demonstrate using a simulation that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$, and repeating $N_e=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values, and, in the title, display the average and variance of the $10,000$ $S_{b}^2$ values. Save your code as `HW3_3_2.py` and plot as `HW3_3_2.png`.
+
+Draw $n=10$ values from a normal distribution with $\mu=0$ and $\sigma^2=1$ and compute  $S_{b}^2$. Repeat this 10,000 times and plot the probability density function of $S_{b}^2$.
+On the plot title, show the average value of the 10,000 $S_{b}^2$ values (it should be slightly less than $\sigma^2$).
+
+The motivation for the subscript $b$ in $S_b^2$ is that $S_b^2$ is a **biased estimator** or $\sigma^2$. This concept will be discussed in the next class.
+
+# Quiz 1
+
+Study the cab example in the [Bayes' rule section of the notes](notes.html).
+
+At the start of the Sept. 3rd class, I will ask you to solve a similar problem without notes. This will be the first quiz. This quiz will not be graded. If you attend class, you'll get full credit.
+
+Problem given:
+
+* 2\% of the population has cancer
+* A screening test for cancer is correct 80\% of the time.
+* Your screening test claimed cancer.
+
+What is the probability that you actually have cancer?
+
+<details>
+<summary>Answer</summary>
+
+$$\frac{16}{196+16} = \frac{0.02\cdot 0.8}{0.02\cdot 0.8 + 0.98\cdot 0.2}\simeq 7.5{\%}$$
+
+where the first fraction is determined using Method II in the cab problem and the second using Method III.
+</details>
+
 # Quiz 2
 
 The quiz on Sept 10th will be on of the problems on counting that I covered in class (recall that there were three types: product rule, permutations, and combinations). The quiz will is closed book, closed notes, and closed computer and will be graded.
+
+# Quiz 3
+
