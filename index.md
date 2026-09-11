@@ -27,6 +27,25 @@ Quizzes:
 
 # Class Notes
 
+## September 10th
+
+* [Quiz 2](hw.html#quiz-2) on [Counting](notes.html#counting)
+* Student solutions to [HW 2.2](hw.html#hw-2)
+* Comments on [HW 1](hw.html#hw-1)
+* Review of probability mass functions
+* Discuss features of a distribution function: center, width, asymmetry, and tail thickness (kurtosis)
+* Two additional discrete distributions (already covered Binomial):
+  * Geometric probability mass function
+  * Poisson distribution and Poisson process: definition and derivation. Students suggest numerical experiment to explore.
+* Continuous random variables and distributions
+  * Gaussian
+  * Gaussian as limit of binomial: partial derivation and then students suggest numerical experiment to explore
+  * Student-t
+  * $\chi^2$
+* Law of Large Numbers -- Definition and numerical experiments
+* Central Limit Theorem -- Definition and numerical experiments
+* Remaining time for questions on [HW 2](hw.html#hw-1) problems
+
 ## September 3rd
 
 * [Quiz 1](hw.html#quiz-1) on [Bayes](notes.html#bayes-rule)

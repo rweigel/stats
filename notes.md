@@ -1199,29 +1199,112 @@ The Poisson process is a process that satisfies
 2.  the probability of exactly 1 event occurring in $\Delta t$ is equal to $\lambda \Delta t$, where $\lambda$ is a constant; and
 3.  any non-overlapping intervals of length $\Delta t$ are independent Bernoulli trials,
 
-the probability of $k$ events occurring in the time interval $t=N\Delta t$ is
+the probability of $k$ events occurring in the time interval $t=n\Delta t$ is
 
 $$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
 
-for sufficiently large $N$.
+for sufficiently large $n$.
 
 If $p$ is the probability of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
 
-$$P(k)=\frac{(p\frac{t}{\Delta t})^k e^{-p \frac{t}{\Delta t}}}{k!}$$
+$$P(x)=\frac{(p\frac{t}{\Delta t})^k e^{-p \frac{t}{\Delta t}}}{x!}$$
 
-Next, using the definition $t\equiv N\Delta t$,
+Next, using the definition $t\equiv n\Delta t$,
 
-$$P(k)=\frac{(p N)^k e^{-p N}}{k!}$$
+$$P(x)=\frac{(p n)^x e^{-p n}}{x!}$$
 
-The interpretation is that if the probability of a success in a trial is $p$, then the probability of $k$ successes in $N$ trials is $P(k)$. 
+The interpretation is that if the probability of a success in a trial is $p$, then the probability of $x$ successes in $N$ trials is $P(x)$. 
 
 A common use case for this equation is when an event takes a certain amount of time $\Delta t$ to occur (e.g., a hurricane or large solar flare). In this case, it makes sense to define a rate parameter which is the number events per unit time, which is $\lambda=p/\Delta t$, where $p$ is the probability of an event in $\Delta t$. This variable corresponds with how we would describe the probability of an event, e.g., on average 0.01 hurricanes occur per day or in 100 days, 1 hurricane will occur.
 
-It also makes sense to talk not about the number of "trials", but rather the number of $\Delta t$s, where each $\Delta t$ corresponds to a trial. In this case, we can define a time as $t=N\Delta t$. This definition allows us to say "given 0.01 hurricanes occur per day, what is the probability that 2 hurricanes occur in a month?".
+It also makes sense to talk not about the number of "trials", but rather the number of $\Delta t$s, where each $\Delta t$ corresponds to a trial. In this case, we can define a time as $t=n\Delta t$. This definition allows us to say "given 0.01 hurricanes occur per day, what is the probability that 2 hurricanes occur in a month?".
 
 
 ## Continuous Random Variables
 
-## Continuous Probability Distributions
+> A random variable is **continuous** if both of the following apply:
+> 1. Its set of possible values consists either of all numbers in a single interval on the number line (possibly infinite in extent, e.g., from $-\infty$ to $\infty$) or all numbers in a disjoint union of such intervals (e.g., [0, 10] $\cup$ [20, 30]).
+>
+> 2. No possible value of the variable has positive probability, that is, $P(X = c) = 0$ for any possible value $c$.
+>
+> (Devore p 95)
 
+## Continuous Probability Distribution
+
+The probability _density_ function (pdf) of a continuous random variable $X$ is a function $f(x)$ such that
+
+$$P(a\le x\le b) = \int_a^bf(x)dx$$
+
+Important: $f(x)$ is a density so it has units of [units of x]$^{-1}$.
+
+To be a pdf, it must have $f(x)\ge 0$ for all $x$ and $\int_{-\infty}^{\infty}f(x)dx =1$.
+
+## Continuous Expectation Values
+
+$$E[h(X)] = \int_{-\infty}^{\infty}h(x)f(x)dx$$
+
+## Continuous Probability Density Functions
+
+### Uniform
+
+$f(x) = 1/(b-a)$ if $a\le x\le b$
+
+$f(x) = 0$ otherwise
+
+**Example**
+
+Find $E[X^2]$ for Uniform distribution.
+
+<details><summary>Answer</summary>
+$h(x)=x^2$, so 
+
+$$E[X^2] = \int_{-\infty}^{\infty}x^2f(x)dx$$
+
+$$E[X^2] = \int_{a}^{b}x^2f(x)dx=(b^2-a^2)/2$$
+</details>
+
+### Gaussian or Normal
+
+$$f(x) = \frac{1}{\sqrt{2\pi\sigma}}e^{(x-\mu)^2/2\sigma^2}$$
+
+The "standard normal" is
+
+$$f(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$$
+
+can be obtained by defining $z=(x-\mu)/\sigma$.
+
+**Derivation as limiting case of Binomial**
+
+As $n\rightarrow \infty$, and for $x \ll np$,
+
+$$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(x-np)^2/2(npq)^2}$$
+
+where $q = 1-p$. Identifying $\sigma=npq$ and $\mu=np$ gives
+
+$${n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi\sigma}}e^{(x-\mu)^2/2\sigma^2}$$
+
+in the given limits.
+
+To motivate the limits $n\rightarrow \infty$ and $x \ll np$, consider $n=100$ and $x=10$ with $p=1/2$:
+
+$$b(x; n,p) = {100\choose 10}\frac{1}{2^{100}} = \frac{17310309456440}{1267650600228229401496703205376}\simeq 1.4\cdot 10^{-17}$$
+
+This was computed using
+```python
+import math
+print(math.comb(100, 10)/2**{100}) # 1.3655426387463099e-17
+```
+
+So we see that for for large $n$, the probability of $xp=10/2=5$ is small.
+
+Key steps:
+
+1. Recast as a random walk problem. Let $n$ be the total number of steps and $x$ be the number of left steps, $n_\text{left}$, that have a small probability $p$ such that $pn_\text{left}\ll n$. As in the example above, when $n=100$, the probability that at the $n$th step you are $x=10$ steps away from the staring point is small.
+2. Consider the difference $m=n_\text{right}-n_\text{left}$, which corresponds to the distance from the initial position.
+3. Use Stirling's approximation $n!\simeq n\ln n -n$
+4. Use $\ln(1+\epsilon)\simeq \epsilon$ for $\epsilon \ll 1$
+
+### Student-t
+
+### $\chi^2$
 
