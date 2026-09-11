@@ -404,47 +404,41 @@ The quiz on September 17th will involve sample code that uses `np.random.normal(
 
 Examples
 
-## 
+1. Given
 
-Given
-
-```python
-import numpy as np
-sample = np.random.normal(0, 1, 10)
-print(np.mean(sample))
+    ```python
+    import numpy as np
+    sample = np.random.normal(0, 1, 10)
+    print(np.mean(sample))
 ```
 
-1. How many elements are in `sample`?
-2. Modify this program so that you repeat the calculation of `sample` 10,000 times and store the mean of each sample in an `list` or `np.array`.
+    1. How many elements are in `sample`?
+    2. Modify this program so that you repeat the calculation of `sample` 10,000 times and store the mean of each sample in an `list` or `np.array`.
 
-## 
 
-What is printed when the following is executed?
+2. What is printed when the following is executed?
 
-```python
-import numpy as np
-arr = np.array([[1, 1, 1], [2, 2, 2]])
-print(np.mean(arr, axis=0))
-print(np.mean(arr, axis=1))
+    ```python
+    import numpy as np
+    arr = np.array([[1, 1, 1], [2, 2, 2]])
+    print(np.mean(arr, axis=0))
+    print(np.mean(arr, axis=1))
+    ```
+
+3. Given
+
+    ```python
+    import numpy as np
+    xbars = []
+    nbig = 0
+    for i in range(0, 1000):
+      sample = np.random.normal(0, 1, 10)
+      xbar = np.mean(sample)
+      xbars.append(xbar)
+      if xbar > 0.5:
+        nbig = nbig + 1
+    print(nbig)
 ```
 
-##
-
-Given
-
-```python
-import numpy as np
-
-xbars = []
-nbig = 0
-for i in range(0, 1000)
-  sample = np.random.normal(0, 1, 10)
-  xbar = np.mean(sample))
-  xbars.append(xbar)
-  if xbar > 0.5:
-     nbig = nbig + 1
-print(nbig)
-```
-
-1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
-2. Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value.
+    1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
+    2. Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value.

@@ -685,23 +685,6 @@
         <a href="#quiz-3">
           <span class="toctext">Quiz 3</span>
         </a>
-        <ol class="toc" style="display: none;">
-          <li>
-            <a href="#6.1">
-              <span class="toctext"></span>
-            </a>
-          </li>
-          <li>
-            <a href="#6.2">
-              <span class="toctext"></span>
-            </a>
-          </li>
-          <li>
-            <a href="#6.3">
-              <span class="toctext"></span>
-            </a>
-          </li>
-        </ol>
       </li>
     </ol>
   </div>
@@ -1549,63 +1532,62 @@ M834 80h400000v40h-400000z"></path>
       <div class="block">
         <p>Examples</p>
       </div>
-    </div>
-    <div class="section">
       <div class="block">
-        <h2><a name="6.1" class="anchor hanchor" href="#6.1"><span class="hnumber">6.1</span>&nbsp;<span class="htext"></span></a></h2>
-      </div>
-      <div class="block">
-        <p>Given</p>
-      </div>
-      <div class="block">
-        <pre class="language-python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code></div><div class="block"><code>sample = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>)</code></div><div class="block"><code>print(np.mean(sample))</code></div></pre>
-      </div>
-      <div class="block">
-        <ol class="compact">
+        <ol class="loose">
           <li>
             <div class="block">
-              <p>How many elements are in <code>sample</code>?</p>
+              <p>Given</p>
             </div>
-          </li>
-          <li>
             <div class="block">
-              <p>Modify this program so that you repeat the calculation of <code>sample</code> 10,000 times and store the mean of each sample in an <code>list</code> or <code>np.array</code>.</p>
+              <pre class="language-python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code></div><div class="block"><code>sample = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>)</code></div><div class="block"><code>print(np.mean(sample))</code></div></pre>
+            </div>
+            <div class="block">
+              <ol class="compact">
+                <li>
+                  <div class="block">
+                    <p>How many elements are in <code>sample</code>?</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>Modify this program so that you repeat the calculation of <code>sample</code> 10,000 times and store the mean of each sample in an <code>list</code> or <code>np.array</code>.</p>
+                  </div>
+                </li>
+              </ol>
             </div>
           </li>
         </ol>
       </div>
-    </div>
-    <div class="section">
       <div class="block">
-        <h2><a name="6.2" class="anchor hanchor" href="#6.2"><span class="hnumber">6.2</span>&nbsp;<span class="htext"></span></a></h2>
-      </div>
-      <div class="block">
-        <p>What is printed when the following is executed?</p>
-      </div>
-      <div class="block">
-        <pre class="language-python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code></div><div class="block"><code>arr = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>]])</code></div><div class="block"><code>print(np.mean(arr, axis=<span class="hljs-number">0</span>))</code></div><div class="block"><code>print(np.mean(arr, axis=<span class="hljs-number">1</span>))</code></div></pre>
-      </div>
-    </div>
-    <div class="section">
-      <div class="block">
-        <h2><a name="6.3" class="anchor hanchor" href="#6.3"><span class="hnumber">6.3</span>&nbsp;<span class="htext"></span></a></h2>
-      </div>
-      <div class="block">
-        <p>Given</p>
-      </div>
-      <div class="block">
-        <pre class="language-python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code><div class="line-number">1</div></div><div class="block"><code></code><div class="line-number">2</div></div><div class="block"><code>xbars = []</code><div class="line-number">3</div></div><div class="block"><code>nbig = <span class="hljs-number">0</span></code><div class="line-number">4</div></div><div class="block"><code><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1000</span>)</code><div class="line-number">5</div></div><div class="block"><code>  sample = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>)</code><div class="line-number">6</div></div><div class="block"><code>  xbar = np.mean(sample))</code><div class="line-number">7</div></div><div class="block"><code>  xbars.append(xbar)</code><div class="line-number">8</div></div><div class="block"><code>  <span class="hljs-keyword">if</span> xbar &gt; <span class="hljs-number">0.5</span>:</code><div class="line-number">9</div></div><div class="block"><code>     nbig = nbig + <span class="hljs-number">1</span></code><div class="line-number">10</div></div><div class="block"><code>print(nbig)</code><div class="line-number">11</div></div></pre>
-      </div>
-      <div class="block">
-        <ol class="compact">
+        <ol start="2" class="loose">
           <li>
             <div class="block">
-              <p>Modify this program so that it prints the number of times <code>|xbar| &gt; 0.1</code>.</p>
+              <p>What is printed when the following is executed?</p>
+            </div>
+            <div class="block">
+              <pre class="language-python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code></div><div class="block"><code>arr = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>]])</code></div><div class="block"><code>print(np.mean(arr, axis=<span class="hljs-number">0</span>))</code></div><div class="block"><code>print(np.mean(arr, axis=<span class="hljs-number">1</span>))</code></div></pre>
             </div>
           </li>
           <li>
             <div class="block">
-              <p>Given the list <code>xbars</code>, write a single command that prints the number of elements that are above <code>0.5</code>. That is, suppose the <code>if</code> statement was not used. What would you write in place of <code>print(nbig)</code> to get the same printed value.</p>
+              <p>Given</p>
+            </div>
+            <div class="block">
+              <pre class="language-python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code><div class="line-number">1</div></div><div class="block"><code>xbars = []</code><div class="line-number">2</div></div><div class="block"><code>nbig = <span class="hljs-number">0</span></code><div class="line-number">3</div></div><div class="block"><code><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1000</span>):</code><div class="line-number">4</div></div><div class="block"><code>  sample = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>)</code><div class="line-number">5</div></div><div class="block"><code>  xbar = np.mean(sample)</code><div class="line-number">6</div></div><div class="block"><code>  xbars.append(xbar)</code><div class="line-number">7</div></div><div class="block"><code>  <span class="hljs-keyword">if</span> xbar &gt; <span class="hljs-number">0.5</span>:</code><div class="line-number">8</div></div><div class="block"><code>    nbig = nbig + <span class="hljs-number">1</span></code><div class="line-number">9</div></div><div class="block"><code>print(nbig)</code><div class="line-number">10</div></div></pre>
+            </div>
+            <div class="block">
+              <ol class="compact">
+                <li>
+                  <div class="block">
+                    <p>Modify this program so that it prints the number of times <code>|xbar| &gt; 0.1</code>.</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <p>Given the list <code>xbars</code>, write a single command that prints the number of elements that are above <code>0.5</code>. That is, suppose the <code>if</code> statement was not used. What would you write in place of <code>print(nbig)</code> to get the same printed value.</p>
+                  </div>
+                </li>
+              </ol>
             </div>
           </li>
         </ol>

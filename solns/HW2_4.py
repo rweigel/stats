@@ -48,7 +48,17 @@ def p_expmt(x, nt, p, ne):
       nx += 1
 
   return nx/ne
+import numpy as np
 
+xbars = []
+nbig = 0
+for i in range(0, 1000):
+  sample = np.random.normal(0, 1, 10)
+  xbar = np.mean(sample)
+  xbars.append(xbar)
+  if xbar > 0.1:
+    nbig = nbig + 1
+print(nbig)
 
 P_exact = np.empty(nt)
 P_gauss = np.empty(nt)
