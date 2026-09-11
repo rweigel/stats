@@ -224,7 +224,7 @@ Save your answer as `HW2_3.pdf` and upload to GitHub.
 
 ## Binomial Distribution
 
-In [Devore 3.4](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/view?usp=sharing★★★★★remove★★★★★), an experiment that conforms to the Bernoulli trials constraints is referred to as a "Binomial Experiment."
+In Devore 3.4, an experiment that conforms to the Bernoulli trials constraints is referred to as a "Binomial Experiment."
 
 A Bernoulli trial has 
 
@@ -260,42 +260,30 @@ Save your code as `HW2_4.py` and the plot as `HW2_4.png`.
 
 ## Poisson Distribution
 
-The Poisson distribution can be derived as a limit of the Binomial distribution; see [Devore 3.6](https://drive.google.com/file/d/1szqKzodtocD8sMhvx7SzGJgqG-PNd2vb★★★★remove★★★★).
+The Poisson distribution can be derived as a limit of the Binomial distribution; see Devore 3.6 and your class notes.
 
 If
 
 1. in a sufficiently short amount of time, $\Delta t$, only 0 or 1 event can occur (two or more simultaneous events are impossible); and
 2. the probability of exactly one event occurring in $\Delta t$ is equal to $\lambda \Delta t$, where $\lambda$ is a constant.
 
-the probability of $k$ events occurring in the time interval $t=n\Delta t$ is
+the probability of $x$ events occurring in the time interval $t=n\Delta t$ is
 
-$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
+$$P(x)=\frac{(\lambda t)^x e^{-\lambda t}}{x!}$$
 
-for sufficiently large $n$. Said another way, if you measure events with a recording device, choose the sampling rate of the recording device to be small enough that two events never occur in the same $\Delta t$, and let the device record for a time of $t=n\Delta t$, the probability of recording $k$ events in a recording time of $t$ is given by the above formula. To estimate $\lambda$, one can use $p$ using $k/n$ and $\lambda = p/\Delta t$.
-
-In class, I derived the formula
-
-$$P(k)=\frac{\mu^k e^{-\mu}}{k!}$$
-
-where $\mu \equiv pn$.
-
-The two forms for $P(k)$ are related by using $t\equiv n\Delta t$, to give
-
-$$P(k)=\frac{\ds\left(p\frac{t}{\Delta t}\right)^k e^{-p\large\frac{t}{\Delta t}}}{k!}$$
-
-and $\lambda \equiv p/\Delta t$, which is the average number of events per $\Delta t$ to give
-
-$$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
+for sufficiently large $n$. Said another way, if you measure events with a recording device, choose the sampling rate of the recording device to be small enough that two events never occur in the same $\Delta t$, and let the device record for a time of $t=n\Delta t$, the probability of recording $x$ events in a recording time of $t$ is given by the above formula. To estimate $\lambda$, one can use $p$ using $x/n$ and $\lambda = p/\Delta t$.
 
 Use a random number generator to create a dataset that simulates the following result. Every hour, the number of x-ray flares is tabulated. It is found that over $1,000$ days, $900$ flares occurred so that the average probability of a flare in a given hour is $900/(1000\cdot 24)$.
 
+On previous homework problems, many of you have used `math.choice()` or `np.random.choice()` to create create a value or values by drawing a `0` with a probability `p` and a `1` with probability `q`. There is an alternative that I recommend from now on: [np.random.binomial()](https://numpy.org/doc/2.1/reference/random/generated/numpy.random.binomial.html).
+
 1. Plot
 
-   a. $P_S(k)$, the probability of $k$ flare events occurring **per day** for the **S**imulated dataset,
+   a. $P_S(x)$, the probability of $x$ flare events occurring **per day** for the **S**imulated dataset,
 
-   b. $P_P(k)$ expected from the equation above using the value of $\lambda$ computed based on the **P**oisson distribution equation above, and
+   b. $P_P(x)$ expected from the equation above using the value of $\lambda$ computed based on the **P**oisson distribution equation above, and
 
-   c. $P_B(k)$ expected from the **B**inomial distribution, from which the Poisson distribution was derived.
+   c. $P_B(x)$ expected from the **B**inomial distribution, from which the Poisson distribution was derived.
 
    Note that in class, we computed by hand $P_P(2)$ and $P_B(2)$, so use these values to check your plots for b. and c.
 
@@ -315,15 +303,15 @@ will be near the population average $\mu$ with a given probability. Given $n$ sa
 
 To answer the following questions, you do not need to understand the Law of Large Numbers. However, if you are interested, more formal definitions and proofs are given in [Orloff and Bloom, Reading 6b](https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading6b.pdf), [DeGroot, Chapter 6](https://drive.google.com/file/d/1FtvQS1303P_GA4aM3ZbQIGPbThTXmfpq/view?usp=sharing★★★★★remove★★★★★), and [Rozanov, p 69](https://drive.google.com/file/d/1ROIF0mLquDcoMGJtj5Oz93On_ATCcfmc/view?usp=drive_link★★★★★remove★★★★★). Note that there the definition of the law of large numbers is not consistent in these references.
 
-**a**
+###
 
 1. Draw $n=100$ values from a population of Gaussian-distributed numbers with mean $\mu=0$ and standard deviation $\sigma=1$.
 2. Compute $\overline{X}$.
-3. Repeat 1. and 2. $10,000$ times and plot a histogram of $\overline{X}$.
+3. Repeat 1. and 2. $10,000$ times and plot a probability density function of $\overline{X}$.
 
-Save your program as `HW2_3a.py` and the associated plot as `HW2_3a.png`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title and it should write the file `HW2_3a.png`.
+Save your program as `HW2_3_1.py` and the associated plot as `HW2_3_1.png`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title and it should write the file `HW2_3_1.png`.
 
-**b**
+###
 
 1. For $n=100$, what fraction of the $10,000$ $\overline{X}$s were in the range $[-0.01, 0.01]$?
 2. How does the fraction depend on $n$? <sup>+</sup>
@@ -333,11 +321,11 @@ Save your program as `HW2_3a.py` and the associated plot as `HW2_3a.png`. When I
 
 <sup>+</sup> You may explain this using one or more of words, tables, and plots.
 
-Save your program as `HW2_3b.py`. Save your answers in a file named `HW2_3b.pdf`.
+Save your program as `HW2_3_2.py`. Save your answers in a file named `HW2_3_2.pdf`, `HW2_3_2.txt`, or `HW2_3_2.md`. 
 
 **590 students**: Be prepared to discuss in class at the whiteboard how this experiement is related to the Weak Law of Large Numbers and the Central Limit Theorem. You'll need to find resources that define and explain these.
 
-# Sampling Distribution
+## Sampling Distribution
 
 A **statistic** is a quantity that is calculated from a sample of a population. An example is the sample mean, usually denoted as $\overline{X}$.
 
@@ -347,9 +335,27 @@ When we draw a sample from a population and compute a point estimate such as $\o
 
 We compute error bars based on the sampling distribution of point estimates.
 
-## Sampling Distribution of $\overline{X}$
+For these problems, I recommend using
 
-## Sampling Distribution of $S_b^2$
+```
+mu, sigma = 0, 0.1 # mean and standard deviation
+sample = np.random.normal(mu, sigma, n)
+```
+
+Optionally, if you read through the documentation for [`np.random.normal()`](https://numpy.org/doc/2.1/reference/random/generated/numpy.random.normal.html), you should see that you can create a $(n, ne)$ matrix with columns that correspond to a sample and rows that correspond to the values within a sample. If this is used, you can avoid using a `for` loop.
+
+### Sampling Distribution of $\overline{X}$
+
+1. Draw $n=10$ values from a normal distribution with $\mu=0$ and $\sigma^2=1$ and compute $\overline{X}$. Repeat this 10,000 times and plot the probability density function of $\overline{X}$. On the plot title, show the average value of the 10,000 $\overline{X}$ values.
+
+2. Of the 10,000 $\overline{X}$ values, what fraction was above $1/\sqrt{n}$? Add this fraction to the title of your previous plot.
+
+3. (590 only) Think of a numerical experiment that you can perform to determine how the fraction computed in part 2. depends on $n$. Create a plot that demonstrates the result of your experiment.
+
+4. (590 only) Repeat parts 1. and 2. using a uniform distribution in the range $[0,1]$ (use the `np.random.uniform()` function).
+
+
+### Sampling Distribution of $S_b^2$
 
 You may have guessed that if a population of $N$ values has a variance of $\sigma^2$, where
 
@@ -359,8 +365,7 @@ that a reasonable point estimate of $\sigma^2$ for a sample of $n$ values from t
 
 $$S_b^2=\frac{1}{n}\sum_{i=1}^n(x_i-\overline{X})^2$$
 
-To determine if this is the case,
-Demonstrate using a simulation that $S_{b}^2$ is biased by drawing $n=10$ values from at normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$, and repeating $N_e=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values, and, in the title, display the average and variance of the $10,000$ $S_{b}^2$ values. Save your code as `HW3_3_2.py` and plot as `HW3_3_2.png`.
+To determine if this is the case, sample $n=10$ values from a normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$, and repeating $N_e=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values, and, in the title, display the average and variance of the $10,000$ $S_{b}^2$ values. Save your code as `HW3_3_2.py` and plot as `HW3_3_2.png`.
 
 Draw $n=10$ values from a normal distribution with $\mu=0$ and $\sigma^2=1$ and compute  $S_{b}^2$. Repeat this 10,000 times and plot the probability density function of $S_{b}^2$.
 On the plot title, show the average value of the 10,000 $S_{b}^2$ values (it should be slightly less than $\sigma^2$).
@@ -395,3 +400,51 @@ The quiz on Sept 10th will be on of the problems on counting that I covered in c
 
 # Quiz 3
 
+The quiz on September 17th will involve sample code that uses `np.random.normal()` and other basic functions that have been used on homework problems to do a calculation. You will be expected to explain what the program is doing. The objective of this quiz is to ensure that you understand and can explain code that has been used in your solutions and my solutions.
+
+Examples
+
+## 
+
+Given
+
+```python
+import numpy as np
+sample = np.random.normal(0, 1, 10)
+print(np.mean(sample))
+```
+
+1. How many elements are in `sample`?
+2. Modify this program so that you repeat the calculation of `sample` 10,000 times and store the mean of each sample in an `list` or `np.array`.
+
+## 
+
+What is printed when the following is executed?
+
+```python
+import numpy as np
+arr = np.array([[1, 1, 1], [2, 2, 2]])
+print(np.mean(arr, axis=0))
+print(np.mean(arr, axis=1))
+```
+
+##
+
+Given
+
+```python
+import numpy as np
+
+xbars = []
+nbig = 0
+for i in range(0, 1000)
+  sample = np.random.normal(0, 1, 10)
+  xbar = np.mean(sample))
+  xbars.append(xbar)
+  if xbar > 0.5:
+     nbig = nbig + 1
+print(nbig)
+```
+
+1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
+2. Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value.
