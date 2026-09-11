@@ -258,6 +258,8 @@ Save your code as `HW2_4.py` and the plot as `HW2_4.png`.
 
 # HW 3
 
+Due on Friday, September 11th at noon. (Extra time because I posted late.)
+
 ## Poisson Distribution
 
 The Poisson distribution can be derived as a limit of the Binomial distribution; see Devore 3.6 and your class notes.
