@@ -977,6 +977,10 @@ $P(X \le 2) = 0.2 + 0.3 = 0.5$
 
 $P(X \le 3) = 0.2 + 0.3 + 0.5 = 1$
 
+**Plotting in Python**
+
+Generally people attempt to plot using Matplotlib's `plt.hist()`. This is good for a first look at data, but is rarely sufficient. See [pmf.py](notes/code/pmf.py) for suggestions.
+
 ## Discrete Expectation Values
 
 $E(h(X))$ or $E[h(x)]$ is the notation.
@@ -1026,7 +1030,9 @@ $E[(X-\mu)^2] = E[X^2] - \mu^2$
 
 ## Moment Generating Function
 
-(Not covered) A trick that allows one to quickly compute expection values of the form $E[X^k]$. Covered in Bulmer and Larson. The trick is to instead compute $E[e^{tX}]$. Once computed, it is easy to extract $E[X^k]$ from it.
+(Not covered) A trick that allows one to quickly compute expection values of the form $E[X^k]$. Covered in Bulmer and Larson. See also [Char](https://hansonchar.github.io/public/math/MGF.pdf).
+
+The trick is to instead compute $E[e^{tX}]$. Once computed, it is easy to extract $E[X^k]$ from it.
 
 Example:
 
@@ -1038,17 +1044,13 @@ $$M(t)=E[e^{tX}]=\sum_{x=0}^{n} e^{xt} {n\choose x} p^x q^{n-x} = \sum_{x=0}^{n}
 
 Using the identity
 
-$$(a+b)^n = \sum_{x=0}^{n} {n\choose x} a^x b^{n-x}$$
+$(a+b)^n = \sum_{x=0}^{n} {n\choose x} a^x b^{n-x}$
 
 with $a=pe^t$ and $b=q$ gives
 
-$$M(t)=E\left[e^{tX}\right]=(pe^t + q)^b$$
+$$M(t)=E[e^{tX}]=(pe^t + q)^b$$
 
 $$E[X] = \left. \frac{dM}{dt}\right |_{t=0} = \left . n(pe^t + q)^{n-1}p\right|_{t=0} = np(p+q)^{n-1}=np$$
-
-Higher order terms can be computed in a similar way, e.g.,
-
-$$E[X^2] =  \left. \frac{d^2 M}{dt^2}\right |_{t=0}$$
 
 To understand why this works, consider the Taylor series expansion of $e^{xt}$, which has terms of $xt$, $(xt)^2$, ....
 
@@ -1245,6 +1247,10 @@ $$E[h(X)] = \int_{-\infty}^{\infty}h(x)f(x)dx$$
 
 ## Continuous Probability Density Functions
 
+**Plotting in Python**
+
+Generally people attempt to plot using Matplotlib's `plt.hist()`. This is good for a first look at data, but is rarely sufficient. See [pdf.py](notes/code/pdf.py) for suggestions.
+
 ### Uniform
 
 $f(x) = 1/(b-a)$ if $a\le x\le b$
@@ -1275,7 +1281,7 @@ can be obtained by defining $z=(x-\mu)/\sigma$.
 
 **Derivation as limiting case of Binomial**
 
-As $n\rightarrow \infty$, and for $x \ll np$,
+As $n\rightarrow \infty$, and for $x \approx np$,
 
 $$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(x-np)^2/2(npq)^2}$$
 
@@ -1295,13 +1301,13 @@ import math
 print(math.comb(100, 10)/2**{100}) # 1.3655426387463099e-17
 ```
 
-So we see that for for large $n$, the probability of $xp=10/2=5$ is small.
+So we see that for large $n$, the probability of $xp=10/2=5$ is small.
 
 Key steps:
 
-1. Recast as a random walk problem. Let $n$ be the total number of steps and $x$ be the number of left steps, $n_\text{left}$, that have a small probability $p$ such that $pn_\text{left}\ll n$. As in the example above, when $n=100$, the probability that at the $n$th step you are $x=10$ steps away from the staring point is small.
-2. Consider the difference $m=n_\text{right}-n_\text{left}$, which corresponds to the distance from the initial position.
-3. Use Stirling's approximation $n!\simeq n\ln n -n$
+1. Recast as a random walk problem. Let $n$ be the total number of steps and $x$ be the number of left steps, $n_\text{left}$, that have a small probability $p$ such that $pn_\text{left}\ll n$.
+2. Consider the difference $m=n_\text{right}-n_\text{left}$, which corresponds to the distance from the initial position. In the example above, we had $n=100$ and $x=10$ had a small probability. This corresponds to $n_\text{left}=10$, $n_\text{right}=90$.
+3. Use Stirling's approximation $z!\simeq z\ln z - z$
 4. Use $\ln(1+\epsilon)\simeq \epsilon$ for $\epsilon \ll 1$
 
 ### Student-t
