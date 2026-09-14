@@ -1307,32 +1307,22 @@ can be obtained by defining $z=(x-\mu)/\sigma$.
 
 As $n\rightarrow \infty$, and for $x \approx np$,
 
-$$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(x-np)^2/2(npq)^2}$$
+$$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(x-np)^2/2npq}$$
 
-where $q = 1-p$. Identifying $\sigma=npq$ and $\mu=np$ gives
+where $q = 1-p$. Identifying $\sigma^2=npq$ and $\mu=np$ gives
 
 $${n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi\sigma}}e^{(x-\mu)^2/2\sigma^2}$$
 
 in the given limits.
 
-To motivate the limits $n\rightarrow \infty$ and $x \ll np$, consider $n=100$ and $x=10$ with $p=1/2$:
+Key steps for $p=1/2$ to show approximation:
 
-$$b(x; n,p) = {100\choose 10}\frac{1}{2^{100}} = \frac{17310309456440}{1267650600228229401496703205376}\simeq 1.4\cdot 10^{-17}$$
-
-This was computed using
-```python
-import math
-print(math.comb(100, 10)/2**{100}) # 1.3655426387463099e-17
-```
-
-So we see that for large $n$, the probability of $xp=10/2=5$ is small.
-
-Key steps:
-
-1. Recast as a random walk problem. Let $n$ be the total number of steps and $x$ be the number of left steps, $n_\text{left}$, that have a small probability $p$ such that $pn_\text{left}\ll n$.
-2. Consider the difference $m=n_\text{right}-n_\text{left}$, which corresponds to the distance from the initial position. In the example above, we had $n=100$ and $x=10$ had a small probability. This corresponds to $n_\text{left}=10$, $n_\text{right}=90$.
-3. Use Stirling's approximation $z!\simeq z\ln z - z$
+1. Recast as a random walk problem. Let $n$ be the total number of steps and $x$ be the number of left steps, $n_\text{L}$, and $n_\text{R}$ be the number of right steps.
+2. Consider the difference $\Delta=n_\text{right}-n_\text{left}$, which corresponds to the distance from the initial position and assume $\Delta/n \ll 1$.
+3. Use Stirling's approximation $\ln z!\simeq z\ln z - z + \ln\sqrt{2\pi n}$
 4. Use $\ln(1+\epsilon)\simeq \epsilon$ for $\epsilon \ll 1$
+
+See [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★) for the $p=1/2$ case and [[1]](https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf) and [[2]](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/) for general case.
 
 #### Student-t
 
