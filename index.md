@@ -20,12 +20,29 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 * **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in physics.
 
 HWs: 
-[1](hw.html#hw-1) | [2](hw.html#hw-2)
-
+[1](hw.html#hw-1) | [2](hw.html#hw-2) |
+[3](hw.html#hw-3)
 Quizzes:
-[1](hw.html#quiz-1)
+[1](hw.html#quiz-1) |
+[2](hw.html#quiz-2) |
+[3](hw.html#quiz-3)
 
 # Class Notes
+
+%## September 17th
+%## September 24th
+%## October 1st
+%## October 8th
+% Midterm?
+%## October 15th
+%## October 29th
+%## November 5th
+%## November 12th
+%## November 19th
+%## December 3rd
+%## December 10th
+%https://registrar.gmu.edu/fall-2026-final-exam-schedule/
+% 4:30 – 7:10 pm Same room
 
 ## September 10th
 

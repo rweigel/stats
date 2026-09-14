@@ -946,7 +946,9 @@ Example: If an experiment is to flip a coin until a $H$ is encountered, $\mathca
 
 > Any random variable whose only possible values are 0 and 1 is called a Bernoulli random variable. (Devore p 94)
 
-## Discrete Random Variables
+## Discrete
+
+### Random Variables
 
 > A **discrete** random variable is an rv whose possible values either constitute a finite set or else can be listed in an infinite sequence in which there is a first element, a second element, and so on ("countably" infinite).
 >
@@ -959,7 +961,7 @@ Example: If an experiment is to flip a coin until a $H$ is encountered, $\mathca
 
 A countably infinite set means one can match each element in the set to a natural number (0, 1, 2, ...). A non-countable set is the real numbers in the interval $[0, 1]$, as proved by [Cantor](https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument).
 
-## Discrete Probability Mass Distribution Definition
+### PMF Definition
 
 > The probability distribution or probability mass function (pmf) of a discrete rv is defined for every number $x$ by $p(x) = P(X=x) = P(\text{all } s \in \mathcal{S}: X(s)=x)$. 
 
@@ -977,7 +979,36 @@ $P(X \le 2) = 0.2 + 0.3 = 0.5$
 
 $P(X \le 3) = 0.2 + 0.3 + 0.5 = 1$
 
-## Discrete Expectation Values
+### Plotting
+
+Code for generating these plots: (pmf.py)[notes/code/pmf.py].
+
+----
+Bad example. Bin width is misleading.
+<img src="notes/code/pmf/pmf_bad_1.svg">
+
+----
+Bad example. Bins are not centered on integers.
+<img src="notes/code/pmf/pmf_bad_2.svg">
+
+----
+PMF showing relative frequency.
+<img src="notes/code/pmf/pmf_good_1a.svg">
+
+----
+Same as above, but using thin bars.
+<img src="notes/code/pmf/pmf_good_1b.svg">
+
+----
+PMF showing counts.
+<img src="notes/code/pmf/pmf_good_1c.svg">
+
+----
+An option for plotting two PMFs
+<img src="notes/code/pmf/pmf_good_1d.svg">
+
+
+### Expectation Values
 
 $E(h(X))$ or $E[h(x)]$ is the notation.
 
@@ -993,11 +1024,11 @@ $E[X^2]$ where $X$ is the random variable with pmf of $P(X=1) = 0.2$, $P(X=2) = 
 
 $E[X^2] = 1^2\cdot 0.2 + 2^2\cdot 0.3 + 3^2\cdot 0.5 = 10.9$
 
-### Mean
+#### Mean
 
 $h(x)=x$ and we define $\mu$ according to $E[X]=\mu$
 
-### Variance
+#### Variance
 
 $h(x)=(x-\mu)^2$ and we define $V$ and $\sigma_X$ according to $V(X)=\sigma_X^2 = E[(X-\mu)^2]$.
 
@@ -1024,39 +1055,11 @@ $E[2\mu X] = 2\mu E[X] = 2\mu^2$ gives
 $E[(X-\mu)^2] = E[X^2] - \mu^2$
 </details>
 
-## Moment Generating Function
-
-(Not covered) A trick that allows one to quickly compute expection values of the form $E[X^k]$. Covered in Bulmer and Larson. The trick is to instead compute $E[e^{tX}]$. Once computed, it is easy to extract $E[X^k]$ from it.
-
-Example:
-
-Let $M(t)=E[e^{tX}]$. Then $dM/dt|_{t=0}=E[X]$,  $d^2 M/dt^2|_{t=0}=E[X^2]$, ....
-
-For the binomial pmf
-
-$$M(t)=E[e^{tX}]=\sum_{x=0}^{n} e^{xt} {n\choose x} p^x q^{n-x} = \sum_{x=0}^{n} {n\choose x} (pe^t)^x q^{n-x}$$
-
-Using the identity
-
-$$(a+b)^n = \sum_{x=0}^{n} {n\choose x} a^x b^{n-x}$$
-
-with $a=pe^t$ and $b=q$ gives
-
-$$M(t)=E\left[e^{tX}\right]=(pe^t + q)^b$$
-
-$$E[X] = \left. \frac{dM}{dt}\right |_{t=0} = \left . n(pe^t + q)^{n-1}p\right|_{t=0} = np(p+q)^{n-1}=np$$
-
-Higher order terms can be computed in a similar way, e.g.,
-
-$$E[X^2] =  \left. \frac{d^2 M}{dt^2}\right |_{t=0}$$
-
-To understand why this works, consider the Taylor series expansion of $e^{xt}$, which has terms of $xt$, $(xt)^2$, ....
-
-## Discrete Probability Mass Functions
+### Important PMFs
 
 There are several key probability mass functions. For each distribution, we want to know properties such as its mean and variance.
 
-### Binomial
+#### Binomial
 
 > There are many experiments that conform either exactly or approximately to the following list of requirements:
 > 1. The experiment consists of a sequence of $n$ smaller experiments called trials, where $n$ is fixed in advance of the experiment.
@@ -1131,8 +1134,6 @@ $$C_{n,x}={n \choose x}$$
 
 See [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) and [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★).
 
-#### Derivation of Binomial Distribution
-
 General problem: Given $n$ objects, $x$ of one type and $n-x$ of another, what is the probability of each $C_{n,x}$?
 
 Recall the table
@@ -1173,12 +1174,11 @@ where the values after the semicolon are constants.
 [Derivation](https://personal.math.ubc.ca/~feldman/m302/binomial.pdf)
 
 
-### Hypergeometric
+#### Hypergeometric
 
-### Negative Binomial
+#### Negative Binomial
 
-### Poisson Distribution and Poisson Process
-
+#### Poisson Distribution and Poisson Process
 
 References
 
@@ -1219,8 +1219,9 @@ A common use case for this equation is when an event takes a certain amount of t
 
 It also makes sense to talk not about the number of "trials", but rather the number of $\Delta t$s, where each $\Delta t$ corresponds to a trial. In this case, we can define a time as $t=n\Delta t$. This definition allows us to say "given 0.01 hurricanes occur per day, what is the probability that 2 hurricanes occur in a month?".
 
+## Continuous
 
-## Continuous Random Variables
+### Random Variables
 
 > A random variable is **continuous** if both of the following apply:
 > 1. Its set of possible values consists either of all numbers in a single interval on the number line (possibly infinite in extent, e.g., from $-\infty$ to $\infty$) or all numbers in a disjoint union of such intervals (e.g., [0, 10] $\cup$ [20, 30]).
@@ -1229,7 +1230,7 @@ It also makes sense to talk not about the number of "trials", but rather the num
 >
 > (Devore p 95)
 
-## Continuous Probability Distribution
+### PDF Definition
 
 The probability _density_ function (pdf) of a continuous random variable $X$ is a function $f(x)$ such that
 
@@ -1239,13 +1240,42 @@ Important: $f(x)$ is a density so it has units of [units of x]$^{-1}$.
 
 To be a pdf, it must have $f(x)\ge 0$ for all $x$ and $\int_{-\infty}^{\infty}f(x)dx =1$.
 
-## Continuous Expectation Values
+### Plotting 
+
+A PDF is a continuous function. We approximate it by computing a histogram of data and as a piecewise continuous function.
+
+Code for generating these plots: (pdf.py)[notes/code/pdf.py].
+
+----
+Example of a bad Empirical PDF. Bins are not centered on "nice" numbers.
+<img src="notes/code/pdf/pdf_bad_1.svg">
+
+----
+
+Example of a good PDF. Bins are centered on "nice" number, and bin width is a "nice" number, so I can read off PDF value for $500\pm 5$ mm. Note that the vertical axis is not a probability - if I add the heights of the rectangles, I won't get $1.0$ unless the bin width happens to be $1.0$.
+<img src="notes/code/pdf/pdf_good_1a.svg">
+
+----
+
+Same as previous, but using `stairs()` plot. This is useful if you are comparing multiple PDFs.
+<img src="notes/code/pdf/pdf_good_1b.svg">
+
+----
+
+Same as previous, but converted to probability in bin by muliplying by bin width.
+<img src="notes/code/pdf/pdf_good_1c.svg">
+
+----
+Same as above, but converted to histogram by multiplying y values by number of measurements.
+<img src="notes/code/pdf/pdf_good_1d.svg">
+
+### Expectation Values
 
 $$E[h(X)] = \int_{-\infty}^{\infty}h(x)f(x)dx$$
 
-## Continuous Probability Density Functions
+### Important PDFs
 
-### Uniform
+#### Uniform
 
 $f(x) = 1/(b-a)$ if $a\le x\le b$
 
@@ -1263,7 +1293,7 @@ $$E[X^2] = \int_{-\infty}^{\infty}x^2f(x)dx$$
 $$E[X^2] = \int_{a}^{b}x^2f(x)dx=(b^2-a^2)/2$$
 </details>
 
-### Gaussian or Normal
+#### Gaussian or Normal
 
 $$f(x) = \frac{1}{\sqrt{2\pi\sigma}}e^{(x-\mu)^2/2\sigma^2}$$
 
@@ -1304,7 +1334,35 @@ Key steps:
 3. Use Stirling's approximation $n!\simeq n\ln n -n$
 4. Use $\ln(1+\epsilon)\simeq \epsilon$ for $\epsilon \ll 1$
 
-### Student-t
+#### Student-t
 
-### $\chi^2$
+#### $\chi^2$
+
+# Moment Generating Function
+
+(Not covered) A trick that allows one to quickly compute expection values of the form $E[X^k]$. Covered in Bulmer and Larson. The trick is to instead compute $E[e^{tX}]$. Once computed, it is easy to extract $E[X^k]$ from it.
+
+Example:
+
+Let $M(t)=E[e^{tX}]$. Then $dM/dt|_{t=0}=E[X]$,  $d^2 M/dt^2|_{t=0}=E[X^2]$, ....
+
+For the binomial pmf
+
+$$M(t)=E[e^{tX}]=\sum_{x=0}^{n} e^{xt} {n\choose x} p^x q^{n-x} = \sum_{x=0}^{n} {n\choose x} (pe^t)^x q^{n-x}$$
+
+Using the identity
+
+$$(a+b)^n = \sum_{x=0}^{n} {n\choose x} a^x b^{n-x}$$
+
+with $a=pe^t$ and $b=q$ gives
+
+$$M(t)=E\left[e^{tX}\right]=(pe^t + q)^b$$
+
+$$E[X] = \left. \frac{dM}{dt}\right |_{t=0} = \left . n(pe^t + q)^{n-1}p\right|_{t=0} = np(p+q)^{n-1}=np$$
+
+Higher order terms can be computed in a similar way, e.g.,
+
+$$E[X^2] =  \left. \frac{d^2 M}{dt^2}\right |_{t=0}$$
+
+To understand why this works, consider the Taylor series expansion of $e^{xt}$, which has terms of $xt$, $(xt)^2$, ....
 

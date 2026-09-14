@@ -2,8 +2,7 @@
 Motivation: Use of Matplotlib's plt.hist() rarely produces a plot that is good
 representation of data. In this script, several methods for computing the
 empirical probability mass function (PMF) of a dataset are implemented and
-visualized. To convert to a histogram (showing the count in each bin), multiply
-the PMF frequencies by the total number of observations.
+visualized.
 """
 
 def pmf(x, method='numpy'):
@@ -77,79 +76,77 @@ def pmf_test():
   print_pmfs(x)
 
 
+def annotate(xlabel, ylabel):
+  import matplotlib.pyplot as plt
+  plt.xlabel(xlabel)
+  plt.ylabel(ylabel)
+  plt.grid(True)
+
+
+def save(filename):
+  import matplotlib.pyplot as plt
+  plt.savefig(f"{filename}.svg", transparent=True)
+  plt.savefig(f"{filename}.png", dpi=300)
+  plt.close()
+
 def pmf_plot():
+  import numpy as np
   import matplotlib.pyplot as plt
 
-  x = [1, 2, 2, 3, 3, 3]
+  x = np.array([1, 2, 2, 3, 3, 3])
   unique_vals, frequencies = pmf(x)
 
-  if True:
-    plt.stem(unique_vals, frequencies, basefmt=" ")
-    plt.xlabel("Value")
-    plt.ylabel("Frequency")
-
-  if False:
-    # Acceptable alternative: bar plot with thin bars.
-    plt.bar(unique_vals, frequencies, width=0.1)
-    plt.xlabel("Value")
-    plt.ylabel("Frequency")
-
-  if False:
-    # To plot as a histogram, use
-    plt.stem(unique_vals, len(x) * frequencies, basefmt=" ")
-    plt.xlabel("Value")
-    plt.ylabel("# in bin")
-
-  if False:
-    # Plotting two PMFs
-    # If three PMFs, plot circles for all.
-    unique_vals2, frequencies2 = pmf([1, 1, 2, 3, 3, 4])
-    plt.bar(unique_vals2, frequencies2, width=0.1)
-    plt.plot(unique_vals, frequencies, 'r.', markersize=10)
-    plt.legend(["pmf 1", "pmf 2"])
-    plt.xlabel("Value")
-    plt.ylabel("Frequency")
-
-
-  # Important: Fractional x-values should not be labeled because they do not exist.
-  plt.xticks(unique_vals) # Set x-axis ticks to the unique values
-  # If there are too many unique values, the x-axis labels may overlap. In
-  # this case, set only every other tick label.
-  # plt.xticks(unique_vals[::2])
-
-  plt.grid(True)
-  plt.show()
-
-
-def pmf_plot_bad1():
-  import matplotlib.pyplot as plt
-
-  x = [1, 2, 2, 3, 3, 3]
-  unique_vals, frequencies = pmf(x)
+  # Bins make it look like values other than integers are present."
   plt.bar(unique_vals, frequencies)
-  plt.xlabel("Value")
-  plt.ylabel("Frequency")
-  plt.title("Bins make it look like values other than integers are present.")
-  plt.grid(True)
-  plt.show()
+  annotate("Value", "Frequency")
+  plt.title("Bin width makes it seem values other than integers are present.")
+  save("pmf/pmf_bad_1")
 
-
-def pmf_plot_bad2():
-  import matplotlib.pyplot as plt
-
-  x = [1, 2, 2, 3, 3, 3]
   plt.hist(x)
-  plt.xlabel("Value")
-  plt.ylabel("Frequency")
+  annotate("Value", "Frequency")
   # Note that the centering issue can be resolved using align='mid', but
   # few people find this.
   plt.title("Bins are not centered on integer values!")
-  plt.grid(True)
-  plt.show()
+  save("pmf/pmf_bad_2")
+
+  plt.stem(unique_vals, frequencies, basefmt=" ")
+  annotate("Value", "Frequency")
+  # Important: Fractional x-values should not be labeled because they do not exist.
+  # If there are too many unique values, the x-axis labels may overlap. In
+  # this case, set only every other tick label.
+  # plt.xticks(unique_vals[::2])
+  plt.xticks(unique_vals) # Set x-axis ticks to the unique values
+
+  save("pmf/pmf_good_1a")
+
+  # Acceptable alternative: bar plot with thin bars.
+  plt.bar(unique_vals, frequencies, width=0.1)
+  annotate("Value", "Frequency")
+  plt.xticks(unique_vals) # Set x-axis ticks to the unique values
+  save("pmf/pmf_good_1b")
+
+  # To plot as a histogram, use
+  plt.stem(unique_vals, len(x)*frequencies, basefmt=" ")
+  annotate("Value", "count")
+  plt.xticks(unique_vals) # Set x-axis ticks to the unique values
+  # Make y-ticks integer values
+  plt.yticks(range(int(len(x)*max(frequencies))+1))
+  # Manual:
+  #plt.yticks([0, 1, 2, 3])
+  save("pmf/pmf_good_1c")
+
+  # Plotting two PMFs
+  # If three PMFs, plot circles for all.
+  unique_vals2, frequencies2 = pmf([1, 1, 2, 3, 3, 4])
+  plt.bar(unique_vals2, frequencies2, width=0.1)
+  plt.plot(unique_vals, frequencies, 'r.', markersize=10)
+  unique_vals_union = list(set(unique_vals) | set(unique_vals2))
+  plt.xticks(unique_vals_union) # Set x-axis ticks to union of unique values
+  plt.legend(["pmf 1", "pmf 2"])
+  annotate("Value", "Frequency")
+  save("pmf/pmf_good_1d")
 
 
 if __name__ == "__main__":
   pmf_test()
   pmf_plot()
-  #pmf_plot_bad1()
-  #pmf_plot_bad2()
