@@ -464,6 +464,16 @@ where the first fraction is determined using Method II in the cab problem and th
 
 The quiz on Sept 10th will be on of the problems on counting that I covered in class (recall that there were three types: product rule, permutations, and combinations). The quiz will is closed book, closed notes, and closed computer and will be graded.
 
+26 cards labeled A, B, ..., Z.
+
+1. If order hatters, how many draws of 3 cards are possible? (That is, ABC and BAC are different draws.)
+2. If order does not matter, how many draws of 3 cards are possible? (That is, ABC and BAC are considered to be the same draw.)
+
+<details><summary></summary>
+1. $26\cdot 25\cdot 24$
+2. $26\cdot 25\cdot 24/3!$
+</details>
+
 # Quiz 3
 
 The quiz on September 17th will involve sample code that uses `np.random.normal()` and other basic functions that have been used on homework problems to do a calculation. You will be expected to explain what the program is doing. The objective of this quiz is to ensure that you understand and can explain code that has been used in your solutions and my solutions.
