@@ -981,7 +981,7 @@ $P(X \le 3) = 0.2 + 0.3 + 0.5 = 1$
 
 ### Plotting
 
-Code for generating these plots: (pmf.py)[notes/code/pmf.py].
+Code for generating these plots: [pmf.py](notes/code/pmf.py).
 
 ----
 Bad example. Bin width is misleading.
@@ -1244,7 +1244,7 @@ To be a pdf, it must have $f(x)\ge 0$ for all $x$ and $\int_{-\infty}^{\infty}f(
 
 A PDF is a continuous function. We approximate it by computing a histogram of data and as a piecewise continuous function.
 
-Code for generating these plots: (pdf.py)[notes/code/pdf.py].
+Code for generating these plots: [pdf.py](notes/code/pdf.py).
 
 ----
 Example of a bad Empirical PDF. Bins are not centered on "nice" numbers.
