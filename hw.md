@@ -137,7 +137,7 @@ Save your answer in a file named `HW1_3.pdf`.
     ```
 2. $3$ by inspection of the table above. Also, suppose that we have three unique coins $T$, $H_1$, and $H_2$. There are $3!$ unique permutations. If we drop the subscripts, then the number of unique permutations is divided by 2. So $3!/2=3$.
 
-3. By inspection of the list from 1., $A \cup B = 6$ and  $A \cap B = \emptyset$.
+3. By inspection of the list from 1., $A \cup B = $ {$HHT, HTH, HTT, THH, THT, TTH$} and  $A \cap B = \emptyset$.
 
 In the above, I assumed "experiement yields two heads" to mean "the experiment yielded exactly two heads" and not "the experiement yielded two or more heads".
 </details>
@@ -302,7 +302,7 @@ $$P(x)={n \choose x}p^x(1-p)^{n-x}$$
 
 1. Use a random number generator to simulate 10,000 Binomial experiments with $n=100$ and $p=0.4$ and plot $P(x)$. That is, execute 10,000 experiments in which the experiment is selecting 100 values from the list `[0, 1]` with the probability of selecting a $1$ being $p$. On the same axes, plot $P(x)$ expected from the equation above using the given $n$ and $p$. 
 
-2. In the next class, I'll show that as $n\rightarrow \infty$, and for $x \ll np$,
+2. In the next class, I'll show that as $n\rightarrow \infty$, and for $x \approx np$,
 
    $$P(x)\rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(x-np)^2/2npq}$$
 
@@ -463,6 +463,16 @@ where the first fraction is determined using Method II in the cab problem and th
 # Quiz 2
 
 The quiz on Sept 10th will be on of the problems on counting that I covered in class (recall that there were three types: product rule, permutations, and combinations). The quiz will is closed book, closed notes, and closed computer and will be graded.
+
+26 cards labeled A, B, ..., Z.
+
+1. If order hatters, how many draws of 3 cards are possible? (That is, ABC and BAC are different draws.)
+2. If order does not matter, how many draws of 3 cards are possible? (That is, ABC and BAC are considered to be the same draw.)
+
+<details><summary></summary>
+1. $26\cdot 25\cdot 24$
+2. $26\cdot 25\cdot 24/3!$
+</details>
 
 # Quiz 3
 

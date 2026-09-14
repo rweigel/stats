@@ -21,7 +21,6 @@ if slow_method:
     # Relative frequency is (number of 1s) / (total number of experiments)
     r_f.append(n_1 / n)
 
-
     if n < 10:
       print(f"n = {n} experiments. P_H = {n_1 / n}")
     if n in [10, 100, 1000]:
@@ -34,6 +33,16 @@ else:
   print(f"Fast method. N = {n_max}")
   N = np.arange(1, n_max + 1)
   r_f = np.cumsum(np.random.choice([0, 1], n_max)) / N
+
+  # Explanation:
+  #   np.random.choice([0, 1], n_max) creates an array of 0s and 1s with equal probability
+  #   np.cumsum counts the cumulative number of 1s in the array
+  #   Example:
+  #     np.random.choice([0, 1], n_max) = [0, 1, 0, 1, ...]
+  #     np.cumsum([0, 1, 0, 1, ...]) = [0, 1, 1, 2, ...]
+  #     Each element of the cumsum is the cumulative number of 1s up to that point
+  #     Dividing each element by its corresponding index in N gives the relative
+  #     frequency of 1s at each experiment.
 
 from matplotlib import pyplot as plt
 plt.rcParams["font.family"] = "Times New Roman"

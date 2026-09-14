@@ -1305,7 +1305,7 @@ can be obtained by defining $z=(x-\mu)/\sigma$.
 
 **Derivation as limiting case of Binomial**
 
-As $n\rightarrow \infty$, and for $x \ll np$,
+As $n\rightarrow \infty$, and for $x \approx np$,
 
 $$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(x-np)^2/2(npq)^2}$$
 
@@ -1325,13 +1325,13 @@ import math
 print(math.comb(100, 10)/2**{100}) # 1.3655426387463099e-17
 ```
 
-So we see that for for large $n$, the probability of $xp=10/2=5$ is small.
+So we see that for large $n$, the probability of $xp=10/2=5$ is small.
 
 Key steps:
 
-1. Recast as a random walk problem. Let $n$ be the total number of steps and $x$ be the number of left steps, $n_\text{left}$, that have a small probability $p$ such that $pn_\text{left}\ll n$. As in the example above, when $n=100$, the probability that at the $n$th step you are $x=10$ steps away from the staring point is small.
-2. Consider the difference $m=n_\text{right}-n_\text{left}$, which corresponds to the distance from the initial position.
-3. Use Stirling's approximation $n!\simeq n\ln n -n$
+1. Recast as a random walk problem. Let $n$ be the total number of steps and $x$ be the number of left steps, $n_\text{left}$, that have a small probability $p$ such that $pn_\text{left}\ll n$.
+2. Consider the difference $m=n_\text{right}-n_\text{left}$, which corresponds to the distance from the initial position. In the example above, we had $n=100$ and $x=10$ had a small probability. This corresponds to $n_\text{left}=10$, $n_\text{right}=90$.
+3. Use Stirling's approximation $z!\simeq z\ln z - z$
 4. Use $\ln(1+\epsilon)\simeq \epsilon$ for $\epsilon \ll 1$
 
 #### Student-t
