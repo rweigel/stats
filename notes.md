@@ -1303,7 +1303,7 @@ $$f(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$$
 
 can be obtained by defining $z=(x-\mu)/\sigma$.
 
-**Derivation as limiting case of Binomial**
+**Limiting case of Binomial**
 
 As $n\rightarrow \infty$, and for $x \approx np$,
 
@@ -1315,14 +1315,109 @@ $${n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi\sigma}}e^{(x-\mu)^2
 
 in the given limits.
 
-Key steps for $p=1/2$ to show approximation:
+<details><summary>Derivation</summary>
+Key steps for $p=1/2$ to show the approximation:
 
-1. Recast as a random walk problem. Let $n$ be the total number of steps and $x$ be the number of left steps, $n_\text{L}$, and $n_\text{R}$ be the number of right steps.
-2. Consider the difference $\Delta=n_\text{right}-n_\text{left}$, which corresponds to the distance from the initial position and assume $\Delta/n \ll 1$.
-3. Use Stirling's approximation $\ln z!\simeq z\ln z - z + \ln\sqrt{2\pi n}$
-4. Use $\ln(1+\epsilon)\simeq \epsilon$ for $\epsilon \ll 1$
+1. Recast as a random walk problem. Let $n$ be the total number of steps, $x=n_\text{r}$ the number of right steps, and $n_\text{l}$ the number of left steps.
+2. Consider the difference $\Delta=n_\text{r}-n_\text{l}$, which corresponds to the distance from the initial position, and assume $\Delta/n \ll 1$. With this definition,
 
-See [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★) for the $p=1/2$ case and [[1]](https://probability.oer.math.uconn.edu/wp-content/uploads/sites/2187/2018/01/prob3160ch9.pdf) and [[2]](https://openpress.usask.ca/introtoappliedstatsforpsych/chapter/5-2-the-normal-distribution-as-a-limit-of-binomial-distributions/) for general case.
+   $$n_\text{r}=\frac{n+\Delta}{2}=\frac{n}{2}\left(1+\frac{\Delta}{n}\right)$$
+
+   and
+
+   $$n_\text{l}=\frac{n-\Delta}{2}=\frac{n}{2}\left(1-\frac{\Delta}{n}\right)$$
+3. Use Stirling's approximation $\ln z!\simeq z\ln z - z + \ln\sqrt{2\pi z}$
+4. Use $\ln(1+\epsilon)\simeq \epsilon-\displaystyle\frac{\epsilon^2}{2}$ for $\epsilon \ll 1$
+
+Recasting the problem using 3.,
+
+$$\ln{n\choose x} = \ln\frac{n!}{n_\text{l}!\,n_\text{r}!} = \ln n! - \ln n_\text{l}! - \ln n_\text{r}!$$
+
+Stirling's approximation on each term is
+
+$$
+\begin{aligned}
+\phantom{-}\ln n! &= \phantom{-}\ln\sqrt{2\pi n} + n\ln n - n\\
+-\ln n_\text{r}! &= -\ln\sqrt{2\pi n_\text{r}} - n_\text{r}\ln n_\text{r} + n_\text{r}\\
+-\ln n_\text{l}! &= -\ln\sqrt{2\pi n_\text{l}} - n_\text{l}\ln n_\text{l} + n_\text{l}
+\end{aligned}
+$$
+
+The linear terms cancel, since $-n+n_\text{r}+n_\text{l}=0$. The square-root terms, with $n_\text{r}\simeq n_\text{l}\simeq n/2$, add to
+
+$$\ln\sqrt{2\pi n}-\ln\sqrt{\pi n}-\ln\sqrt{\pi n} = \ln\sqrt{\frac{2}{\pi n}}$$
+
+The inner terms add to
+
+$$
+\begin{aligned}
+n\ln n - n_\text{r}\ln n_\text{r} - n_\text{l}\ln n_\text{l} &= (n_\text{r}+n_\text{l})\ln n - n_\text{r}\ln n_\text{r} - n_\text{l}\ln n_\text{l}\\
+&= n_\text{r}\ln n - n_\text{r}\ln n_\text{r} + n_\text{l}\ln n - n_\text{l}\ln n_\text{l}\\
+&= -n_\text{r}\ln\frac{n_\text{r}}{n} - n_\text{l}\ln\frac{n_\text{l}}{n}
+\end{aligned}
+$$
+
+Using
+
+$\displaystyle n_\text{r}=\frac{n}{2}\left(1+\frac{\Delta}{n}\right)$ and
+$\displaystyle n_\text{l}=\frac{n}{2}\left(1-\frac{\Delta}{n}\right)$
+
+gives
+
+$$n_\text{r}\ln\frac{n_\text{r}}{n}+n_\text{l}\ln\frac{n_\text{l}}{n} = \frac{n}{2}\left(1+\frac{\Delta}{n}\right)\ln\left[\frac{1}{2}\left(1+\frac{\Delta}{n}\right)\right] +
+\frac{n}{2}\left(1-\frac{\Delta}{n}\right)\ln \left[\frac{1}{2}\left(1-\frac{\Delta}{n}\right)\right]$$
+
+The first term
+
+$$\frac{n}{2}\left(1+\frac{\Delta}{n}\right)\ln\left[\frac{1}{2}\left(1+\frac{\Delta}{n}\right)\right] = \frac{n}{2}\left(1+\frac{\Delta}{n}\right)\left[-\ln 2 + \ln \left(1+\frac{\Delta}{n}\right)\right]$$
+
+The second term
+
+$$\frac{n}{2}\left(1-\frac{\Delta}{n}\right)\ln\left[\frac{1}{2}\left(1-\frac{\Delta}{n}\right)\right] = \frac{n}{2}\left(1-\frac{\Delta}{n}\right)\left[-\ln 2 + \ln \left(1-\frac{\Delta}{n}\right)\right]$$
+
+Adding, the $\ln 2$ pieces give $-n\ln 2$ and the rest gives
+
+$$n_\text{r}\ln\frac{n_\text{r}}{n}+n_\text{l}\ln\frac{n_\text{l}}{n} = -n\ln 2 + \frac{n}{2}\left[\left(1+\frac{\Delta}{n}\right)\ln\left(1+\frac{\Delta}{n}\right) + \left(1-\frac{\Delta}{n}\right)\ln\left(1-\frac{\Delta}{n}\right)\right]$$
+
+Using
+
+$$\ln \left(1+\frac{\Delta}{n}\right)\simeq \frac{\Delta}{n} - \frac{\Delta^2}{2n^2}$$
+
+and
+
+$$\ln \left(1-\frac{\Delta}{n}\right)\simeq -\frac{\Delta}{n} - \frac{\Delta^2}{2n^2}$$
+
+the bracket reduces to $\Delta^2/n^2$, so
+
+$$n_\text{r}\ln\frac{n_\text{r}}{n}+n_\text{l}\ln\frac{n_\text{l}}{n}= -n\ln 2 + \frac{\Delta^2}{2n}$$
+
+and the inner terms, which carry the opposite sign, give $n\ln 2 - \dfrac{\Delta^2}{2n}$.
+
+So finally
+
+$$\ln{n\choose x} \simeq \ln\sqrt{\frac{2}{\pi n}} + n\ln 2 - \frac{\Delta^2}{2n}$$
+
+$$\ln{n\choose x} \simeq \ln \left(2^n\sqrt{\frac{2}{\pi n}}e^{-\frac{\Delta^2}{2n}}\right)$$
+
+$${n\choose x} \simeq 2^n\sqrt{\frac{2}{\pi n}}e^{-\frac{\Delta^2}{2n}}$$
+
+Earlier we claimed
+
+$${n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(x-np)^2/2npq}$$
+
+Using $p=q=1/2$, so $npq=n/4$, gives
+
+$${n\choose x}\frac{1}{2^n} \rightarrow \frac{1}{\sqrt{2\pi (n/4)}} e^{-(x-n/2)^2/(n/2)}$$
+
+or
+
+$${n\choose x} \rightarrow 2^n\sqrt{\frac{2}{\pi n}} e^{-(x-n/2)^2/(n/2)}$$
+
+which agrees with the result above, since $\Delta = 2x-n$ makes $(x-n/2)^2/(n/2) = \Delta^2/2n$.
+
+The derivation for the general case requires the assumption $(x-np)/n$ is small.
+
+</details>
 
 #### Student-t
 
