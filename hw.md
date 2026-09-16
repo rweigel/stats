@@ -382,7 +382,7 @@ Save your program as `HW2_3_1.py` and the associated plot as `HW2_3_1.png`. When
 1. For $n=100$, what fraction of the $10,000$ $\overline{X}$s were in the range $[-0.01, 0.01]$?
 2. How does the fraction depend on $n$? <sup>+</sup>
 3. For $n=100$, what is the range $[-\epsilon,\epsilon]$ for which $99$% of the $10,000$ $\overline{X}$s fall in? 
-4. How does $\epsilon$ depend on $n$? <sup>+</sup>
+4. How does $\epsilon$ depend on $n$ (for the 99% case of part 3.)? <sup>+</sup>
 5. How does your answer change if the distribution changes (that is, if you draw values from a distribution other than Gaussian)?
 
 <sup>+</sup> You may explain this using one or more of words, tables, and plots.
