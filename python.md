@@ -334,7 +334,7 @@ print(s) # '8 9'
 
 replaces `{0}` with the first argument to `format` (the `a`) and `{1}` with the second argument to `format` (the `b`). The curly braces indicate something to be substituted and an integer in the braces indicate which argument to the `format` function is to be substituted. 
 
-In contrast to the `append`method described in [Methods](#Methods), which returns a value that is usally ignored, the `format` method returns the formatted string.
+In contrast to the `append`method described in [Methods](#methods), which returns a value that is usally ignored, the `format` method returns the formatted string.
 
 In the following, the value of `b` is shown twice followed by the value of `a` twice.
 
@@ -2145,7 +2145,7 @@ plt.plot(y, '*') # Stars
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VII.py.png"></img>
 
 Marker colors may be specified using the same syntax as the line color
 
@@ -2156,7 +2156,7 @@ plt.plot(y, '*', color=[0.5, 0.5, 0.5]) # Gray stars
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VIII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VIII.py.png"></img>
 
 The marker size may be specified using `markersize` keyword
 
@@ -2167,7 +2167,7 @@ plt.plot(y, '*', markersize=10)
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IX.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IX.py.png"></img>
 
 ## Style Combinations
 
@@ -2179,7 +2179,7 @@ y = [1, 4, 16, 32]
 plt.plot(y, 'r-', linewidth=3)
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XII.py.png"></img>
 
 To create a red solid line that connects points in `y` and to show stars at the points, use `r*-`
 
@@ -2192,7 +2192,7 @@ plt.plot(y, color='r', linestyle='solid',
          marker='*', linewidth=3, markersize=10)
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XIII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XIII.py.png"></img>
 
 ## Multiple lines and legends
 
@@ -2208,9 +2208,9 @@ plt.legend(['A', 'B'])
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XV.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XV.py.png"></img>
 
-To set the legend location, use the `loc` keyword. See `help(plt.legend)` or [https://matplotlib.org/users/legend_guide.html] for other options:
+To set the legend location, use the `loc` keyword. See `help(plt.legend)` or https://matplotlib.org/users/legend_guide.html for other options:
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2222,7 +2222,7 @@ plt.legend(['A', 'B'], loc='upper left')
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVI.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVI.py.png"></img>
 
 ## Axis Tick Numbers
 
@@ -2238,7 +2238,7 @@ plt.show()
 
 To modify the y-position labels, use `yticks` instead of `xticks`.
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVII.py.png"></img>
 
 ## Axis Limits
 
@@ -2255,7 +2255,7 @@ plt.show()
 
 To modify the y-axis limits, use `ylim`.
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVIII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVIII.py.png"></img>
 
 ## `imshow`
 
@@ -2596,7 +2596,7 @@ import numpy as np
 print(np.pi) # Prefix Numpy usage with np
 ```
 
-As with [Matplotlib's](#Matplotlib) import statement, the last string, in this case `np`, can vary
+As with [Matplotlib's](#matplotlib) import statement, the last string, in this case `np`, can vary
 
 ```Python
 import numpy as npy # Sometimes npy used instead of np
