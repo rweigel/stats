@@ -322,7 +322,7 @@ Save your code as `HW2_4.py` and the plot as `HW2_4.png`.
 
 # HW 3
 
-Due on Friday, September 11th at noon. (Extra time because I posted late.)
+Due on Friday, September 18th at noon. (Extra time because I posted late.)
 
 ## Poisson Distribution
 
