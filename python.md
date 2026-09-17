@@ -334,7 +334,7 @@ print(s) # '8 9'
 
 replaces `{0}` with the first argument to `format` (the `a`) and `{1}` with the second argument to `format` (the `b`). The curly braces indicate something to be substituted and an integer in the braces indicate which argument to the `format` function is to be substituted. 
 
-In contrast to the `append`method described in [Methods](#Methods), which returns a value that is usally ignored, the `format` method returns the formatted string.
+In contrast to the `append`method described in [Methods](#methods), which returns a value that is usally ignored, the `format` method returns the formatted string.
 
 In the following, the value of `b` is shown twice followed by the value of `a` twice.
 
@@ -824,9 +824,6 @@ Suppose that you want to compute the population in year `1000` and don't want to
 
 A `for` loop is short-hand syntax that allows you to re-write a set of statements as something that (usually) requires fewer lines.
 
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="220px" |
 Long-hand pattern:
 ```Python
 P = 2*P
@@ -834,13 +831,13 @@ P = 2*P
 P = 2*P
 P = 2*P
 ``` 
-|style="vertical-align:top"|
+
 Short-hand using `for loop`:
 ```Python
 for i in [0,1,2,3]: # Line A.
   P = 2*P           # Line B.
 ``` 
-|}
+
 
 The lines in this statement are interpreted as:
 * Line A: Set an '''index variable''' `i` to the first value in the array `[0,1,2,3]`. Note that an index variable does not always have to be `i`. As long as it is a valid variable, it can be used as an index variable. For example, `m, n, b1, J, etc.` would all be valid names for an index variable. 
@@ -852,9 +849,6 @@ In this example, there was only one indented line after the `for` line. This is 
 
 This is an example of replacing a basic pattern with a `for` loop. Note that the first line does not fit the pattern and cannot be shortened.
 
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="220px" |
 Original program:
 ```Python
 P = 10
@@ -863,14 +857,13 @@ P = 2*P
 P = 2*P
 P = 2*P
 ```
-|style="vertical-align:top"|
+
 Shorthand using `for loop`:
 ```Python
 P = 10
 for i in [1,2,3,4]:
   P = 2*P
 ```
-|}
 
 What will happen if you replace `i in [0,1,2,3]` with `i in [7,8,9,10]` or `i in [1,3,5,7]`?
 
@@ -886,9 +879,6 @@ As we will see, if the body of the `for` loop includes a reference to `i`, the r
 
 ## Basic Pattern Example I
 
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top"  width="33%" |
 Original program:
 ```Python
 x = 10
@@ -898,7 +888,7 @@ x = x + 1
 x = x + 1
 x = x + 13
 ```
-|style="vertical-align:top"  width="33%" |
+
 The middle `x=x+1` statements are repeated four times, so they can be re-written using a `for` loop:
 ```Python
 x = 10
@@ -906,7 +896,7 @@ for i in [0,1,2,3]:
   x = x+1
 x = x + 13
 ```
-|style="vertical-align:top"  width="33%" |
+
 This will give the same result:
 ```Python
 x = 10
@@ -915,13 +905,9 @@ for i in [1,5,10,20]:
 end
 x = x + 13
 ```
-|}
 
 ## Basic Pattern Example II
 
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="33%" |
 Original program:
 ```Python
 a = 0
@@ -930,23 +916,25 @@ a = z+1
 z = a+1
 a = z+1
 ```
-|style="vertical-align:top"  width="30%" |
+
 In this case, there are pairs of repeated lines, so there are two lines in the body of the `for` loop: 
+
 ```Python
 a = 0
 for i in [1,2]:
   z = a+1
   a = z+1
 ```
-|style="vertical-align:top "  width="33%" |
+
 A change in values of list associated with the index variable will give the same result:
+
 ```Python
 a = 0
 for i in [99,101]:
   z = a+1
   a = z+1
 ```
-|}
+
 
 ## For Loop General Pattern
 
@@ -972,14 +960,12 @@ That is, prior to executing the commands in the body of the `for` loop, Python i
 ## General Pattern Example I
 
 The set of commands on the left are equivalent to the set of commands on the right.
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="50%"|
+
 ```Python
 for i in [1,2,3,4]:
   a = i*i
 ```
-|style="vertical-align:top"|
+
 ```Python
 i = 1
 a = i*i
@@ -990,17 +976,15 @@ a = i*i
 i = 4
 a = i*i
 ```
-|}
+
 
 The set of commands on the left are equivalent to the set of commands on the right. Note that because the index variable `i` appears in the body of the `for` loop, their actual values matter; a different set of four numbers in the list associated with `i` will give differents values for `a`.
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="50%"|
+
 ```Python
 for i in [10,11,12,14]:
   a = i*i
 ```
-|style="vertical-align:top"|
+
 ```Python
 i = 10
 a = i*i
@@ -1011,14 +995,12 @@ a = i*i
 i = 14
 a = i*i
 ```
-|}
+
 
 ## General Pattern Example II
 
 In this example, the first two lines do not fit a pattern, but the rest follows the pattern of an index variable being assigned a value and then a statement using the index variable.
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="50%" |
+
 ```Python
 i = 1
 a = 13
@@ -1029,14 +1011,14 @@ a = i*i
 i = 4
 a = i*i
 ```
-|style="vertical-align:top"|
+
 ```Python
 i = 1
 a = 13
 for i = [2,3,4]
   a = i*i
 ```
-|}
+
 
 ## General Pattern Example III
 
@@ -1047,9 +1029,6 @@ a = a+1
 ```
 are repeated three times.
 
-{| border="0" cellpadding="2" width="100%" align="left"
-|-
-|style="vertical-align:top" width="50%" |
 ```Python
 i = 1
 a = 13
@@ -1063,7 +1042,7 @@ i = 4
 a = a+1
 a = i*i
 ```
-|style="vertical-align:top"|
+
 ```Python
 i = 1
 a = 13
@@ -2166,7 +2145,7 @@ plt.plot(y, '*') # Stars
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VII.py.png"></img>
 
 Marker colors may be specified using the same syntax as the line color
 
@@ -2177,7 +2156,7 @@ plt.plot(y, '*', color=[0.5, 0.5, 0.5]) # Gray stars
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VIII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_VIII.py.png"></img>
 
 The marker size may be specified using `markersize` keyword
 
@@ -2187,8 +2166,8 @@ y = [1, 4, 16, 32]
 plt.plot(y, '*', markersize=10)
 plt.show()
 ```
-|style="vertical-align:top"|
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IX.py.png|width=400px|expire=1</imgc>
+
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_IX.py.png"></img>
 
 ## Style Combinations
 
@@ -2200,7 +2179,7 @@ y = [1, 4, 16, 32]
 plt.plot(y, 'r-', linewidth=3)
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XII.py.png"></img>
 
 To create a red solid line that connects points in `y` and to show stars at the points, use `r*-`
 
@@ -2213,7 +2192,7 @@ plt.plot(y, color='r', linestyle='solid',
          marker='*', linewidth=3, markersize=10)
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XIII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XIII.py.png"></img>
 
 ## Multiple lines and legends
 
@@ -2229,9 +2208,9 @@ plt.legend(['A', 'B'])
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XV.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XV.py.png"></img>
 
-To set the legend location, use the `loc` keyword. See `help(plt.legend)` or [https://matplotlib.org/users/legend_guide.html] for other options:
+To set the legend location, use the `loc` keyword. See `help(plt.legend)` or https://matplotlib.org/users/legend_guide.html for other options:
 
 ```Python
 import matplotlib.pyplot as plt
@@ -2243,7 +2222,7 @@ plt.legend(['A', 'B'], loc='upper left')
 plt.show()
 ```
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVI.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVI.py.png"></img>
 
 ## Axis Tick Numbers
 
@@ -2259,7 +2238,7 @@ plt.show()
 
 To modify the y-position labels, use `yticks` instead of `xticks`.
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVII.py.png"></img>
 
 ## Axis Limits
 
@@ -2276,7 +2255,7 @@ plt.show()
 
 To modify the y-axis limits, use `ylim`.
 
-<imgc>url=https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVIII.py.png|width=400px|expire=1</imgc>
+<img src="https://raw.githubusercontent.com/rweigel/computingforscientists/master/Plotting_1D/figures/Plotting_1D_XVIII.py.png"></img>
 
 ## `imshow`
 
@@ -2617,7 +2596,7 @@ import numpy as np
 print(np.pi) # Prefix Numpy usage with np
 ```
 
-As with [Matplotlib's](#Matplotlib) import statement, the last string, in this case `np`, can vary
+As with [Matplotlib's](#matplotlib) import statement, the last string, in this case `np`, can vary
 
 ```Python
 import numpy as npy # Sometimes npy used instead of np

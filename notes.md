@@ -1377,7 +1377,7 @@ The second term
 
 $$\frac{n}{2}\left(1-\frac{\Delta}{n}\right)\ln\left[\frac{1}{2}\left(1-\frac{\Delta}{n}\right)\right] = \frac{n}{2}\left(1-\frac{\Delta}{n}\right)\left[-\ln 2 + \ln \left(1-\frac{\Delta}{n}\right)\right]$$
 
-Adding, the $\ln 2$ pieces give $-n\ln 2$ and the rest gives
+Adding, the $\ln 2$ pieces gives $-n\ln 2$ and the rest gives
 
 $$n_\text{r}\ln\frac{n_\text{r}}{n}+n_\text{l}\ln\frac{n_\text{l}}{n} = -n\ln 2 + \frac{n}{2}\left[\left(1+\frac{\Delta}{n}\right)\ln\left(1+\frac{\Delta}{n}\right) + \left(1-\frac{\Delta}{n}\right)\ln\left(1-\frac{\Delta}{n}\right)\right]$$
 
@@ -1389,9 +1389,17 @@ and
 
 $$\ln \left(1-\frac{\Delta}{n}\right)\simeq -\frac{\Delta}{n} - \frac{\Delta^2}{2n^2}$$
 
-the bracket reduces to $\Delta^2/n^2$, so
+$$
+n_\text{r}\ln\frac{n_\text{r}}{n}+n_\text{l}\ln\frac{n_\text{l}}{n} \simeq -n\ln 2 +
+\frac{n}{2}\left[\left(1+\frac{\Delta}{n}\right)\left(\frac{\Delta}{n} - \frac{\Delta^2}{2n^2}\right) +
+\left(1-\frac{\Delta}{n}\right)\left(-\frac{\Delta}{n} - \frac{\Delta^2}{2n^2}\right)\right]
+$$
 
-$$n_\text{r}\ln\frac{n_\text{r}}{n}+n_\text{l}\ln\frac{n_\text{l}}{n}= -n\ln 2 + \frac{\Delta^2}{2n}$$
+
+the bracket reduces to $\Delta^2/n^2$ + terms of order $\Delta^3/n^3$ (if a full expansion was performed, we expect only terms of even order in $\Delta$, because the distribution is symmetric about $\Delta$). Thus,
+
+
+$$n_\text{r}\ln\frac{n_\text{r}}{n}+n_\text{l}\ln\frac{n_\text{l}}{n} \simeq -n\ln 2 + \frac{\Delta^2}{2n}$$
 
 and the inner terms, which carry the opposite sign, give $n\ln 2 - \dfrac{\Delta^2}{2n}$.
 
@@ -1418,7 +1426,6 @@ $${n\choose x} \rightarrow 2^n\sqrt{\frac{2}{\pi n}} e^{-(x-n/2)^2/(n/2)}$$
 which agrees with the result above, since $\Delta = 2x-n$ makes $(x-n/2)^2/(n/2) = \Delta^2/2n$.
 
 The derivation for the general case requires the assumption $(x-np)/n$ is small.
-
 </details>
 
 #### Student-t
