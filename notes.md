@@ -1290,9 +1290,7 @@ $h(x)=x^2$, so
 
 $$E[X^2] = \int_{-\infty}^{\infty}x^2f(x)dx$$
 
-$f(x)$ is zero outsize of interval $[a,b]$, and $1$ otherwise, so
-
-$$E[X^2] = \int_{a}^{b}x^2dx=(b^3-a^3)/3$$
+$$E[X^2] = \int_{a}^{b}x^2f(x)dx=\int_{a}^{b}x^2dx=(b^3-a^3)/3$$
 </details>
 
 #### Gaussian or Normal
@@ -1377,7 +1375,7 @@ The second term
 
 $$\frac{n}{2}\left(1-\frac{\Delta}{n}\right)\ln\left[\frac{1}{2}\left(1-\frac{\Delta}{n}\right)\right] = \frac{n}{2}\left(1-\frac{\Delta}{n}\right)\left[-\ln 2 + \ln \left(1-\frac{\Delta}{n}\right)\right]$$
 
-Adding, the $\ln 2$ pieces gives $-n\ln 2$ and the rest gives
+Adding, the $\ln 2$ terms gives $-n\ln 2$ and the rest gives
 
 $$n_\text{r}\ln\frac{n_\text{r}}{n}+n_\text{l}\ln\frac{n_\text{l}}{n} = -n\ln 2 + \frac{n}{2}\left[\left(1+\frac{\Delta}{n}\right)\ln\left(1+\frac{\Delta}{n}\right) + \left(1-\frac{\Delta}{n}\right)\ln\left(1-\frac{\Delta}{n}\right)\right]$$
 
@@ -1459,4 +1457,449 @@ Higher order terms can be computed in a similar way, e.g.,
 $$E[X^2] =  \left. \frac{d^2 M}{dt^2}\right |_{t=0}$$
 
 To understand why this works, consider the Taylor series expansion of $e^{xt}$, which has terms of $xt$, $(xt)^2$, ....
+
+# Point Estimation
+
+> A point estimate of a parameter $\theta$ is a single number that can be regarded as a sensible value for $\theta$. A point estimate is obtained by selecting a suitable statistic and computing its value from the given sample data. The selected statistic is called the point estimator of $\theta$. (Devore p 243)
+
+$\hat{\theta}$ is usually a point estimate of a population statistic $\theta$ based on a sample of the population. (Why "point"? Probably because we get a single value.)
+
+Some point estimates have a special name and the hat (`^`) notation is not used. For example, instead of writing $\hat{\mu}$, we use $\overline{X}$ and instead of $\hat{\sigma^2}$, we write $S^2$.
+
+Point estimators have a sampling distribution -- to compute a point estimate, you draw $n$ values from a population (which has a population distribution). If you drawn $n$ values again at random, you will not always get the same value for the point estimate.
+
+% Show diagram
+
+% Go over plots for solution to hw.html#sampling-distribution
+
+In the previous homework you estimated the sampling distribution of the point estimate of $\mu$, $\overline{X}$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $\overline{X}$. You repeated this $10,000$ times. The mean of the $10,000$ $\overline{X}$s was close to zero. The variance of the histogram of the $10,000$ $\overline{X}$s was approximately $\sigma^2/n$.
+
+In the previous homework you estimated the sampling distribution of the point estimate of $\sigma^2$, $S^2_b$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $S^2_b$. You repeated this $10,000$ times. The mean of the $10,000$ $S^2_b$s was not zero. We did not consider the variance of the histogram of the $10,000$ $S^2_b$.
+
+## Some Point Estimators
+
+For the proportion of a population that has a certain characteristic, and $x$ is he number in a sample of $n$ that have that characteristic, we estimate the population proporation, $p$, as
+
+$$\displaystyle\hat{p}=\frac{x}{n}$$
+
+For a sample of $n$ values taken from a population with mean $\mu$, there are several options for $\hat{\mu}$
+
+* $\displaystyle \overline{X} \equiv \frac{1}{n}\sum_{i=1}^n x_i$
+* $\widetilde{X} \equiv $ median (middle value when $n$ odd or average of two middle values when $n$ even)
+* $X_e \equiv (\text{min}(x)+\text{max}(x))/2$ (average of extreme values from sample)
+* $\overline{X}_{\text{tr}(m)} \equiv $ trimmed mean, the mean after removing the largest $m{\%}$ and smallest $m{\%}$ values from the sample.
+
+For a sample of $n$ values taken from a population with variance $\sigma^2$, there are several "sensible" options for $\hat{\sigma^2}$
+
+$$S_b^2 \equiv \frac{1}{n}\sum_{i=1}^n(x_i-\overline{X})^2$$
+
+$$S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n(x_i-\overline{X})^2$$
+
+## Choosing a Point Estimate
+
+A given population parameter may have more than one "sensible" point estimators.
+
+We want point estimates (which are random variables, so they have a distribution) to have the properties:
+
+1. Unbiased -- The expected value of the sampling distribution of the point estimate is zero.
+2. Small variance -- The variance of the sampling distribution of the point estimate is small.
+
+Formal definition of bias:
+
+> A point estimator $\hat{\theta}$ is said to be an unbiased estimator of $\theta$ if $E[\hat{\theta}]=0$ for every possible value of $\theta$. If is not unbiased, the difference is called the bias of $\hat{\theta}$. (Devore p 243)
+
+Given multiple senible point estimates exist, which to choose? It depends on the population distribution. In general, we prefer unbiased and small variance. However, sometimes an estimator is biased but has a small variance and we may prefer it over one that no bias but a large variance. See Example 6.7 of Devore.
+
+For some distributions and some estimators we know the estimator that is both unbiased and has the smallest variance among _any_ possible choice of estimator. This is called the Minimum Variance Unbiased Estimate, **MVUE**. For example, if the population is gaussian (normal), $\overline{X}$ is unbiased and has the minimum variance among _all_ possible unbiased estimators. In general, we know MVUE for a limited set of possible population distributions and estimators.
+
+## Point Estimate Bias and Variance
+
+To compute an estimator, such as $\overline{X}$, we draw random values from a population, so the population is a random variable because each value we draw is random.
+
+The estimator itself is a random variable because when we randomly choose a set of $n$ values and compute the estimator, we won't get the same result when we randomly choose another set of $n$ values. You demonstrated this on the last homework by plotting a histogram of 10,000 $\overline{X}$ values. This histogram represented the **sampling distribution** of $\overline{X}$.
+
+We don't always know the sampling distribution of a given population. We only know the analytical value for a few cases. For example if the population is gaussian distributed ($X\sim \mathcal{N}(\mu,\sigma^2)$), then the sampling distribution is normally distributed with a smaller variance ($\overline{X}\sim \mathcal{N}(\mu, \sigma^2/n))$. You demonstrated this numerically on the last homework.
+
+In only a few cases can we can prove that an estimator is unbiased and compute its MVUE.
+
+## Numerically Estimating Sampling Distribution
+
+Numerically generate the sampling distribution of $\overline{X}_{\text{tr}(10)}$ and compare it to $\overline{X}$.
+
+```python
+```
+
+## Computing Bias
+
+### $\overline{X}$
+
+We can show that $\overline{X}$ is an unbiased estimator, that is, $E[\overline{X}]=0$ of $\mu$ for any population distribution.
+
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
+
+Taking the expectation, we have
+
+$$E[\overline{X}]=E\left[\frac{1}{n}\sum_{i=1}^n X_i\right]$$
+
+Note that 
+
+$$E\left[X\right] = \sum_{\text{all }x}xP(x)$$
+
+which means the right-hand side is a double sum. We can swap the order of the sum, giving
+
+$$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = E[X_1] + E[X_2] + ...$$
+
+The term $E[X_1]$ means the expectation value of all possible first-selected values from the sample. All possible first-selected values from the sample is the same as all possible values of $X$. Thus, $E[X_1]=E[X]$. Using the definition, $\mu=E\left[X\right]$, we have
+
+$$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] + ... ) = \frac{1}{n}(\mu + \mu + ...) = \frac{1}{n}(n\mu) = \mu$$
+
+
+### $S^2_b$
+
+We can show that $E\left[S^2_b\right] = \sigma^2(n-1)/n$ for a population that as a variance $\sigma^2$.
+
+In the following, I give a very verbose proof to help you understand the operations and concepts involved. Devore p 245 has a briefer proof that is given below and an alternative studen proof is also given.
+
+#### Long proof
+
+Starting with the definiton of $S^2_b$,
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
+
+Expanding the square gives
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i^2-2X_i\overline{X}+\overline{X}^2) \right]$$
+
+or, equivalently,
+
+$$I.\qquad E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\frac{2}{n}\sum_{i=1}^nX_i\overline{X}+\frac{1}{n}\sum_{i=1}^n\overline{X}^2 \right]$$
+
+The second term in the square braces in Equation $I.$ can be simplified by noting that $\overline{X}$ does not depend on $i$, so it can be factored out:
+
+$$\frac{2}{n}\sum_{i=1}^nX_i\overline{X}=2\overline{X}\left(\frac{1}{n}\sum_{i=1}^nX_i\right)$$
+
+Using this and the definition $\overline{X}\equiv (1/n)\sum_{i=1}^nX_i$, the second term in Equation $I.$ is
+
+$$\frac{2}{n}\sum_{i=1}^nX_i\overline{X}=2\overline{X}^2$$
+
+The third term is 
+
+$$\frac{1}{n}\sum_{i=1}^n\overline{X}^2=\frac{1}{n}n\overline{X}^2=\overline{X}^2$$
+
+Therefore, the second and third terms combine to be $-2\overline{X}^2+\overline{X}^2=-\overline{X}^2$ and Equation $I.$ simplifies to
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2-\overline{X}^2\right]$$
+
+Distributing the $E$ to each of the two terms by using $E[a+b]=E[a]+E[b]$ gives
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2\right]-E\left[\overline{X}^2\right]$$
+
+or
+
+$$E\left[S^2_b\right] = \frac{1}{n}\left( E[X_1^2] + E[X_2]^2 + ...\right)-E\left[\overline{X}^2\right]$$
+
+Note that $E[X_1^2]$ means "the expectation of the first value of the sample". The first value drawn can take on any value in the population, so $E[X_1^2]=E[X^2]$. Using this, we have
+
+$$II.\qquad E\left[S^2_b\right] = E\left[X^2\right]-E\left[\overline{X}^2\right]$$
+
+Both of the terms in Equation $II.$ can be re-written using $\mu$, $\sigma$, and $n$.
+
+The first term simplifies to
+
+$$E\left[X^2\right]=\mu^2+\sigma^2,$$
+
+which follows from the definition
+
+$\sigma^2 \equiv E\left[(X-\mu)^2\right]$, expanding the square and using $E[a+b]=E[a]+E[b]$ to give
+
+$$\sigma^2 = E\left[X^2-2\mu X+\mu^2\right] = E\left[X^2\right]-2\mu E[X]+E[\mu^2]$$
+
+Using the definition $\mu \equiv E[X]$ and the fact that $E[\mu^2]=\mu^2$ because $\mu$ is a constant, this simplifies to
+
+$$\sigma^2 = E[X^2]-\mu^2$$
+
+giving $E\left[X^2\right]=\mu^2+\sigma^2$ as claimed.
+
+Therefore, the first term in Equation $II.$ is
+
+$$\frac{1}{n}\sum_{i=1}^n E\left[ X_i^2 \right]=\frac{1}{n}\sum_{i=1}^n (\mu^2+\sigma^2)=\frac{1}{n}n(\mu^2+\sigma^2)=\mu^2+\sigma^2$$
+
+The second term in Equation $II.$, $E[\overline{X}^2]$, can be rewritten as
+
+$$E\left[\overline{X}^2\right]=E\left[\left(\frac{1}{n}\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]$$
+
+The square of the sum,
+
+$$\left(\sum_{i=1}^nX_i\right)^2=(X_1+X_2+...)(X_1+X_2+...)$$
+
+expands to 
+
+$X_1^2+X_1(X_2+X_3+...+X_n)+$
+
+$X_2^2+X_2(X_1+X_3+X_4+...+X_n)+$
+
+$...$
+
+$X_n^2+X_n(X_1+X_2+...+X_{n-1})$
+
+Let $X^\prime=X-\mu$. Then, the above can be written as 
+
+$(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)$
+
+$(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...+X^{\prime}_n+\mu)+$
+
+$...$
+
+$(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
+
+We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because the values in the sample are uncorrelated.
+
+**Problems**
+
+1. Show that
+
+   $E\left[X^\prime\right]=0$, 
+
+   $E\left[X^{\prime 2}\right]=\sigma^2$.
+
+2. Finish the proof that $E\left[S^2_b\right] = \sigma^2(n-1)/n$.
+
+**Answer**
+
+1.
+
+   $E[X'] = E[X-\mu] = E[X] - \mu = \mu - \mu = 0$
+
+   $E\left[X^{\prime 2}\right] = E\left[X^2 - 2\mu X - \mu^2\right] = E\left[X^2] - E[2\mu X] - E[\mu^2\right] = E[X^2] - 2\mu^2 - \mu^2=E[X^2] - \mu^2$
+   
+   Earlier it was shown that $E\left[X^2\right]=\mu^2+\sigma^2$, so substitution gives
+
+   $E\left[X^{\prime 2}\right] = \sigma^2$
+
+2. Consider the first row of the expansion of $\left(\sum_{i=1}^nX_i\right)^2$
+
+   $(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)$
+
+   $(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...+X^{\prime}_n+\mu)+$
+
+$...$
+
+$(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
+
+   Its first term, $(X^{\prime}_1+\mu)^2$, is $X_1^2$, which has an expectation value of $E[X]$, which was shown earlier to be $\mu^2+\sigma^2$.
+
+   In the second term,
+
+   $(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu),$
+
+   there are $n-1$ $\mu$ terms so it can be re--written as
+
+   $$X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...\mu(n-1)\mu$$
+
+   Becuase $E[X_i^\prime X_j^\prime] = 0$, 
+
+   $$E\big[X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...+\mu^2(n-1)\big]=\mu^2(n-1)$$
+
+   Thus,
+
+   $E\left[(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)\right]=\mu^2+\sigma^2 + \mu^2(n-1) = \sigma^2+n\mu$
+
+   We only considered one row. There are a total of $n$ rows, so
+
+   $$E\left[\overline{X}^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}(n\sigma^2+n^2\mu)=\mu^2+\sigma^2/n$$
+
+In summary, we have shown that $E[X^2]=\mu^2+\sigma^2$ and $E[\overline{X}^2]=\mu^2+\sigma^2/n$. As a result, Equation $II.$ simplifies to
+
+$$E[S_{b}^2] = E\left[ X^2 \right] - E\left[ \overline{X}^2 \right] =\mu^2+\sigma^2-\left( \mu^2+\sigma^2/n\right) = \sigma^2-\sigma^2 /n$$
+
+or,
+
+$$E[S_{b}^2] = \frac{n-1}{n}\sigma^2$$
+
+with the interpretation that $S_b^2$ is downward biased by a factor of $(n-1)/n$.
+
+This equation makes sense in one limit - suppose we draw a single sample from a distribution with variance $\sigma^2$. $S_b^2$ will always be zero, which is less than $\sigma^2$ for any nonzero $\sigma$.
+
+It follows from the calculation above that an unbiased estimate of the variance of a population is
+
+$$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
+
+because $E[S^2]=\sigma^2$. Note that when $n=1$, $S^2$ is $0/0$, which indeterminate; this makes sense as -- we don't expect to be able to estimate the variance of a population with only one sample.
+
+Recall that, in contrast, an unbiased estimate of $\mu$ is
+
+$$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
+
+which has $n$ and not $n-1$.
+
+#### Alternative proof 1. (Devore)
+
+Devore on pg 245 starts with the observation that for the variance of random variable $Y$, $V(Y)$, can be written 
+
+$$V(Y)=E[Y^2]-(E[Y])^2$$
+
+or, rearranging,
+
+$$A.\qquad E[Y^2]=V(Y)+(E[Y])^2,$$
+
+which is stated without proof. The formula is also given on page 112, but a proof is not given.
+
+Next, he states that it follows from the definition
+
+$$S^2 = \frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
+
+that
+
+$$S^2 = \frac{1}{n-1}\left[\sum_{i=1}^nX_i^2-\frac{1}{n}\left(\sum_{i=1}^nX_i\right)^2\right].$$
+
+Taking the expectation and moving it inside of the sum in the first term gives
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^nE[X_i^2]-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
+
+Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X$ is $E[X^2]=V(X)+(E[X])^2=\sigma^2+\mu^2$ using the definitions of $\sigma$ and $\mu$. Using this, the above equation can be re-written as
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
+
+Using equation $A.$ again, which is $E[Y^2]=V(Y)+(E[Y])^2$, this time with $Y=\sum_{i=1}^n X_i$ gives
+
+$$E\left[\left(\sum_{i=1}^n X_i\right)^2\right]=V\left(\sum_{i=1}^n X_i\right)+\left(E\left[\sum_{i=1}^n X_i\right]\right)^2=n\sigma^2+(n\mu)^2$$
+
+so now
+
+$$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}\left[n\sigma^2+(n\mu)^2\right]\right)$$
+
+or
+
+$$E[S^2] = \frac{1}{n-1}\left(n(\sigma^2+\mu^2)-\frac{1}{n}(n\sigma^2+n^2\mu^2)\right)=\sigma^2$$
+
+
+#### Alternative proof 2. (from J.G.)
+
+Start with
+
+$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
+
+and replace $X_i$ with $X_i-\mu$ and $\overline{X}$ with $\overline{X}-\mu$, then expanding the square and using the definition of $\sigma^2$ gives
+
+$$E\left[S^2_b\right] = E\left[ \sigma^2 - (\overline{X}-\mu)^2\right]$$
+
+or
+
+$$E\left[S^2_b\right] = \sigma^2 - E\left[(\overline{X}-\mu)^2\right]$$
+
+Using the definition of variance, this is
+
+$$E\left[S^2_b\right] = \sigma^2 - \text{Var}\left[\overline{X}\right]$$
+
+Next, use
+
+$$\text{Var}\left[\overline{X}\right]=\text{Var}\left[\frac{1}{n}\sum X_i\right] = \frac{1}{n^2}\text{Var}\left[\sum X_i\right]=\frac{1}{n^2}\text{Var}\left[\sum X_i\right]=\frac{1}{n^2}n\text{Var}\left[X\right]=\frac{1}{n}\sigma^2$$
+
+giving
+
+$$E\left[S^2_b\right] = \sigma^2 - \frac{1}{n}\sigma^2=\frac{n-1}{n}\sigma^2$$
+
+
+### $S^2$
+
+We can show that $S^2$ is an unbiased estimator of $\sigma^2$ for any population distribution using the result from $S_b^2$.
+
+
+### $S$
+
+Computing an unbiased estimator for $S=\sqrt{S^2}$ is more difficult than for $S^2$. With the restriction that the population is normally distributed with standard deviation $\sigma$, we have a formula discussed in Problem 37. on page 266 of Devore (I don't have a reference for the proof):
+
+> 37. When the sample standard deviation $S$ is based on a random sample from a normal population distribution, it can be shown that
+>
+>    $$E[S] = \sigma\sqrt{\frac{2}{n-1}}\frac{\Gamma\left(\frac{n}{2}\right)}{\Gamma\left(\frac{n-1}{2}\right)}$$
+>
+>    Use this to obtain an unbiased estimator for $\sigma$ of the form $cS$. What is $c$ when $n=20$?
+
+For integer $x$, the gamma function $\Gamma(x)=(x-1)!$, so $\Gamma(10)=9\cdot 8\cdot ...\cdot 1=362880$.
+
+For non-integer $x$, one must solve an integral. Using a Gamma function calculator gives $\Gamma(9.5)\approx 119292.5$. Alternatively, for large $x$, $\displaystyle\Gamma(x+1)\sim\sqrt{2\pi x}\left(\frac{x}{e}\right)^x$. Using this gives $\Gamma(9.5)\approx 118129.2$.
+
+To be unbiased, we want
+
+$cE[S]-\sigma=0$. Solving for $c$ gives 
+
+$$c = \sqrt{\frac{n-1}{2}}\frac{\Gamma\left(\frac{n-1}{2}\right)}{\Gamma\left(\frac{n}{2}\right)}$$
+
+Plugging in values, 
+
+$$c \approx \sqrt{9.5}\frac{119292.5}{362880}\approx 1.01$$
+
+### Linear regression slope parameter
+
+In your physics labs, you use the equation
+
+$$b = \frac{\displaystyle \sum_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\displaystyle\sum_{i=1}^{n}x_i^2-n\bar{x}^2} = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+as an estimate of the population parameter $\beta$ in the model equation
+    
+$$y_i = \beta x_i + \alpha + \epsilon_i$$
+    
+were $\epsilon_i$ are independent and randomly distributed values from a Gaussian distribution with zero mean and standard deviation $\sigma$.
+
+Note that $x_i-\bar{x}$ is not a random variable because $x_i$ values are given, so it can be treated as a constant. Thus
+
+$$E[b]
+=E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]
+=\frac{E\left[\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}
+$$
+
+and
+
+$$
+E[b] = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})E\left[(y_i-\bar{y})\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}
+$$
+
+$$E\left[y_i-\bar{y}\right]=E\left[\beta x_i+
+\alpha+\epsilon_i-\bar{y}\right]=E\left[\beta x_i] +
+E[\alpha]+E[\epsilon_i]-E[\bar{y}\right]
+$$
+
+$$E\left[y_i-\bar{y}\right]=\beta x_i+\alpha - E[\overline{y}]$$
+
+$$E[\overline{y}] = E[\beta \overline{x} + \alpha + \overline{\epsilon}] = \beta \overline{x} + \alpha + E[\overline{\epsilon}] = \beta \overline{x} + \alpha$$
+
+Thus,
+
+$$E\left[y_i-\bar{y}\right]=\beta(x_i-\overline{x})$$
+
+and so
+
+$$E[b]=\beta$$
+
+Alternative:
+
+Subsitution of
+
+$$y_i = \beta x_i + \alpha + \epsilon_i$$
+
+into
+    
+$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+gives
+    
+$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})( \beta x_i + \alpha + \epsilon_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+Using
+
+$$\overline{y} = \alpha + \beta \overline{x}$$
+    
+gives
+
+$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})\left[\beta (x_i - \overline{x}) - \epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+or
+
+$$b = \frac{\displaystyle\sum_{i=1}^{n}\left[\beta (x_i - \overline{x})^2 - (x_i-\overline{x})\epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2} = \beta - \frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+Finally, using
+
+$$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+
+because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
 
