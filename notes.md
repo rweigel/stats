@@ -1290,7 +1290,9 @@ $h(x)=x^2$, so
 
 $$E[X^2] = \int_{-\infty}^{\infty}x^2f(x)dx$$
 
-$$E[X^2] = \int_{a}^{b}x^2f(x)dx=\int_{a}^{b}x^2dx=(b^3-a^3)/3$$
+$f(x)$ is zero outsize of interval $[a,b]$, and $1$ otherwise, so
+
+$$E[X^2] = \int_{a}^{b}x^2dx=(b^3-a^3)/3$$
 </details>
 
 #### Gaussian or Normal
