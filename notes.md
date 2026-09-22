@@ -1460,6 +1460,8 @@ To understand why this works, consider the Taylor series expansion of $e^{xt}$, 
 
 # Point Estimation
 
+## Definition
+
 > A point estimate of a parameter $\theta$ is a single number that can be regarded as a sensible value for $\theta$. A point estimate is obtained by selecting a suitable statistic and computing its value from the given sample data. The selected statistic is called the point estimator of $\theta$. (Devore p 243)
 
 $\hat{\theta}$ is usually a point estimate of a population statistic $\theta$ based on a sample of the population. (Why "point"? Probably because we get a single value.)
@@ -1518,7 +1520,7 @@ To compute an estimator, such as $\overline{X}$, we draw random values from a po
 
 The estimator itself is a random variable because when we randomly choose a set of $n$ values and compute the estimator, we won't get the same result when we randomly choose another set of $n$ values. You demonstrated this on the last homework by plotting a histogram of 10,000 $\overline{X}$ values. This histogram represented the **sampling distribution** of $\overline{X}$.
 
-We don't always know the sampling distribution of a given population. We only know the analytical value for a few cases. For example if the population is gaussian distributed ($X\sim \mathcal{N}(\mu,\sigma^2)$), then the sampling distribution is normally distributed with a smaller variance ($\overline{X}\sim \mathcal{N}(\mu, \sigma^2/n))$. You demonstrated this numerically on the last homework.
+We don't always know the sampling distribution of an estimator. We only know the analytical value for a few cases. For example if the population is gaussian distributed ($X\sim \mathcal{N}(\mu,\sigma^2)$), then the sampling distribution is normally distributed with a smaller variance ($\overline{X}\sim \mathcal{N}(\mu, \sigma^2/n))$. You demonstrated this numerically on the last homework.
 
 In only a few cases can we can prove that an estimator is unbiased and compute its MVUE.
 
@@ -1902,4 +1904,115 @@ Finally, using
 $$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
 
 because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
+
+# Confidence Intervals
+
+> An alternative to reporting a single sensible value for the parameter being estimated is to calculate and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267)
+
+Note that there are other intervals related to point estimates not covered in these notes: confidence bounds (p 282 of Devore), prediction intervals (Devore p 289), and tolerance intervals (Devore p 291).
+
+## Deriving
+
+Deriving a confidence interval requires deriving the sampling distribution of a point estimator. This is not covered in these notes.
+
+## Computing
+
+Requires
+
+1. Assumption about distribution of population
+2. Finding the approriate CI formula for the point estimator
+
+Formulas depend on
+
+1. Population distribution
+2. Know parameters of the population distribution, if any
+3. Number of samples, $n$
+
+## Common CIs
+
+> A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
+>
+> $$\left(\overline{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \quad \overline{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right)$$
+>
+> Devore Equation 7.5
+
+
+**Example**
+
+```python
+import numpy as np
+np.random.seed(0)
+n = 10
+μ = 0
+σ = 2
+x = np.random.normal(loc=μ, scale=σ, size=n)
+
+print(x)
+# [ 3.52810469  0.80031442  1.95747597  4.4817864   3.73511598 
+   -1.95455576  1.90017684 -0.30271442 -0.2064377   0.821197  ]
+
+print(np.mean(x))
+# 1.4760463414576694
+
+```
+
+Compute 95\% CI for this $\overline{X}$.
+
+This means $\alpha = 0.05$. First, find $z_{\alpha/2}=z_{0.025}$. The interpretation of $z_A$ is that an area of $A$ under the standard normal PDF is to the left of $-z_A$.
+
+Standard Normal PDF
+
+$$f(z) = \frac{1}{2\pi}e^{-z^2/2}$$
+
+%First, standardize the point estimate
+
+%$$Z=\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$$
+
+%```
+%Z = (np.mean(x)-μ)/(σ/np.sqrt(n))
+%print(Z)
+%```
+
+
+
+> Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
+>
+> $$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
+>
+> Devore Equation 7.9
+ 
+Devore Equation 7.10 gives a complex formula for the CI for a population proportion, $p$. For large $n$, it is
+
+> $\hat{p} \pm z_{\alpha/2}\sqrt{\hat{p}\hat{q}}$
+>
+> Devore page 280.
+
+For small $n$, there are many complications. See discussion in Devore p 281 and [Brown et al., Interval Estimation for a Binomial Propotion, 2001](https://www.jstor.org/stable/2676784).
+
+> Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
+>
+>$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
+>
+> Devore Equation 7.15, p 288
+
+**Example**
+ 
+
+> A $100(1-\alpha)%$ confidence interval for the variance $\sigma^2$ of a normal population has a lower limit
+>
+> $$\quad S^2(n-1)/\chi^2_{\alpha/2, n-1}$$
+>
+> and an upper limit
+>
+> $$\quad S^2(n-1)/\chi^2_{1-\alpha/2, n-1}$$
+>
+> A confidence interval for $\sigma$ has lower and upper limits that are the square roots of the corresponding limits in the interval for $\sigma^2$.
+>
+> Devore page 295 (box on bottom of page)
+
+Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
+ 
+It is best to always think of the $\alpha/2$ values as corresponding to a small area.
+
+**Example**
 
