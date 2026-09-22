@@ -1474,6 +1474,15 @@ Point estimators have a sampling distribution -- to compute a point estimate, yo
 
 % Go over plots for solution to hw.html#sampling-distribution
 
+In the last homework, you numerically estimated sampling distribution of the point estimates based on samples of size $n$ from $\mathcal{N}(\mu, \sigma^2)$. For the point estimator
+
+* $\overline{X}=(1/n)\sum_n (x-x_i)$, you found that its sampling distribution had
+  * a mean close to $\mu$ (so it seemed unbiased), and
+  * a variance that was approxmately $\sigma^2/n$ (so its variance decreases as $n$ increases).
+* $S_b^2=(1/n)\sum_n (x-x_i)^2$, you found
+   * a mean was not $\sigma^2$. When $n=9$, the mean was $S_b^2\approx 0.9\sigma^2$. If you re-run the experiment with larger $n$, you will find the the $S_b^2$ will be closer to $\sigma^2$; and
+   * a variance was not computed.
+
 In the previous homework you estimated the sampling distribution of the point estimate of $\mu$, $\overline{X}$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $\overline{X}$. You repeated this $10,000$ times. The mean of the $10,000$ $\overline{X}$s was close to zero. The variance of the histogram of the $10,000$ $\overline{X}$s was approximately $\sigma^2/n$.
 
 In the previous homework you estimated the sampling distribution of the point estimate of $\sigma^2$, $S^2_b$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $S^2_b$. You repeated this $10,000$ times. The mean of the $10,000$ $S^2_b$s was not zero. We did not consider the variance of the histogram of the $10,000$ $S^2_b$.
@@ -1509,6 +1518,11 @@ We want point estimates (which are random variables, so they have a distribution
 Formal definition of bias:
 
 > A point estimator $\hat{\theta}$ is said to be an unbiased estimator of $\theta$ if $E[\hat{\theta}]=0$ for every possible value of $\theta$. If is not unbiased, the difference is called the bias of $\hat{\theta}$. (Devore p 243)
+
+**Examples**:
+* If $n$ values drawn from $b(n, p)$ and $x$ are `1`, then $\hat{p}=x/n$ is is unbiased estimator of $p$ (Devore p 244, but stated in different way).
+* If $n$ values drawn from from _any_ distribution (continuous or discrete) with a mean $\mu$, $\overline{X}$ is an unbiased estimator of $\mu$ (based on Devore p 246).
+* If $n$ values drawn from from _any_ distribution _continuous and symmetric_ distribution with a mean $\mu$, the median and any trimmed mean are unbiased estimators of $\mu$ (based on Devore p 246).
 
 Given multiple senible point estimates exist, which to choose? It depends on the population distribution. In general, we prefer unbiased and small variance. However, sometimes an estimator is biased but has a small variance and we may prefer it over one that no bias but a large variance. See Example 6.7 of Devore.
 
@@ -1924,9 +1938,18 @@ Requires
 
 Formulas depend on
 
-1. Population distribution
-2. Know parameters of the population distribution, if any
+1. Population distribution (e.g., $\sim \mathcal{N}$, $\sim\mathcal{t_{n}}$),
+2. Know parameters of the population distribution, if any  (e.g., $\sigma$ known),
 3. Number of samples, $n$
+4. The "confidence level" $\alpha$
+
+# Point Estimate Intervals
+
+* Confidence Intervals
+* Confidence Bounds (not covered)
+* Prediction Intervals (not covered)
+* Tolerance Levels (not covered)
+
 
 ## Common CIs
 
