@@ -11,7 +11,7 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 * **Location**: L111 Exploratory Hall
 * **Instructor**: Bob Weigel
 * **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
-* **Office Hour**: Thursday 3:30-4:30 pm
+* **Office Hour**: Thursday 3:30-4:30 pm, 259 Planetary Hall
 * **Course URL**: [http://rweigel.github.io/stats](http://rweigel.github.io/stats)
 * **Credits**: 3 (Lecture)
 * **Prerequisites**:

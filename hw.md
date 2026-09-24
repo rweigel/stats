@@ -433,8 +433,8 @@ $$S_b^2=\frac{1}{n}\sum_{i=1}^n(x_i-\overline{X})^2$$
 
 To determine if this is the case, sample $n=10$ values from a normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$, and repeating $N_e=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values, and, in the title, display the average and variance of the $10,000$ $S_{b}^2$ values. Save your code as `HW3_3_2.py` and plot as `HW3_3_2.png`.
 
-Draw $n=10$ values from a normal distribution with $\mu=0$ and $\sigma^2=1$ and compute  $S_{b}^2$. Repeat this 10,000 times and plot the probability density function of $S_{b}^2$.
-On the plot title, show the average value of the 10,000 $S_{b}^2$ values (it should be slightly less than $\sigma^2$).
+%Draw $n=10$ values from a normal distribution with $\mu=0$ and $\sigma^2=1$ and compute  $S_{b}^2$. Repeat this 10,000 times and plot the probability density function of $S_{b}^2$.
+%On the plot title, show the average value of the 10,000 $S_{b}^2$ values (it should be slightly less than $\sigma^2$).
 
 The motivation for the subscript $b$ in $S_b^2$ is that $S_b^2$ is a **biased estimator** or $\sigma^2$. This concept will be discussed in the next class.
 
@@ -462,7 +462,11 @@ where the first fraction is determined using Method II in the cab problem and th
 
 # Quiz 2
 
+**Description**
+
 The quiz on Sept 10th will be on of the problems on counting that I covered in class (recall that there were three types: product rule, permutations, and combinations). The quiz will is closed book, closed notes, and closed computer and will be graded.
+
+**Quiz** (5 minutes)
 
 26 cards labeled A, B, ..., Z.
 
@@ -476,9 +480,11 @@ The quiz on Sept 10th will be on of the problems on counting that I covered in c
 
 # Quiz 3
 
+**Description**
+
 The quiz on September 17th will involve sample code that uses `np.random.normal()` and other basic functions that have been used on homework problems to do a calculation. You will be expected to explain what the program is doing. The objective of this quiz is to ensure that you understand and can explain code that has been used in your solutions and my solutions.
 
-Examples
+Example Problems
 
 1. Given
 
@@ -518,3 +524,47 @@ Examples
 
     1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
     2. Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value.
+
+**Quiz**
+
+(15 minutes)
+
+1. Given
+
+    ```python
+    import numpy as np
+    sample = np.random.normal(0, 1, 10)
+    print(np.mean(sample))
+```
+
+    1. How many elements are in `sample`?
+    2. If the value `10` is replaced with `100000`, will the printed value be larger, smaller, or equal?
+    3. (590 only) modify the given program so that `sample` has `size=(10,30)` and it prints the average of the columns.
+
+
+2. What is printed when the following is executed?
+
+    ```python
+    import numpy as np
+    arr = np.array([[1, 1, 1], [2, 2, 2]])
+    print(np.mean(arr, axis=0))
+    print(np.mean(arr, axis=1))
+    ```
+
+3. Given
+
+    ```python
+    import numpy as np
+    xbars = []
+    nbig = 0
+    for i in range(0, 1000):
+      sample = np.random.normal(0, 1, 10)
+      xbar = np.mean(sample)
+      xbars.append(xbar)
+      if xbar > 0.5:
+        nbig = nbig + 1
+    print(nbig)
+```
+
+    1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
+    2. (590 only) Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value?
