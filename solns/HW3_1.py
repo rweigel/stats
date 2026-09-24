@@ -1,42 +1,145 @@
 import math
-
-# Average probability of event in each hour
-p = 900/(1000*24)
-lambda_ = 900/(1000*24)
-print(lambda_)
-
 import numpy as np
-import matplotlib.pyplot as plt
+from lib.savefig import savefig
+from lib.pmf import pmf
 
-x = np.arange(25, dtype=int)
+# Given parameters
+t = 24
+p = 900/(1000*24)
 
-# Exact Binomial probability mass function
-P_B = np.zeros_like(x, dtype=float)
-for i in range(len(x)):
-    P_B[i] = math.factorial(24)/(math.factorial(x[i])*math.factorial(24-x[i])) * p**x[i] * (1-p)**(24-x[i])
+# Exact solution
+def exact_prob(x, n, p):
+  def nCk(n,k):
+      return math.factorial(n)/(math.factorial(n-k)*math.factorial(k))
 
-print(P_B)
-# Exact Poisson probability mass function
-P_P = np.zeros_like(x, dtype=float)
-mu = 900/1000
-for i in range(len(x)):
-    P_P[i] = mu**x[i] * np.exp(-mu) / math.factorial(x[i])
-print(P_P)
-exit()
-# Simulation
+  P_B = np.empty(len(x))
+  for k in range(len(x)):
+    P_B[k] = nCk(n, x[k])*(1-p)**(n-x[k])*p**x[k]
 
-# Each row is an hour and each column a day
-cnts = np.random.binomial(n=1, p=p, size=(24, 1000))
+  if False:
+    # Faster and shorter alternative using scipy binomial pmf
+    from scipy.stats import binom
+    P_B = binom.pmf(x, n, p)
 
-# Count the number of events per day
-cnts_sum = np.sum(cnts, axis=0) # List of counts on each of 1000 days
-unique_vals, counts = np.unique(cnts_sum, return_counts=True)
-P_S = counts / len(cnts_sum)
+  return P_B
 
-plt.plot(unique_vals, P_S, 'o', label='Simulation')
-plt.plot(x, P_B, 's', label='Binomial')
-plt.plot(x, P_P, '^', label='Poisson')
-plt.xlabel('Number of events per day')
-plt.ylabel('Probability')
-plt.legend()
-plt.show()
+def poisson_prob(x, t, p):
+
+  # Poisson solution
+  P_P = np.empty(len(x))
+  for k in range(len(x)):
+      P_P[k] = ((p*t)**x[k])*np.exp(-p*t)/math.factorial(x[k])
+
+  # Faster and shorter alternative using scipy poisson pmf could be used
+  # here instead of the loop.
+  if False:
+    from scipy.stats import poisson
+    P_P = poisson.pmf(x, p*t)
+
+  return P_P
+
+def simulated_poisson(x, t, p, ne=1000):
+  # Simulated solution
+
+  # Create an 1-D array of ne*24 hours.
+  e_S = np.random.binomial(n=1, p=p, size=ne*t)
+
+  # Reshape a 24x1000 matrix, each column representing one day
+  e_Sr = e_S.reshape((t, ne))
+
+  # Count the number of events in each day by summing columns
+  n_S = np.sum(e_Sr, axis=0)
+
+  # Compute the histogram of the number of events per day.
+  P_S, _ = np.histogram(n_S, bins=-0.5+np.arange(len(x)+1), density=True)
+
+  if False:
+    # Alternative approach using PMF code
+    # Compute unique values, frequencies
+    x_S, P_S_tmp = pmf(n_S)
+
+    # We want output to be probabilities at each x, but x may not match x_S.
+    # Create an array P_S of the same length as x, and fill in the probabilities
+    # from P_S_tmp at the corresponding indices given by x_S. Any x values not present
+    # in x_S will have a probability of 0.
+    P_S = np.zeros(len(x))
+    P_S[x_S] = P_S_tmp
+
+  return P_S, e_S
+
+def plot_probabilities(x, P_B, P_P, P_S, semilogy=True):
+  from matplotlib import pyplot as plt
+  plt.rcParams["font.family"] = "Times New Roman"
+  plt.rcParams['savefig.dpi'] = 300
+
+  # TODO: When no blue dot, P_S = 0. Add an annotation to make this more obvious.
+  plt.figure()
+  if not semilogy:
+    plt.plot(x, P_B, 'ro', markersize=12, markerfacecolor='none')
+    plt.plot(x, P_P, 'k.', markersize=12)
+    plt.plot(x, P_S, 'm.', markersize=8)
+  else:
+    plt.semilogy(x, P_B, 'ro', markersize=12, markerfacecolor='none')
+    plt.semilogy(x, P_P, 'k.', markersize=12)
+    plt.semilogy(x, P_S, 'm.', markersize=8)
+
+  plt.xticks(x)
+  plt.xlabel('Events per day (x)')
+  plt.ylabel('Probability')
+  plt.grid()
+  plt.legend(legend)
+  plt.title(title)
+
+def plot_dte(x, P_dte, semilogy=True):
+  from matplotlib import pyplot as plt
+
+  plt.figure()
+  plt.plot(x, P_dte, 'k.')
+
+  # We want to show ticks at 24 hour intervals
+  xticks = plt.gca().get_xticks()
+  xticks = np.arange(24, np.max(x)+1, 24)
+  plt.gca().set_xticks([1, *xticks])
+  plt.ylabel('Number of occurrences')
+  plt.xlabel('hours between flares')
+
+  plt.grid()
+  if semilogy:
+    plt.grid(which='minor', axis='y')
+    plt.yscale('log')
+    #plt.ylim([1e-3, 1e-1])
+
+
+# Part 1.
+x = np.arange(6)
+P_B = exact_prob(x, t, p)
+P_P = poisson_prob(x, t, p)
+P_S, e_S = simulated_poisson(x, t, p, ne=1000)
+
+title = f'$t={t:d}$ hrs; $\\lambda$={p:.3f}/hr'
+legend = [
+  r'Binomial',
+  r'Poisson: ($\lambda t)^xe^{\lambda t}/x!$',
+  'Simulated (1000 days)'
+]
+
+plot_probabilities(x, P_B, P_P, P_S, semilogy=False)
+savefig('HW3_1a')
+
+plot_probabilities(x, P_B, P_P, P_S, semilogy=True)
+savefig('HW3_1a_semilogy')
+
+# Part 2.
+# e_S is an array of 1000*24 days with 0s and 1s. Probability of 1 is p.
+# Here we find the indices of the events. The indices correspond to hour number.
+te = np.where(e_S == 1)[0]
+# Compute the differences between consecutive event times (hours) to get
+# the time between events.
+dte = np.diff(te)
+x, P_dte = pmf(dte)
+
+plot_dte(x, P_dte*len(dte), semilogy=False)
+savefig('HW3_1b')
+
+plot_dte(x, P_dte*len(dte), semilogy=True)
+savefig('HW3_1b_semilogy')

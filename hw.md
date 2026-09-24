@@ -359,6 +359,32 @@ Save your code as `HW3_1.py` and the plot as `HW3_1.png`. Spend time thinking ab
 
 Be prepared to justify any differences between the three cases in class.
 
+**Solution**
+
+[HW3_1.py](solns/HW3_1.py)
+
+----
+
+<img src="solns/HW3_1a.svg">
+
+----
+
+Same as above, but semilog-y.
+
+<img src="solns/HW3_1a_semilogy.svg">
+
+----
+
+<img src="solns/HW3_1b.svg">
+
+----
+
+Same as above, but semilog-y.
+
+<img src="solns/HW3_1b_semilogy.svg">
+
+
+
 ## Law of Large Numbers
 
 The Law of Large Numbers tells us, roughly, that as $n\rightarrow \infty$ the sample average defined by
@@ -480,11 +506,9 @@ The quiz on Sept 10th will be on of the problems on counting that I covered in c
 
 # Quiz 3
 
-**Description**
+## Preparation
 
 The quiz on September 17th will involve sample code that uses `np.random.normal()` and other basic functions that have been used on homework problems to do a calculation. You will be expected to explain what the program is doing. The objective of this quiz is to ensure that you understand and can explain code that has been used in your solutions and my solutions.
-
-Example Problems
 
 1. Given
 
@@ -525,9 +549,9 @@ Example Problems
     1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
     2. Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value.
 
-**Quiz**
+## Given Quiz
 
-(15 minutes)
+**Quiz 3** (15 minutes)
 
 1. Given
 
@@ -541,6 +565,14 @@ Example Problems
     2. If the value `10` is replaced with `100000`, will the printed value be larger, smaller, or equal?
     3. (590 only) modify the given program so that `sample` has `size=(10,30)` and it prints the average of the columns.
 
+   **Answers**
+   1. 10
+   2. Not graded because ambiguous (average of more values will be closer to zero). We can actually estimate the probability analytically and numerically!
+   3. 
+   ```
+   sample = np.random.normal(0, 1, size=(10,30))
+   print(np.mean(sample, axis=0))
+   ```
 
 2. What is printed when the following is executed?
 
@@ -550,6 +582,15 @@ Example Problems
     print(np.mean(arr, axis=0))
     print(np.mean(arr, axis=1))
     ```
+
+   **Answer**
+
+   `axis=0` means "take average along axis 0", which corresponds to the rows (so each column is averaged). `axis=1` means "take average along axis 1", which corresponds to the columns (so each row is averaged).
+
+   ```
+   [1.5 1.5 1.5]
+   [1. 2.]
+   ```
 
 3. Given
 
@@ -568,3 +609,15 @@ Example Problems
 
     1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
     2. (590 only) Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value?
+
+   **Answers**
+   1. `if abs(xbar) > 0.5`
+   2. `np.sum(np.array(xbars) > 0.5)` Note I was looking for conceptionally correct, not syntactically correct.
+
+# Quiz 4
+
+Please read Chapter 6 through page 49, Section 7.1 through Example 7.3, and Section 7.3 through Example 7.11 of [Devore 8th Edition](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/view?usp=sharing__remove__) (remove the `__remove__` in the URL to see the file) before the next class. (These sections and example numbers refer to the 8th edition of Devore).
+
+There will not be a homework assignment for next week. There will be an ungraded quiz that will be nearly identical to examples 7.3 and 7.11 of Devore. You may use handwritten notes for this quiz, and I will provide the results of any required numerical calculations and any needed tables (such as the one needed for example 7.11).
+
+ 
