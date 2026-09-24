@@ -1668,7 +1668,8 @@ $...$
 
 $(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
 
-We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because the values in the sample are uncorrelated.
+
+Next we note that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$; this is due to the samples being independent, so $E[X'_iX'_j] = E[X'_i]E[X'_j]$ and the fact that $E[X']=E[X]-E[\mu]=0$
 
 **Problems**
 
@@ -1682,9 +1683,7 @@ We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because 
 
 **Answer**
 
-1.
-
-   $E[X'] = E[X-\mu] = E[X] - \mu = \mu - \mu = 0$
+1. $E[X'] = E[X-\mu] = E[X] - \mu = \mu - \mu = 0$
 
    $E\left[X^{\prime 2}\right] = E\left[X^2 - 2\mu X - \mu^2\right] = E\left[X^2] - E[2\mu X] - E[\mu^2\right] = E[X^2] - 2\mu^2 - \mu^2=E[X^2] - \mu^2$
    
@@ -1698,9 +1697,9 @@ We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because 
 
    $(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...+X^{\prime}_n+\mu)+$
 
-$...$
+   $...$
 
-$(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
+   $(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
 
    Its first term, $(X^{\prime}_1+\mu)^2$, is $X_1^2$, which has an expectation value of $E[X]$, which was shown earlier to be $\mu^2+\sigma^2$.
 
@@ -1768,11 +1767,13 @@ that
 
 $$S^2 = \frac{1}{n-1}\left[\sum_{i=1}^nX_i^2-\frac{1}{n}\left(\sum_{i=1}^nX_i\right)^2\right].$$
 
+(This follows from $\sum(X_i-\overline{X})^2=\sum(X_i^2-2X_i\overline{X}+\overline{X}^2)=\sum X_i^2-2n\overline{X}^2+n\overline{X}^2=\sum X_i^2-n\overline{X}^2$ and $\overline{X}=(1/n)\sum X_i$.)
+
 Taking the expectation and moving it inside of the sum in the first term gives
 
 $$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^nE[X_i^2]-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
 
-Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X$ is $E[X^2]=V(X)+(E[X])^2=\sigma^2+\mu^2$ using the definitions of $\sigma$ and $\mu$. Using this, the above equation can be re-written as
+Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X_i$ is $E[X_i^2]=V(X_i)+(E[X_i])^2=\sigma^2+\mu^2$ using the definitions of $\sigma$ and $\mu$. Using this, the above equation can be re-written as
 
 $$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
 
@@ -1787,33 +1788,6 @@ $$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}\left[n\si
 or
 
 $$E[S^2] = \frac{1}{n-1}\left(n(\sigma^2+\mu^2)-\frac{1}{n}(n\sigma^2+n^2\mu^2)\right)=\sigma^2$$
-
-
-#### Alternative proof 2. (from J.G.)
-
-Start with
-
-$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
-
-and replace $X_i$ with $X_i-\mu$ and $\overline{X}$ with $\overline{X}-\mu$, then expanding the square and using the definition of $\sigma^2$ gives
-
-$$E\left[S^2_b\right] = E\left[ \sigma^2 - (\overline{X}-\mu)^2\right]$$
-
-or
-
-$$E\left[S^2_b\right] = \sigma^2 - E\left[(\overline{X}-\mu)^2\right]$$
-
-Using the definition of variance, this is
-
-$$E\left[S^2_b\right] = \sigma^2 - \text{Var}\left[\overline{X}\right]$$
-
-Next, use
-
-$$\text{Var}\left[\overline{X}\right]=\text{Var}\left[\frac{1}{n}\sum X_i\right] = \frac{1}{n^2}\text{Var}\left[\sum X_i\right]=\frac{1}{n^2}\text{Var}\left[\sum X_i\right]=\frac{1}{n^2}n\text{Var}\left[X\right]=\frac{1}{n}\sigma^2$$
-
-giving
-
-$$E\left[S^2_b\right] = \sigma^2 - \frac{1}{n}\sigma^2=\frac{n-1}{n}\sigma^2$$
 
 
 ### $S^2$

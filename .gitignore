@@ -2,3 +2,4 @@ hws/xray.txt
 *.asv
 .DS_Store
 .vscode/
+__pycache__/
