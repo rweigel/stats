@@ -100,14 +100,14 @@ def plot_dte(x, P_dte, semilogy=True):
   xticks = plt.gca().get_xticks()
   xticks = np.arange(24, np.max(x)+1, 24)
   plt.gca().set_xticks([1, *xticks])
-  plt.ylabel('Probability')
+  plt.ylabel('Number of occurrences')
   plt.xlabel('hours between flares')
 
   plt.grid()
   if semilogy:
     plt.grid(which='minor', axis='y')
     plt.yscale('log')
-    plt.ylim([1e-3, 1e-1])
+    #plt.ylim([1e-3, 1e-1])
 
 
 # Part 1.
@@ -124,22 +124,22 @@ legend = [
 ]
 
 plot_probabilities(x, P_B, P_P, P_S, semilogy=False)
-savefig('HW3_2a')
+savefig('HW3_1a')
 
 plot_probabilities(x, P_B, P_P, P_S, semilogy=True)
-savefig('HW3_2a_semilogy')
+savefig('HW3_1a_semilogy')
 
-# Time indices when there was an event
-# e_S is an array of 1000*24 days. Here we find the indices of the events.
-# The indices correspond to hour number.
+# Part 2.
+# e_S is an array of 1000*24 days with 0s and 1s. Probability of 1 is p.
+# Here we find the indices of the events. The indices correspond to hour number.
 te = np.where(e_S == 1)[0]
 # Compute the differences between consecutive event times (hours) to get
 # the time between events.
 dte = np.diff(te)
 x, P_dte = pmf(dte)
 
-plot_dte(x, P_dte, semilogy=False)
-savefig('HW3_2b')
+plot_dte(x, P_dte*len(dte), semilogy=False)
+savefig('HW3_1b')
 
-plot_dte(x, P_dte, semilogy=True)
-savefig('HW3_2b_semilogy')
+plot_dte(x, P_dte*len(dte), semilogy=True)
+savefig('HW3_1b_semilogy')

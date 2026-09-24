@@ -359,6 +359,32 @@ Save your code as `HW3_1.py` and the plot as `HW3_1.png`. Spend time thinking ab
 
 Be prepared to justify any differences between the three cases in class.
 
+**Solution**
+
+[HW3_1.py](solns/HW3_1.py)
+
+----
+
+<img src="solns/HW3_1a.svg">
+
+----
+
+Same as above, but semilog-y.
+
+<img src="solns/HW3_1a_semilogy.svg">
+
+----
+
+<img src="solns/HW3_1b.svg">
+
+----
+
+Same as above, but semilog-y.
+
+<img src="solns/HW3_1b_semilogy.svg">
+
+
+
 ## Law of Large Numbers
 
 The Law of Large Numbers tells us, roughly, that as $n\rightarrow \infty$ the sample average defined by
