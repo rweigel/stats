@@ -33,8 +33,8 @@ Quizzes:
 
 # Class Notes
 
-## December 10th
-Final project presentations, 4:30-7:10 in the same room as class. [Final Exam Schedule](https://registrar.gmu.edu/fall-2026-final-exam-schedule/)
+## December 10th (Thursday)
+Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam Schedule](https://registrar.gmu.edu/fall-2026-final-exam-schedule/)
 
 ## December 3rd
 ## November 19th
