@@ -44,6 +44,28 @@ Quizzes:
 %https://registrar.gmu.edu/fall-2026-final-exam-schedule/
 % 4:30 – 7:10 pm Same room
 
+## October 8th
+
+Midterm. Will post sample problems around October 1st.
+
+## October 1st
+
+
+## September 24th
+
+* Worked on in-class activity on point estimates and confidence intervals
+* All quizzes have been graded; will post solutions and grades for HW 3 soon.
+* Homework #4 will be posted after class. It will be due on October 1st at 11:59 pm.
+* Quiz #4 will cover a reading on hypothesis tests. I will post sample problems when HW #4 is posted.
+
+## September 17th
+
+* [Quiz 3](hw.html#quiz-3)
+* Covered Point Estimates and Confidence Intervals
+* Please read Chapter 6 through page 249, Section 7.1 through Example 7.3, and Section 7.3 through Example 7.11 of Devore before the next class. (These sections and example numbers refer to the 8th edition of Devore).
+* There will not be a homework assignment for next week. 
+
+
 ## September 10th
 
 * [Quiz 2](hw.html#quiz-2) on [Counting](notes.html#counting)

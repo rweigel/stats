@@ -359,32 +359,6 @@ Save your code as `HW3_1.py` and the plot as `HW3_1.png`. Spend time thinking ab
 
 Be prepared to justify any differences between the three cases in class.
 
-**Solution**
-
-[HW3_1.py](solns/HW3_1.py)
-
-----
-
-<img src="solns/HW3_1a.svg">
-
-----
-
-Same as above, but semilog-y.
-
-<img src="solns/HW3_1a_semilogy.svg">
-
-----
-
-<img src="solns/HW3_1b.svg">
-
-----
-
-Same as above, but semilog-y.
-
-<img src="solns/HW3_1b_semilogy.svg">
-
-
-
 ## Law of Large Numbers
 
 The Law of Large Numbers tells us, roughly, that as $n\rightarrow \infty$ the sample average defined by
@@ -464,6 +438,96 @@ To determine if this is the case, sample $n=10$ values from a normal distributio
 
 The motivation for the subscript $b$ in $S_b^2$ is that $S_b^2$ is a **biased estimator** or $\sigma^2$. This concept will be discussed in the next class.
 
+# HW 4
+
+## Confidence Interval for $\mu$
+
+A random variable $T$ that is $t$ distributed with $n-1$ degrees of freedom has
+
+$$P\left(-t_{\alpha/2,n-1} < T < t_{\alpha/2,n-1}\right) = 1-\alpha$$
+
+It can be shown that the "standardized variable"
+
+$$T=\frac{\overline{X}-\mu}{S/\sqrt{n}}$$
+
+is $t$--distributed with $n-1$ degrees of freedom.
+
+Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$ and an unknown variance. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
+
+$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
+
+Suppose a sample of $n=20$ values had $\overline{x}=10$ and $s=1.03$.
+
+1. What is the 99% CI?
+
+   Note that you may use the table I handed out, table A5 of Devore, or the `ppf` function to find the $t_{\alpha/2, n-1}$. An example usage on a different problem is:
+
+   ```
+   # Example 7.11 requires t_{alpha/2, n-1} with alpha = 0.05 and n = 30
+   # Find t value such that area to right is 1-0.025 (see Figure 7.8):
+   scipy.stats.t.ppf(1-0.025, df=29) 
+   # 2.0452296421327034
+   ```
+
+2. Compute the confidence interval using the formula for the case where we know the population standard deviation $\sigma$
+
+   $$\left(\overline{x}-z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \quad \overline{x}+z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right)$$
+
+   by assuming $\sigma=s$. You can use `scipy.stats.norm.ppf` to compute $z_{\alpha/2}$.
+
+   Be prepared to answer in class why one confidence interval is larger than the other.
+
+3. Write a program that repeats parts 1. and 2. assuming the same values for $\overline{x}$ and $s$ but $n=5, 10, 15, ..., 100$ and prints
+
+   ```
+   n = 5    length1   length2
+   n = 10   length1   length2
+   ...
+   n = 100  length1   length2
+   ```
+
+   where `length1` is the length of the confidence interval using the formula in part 1. and `length2` is the confidence interval using the formula in part 2.
+
+Save your answer as `HW4_1.py`. When executed, it should print
+```
+Answer 1: ...
+Answer 2: ...
+Answer 3:
+   n = 5    length1   length2
+   n = 10   length1   length2
+   ...
+   n = 100  length1   length2
+```
+
+Also, copy the printed output and put it in a comment in `HW4_1.py`.
+
+## Confidence Interval for $\sigma^2$
+
+In Devore 7.4, a confidence interval for the variance of a normal population is given.
+
+1. Use a Python program and `scipy.stats.chi2.ppf` to solve Example 7.15 of Devore.
+
+   Save your code as `HW4_2_1.py`. When executed, it should print the confidence interval and copy what is printed into a comment in  `HW4_2_1.py`.
+
+
+2. (590 only) In HW 3.3.2, you numerically generated an approximation of the sampling distribution of $S_b^2$ (represented as a histogram). In section 7.4 of Devore, the exact sampling distribution of $(n-1)S^2/\sigma^2$ is claimed to be $\chi^2_{n-1}$ when $n$ values are drawn from a normal distribution with standard deviation $\sigma$.
+
+   Modify your result to numerically generate an approximation of the sampling distribution of $(n-1)S^2/\sigma^2$ using $n=10$ and $\sigma=1$. 
+
+   Create a plot that compares your approximation of the sampling distribution of $(n-1)S^2/\sigma^2$, represented as a probability density, with that predicted by the $\chi^2$ distribution with $9$ degrees of freedom.
+
+  Use your $(n-1)S^2/\sigma^2$ probability density to get an estimation for the values found using `scipy.stats.chi2.ppf` in part 1.
+
+   Save your code as `HW4_2_2.py`. When executed, it should save the plot as `HW4_2_2.png` and print the CI estimated using your $(n-1)S^2/\sigma^2$ probability density. Make sure to upload the png file to your repository and copy what is printed into a comment in your code.
+
+## It's a Trap
+
+Devise a numerical experiment that demonstrates that a confidence interval for the mean, $\mu$ of a population "traps" $\mu$ with a probability $100(1-\alpha)$\%.
+
+Please ask questions via Discord or by email if you don't know where to start.
+
+Save your code as `HW4_3.py` and any associated plots as `HW4_3a.png, HW4_3b.png, ...`. Be prepared to explain your approach in class.
+
 # Quiz 1
 
 Study the cab example in the [Bayes' rule section of the notes](notes.html).
@@ -506,9 +570,11 @@ The quiz on Sept 10th will be on of the problems on counting that I covered in c
 
 # Quiz 3
 
-## Preparation
+**Description**
 
 The quiz on September 17th will involve sample code that uses `np.random.normal()` and other basic functions that have been used on homework problems to do a calculation. You will be expected to explain what the program is doing. The objective of this quiz is to ensure that you understand and can explain code that has been used in your solutions and my solutions.
+
+Example Problems
 
 1. Given
 
@@ -549,9 +615,9 @@ The quiz on September 17th will involve sample code that uses `np.random.normal(
     1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
     2. Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value.
 
-## Given Quiz
+**Quiz**
 
-**Quiz 3** (15 minutes)
+(15 minutes)
 
 1. Given
 
@@ -565,14 +631,6 @@ The quiz on September 17th will involve sample code that uses `np.random.normal(
     2. If the value `10` is replaced with `100000`, will the printed value be larger, smaller, or equal?
     3. (590 only) modify the given program so that `sample` has `size=(10,30)` and it prints the average of the columns.
 
-   **Answers**
-   1. 10
-   2. Not graded because ambiguous (average of more values will be closer to zero). We can actually estimate the probability analytically and numerically!
-   3. 
-   ```
-   sample = np.random.normal(0, 1, size=(10,30))
-   print(np.mean(sample, axis=0))
-   ```
 
 2. What is printed when the following is executed?
 
@@ -582,15 +640,6 @@ The quiz on September 17th will involve sample code that uses `np.random.normal(
     print(np.mean(arr, axis=0))
     print(np.mean(arr, axis=1))
     ```
-
-   **Answer**
-
-   `axis=0` means "take average along axis 0", which corresponds to the rows (so each column is averaged). `axis=1` means "take average along axis 1", which corresponds to the columns (so each row is averaged).
-
-   ```
-   [1.5 1.5 1.5]
-   [1. 2.]
-   ```
 
 3. Given
 
@@ -610,14 +659,23 @@ The quiz on September 17th will involve sample code that uses `np.random.normal(
     1. Modify this program so that it prints the number of times `|xbar| > 0.1`.
     2. (590 only) Given the list `xbars`, write a single command that prints the number of elements that are above `0.5`. That is, suppose the `if` statement was not used. What would you write in place of `print(nbig)` to get the same printed value?
 
-   **Answers**
-   1. `if abs(xbar) > 0.5`
-   2. `np.sum(np.array(xbars) > 0.5)` Note I was looking for conceptionally correct, not syntactically correct.
-
 # Quiz 4
 
-Please read Chapter 6 through page 49, Section 7.1 through Example 7.3, and Section 7.3 through Example 7.11 of [Devore 8th Edition](https://drive.google.com/file/d/11Ggp-RNoknu7ARu95s54hvOsQMv0AgR-/view?usp=sharing__remove__) (remove the `__remove__` in the URL to see the file) before the next class. (These sections and example numbers refer to the 8th edition of Devore).
+This ungraded quiz that will contain problems that are nearly identical to examples 7.3 and 7.11 of Devore. You may use handwritten notes for this quiz, and I will provide the results of any required numerical calculations and any needed tables (such as the one needed for example 7.11).
 
-There will not be a homework assignment for next week. There will be an ungraded quiz that will be nearly identical to examples 7.3 and 7.11 of Devore. You may use handwritten notes for this quiz, and I will provide the results of any required numerical calculations and any needed tables (such as the one needed for example 7.11).
+# Quiz 5
 
+This is a _graded_ quiz.
+
+1. A problem similar to example 8.2 of Devore. The table referenced in this problem will be provided.
+
+2. (590 only) A question similar to: Instead of reporting the result
+
+   * $H_0$: $\mu=2$ and $H_a$: $\mu \ne 2$; $H_0$ is rejected with a significance level of $0.05$
  
+   some researchers report
+
+   * "$\mu \ne 2$ with $P=0.0047$"
+
+   Are these two statements equivalent? If not, modify one of them to make them equivalent. $P$ values are discussed in 8.4 of Devore.
+
