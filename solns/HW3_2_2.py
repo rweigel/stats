@@ -129,8 +129,8 @@ plt.legend()
 plt.xlabel('$n$ values used for each $\\overline{X}$ calculation')
 plt.ylabel('$\\epsilon$')
 plt.title('99% of $\\overline{X}s$ in range [-$\\epsilon$,$\\epsilon$]')
-plt.savefig("HW2_3b4.png", format="png")
-plt.savefig("HW2_3b4.svg", format="svg", transparent=True)
+plt.savefig("HW3_2_3.png", format="png")
+plt.savefig("HW3_2_3.svg", format="svg", transparent=True)
 
 # 5
 

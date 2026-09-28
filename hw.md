@@ -359,6 +359,26 @@ Save your code as `HW3_1.py` and the plot as `HW3_1.png`. Spend time thinking ab
 
 Be prepared to justify any differences between the three cases in class.
 
+**Answer**
+
+[HW3_1.py](solns/HW3_1.py)
+
+----
+
+<img src="solns/HW3_1a.svg"/>
+
+Same as above, but semilog-y
+
+<img src="solns/HW3_1a_semilogy.svg"/>
+
+----
+
+<img src="solns/HW3_1b.svg"/>
+
+Same as above, but semilog-y
+
+<img src="solns/HW3_1b_semilogy.svg"/>
+
 ## Law of Large Numbers
 
 The Law of Large Numbers tells us, roughly, that as $n\rightarrow \infty$ the sample average defined by
@@ -375,7 +395,7 @@ To answer the following questions, you do not need to understand the Law of Larg
 2. Compute $\overline{X}$.
 3. Repeat 1. and 2. $10,000$ times and plot a probability density function of $\overline{X}$.
 
-Save your program as `HW2_3_1.py` and the associated plot as `HW2_3_1.png`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title and it should write the file `HW2_3_1.png`.
+Save your program as `HW3_2_1.py` and the associated plot as `HW3_2_1.png`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title and it should write the file `HW2_3_1.png`.
 
 ###
 
@@ -387,7 +407,7 @@ Save your program as `HW2_3_1.py` and the associated plot as `HW2_3_1.png`. When
 
 <sup>+</sup> You may explain this using one or more of words, tables, and plots.
 
-Save your program as `HW2_3_2.py`. Save your answers in a file named `HW2_3_2.pdf`, `HW2_3_2.txt`, or `HW2_3_2.md`. 
+Save your program as `HW3_2_2.py`. Save your answers in a file named `HW3_2_2.pdf`, `HW3_2_2.txt`, or `HW3_2_2.md`. 
 
 **590 students**: Be prepared to discuss in class at the whiteboard how this experiement is related to the Weak Law of Large Numbers and the Central Limit Theorem. You'll need to find resources that define and explain these.
 
@@ -420,6 +440,25 @@ Optionally, if you read through the documentation for [`np.random.normal()`](htt
 
 4. (590 only) Repeat parts 1. and 2. using a uniform distribution in the range $[0,1]$ (use the `np.random.uniform()` function).
 
+**Answer**
+
+[HW3_3_1.py](solns/HW3_3_1.py)
+
+1. & 2.
+
+<img src="solns/HW3_3_1_normal.svg"/>
+
+3.
+
+This is expected (the value of $\sim 0.155$ and the independence on $n$). Why?
+
+<img src="solns/HW3_3_1_fraction.svg"/>
+
+4.
+
+Problem statement should have had range of `[-1, 1]`. If this is done, fraction above is $0.043$. Follow-up question is why this differs from uniform case. Answer is that normal and uniform population distributions have same sampling distribution -- a normal with mean zero and standard deviation of $\sigma/\sqrt{n}$. However, the variance of the uniform distribution is $(b-a)^2/12=0.25$, so to get the same fraction, need to ask what fraction is above $\sqrt{0.25}/\sqrt{n}$. With this threshold, one gets approximately the same value for the threshold for the uniform and normal population cases.
+
+<img src="solns/HW3_3_1_uniform.svg"/>
 
 ### Sampling Distribution of $S_b^2$
 
@@ -432,11 +471,21 @@ that a reasonable point estimate of $\sigma^2$ for a sample of $n$ values from t
 $$S_b^2=\frac{1}{n}\sum_{i=1}^n(x_i-\overline{X})^2$$
 
 To determine if this is the case, sample $n=10$ values from a normal distribution with $\mu=0$ and $\sigma=1$, computing $S_{b}^2$, and repeating $N_e=10,000$ times. Plot the histogram of the $10,000$ $S_{b}^2$ values, and, in the title, display the average and variance of the $10,000$ $S_{b}^2$ values. Save your code as `HW3_3_2.py` and plot as `HW3_3_2.png`.
-
+    
 %Draw $n=10$ values from a normal distribution with $\mu=0$ and $\sigma^2=1$ and compute  $S_{b}^2$. Repeat this 10,000 times and plot the probability density function of $S_{b}^2$.
 %On the plot title, show the average value of the 10,000 $S_{b}^2$ values (it should be slightly less than $\sigma^2$).
 
 The motivation for the subscript $b$ in $S_b^2$ is that $S_b^2$ is a **biased estimator** or $\sigma^2$. This concept will be discussed in the next class.
+
+**Answer**
+
+As discussed in class, $S_b^2$ is a biased esimator of $\sigma^2$. Replacing the $n$ with $n-1$ results in the mean of the numerically generated sampling distribution being closer to $1.0$. (The ratio of $S^2_b/S^2$ is $(n-1)/n$, which is $0.9$ for $n=10$.)
+
+To understand why $S_b^2$ is biased low, consider $n=1$. In this case $S_b^2=0$ always, independent of $\sigma^2$. As $n$ approaches $\infty$, you expect the bias to approach zero. So it may make sense that the bias is between 0 and 1 for all $n$. Another explanation is that equation for $S_b^2$ contains $\overline{X}$. As a result, the terms in the sum will be closer to $\overline{X}$ on average than if the equation has $\mu$ in place of $\overline{X}$. It is also sometimes stated that to compute $S^2_b$, you are using one less independent value (the "degrees of freedom" is one less) because computing $\overline{X}$ effectively reduces the number of independent values in the sample by 1. 
+
+%$$S_b^2=\frac{1}{n}\sum_{i=1}^n(x_i-\overline{X})^2 = \frac{1}{3}\left(x_1 - \frac{x_1+x_2+x_3}{3}\right)^2 + ... = \frac{1}{3}\left(\frac{2}{3}x_1 - \frac{x_2+x_3}{3}\right)^2 + ... = $$
+
+<img src="solns/HW3_3_2.svg"/>
 
 # HW 4
 
