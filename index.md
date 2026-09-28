@@ -11,7 +11,7 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 * **Location**: L111 Exploratory Hall
 * **Instructor**: Bob Weigel
 * **Email**: [rweigel@gmu.edu](mailto:rweigel@gmu.edu)
-* **Office Hour**: Thursday 3:30-4:30 pm
+* **Office Hour**: Thursday 3:30-4:30 pm, 259 Planetary Hall
 * **Course URL**: [http://rweigel.github.io/stats](http://rweigel.github.io/stats)
 * **Credits**: 3 (Lecture)
 * **Prerequisites**:
@@ -20,29 +20,50 @@ Subtitle: ASTR/PHYS 390/590<br>Fall, 2026
 * **Catalog Description**: Bayesian and frequentist statistical and data analysis methods applied to data and problems in physics.
 
 HWs: 
-[1](hw.html#hw-1) | [2](hw.html#hw-2) |
-[3](hw.html#hw-3)
+[1](hw.html#hw-1) |
+[2](hw.html#hw-2) |
+[3](hw.html#hw-3) |
+[4](hw.html#hw-4)
 Quizzes:
 [1](hw.html#quiz-1) |
 [2](hw.html#quiz-2) |
-[3](hw.html#quiz-3)
+[3](hw.html#quiz-3) |
+[4](hw.html#quiz-4) |
+[5](hw.html#quiz-5)
 
 # Class Notes
 
-%## September 17th
-%## September 24th
-%## October 1st
-%## October 8th
-% Midterm?
-%## October 15th
-%## October 29th
-%## November 5th
-%## November 12th
-%## November 19th
-%## December 3rd
-%## December 10th
-%https://registrar.gmu.edu/fall-2026-final-exam-schedule/
-% 4:30 – 7:10 pm Same room
+## December 10th (Thursday)
+Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam Schedule](https://registrar.gmu.edu/fall-2026-final-exam-schedule/)
+
+## December 3rd
+## November 19th
+## November 12th
+## November 5th
+## October 29th
+## October 15th
+
+## October 8th
+
+Midterm. Will post sample problems around October 1st.
+
+## October 1st
+
+*
+## September 24th
+
+* Worked on in-class activity on point estimates and confidence intervals
+* All quizzes have been graded; will post solutions and grades for HW 3 soon.
+* Homework #4 will be posted after class. It will be due on October 1st at 11:59 pm.
+* Quiz #4 will cover a reading on hypothesis tests. I will post sample problems when HW #4 is posted.
+
+## September 17th
+
+* [Quiz 3](hw.html#quiz-3)
+* Covered Point Estimates and Confidence Intervals
+* Please read Chapter 6 through page 249, Section 7.1 through Example 7.3, and Section 7.3 through Example 7.11 of Devore before the next class. (These sections and example numbers refer to the 8th edition of Devore).
+* There will not be a homework assignment for next week. 
+
 
 ## September 10th
 
