@@ -61,8 +61,8 @@ plt.legend()
 plt.xlabel('$n$ values used for each $\\overline{X}$ calculation')
 plt.ylabel('$f$')
 plt.title('Fraction, $f$, of %d $\\overline{X}$s in range $[-0.01,0.01]$' % Ne)
-plt.savefig("HW2_3b2.png", format="png")
-plt.savefig("HW2_3b2.svg", format="svg", transparent=True)
+plt.savefig("HW3_2_2.png", format="png")
+plt.savefig("HW3_2_2.svg", format="svg", transparent=True)
 
 # 3
 Ns = 100    # Number of samples per experiment
