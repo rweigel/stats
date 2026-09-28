@@ -8,7 +8,7 @@ from lib.pdf import pdf
 
 np.random.seed(1)
 
-n = 1    # Number of samples per experiment
+n = 10    # Number of samples per experiment
 ne = 100  # Number of experiments
 
 # Create 100 x 10000 matrix of numbers drawn from N(0, 1) distribution
