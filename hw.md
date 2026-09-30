@@ -397,6 +397,12 @@ To answer the following questions, you do not need to understand the Law of Larg
 
 Save your program as `HW3_2_1.py` and the associated plot as `HW3_2_1.png`. When I execute your program, I should see a histogram with _**the average of**_ $\overline{X}$ displayed in the title and it should write the file `HW2_3_1.png`.
 
+**Answer**
+
+[HW3_2_1.py](solns/HW3_2_1.py)
+
+<img src="solns/HW3_2_1.svg"/>
+
 ###
 
 1. For $n=100$, what fraction of the $10,000$ $\overline{X}$s were in the range $[-0.01, 0.01]$?
@@ -410,6 +416,25 @@ Save your program as `HW3_2_1.py` and the associated plot as `HW3_2_1.png`. When
 Save your program as `HW3_2_2.py`. Save your answers in a file named `HW3_2_2.pdf`, `HW3_2_2.txt`, or `HW3_2_2.md`. 
 
 **590 students**: Be prepared to discuss in class at the whiteboard how this experiement is related to the Weak Law of Large Numbers and the Central Limit Theorem. You'll need to find resources that define and explain these.
+
+**Answer**
+
+[HW3_2_2.py](solns/HW3_2_2.py)
+
+1\. 0.076
+
+2\. As $n$ increases, fraction increases. This corresponds to the PDF in the previous plot getting sharper.
+
+<img src="solns/HW3_2_2a.svg"/>
+
+3\. $[-0.258, 0.258]$
+
+
+4.
+
+   <img src="solns/HW3_2_2b.svg"/>
+
+5\. Try running the code with it uncommented and notice that the histogram is still Gaussian--ish even though a uniform distribution was used for the $n$ $X$s.
 
 ## Sampling Distribution
 
@@ -561,7 +586,7 @@ In Devore 7.4, a confidence interval for the variance of a normal population is 
 
 2. (590 only) In HW 3.3.2, you numerically generated an approximation of the sampling distribution of $S_b^2$ (represented as a histogram). In section 7.4 of Devore, the exact sampling distribution of $(n-1)S^2/\sigma^2$ is claimed to be $\chi^2_{n-1}$ when $n$ values are drawn from a normal distribution with standard deviation $\sigma$.
 
-   Modify your result to numerically generate an approximation of the sampling distribution of $(n-1)S^2/\sigma^2$ using $n=10$ and $\sigma=1$. 
+   Modify your code for HW 3.3.2 to numerically generate an approximation of the sampling distribution of $(n-1)S^2/\sigma^2$ using $n=10$ and $\sigma=1$. 
 
    Create a plot that compares your approximation of the sampling distribution of $(n-1)S^2/\sigma^2$, represented as a probability density, with that predicted by the $\chi^2$ distribution with $9$ degrees of freedom.
 
