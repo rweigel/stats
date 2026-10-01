@@ -938,11 +938,11 @@ x_bar_b = np.mean(x_sample_b)
 
 Figure 1. Visualization of a confidence interval showing relationship to sampling distribution.
 
-<img src="HW6_1a.svg" width="300px"/>
+<img src="notes/figures/HW6_1a.svg" width="300px"/>
 
 Figure 2. If instead of quoting a confidence interval, we want to make a claim about the probability that $\overline{x}_\text{sample}$ had the observed value assuming the sampling distribution is correct. We reject the claim about the sampling distribution if the observed value is in the red region.
 
-<img src="HW6_1b.svg" width="300px"/>
+<img src="notes/figures/HW6_1b.svg" width="300px"/>
 
 Questions:
 
