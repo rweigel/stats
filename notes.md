@@ -1474,6 +1474,15 @@ Point estimators have a sampling distribution -- to compute a point estimate, yo
 
 % Go over plots for solution to hw.html#sampling-distribution
 
+In the last homework, you numerically estimated sampling distribution of the point estimates based on samples of size $n$ from $\mathcal{N}(\mu, \sigma^2)$. For the point estimator
+
+* $\overline{X}=(1/n)\sum_n (x-x_i)$, you found that its sampling distribution had
+  * a mean close to $\mu$ (so it seemed unbiased), and
+  * a variance that was approxmately $\sigma^2/n$ (so its variance decreases as $n$ increases).
+* $S_b^2=(1/n)\sum_n (x-x_i)^2$, you found
+   * a mean was not $\sigma^2$. When $n=9$, the mean was $S_b^2\approx 0.9\sigma^2$. If you re-run the experiment with larger $n$, you will find the the $S_b^2$ will be closer to $\sigma^2$; and
+   * a variance was not computed.
+
 In the previous homework you estimated the sampling distribution of the point estimate of $\mu$, $\overline{X}$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $\overline{X}$. You repeated this $10,000$ times. The mean of the $10,000$ $\overline{X}$s was close to zero. The variance of the histogram of the $10,000$ $\overline{X}$s was approximately $\sigma^2/n$.
 
 In the previous homework you estimated the sampling distribution of the point estimate of $\sigma^2$, $S^2_b$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $S^2_b$. You repeated this $10,000$ times. The mean of the $10,000$ $S^2_b$s was not zero. We did not consider the variance of the histogram of the $10,000$ $S^2_b$.
@@ -1509,6 +1518,11 @@ We want point estimates (which are random variables, so they have a distribution
 Formal definition of bias:
 
 > A point estimator $\hat{\theta}$ is said to be an unbiased estimator of $\theta$ if $E[\hat{\theta}]=0$ for every possible value of $\theta$. If is not unbiased, the difference is called the bias of $\hat{\theta}$. (Devore p 243)
+
+**Examples**:
+* If $n$ values drawn from $b(n, p)$ and $x$ are `1`, then $\hat{p}=x/n$ is is unbiased estimator of $p$ (Devore p 244, but stated in different way).
+* If $n$ values drawn from from _any_ distribution (continuous or discrete) with a mean $\mu$, $\overline{X}$ is an unbiased estimator of $\mu$ (based on Devore p 246).
+* If $n$ values drawn from from _any_ distribution _continuous and symmetric_ distribution with a mean $\mu$, the median and any trimmed mean are unbiased estimators of $\mu$ (based on Devore p 246).
 
 Given multiple senible point estimates exist, which to choose? It depends on the population distribution. In general, we prefer unbiased and small variance. However, sometimes an estimator is biased but has a small variance and we may prefer it over one that no bias but a large variance. See Example 6.7 of Devore.
 
@@ -1654,7 +1668,8 @@ $...$
 
 $(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
 
-We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because the values in the sample are uncorrelated.
+
+Next we note that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$; this is due to the samples being independent, so $E[X'_iX'_j] = E[X'_i]E[X'_j]$ and the fact that $E[X']=E[X]-E[\mu]=0$
 
 **Problems**
 
@@ -1668,9 +1683,7 @@ We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because 
 
 **Answer**
 
-1.
-
-   $E[X'] = E[X-\mu] = E[X] - \mu = \mu - \mu = 0$
+1. $E[X'] = E[X-\mu] = E[X] - \mu = \mu - \mu = 0$
 
    $E\left[X^{\prime 2}\right] = E\left[X^2 - 2\mu X - \mu^2\right] = E\left[X^2] - E[2\mu X] - E[\mu^2\right] = E[X^2] - 2\mu^2 - \mu^2=E[X^2] - \mu^2$
    
@@ -1684,9 +1697,9 @@ We are given that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$ because 
 
    $(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...+X^{\prime}_n+\mu)+$
 
-$...$
+   $...$
 
-$(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
+   $(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
 
    Its first term, $(X^{\prime}_1+\mu)^2$, is $X_1^2$, which has an expectation value of $E[X]$, which was shown earlier to be $\mu^2+\sigma^2$.
 
@@ -1754,11 +1767,13 @@ that
 
 $$S^2 = \frac{1}{n-1}\left[\sum_{i=1}^nX_i^2-\frac{1}{n}\left(\sum_{i=1}^nX_i\right)^2\right].$$
 
+(This follows from $\sum(X_i-\overline{X})^2=\sum(X_i^2-2X_i\overline{X}+\overline{X}^2)=\sum X_i^2-2n\overline{X}^2+n\overline{X}^2=\sum X_i^2-n\overline{X}^2$ and $\overline{X}=(1/n)\sum X_i$.)
+
 Taking the expectation and moving it inside of the sum in the first term gives
 
 $$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^nE[X_i^2]-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
 
-Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X$ is $E[X^2]=V(X)+(E[X])^2=\sigma^2+\mu^2$ using the definitions of $\sigma$ and $\mu$. Using this, the above equation can be re-written as
+Using equation $A.$, which is $E[Y^2]=V(Y)+(E[Y])^2$, with $Y=X_i$ is $E[X_i^2]=V(X_i)+(E[X_i])^2=\sigma^2+\mu^2$ using the definitions of $\sigma$ and $\mu$. Using this, the above equation can be re-written as
 
 $$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]\right)$$
 
@@ -1773,33 +1788,6 @@ $$E[S^2] = \frac{1}{n-1}\left(\sum_{i=1}^n(\sigma^2+\mu^2)-\frac{1}{n}\left[n\si
 or
 
 $$E[S^2] = \frac{1}{n-1}\left(n(\sigma^2+\mu^2)-\frac{1}{n}(n\sigma^2+n^2\mu^2)\right)=\sigma^2$$
-
-
-#### Alternative proof 2. (from J.G.)
-
-Start with
-
-$$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
-
-and replace $X_i$ with $X_i-\mu$ and $\overline{X}$ with $\overline{X}-\mu$, then expanding the square and using the definition of $\sigma^2$ gives
-
-$$E\left[S^2_b\right] = E\left[ \sigma^2 - (\overline{X}-\mu)^2\right]$$
-
-or
-
-$$E\left[S^2_b\right] = \sigma^2 - E\left[(\overline{X}-\mu)^2\right]$$
-
-Using the definition of variance, this is
-
-$$E\left[S^2_b\right] = \sigma^2 - \text{Var}\left[\overline{X}\right]$$
-
-Next, use
-
-$$\text{Var}\left[\overline{X}\right]=\text{Var}\left[\frac{1}{n}\sum X_i\right] = \frac{1}{n^2}\text{Var}\left[\sum X_i\right]=\frac{1}{n^2}\text{Var}\left[\sum X_i\right]=\frac{1}{n^2}n\text{Var}\left[X\right]=\frac{1}{n}\sigma^2$$
-
-giving
-
-$$E\left[S^2_b\right] = \sigma^2 - \frac{1}{n}\sigma^2=\frac{n-1}{n}\sigma^2$$
 
 
 ### $S^2$
@@ -1905,9 +1893,14 @@ $$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\display
 
 because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
 
-# Confidence Intervals
+# Point Estimate Intervals
 
-% Other intervals: Tolerance interval, upper/lower confidence bounds, prediction interval.
+* Confidence Intervals
+* Confidence Bounds (not covered)
+* Prediction Intervals (not covered)
+* Tolerance Levels (not covered)
+
+# Confidence Intervals
 
 > An alternative to reporting a single sensible value for the parameter being estimated is to calculate and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267)
 
@@ -1926,11 +1919,15 @@ Requires
 
 Formulas depend on
 
-1. Population distribution
-2. Know parameters of the population distribution, if any
+1. Population distribution (e.g., $\sim \mathcal{N}$, $\sim\mathcal{t_{n}}$),
+2. Know parameters of the population distribution, if any  (e.g., $\sigma$ known),
 3. Number of samples, $n$
+4. The "confidence level" $\alpha$
+
 
 ## Common CIs
+
+###
 
 > A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
 >
@@ -1962,7 +1959,7 @@ Compute 95\% CI for this $\overline{X}$.
 
 This means $\alpha = 0.05$. First, find $z_{\alpha/2}=z_{0.025}$. The interpretation of $z_A$ is that an area of $A$ under the standard normal PDF is to the left of $-z_A$.
 
-Standard Normal PDF
+Standard Normal PDF:
 
 $$f(z) = \frac{1}{2\pi}e^{-z^2/2}$$
 
@@ -1975,14 +1972,23 @@ $$f(z) = \frac{1}{2\pi}e^{-z^2/2}$$
 %print(Z)
 %```
 
+###
 
+> Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
+>
+>$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
+>
+> Devore Equation 7.15, p 288
+
+###
 
 > Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
 >
 > $$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
 >
 > Devore Equation 7.9
- 
+
+###
 Devore Equation 7.10 gives a complex formula for the CI for a population proportion, $p$. For large $n$, it is
 
 > $\hat{p} \pm z_{\alpha/2}\sqrt{\hat{p}\hat{q}}$
@@ -1991,14 +1997,8 @@ Devore Equation 7.10 gives a complex formula for the CI for a population proport
 
 For small $n$, there are many complications. See discussion in Devore p 281 and [Brown et al., Interval Estimation for a Binomial Propotion, 2001](https://www.jstor.org/stable/2676784).
 
-> Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
->
->$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
->
-> Devore Equation 7.15, p 288
 
-**Example**
- 
+### 
 
 > A $100(1-\alpha)%$ confidence interval for the variance $\sigma^2$ of a normal population has a lower limit
 >
@@ -2015,6 +2015,3 @@ For small $n$, there are many complications. See discussion in Devore p 281 and 
 Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
  
 It is best to always think of the $\alpha/2$ values as corresponding to a small area.
-
-**Example**
-

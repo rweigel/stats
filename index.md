@@ -49,10 +49,13 @@ Midterm. Will post sample problems around October 1st.
 
 ## October 1st
 
-*
+* [Quiz 5](hw.html#quiz-5)
+* [Activity 2](hw.html#activity-1)
+* Discuss [sample midterm questions](midterm-prep).
+
 ## September 24th
 
-* Worked on in-class activity on point estimates and confidence intervals
+* Worked on in-class activity (see [Quiz 4](hw.html#quiz-4)) on point estimates and confidence intervals
 * All quizzes have been graded; will post solutions and grades for HW 3 soon.
 * Homework #4 will be posted after class. It will be due on October 1st at 11:59 pm.
 * Quiz #4 will cover a reading on hypothesis tests. I will post sample problems when HW #4 is posted.
