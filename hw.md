@@ -783,9 +783,14 @@ A hypothesis test of
 
 $H_0$: $\mu=75$ with a rejection region of $<70.8$
 
-Should $H_0$ be rejected?
+1. Should $H_0$ be rejected?
 
-What is the probability of a Type I error for this hypothesis test?
+2. What is the probability of a Type I error for this hypothesis test?
+
+_Answer_
+
+1. Yes. 70 is in the rejection region of $<70.8$.
+2. $P(\text{Type I})=0.01$: $Z=(70.8-75)/\sqrt{9/25}=-2.33$. From a table of the standard normal, the area to the left of $-2.33$ is $0.01$.
 
 **$P$ values and Hypothesis Tests**
 
@@ -803,6 +808,10 @@ was performed and "$H_0$ was rejected with a significance level of $0.05$", some
 Are these two statements equivalent?
 
 If not, modify one of them to make them equivalent.
+
+_Answer_
+
+These are not equivalent. Replace $0.05$ with $0.0047$ or vice-versa. Ideally a researcher would state $H_0$ and $H_0$, the significance level of rejection, and then state "reject with $P=...$". However, often only one of the statements is given. The first statement does not tell us know how far into the rejection region the observed statistic is. The second statement does not let us know what the rejection confidence level was decided upon before the experiment was performed.
 
 # Activity 1
 
