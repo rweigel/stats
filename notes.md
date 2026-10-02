@@ -643,7 +643,7 @@ $$
 P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
 $$
 
-A plot of $P(B|W_B)$ vs witness accuracy ("reliability") is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than $P(B)$. It would seem that this witnesses testimony should be ignored. However, suppose the witness has a reliability of zero. In this case we know that when the witness says "blue" the car was actually green! (The label in the plot should be "witness information gives same result as $P(B)$".)
+A plot of $P(B|W_B)$ vs witness accuracy ("reliability") is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than $P(B)$. It would seem that this witnesses testimony should be ignored. However, suppose the witness has a reliability of zero. In this case we know that when the witness says "blue" the car was actually green! However, I doubt the witness would be allowed to testify if they were less than 50\% reliable. (The label in the plot should be "witness information gives same result as $P(B)$".).
 
 %What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
 
@@ -665,15 +665,15 @@ $$
 
 Other forms of Bayes include
 
-posterior probability = likelihood $\cdot$ prior probability / marginal probability
+$\text{posterior probability} = \text{likelihood} \cdot (\text{prior probability}) / (\text{marginal probability})$
 
 and the proportionality
 
-posterior $\propto$ likelihood $\cdot$ prior
+$\text{posterior} \propto \text{likelihood} \cdot \text{prior}$.
 
 See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/articles/understanding-bayes-theorem-with-ratios/), which uses 
 
-original odds $\cdot$ likelihood ratio = new odds
+$\text{original odds} \cdot \text{likelihood ratio} = \text{new odds}$
 
 <details><summary>More Terminology</summary>
 In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),

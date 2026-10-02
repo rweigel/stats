@@ -951,3 +951,174 @@ Questions:
 3. How is the probability that we mistakenly rejected the claim depend on $\alpha$?
 
 \newpage
+
+# Midterm
+
+* End time: 6:30 pm
+* Write your name on every sheet and use the provided printer paper
+* Do *not* turn in or write answers on the exam question sheet
+* Closed everything; non-cell phone calculator allowed
+* Call me at 571-354-0262 from outside the room if you have questions
+
+\newpage
+
+# Midterm Study Guide
+
+The 2--hour closed--book and closed--notes midterm will have problems similar in style and topic to the sample midterm questions.
+
+You should have memorized any equation that you need to know to solve one of the midterm questions. Tables for the $z$ and $t$ distributions will be provided.
+
+Grading: A grade of 85% on a given problem means I have found evidence that you understood the concept associated with the question and if I said "this calculation does not look correct", you would quickly identify the issue. Scores higher than 85% correspond to fewer such "minor issues". (There is an exception -- when a "minor issue" leads to a nonsensical final answer and the fact that the final answer does not make sense is not noted, I will conclude that you don't understand the concept.)
+
+## Sample Midterm Questions
+
+All quiz problems, examples worked through in class, and [Activity 1 questions](hw.html#activity-1) are sample questions. In addition, the following questions test your understanding of the homework problems.
+
+###
+
+Provide a derivation (visual or mathematical) of $P(B|A)=P(A|B)P(B)/P(A)$
+
+> Some students gave an example of the use of this formula but did not provide either a mathematical or visual derivation. I covered several derivations in class, and they also appear in many textbooks.
+
+###
+
+(590 only) One bag contains only white balls, while another bag contains 30 white balls and 10 black balls. A bag is selected at random, and a ball from that bag is selected at random. The selected ball is white. What is the probability that the selected ball was from the bag with only white balls?
+
+###
+
+Give an example of a problem that requires Bayes' rule and then solve the problem.
+
+###
+
+Compute the expectation value of $X^2$ for the binomial distribution with $n=3$ and $p=1/2$. You may leave your answer in terms of fractions and sums.
+
+###
+
+Sketch a plot of the binomial probability mass function for $n=100$ and $p=1/2$.
+
+###
+
+For large $n$, the binomial distribution can be approximated as
+
+$$P(x)\rightarrow \frac{1}{\sqrt{2\pi n p q}} e^{-(x-np)^2/2npq}$$
+
+What is the variance of $P(x)$?
+
+If $n=100$ and $p=0.5$, at what $x$ does the integral $\int_{-\infty}^xP(x)dx$ equal $0.99$ 
+
+###
+
+(590 only) Derive the Poisson distribution from the Binomial distribution. Clearly state your assumptions.
+
+###
+
+```python
+import numpy as np
+n = 5
+ne = 10000
+x = np.random.normal(0, 1, (n, ne))
+xbar = np.mean(x, axis=0)
+sb2 = (1/n)*np.sum((x - xbar)**2, axis=0)
+print(np.mean(sb2))
+```
+
+As `ne` increases, what will the printed value approach?
+
+How can one line be modified so that the printed value approaches $1$ as `ne` increases?
+
+###
+
+```python
+import numpy as np
+cnt = 0
+ne = 10000
+mu = 0
+for i in range(ne):
+  x = np.random.normal(mu, 1, 7)
+  xbar = np.mean(x)
+  ci = [xbar-1.96/np.sqrt(7), xbar+1.96/np.sqrt(7)]
+  if ci[0] > 0 or ci[1] < 0:
+    cnt = cnt+1
+print(cnt)
+```
+
+1. What value will `cnt/ne` approach as `ne` increases?
+
+2. Will this change if `mu` is changed to, for example, `10`?
+
+3. (590 only) Modify this program so no `for` loop is used.
+
+###
+
+The following program counts how often `ci` does not contain zero. It assumes that we know the population standard deviation is $1$.
+
+```python
+import numpy as np
+cnt = 0
+ne = 10000
+sigma = 1
+for i in range(ne):
+  x = np.random.normal(0, sigma, 7)
+  xbar = np.mean(x)
+  ci = [xbar-1.96*sigma/np.sqrt(7), xbar+1.96*sigma/np.sqrt(7)]
+  if ci[0] > 0 or ci[1] < 0:
+    cnt = cnt+1
+print(cnt)
+```
+
+1. Modify this program so that it estimates the fraction of times `ci` traps zero if $\sigma$ is estimated with the sample variance.
+
+2. What value will `cnt/ne` approach as `ne` increases?
+
+###
+
+> $\mu = 10 \pm 1$ with 99% confidence
+
+1. Explain what the statement means
+2. Give a common misinterpretation of this statement
+
+###
+
+What does it mean to not reject a null hypothesis?
+
+###
+
+Give an example of how and when a confidence interval is related to a hypothesis test.
+
+###
+
+In a linear regression problem, we estimate the slope 
+
+###
+
+The statistic
+
+$$d=\frac{1}{n}\sum_{i=1}^n|x_i-\overline{x}|$$
+
+is proposed as a point estimate of the population parameter $\delta$ that is computed in the same way but using all possible values of $x$ in the population.
+
+1. How would you numerically determine if $d$ is a biased estimate of $\delta$ assuming the population is normally distributed with unknown $\mu$ and $\sigma$?
+
+2. Given that we don't know the sampling distribution of $d$, how would you compute a 99% confidence interval for $d$?
+
+###
+
+The following program is a simulation of a hypothesis test many times. We want to test $H_0: \mu=0$ and $\mu\ne 0$ with rejection region corresponding to a confidence level of 95\%.
+
+```python
+import numpy as np
+reject = 0
+ne = 10000
+mu = 0
+for i in range(ne):
+  x = np.random.normal(mu, 1, 7)
+  xbar = np.mean(x)
+  a = ?
+  b = ?
+  if xbar < a or xbar > b
+  reject = reject + 1
+print(reject/ne)
+```
+
+1. What must `?` be replaced for this program to do this?
+2. As `ne` increases, what does the printed value approach?

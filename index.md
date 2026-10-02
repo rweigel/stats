@@ -45,13 +45,13 @@ Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam
 
 ## October 8th
 
-Midterm. Will post sample problems around October 1st.
+Midterm.
 
 ## October 1st
 
 * [Quiz 5](hw.html#quiz-5)
-* [Activity 2](hw.html#activity-1)
-* Discuss [sample midterm questions](midterm-prep).
+* Cover [Hypothesis Tests](notes.html#hypothesis-tests)
+* Discuss [Midterm](hw.html#midterm)
 
 ## September 24th
 
