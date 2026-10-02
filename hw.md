@@ -936,7 +936,7 @@ x_bar_b = np.mean(x_sample_b)
 
 ## Prelude to Hypothesis Testing
 
-Figure 1. Visualization of a confidence interval showing relationship to sampling distribution.
+Figure 1. Visualization related to a confidence interval. The black curve is the sampling distribution of $\overline{x}$ assuming that samples were drawn from $\mathcal{N}(\mu, \sigma^2)$. $\overline{x}_{\text{sample}}$ actual value found from a sample of $n$ values.
 
 <img src="notes/figures/HW6_1a.svg" width="300px"/>
 

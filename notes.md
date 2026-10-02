@@ -17,7 +17,7 @@ Note that different experiments can be assigned to an activity:
 
 The result of part of an experiment or the result of the full experiment. (Not generally defined; the first definition implies it is the result of the full experiment, which is inconsistent with the implicit definition in the first definition.)
 
-## Sample Space, $\mathcal{S}$ (or Event Space)
+## Sample Space, $\mathcal{S}$
 
 > ... the set of all possible outcomes of an experiment. (Devore p 51)
 
@@ -35,7 +35,7 @@ If the experiment is tossing a coin twice and counting the total number of heads
 
 $\mathcal S = $ {$1H1T$, $2T$, $2H$}
 
-We can define a compound event (event defined next) for both experiments: $A$ is the outcome of the experiment yielding one tail.
+For both experiments, define $A$ as the event of obtaining exactly one tail. It is compound in the first experiment, consisting of $HT$ and $TH$, and simple in the second experiment, consisting of $1H1T$.
 
 _Question_: Experiment: Each day, shoot free throws until you miss. What are the outcomes that make up $\mathcal{S}$?
 
@@ -81,7 +81,7 @@ print(m/n_e)
 %print(rng.choice(elements, p=probabilities))
 %print(rng.choice(elements, size=10, p=probabilities))
 
-_Question_: How many exprimental outcomes are in $S$? If you execute this number of experiments with your code, will all experimental outcomes in $S$ have been generated?
+_Question_: How many experimental outcomes are in $\mathcal{S}$? If you execute this number of experiments with your code, will all experimental outcomes in $\mathcal{S}$ have been generated?
 
 _Question_: Describe how you would use a program to print all outcomes.
 
@@ -126,7 +126,7 @@ print(y)
 
 # Perform ordinary least squares regression
 # We'll cover this later in the semester.
-# Solve y = Ax + b for the best-fit line parameters m and c
+# Solve y = m*x + c for the best-fit slope m and intercept c
 A = np.vstack([x, np.ones(len(x))]).T
 print(A)
 
@@ -163,7 +163,7 @@ A repetition of an experiment.
 
 ## Relative Frequency and Interpretation of Probability
 
-> The interpretation [of probability] most frequently used and most easily understood is based on the notation of relative frequencies. (Devore p 57)
+> The interpretation [of probability] most frequently used and most easily understood is based on the notion of relative frequencies. (Devore p 57)
 
 Repeat the experiment $n$ times (each repetition is called a "replication"). If event $A$ occurs $n(A)$ times in $n$ replications, then relative frequency is $n(A)/n$.
 
@@ -200,7 +200,7 @@ print(f"  rf(1) = {results.count(1) / n}")
 
 ## Set Operators
 
-### Compliment
+### Complement
 
 "Not $A$" is represented by four symbols: $A^\prime$ $\quad$ $\overline{A}$ $\quad$ ${\sim}A$ $\quad$ $\neg A$
 
@@ -226,7 +226,7 @@ XOR -- "Exclusive or": $A \oplus B$ means the event that is in $A$ or $B$, but n
 
 ### Intersection
 
-"And" (intersect) is represented by three symbols: $\cap$ $\quad$ & $\quad$ $,$ $\quad$
+"And" (intersection) is represented by $\cap$. An ampersand (`&`) or comma may also denote "and" in context, but they are not universal set-intersection symbols.
 
 > The intersection of two events $A$ and $B$, denoted by $A \cap B$ and read "$A$ and $B$," is the event consisting of all outcomes that are in _both_ $A$ _and_ $B$. (Devore p 53)
 
@@ -252,7 +252,7 @@ Drawing the Venn diagram for an experiment with 2 flips where $A$ is one or more
 
 Use set notation to describe the region of $A$ that is not shaded in Figure (b).
 
-Use set notation to desribe the region outside of $A$ and $B$ in Figure (a).
+Use set notation to describe the region outside of $A$ and $B$ in Figure (a).
 
 ## Axioms of Probability
 
@@ -280,7 +280,7 @@ Corollary to Axiom 3 (Devore p 59 calls this a proposition):
 
 **Example**
 
-In a trial where the result is either true (with probability $1-p$) or false (with probability $p$), and we run trials until we get a false, the sample space of all experiments is $\mathcal S = $ {$A_1$, $A_2$, $A_3$, ...}, where
+In independent trials where the result is either true (with probability $1-p$) or false (with probability $p$), with $0<p\leq 1$, we run trials until we get a false. The sample space of all experiments is $\mathcal S = $ {$A_1$, $A_2$, $A_3$, ...}, where
  
   $A_1=F$, $A_2=T,F$, $A_3=T,T,F$, ...
   
@@ -335,7 +335,7 @@ $P(A\cup B) = P(A) + P(B)$
 
 Imagine overlapping targets $A$ and $B$, and darts are thrown towards the targets.
 
-Viusally, the number of ways $A$ or $B$ occured: $n(A \cup B) = n(A) + n(B) - n(A \text{ and } B)$
+Visually, the number of ways $A$ or $B$ occurred: $n(A \cup B) = n(A) + n(B) - n(A \text{ and } B)$
   
 Divide by the total number of dots, $n$, use the relative frequency interpretation of probability, and replace $\cap$ with "and":
 
@@ -343,7 +343,7 @@ $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
 
 **Example** (Devore Chapter 2, problem 12)
   
-Consider randomly selecting a student at a certain university, and let $A$ denote the event that the elected individual has a Visa credit card and $B$ be the analogous event for a MasterCard. Suppose that $P(A) = 0.5$, $P(B)=0.4$, and $P(A\cap B) = 0.25$.
+Consider randomly selecting a student at a certain university, and let $A$ denote the event that the selected individual has a Visa credit card and $B$ be the analogous event for a MasterCard. Suppose that $P(A) = 0.5$, $P(B)=0.4$, and $P(A\cap B) = 0.25$.
   
 1. Compute the probability that the selected individual has at least one of the two types of card (i.e., the probability of the event $A\cup B$).
 2. What is the probability that the selected individual has neither type of card?
@@ -355,7 +355,7 @@ Provide both visual "proofs" or mathematical calculations.
 
 1. $P(A\cup B)=P(A)+P(B)-P(A\cap B) = 0.5+0.4-0.25=0.65$
 2. $P(A'\cap B') = 1-P(A\cup B) = 0.35$ (Based on visual derivation)
-3. $P(A \cup B') = P(A) - P(A\cap B) = 0.5-0.25=0.25$ (Based on visual derivation)
+3. $P(A \cap B') = P(A) - P(A\cap B) = 0.5-0.25=0.25$ (Based on visual derivation)
 
 Typically, we don't do mathematical proofs on sets -- demonstrations with Venn diagrams are usually sufficient.
 </details>
@@ -391,7 +391,7 @@ $$
 
 which is also visually obvious from a diagram.
 
-Dividing all terms on the right-hand side by $n$, using the definition of probability in terms of relative frequency and introducing the symbol "$|$" gives the definition of conditional probability:
+Dividing all terms on the right-hand side by $n$, using the definition of probability in terms of relative frequency and introducing the symbol "$|$" gives the definition of conditional probability, provided $P(B)>0$:
 
 $$
 P(A|B) = \frac{P(A\cap B)}{P(B)}
@@ -404,10 +404,10 @@ We were asked to find the probability that the student has a Visa but not a Mast
 How is this different from the statement "given the student has a Visa, what is the probability that they do not have a MasterCard?"
 
 <details><summary>Answer</summary>
-In the first case, we don't know anything about any of the students. In the second case, we are told to only consider a subset of all students. Our new sample space contains only the $B$ part of the original sample space.
+In the first case, we don't know anything about any of the students. In the second case, we are told to only consider a subset of all students. Our new sample space contains only the $A$ (Visa) part of the original sample space.
 </details>
 
-"The probability that the student has a Visa but not MasterCard" can be written in terms of a conditional probability: $P(M'|V)$; based on the statement, we know the student has a Visa, so we are given that $V$ is true. We want to find the probability that the student does not have a MasterCard.
+"Has a Visa but not a MasterCard" is the event $V\cap M'$, with probability $0.25$. In contrast, "does not have a MasterCard, given that the student has a Visa" has conditional probability $P(M'|V)=0.25/0.5=0.5$.
 
 Using 
 
@@ -428,6 +428,8 @@ $P(A\cap B) = P(A|B)P(B)$ is sometimes called the multiplication rule
 If you are in a firing line and two people have guns that shoot a real bullet instead of a blank with probability of 1/3, what is the probability that you get shot (assuming the marksmen never miss)?
 
 *Answer*
+
+Assume the two live/blank outcomes are independent.
 
 $P(A \text{ or } B) = P(A) + P(B) - P(A\cap B)$
 
@@ -457,10 +459,9 @@ $n(B) = n(B|A_1) + n(B|A_2) + n(B|A_3)$
 
 Using $P(B|A_1) = n(B|A_1)/n(A_1)$, etc., we have
 
-$n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + n(B|A_3)n(A_3)$
+$n(B) = P(B|A_1)n(A_1) + P(B|A_2)n(A_2) + P(B|A_3)n(A_3)$
 
 Divide both sides by $n$ to arrive at the result.
-</details>
 
 ## Bayes' Rule
 
@@ -534,7 +535,7 @@ $$P(A|B) = \frac{n(A \mbox{ and } B)}{n(B)}$$
 
 $$\frac{n(A \mbox{ and } B)}{n(B \mbox{ and } A)}$$
 
-in terms of$ n(A), n(B), P(A|B)$, and $P(B|A)$? 
+in terms of $n(A), n(B), P(A|B)$, and $P(B|A)$? 
 
 **Answer:**
 
@@ -642,9 +643,9 @@ $$
 P(B|W_B) = \frac{120}{120 + 170} \approx 0.41
 $$
 
-A plot of $P(B|W_B)$ vs reliability is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than the $P(B)$, meaning that the probability that they are correct is less than the fraction of cabs that are Blue; in this case, the witness testimony is not useful; a better estimate of the probability that the cab was Blue is the faction of Blue cabs in the city.
+A plot of $P(B|W_B)$ vs witness accuracy ("reliability") is given below. If the witness is less than 50\% reliable, $P(B|W_B)$ is less than $P(B)$. It would seem that this witnesses testimony should be ignored. However, suppose the witness has a reliability of zero. In this case we know that when the witness says "blue" the car was actually green! (The label in the plot should be "witness information gives same result as $P(B)$".)
 
-What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
+%What should the threshold for witness reliability be for "reasonable doubt" if the jury only had the witness testimony?
 
 <img src="notes/figures/bayes_cab_reliability.svg">
 
@@ -656,23 +657,23 @@ $$
 P(A|B) = P(B|A)\frac{P(A)}{P(B)}
 $$
 
-* Posterior: $P(A|B)$ (probability after knowing $B$ occured)
-* Prior: $P(A)$ (probability prior to knowing $B$ occured)
+* Posterior: $P(A|B)$ (probability after knowing $B$ occurred)
+* Prior: $P(A)$ (probability prior to knowing $B$ occurred)
 * Marginal probability: $P(B)$ ([why "marginal"](https://math.stackexchange.com/questions/1339666/why-do-we-refer-to-the-denominator-of-bayes-theorem-as-marginal-probability)?)
 * Likelihood: conditional probability on right--hand side, $P(B|A)$
-* Odds ratio or relative likelihood: $P(A)/P(B)$
+* Prior odds for $A$ versus $A'$: $P(A)/P(A')$
 
 Other forms of Bayes include
 
-posterior = odds $\bfcdot$ prior
+posterior probability = likelihood $\cdot$ prior probability / marginal probability
 
 and the proportionality
 
-posterior $\sim$ liklihood $\bfcdot$ prior
+posterior $\propto$ likelihood $\cdot$ prior
 
 See also [Understanding Bayes Theorem with Ratios](https://betterexplained.com/articles/understanding-bayes-theorem-with-ratios/), which uses 
 
-original odds $\bfcdot$ evidence adjustment = new odds
+original odds $\cdot$ likelihood ratio = new odds
 
 <details><summary>More Terminology</summary>
 In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensitivity_and_specificity); [notes by ekamperi](https://ekamperi.github.io/mathematics/2020/01/19/bayes-theorem-likelihood-ratios.html); and Covid examples: [1](https://www.anesi.com/bayes.htm) | [2](https://www.sciencedirect.com/science/article/pii/S073567572030543X) | [3](https://pmc.ncbi.nlm.nih.gov/articles/PMC7269418/)),
@@ -691,11 +692,11 @@ In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensi
 
    $P(T^-|D^-)$ = (number of true negatives)/(total number without disease).
 
-   where $T^-$ is a negative test result and $D^-$ means "disease present"
+   where $T^-$ is a negative test result and $D^-$ means "disease absent"
 
-* Likelihood ratio: (See also [The likelihood ratio and its graphical representation](https://pmc.ncbi.nlm.nih.gov/articles/PMC6457916/)): $LR(r) = P(r|D^+)/P(r|D^-)$, where $r$ is the test result (could be a continuous variable such as "HDL colesterol") Then
+* Likelihood ratio: (See also [The likelihood ratio and its graphical representation](https://pmc.ncbi.nlm.nih.gov/articles/PMC6457916/)): $LR(r) = P(r|D^+)/P(r|D^-)$, where $r$ is the test result. For a continuous variable such as "HDL cholesterol", use the ratio of conditional probability densities rather than point probabilities. Then
 
-   Post-test odds of $D^+$ = LR(r) $\bfcdot$ Pre-test odds of $D^+$
+   Post-test odds of $D^+$ = $LR(r)$ $\cdot$ Pre-test odds of $D^+$
    
    If $r$ is dichotomous (test result is positive or negative), then
    
@@ -703,7 +704,7 @@ In medical terminology (see also [Wikipedia](https://en.wikipedia.org/wiki/Sensi
    
    and
    
-   $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/Sp$
+   $LR^- = P(T^-|D^+)/P(T^-|D^-) = (1-S_e)/S_p$
 </details>
 
 ## General Bayes' Rule
@@ -724,7 +725,7 @@ Three types of problems:
 
    B. Given $k$ ordered boxes and $n$ choices for first box, $n$ for second, ...
 
-2. Permutations: Given **one** set of length $n$, how many distinct _ordered_ sets with no duplicates of $k$ elements can be created? (e.g., set = {a, b}, permutations are {a, b}, {b, a}. Similar to a product rule B. problem where $n_1=n$, $n_2=n-1$, ....
+2. Permutations: Given **one** set of size $n$, how many distinct _ordered_ $k$-tuples with no duplicate elements can be created? (e.g., set = {a, b}, permutations of length 2 are $(a, b)$ and $(b, a)$). Similar to a product rule B. problem where $n_1=n$, $n_2=n-1$, ... .
 
 3. Combinations: Same as 2. except counting all sets with the same elements as equivalent. (e.g., if set = {a, b} only one combination is possible: {a, b}).
 
@@ -741,9 +742,9 @@ $\ln N!\simeq N\ln N - N + \ln\sqrt{2\pi N}$
 
 From this form, it follows that
 
-$N! \simeq N^N e^{-n} \sqrt{2\pi N}$
+$N! \simeq N^N e^{-N} \sqrt{2\pi N}$
 
-I recommend remembering the first form $\ln N!\simeq N\ln N - N$ for a rough approximation, but note that the longer equation is an approximation that converges to the exact value for large $N$. See [stirling.py](notes/code/stirling.py).
+I recommend remembering the first form $\ln N!\simeq N\ln N - N$ for a rough approximation, but note that the factorial approximation including $\sqrt{2\pi N}$ has a relative error that approaches zero as $N$ increases. See [stirling.py](notes/code/stirling.py).
 
 $N=10$
 
@@ -820,27 +821,27 @@ Create five boxes. There are six possible "choices" for the first box, six possi
 **Example**: Flip a coin 2 times.
 
 <details><summary>Answer</summary>
-There number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the second box.)
+The number of $2$--tuples is $2\cdot 2$. (Think of two boxes and you put either a $H$ or $T$ in the first box and a $H$ or $T$ in the second box.)
 </details>
   
-**Example**: Each clinic has two $O$ doctors and three $P$ doctors, and you must select two doctors from the same clinic. How many possible pairs of $O$s and $P$s are there?
+**Example**: Each clinic has two $O$ doctors and three $P$ doctors, and you must select one doctor of each type from the same clinic. How many possible pairs of $O$s and $P$s are there per clinic?
 
 <details><summary>Answer</summary>
-In the first box, put one of the four $O$s. For each $O$, there are $3$ $P$s to choose from and put in the second box. So $n=4\cdot 3$.
+In the first box, put one of the two $O$s. For each $O$, there are $3$ $P$s to choose from and put in the second box. So $n=2\cdot 3$.
 </details>
   
-If each clinic also has three $I$s and two $G$s, how many possible choices for four doctors?
+If each clinic also has three $I$s and two $G$s, how many possible choices are there per clinic for four doctors, one of each type?
   
 <details><summary>Answer</summary>
-In the third box, put one of the three $I$s; in the fourth box, put one of the three $G$s. Then $n=4\cdot 3\cdot 3\cdot 2$.
+In the third box, put one of the three $I$s; in the fourth box, put one of the two $G$s. Then $n=2\cdot 3\cdot 3\cdot 2$.
 </details>
 
 **Example**: Suppose you want to pick a team of two tennis players from $3$ players, $A$, $B$, and $C$. 
 
 <details><summary>Answer</summary>
-The number of ways you can pick the team is $3\cdot 2$: $AB$, $AC$, $BA$, $BC$, $CA$, and $CB$.
+The number of ordered selections is $3\cdot 2$: $AB$, $AC$, $BA$, $BC$, $CA$, and $CB$.
 
-This is not the list of possible teams because $AB$ is the same as $BA$ (that is, order is not important). The list of possible teams is $3$, by inspection.
+This is not the list of distinct teams because $AB$ is the same as $BA$ (that is, order is not important). The number of possible teams is $3$, by inspection.
 </details>
 
 ### Permutation
@@ -854,18 +855,20 @@ You have stickers labeled $1$, ..., $6$ that are used to form a license plate.
 How many unique license plates of length $4$ can you form?
 
 <details><summary>Answer</summary>
-$6\cdot 5\cdot 4$
+$6\cdot 5\cdot 4\cdot 3=360$
 </details>
 
 To see relationship to $P_{k,n}$ formula given next, consider
   
-$$6\cdot 5\cdot 4=\frac{6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1}{\phantom{6\cdot 5\cdot 4\cdot}3\cdot 2\cdot 1}$$
+$$6\cdot 5\cdot 4\cdot 3=\frac{6!}{(6-4)!}=\frac{6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1}{2\cdot 1}$$
 
 Suppose you have $n$ distinct objects and you want to put them in boxes labeled $1$, $2$, ..., $k$. You select one object and put it in the first box. You select a second object from the remaining $n-1$ objects and put it in box $2$, ....
   
 The number of ways to do this is denoted $P_{k,n}$ (or $_nP_k$) and is
   
-$$P_{k,n}=\frac{n!}{(n-k)!} = n\cdot (n-1) ... \cdot (n-k)=\frac{n\cdot (n-1) \cdot (n-2) ... \cdot (n-k) \cdot (n-k-1) ... 1}{\phantom{n\cdot (n-1) \cdot (n-2) ... \cdot}(n-k)\cdot(n-k-1) ... 1}$$
+%$$P_{k,n}=\frac{n!}{(n-k)!}=\prod_{i=0}^{k-1}(n-i)=n\cdot(n-1)\cdots(n-k+1)$$
+
+$$P_{k,n}=\frac{n!}{(n-k)!} = n\cdot (n-1) ... \cdot (n-k+1)=\frac{n\cdot (n-1) \cdot (n-2) ... \cdot (n-k) \cdot (n-k-1) ... 1}{\phantom{n\cdot (n-1) \cdot (n-2) ... \cdot}(n-k)\cdot(n-k-1) ... 1}$$
 
 **Example**
 
@@ -892,7 +895,7 @@ A subway train made up of $n$ cars is boarded by $r$ passengers ($r\le n$), each
 
 <details><summary>Answer</summary>
 1. Consider list of $r$ passengers and each can be assigned number $1, ...n$: $n^r$ 
-2. Have $n$ choices for first passenger, $n-1$, for second, ... $n-r-1$ for the last: $\ds\frac{n(n-1)...(n-r-1)}{n^r}$
+2. Have $n$ choices for the first passenger, $n-1$ for the second, ... $n-r+1$ for the last: $\ds\frac{n!}{(n-r)!\,n^r}$.
 </details>
 
 ### Combination (un-ordered subset)
@@ -909,9 +912,9 @@ are regarded as equivalent, then there is only one group containing the numbers 
 
 So, to find the number of combinations, divide the number of permutations by $k!$.
 
-$$C_{n,k}=\frac{P_{n,k}}{k!}=\frac{\ds\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}$$
+$$C_{n,k}=\frac{P_{k,n}}{k!}=\frac{\ds\frac{n!}{(n-k)!}}{k!}=\frac{n!}{k!(n-k)!}$$
 
-$C_{n,k}$ is often called a binomial coefficient and the denoted by $\ds{N\choose k}$ and referred to as "$n$ choose $k$".
+$C_{n,k}$ is often called a binomial coefficient, denoted by $\ds{n\choose k}$, and referred to as "$n$ choose $k$".
 
 **Example**
 
@@ -940,9 +943,9 @@ Each permutation can be rearranged in $5!$ ways. So the number of hands (combina
 
 > For a given sample space $\mathcal{S}$ of some experiment, a random variable (rv) is any rule that associates a number with each outcome in $\mathcal{S}$. In mathematical language, a random variable is a function whose domain is the sample space and whose range is the set of real numbers. (Devore p 93)
 
-Example: $\mathcal{S} = \{T,F\}$ with $X(T)=1$ and $X(F)=0$ defines the discrete random variable $X$ that maps events in $\mathcal{S}$ to a number.
+Example: $\mathcal{S} = \{T,F\}$ with $X(T)=1$ and $X(F)=0$ defines the discrete random variable $X$ that maps outcomes in $\mathcal{S}$ to a number.
 
-Example: If an experiment is to flip a coin until a $H$ is encountered, $\mathcal{S} = \{H, TH, TTH, ...\}$ and $X(H)=1$, $X(TH)=2$, $X(TTH)=3$ defines the random variable $X$ as the number of flips until a $T$ is encountered.
+Example: If an experiment is to flip a coin until an $H$ is encountered, $\mathcal{S} = \{H, TH, TTH, ...\}$ and $X(H)=1$, $X(TH)=2$, $X(TTH)=3$ defines the random variable $X$ as the number of flips until an $H$ is encountered.
 
 > Any random variable whose only possible values are 0 and 1 is called a Bernoulli random variable. (Devore p 94)
 
@@ -967,7 +970,7 @@ A countably infinite set means one can match each element in the set to a natura
 
 $p(x)\ge 0$ and $\sum_xp(x)=1$ are required for any pmf.
 
-A cumulative distribution function (cdf) is the running sum of the pmf. The notation $P(X\le x)$ is used to describe. Its interpretation is the probability that the observed value $X$ will be at most $x$.
+A cumulative distribution function (cdf) is the running sum of the pmf. It is denoted by $F(x)=P(X\le x)$. Its interpretation is the probability that $X$ will be at most $x$.
 
 $$P(X\le x) = \sum_{y\le x}p(y)$$
 
@@ -1000,7 +1003,7 @@ Same as above, but using thin bars.
 <img src="notes/code/pmf/pmf_good_1b.svg">
 
 ----
-PMF showing counts.
+Histogram showing counts (not a normalized PMF).
 <img src="notes/code/pmf/pmf_good_1c.svg">
 
 ----
@@ -1010,7 +1013,7 @@ An option for plotting two PMFs
 
 ### Expectation Values
 
-$E(h(X))$ or $E[h(x)]$ is the notation.
+$E(h(X))$ or $E[h(X)]$ is the notation.
 
 > If the random variable $X$ has a set of possible values $D$ and pmf $p(x)$, then the expected value of any function $h(X)$, denoted by $E[h(X)]$ or $\mu_{h(X)}$, is computed by
 >
@@ -1022,7 +1025,7 @@ Example:
 
 $E[X^2]$ where $X$ is the random variable with pmf of $P(X=1) = 0.2$, $P(X=2) = 0.3$, $P(X=3)=0.5$ is
 
-$E[X^2] = 1^2\cdot 0.2 + 2^2\cdot 0.3 + 3^2\cdot 0.5 = 10.9$
+$E[X^2] = 1^2\cdot 0.2 + 2^2\cdot 0.3 + 3^2\cdot 0.5 = 5.9$
 
 #### Mean
 
@@ -1036,7 +1039,7 @@ We also define the standard deviation as $\sigma_X=\sqrt{\sigma^2_X}$.
 
 It can be shown that
 
-$V(X) = E[(x-\mu)^2] = E[X^2] - (E[X])^2$
+$V(X) = E[(X-\mu)^2] = E[X^2] - (E[X])^2$
 
 or equivalently
 
@@ -1087,7 +1090,7 @@ To mean the random variable $X$ has a pmf given by $b$.
 
 #### Derivation of Binomial Coefficients
 
-General problem: Given $n$ objects, $x$ of one type and $n-x$ of another, how many combinations, $C_{n,x}$ are possible?
+General problem: Given $n$ positions, how many arrangements with $x$ objects of one type and $n-x$ of another are possible? The number is $C_{n,x}$.
 
 Use the label $p$ for the $x$ objects and $q$ for the $n-x$ objects. Suppose $n=3$. All possible permutations are listed. The ones that satisfy $x=2$ are indicated with a $*$. Thus, $C_{3,2}=3$. 
 
@@ -1114,17 +1117,17 @@ A mathematical shortcut for finding $C_{n,x}$ is to note that the above table ca
 
 $(p + q)^3 = p^3 + 3p^2q + 3pq^2 + q^3$
 
-The simplified form contains a list of unique combinations, which is what we want.
+The coefficients in the simplified form count the arrangements with each possible value of $x$, which is what we want.
 
-(Note that the coefficients of $1, 3, 3, 1$ are in the third row of [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle). See also Larson p46 for derivation of rule that relates rows in Pascal's triangel.
+(Note that the coefficients $1, 3, 3, 1$ are in row $n=3$ of [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle), counting the top row as $n=0$. See also Larson p 46 for a derivation of the rule that relates rows in Pascal's triangle.)
 
 We happen to have an equation that gives us the simplified form. The binomial theorem is
 
-$$(p + q)^n = \sum_{x=0}^n {n \choose k} p^xq^{n-x}$$
+$$(p + q)^n = \sum_{x=0}^n {n \choose x} p^xq^{n-x}$$
 
 where
 
-$${n \choose k} = \frac{n!}{x!(n-x)!}$$
+$${n \choose x} = \frac{n!}{x!(n-x)!}$$
 
 Therefore, we conclude
 
@@ -1132,9 +1135,9 @@ $$C_{n,x}={n \choose x}$$
 
 **Method II**
 
-See [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing★★★★★remove★★★★★) and [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing★★★★★remove★★★★★).
+See [Bulmer, Chapter 6](https://drive.google.com/file/d/1IuANm_ZxtuY75c9Caguv3cdG8JbmkADi/view?usp=sharing) and [Chapter 1 of Kittel and Kroemer](https://drive.google.com/file/d/1aajSApC9pyBzxWvCuAoW4JlJStqWm19g/view?usp=sharing).
 
-General problem: Given $n$ objects, $x$ of one type and $n-x$ of another, what is the probability of each $C_{n,x}$?
+General problem: In $n$ independent trials with success probability $p$, what is the probability of exactly $x$ successes?
 
 Recall the table
 
@@ -1149,7 +1152,7 @@ qqp
 qqq
 ```
 
-If we regard $p$ as a probability and define $q=1-p$, then the probability of each row is obtained multiplication. But some rows result in the same value with multiplication. For examples, $pqq = qpq = qqp$. Based on this, we can conclude that
+If we regard $p$ as a probability and define $q=1-p$, then the probability of each row is obtained by multiplication. Some rows have the same probability. For example, $pqq = qpq = qqp$. Based on this, we can conclude that
 
 $C_{3,0}$ has probability $p^3$
 
@@ -1161,7 +1164,7 @@ $C_{3,3}$ has probability $q^3=(1-p)^3$
 
 or
 
-$$P(x)={n \choose x} p^x(1-p)^{n-k}$$
+$$P(X=x)={n \choose x} p^x(1-p)^{n-x}$$
 
 We write the probability in a more specific form as
 
@@ -1182,12 +1185,12 @@ where the values after the semicolon are constants.
 
 References
 
-* The original Possion paper is in French but is covered in English by [Stigler 1982](https://jhanley.biostat.mcgill.ca/statbook/StiglerPoisson.pdf). Possion used limit of Binomial distribution and Stigler notes De Moivre derived a related approximation to the Poisson formula.
+* The original Poisson paper is in French but is covered in English by [Stigler 1982](https://jhanley.biostat.mcgill.ca/statbook/StiglerPoisson.pdf). Poisson used the limit of the binomial distribution, and Stigler notes that De Moivre derived a related approximation to the Poisson formula.
 * Derived independently by Bateman using a differential equation approach in [Rutherford, Geiger, and Bateman, 1910](https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf)
 * A simple derivation in [lecture notes by D.S.G. Pollock](https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf)
 * How used in physics lab experiments using Geiger counters: [1](https://pages.uoregon.edu/dlivelyb/phys391/labs/lab3_391.pdf), [2](https://wanda.fiu.edu/boeglinw/courses/Modern_lab_manual3/counting_statistics.html), [3](https://122.physics.ucdavis.edu/sites/default/files/files/Nuclear%20Decay/Counting%20Statistics.pdf)
 
-The Poisson probability distribution function is
+The Poisson probability mass function is
 
 $$P(x)=\frac{\mu^xe^{-\mu}}{x!}$$
 
@@ -1203,19 +1206,19 @@ the probability of $k$ events occurring in the time interval $t=n\Delta t$ is
 
 $$P(k)=\frac{(\lambda t)^k e^{-\lambda t}}{k!}$$
 
-for sufficiently large $n$.
+This count distribution is exact for a Poisson process.
 
-If $p$ is the probability of event in time $\Delta t$, and, by definition, $\lambda \equiv p/\Delta t$, then
+In the small-interval Bernoulli approximation, take $p=\lambda\Delta t$. Then
 
-$$P(x)=\frac{(p\frac{t}{\Delta t})^k e^{-p \frac{t}{\Delta t}}}{x!}$$
+$$P(x)=\frac{(p\frac{t}{\Delta t})^x e^{-p \frac{t}{\Delta t}}}{x!}$$
 
 Next, using the definition $t\equiv n\Delta t$,
 
 $$P(x)=\frac{(p n)^x e^{-p n}}{x!}$$
 
-The interpretation is that if the probability of a success in a trial is $p$, then the probability of $x$ successes in $N$ trials is $P(x)$. 
+The interpretation is that for small success probability $p$ and large trial count $n$, $P(x)$ approximates the probability of $x$ successes in $n$ independent trials. The exact finite-trial distribution is binomial.
 
-A common use case for this equation is when an event takes a certain amount of time $\Delta t$ to occur (e.g., a hurricane or large solar flare). In this case, it makes sense to define a rate parameter which is the number events per unit time, which is $\lambda=p/\Delta t$, where $p$ is the probability of an event in $\Delta t$. This variable corresponds with how we would describe the probability of an event, e.g., on average 0.01 hurricanes occur per day or in 100 days, 1 hurricane will occur.
+A common use case for this equation is counting events over observation intervals of length $\Delta t$ (e.g., hurricanes or large solar flares), assuming the Poisson-process conditions hold. The rate parameter $\lambda$ is the expected number of events per unit time, with $p\approx\lambda\Delta t$ for sufficiently short intervals. For example, a rate of 0.01 hurricanes per day means an expected count of 1 hurricane in 100 days, not a guarantee that one will occur.
 
 It also makes sense to talk not about the number of "trials", but rather the number of $\Delta t$s, where each $\Delta t$ corresponds to a trial. In this case, we can define a time as $t=n\Delta t$. This definition allows us to say "given 0.01 hurricanes occur per day, what is the probability that 2 hurricanes occur in a month?".
 
@@ -1234,7 +1237,7 @@ It also makes sense to talk not about the number of "trials", but rather the num
 
 The probability _density_ function (pdf) of a continuous random variable $X$ is a function $f(x)$ such that
 
-$$P(a\le x\le b) = \int_a^bf(x)dx$$
+$$P(a\le X\le b) = \int_a^bf(x)dx$$
 
 Important: $f(x)$ is a density so it has units of [units of x]$^{-1}$.
 
@@ -1242,7 +1245,7 @@ To be a pdf, it must have $f(x)\ge 0$ for all $x$ and $\int_{-\infty}^{\infty}f(
 
 ### Plotting 
 
-A PDF is a continuous function. We approximate it by computing a histogram of data and as a piecewise continuous function.
+A PDF need not be continuous. We estimate it from data using a normalized histogram, which is a piecewise constant function.
 
 Code for generating these plots: [pdf.py](notes/code/pdf.py).
 
@@ -1252,7 +1255,7 @@ Example of a bad Empirical PDF. Bins are not centered on "nice" numbers.
 
 ----
 
-Example of a good PDF. Bins are centered on "nice" number, and bin width is a "nice" number, so I can read off PDF value for $500\pm 5$ mm. Note that the vertical axis is not a probability - if I add the heights of the rectangles, I won't get $1.0$ unless the bin width happens to be $1.0$.
+Example of a good empirical PDF. Bins are centered on "nice" numbers, and bin width is a "nice" number, so I can read off the estimated density for the bin spanning $500\pm 5$ mm. Note that the vertical axis is not a probability - if I add the heights of the rectangles, I won't get $1.0$ unless the bin width happens to be $1.0$.
 <img src="notes/code/pdf/pdf_good_1a.svg">
 
 ----
@@ -1262,11 +1265,11 @@ Same as previous, but using `stairs()` plot. This is useful if you are comparing
 
 ----
 
-Same as previous, but converted to probability in bin by muliplying by bin width.
+Same as previous, but converted to probability in bin by multiplying by bin width.
 <img src="notes/code/pdf/pdf_good_1c.svg">
 
 ----
-Same as above, but converted to histogram by multiplying y values by number of measurements.
+Same as above, but converted from bin probabilities to counts by multiplying by the number of measurements.
 <img src="notes/code/pdf/pdf_good_1d.svg">
 
 ### Expectation Values
@@ -1290,18 +1293,18 @@ $h(x)=x^2$, so
 
 $$E[X^2] = \int_{-\infty}^{\infty}x^2f(x)dx$$
 
-$$E[X^2] = \int_{a}^{b}x^2f(x)dx=\int_{a}^{b}x^2dx=(b^3-a^3)/3$$
+$$E[X^2] = \int_{a}^{b}x^2f(x)dx=\frac{1}{b-a}\int_{a}^{b}x^2dx=\frac{b^3-a^3}{3(b-a)}$$
 </details>
 
 #### Gaussian or Normal
 
-$$f(x) = \frac{1}{\sqrt{2\pi\sigma}}e^{(x-\mu)^2/2\sigma^2}$$
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/(2\sigma^2)},\qquad \sigma>0$$
 
 The "standard normal" is
 
 $$f(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$$
 
-can be obtained by defining $z=(x-\mu)/\sigma$.
+This is the density of $Z=(X-\mu)/\sigma$.
 
 **Limiting case of Binomial**
 
@@ -1311,7 +1314,7 @@ $$b(x; n,p) = {n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi n p q}}
 
 where $q = 1-p$. Identifying $\sigma^2=npq$ and $\mu=np$ gives
 
-$${n\choose x}p^x(1-p)^{n-x} \rightarrow \frac{1}{\sqrt{2\pi\sigma}}e^{(x-\mu)^2/2\sigma^2}$$
+$${n\choose x}p^x(1-p)^{n-x} \approx \frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/(2\sigma^2)}$$
 
 in the given limits.
 
@@ -1448,9 +1451,9 @@ $$(a+b)^n = \sum_{x=0}^{n} {n\choose x} a^x b^{n-x}$$
 
 with $a=pe^t$ and $b=q$ gives
 
-$$M(t)=E\left[e^{tX}\right]=(pe^t + q)^b$$
+$$M(t)=E\left[e^{tX}\right]=(pe^t + q)^n$$
 
-$$E[X] = \left. \frac{dM}{dt}\right |_{t=0} = \left . n(pe^t + q)^{n-1}p\right|_{t=0} = np(p+q)^{n-1}=np$$
+$$E[X] = \left. \frac{dM}{dt}\right |_{t=0} = \left . n(pe^t + q)^{n-1}pe^t\right|_{t=0} = np(p+q)^{n-1}=np$$
 
 Higher order terms can be computed in a similar way, e.g.,
 
@@ -1464,39 +1467,39 @@ To understand why this works, consider the Taylor series expansion of $e^{xt}$, 
 
 > A point estimate of a parameter $\theta$ is a single number that can be regarded as a sensible value for $\theta$. A point estimate is obtained by selecting a suitable statistic and computing its value from the given sample data. The selected statistic is called the point estimator of $\theta$. (Devore p 243)
 
-$\hat{\theta}$ is usually a point estimate of a population statistic $\theta$ based on a sample of the population. (Why "point"? Probably because we get a single value.)
+$\hat{\theta}$ is usually a point estimate of a population parameter $\theta$ based on a sample of the population. (Why "point"? Probably because we get a single value.)
 
 Some point estimates have a special name and the hat (`^`) notation is not used. For example, instead of writing $\hat{\mu}$, we use $\overline{X}$ and instead of $\hat{\sigma^2}$, we write $S^2$.
 
-Point estimators have a sampling distribution -- to compute a point estimate, you draw $n$ values from a population (which has a population distribution). If you drawn $n$ values again at random, you will not always get the same value for the point estimate.
+Point estimators have a sampling distribution -- to compute a point estimate, you draw $n$ values from a population (which has a population distribution). If you draw $n$ values again at random, you will not always get the same value for the point estimate.
 
 % Show diagram
 
 % Go over plots for solution to hw.html#sampling-distribution
 
-In the last homework, you numerically estimated sampling distribution of the point estimates based on samples of size $n$ from $\mathcal{N}(\mu, \sigma^2)$. For the point estimator
+In the last homework, you numerically estimated the sampling distribution of the point estimates based on samples of size $n$ from $\mathcal{N}(\mu, \sigma^2)$. For the point estimator
 
-* $\overline{X}=(1/n)\sum_n (x-x_i)$, you found that its sampling distribution had
+* $\overline{X}=(1/n)\sum_{i=1}^n x_i$, you found that its sampling distribution had
   * a mean close to $\mu$ (so it seemed unbiased), and
-  * a variance that was approxmately $\sigma^2/n$ (so its variance decreases as $n$ increases).
-* $S_b^2=(1/n)\sum_n (x-x_i)^2$, you found
-   * a mean was not $\sigma^2$. When $n=9$, the mean was $S_b^2\approx 0.9\sigma^2$. If you re-run the experiment with larger $n$, you will find the the $S_b^2$ will be closer to $\sigma^2$; and
-   * a variance was not computed.
+   * a variance that was approximately $\sigma^2/n$ (so its variance decreases as $n$ increases).
+* $S_b^2=(1/n)\sum_{i=1}^n (x_i-\overline{X})^2$, you found
+   * its mean was not $\sigma^2$. When $n=10$, the mean was approximately $0.9\sigma^2$. If you re-run the experiment with larger $n$, you will find that the mean of $S_b^2$ will be closer to $\sigma^2$; and
+   * its variance was not computed.
 
-In the previous homework you estimated the sampling distribution of the point estimate of $\mu$, $\overline{X}$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $\overline{X}$. You repeated this $10,000$ times. The mean of the $10,000$ $\overline{X}$s was close to zero. The variance of the histogram of the $10,000$ $\overline{X}$s was approximately $\sigma^2/n$.
+In the previous homework you estimated the sampling distribution of the point estimate of $\mu$, $\overline{X}$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $\overline{X}$. You repeated this $10,000$ times. The mean of the $10,000$ $\overline{X}$s was close to $\mu$ (zero in the homework experiment). The variance of the $10,000$ $\overline{X}$s was approximately $\sigma^2/n$.
 
-In the previous homework you estimated the sampling distribution of the point estimate of $\sigma^2$, $S^2_b$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $S^2_b$. You repeated this $10,000$ times. The mean of the $10,000$ $S^2_b$s was not zero. We did not consider the variance of the histogram of the $10,000$ $S^2_b$.
+In the previous homework you estimated the sampling distribution of the point estimate of $\sigma^2$, $S^2_b$, by drawing $n$ values from a $\mathcal{N}(\mu, \sigma^2)$ distribution and computing $S^2_b$. You repeated this $10,000$ times. The mean of the $10,000$ $S^2_b$s was below $\sigma^2$, near $(n-1)\sigma^2/n$. We did not consider the variance of the $10,000$ $S^2_b$ values.
 
 ## Some Point Estimators
 
-For the proportion of a population that has a certain characteristic, and $x$ is he number in a sample of $n$ that have that characteristic, we estimate the population proporation, $p$, as
+For the proportion of a population that has a certain characteristic, and $x$ is the number in a sample of $n$ that have that characteristic, we estimate the population proportion, $p$, as
 
 $$\displaystyle\hat{p}=\frac{x}{n}$$
 
 For a sample of $n$ values taken from a population with mean $\mu$, there are several options for $\hat{\mu}$
 
 * $\displaystyle \overline{X} \equiv \frac{1}{n}\sum_{i=1}^n x_i$
-* $\widetilde{X} \equiv $ median (middle value when $n$ odd or average of two middle values when $n$ even)
+* $\widetilde{X} \equiv $ median (middle value when $n$ is odd or average of two middle values when $n$ is even)
 * $X_e \equiv (\text{min}(x)+\text{max}(x))/2$ (average of extreme values from sample)
 * $\overline{X}_{\text{tr}(m)} \equiv $ trimmed mean, the mean after removing the largest $m{\%}$ and smallest $m{\%}$ values from the sample.
 
@@ -1508,35 +1511,35 @@ $$S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n(x_i-\overline{X})^2$$
 
 ## Choosing a Point Estimate
 
-A given population parameter may have more than one "sensible" point estimators.
+A given population parameter may have more than one "sensible" point estimator.
 
-We want point estimates (which are random variables, so they have a distribution) to have the properties:
+We want point estimators (which are random variables, so they have a distribution) to have the properties:
 
-1. Unbiased -- The expected value of the sampling distribution of the point estimate is zero.
+1. Unbiased -- The expected value of the sampling distribution of the point estimate is the population parameter.
 2. Small variance -- The variance of the sampling distribution of the point estimate is small.
 
 Formal definition of bias:
 
-> A point estimator $\hat{\theta}$ is said to be an unbiased estimator of $\theta$ if $E[\hat{\theta}]=0$ for every possible value of $\theta$. If is not unbiased, the difference is called the bias of $\hat{\theta}$. (Devore p 243)
+> A point estimator $\hat{\theta}$ is said to be an unbiased estimator of $\theta$ if $E[\hat{\theta}]=\theta$ for every possible value of $\theta$. If it is not unbiased, the difference is called the bias of $\hat{\theta}$. (Devore p 243)
 
 **Examples**:
-* If $n$ values drawn from $b(n, p)$ and $x$ are `1`, then $\hat{p}=x/n$ is is unbiased estimator of $p$ (Devore p 244, but stated in different way).
-* If $n$ values drawn from from _any_ distribution (continuous or discrete) with a mean $\mu$, $\overline{X}$ is an unbiased estimator of $\mu$ (based on Devore p 246).
-* If $n$ values drawn from from _any_ distribution _continuous and symmetric_ distribution with a mean $\mu$, the median and any trimmed mean are unbiased estimators of $\mu$ (based on Devore p 246).
+* If $n$ independent Bernoulli trials have success probability $p$ and $x$ is the number of successes, then $\hat{p}=x/n$ is an unbiased estimator of $p$ (Devore p 244, but stated in a different way).
+* If $n$ values are drawn from _any_ distribution (continuous or discrete) with a finite mean $\mu$, $\overline{X}$ is an unbiased estimator of $\mu$ (based on Devore p 246).
+* For an independent random sample from a continuous distribution symmetric about $\mu$, the sample median and symmetrically trimmed means are unbiased estimators of $\mu$, provided their expectations exist (based on Devore p 246).
 
-Given multiple senible point estimates exist, which to choose? It depends on the population distribution. In general, we prefer unbiased and small variance. However, sometimes an estimator is biased but has a small variance and we may prefer it over one that no bias but a large variance. See Example 6.7 of Devore.
+Given that multiple sensible point estimates exist, which should we choose? It depends on the population distribution. In general, we prefer unbiased estimators with small variance. However, sometimes an estimator is biased but has a small variance, and we may prefer it over one that has no bias but a large variance. See Example 6.7 of Devore.
 
-For some distributions and some estimators we know the estimator that is both unbiased and has the smallest variance among _any_ possible choice of estimator. This is called the Minimum Variance Unbiased Estimate, **MVUE**. For example, if the population is gaussian (normal), $\overline{X}$ is unbiased and has the minimum variance among _all_ possible unbiased estimators. In general, we know MVUE for a limited set of possible population distributions and estimators.
+For some population models and parameters, we know an estimator that is unbiased and has the smallest variance among _all unbiased estimators_ of that parameter. This is called the Minimum Variance Unbiased Estimator, **MVUE**. For example, for an independent random sample from a Gaussian (normal) population, $\overline{X}$ is the MVUE of $\mu$. Identifying an MVUE depends on the population model and the parameter being estimated.
 
 ## Point Estimate Bias and Variance
 
-To compute an estimator, such as $\overline{X}$, we draw random values from a population, so the population is a random variable because each value we draw is random.
+To compute an estimate, such as an observed value of $\overline{X}$, we draw random values from a population. Each draw is modeled by a random variable; the population itself is not a random variable.
 
 The estimator itself is a random variable because when we randomly choose a set of $n$ values and compute the estimator, we won't get the same result when we randomly choose another set of $n$ values. You demonstrated this on the last homework by plotting a histogram of 10,000 $\overline{X}$ values. This histogram represented the **sampling distribution** of $\overline{X}$.
 
-We don't always know the sampling distribution of an estimator. We only know the analytical value for a few cases. For example if the population is gaussian distributed ($X\sim \mathcal{N}(\mu,\sigma^2)$), then the sampling distribution is normally distributed with a smaller variance ($\overline{X}\sim \mathcal{N}(\mu, \sigma^2/n))$. You demonstrated this numerically on the last homework.
+We don't always know the sampling distribution of an estimator. We only know the analytical value for a few cases. For example, if the population is Gaussian distributed ($X\sim \mathcal{N}(\mu,\sigma^2)$), then the sampling distribution is normally distributed with a smaller variance ($\overline{X}\sim \mathcal{N}(\mu, \sigma^2/n)$). You demonstrated this numerically on the last homework.
 
-In only a few cases can we can prove that an estimator is unbiased and compute its MVUE.
+Proving that an estimator is unbiased does not establish that it has minimum variance. Identifying an MVUE requires a separate argument.
 
 ## Numerically Estimating Sampling Distribution
 
@@ -1549,7 +1552,7 @@ Numerically generate the sampling distribution of $\overline{X}_{\text{tr}(10)}$
 
 ### $\overline{X}$
 
-We can show that $\overline{X}$ is an unbiased estimator, that is, $E[\overline{X}]=0$ of $\mu$ for any population distribution.
+We can show that $\overline{X}$ is an unbiased estimator of $\mu$, that is, $E[\overline{X}]=\mu$, for any population distribution with a finite mean.
 
 $$\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i$$
 
@@ -1557,28 +1560,27 @@ Taking the expectation, we have
 
 $$E[\overline{X}]=E\left[\frac{1}{n}\sum_{i=1}^n X_i\right]$$
 
-Note that 
+For a discrete random variable, note that
 
 $$E\left[X\right] = \sum_{\text{all }x}xP(x)$$
 
-which means the right-hand side is a double sum. We can swap the order of the sum, giving
+The corresponding expectation for a continuous random variable is an integral. In either case, linearity of expectation gives
 
-$$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = E[X_1] + E[X_2] + ...$$
+$$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] + ...)$$
 
-The term $E[X_1]$ means the expectation value of all possible first-selected values from the sample. All possible first-selected values from the sample is the same as all possible values of $X$. Thus, $E[X_1]=E[X]$. Using the definition, $\mu=E\left[X\right]$, we have
+The term $E[X_1]$ is the expected value of the first draw. Each draw has the same distribution as $X$, so $E[X_i]=E[X]=\mu$ for every $i$. Thus, we have
 
 $$E[\overline{X}]=\frac{1}{n}\sum_{i=1}^n E[X_i] = \frac{1}{n}(E[X_1] + E[X_2] + ... ) = \frac{1}{n}(\mu + \mu + ...) = \frac{1}{n}(n\mu) = \mu$$
 
-
 ### $S^2_b$
 
-We can show that $E\left[S^2_b\right] = \sigma^2(n-1)/n$ for a population that as a variance $\sigma^2$.
+For $n$ independent, identically distributed draws from a population with finite variance $\sigma^2$, we can show that $E\left[S^2_b\right] = \sigma^2(n-1)/n$.
 
-In the following, I give a very verbose proof to help you understand the operations and concepts involved. Devore p 245 has a briefer proof that is given below and an alternative studen proof is also given.
+In the following, I give a very verbose proof to help you understand the operations and concepts involved. Devore p. 245 has a briefer proof that is given below.
 
 #### Long proof
 
-Starting with the definiton of $S^2_b$,
+Starting with the definition of $S^2_b$,
 
 $$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^n(X_i-\overline{X})^2 \right]$$
 
@@ -1612,9 +1614,9 @@ $$E\left[S^2_b\right] = E\left[ \frac{1}{n} \sum_{i=1}^nX_i^2\right]-E\left[\ove
 
 or
 
-$$E\left[S^2_b\right] = \frac{1}{n}\left( E[X_1^2] + E[X_2]^2 + ...\right)-E\left[\overline{X}^2\right]$$
+$$E\left[S^2_b\right] = \frac{1}{n}\left( E[X_1^2] + E[X_2^2] + ...\right)-E\left[\overline{X}^2\right]$$
 
-Note that $E[X_1^2]$ means "the expectation of the first value of the sample". The first value drawn can take on any value in the population, so $E[X_1^2]=E[X^2]$. Using this, we have
+Note that $E[X_1^2]$ means "the expectation of the square of the first value of the sample". Each draw has the same distribution as $X$, so $E[X_1^2]=E[X^2]$. Using this, we have
 
 $$II.\qquad E\left[S^2_b\right] = E\left[X^2\right]-E\left[\overline{X}^2\right]$$
 
@@ -1660,7 +1662,7 @@ $X_n^2+X_n(X_1+X_2+...+X_{n-1})$
 
 Let $X^\prime=X-\mu$. Then, the above can be written as 
 
-$(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)$
+$(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)+$
 
 $(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...+X^{\prime}_n+\mu)+$
 
@@ -1685,15 +1687,15 @@ Next we note that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$; this is
 
 1. $E[X'] = E[X-\mu] = E[X] - \mu = \mu - \mu = 0$
 
-   $E\left[X^{\prime 2}\right] = E\left[X^2 - 2\mu X - \mu^2\right] = E\left[X^2] - E[2\mu X] - E[\mu^2\right] = E[X^2] - 2\mu^2 - \mu^2=E[X^2] - \mu^2$
-   
+   $E\left[X^{\prime 2}\right] = E\left[X^2 - 2\mu X + \mu^2\right] = E[X^2] - E[2\mu X] + E[\mu^2] = E[X^2] - 2\mu^2 + \mu^2 = E[X^2] - \mu^2$
+
    Earlier it was shown that $E\left[X^2\right]=\mu^2+\sigma^2$, so substitution gives
 
    $E\left[X^{\prime 2}\right] = \sigma^2$
 
-2. Consider the first row of the expansion of $\left(\sum_{i=1}^nX_i\right)^2$
+2. Consider the following rows of the expansion of $\left(\sum_{i=1}^nX_i\right)^2$, starting with the first row:
 
-   $(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)$
+   $(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)+$
 
    $(X^{\prime}_2+\mu)^2+(X^{\prime}_2+\mu)(X^{\prime}_1+\mu+X^{\prime}_3+\mu+...+X^{\prime}_n+\mu)+$
 
@@ -1701,27 +1703,27 @@ Next we note that $E\left[X^\prime_iX^{\prime}_j\right]=0$ for $i\ne j$; this is
 
    $(X^{\prime}_n+\mu)^2+(X^{\prime}_n+\mu)(X^{\prime}_1+\mu+X^{\prime}_2+\mu+...+X^{\prime}_{n-1}+\mu)$
 
-   Its first term, $(X^{\prime}_1+\mu)^2$, is $X_1^2$, which has an expectation value of $E[X]$, which was shown earlier to be $\mu^2+\sigma^2$.
+   Its first term, $(X^{\prime}_1+\mu)^2$, is $X_1^2$, which has an expectation value of $E[X^2]$, which was shown earlier to be $\mu^2+\sigma^2$.
 
    In the second term,
 
    $(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu),$
 
-   there are $n-1$ $\mu$ terms so it can be re--written as
+   there are $n-1$ $\mu$ terms, so expanding gives
 
-   $$X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...\mu(n-1)\mu$$
+   $$\sum_{j=2}^n X'_1X'_j + (n-1)\mu X'_1 + \mu\sum_{j=2}^n X'_j + (n-1)\mu^2$$
 
-   Becuase $E[X_i^\prime X_j^\prime] = 0$, 
+   Because $E[X_i^\prime X_j^\prime] = 0$ for $i\ne j$ and $E[X'_i]=0$,
 
-   $$E\big[X^{\prime}_1X^{\prime}_2+X_1^\prime X^{\prime}_3+...+\mu^2(n-1)\big]=\mu^2(n-1)$$
+   $$E\left[\sum_{j=2}^n X'_1X'_j + (n-1)\mu X'_1 + \mu\sum_{j=2}^n X'_j + (n-1)\mu^2\right]=(n-1)\mu^2$$
 
    Thus,
 
-   $E\left[(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)\right]=\mu^2+\sigma^2 + \mu^2(n-1) = \sigma^2+n\mu$
+   $E\left[(X^{\prime}_1+\mu)^2+(X^{\prime}_1+\mu)(X^{\prime}_2+\mu+X^{\prime}_3+\mu+...+  X^{\prime}_n+\mu)\right]=\mu^2+\sigma^2 + \mu^2(n-1) = \sigma^2+n\mu^2$
 
    We only considered one row. There are a total of $n$ rows, so
 
-   $$E\left[\overline{X}^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}(n\sigma^2+n^2\mu)=\mu^2+\sigma^2/n$$
+   $$E\left[\overline{X}^2\right]=\frac{1}{n^2}E\left[\left(\sum_{i=1}^nX_i\right)^2\right]=\frac{1}{n^2}(n\sigma^2+n^2\mu^2)=\mu^2+\sigma^2/n$$
 
 In summary, we have shown that $E[X^2]=\mu^2+\sigma^2$ and $E[\overline{X}^2]=\mu^2+\sigma^2/n$. As a result, Equation $II.$ simplifies to
 
@@ -1739,7 +1741,7 @@ It follows from the calculation above that an unbiased estimate of the variance 
 
 $$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$
 
-because $E[S^2]=\sigma^2$. Note that when $n=1$, $S^2$ is $0/0$, which indeterminate; this makes sense as -- we don't expect to be able to estimate the variance of a population with only one sample.
+because $E[S^2]=\sigma^2$. Note that when $n=1$, $S^2$ is $0/0$, which is indeterminate; this makes sense, as we don't expect to be able to estimate the variance of a population with only one sample.
 
 Recall that, in contrast, an unbiased estimate of $\mu$ is
 
@@ -1749,7 +1751,7 @@ which has $n$ and not $n-1$.
 
 #### Alternative proof 1. (Devore)
 
-Devore on pg 245 starts with the observation that for the variance of random variable $Y$, $V(Y)$, can be written 
+Devore on p 245 starts with the observation that the variance of a random variable $Y$, $V(Y)$, can be written
 
 $$V(Y)=E[Y^2]-(E[Y])^2$$
 
@@ -1792,12 +1794,12 @@ $$E[S^2] = \frac{1}{n-1}\left(n(\sigma^2+\mu^2)-\frac{1}{n}(n\sigma^2+n^2\mu^2)\
 
 ### $S^2$
 
-We can show that $S^2$ is an unbiased estimator of $\sigma^2$ for any population distribution using the result from $S_b^2$.
+For an independent random sample with $n>1$ from any population with finite variance, we can show that $S^2$ is an unbiased estimator of $\sigma^2$ using the result from $S_b^2$.
 
 
 ### $S$
 
-Computing an unbiased estimator for $S=\sqrt{S^2}$ is more difficult than for $S^2$. With the restriction that the population is normally distributed with standard deviation $\sigma$, we have a formula discussed in Problem 37. on page 266 of Devore (I don't have a reference for the proof):
+Computing an unbiased estimator of $\sigma$ from $S=\sqrt{S^2}$ is more difficult than estimating $\sigma^2$ with $S^2$. With the restriction that the population is normally distributed with standard deviation $\sigma$, we have a formula discussed in Problem 37 on page 266 of Devore (I don't have a reference for the proof):
 
 > 37. When the sample standard deviation $S$ is based on a random sample from a normal population distribution, it can be shown that
 >
@@ -1805,9 +1807,9 @@ Computing an unbiased estimator for $S=\sqrt{S^2}$ is more difficult than for $S
 >
 >    Use this to obtain an unbiased estimator for $\sigma$ of the form $cS$. What is $c$ when $n=20$?
 
-For integer $x$, the gamma function $\Gamma(x)=(x-1)!$, so $\Gamma(10)=9\cdot 8\cdot ...\cdot 1=362880$.
+For positive integer $x$, the gamma function $\Gamma(x)=(x-1)!$, so $\Gamma(10)=9\cdot 8\cdot ...\cdot 1=362880$.
 
-For non-integer $x$, one must solve an integral. Using a Gamma function calculator gives $\Gamma(9.5)\approx 119292.5$. Alternatively, for large $x$, $\displaystyle\Gamma(x+1)\sim\sqrt{2\pi x}\left(\frac{x}{e}\right)^x$. Using this gives $\Gamma(9.5)\approx 118129.2$.
+For positive non-integer $x$, the gamma function can be evaluated numerically; half-integer values can also be computed using $\Gamma(1/2)=\sqrt{\pi}$ and $\Gamma(x+1)=x\Gamma(x)$. Using a gamma function calculator gives $\Gamma(9.5)\approx 119292.5$. Alternatively, for large $x$, $\displaystyle\Gamma(x+1)\sim\sqrt{2\pi x}\left(\frac{x}{e}\right)^x$. Using this with $x=8.5$ gives $\Gamma(9.5)\approx 118129.2$.
 
 To be unbiased, we want
 
@@ -1829,9 +1831,9 @@ as an estimate of the population parameter $\beta$ in the model equation
     
 $$y_i = \beta x_i + \alpha + \epsilon_i$$
     
-were $\epsilon_i$ are independent and randomly distributed values from a Gaussian distribution with zero mean and standard deviation $\sigma$.
+where $\epsilon_i$ are independent and randomly distributed values from a Gaussian distribution with zero mean and standard deviation $\sigma$.
 
-Note that $x_i-\bar{x}$ is not a random variable because $x_i$ values are given, so it can be treated as a constant. Thus
+Assume the $x_i$ values are fixed and not all equal, so $\sum_{i=1}^n(x_i-\bar{x})^2>0$. Then $x_i-\bar{x}$ can be treated as a constant. Thus
 
 $$E[b]
 =E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]
@@ -1845,8 +1847,8 @@ E[b] = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})E\left[(y_i-\bar{y})\right]
 $$
 
 $$E\left[y_i-\bar{y}\right]=E\left[\beta x_i+
-\alpha+\epsilon_i-\bar{y}\right]=E\left[\beta x_i] +
-E[\alpha]+E[\epsilon_i]-E[\bar{y}\right]
+\alpha+\epsilon_i-\bar{y}\right]=E[\beta x_i] +
+E[\alpha]+E[\epsilon_i]-E[\bar{y}]
 $$
 
 $$E\left[y_i-\bar{y}\right]=\beta x_i+\alpha - E[\overline{y}]$$
@@ -1863,7 +1865,7 @@ $$E[b]=\beta$$
 
 Alternative:
 
-Subsitution of
+Substitution of
 
 $$y_i = \beta x_i + \alpha + \epsilon_i$$
 
@@ -1877,19 +1879,19 @@ $$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})( \beta x_i + \alpha + \epsi
 
 Using
 
-$$\overline{y} = \alpha + \beta \overline{x}$$
+$$\overline{y} = \alpha + \beta \overline{x} + \overline{\epsilon}$$
     
 gives
 
-$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})\left[\beta (x_i - \overline{x}) - \epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+$$b = \frac{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})\left[\beta (x_i - \overline{x}) + \epsilon_i-\overline{\epsilon}\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
 
-or
+Since $\sum_{i=1}^n(x_i-\bar{x})=0$, the term involving $\overline{\epsilon}$ cancels, giving
 
-$$b = \frac{\displaystyle\sum_{i=1}^{n}\left[\beta (x_i - \overline{x})^2 - (x_i-\overline{x})\epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2} = \beta - \frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+$$b = \frac{\displaystyle\sum_{i=1}^{n}\left[\beta (x_i - \overline{x})^2 + (x_i-\overline{x})\epsilon_i\right]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2} = \beta + \frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
 
 Finally, using
 
-$$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})^2E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}$$
+$$E\left[\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})\epsilon_i}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}\right]=\frac{\displaystyle\sum_{i=1}^{n}(x_i-\overline{x})E[\epsilon_i]}{\displaystyle\sum_{i=1}^{n}(x_i-\bar{x})^2}=0$$
 
 because the $x$ values are fixed and can be treated as constants, we can conclude that $E[b]=\beta$.
 
@@ -1898,11 +1900,11 @@ because the $x$ values are fixed and can be treated as constants, we can conclud
 * Confidence Intervals
 * Confidence Bounds (not covered)
 * Prediction Intervals (not covered)
-* Tolerance Levels (not covered)
+* Tolerance Intervals (not covered)
 
 # Confidence Intervals
 
-> An alternative to reporting a single sensible value for the parameter being estimated is to calculate and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes m, or whatever other parame- ter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267)
+> An alternative to reporting a single sensible value for the parameter being estimated is to calculate and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes $\mu$, or whatever other parameter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267)
 
 Note that there are other intervals related to point estimates not covered in these notes: confidence bounds (p 282 of Devore), prediction intervals (Devore p 289), and tolerance intervals (Devore p 291).
 
@@ -1915,19 +1917,19 @@ Deriving a confidence interval requires deriving the sampling distribution of a 
 Requires
 
 1. Assumption about distribution of population
-2. Finding the approriate CI formula for the point estimator
+2. Finding the appropriate CI formula for the point estimator
 
 Formulas depend on
 
-1. Population distribution (e.g., $\sim \mathcal{N}$, $\sim\mathcal{t_{n}}$),
-2. Know parameters of the population distribution, if any  (e.g., $\sigma$ known),
+1. Population distribution (e.g., normal or Student's $t$),
+2. Known parameters of the population distribution, if any (e.g., $\sigma$ known),
 3. Number of samples, $n$
-4. The "confidence level" $\alpha$
+4. The confidence level $1-\alpha$ (e.g., $0.95$ when $\alpha=0.05$)
 
 
 ## Common CIs
 
-###
+### Normal Mean, Known Standard Deviation
 
 > A $100(1-\alpha)$% confidence interval for the mean $\mu$ of a normal population when the value of $\sigma$ is known is given by
 >
@@ -1955,13 +1957,13 @@ print(np.mean(x))
 
 ```
 
-Compute 95\% CI for this $\overline{X}$.
+Compute a 95\% CI for $\mu$ using this observed $\overline{X}$.
 
 This means $\alpha = 0.05$. First, find $z_{\alpha/2}=z_{0.025}$. The interpretation of $z_A$ is that an area of $A$ under the standard normal PDF is to the left of $-z_A$.
 
 Standard Normal PDF:
 
-$$f(z) = \frac{1}{2\pi}e^{-z^2/2}$$
+$$f(z) = \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$$
 
 %First, standardize the point estimate
 
@@ -1972,35 +1974,36 @@ $$f(z) = \frac{1}{2\pi}e^{-z^2/2}$$
 %print(Z)
 %```
 
-###
+### Normal Mean, Unknown Standard Deviation
 
-> Let $\overline{x}$ and $s$ be the sample mean and the sample deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
+> Let $\overline{x}$ and $s$ be the sample mean and the sample standard deviation computed from the results of a random sample from a normal population with a mean $\mu$. Then a $100(1-\alpha)$% confidence interval for the mean $\mu$ is
 >
 >$$\left(\overline{x}-t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}, \quad \overline{x}+t_{\alpha/2, n-1}\frac{s}{\sqrt{n}}\right)$$
 >
 > Devore Equation 7.15, p 288
 
-###
+### Approximately Normal Estimator
 
-> Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is avaialable. Then
+> Suppose $\hat{\theta}$ is an estimator satisfying the following properties: (1) It has approximately a normal distribution; (2) it is (at least approximately) unbiased; and (3) an expression for $\sigma_{\hat{\theta}}$, the standard deviation of $\hat{\theta}$, is available. Then
 >
 > $$P\left(-z_{\alpha/2} < \frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} < z_{\alpha/2}\right)\simeq 1-\alpha$$
 >
 > Devore Equation 7.9
 
-###
+### Population Proportion
+
 Devore Equation 7.10 gives a complex formula for the CI for a population proportion, $p$. For large $n$, it is
 
-> $\hat{p} \pm z_{\alpha/2}\sqrt{\hat{p}\hat{q}}$
+> $\hat{p} \pm z_{\alpha/2}\sqrt{\hat{p}\hat{q}/n}$
 >
 > Devore page 280.
 
-For small $n$, there are many complications. See discussion in Devore p 281 and [Brown et al., Interval Estimation for a Binomial Propotion, 2001](https://www.jstor.org/stable/2676784).
+For small $n$, there are many complications. See discussion in Devore p 281 and [Brown et al., Interval Estimation for a Binomial Proportion, 2001](https://www.jstor.org/stable/2676784).
 
 
 ### 
 
-> A $100(1-\alpha)%$ confidence interval for the variance $\sigma^2$ of a normal population has a lower limit
+> A $100(1-\alpha)\%$ confidence interval for the variance $\sigma^2$ of a normal population has a lower limit
 >
 > $$\quad S^2(n-1)/\chi^2_{\alpha/2, n-1}$$
 >
@@ -2015,3 +2018,193 @@ For small $n$, there are many complications. See discussion in Devore p 281 and 
 Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
  
 It is best to always think of the $\alpha/2$ values as corresponding to a small area.
+
+# Hypothesis Tests
+
+## Overview
+
+> The null hypothesis, denoted by $H_0$, is the claim that is initially assumed to be true (the “prior belief” claim). The alternative hypothesis, denoted by $H_a$, is the assertion that is contradictory to $H_0$.
+> 
+> The null hypothesis will be rejected in favor of the alternative hypothesis only if sample evidence suggests that $H_0$ is false. If the sample does not strongly contradict $H_0$, we will continue to believe in the plausibility of the null hypothesis. The two possible conclusions from a hypothesis-testing analysis are then reject $H_0$ or fail to reject $H_0$. (Devore p. 301)
+
+> $H_0$ will generally be stated as an equality claim. If $\theta$ denotes the parameter of interest, the null hypothesis will have the form $H_0$: $\theta = \theta_0$, where $\theta_0$ is a specified number called the null value of the parameter (value claimed for $\theta$ by the null hypothesis). (Devore p. 302)
+
+
+> A test procedure is specified by the following:
+> 1. A test statistic, a function of the sample data on which the decision (reject $H_0$ or do not reject $H_0$) is to be based [example $\overline{x}$]
+> 2. A rejection region, the set of all test statistic values for which $H_0$ will be rejected
+>
+> The null hypothesis will then be rejected if and only if the observed or computed test statistic value falls in the rejection region. (Devore p. 303)
+
+> A type I error consists of rejecting the null hypothesis $H_0$ when it is true.
+>
+> A type II error involves not rejecting $H_0$ when $H_0$ is false.
+>
+> The choice of a particular region cutoff values fixes the probabilities of type I and type II errors. These error probabilities are traditionally denoted by $\alpha$ and $\beta$, respectively.
+>
+> (Devore p. 304)
+
+One can also define rejection regions based on an assumed value of $\alpha$. That is, given $\alpha$, one can compute the rejection region.
+
+## Basic Rejection Region Algorithm
+
+The following applies to a problem where one wants to test for equality with an alternative of inequality.
+
+1. Choose a population parameter, $\theta$ that you want to subject to an equality claim ("null hypothesis", $H_0$) of the form $\theta=\theta_0$, where $\theta_0$ is the "null value".
+   
+   For example, suppose we want to test the claim that the mean of a population is 1.0; then $\theta=\mu$ and $\theta_0 = 1.0$ and $H_0$ is $\mu=1.0$.
+
+2. Find the equation for $\hat{\theta}$, an unbiased estimator of $\theta$.
+   
+   For example, if we want to test the claim that $\mu=1.0$, an unbiased estimator of $\mu$ is $\overline{x}$, so $\hat{\theta}=\overline{x}$.
+
+3. Determine the sampling distribution of $\hat{\theta}$. This sampling distribution will depend on the population distribution (which is rarely known). In most textbook examples, the exact sampling distribution is known because the population distribution is assumed to be known. Also, textbook sampling distributions for $\hat{\theta}$ are usually from a short list of common distributions: $\mathcal{N}$, $t$, $\chi^2$, $F$. 
+
+   Examples:
+  
+   * If population is $\mathcal{N}(\mu, \sigma)$, the sampling distribution of $\hat{\theta}=\overline{x}$ is $\mathcal{N}(\mu, \sigma/\sqrt{n})$. Or, equivalently, the sampling distribution of $(\overline{x}-\mu)/(\sigma/\sqrt{n})$ is $\mathcal{N}(\mu=0, \sigma=1)$.
+
+   * If population is $\mathcal{N}(\mu, \sigma)$, the sampling distribution of $\hat{\theta}=s^2$ can be determined using the fact that $s^2(n-1)/\sigma^2$ is $\chi^2_{n-1}$. (In contrast to the previous case, there is not a common notation that is used to say, for example, "$s^2$ has a sampling distribution of $\chi^2_{n-1}(\sigma^2)$".)
+
+   * If population is $\mathcal{N}(\mu, \sigma)$ with unknown $\sigma$, the sampling distribution of $\overline{x}$ can be determined using the fact that $(\overline{x}-\mu)/(s/\sqrt{n})$ is $t_{n-1}$. (Again, there is not common notation that allows us to say, for example, $\overline{x}$ has a sampling distribution of $t_{n-1}(\mu, \sigma)$.)
+
+4. Choose an alternative hypothesis, $H_a$. For example $\mu\ne 1.0$ or $\mu < 0.5$.
+
+5. Choose a rejection region. If the value of $\hat{\theta}$ from the sample, $\hat{\theta}_{\text{sample}}$, is in this region, the equality claim will be rejected. The rejection region has associated with it an area, $\alpha$. If $H_a$ is $\theta \ne \theta_0$, the rejection region consists of values of $\hat{\theta}$ in the lower $\alpha/2$ and upper $\alpha/2$ regions of the sampling distribution.
+
+   If we assume population is $\mathcal{N}(\mu=0, \sigma=1)$ and execute an experiment of drawing $n$ values from it and compute $\overline{x}_\text{sample}$, we reject the null that $\mu=0$ if $\overline{x}_\text{sample}$ is in the "rare" region of the sampling distribution for $\overline{x}$. We do not reject the null hypothesis otherwise.
+   
+   Based on the assumptions about the population distribution and the fact that the sampling distribution of $\overline{x}$ is $\mathcal{N}(\mu=0, \sigma=1/\sqrt{n})$ if these assumptions are true, we expect $|\overline{x}_\text{sample}|>1.96\sigma/\sqrt{n}$ to occur in 5% of hypothetical experiments.
+
+   When we reject, we are claiming "if we could repeat the experiment many times and compute many $\overline{x}_\text{sample}$ values, values in my selected rejection region are rare, so I'll reject the hypothesis if an experiment yields a $\overline{x}_\text{sample}$ in the rejection region; otherwise, I won't reject the null hypothesis". Notice that the statements don't involve claims that $H_0$ is true or false. They only involve statements about whether the observation is likely or not.
+
+In summary, a hypothesis test has the logic: Given a claim and the calculation of a statistic based on experimental observations, if the value of the statistic is unlikely based on what we know (or assume we know) about the probability of every possible statistic that could occur from an experiment, reject the claim; otherwise, don't reject the claim (it is tempting to say "accept the claim", but that is equivalent to making a statement that the claim is true).
+
+See also https://online.stat.psu.edu/stat500/Lesson06
+
+**Example**
+
+The drying time of paint has historically been $75$ minutes with a standard deviation of $9$ minutes.
+
+A new additive was introduced that is claimed to decrease the drying time.
+
+$n=25$ tests were done on the new paint, and the average drying time was $70.0$ minutes. Assume the samples were drawn from a normally distributed population with a standard deviation of $9$ minutes.
+
+Give the test result and the hypothesis test
+
+$H_0$: $\mu=75$ and $H_a: \mu < 70.9$,
+
+1. Should $H_0$ be rejected?
+
+2. What is the probability of a Type I error for this hypothesis test?
+
+3. Suppose we wanted to change the rejection region to be $<70.0$ so that we don't reject. What is $\alpha$ in this case?
+
+_Answers_
+
+1. Yes, because 70.0 is in the rejection region of $H_a$.
+2. The rejection region is the area under the normal distribution from $z=-\infty$ to $z=Z$, where $Z=(70.8-75)/(9/\sqrt{25})$ $\approx -2.33$. This area is $0.01$ and so this is $\alpha$, the probability of a Type I error.
+3. $Z=(70.0-75)/(9/\sqrt{25})$ $\approx -2.78$. The area under the normal distribution from $z=-\infty$ to $z=-2.78$ is $0.0027$ from a table. So $\alpha = 0.0027$. Later we will see how this extra calculation is related to performing a hypothesis test using $P$-values.
+
+## Interpretation
+
+**Important**: "Rejecting $H_0$" does not mean $H_0$ is false -- we don't know if it is true or false and in general never will. "Rejecting $H_0$" means $H_0$ is unlikely, where the unlikeliness threshold for rejection is determined by $\alpha$. In a similar way, a jury asserts "guilty" with the qualifier "beyond a reasonable doubt". In most cases, we will never know if the defendant is actually guilty. As a result, we use "guilty beyond a reasonable doubt" to mean that a jury thinks it is highly unlikely that their claim of "guilt" is wrong.
+
+It is easy to get the wording wrong on a hypothesis test. I will probably do it when speaking. On Devore p. 301 he states "The objective [of a hypothesis test] is to decide, based on sample information, which of the two hypotheses is correct." I find "correct" could be misinterpreted as meaning "true", so I suggest a better version is "The objective of a hypothesis test is to compute, based on a sample, if a hypothesis is unlikely if the null hypothesis is true. This information can be used to determine if a hypothesis is incorrect with some level of confidence." 
+
+## Relationship to CIs
+
+> The conclusion drawn from a two-tailed confidence interval is usually the same as the conclusion drawn from a two-tailed hypothesis test. In other words, if the 95% confidence interval contains the hypothesized parameter, then a hypothesis test at the 0.05 level will almost always fail to reject the null hypothesis. If the 95% confidence interval does not contain the hypothesized parameter, then a hypothesis test at the 0.05 level will almost always reject the null hypothesis. (https://online.stat.psu.edu/stat200/lesson/6/6.6)
+
+A confidence interval can be framed as a hypothesis test (See also Bulmer p 169). Consider the test
+
+* $H_0$: $\theta=\theta_o$
+* $H_a$: $\theta\ne \theta_0$
+
+1. Test statistic: $\hat{\theta}$, which is an unbiased estimate of $\theta$.
+2. Rejection region: $\hat{\theta}$ of sample outside the CI _centered on_ $\theta_o$.
+
+If $\theta_{\text{sample}}$ is in rejection region, we reject $H_0$.
+
+> Confidence intervals have recently been promoted over the use of hypothesis tests for a litany of unsupported reasons. (a) Among its supposed benefits is the assertion that confidence intervals provide more confidence than do hypothesis tests. This is based on the fallacy that confidence intervals are based on some system of probability theory other than that of hypothesis tests, when in fact they are the same. (b) Another prevalent misconception is confidence intervals must be symmetric. ([Sawilowsky, 2011, Statistical Fallacies](https://drive.google.com/file/d/13w5qqFfhgmf1K02WEsBMdPOeV0Y3nEUC/view?usp=sharing))
+
+**Example**
+
+Consider the following experiment: you are given a sample of $n=100$ values. You are told that they were generated by a Gaussian random number generator with mean $\mu=2$ and variance $\sigma^2=2$. You are certain about the Gaussian and $\sigma^2$ claim (this seems unrealistic, but simplifies the analysis), but suspect the $\mu=2$ claim is wrong because you find $\overline{x}$ of the sample is 2.4.
+
+1. Compute a 95% confidence interval for $\mu$.
+
+2. Use a hypothesis test using the rejection region algorithm to assess the claim about $\mu$. Use a significance level of 5% and let $H_0$ be $\mu=2$ and $H_a$ be $\mu \ne 2$.
+
+3. Make an assessment about the chances that you reject $H_0$ and $H_0$ is true (Type I error)
+
+4. Explain how the confidence interval and the results of parts 1. and 2. are related.
+
+_Answers_
+
+1. The appropriate CI for $\mu$ is $[\overline{x} - z_{0.025}\sqrt{2}/\sqrt{100}, \overline{x} + z_{0.025}\sqrt{2}/\sqrt{100}]$, where $z_{0.025}=1.96$. The values are given in the figure below along with a visualization of this 95\% confidence interval. The black curve is the sampling distribution of $\overline{x}$ assuming that samples were drawn from $\mathcal{N}(\mu, \sigma^2)$. $\overline{x}_{\text{sample}}$ is the actual value found from a sample of $n$ values. If we were to repeat this process many times, we expect that in 95\% of the cases, the blue line will overlap $2.0$.
+
+   <img src="notes/figures/HW6_1a.svg" width="500px"/>
+
+2. We reject $H_0$ if the observed value is in the red region. The red regions can be determined by shifting the blue line to be centered on $\mu$.
+
+   <img src="notes/figures/HW6_1b.svg" width="500px"/>
+
+3. $\alpha=0.05$.
+
+## Basic $P$--Value Algorithm
+
+The basic $P$ value algorithm is a generalization of the basic rejection region method.
+
+Instead of rejecting based on a predefined rejection region, we reject based on a requirement for the probability of a Type I error (which we have denoted as $\alpha$).
+
+**Example**
+
+This example was considered in the Basic Rejection Region Algorithm section.
+
+The drying time of paint has historically been $75$ minutes with a standard deviation of $9$ minutes.
+
+A new additive was introduced that is claimed to decrease the drying time.
+
+$n=25$ tests were done on the new paint, and the average drying time was $70.0$ minutes. Assume the samples were drawn from a normally distributed population with a standard deviation of $9$.
+
+The hypothesis test of $H_0$: $\mu=75$ with a rejection region of $<70.8$ was considered and $H_0$ was rejected because the sample value of $70.0$ is in the rejection region. It was found that this rejection region corresponded to $\alpha = 0.01$. The equivalent hypothesis using a $P$--value is
+
+$H_0$: $\mu=75$ with $H_a$: $\mu<75$ and its associated rejection region based on $P \le 0.01$
+
+Previously, we computed that if we wanted to change the rejection region to be $<70.0$ so that we don't reject, we needed $\alpha = 0.0027$. This is the $P$ value for this hypothesis test. Since this $P$ value is less than $0.01$, we reject.
+
+Now we can state "reject $H_0$; $P=0.0027$" or "$\mu < 75$; $P=0.0027$." Ideally we would state what the rejection threshold is for $P$, which was $0.01$ in this problem, but the threshold is often omitted when $P$ is less than $0.01$.
+
+When using the rejection region algorithm, we only stated "reject $H_0$" with a significance level of $0.05$. So the $P$ value method provides more information. 
+
+**Problem**
+
+Rephrase the hypothesis test and the statement of its result for the example in Relationship to CIs section.
+
+## More Interpretation
+
+> The rejection of a hypothesis at the 5% level does not imply that the probability that the hypothesis is false is 95%; it merely implies that the observed result belongs to a class of results whose overall probability of occurrence, if the null hypothesis is true, is 5%. This provides good reason, in the sense of a rational degree of belief, for supposing the hypothesis to be false, but no numerical value can be placed upon this degree of belief. (Bulmer, p. 165)
+
+See also [Statistical tests, P values, confidence intervals, and power: a guide
+to misinterpretations](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/pdf/10654_2016_Article_149.pdf)
+
+## $\beta$ and Power
+
+(Only briefly covered. Will not be on Midterm.)
+
+Recall
+
+> A type I error consists of rejecting the null hypothesis $H_0$ when it is true.
+>
+> A type II error involves not rejecting $H_0$ when $H_0$ is false.
+>
+> The choice of a particular region cutoff values fixes the probabilities of type I and type II errors. These error probabilities are traditionally denoted by $\alpha$ and $\beta$, respectively.
+>
+> (Devore p. 304)
+
+Thus far, the probability, $\alpha$, of a Type I error has been computed. 
+
+The probability of a type II error requires more computation because $H_0$ can be false in many ways.
+
+For example $H_0$: $\mu=10$ can be false if $\mu$ has any other value than $10$, say $\mu_a$. So we need to find $\beta$ as a function of all possible values of $\mu_a$.
