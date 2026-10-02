@@ -751,6 +751,8 @@ Instead of a short quiz, I decided to give an in-class activity on the topics co
 
 # Quiz 5
 
+## Description*
+
 This is a _graded_ quiz.
 
 1. A problem similar to example 8.2 of Devore. The table referenced in this problem will be provided.
@@ -764,6 +766,43 @@ This is a _graded_ quiz.
    * "$\mu \ne 2$ with $P=0.0047$"
 
    Are these two statements equivalent? If not, modify one of them to make them equivalent. $P$ values are discussed in 8.4 of Devore.
+
+## Quiz
+
+15 minutes
+
+**Hypothesis Test**
+
+The drying time of paint has historically been $75$ minutes with a standard deviation of $9$ minutes.
+
+A new additive was introduced that is claimed to decrease the drying time.
+
+$n=25$ tests were done on the new paint, and the average drying time was $70.0$ minutes. Assume the samples were drawn from normally distributed population with a standard deviation of $9$.
+
+A hypothesis test of
+
+$H_0$: $\mu=75$ with a rejection region of $<70.8$
+
+Should $H_0$ be rejected?
+
+What is the probability of a Type I error for this hypothesis test?
+
+**$P$ values and Hypothesis Tests**
+
+(590 only)
+
+If a hypothesis test of:
+
+* $H_0$: $\mu=2$
+* $H_a$: $\mu \ne 2$
+
+was performed and "$H_0$ was rejected with a significance level of $0.05$", some researchers may report only
+
+> $\mu \ne 2$ with $P=0.0047$
+
+Are these two statements equivalent?
+
+If not, modify one of them to make them equivalent.
 
 # Activity 1
 
