@@ -1,5 +1,5 @@
-import numpy as np
 import math
+import numpy as np
 from matplotlib import pyplot as plt
 from lib.savefig import savefig
 from lib.pdf import pdf
@@ -18,10 +18,16 @@ s2s_scaled = (ns-1)*s2s/sigma**2
 
 e_pdf, bin_centers, bin_edges = pdf(s2s_scaled, 1)
 
-ns = ns - 1 
-ch2_pdf = (bin_centers**(ns/2-1) * np.exp(-bin_centers/2)) / (2**(ns/2) * math.gamma(ns/2))
+n = ns - 1
+ch2_pdf = (bin_centers**(n/2-1) * np.exp(-bin_centers/2)) / (2**(n/2) * math.gamma(n/2))
 
-plt.bar(bin_centers, e_pdf, color='black', width=(bin_edges[1]-bin_edges[0])*0.94, zorder=1)
-plt.plot(bin_centers, ch2_pdf, '*', zorder=10)
+width = (bin_edges[1]-bin_edges[0])*0.94
+plt.bar(bin_centers, e_pdf, color='black', width=width, zorder=1)
+plt.plot(bin_centers, ch2_pdf, '.', zorder=10)
+plt.xlabel(r"$(n-1)S^2/\sigma^2$")
+plt.ylabel("Probability Density")
+plt.legend([r"$\chi^2$ Exact", r"Simulated"])
+plt.gca().set_axisbelow(True)
+plt.grid(True)
 
 savefig("HW4_2_2")

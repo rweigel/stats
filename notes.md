@@ -2208,3 +2208,11 @@ Thus far, the probability, $\alpha$, of a Type I error has been computed.
 The probability of a type II error requires more computation because $H_0$ can be false in many ways.
 
 For example $H_0$: $\mu=10$ can be false if $\mu$ has any other value than $10$, say $\mu_a$. So we need to find $\beta$ as a function of all possible values of $\mu_a$.
+
+See also
+* [Statistic Done Wrong](https://www.statisticsdonewrong.com/power.html)
+* [Using Effect Size—or Why the P Value Is Not Enough](https://pmc.ncbi.nlm.nih.gov/articles/PMC3444174/)
+* [The Abuse of Power](https://doi.org/10.1198/000313001300339897)
+
+
+

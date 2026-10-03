@@ -613,6 +613,15 @@ In Devore 7.4, a confidence interval for the variance of a normal population is 
 
    Save your code as `HW4_2_1.py`. When executed, it should print the confidence interval and copy what is printed into a comment in  `HW4_2_1.py`.
 
+   **Answer**
+
+   [HW4_2_1.py](solns/HW4_2_1.py)
+
+   ```
+   Sample variance: 137324.26
+   Chi2 lower: 6.91, Chi2 upper: 28.85
+   95% CI for the variance: [76171.31, 318079.76]
+   ```
 
 2. (590 only) In HW 3.3.2, you numerically generated an approximation of the sampling distribution of $S_b^2$ (represented as a histogram). In section 7.4 of Devore, the exact sampling distribution of $(n-1)S^2/\sigma^2$ is claimed to be $\chi^2_{n-1}$ when $n$ values are drawn from a normal distribution with standard deviation $\sigma$.
 
@@ -623,6 +632,12 @@ In Devore 7.4, a confidence interval for the variance of a normal population is 
   Use your $(n-1)S^2/\sigma^2$ probability density to get an estimation for the values found using `scipy.stats.chi2.ppf` in part 1.
 
    Save your code as `HW4_2_2.py`. When executed, it should save the plot as `HW4_2_2.png` and print the CI estimated using your $(n-1)S^2/\sigma^2$ probability density. Make sure to upload the png file to your repository and copy what is printed into a comment in your code.
+
+   **Answer**
+
+   [HW4_2_2.py](solns/HW4_2_2.py)
+
+   <img src="solns/HW4_2_2.svg"/>
 
 ## It's a Trap
 
