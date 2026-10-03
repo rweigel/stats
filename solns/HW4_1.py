@@ -1,15 +1,23 @@
 import numpy as np
 import scipy.stats
+
+# Checks:
+# 1. t CI should be wider
+# 2. As n increases, the z and t CIs should converge
+# 3. As n increases, each CI should decrease in length
+# 4. Could do a simulation to verify the theoretical CIs (how often they trap)
+# 5. Use code with numbers from a textbook example to verify logic correct.
+
 # Use the percent point function (inverse of the CDF) to find critical z-values
 n = 20
 xbar = 10
 s = 1.03
 
 def compute_cis(n):
-  tc = scipy.stats.t.ppf(0.975, df=n-1)
+  tc = scipy.stats.t.ppf(0.995, df=n-1)
   ci1 = [xbar-tc*s/np.sqrt(n), xbar+tc*s/np.sqrt(n)]
 
-  zc = scipy.stats.norm.ppf(0.975)
+  zc = scipy.stats.norm.ppf(0.995)
   ci2 = [xbar-zc*s/np.sqrt(n), xbar+zc*s/np.sqrt(n)]
 
   return ci1, ci2
