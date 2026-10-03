@@ -97,7 +97,7 @@ To test the limits, consider
 **See also**:
 
 * Moler's lecture notes on [floating point](http://pages.cs.wisc.edu/~smoler/x86text/lect.notes/arith.flpt.html) and [integer](http://pages.cs.wisc.edu/~smoler/x86text/lect.notes/arith.int.html) arithmetic
-* [What every computer scientists should know about floating-point arithmetic](https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf)
+* [What every computer scientist should know about floating-point arithmetic](https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf)
 * [Python 3 documentation on floating point numbers](https://docs.python.org/3/tutorial/floatingpoint.html)
 
 # Functions
@@ -120,7 +120,7 @@ L = [1, 2]
 L.append(99) # Append the value 99 to list L.
 print(L) # [1, 2, 99]
 ```
-The inputs to the operation of `append` are the list `L` and the number `99`. In the above example, the output of the operation of `L.append(99)` is ignored (because it is not assigned to a variable). The output of the operation can be thought of the modified version of `L`.
+The inputs to the operation of `append` are the list `L` and the number `99`. In the above example, the output of the operation of `L.append(99)` is ignored (because it is not assigned to a variable). The output of the operation can be thought of as the modified version of `L`.
 
 The output of a method operation can be assigned to a variable, but often it is not useful
 
@@ -143,7 +143,7 @@ import math # Import the math module
 print(math.log10(100)) # 2.0
 ```
 
-One advantage of this approach is that you know which module a function being used is from, which makes looking up documentation easier. One disadvantage is that the name of basic function must be preceded by the name of the module, which make the code longer.
+One advantage of this approach is that you know which module a function being used is from, which makes looking up documentation easier. One disadvantage is that the name of a basic function must be preceded by the name of the module, which makes the code longer.
 
 To avoid having to prefix functions in the math module by `math`, one can import the functions that will be used using `from math import` as in
 
@@ -219,7 +219,7 @@ Every type of object in Python has associated **attributes** and **methods**  (c
 
 ```Python
 a = 1.1 
-# Enter a. and then the TAB key and to see a.as_integer_ratio, a.is_integer, etc.
+# Enter a. and then the TAB key to see a.as_integer_ratio, a.is_integer, etc.
 ```
 A quick way of determining the attributes and  methods associated with an object is to use tab completion and then experiment:
 
@@ -332,9 +332,9 @@ s = "{0} {1}".format(a, b)
 print(s) # '8 9'
 ```
 
-replaces `{0}` with the first argument to `format` (the `a`) and `{1}` with the second argument to `format` (the `b`). The curly braces indicate something to be substituted and an integer in the braces indicate which argument to the `format` function is to be substituted. 
+replaces `{0}` with the first argument to `format` (the `a`) and `{1}` with the second argument to `format` (the `b`). The curly braces indicate something to be substituted and an integer in the braces indicates which argument to the `format` function is to be substituted.
 
-In contrast to the `append`method described in [Methods](#methods), which returns a value that is usally ignored, the `format` method returns the formatted string.
+In contrast to the `append` method described in [Methods](#methods), which returns a value that is usually ignored, the `format` method returns the formatted string.
 
 In the following, the value of `b` is shown twice followed by the value of `a` twice.
 
@@ -517,7 +517,7 @@ if (2 > 1) or (3 > 1):
   print("At least one test condition true")
 ```
 
-Parenthesis can be used to group multiple tests:
+Parentheses can be used to group multiple tests:
 
 ```Python
 if (2 > 1 and 3 > 1) or (10 == 11):
@@ -545,7 +545,7 @@ if a or b:
 
 ## Overview
 
-A fundamental data structure (a structure that hold data) in Python is the **list**. A list can store heterogenous elements (elements with different data types).
+A fundamental data structure (a structure that holds data) in Python is the **list**. A list can store heterogeneous elements (elements with different data types).
 
 The syntax is
 
@@ -562,7 +562,7 @@ To determine how many elements are in a list, use the `len()` function, which re
 len(a) # 3
 ```
 
-A related data structure is the **tuple**. Think of it as a list that can't be changed. Instead being specified with square braces, e.g., `a = [1, 2, 3]`, it is specified with parentheses, e.g., `a = (1, 2, 3)`. 
+A related data structure is the **tuple**. Think of it as a list that can't be changed. Instead of being specified with square braces, e.g., `a = [1, 2, 3]`, it is specified with parentheses, e.g., `a = (1, 2, 3)`.
 
 ## Accessing and Modifying List Elements
 
@@ -594,10 +594,10 @@ a = [0, 11, 22]
 ```Python
 a = [0, 11, 22]
 a[len(a)-1] # 22 (last element in a)
-a[-1]       # 22 (more compactly reference to last element)
+a[-1]       # 22 (more compact reference to last element)
 
 a[len(a)-2] # 11 (second-to-last element in a)
-a[-2]       # 11 (more compactly reference to sencond-to-last element)
+a[-2]       # 11 (more compact reference to second-to-last element)
 
 a[len(a)-4] # Error
 a[-4]       # Error
@@ -614,7 +614,7 @@ a[1] = 88 # a is now [99, 88, 22]
 a[5] = 1  # Error b/c a does not have a 6th element.
 ```
 
-In contrast, if `a` was defined as a tuple, an error would result when we tried to modified one of its elements:
+In contrast, if `a` was defined as a tuple, an error would result when we tried to modify one of its elements:
 
 ```Python
 a = (0, 11, 22)
@@ -641,7 +641,7 @@ b = a[3:len(a)]         # b = [33, 44]
 b = a[1:1]              # same as b = a[1]
 ```
 
-###  Modifying Multiply Contiguous Elements
+###  Modifying Multiple Contiguous Elements
 
 There is not a simple syntax for doing an operation using native Python. That is, setting 
 
@@ -707,7 +707,7 @@ print(b[0]) # b[0] is 99!
 
 Internally, Python stored `b` as a statement "b is the same as a". For very large arrays, this can save memory. For example, if `a` has 10,000 elements and `b=a`, then internally Python only needs to allocate memory for the statement "b is the same as a" instead of actually storing 10,000 new values in memory.
 
-If you don't want this a variable to be copied by reference, one can use the notation `b = a.copy()` or more compactly, `b = a[:]` to copy by value:
+If you don't want a variable to be copied by reference, one can use the notation `b = a.copy()` or more compactly, `b = a[:]` to copy by value:
 
 ```Python
 a = [0, 11, 22, 33, 44]
@@ -771,7 +771,7 @@ a = [0, 11, 22, 33]
 a.insert(99, -7) # a = [0, 11, 22, 33, -7]
 ```
 
-`a.insert(99,3)` means insert `-7` before the 99th element in `a`. This does not sound sensical because `a` has only four elements, but Python allows it.
+`a.insert(99,3)` means insert `-7` before the 99th element in `a`. This does not make sense because `a` has only four elements, but Python allows it.
 
 ### `reverse`
 
@@ -796,7 +796,7 @@ a.reverse() # a = [33, 22, 11 ,0]
 
 ## Motivation
 
-Almost all simulation of physical models requires repeating calculations. 
+Almost all simulations of physical models require repeating calculations.
 
 In computing, '''iteration''' means "repeat calculation".  Simulating a model of a physical system usually requires '''iteration'''.
 
@@ -841,7 +841,7 @@ for i in [0,1,2,3]: # Line A.
 
 The lines in this statement are interpreted as:
 * Line A: Set an '''index variable''' `i` to the first value in the array `[0,1,2,3]`. Note that an index variable does not always have to be `i`. As long as it is a valid variable, it can be used as an index variable. For example, `m, n, b1, J, etc.` would all be valid names for an index variable. 
-* Line B: Do the computation `P = 2*P`. If all of the possible values of `i` in the list `[0,1,2,3]` have been used, continue to the next unindented line.  Otherwise, repeat line B. again with the next value of `i` in the list (which is `1`).
+* Line B: Do the computation `P = 2*P`. If all of the possible values of `i` in the list `[0,1,2,3]` have been used, continue to the next unindented line.  Otherwise, repeat line B again with the next value of `i` in the list (which is `1`).
 
 In this example, there was only one indented line after the `for` line. This is not required.  Later, there will be multiple indented lines.
 
@@ -867,7 +867,7 @@ for i in [1,2,3,4]:
 
 What will happen if you replace `i in [0,1,2,3]` with `i in [7,8,9,10]` or `i in [1,3,5,7]`?
 
-In this case, you will get the same result. The indented part (the '''body''' of the `for` loop) after the `for` line is repeated as many times as there are numbers in the list associated with `i`.  Because the body of the `for` loop does not reference the index variable `i`, it does not matter what for numbers are in the square brackets, only that there are four numbers.
+In this case, you will get the same result. The indented part (the '''body''' of the `for` loop) after the `for` line is repeated as many times as there are numbers in the list associated with `i`.  Because the body of the `for` loop does not reference the index variable `i`, it does not matter what numbers are in the square brackets, only that there are four numbers.
 
 As we will see, if the body of the `for` loop includes a reference to `i`, the result will depend on the list associated with the index variable.
 
@@ -978,7 +978,7 @@ a = i*i
 ```
 
 
-The set of commands on the left are equivalent to the set of commands on the right. Note that because the index variable `i` appears in the body of the `for` loop, their actual values matter; a different set of four numbers in the list associated with `i` will give differents values for `a`.
+The set of commands on the left are equivalent to the set of commands on the right. Note that because the index variable `i` appears in the body of the `for` loop, their actual values matter; a different set of four numbers in the list associated with `i` will give different values for `a`.
 
 ```Python
 for i in [10,11,12,14]:
@@ -1131,7 +1131,7 @@ The notation
 for i in [0,1,2,3,4]:
 ```
 
-is acceptable, but most often instead of specifying an list of values for the index variable, the `range` function is used. This is especially useful when the list would need to be very long.
+is acceptable, but most often instead of specifying a list of values for the index variable, the `range` function is used. This is especially useful when the list would need to be very long.
 
 Instead of writing:
 
@@ -1360,7 +1360,7 @@ The two lines `b = b+1` and `c = 2*b` appear three times. These two lines could 
 
 ###  Syntax
 
-What is the syntax error i each of the following `for` loops?
+What is the syntax error in each of the following `for` loops?
 
 ```Python
 for i = [1,2]:
@@ -1497,7 +1497,7 @@ for i in range(1, 10, 2):
 
 ###  Populating a List
 
-What will be displayed when the following programs are executed. If an error message is displayed, describe the reason for the error.
+What will be displayed when the following programs are executed? If an error message is displayed, describe the reason for the error.
 
 ```Python
 A = []
@@ -2120,7 +2120,7 @@ To find a special color, I usually do a search on, e.g., "rgb values for periwin
 
 ## Line Style
 
-By default, the points in `y` are connected with solid lines. Line styles options are
+By default, the points in `y` are connected with solid lines. Line style options are
 `solid`, `dashed`, `dashdot`, `dotted` or their corresponding short-hand strings of `-`, `:`, `-.`, `--` can also be used.
 
 ```Python
@@ -2752,7 +2752,18 @@ There are many other possible `dtype`s -- see the [NumPy documentation](https://
 
 See also [NumPy array creation](https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html).
 
-The three most common functions for creating arrays are `zeros`, `ones`, and `zeros`.
+The four most common functions for creating arrays are `full`, `zeros`, `ones`, and `emtpy`.
+
+`full` can be used to create an array with a default value. When initializing an array, using `full` with a default value of `np.nan` is often the best option because it is defensive: If you have an index error when populating the array such that an element is not modified, the error will appear when you to an operation such as a sum or product that give an unexpected `nan` result. If your initial array is set to all zeros or ones, or arbitrary values using `np.empty`, the error will not be as obvious.
+
+```Python
+import numpy as np
+A = np.full((3, 4), np.nan)
+print(A)
+# [[nan nan nan nan]
+#  [nan nan nan nan]
+# [nan nan nan nan]]
+```
 
 `zeros` creates an array of a given size with all elements set to 0.
 
@@ -2780,7 +2791,7 @@ print(A)
 # [1. 1. 1. 1.]]
 ```
 
-`empty` creates an array of a given size with arbitrary values. The advantage of using this function is that it is faster than `ones` and `zeros` -- when an array is created using `zeros` or `ones`, the program needs to do two things (1) find memory to store the array values and (2) set all of the values. With `empty`, step (2) is skipped and the values that appear depend on what was located in the allocated memory slots previously.
+`empty` creates an array of a given size with arbitrary values. The advantage of using this function is that it is faster than `ones` and `zeros` -- when an array is created using `zeros` or `ones`, the program needs to do two things (1) find memory to store the array values and (2) set all of the values. With `empty`, step (2) is skipped and the values that appear depend on what was located in the previously allocated memory slots.
 
 ```Python
 import numpy as np

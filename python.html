@@ -681,8 +681,8 @@
                 </a>
               </li>
               <li>
-                <a href="#modifying-multiply-contiguous-elements">
-                  <span class="toctext">Modifying Multiply Contiguous Elements</span>
+                <a href="#modifying-multiple-contiguous-elements">
+                  <span class="toctext">Modifying Multiple Contiguous Elements</span>
                 </a>
               </li>
               <li>
@@ -1356,7 +1356,7 @@
           </li>
           <li>
             <div class="block">
-              <p><a href="https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf">What every computer scientists should know about floating-point arithmetic</a></p>
+              <p><a href="https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf">What every computer scientist should know about floating-point arithmetic</a></p>
             </div>
           </li>
           <li>
@@ -1392,7 +1392,7 @@
         <pre class="language-Python"><div class="block"><code>L = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]</code></div><div class="block"><code>L.append(<span class="hljs-number">99</span>) <span class="hljs-comment"># Append the value 99 to list L.</span></code></div><div class="block"><code>print(L) <span class="hljs-comment"># [1, 2, 99]</span></code></div></pre>
       </div>
       <div class="block">
-        <p>The inputs to the operation of <code>append</code> are the list <code>L</code> and the number <code>99</code>. In the above example, the output of the operation of <code>L.append(99)</code> is ignored (because it is not assigned to a variable). The output of the operation can be thought of the modified version of <code>L</code>.</p>
+        <p>The inputs to the operation of <code>append</code> are the list <code>L</code> and the number <code>99</code>. In the above example, the output of the operation of <code>L.append(99)</code> is ignored (because it is not assigned to a variable). The output of the operation can be thought of as the modified version of <code>L</code>.</p>
       </div>
       <div class="block">
         <p>The output of a method operation can be assigned to a variable, but often it is not useful</p>
@@ -1415,7 +1415,7 @@
         <pre class="language-Python"><div class="block"><code><span class="hljs-comment"># Recommended method 1.</span></code></div><div class="block"><code><span class="hljs-keyword">import</span> math <span class="hljs-comment"># Import the math module</span></code></div><div class="block"><code>print(math.log10(<span class="hljs-number">100</span>)) <span class="hljs-comment"># 2.0</span></code></div></pre>
       </div>
       <div class="block">
-        <p>One advantage of this approach is that you know which module a function being used is from, which makes looking up documentation easier. One disadvantage is that the name of basic function must be preceded by the name of the module, which make the code longer.</p>
+        <p>One advantage of this approach is that you know which module a function being used is from, which makes looking up documentation easier. One disadvantage is that the name of a basic function must be preceded by the name of the module, which makes the code longer.</p>
       </div>
       <div class="block">
         <p>To avoid having to prefix functions in the math module by <code>math</code>, one can import the functions that will be used using <code>from math import</code> as in</p>
@@ -1480,7 +1480,7 @@
         <p>Every type of object in Python has associated <strong>attributes</strong> and <strong>methods</strong> (covered previously). In Spyder and IPython, the attributes and methods can be seen by entering a variable name followed by a dot and then pressing the tab key (referred to as “tab completion”).</p>
       </div>
       <div class="block">
-        <pre class="language-Python"><div class="block"><code>a = <span class="hljs-number">1.1</span> </code></div><div class="block"><code><span class="hljs-comment"># Enter a. and then the TAB key and to see a.as_integer_ratio, a.is_integer, etc.</span></code></div></pre>
+        <pre class="language-Python"><div class="block"><code>a = <span class="hljs-number">1.1</span> </code></div><div class="block"><code><span class="hljs-comment"># Enter a. and then the TAB key to see a.as_integer_ratio, a.is_integer, etc.</span></code></div></pre>
       </div>
       <div class="block">
         <p>A quick way of determining the attributes and methods associated with an object is to use tab completion and then experiment:</p>
@@ -1592,10 +1592,10 @@
         <pre class="language-Python"><div class="block"><code>a = <span class="hljs-number">8</span></code></div><div class="block"><code>b = <span class="hljs-number">9</span></code></div><div class="block"><code>s = <span class="hljs-string">"{0} {1}"</span>.<span class="hljs-built_in">format</span>(a, b)</code></div><div class="block"><code>print(s) <span class="hljs-comment"># '8 9'</span></code></div></pre>
       </div>
       <div class="block">
-        <p>replaces <code>{0}</code> with the first argument to <code>format</code> (the <code>a</code>) and <code>{1}</code> with the second argument to <code>format</code> (the <code>b</code>). The curly braces indicate something to be substituted and an integer in the braces indicate which argument to the <code>format</code> function is to be substituted. </p>
+        <p>replaces <code>{0}</code> with the first argument to <code>format</code> (the <code>a</code>) and <code>{1}</code> with the second argument to <code>format</code> (the <code>b</code>). The curly braces indicate something to be substituted and an integer in the braces indicates which argument to the <code>format</code> function is to be substituted.</p>
       </div>
       <div class="block">
-        <p>In contrast to the <code>append</code>method described in <a href="#methods">Methods</a>, which returns a value that is usally ignored, the <code>format</code> method returns the formatted string.</p>
+        <p>In contrast to the <code>append</code> method described in <a href="#methods">Methods</a>, which returns a value that is usually ignored, the <code>format</code> method returns the formatted string.</p>
       </div>
       <div class="block">
         <p>In the following, the value of <code>b</code> is shown twice followed by the value of <code>a</code> twice.</p>
@@ -1786,7 +1786,7 @@
         <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">if</span> (<span class="hljs-number">2</span> &gt; <span class="hljs-number">1</span>) <span class="hljs-keyword">or</span> (<span class="hljs-number">3</span> &gt; <span class="hljs-number">1</span>):</code></div><div class="block"><code>  print(<span class="hljs-string">"At least one test condition true"</span>)</code></div></pre>
       </div>
       <div class="block">
-        <p>Parenthesis can be used to group multiple tests:</p>
+        <p>Parentheses can be used to group multiple tests:</p>
       </div>
       <div class="block">
         <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">if</span> (<span class="hljs-number">2</span> &gt; <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> <span class="hljs-number">3</span> &gt; <span class="hljs-number">1</span>) <span class="hljs-keyword">or</span> (<span class="hljs-number">10</span> == <span class="hljs-number">11</span>):</code></div><div class="block"><code>  print(<span class="hljs-string">"Compound condition is True"</span>)</code></div></pre>
@@ -1814,7 +1814,7 @@
         <h2><a name="overview" class="anchor hanchor" href="#overview"><span class="hnumber">11.1</span>&nbsp;<span class="htext">Overview</span></a></h2>
       </div>
       <div class="block">
-        <p>A fundamental data structure (a structure that hold data) in Python is the <strong>list</strong>. A list can store heterogenous elements (elements with different data types).</p>
+        <p>A fundamental data structure (a structure that holds data) in Python is the <strong>list</strong>. A list can store heterogeneous elements (elements with different data types).</p>
       </div>
       <div class="block">
         <p>The syntax is</p>
@@ -1832,7 +1832,7 @@
         <pre class="language-Python"><span class="hljs-built_in">len</span>(a) <span class="hljs-comment"># 3</span></pre>
       </div>
       <div class="block">
-        <p>A related data structure is the <strong>tuple</strong>. Think of it as a list that can’t be changed. Instead being specified with square braces, e.g., <code>a = [1, 2, 3]</code>, it is specified with parentheses, e.g., <code>a = (1, 2, 3)</code>. </p>
+        <p>A related data structure is the <strong>tuple</strong>. Think of it as a list that can’t be changed. Instead of being specified with square braces, e.g., <code>a = [1, 2, 3]</code>, it is specified with parentheses, e.g., <code>a = (1, 2, 3)</code>.</p>
       </div>
     </div>
     <div class="section">
@@ -1860,7 +1860,7 @@
         <pre class="language-Python"><div class="block"><code>a = [<span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>]</code></div><div class="block"><code><span class="hljs-comment"># Python's view of a</span></code></div><div class="block"><code><span class="hljs-comment">#    [   0    11,    22,    0,    11,  22]</span></code></div><div class="block"><code><span class="hljs-comment">#    a[-3]  a[-2]  a[-1]  a[0]   a[1]  a[2]</span></code></div></pre>
       </div>
       <div class="block">
-        <pre class="language-Python"><div class="block"><code>a = [<span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>]</code><div class="line-number">1</div></div><div class="block"><code>a[<span class="hljs-built_in">len</span>(a)-<span class="hljs-number">1</span>] <span class="hljs-comment"># 22 (last element in a)</span></code><div class="line-number">2</div></div><div class="block"><code>a[-<span class="hljs-number">1</span>]       <span class="hljs-comment"># 22 (more compactly reference to last element)</span></code><div class="line-number">3</div></div><div class="block"><code></code><div class="line-number">4</div></div><div class="block"><code>a[<span class="hljs-built_in">len</span>(a)-<span class="hljs-number">2</span>] <span class="hljs-comment"># 11 (second-to-last element in a)</span></code><div class="line-number">5</div></div><div class="block"><code>a[-<span class="hljs-number">2</span>]       <span class="hljs-comment"># 11 (more compactly reference to sencond-to-last element)</span></code><div class="line-number">6</div></div><div class="block"><code></code><div class="line-number">7</div></div><div class="block"><code>a[<span class="hljs-built_in">len</span>(a)-<span class="hljs-number">4</span>] <span class="hljs-comment"># Error</span></code><div class="line-number">8</div></div><div class="block"><code>a[-<span class="hljs-number">4</span>]       <span class="hljs-comment"># Error</span></code><div class="line-number">9</div></div></pre>
+        <pre class="language-Python"><div class="block"><code>a = [<span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>]</code><div class="line-number">1</div></div><div class="block"><code>a[<span class="hljs-built_in">len</span>(a)-<span class="hljs-number">1</span>] <span class="hljs-comment"># 22 (last element in a)</span></code><div class="line-number">2</div></div><div class="block"><code>a[-<span class="hljs-number">1</span>]       <span class="hljs-comment"># 22 (more compact reference to last element)</span></code><div class="line-number">3</div></div><div class="block"><code></code><div class="line-number">4</div></div><div class="block"><code>a[<span class="hljs-built_in">len</span>(a)-<span class="hljs-number">2</span>] <span class="hljs-comment"># 11 (second-to-last element in a)</span></code><div class="line-number">5</div></div><div class="block"><code>a[-<span class="hljs-number">2</span>]       <span class="hljs-comment"># 11 (more compact reference to second-to-last element)</span></code><div class="line-number">6</div></div><div class="block"><code></code><div class="line-number">7</div></div><div class="block"><code>a[<span class="hljs-built_in">len</span>(a)-<span class="hljs-number">4</span>] <span class="hljs-comment"># Error</span></code><div class="line-number">8</div></div><div class="block"><code>a[-<span class="hljs-number">4</span>]       <span class="hljs-comment"># Error</span></code><div class="line-number">9</div></div></pre>
       </div>
     </div>
     <div class="section">
@@ -1874,7 +1874,7 @@
         <pre class="language-Python"><div class="block"><code>a = [<span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>]</code></div><div class="block"><code>a[<span class="hljs-number">0</span>] = <span class="hljs-number">99</span> <span class="hljs-comment"># a is now [99, 11, 22]</span></code></div><div class="block"><code>a[<span class="hljs-number">1</span>] = <span class="hljs-number">88</span> <span class="hljs-comment"># a is now [99, 88, 22]</span></code></div><div class="block"><code>a[<span class="hljs-number">5</span>] = <span class="hljs-number">1</span>  <span class="hljs-comment"># Error b/c a does not have a 6th element.</span></code></div></pre>
       </div>
       <div class="block">
-        <p>In contrast, if <code>a</code> was defined as a tuple, an error would result when we tried to modified one of its elements:</p>
+        <p>In contrast, if <code>a</code> was defined as a tuple, an error would result when we tried to modify one of its elements:</p>
       </div>
       <div class="block">
         <pre class="language-Python"><div class="block"><code>a = (<span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>)</code></div><div class="block"><code>a[<span class="hljs-number">0</span>] = <span class="hljs-number">99</span> <span class="hljs-comment"># Error</span></code></div></pre>
@@ -1902,7 +1902,7 @@
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="modifying-multiply-contiguous-elements" class="anchor hanchor" href="#modifying-multiply-contiguous-elements"><span class="hnumber">11.2.4</span>&nbsp;<span class="htext">Modifying Multiply Contiguous Elements</span></a></h3>
+        <h3><a name="modifying-multiple-contiguous-elements" class="anchor hanchor" href="#modifying-multiple-contiguous-elements"><span class="hnumber">11.2.4</span>&nbsp;<span class="htext">Modifying Multiple Contiguous Elements</span></a></h3>
       </div>
       <div class="block">
         <p>There is not a simple syntax for doing an operation using native Python. That is, setting </p>
@@ -1962,7 +1962,7 @@
         <p>Internally, Python stored <code>b</code> as a statement “b is the same as a”. For very large arrays, this can save memory. For example, if <code>a</code> has 10,000 elements and <code>b=a</code>, then internally Python only needs to allocate memory for the statement “b is the same as a” instead of actually storing 10,000 new values in memory.</p>
       </div>
       <div class="block">
-        <p>If you don’t want this a variable to be copied by reference, one can use the notation <code>b = a.copy()</code> or more compactly, <code>b = a[:]</code> to copy by value:</p>
+        <p>If you don’t want a variable to be copied by reference, one can use the notation <code>b = a.copy()</code> or more compactly, <code>b = a[:]</code> to copy by value:</p>
       </div>
       <div class="block">
         <pre class="language-Python"><div class="block"><code>a = [<span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>, <span class="hljs-number">33</span>, <span class="hljs-number">44</span>]</code><div class="line-number">1</div></div><div class="block"><code>b = a.copy() <span class="hljs-comment"># b is a copy-by-value of a</span></code><div class="line-number">2</div></div><div class="block"><code>b[<span class="hljs-number">0</span>] = <span class="hljs-number">88</span></code><div class="line-number">3</div></div><div class="block"><code>print(b[<span class="hljs-number">0</span>])  <span class="hljs-comment"># b[0] is 88</span></code><div class="line-number">4</div></div><div class="block"><code>a[<span class="hljs-number">0</span>] = <span class="hljs-number">99</span></code><div class="line-number">5</div></div><div class="block"><code>print(b[<span class="hljs-number">0</span>])  <span class="hljs-comment"># b[0] is 88</span></code><div class="line-number">6</div></div></pre>
@@ -2019,7 +2019,7 @@
         <pre class="language-Python"><div class="block"><code>a = [<span class="hljs-number">0</span>, <span class="hljs-number">11</span>, <span class="hljs-number">22</span>, <span class="hljs-number">33</span>]</code></div><div class="block"><code>a.insert(<span class="hljs-number">99</span>, -<span class="hljs-number">7</span>) <span class="hljs-comment"># a = [0, 11, 22, 33, -7]</span></code></div></pre>
       </div>
       <div class="block">
-        <p><code>a.insert(99,3)</code> means insert <code>-7</code> before the 99th element in <code>a</code>. This does not sound sensical because <code>a</code> has only four elements, but Python allows it.</p>
+        <p><code>a.insert(99,3)</code> means insert <code>-7</code> before the 99th element in <code>a</code>. This does not make sense because <code>a</code> has only four elements, but Python allows it.</p>
       </div>
     </div>
     <div class="section">
@@ -2068,7 +2068,7 @@
         <h2><a name="motivation" class="anchor hanchor" href="#motivation"><span class="hnumber">12.1</span>&nbsp;<span class="htext">Motivation</span></a></h2>
       </div>
       <div class="block">
-        <p>Almost all simulation of physical models requires repeating calculations. </p>
+        <p>Almost all simulations of physical models require repeating calculations.</p>
       </div>
       <div class="block">
         <p>In computing, ‘’’iteration’’’ means “repeat calculation”. Simulating a model of a physical system usually requires ‘’’iteration’’’.</p>
@@ -2123,7 +2123,7 @@
           </li>
           <li>
             <div class="block">
-              <p>Line B: Do the computation <code>P = 2*P</code>. If all of the possible values of <code>i</code> in the list <code>[0,1,2,3]</code> have been used, continue to the next unindented line. Otherwise, repeat line B. again with the next value of <code>i</code> in the list (which is <code>1</code>).</p>
+              <p>Line B: Do the computation <code>P = 2*P</code>. If all of the possible values of <code>i</code> in the list <code>[0,1,2,3]</code> have been used, continue to the next unindented line. Otherwise, repeat line B again with the next value of <code>i</code> in the list (which is <code>1</code>).</p>
             </div>
           </li>
         </ul>
@@ -2155,7 +2155,7 @@
         <p>What will happen if you replace <code>i in [0,1,2,3]</code> with <code>i in [7,8,9,10]</code> or <code>i in [1,3,5,7]</code>?</p>
       </div>
       <div class="block">
-        <p>In this case, you will get the same result. The indented part (the ‘’’body’’’ of the <code>for</code> loop) after the <code>for</code> line is repeated as many times as there are numbers in the list associated with <code>i</code>. Because the body of the <code>for</code> loop does not reference the index variable <code>i</code>, it does not matter what for numbers are in the square brackets, only that there are four numbers.</p>
+        <p>In this case, you will get the same result. The indented part (the ‘’’body’’’ of the <code>for</code> loop) after the <code>for</code> line is repeated as many times as there are numbers in the list associated with <code>i</code>. Because the body of the <code>for</code> loop does not reference the index variable <code>i</code>, it does not matter what numbers are in the square brackets, only that there are four numbers.</p>
       </div>
       <div class="block">
         <p>As we will see, if the body of the <code>for</code> loop includes a reference to <code>i</code>, the result will depend on the list associated with the index variable.</p>
@@ -2265,7 +2265,7 @@
         <pre class="language-Python"><div class="block"><code>i = <span class="hljs-number">1</span></code><div class="line-number">1</div></div><div class="block"><code>a = i*i</code><div class="line-number">2</div></div><div class="block"><code>i = <span class="hljs-number">2</span></code><div class="line-number">3</div></div><div class="block"><code>a = i*i</code><div class="line-number">4</div></div><div class="block"><code>i = <span class="hljs-number">3</span></code><div class="line-number">5</div></div><div class="block"><code>a = i*i</code><div class="line-number">6</div></div><div class="block"><code>i = <span class="hljs-number">4</span></code><div class="line-number">7</div></div><div class="block"><code>a = i*i</code><div class="line-number">8</div></div></pre>
       </div>
       <div class="block">
-        <p>The set of commands on the left are equivalent to the set of commands on the right. Note that because the index variable <code>i</code> appears in the body of the <code>for</code> loop, their actual values matter; a different set of four numbers in the list associated with <code>i</code> will give differents values for <code>a</code>.</p>
+        <p>The set of commands on the left are equivalent to the set of commands on the right. Note that because the index variable <code>i</code> appears in the body of the <code>for</code> loop, their actual values matter; a different set of four numbers in the list associated with <code>i</code> will give different values for <code>a</code>.</p>
       </div>
       <div class="block">
         <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> [<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>,<span class="hljs-number">14</span>]:</code></div><div class="block"><code>  a = i*i</code></div></pre>
@@ -2380,7 +2380,7 @@
         <pre class="language-Python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]:</pre>
       </div>
       <div class="block">
-        <p>is acceptable, but most often instead of specifying an list of values for the index variable, the <code>range</code> function is used. This is especially useful when the list would need to be very long.</p>
+        <p>is acceptable, but most often instead of specifying a list of values for the index variable, the <code>range</code> function is used. This is especially useful when the list would need to be very long.</p>
       </div>
       <div class="block">
         <p>Instead of writing:</p>
@@ -2574,7 +2574,7 @@
         <h3><a name="syntax" class="anchor hanchor" href="#syntax"><span class="hnumber">12.17.3</span>&nbsp;<span class="htext">Syntax</span></a></h3>
       </div>
       <div class="block">
-        <p>What is the syntax error i each of the following <code>for</code> loops?</p>
+        <p>What is the syntax error in each of the following <code>for</code> loops?</p>
       </div>
       <div class="block">
         <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">for</span> i = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]:</code></div><div class="block"><code>  a = i</code></div></pre>
@@ -2690,7 +2690,7 @@
         <h3><a name="populating-a-list" class="anchor hanchor" href="#populating-a-list"><span class="hnumber">12.17.8</span>&nbsp;<span class="htext">Populating a List</span></a></h3>
       </div>
       <div class="block">
-        <p>What will be displayed when the following programs are executed. If an error message is displayed, describe the reason for the error.</p>
+        <p>What will be displayed when the following programs are executed? If an error message is displayed, describe the reason for the error.</p>
       </div>
       <div class="block">
         <pre class="language-Python"><div class="block"><code>A = []</code></div><div class="block"><code><span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> [<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>]:</code></div><div class="block"><code>  A.append(k+<span class="hljs-number">1</span>)</code></div><div class="block"><code>print(A)</code></div></pre>
@@ -3124,7 +3124,7 @@
         <h2><a name="line-style" class="anchor hanchor" href="#line-style"><span class="hnumber">14.6</span>&nbsp;<span class="htext">Line Style</span></a></h2>
       </div>
       <div class="block">
-        <p>By default, the points in <code>y</code> are connected with solid lines. Line styles options are <code>solid</code>, <code>dashed</code>, <code>dashdot</code>, <code>dotted</code> or their corresponding short-hand strings of <code>-</code>, <code>:</code>, <code>-.</code>, <code>--</code> can also be used.</p>
+        <p>By default, the points in <code>y</code> are connected with solid lines. Line style options are <code>solid</code>, <code>dashed</code>, <code>dashdot</code>, <code>dotted</code> or their corresponding short-hand strings of <code>-</code>, <code>:</code>, <code>-.</code>, <code>--</code> can also be used.</p>
       </div>
       <div class="block">
         <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</code><div class="line-number">1</div></div><div class="block"><code>y = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">16</span>, <span class="hljs-number">32</span>]</code><div class="line-number">2</div></div><div class="block"><code>plt.plot(y, <span class="hljs-string">'-'</span>, linewidth=<span class="hljs-number">5</span>)</code><div class="line-number">3</div></div><div class="block"><code><span class="hljs-comment"># or</span></code><div class="line-number">4</div></div><div class="block"><code>plt.plot(y, linestyle=<span class="hljs-string">'solid'</span>, linewidth=<span class="hljs-number">5</span>) </code><div class="line-number">5</div></div></pre>
@@ -3575,7 +3575,13 @@
         <p>See also <a href="https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html">NumPy array creation</a>.</p>
       </div>
       <div class="block">
-        <p>The three most common functions for creating arrays are <code>zeros</code>, <code>ones</code>, and <code>zeros</code>.</p>
+        <p>The four most common functions for creating arrays are <code>full</code>, <code>zeros</code>, <code>ones</code>, and <code>emtpy</code>.</p>
+      </div>
+      <div class="block">
+        <p><code>full</code> can be used to create an array with a default value. When initializing an array, using <code>full</code> with a default value of <code>np.nan</code> is often the best option because it is defensive: If you have an index error when populating the array such that an element is not modified, the error will appear when you to an operation such as a sum or product that give an unexpected <code>nan</code> result. If your initial array is set to all zeros or ones, or arbitrary values using <code>np.empty</code>, the error will not be as obvious.</p>
+      </div>
+      <div class="block">
+        <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code><div class="line-number">1</div></div><div class="block"><code>A = np.full((<span class="hljs-number">3</span>, <span class="hljs-number">4</span>), np.nan)</code><div class="line-number">2</div></div><div class="block"><code>print(A)</code><div class="line-number">3</div></div><div class="block"><code><span class="hljs-comment"># [[nan nan nan nan]</span></code><div class="line-number">4</div></div><div class="block"><code><span class="hljs-comment">#  [nan nan nan nan]</span></code><div class="line-number">5</div></div><div class="block"><code><span class="hljs-comment"># [nan nan nan nan]]</span></code><div class="line-number">6</div></div></pre>
       </div>
       <div class="block">
         <p><code>zeros</code> creates an array of a given size with all elements set to 0.</p>
@@ -3590,7 +3596,7 @@
         <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code><div class="line-number">1</div></div><div class="block"><code>A = np.ones((<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)) <span class="hljs-comment"># default is dtype=np.float64</span></code><div class="line-number">2</div></div><div class="block"><code><span class="hljs-comment"># or</span></code><div class="line-number">3</div></div><div class="block"><code><span class="hljs-comment"># A = np.ones((3,4), dtype=np.float64)</span></code><div class="line-number">4</div></div><div class="block"><code>print(A)</code><div class="line-number">5</div></div><div class="block"><code><span class="hljs-comment">#[[1. 1. 1. 1.]</span></code><div class="line-number">6</div></div><div class="block"><code><span class="hljs-comment"># [1. 1. 1. 1.]</span></code><div class="line-number">7</div></div><div class="block"><code><span class="hljs-comment"># [1. 1. 1. 1.]]</span></code><div class="line-number">8</div></div></pre>
       </div>
       <div class="block">
-        <p><code>empty</code> creates an array of a given size with arbitrary values. The advantage of using this function is that it is faster than <code>ones</code> and <code>zeros</code> – when an array is created using <code>zeros</code> or <code>ones</code>, the program needs to do two things (1) find memory to store the array values and (2) set all of the values. With <code>empty</code>, step (2) is skipped and the values that appear depend on what was located in the allocated memory slots previously.</p>
+        <p><code>empty</code> creates an array of a given size with arbitrary values. The advantage of using this function is that it is faster than <code>ones</code> and <code>zeros</code> – when an array is created using <code>zeros</code> or <code>ones</code>, the program needs to do two things (1) find memory to store the array values and (2) set all of the values. With <code>empty</code>, step (2) is skipped and the values that appear depend on what was located in the previously allocated memory slots.</p>
       </div>
       <div class="block">
         <pre class="language-Python"><div class="block"><code><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</code><div class="line-number">1</div></div><div class="block"><code>A = np.empty((<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)) <span class="hljs-comment"># default is dtype=np.float64</span></code><div class="line-number">2</div></div><div class="block"><code><span class="hljs-comment"># or</span></code><div class="line-number">3</div></div><div class="block"><code><span class="hljs-comment"># A = np.empty((3, 4), dtype=np.float64)</span></code><div class="line-number">4</div></div><div class="block"><code>print(A) <span class="hljs-comment"># Ouptut will vary</span></code><div class="line-number">5</div></div></pre>
