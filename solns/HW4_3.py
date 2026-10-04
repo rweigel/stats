@@ -96,4 +96,3 @@ ax[1].set_ylabel('Experiment number')
 ax[1].set_xlabel('$\\mu$')
 
 savefig("HW4_3")
-
