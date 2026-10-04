@@ -647,6 +647,12 @@ Please ask questions via Discord or by email if you don't know where to start.
 
 Save your code as `HW4_3.py` and any associated plots as `HW4_3a.png, HW4_3b.png, ...`. Be prepared to explain your approach in class.
 
+   **Answer**
+
+   [HW4_3.py](solns/HW4_3.py)
+
+   <img src="solns/HW4_3.svg"/>
+
 # Quiz 1
 
 Study the cab example in the [Bayes' rule section of the notes](notes.html).
