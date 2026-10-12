@@ -1236,8 +1236,19 @@ Instructions
 
 \ifsolutions
 **Answer**
-1. $6\cdot 5\cdot 4\cdot 3 = 360$
-2. 
+1. $6\cdot 5\cdot 4\cdot 3 = 360$ (six options for first slot, 5 for second, ...)
+2. Assume each sticker unique (say there is a $5$ and a $5'$). Then you can form $6!$ unique license plates.
+   
+   For each license plate, for example,
+   ```
+   1 2 3 5 4 5'
+   ````
+   there will be another with 5 and 5' swapped
+   ```
+   1 2 3 5' 4 5
+   ```
+   If the prime is erased these two plates are identical. So the total number of unique plates is $6!/2=360$.
+
 \else
 \fi
 
@@ -1253,7 +1264,18 @@ What is the probability that you actually have the disease?
 
 \ifsolutions
 **Answer**
-$$\frac{0.001\cdot 0.95}{0.001\cdot 0.95 + 0.999\cdot 0.05}\simeq 1.9{\%}$$
+
+Using $P(T+|D) = 0.95$ and $P(T+|D') = 0.05$, where $D$ means "have disease" and $D'$ means "don't have disease". Then
+
+$$P(D|T^+) = \frac{ P(T^+|D)P(D)}{P(D)P(T^+|D) + P(D')P(T^+|D')}$$
+
+$$P(D|T^+) = \frac{0.001\cdot 0.95}{0.001\cdot 0.95 + 0.999\cdot 0.05}\simeq 1.9{\%}$$
+
+The fraction above simplifies to
+
+$$P(D|T^+) = \frac{0.95}{0.95 + 999\cdot 0.05}\simeq 1.9{\%}$$
+
+Wording was somewhat ambiguous. Better is "A positive result from a screening test is correct 95\% of the time".
 \else
 \fi
 
@@ -1269,6 +1291,7 @@ You are given a sample of $n=100$ values. You are told that they were generated 
    b. did not include $\mu=2$, can you conclude there is a 2% chance that $\mu=2$?
 
 \ifsolutions
+**Answer**
 1. $\alpha=0.02$, $z_{\alpha/2} = 2.33$ (from table); CI=$[2.5-2.33\cdot 2/10, 2.5+2.33\cdot 2/10] = [2.04, 2.96]$
 2. No.
 \else
@@ -1280,6 +1303,12 @@ You are given a sample of $n=100$ values. You are told that they were generated 
 
 1. Explain the interpretation of a confidence interval.
 2. Give an example of how and when a confidence interval is related to a hypothesis test.
+
+
+**Answer**
+
+1. A $\mathcal{P}\%$ confidence interval for a population parameter $\theta$ is an interval such that if the experiment was repeated and a CI was computed for each repetition, the CI for $\mathcal{P}\%$ of the repetitions would trap $\theta$ (in the limit that the number o repetitions approached infinity).
+2. See [notes](http://localhost:8092/notes.md!#relationship-to-cis) for an example. If $H_0$: $\theta=\theta_o$ and $H_a$: $\theta\ne \theta_o$ and $H_0$ is rejected with a significance level of $\alpha$, a $100(1-\alpha)\%$ CI will trap $\theta_o$ when $H_0$ is not rejected.
 
 ###
 
@@ -1305,17 +1334,18 @@ print(cnt/ne)
 
 \ifsolutions
 1. $0.05$
-2. 
-```
+2. The CI for this case is $\overline{x}\pm (t_{\alpha/2,n-1})(s/\sqrt{n})$,
+```python
+import numpy as np
+import scipy.stats # Not needed if table used for tcrit.
 cnt = 0
 ne = 10000
 sigma = 1
 for i in range(ne):
   x = np.random.normal(0, sigma, 7)
   xbar = np.mean(x)
-  ci = [xbar-1.96*sigma/np.sqrt(7), xbar+1.96*sigma/np.sqrt(7)]
-  tcrit = scipy.stats.t.ppf(1 - 0.05 / 2, 7 - 1)
-  s = np.std(x, ddof=1)
+  tcrit = scipy.stats.t.ppf(1 - 0.05 / 2, 7 - 1) # Gives 2.447. Or use table
+  s = np.std(x, ddof=1) # Or, s = np.sqrt(np.sum( (x-xbar)**2 )/6)
   ci = [xbar-tcrit*s/np.sqrt(7), xbar+tcrit*s/np.sqrt(7)]
   if ci[0] > 0 or ci[1] < 0:
     cnt = cnt+1

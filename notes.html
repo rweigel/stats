@@ -768,12 +768,12 @@
         <a href="#random-variables-and-distributions">
           <span class="toctext">Random Variables and Distributions</span>
         </a>
-        <ol class="toc" style="display: block;">
+        <ol class="toc" style="display: none;">
           <li>
             <a href="#discrete">
               <span class="toctext">Discrete</span>
             </a>
-            <ol class="toc" style="display: block;">
+            <ol class="toc" style="display: none;">
               <li>
                 <a href="#random-variables">
                   <span class="toctext">Random Variables</span>
@@ -910,7 +910,7 @@
         <a href="#point-estimation">
           <span class="toctext">Point Estimation</span>
         </a>
-        <ol class="toc" style="display: block;">
+        <ol class="toc" style="display: none;">
           <li>
             <a href="#definition">
               <span class="toctext">Definition</span>
@@ -1040,7 +1040,7 @@
         <a href="#hypothesis-tests">
           <span class="toctext">Hypothesis Tests</span>
         </a>
-        <ol class="toc" style="display: none;">
+        <ol class="toc" style="display: block;">
           <li>
             <a href="#overview">
               <span class="toctext">Overview</span>
@@ -4768,17 +4768,17 @@ M834 80h400000v40h-400000z"></path>
           </li>
           <li>
             <div class="block">
-              <p>Confidence Bounds (not covered)</p>
+              <p>Confidence Bounds (not covered; p. 282 of Devore)</p>
             </div>
           </li>
           <li>
             <div class="block">
-              <p>Prediction Intervals (not covered)</p>
+              <p>Prediction Intervals (not covered; p. 289 of Devore)</p>
             </div>
           </li>
           <li>
             <div class="block">
-              <p>Tolerance Intervals (not covered)</p>
+              <p>Tolerance Intervals (not covered; p. 291 of Devore)</p>
             </div>
           </li>
         </ul>
@@ -4792,9 +4792,6 @@ M834 80h400000v40h-400000z"></path>
         <div class="blockquote">
           <p>An alternative to reporting a single sensible value for the parameter being estimated is to calculate and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span>, or whatever other parameter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267)</p>
         </div>
-      </div>
-      <div class="block">
-        <p>Note that there are other intervals related to point estimates not covered in these notes: confidence bounds (p 282 of Devore), prediction intervals (Devore p 289), and tolerance intervals (Devore p 291).</p>
       </div>
     </div>
     <div class="section">
@@ -5579,28 +5576,6 @@ M834 80h400000v40h-400000z"></path>
       </div>
       <div class="block">
         <p>For example <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span></span></span></span> can be false if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span> has any other value than <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span></span></span></span>, say <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. So we need to find <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span> as a function of all possible values of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">μ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
-      </div>
-      <div class="block">
-        <p>See also</p>
-      </div>
-      <div class="block">
-        <ul class="compact">
-          <li>
-            <div class="block">
-              <p><a href="https://www.statisticsdonewrong.com/power.html">Statistic Done Wrong</a></p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3444174/">Using Effect Size—or Why the P Value Is Not Enough</a></p>
-            </div>
-          </li>
-          <li>
-            <div class="block">
-              <p><a href="https://doi.org/10.1198/000313001300339897">The Abuse of Power</a></p>
-            </div>
-          </li>
-        </ul>
       </div>
     </div>
   </div>

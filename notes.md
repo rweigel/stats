@@ -1898,15 +1898,13 @@ because the $x$ values are fixed and can be treated as constants, we can conclud
 # Point Estimate Intervals
 
 * Confidence Intervals
-* Confidence Bounds (not covered)
-* Prediction Intervals (not covered)
-* Tolerance Intervals (not covered)
+* Confidence Bounds (not covered; p. 282 of Devore)
+* Prediction Intervals (not covered; p. 289 of Devore)
+* Tolerance Intervals (not covered; p. 291 of Devore)
 
 # Confidence Intervals
 
 > An alternative to reporting a single sensible value for the parameter being estimated is to calculate and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes $\mu$, or whatever other parameter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267)
-
-Note that there are other intervals related to point estimates not covered in these notes: confidence bounds (p 282 of Devore), prediction intervals (Devore p 289), and tolerance intervals (Devore p 291).
 
 ## Deriving
 
@@ -2208,11 +2206,3 @@ Thus far, the probability, $\alpha$, of a Type I error has been computed.
 The probability of a type II error requires more computation because $H_0$ can be false in many ways.
 
 For example $H_0$: $\mu=10$ can be false if $\mu$ has any other value than $10$, say $\mu_a$. So we need to find $\beta$ as a function of all possible values of $\mu_a$.
-
-See also
-* [Statistic Done Wrong](https://www.statisticsdonewrong.com/power.html)
-* [Using Effect Size—or Why the P Value Is Not Enough](https://pmc.ncbi.nlm.nih.gov/articles/PMC3444174/)
-* [The Abuse of Power](https://doi.org/10.1198/000313001300339897)
-
-
-
