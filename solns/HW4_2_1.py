@@ -17,9 +17,11 @@ ci_lower = (n-1)*s2/chi2_upper
 ci_upper = (n-1)*s2/chi2_lower
 
 print(f"95% CI for the variance: [{ci_lower:.2f}, {ci_upper:.2f}]")
+print(f"95% CI for the standard deviation: [{np.sqrt(ci_lower):.2f}, {np.sqrt(ci_upper):.2f}]")
 
 """
 Sample variance: 137324.26
 Chi2 lower: 6.91, Chi2 upper: 28.85
 95% CI for the variance: [76171.31, 318079.76]
+95% CI for the standard deviation: [275.99, 563.99]
 """
