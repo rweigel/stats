@@ -1935,6 +1935,7 @@ Formulas depend on
 >
 > Devore Equation 7.5
 
+Devore does not define $\alpha$ until chapter 8 where it is defined as a signficance level. This may be confusing because the equation implies a large confidence interval corresponds to a low significance level. However, we have not defined what significance is with respect to. Based on the definition of the confidence interval, repeated experiments will result in the population mean being outside of the confidence interval in a fraction, $\alpha$, of experiments. So the interpretation of "low significance" means that the probability of an experiment yielding a confidence interval that does not cover the true mean is "insignificant" in the sense that the probability is a small number $\alpha$.
 
 **Example**
 
