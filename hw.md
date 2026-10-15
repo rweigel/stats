@@ -1053,7 +1053,7 @@ Questions:
 
 # Midterm
 
-## Midterm Study Guide
+## Study Guide
 
 The 2--hour closed--book and closed--notes midterm will have problems similar in style and topic to the sample midterm questions.
 
@@ -1216,7 +1216,7 @@ print(reject/ne)
 
 \newpage
 
-## Midterm
+## Given
 
 <center>**PHYS/ASTR 390/590 Midterm Exam**</center>
 
@@ -1236,7 +1236,7 @@ Instructions
 
 \ifsolutions
 **Answer**
-1. $6\cdot 5\cdot 4\cdot 3 = 360$ (six options for first slot, 5 for second, ...)
+1. $6\cdot 5\cdot 4\cdot 3 = 360$ (six options for first slot, 5 for second, ...). Note that you have a total of 6 stickers, not a supply of 4 or more of each kind.)
 2. Assume each sticker unique (say there is a $5$ and a $5'$). Then you can form $6!$ unique license plates.
    
    For each license plate, for example,
@@ -1265,7 +1265,7 @@ What is the probability that you actually have the disease?
 \ifsolutions
 **Answer**
 
-Using $P(T+|D) = 0.95$ and $P(T+|D') = 0.05$, where $D$ means "have disease" and $D'$ means "don't have disease". Then
+Using $P(T^+|D) = 0.95$ and $P(T^+|D') = 0.05^\dagger$, where $T^+$ means "tested positive", $D$ means "have disease" and $D'$ means "don't have disease". Then
 
 $$P(D|T^+) = \frac{ P(T^+|D)P(D)}{P(D)P(T^+|D) + P(D')P(T^+|D')}$$
 
@@ -1275,7 +1275,7 @@ The fraction above simplifies to
 
 $$P(D|T^+) = \frac{0.95}{0.95 + 999\cdot 0.05}\simeq 1.9{\%}$$
 
-Wording was somewhat ambiguous. Better is "A positive result from a screening test is correct 95\% of the time".
+$^\dagger$ Wording should have been "A _positive result_ from a screening test is correct 95\% of the time".
 \else
 \fi
 
@@ -1308,7 +1308,7 @@ You are given a sample of $n=100$ values. You are told that they were generated 
 **Answer**
 
 1. A $\mathcal{P}\%$ confidence interval for a population parameter $\theta$ is an interval such that if the experiment was repeated and a CI was computed for each repetition, the CI for $\mathcal{P}\%$ of the repetitions would trap $\theta$ (in the limit that the number o repetitions approached infinity).
-2. See [notes](http://localhost:8092/notes.md!#relationship-to-cis) for an example. If $H_0$: $\theta=\theta_o$ and $H_a$: $\theta\ne \theta_o$ and $H_0$ is rejected with a significance level of $\alpha$, a $100(1-\alpha)\%$ CI will trap $\theta_o$ when $H_0$ is not rejected.
+2. See [notes](http://localhost:8092/notes.md!#relationship-to-cis) for an example. The general rule of equivalence is that if $H_0$: $\theta=\theta_o$ and $H_a$: $\theta\ne \theta_o$ and $H_0$ is rejected when the CI for any $\theta$ does not trap $\theta_o$.
 
 ###
 
@@ -1361,3 +1361,25 @@ print(cnt/ne)
 ### 
 
 (590 only) Derive the Poisson distribution from the Binomial distribution. Clearly state your assumptions.
+
+\ifsolutions
+
+**Partial Solution**
+
+1. Assume $\mu=np$ is constant and $n\rightarrow\infty$ (so $p$ becomes small as $n$ becomes large; the probability of an event becomes vanishingly small).
+
+2. Let $p=\mu/n$ an substitute into $\displaystyle\frac{n!}{(n-x)!x!}p^x(1-p)^{n-x}$
+
+3. Show that
+
+   $$\lim_{n\rightarrow\infty}\frac{n!}{(n-x)!n^x}=1$$
+
+4. Show that
+
+   $$\lim_{n\rightarrow\infty}\left(1-\frac{\mu}{n}\right)^{-x}=1$$
+
+5. Note that
+
+   $$\lim_{n\rightarrow\infty}\left(1-\frac{\mu}{n}\right)^n=e^{-\mu}$$
+\else
+\fi

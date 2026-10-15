@@ -1186,9 +1186,20 @@ where the values after the semicolon are constants.
 References
 
 * The original Poisson paper is in French but is covered in English by [Stigler 1982](https://jhanley.biostat.mcgill.ca/statbook/StiglerPoisson.pdf). Poisson used the limit of the binomial distribution, and Stigler notes that De Moivre derived a related approximation to the Poisson formula.
-* Derived independently by Bateman using a differential equation approach in [Rutherford, Geiger, and Bateman, 1910](https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf)
-* A simple derivation in [lecture notes by D.S.G. Pollock](https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf)
 * How used in physics lab experiments using Geiger counters: [1](https://pages.uoregon.edu/dlivelyb/phys391/labs/lab3_391.pdf), [2](https://wanda.fiu.edu/boeglinw/courses/Modern_lab_manual3/counting_statistics.html), [3](https://122.physics.ucdavis.edu/sites/default/files/files/Nuclear%20Decay/Counting%20Statistics.pdf)
+* Derived independently by Bateman using a differential equation approach in [Rutherford, Geiger, and Bateman, 1910](https://jhanley.biostat.mcgill.ca/Rutherford/RutherfordGeigerBateman1910.pdf)
+* A simple derivation from limit of binomial is given in [lecture notes by D.S.G. Pollock](https://www.le.ac.uk/users/dsgp1/COURSES/LEISTATS/poisson.pdf). Key steps:
+   1. Assume $\mu=np$ is constant and $n\rightarrow\infty$ (so $p$ becomes small as $n$ becomes large; the probability of an event becomes vanishingly small).
+   2. Let $p=\mu/n$ an substitute into $\displaystyle\frac{n!}{(n-x)!x!}p^x(1-p)^{n-x}$
+   3. Show that
+
+      $$\lim_{n\rightarrow\infty}\frac{n!}{(n-x)!n^x}=1$$
+   4. Show that
+
+      $$\lim_{n\rightarrow\infty}\left(1-\frac{\mu}{n}\right)^{-x}=1$$
+   5. Note that
+
+      $$\lim_{n\rightarrow\infty}\left(1-\frac{\mu}{n}\right)^n=e^{-\mu}$$
 
 The Poisson probability mass function is
 
@@ -2153,9 +2164,17 @@ _Answers_
 
 ## Basic $P$--Value Algorithm
 
-The basic $P$ value algorithm is a generalization of the basic rejection region method.
+> The $P$-value is the probability, calculated assuming that the null hypothesis is
+true, of obtaining a value of the test statistic at least as contradictory to $H_0$ as
+the value calculated from the available sample. (Devore p. 329)
 
-Instead of rejecting based on a predefined rejection region, we reject based on a requirement for the probability of a Type I error (which we have denoted as $\alpha$).
+To find a $P$-value, modify the $\alpha$ associated with the rejection region so that it is at the threshold of where one would reject the null.
+
+> $H_0$ should be rejected in favor of $H_a$ when the $P$-value is sufficiently small. (Devore p. 330)
+
+The basic $P$ value algorithm is a generalization of the basic rejection region method. Instead of simply computing if an observed value is in a rejection region, we compute how far the observed value is in the rejection region (or how far away from the rejection region it is).
+
+Instead of rejecting based on a predefined rejection region, we reject based on a requirement for the probability of a Type I error (which we have denoted as $\alpha$) if we change $\alpha$ to be at the threshold of rejection of $H_0$.
 
 **Example**
 
@@ -2169,13 +2188,21 @@ $n=25$ tests were done on the new paint, and the average drying time was $70.0$ 
 
 The hypothesis test of $H_0$: $\mu=75$ with a rejection region of $<70.8$ was considered and $H_0$ was rejected because the sample value of $70.0$ is in the rejection region. It was found that this rejection region corresponded to $\alpha = 0.01$. The equivalent hypothesis using a $P$--value is
 
-$H_0$: $\mu=75$ with $H_a$: $\mu<75$ and its associated rejection region based on $P \le 0.01$
+$H_0$: $\mu=75$ with $H_a$: $\mu<75$ and reject if $P \le \alpha = 0.01$
 
-Previously, we computed that if we wanted to change the rejection region to be $<70.0$ so that we don't reject, we needed $\alpha = 0.0027$. This is the $P$ value for this hypothesis test. Since this $P$ value is less than $0.01$, we reject.
+Previously, we computed that if we wanted to change the rejection region to be $<70.0$ (a threshold based on the observed value) so that we don't reject, we needed $\alpha = 0.0027$. This is the observed $P$ value. Since this $P$ value is less than the $P$-value specified in the hypothesis test ($0.01$), we reject.
 
-Now we can state "reject $H_0$; $P=0.0027$" or "$\mu < 75$; $P=0.0027$." Ideally we would state what the rejection threshold is for $P$, which was $0.01$ in this problem, but the threshold is often omitted when $P$ is less than $0.01$.
+Now we can state "reject $H_0$; $P=0.0027$" or "$\mu < 75$; $P=0.0027$." 
 
-When using the rejection region algorithm, we only stated "reject $H_0$" with a significance level of $0.05$. So the $P$ value method provides more information. 
+Ideally we would state what the rejection threshold is for $P$, which was $0.01$:
+
+$\quad H_0$: $\mu=75$ with $H_a$: $\mu<75$ and reject if $P \le 0.01$
+
+$\quad P=0.0027$ was found $\Rightarrow$ reject $H_0$.
+
+The threshold is often omitted when $P$ is less than $0.01$.
+
+When using the rejection region algorithm, we only stated "reject $H_0$" with a significance level of $0.01$. So the $P$ value method provides more information. It tells us how much we would need to adjust $\alpha$ to change our decision to reject or not reject $H_0$.
 
 **Problem**
 
