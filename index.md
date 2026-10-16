@@ -31,6 +31,8 @@ Quizzes:
 [4](hw.html#quiz-4) |
 [5](hw.html#quiz-5)
 
+[Notes](notes.html)
+
 # Class Notes
 
 ## December 10th (Thursday)
@@ -43,9 +45,15 @@ Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam
 ## October 29th
 ## October 15th
 
+* Go over [Midterm](hw.html#midterm)
+  
+   I will give opportunitities for you to raise your midterm score. At the end of at least three classes, I will give a 15-minute exam with one problem that is worth a total of five points. If your midterm was X/25 points, your new midterm score will be (X+A+B+C)/40, where A, B, and C are the number of points earned on each of the three 15-minute exams. The study guide for these problems is the same as the midterm study guide.
+* Regression and Correlation
+* DFT
+
 ## October 8th
 
-Midterm.
+[Midterm](hw.html#midterm)
 
 ## October 1st
 
