@@ -798,12 +798,11 @@ Do not create a PowerPoint presentation. For part 1., use the whiteboard if need
 
 ### Solar Flare Data
 
-If you are interested in solar flares, you may start with the `flares` directory in https://github.com/rweigel/stats/tree/main/project and extend `project_I.py`.
+If you are interested in solar flares, you may start with the [`flares` directory](https://github.com/rweigel/stats/tree/main/project) and extend `project_I.py`.
 
 ### Ground Magnetometer Data
 
-If you are interested in solar flares, you may start with the `ground_mag` directory in https://github.com/rweigel/stats/tree/main/project and extend `project_I.py`.
-
+If you are interested in solar flares, you may start with the [`ground_mag` directory](https://github.com/rweigel/stats/tree/main/project) and extend `project_I.py`.
 
 # Quiz 1
 
