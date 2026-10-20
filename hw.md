@@ -722,7 +722,7 @@ Save your code as `HW5_1.py` and plot as `HW5_1.png`.
 
 ## DFT Part I
 
-The Fourier series model for $y$ having an odd number $N$ time steps is
+The Fourier series model for $y$ is
 
 $$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t\thinspace,$$
 
@@ -744,11 +744,15 @@ q =
 \end{cases}
 $
 
-The values of $a$ and $b$ are also called the discrete Fourier transform (DFT) coefficients.
+The values of $a$ and $b$ are also called the discrete Fourier transform (DFT) coefficients. The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the Fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$. In the E&M book by Griffiths, he calls this "Fourier's trick".
 
-There are a total of $N$ unknown parameters in the model equation. If $N$ is even, $b_q = 0$, and so the number of free parameters in the model equation is still $N$; also, the last $a$ term simplifies: $a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
 
-(The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the Fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$. In the E&M book by Griffiths, he calls this "Fourier's trick".)
+There are a total of $N$ unknown parameters in the model equation.
+* If $N$ is odd, for example $N=5$, then $q=2$ and the unknowns are $a_0$, $a_1$, $a_2$, $b_1$, $b_2$.
+* If $N$ is even, for example $N=4$, then $q=2$ and the five unknowns based on the above are $a_0$, $a_1$, $a_2$, $b_1$, $b_2$. However, $b_q=0$, so the number of unknowns is actually four. Also, the last $a$ term simplifies: $a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
+
+   To see that $b_q=0$, we note that $q=N/2$ and so $b_q=\sum_{t=0}^{3}y_t\sin(2\pi qt/N)=\sum_{t=0}^{3}y_t\sin(2\pi t/2)=\sum_{t=0}^{3}y_t\sin(\pi t)$
+
 
 1. This part is unrelated to statistics, but I find myself doing this when I am trying to figure out what someone did to compute a plot and understand various other aspects of DFT calculations. The need for this is due to the definition ambiguity discussed above, indexing (MATLAB uses 1--based indexing, Python 0--based), and the fact that $q$ depends on if $N$ is even or odd.
 
