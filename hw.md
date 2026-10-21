@@ -726,7 +726,11 @@ The Fourier series model for $y$ having an odd number $N$ time steps is
 
 $$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t\thinspace,$$
 
-where $\ds f_i \equiv \frac{i}{N}$ and has least-squares estimates for the $\alpha$ and $\beta$ values (the estimates for $\alpha_i$ are $a_i$ and the estimates of $\beta_i$ are $b_i$): 
+where $\ds f_i \equiv \frac{i}{N}$. For $N$ even,
+
+$$y_t = \alpha_0 + \sum_{i=1}^{q}\alpha_i \mbox{cos}(2\pi f_i t) + \sum_{i=1}^{q-1}\beta_i \mbox{sin}(2\pi f_i t) + \epsilon_t\thinspace,$$
+
+The least-squares estimates for the $\alpha$ and $\beta$ values (the estimates for $\alpha_i$ are $a_i$ and the estimates of $\beta_i$ are $b_i$):
 
 $\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
 $\quad$
@@ -746,6 +750,9 @@ $
 
 The values of $a$ and $b$ are also called the discrete Fourier transform (DFT) coefficients.
 
+There are a total of $N$ unknown parameters in the model equation.
+* If $N$ is odd, for example $N=5$, then $q=2$ and the unknowns are $a_0$, $a_1$, $a_2$, $b_1$, $b_2$.
+* If $N$ is even, for example $N=4$, then $q=2$ and the five unknowns based on the above are $a_0$, $a_1$, $a_2$, $b_1$, $b_2$. However, $b_q=0$, so the number of unknowns is actually four (and the model equation is modified to have $\beta_q=0$).
 There are a total of $N$ unknown parameters in the model equation. If $N$ is even, $b_q = 0$, and so the number of free parameters in the model equation is still $N$; also, the last $a$ term simplifies: $a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
 
 (The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the Fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$. In the E&M book by Griffiths, he calls this "Fourier's trick".)
