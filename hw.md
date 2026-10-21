@@ -1393,11 +1393,10 @@ Instructions
 1. You have stickers labeled 1, 2, 3, 4, 5, 6 that are used to form a license plate. How many unique license plates of length $4$ can you form?
 2. You have stickers labeled 1, 2, 3, 4, 5, 5 (the "5" is duplicated) that are used to form a license plate. How many unique license plates of length $6$ can you form?
 
-\ifsolutions
 **Answer**
 1. $6\cdot 5\cdot 4\cdot 3 = 360$ (six options for first slot, 5 for second, ...). Note that you have a total of 6 stickers, not a supply of 4 or more of each kind.)
 2. Assume each sticker unique (say there is a $5$ and a $5'$). Then you can form $6!$ unique license plates.
-   
+
    For each license plate, for example,
    ```
    1 2 3 5 4 5'
@@ -1407,9 +1406,6 @@ Instructions
    1 2 3 5' 4 5
    ```
    If the prime is erased these two plates are identical. So the total number of unique plates is $6!/2=360$.
-
-\else
-\fi
 
 ### 
 
@@ -1421,7 +1417,6 @@ Your screening test claimed that you have the disease.
 
 What is the probability that you actually have the disease?
 
-\ifsolutions
 **Answer**
 
 Using $P(T^+|D) = 0.95$ and $P(T^+|D') = 0.05^\dagger$, where $T^+$ means "tested positive", $D$ means "have disease" and $D'$ means "don't have disease". Then
@@ -1435,8 +1430,6 @@ The fraction above simplifies to
 $$P(D|T^+) = \frac{0.95}{0.95 + 999\cdot 0.05}\simeq 1.9{\%}$$
 
 $^\dagger$ Wording should have been "A _positive result_ from a screening test is correct 95\% of the time".
-\else
-\fi
 
 ### 
 
@@ -1449,12 +1442,9 @@ You are given a sample of $n=100$ values. You are told that they were generated 
 
    b. did not include $\mu=2$, can you conclude there is a 2% chance that $\mu=2$?
 
-\ifsolutions
 **Answer**
 1. $\alpha=0.02$, $z_{\alpha/2} = 2.33$ (from table); CI=$[2.5-2.33\cdot 2/10, 2.5+2.33\cdot 2/10] = [2.04, 2.96]$
 2. No.
-\else
-\fi
 
 \newpage
 
@@ -1462,7 +1452,6 @@ You are given a sample of $n=100$ values. You are told that they were generated 
 
 1. Explain the interpretation of a confidence interval.
 2. Give an example of how and when a confidence interval is related to a hypothesis test.
-
 
 **Answer**
 
@@ -1491,7 +1480,8 @@ print(cnt/ne)
 
 2. Modify this program so that it computes the sample standard deviation and estimates the fraction of times `ci` traps zero if $\sigma$ is estimated with the sample standard deviation. Your modification should result in approximately the same value of `cnt/ne` being printed. You may use the tables provided, if needed.
 
-\ifsolutions
+**Answer**
+
 1. $0.05$
 2. The CI for this case is $\overline{x}\pm (t_{\alpha/2,n-1})(s/\sqrt{n})$,
 ```python
@@ -1510,18 +1500,18 @@ for i in range(ne):
     cnt = cnt+1
 print(cnt/ne)
 ```
-\else
-\fi
 
 ### 
 
 (590 only) Explain the relationship between a $P$ value and a rejection region in a hypothesis test.
 
+**Answer**
+
+A rejection region in a hypothesis test has an associated significance level $\alpha$. To determine the $P$ value, modifiy $\alpha$ so that the computed value of the test statistic in the hypothesis test is at the boundary of the rejection region. See the [course notes](notes.html!#basic-p-value-algorithm) for an example.
+
 ### 
 
 (590 only) Derive the Poisson distribution from the Binomial distribution. Clearly state your assumptions.
-
-\ifsolutions
 
 **Partial Solution**
 
@@ -1540,5 +1530,3 @@ print(cnt/ne)
 5. Note that
 
    $$\lim_{n\rightarrow\infty}\left(1-\frac{\mu}{n}\right)^n=e^{-\mu}$$
-\else
-\fi
