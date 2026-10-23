@@ -655,7 +655,7 @@ Save your code as `HW4_3.py` and any associated plots as `HW4_3a.png, HW4_3b.png
 
 # HW 5
 
-## Regression
+## Regression Part I
 
 <details><summary>Code from Class</summary>
 ```python
@@ -810,6 +810,43 @@ If you are interested in solar flares, you may start with the [`flares` director
 ### Ground Magnetometer Data
 
 If you are interested in solar flares, you may start with the [`ground_mag` directory](https://github.com/rweigel/stats/tree/main/project) and extend `project_I.py`.
+
+# HW 6
+
+## Regression Part II
+
+## DFT Part II
+
+In [HW6_1.py](), I provide solutions to parts 1., 2., and 3. below. You need to solve the rest by entering code in the functions `part4()`, ..., `part6()`.
+
+The program [HW6_1.py](), start with a time series, $y$, and prints the DFT coefficients 
+
+$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+
+with $i=1,2,...,q$ and 
+
+$
+q = 
+\begin{cases}
+  N/2 &       \text{if } N \text{ even} \\
+  (N - 1)/2 & \text{if } N \text{ odd}
+\end{cases}
+$
+
+For example for `part1()`, it prints
+
+```
+  y = [0, 1, 0, -1]
+DFT
+     i          a_i          b_i          f_i
+     0       0.0000                    0.0000
+     1       0.0000       1.0000       0.2500
+     2       0.0000      -0.0000       0.5000
+```
 
 # Quiz 1
 
@@ -1029,6 +1066,50 @@ _This is a graded quiz_
 You will be asked to derive the equations for $b_o$ and $b_1$ that minimize sum-squared error
 
 $$\text{SSE}(b_o,b_1)=\sum_{i=1}^n\large(y_i-(b_o+b_1x_i)\large)^2$$
+
+# Quiz 7
+
+You will be given a time series with four elements, e.g., $y=[0, 1, 0, -1]$, and the following equations:
+
+$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+
+with $i=1,2,...,q$, $N$ the number of $y$ values, $f_i=i/N$, and 
+
+$
+q = 
+\begin{cases}
+  N/2 &       \text{if } N \text{ even} \\
+  (N - 1)/2 & \text{if } N \text{ odd}
+\end{cases}
+$
+
+You will be asked to compute part of the table that would be printed by `HW6_1.py`.
+
+**Sample Problem**
+
+For $y = [0, 1, 0, -1]$, compute $a_0$ and $a_1$.
+
+**Answer**
+
+$$a_0= \frac{1}{N}\sum_{t=0}^{N-1} y_t = \frac{1}{4}(0 + 1 + 0 -1) = 0$$
+
+$$a_1=\frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_1 t) = \frac{2}{4}\left[0\cdot\cos\left(2\pi\frac{1}{4}(0)\right) + 1\cdot\cos\left(2\pi\frac{1}{4}(1)\right) + 0\cdot\cos\left(2\pi\frac{1}{4}(2)\right) - 1\cos\left(2\pi\frac{1}{4}(3)\right)\right]=0$$
+
+To check my answer, I used the printed output of `HW6_1.py`, which is (the * indicates the elements I computed):
+
+```
+DFT
+     i          a_i          b_i          f_i
+     0       0.0000*                   0.0000
+     1       0.0000*      1.0000       0.2500
+     2       0.0000      -0.0000       0.5000
+```
+(For the purposes of the quiz, `-0.000` is the same as `0`.)
+
 
 # Activity 1
 
