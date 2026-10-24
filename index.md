@@ -23,13 +23,17 @@ HWs:
 [1](hw.html#hw-1) |
 [2](hw.html#hw-2) |
 [3](hw.html#hw-3) |
-[4](hw.html#hw-4)
+[4](hw.html#hw-4) |
+[5](hw.html#hw-5) |
+[6](hw.html#hw-6) |
 Quizzes:
 [1](hw.html#quiz-1) |
 [2](hw.html#quiz-2) |
 [3](hw.html#quiz-3) |
 [4](hw.html#quiz-4) |
-[5](hw.html#quiz-5)
+[5](hw.html#quiz-5) |
+[6](hw.html#quiz-6) |
+[7](hw.html#quiz-7) |
 
 [Notes](notes.html)
 
@@ -43,6 +47,12 @@ Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam
 ## November 12th
 ## November 5th
 ## October 29th
+## October 24th
+
+* Regression and Correlation
+* DFT
+* Project Discussion
+
 ## October 15th
 
 * Go over [Midterm](hw.html#midterm)
