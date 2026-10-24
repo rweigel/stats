@@ -2025,6 +2025,8 @@ For small $n$, there are many complications. See discussion in Devore p 281 and 
 >
 > Devore page 295 (box on bottom of page)
 
+Recall that $\alpha$ is referred to as the significance level.
+
 Note that $\chi^2_{\alpha/2, n-1}$ corresponds to the value of $\chi^2_{n-1}$ such that the area _to the right_ is $\alpha/2$. This is opposite of $|z_{\alpha/2}|$, which is $|z|$ such that the area _to the left_ is $\alpha/2$.
  
 It is best to always think of the $\alpha/2$ values as corresponding to a small area.
@@ -2172,7 +2174,7 @@ To find a $P$-value, modify the $\alpha$ associated with the rejection region so
 
 > $H_0$ should be rejected in favor of $H_a$ when the $P$-value is sufficiently small. (Devore p. 330)
 
-The basic $P$ value algorithm is a generalization of the basic rejection region method. Instead of simply computing if an observed value is in a rejection region, we compute how far the observed value is in the rejection region (or how far away from the rejection region it is).
+The basic $P$ value algorithm is a generalization of the basic rejection region method. Instead of simply computing if an observed value is in a rejection region, we compute how far the observed value is in the rejection region (or how far away from the rejection region boundary it is).
 
 Instead of rejecting based on a predefined rejection region, we reject based on a requirement for the probability of a Type I error (which we have denoted as $\alpha$) if we change $\alpha$ to be at the threshold of rejection of $H_0$.
 
