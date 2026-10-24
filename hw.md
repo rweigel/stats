@@ -817,7 +817,7 @@ Due Friday, October 30th at 11:59 pm.
 
 ## DFT Part II
 
-In [HW6_1.py](solns/HW6_1.py), I provide example functions named `parts1()`, `part2()`, and `part3()`.
+In [HW6_1.py](solns/HW6_1.py), I provide example functions named `parts1()`, `part2()`, and `part3()` that use my `dft()` function based on HW5.
 
 For this homework, modify the `part4()`, `part5()`, `part6()`, and `part7()` functions as requested in the comments of those functions.
 
@@ -1083,11 +1083,11 @@ q =
 \end{cases}
 $
 
-You will be asked to compute part of the table that would be printed by `HW6_1.py`.
+You will be asked to compute some of the values of $a$ and $b$. To check you answers, you cand use the `part1()` function `HW6_1.py`.
 
 **Sample Problem**
 
-For $y = [0, 1, 0, -1]$, compute $a_0$ and $a_1$.
+For $y = [0, 1, 0, -1]$, compute $a_0$ and $a_1$. (I'll give different values on the quiz.)
 
 **Answer**
 
