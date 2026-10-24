@@ -753,7 +753,7 @@ The values of $a$ and $b$ are also called the discrete Fourier transform (DFT) c
 There are a total of $N$ unknown parameters in the model equation.
 * If $N$ is odd, for example $N=5$, then $q=2$ and the unknowns are $a_0$, $a_1$, $a_2$, $b_1$, $b_2$.
 * If $N$ is even, for example $N=4$, then $q=2$ and the five unknowns based on the above are $a_0$, $a_1$, $a_2$, $b_1$, $b_2$. However, $b_q=0$, so the number of unknowns is actually four (and the model equation is modified to have $\beta_q=0$).
-There are a total of $N$ unknown parameters in the model equation. If $N$ is even, $b_q = 0$, and so the number of free parameters in the model equation is still $N$; also, the last $a$ term simplifies: $a_q = \frac{1}{N}\sum_{t=1}^{N} y_t(-1)^t$.
+There are a total of $N$ unknown parameters in the model equation. If $N$ is even, $b_q = 0$, and so the number of free parameters in the model equation is still $N$; also, the last $a$ term is $a_q = \frac{1}{N}\sum_{t=0}^{N-1} y_t(-1)^t$.
 
 (The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the Fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$. In the E&M book by Griffiths, he calls this "Fourier's trick".)
 
@@ -769,7 +769,7 @@ There are a total of $N$ unknown parameters in the model equation. If $N$ is eve
    a0, a, b = dft(np.array([0, -1, 0, 1])
    print(a0) # 0.0
    print(a)  # [0.0  0.0]
-   print(b)  # [0.0 -1.0]
+   print(b)  # [0.0 -1.0] # Correction: Should be [-1.0, 0.0]
    ```
 
 3. (590 only) `numpy.fft` computes the DFT of $y_t$ using a formula of the form
@@ -813,40 +813,36 @@ If you are interested in solar flares, you may start with the [`ground_mag` dire
 
 # HW 6
 
-## Regression Part II
+Due Friday, October 30th at 11:59 pm.
 
 ## DFT Part II
 
-In [HW6_1.py](), I provide solutions to parts 1., 2., and 3. below. You need to solve the rest by entering code in the functions `part4()`, ..., `part6()`.
+In [HW6_1.py](solns/HW6_1.py), I provide example functions named `parts1()`, `part2()`, and `part3()`.
 
-The program [HW6_1.py](), start with a time series, $y$, and prints the DFT coefficients 
+For this homework, modify the `part4()`, `part5()`, `part6()`, and `part7()` functions as requested in the comments of those functions.
 
-$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
-$\quad$
-$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
-$\quad$
-$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+## Regression Part II
 
-with $i=1,2,...,q$ and 
-
-$
-q = 
-\begin{cases}
-  N/2 &       \text{if } N \text{ even} \\
-  (N - 1)/2 & \text{if } N \text{ odd}
-\end{cases}
-$
-
-For example for `part1()`, it prints
-
+In Example 12.18 of the 8th (and 9th) Edition of Devore, he gives
 ```
-  y = [0, 1, 0, -1]
-DFT
-     i          a_i          b_i          f_i
-     0       0.0000                    0.0000
-     1       0.0000       1.0000       0.2500
-     2       0.0000      -0.0000       0.5000
+x = [55.10 44.83 46.32 51.10 49.89 45.20 48.18 46.70 54.31 41.50 47.50 52.00 52.25 50.86 51.66 54.77 57.06 57.84 55.22]
+y = [49.10 31.20 32.80 42.60 42.50 32.70 36.21 40.40 37.42 30.80 35.34 44.80 41.75 39.35 
+44.07 43.40 45.30 39.08 41.89]
 ```
+
+and provides computed values for $S_{xx}$, $S_{yy}$, $S_{xy}$, $r$, $v$, $z$, and $P$.
+
+Write a program that computes these values. Create a scatter plot of $y$ vs. $x$ and add an annotation that shows the $r$ and $P$ values.
+
+Save your code as `HW6_2.py` and plot as `HW6_2.png`.
+
+Be prepared to discuss in class the interpretation of the $P$ value and the result of the hypothesis test.
+
+## Project II
+
+If you did not give project overview presentation, you will need to give your presentation next week.
+
+If you did give a project overview presentation, you do not have any additional work to do for this week.
 
 # Quiz 1
 
@@ -1099,7 +1095,7 @@ $$a_0= \frac{1}{N}\sum_{t=0}^{N-1} y_t = \frac{1}{4}(0 + 1 + 0 -1) = 0$$
 
 $$a_1=\frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_1 t) = \frac{2}{4}\left[0\cdot\cos\left(2\pi\frac{1}{4}(0)\right) + 1\cdot\cos\left(2\pi\frac{1}{4}(1)\right) + 0\cdot\cos\left(2\pi\frac{1}{4}(2)\right) - 1\cos\left(2\pi\frac{1}{4}(3)\right)\right]=0$$
 
-To check my answer, I used the printed output of `HW6_1.py`, which is (the * indicates the elements I computed):
+To check my answer, I used the printed output of `HW6_1.py`, which is (the * indicates the elements computed above):
 
 ```
 DFT

@@ -30,6 +30,9 @@ def dft(y, method='slow'):
     a = (2 / n) * np.real(yfft)
     b = -(2 / n) * np.imag(yfft)
 
+  if n % 2 == 0:
+    a[-1] = a[-1] / 2
+
   return a0, a, b, i, f
 
 
@@ -88,6 +91,7 @@ def savefig(fname):
 
 
 def fisher_g(y):
+  # For later HW
   _, a, b, i, f = dft(y, method='fast')
   power = (a**2 + b**2)[f < 0.5]
   total_power = np.sum(power)
@@ -95,6 +99,7 @@ def fisher_g(y):
 
 
 def fisher_g_test(y):
+  # For later HW
   """Return Fisher's upper-tail p-value for equally spaced Gaussian white noise."""
   from math import comb, floor
 
@@ -112,7 +117,6 @@ def fisher_g_test(y):
 
 def part1():
   y = [0, 1, 0, -1]
-  #y = [0, -1, 0, 1]
   a0, a, b, i, f = dft(y, method='slow')
 
   print("--Part 1--")
@@ -151,19 +155,104 @@ def part3():
   dft_print(a0, a, b, i, f)
   savefig('HW6_1_3.png')
 
+def part4():
+  """
+  Modify the values in y so that the DFT has the following values:
+  DFT
+     i          a_i          b_i          f_i
+     0       0.0000                    0.0000
+     1       1.0000      -0.0000       0.2500
+     2       0.0000       0.0000       0.5000
+  """
+
+  y = [0, 1, 0, -1]
+  a0, a, b, i, f = dft(y, method='slow')
+
+  print("--Part 4-")
+  print(f"  y = {y}")
+  print("DFT")
+  dft_print(a0, a, b, i, f)
+
+  dft_plot(i, a, b, y)
+  savefig('HW6_1_4.png')
+
+def part5():
+  """
+  Keep n the same, but modify the equation for y[t] so that 
+  a_3 = b_3 = 1; otherwise, all a_i and b_i are 0.
+  """
+
+  n = 40
+  y = np.full(n, np.nan)
+  i = 1
+  for t in range(n):
+    y[t] = np.sin(2 * np.pi * (i/n) * t )
+
+  a0, a, b, i, f = dft(y, method='slow')
+
+  print("--Part 5--")
+  dft_plot(i, a, b, y)
+
+  dft_print(a0, a, b, i, f)
+  savefig('HW6_1_5.png')
+
+def part6():
+  """
+  Keep n the same, but modify the equation for y[t] so that 
+  a_3 = b_3 = 1 and a_6 = 1; otherwise, all a_i and b_i are 0.
+  """
+
+  n = 40
+  y = np.full(n, np.nan)
+  i = 1 # The frequency index for the sine wave. i = 1 means the sine wave
+        # will have a frequency of i/n cycles per sample and a period of n/i samples.
+  for t in range(n):
+    y[t] = np.sin(2 * np.pi * (i/n) * t )
+
+  a0, a, b, i, f = dft(y, method='slow')
+
+  print("--Part 6--")
+  dft_plot(i, a, b, y)
+
+  dft_print(a0, a, b, i, f)
+  savefig('HW6_1_6.png')
+
+
+def part7():
+  """
+  Here we want to determine from the plot of a^2 + b^2 when you can "see"
+  evidence of the sine wave at DFT index i (frequency i/40). For small sigma,
+  you should see a clear spike in the bottom plot (for the magnitude squared
+  of the DFT coefficients).
+
+  Increase sigma until it is your opinion that, visually, you can not see the
+  spike in the bottom plot.
+
+  Later we will compare your visual assessment with a more quantitative measure.
+  """
+
+  n = 40
+  y = np.full(n, np.nan)
+  i = 5 # The frequency index for the sine wave. i = 1 means the sine wave
+         # will have a frequency of i/n cycles per sample and a period of n/i samples.
+  sigma = 0.01 # Standard deviation of the noise
+  for t in range(n):
+    epsilon = np.random.normal(loc=0, scale=sigma)
+    y[t] = epsilon + np.sin(2 * np.pi * (i/n) * t )
+
+  a0, a, b, i, f = dft(y, method='slow')
+
+  print("--Part 7--")
+  dft_plot(i, a, b, y)
+
+  dft_print(a0, a, b, i, f)
+  savefig('HW6_1_7.png')
 
 part1()
 part2()
 part3()
-
-
-
-if False:
-  y = [0, -1, 0, 1]
-  a0, a, b, i, f = dft(y, method='slow')
-
-  y = np.random.rand(100)
-  g = fisher_g(y)
-  print('Fisher G:', g)
-  print('Fisher G p-value:', fisher_g_test(y))
+part4()
+part5()
+part6()
+part7()
 
