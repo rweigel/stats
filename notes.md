@@ -1917,6 +1917,29 @@ because the $x$ values are fixed and can be treated as constants, we can conclud
 
 > An alternative to reporting a single sensible value for the parameter being estimated is to calculate and report an entire interval of plausible values—an interval estimate or confidence interval (CI). A confidence level of 95% implies that 95% of all samples would give an interval that includes $\mu$, or whatever other parameter is being estimated, and only 5% of all samples would yield an erroneous interval. The most frequently used confidence levels are 95%, 99%, and 90%. The higher the confidence level, the more strongly we believe that the value of the parameter being estimated lies within the interval (an interpretation of any particular confidence level will be given shortly). (Devore p 267)
 
+## Interpretation
+
+If instead of taking one sample and computing a CI, you took many samples and computed many CIs for a sample statistic (repeated the experiment), the percentage of the CIs that would "trap" the value of the population that the sample statistic approximates is the confidence level.
+
+The following figure is from Devore 8th Edition. In this case the sample statistic is $\overline{x}$, which is an estimate of the population mean $\mu$. Each horizontal line is computed from the $\overline{x}$ of a sample plus its CI.
+
+<img src="notes/figures/trap.png" width=400px/>
+
+## Misinterpretation
+
+A common misinterpretation of a 95\% CI is "there is a 95\% chance that the population value (such as $\mu$) is in the CI of the sample statistic that is used to estimate the population value (such as $\overline{x}$)".
+
+To see the problem with this, consider what would happen if experimenter 1 and experimenter 2 obtain confidence intervals of
+
+1. $[-1.0, 0.0]$
+2. $[0.0, +1.0]$
+
+If both of them claim that there is a 95\% chance $\mu$ is in their CI, there is a contradiction.
+
+Another justification for why the quote is wrong is the true population parameter is a fixed, unknown constant, and a calculated CI either contains it (probability = 1) or does not contain it (probability = 0).
+
+Another misinterpretation is that "overlapping CIs mean no significant difference". (I did not cover this; determining if this conclusion is appropriate or not requires the hypothesis test methods covered in Chapter 9 of Devore.)
+
 ## Deriving
 
 Deriving a confidence interval requires deriving the sampling distribution of a point estimator. This is not covered in these notes.

@@ -768,12 +768,12 @@
         <a href="#random-variables-and-distributions">
           <span class="toctext">Random Variables and Distributions</span>
         </a>
-        <ol class="toc" style="display: block;">
+        <ol class="toc" style="display: none;">
           <li>
             <a href="#discrete">
               <span class="toctext">Discrete</span>
             </a>
-            <ol class="toc" style="display: block;">
+            <ol class="toc" style="display: none;">
               <li>
                 <a href="#random-variables">
                   <span class="toctext">Random Variables</span>
@@ -810,7 +810,7 @@
                 <a href="#important-pmfs">
                   <span class="toctext">Important PMFs</span>
                 </a>
-                <ol class="toc" style="display: block;">
+                <ol class="toc" style="display: none;">
                   <li>
                     <a href="#binomial">
                       <span class="toctext">Binomial</span>
@@ -993,6 +993,16 @@
         </a>
         <ol class="toc" style="display: none;">
           <li>
+            <a href="#interpretation">
+              <span class="toctext">Interpretation</span>
+            </a>
+          </li>
+          <li>
+            <a href="#misinterpretation">
+              <span class="toctext">Misinterpretation</span>
+            </a>
+          </li>
+          <li>
             <a href="#deriving">
               <span class="toctext">Deriving</span>
             </a>
@@ -1028,7 +1038,7 @@
                 </a>
               </li>
               <li>
-                <a href="#7.3.5">
+                <a href="#7.5.5">
                   <span class="toctext"></span>
                 </a>
               </li>
@@ -1040,7 +1050,7 @@
         <a href="#hypothesis-tests">
           <span class="toctext">Hypothesis Tests</span>
         </a>
-        <ol class="toc" style="display: block;">
+        <ol class="toc" style="display: none;">
           <li>
             <a href="#overview">
               <span class="toctext">Overview</span>
@@ -4834,7 +4844,57 @@ M834 80h400000v40h-400000z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="deriving" class="anchor hanchor" href="#deriving"><span class="hnumber">7.1</span>&nbsp;<span class="htext">Deriving</span></a></h2>
+        <h2><a name="interpretation" class="anchor hanchor" href="#interpretation"><span class="hnumber">7.1</span>&nbsp;<span class="htext">Interpretation</span></a></h2>
+      </div>
+      <div class="block">
+        <p>If instead of taking one sample and computing a CI, you took many samples and computed many CIs for a sample statistic (repeated the experiment), the percentage of the CIs that would “trap” the value of the population that the sample statistic approximates is the confidence level.</p>
+      </div>
+      <div class="block">
+        <p>The following figure is from Devore 8th Edition. In this case the sample statistic is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6306em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6306em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span><span style="top:-3.5506em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>, which is an estimate of the population mean <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span>. Each horizontal line is computed from the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6306em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6306em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span><span style="top:-3.5506em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span> of a sample plus its CI.</p>
+      </div>
+      <div class="block">
+        <div class="inline-html">
+          <img src="notes/figures/trap.png" width="400px/">
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="misinterpretation" class="anchor hanchor" href="#misinterpretation"><span class="hnumber">7.2</span>&nbsp;<span class="htext">Misinterpretation</span></a></h2>
+      </div>
+      <div class="block">
+        <p>A common misinterpretation of a 95% CI is “there is a 95% chance that the population value (such as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span>) is in the CI of the sample statistic that is used to estimate the population value (such as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6306em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6306em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span><span style="top:-3.5506em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>)”.</p>
+      </div>
+      <div class="block">
+        <p>To see the problem with this, consider what would happen if experimenter 1 and experimenter 2 obtain confidence intervals of</p>
+      </div>
+      <div class="block">
+        <ol class="compact">
+          <li>
+            <div class="block">
+              <p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">1.0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0.0</span><span class="mclose">]</span></span></span></span></p>
+            </div>
+          </li>
+          <li>
+            <div class="block">
+              <p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0.0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">+</span><span class="mord">1.0</span><span class="mclose">]</span></span></span></span></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="block">
+        <p>If both of them claim that there is a 95% chance <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">μ</span></span></span></span> is in their CI, there is a contradiction.</p>
+      </div>
+      <div class="block">
+        <p>Another justification for why the quote is wrong is the true population parameter is a fixed, unknown constant, and a calculated CI either contains it (probability = 1) or does not contain it (probability = 0).</p>
+      </div>
+      <div class="block">
+        <p>Another misinterpretation is that “overlapping CIs mean no significant difference”. (I did not cover this; determining if this conclusion is appropriate or not requires the hypothesis test methods covered in Chapter 9 of Devore.)</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="block">
+        <h2><a name="deriving" class="anchor hanchor" href="#deriving"><span class="hnumber">7.3</span>&nbsp;<span class="htext">Deriving</span></a></h2>
       </div>
       <div class="block">
         <p>Deriving a confidence interval requires deriving the sampling distribution of a point estimator. This is not covered in these notes.</p>
@@ -4842,7 +4902,7 @@ M834 80h400000v40h-400000z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="computing" class="anchor hanchor" href="#computing"><span class="hnumber">7.2</span>&nbsp;<span class="htext">Computing</span></a></h2>
+        <h2><a name="computing" class="anchor hanchor" href="#computing"><span class="hnumber">7.4</span>&nbsp;<span class="htext">Computing</span></a></h2>
       </div>
       <div class="block">
         <p>Requires</p>
@@ -4891,12 +4951,12 @@ M834 80h400000v40h-400000z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h2><a name="common-cis" class="anchor hanchor" href="#common-cis"><span class="hnumber">7.3</span>&nbsp;<span class="htext">Common CIs</span></a></h2>
+        <h2><a name="common-cis" class="anchor hanchor" href="#common-cis"><span class="hnumber">7.5</span>&nbsp;<span class="htext">Common CIs</span></a></h2>
       </div>
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="normal-mean-known-standard-deviation" class="anchor hanchor" href="#normal-mean-known-standard-deviation"><span class="hnumber">7.3.1</span>&nbsp;<span class="htext">Normal Mean, Known Standard Deviation</span></a></h3>
+        <h3><a name="normal-mean-known-standard-deviation" class="anchor hanchor" href="#normal-mean-known-standard-deviation"><span class="hnumber">7.5.1</span>&nbsp;<span class="htext">Normal Mean, Known Standard Deviation</span></a></h3>
       </div>
       <div class="block">
         <div class="blockquote">
@@ -4977,7 +5037,7 @@ M834 80h400000v40h-400000z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="normal-mean-unknown-standard-deviation" class="anchor hanchor" href="#normal-mean-unknown-standard-deviation"><span class="hnumber">7.3.2</span>&nbsp;<span class="htext">Normal Mean, Unknown Standard Deviation</span></a></h3>
+        <h3><a name="normal-mean-unknown-standard-deviation" class="anchor hanchor" href="#normal-mean-unknown-standard-deviation"><span class="hnumber">7.5.2</span>&nbsp;<span class="htext">Normal Mean, Unknown Standard Deviation</span></a></h3>
       </div>
       <div class="block">
         <div class="blockquote">
@@ -5015,7 +5075,7 @@ M834 80h400000v40h-400000z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="approximately-normal-estimator" class="anchor hanchor" href="#approximately-normal-estimator"><span class="hnumber">7.3.3</span>&nbsp;<span class="htext">Approximately Normal Estimator</span></a></h3>
+        <h3><a name="approximately-normal-estimator" class="anchor hanchor" href="#approximately-normal-estimator"><span class="hnumber">7.5.3</span>&nbsp;<span class="htext">Approximately Normal Estimator</span></a></h3>
       </div>
       <div class="block">
         <div class="blockquote">
@@ -5027,7 +5087,7 @@ M834 80h400000v40h-400000z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="population-proportion" class="anchor hanchor" href="#population-proportion"><span class="hnumber">7.3.4</span>&nbsp;<span class="htext">Population Proportion</span></a></h3>
+        <h3><a name="population-proportion" class="anchor hanchor" href="#population-proportion"><span class="hnumber">7.5.4</span>&nbsp;<span class="htext">Population Proportion</span></a></h3>
       </div>
       <div class="block">
         <p>Devore Equation 7.10 gives a complex formula for the CI for a population proportion, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>. For large <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>, it is</p>
@@ -5056,7 +5116,7 @@ M1001 80h400000v40h-400000z"></path>
     </div>
     <div class="section">
       <div class="block">
-        <h3><a name="7.3.5" class="anchor hanchor" href="#7.3.5"><span class="hnumber">7.3.5</span>&nbsp;<span class="htext"></span></a></h3>
+        <h3><a name="7.5.5" class="anchor hanchor" href="#7.5.5"><span class="hnumber">7.5.5</span>&nbsp;<span class="htext"></span></a></h3>
       </div>
       <div class="block">
         <div class="blockquote">
@@ -5067,6 +5127,9 @@ M1001 80h400000v40h-400000z"></path>
           <p>A confidence interval for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span> has lower and upper limits that are the square roots of the corresponding limits in the interval for <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>.</p>
           <p>Devore page 295 (box on bottom of page)</p>
         </div>
+      </div>
+      <div class="block">
+        <p>Recall that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> is referred to as the significance level.</p>
       </div>
       <div class="block">
         <p>Note that <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3111em;vertical-align:-0.497em;"></span><span class="mord"><span class="mord mathnormal">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.378em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span><span class="mord mtight">/2</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.497em;"><span></span></span></span></span></span></span></span></span></span> corresponds to the value of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1205em;vertical-align:-0.3064em;"></span><span class="mord"><span class="mord mathnormal">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.4519em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3064em;"><span></span></span></span></span></span></span></span></span></span> such that the area <em marker="_">to the right</em> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mord">/2</span></span></span></span>. This is opposite of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1052em;vertical-align:-0.3552em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span><span class="mord mtight">/2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span><span class="mord">∣</span></span></span></span>, which is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">∣</span></span></span></span> such that the area <em marker="_">to the left</em> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mord">/2</span></span></span></span>.</p>
@@ -5549,7 +5612,7 @@ M834 80h400000v40h-400000z"></path>
         </div>
       </div>
       <div class="block">
-        <p>The basic <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> value algorithm is a generalization of the basic rejection region method. Instead of simply computing if an observed value is in a rejection region, we compute how far the observed value is in the rejection region (or how far away from the rejection region it is).</p>
+        <p>The basic <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> value algorithm is a generalization of the basic rejection region method. Instead of simply computing if an observed value is in a rejection region, we compute how far the observed value is in the rejection region (or how far away from the rejection region boundary it is).</p>
       </div>
       <div class="block">
         <p>Instead of rejecting based on a predefined rejection region, we reject based on a requirement for the probability of a Type I error (which we have denoted as <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>) if we change <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> to be at the threshold of rejection of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0813em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
