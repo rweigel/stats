@@ -51,6 +51,7 @@ Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam
 
 ## October 29th
 
+* Update on HW and Quiz grading (Quiz #6 graded, will try to grade HW #5 tomorrow)
 * Project guidelines, presentations, and grading
 * Project logistics
   * Creating a subdir in GitHub
