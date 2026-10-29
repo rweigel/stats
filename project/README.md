@@ -1,16 +1,18 @@
+[Information on editing a Markdown document](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
 # Data
 
 ## Source
 
-Describe where the data came. If data are on-line, provide links.
+(1-2 paragraphs) Describe where the data came. If data are on-line, provide links.
 
 ## Interpretation
 
-Describe what is measured at a basic level. Provide links to 1-2 high-level descriptions (web pages or papers).
+(1-2 paragraphs) Describe what is measured at a basic level. Provide links to 1-2 high-level descriptions (web pages or papers). This should be a text version of your two-minute overview.
 
 # Exploratory Data Analysis
 
-Provide 1-3 plots that characterize general features of the data. These plots will be revised as you project progresses.
+Provide 1-3 plots that characterize general features of the data. These plots will be revised as you project progresses. The first version should be of what you presented the first time.
 
 Example of embedding image in Markdown.
 
@@ -22,9 +24,11 @@ Example of embedding image in Markdown.
 
 Explain what you want to quantify with statistical methods. Provide references to any equations used.
 
+You can use plain text for equations, e.g., y=mx+b, or LaTeX, e.g., $y=mx+b$.
+
 ## Results
 
-Present the results of your analysis
+Present the results of your analysis. Include tables and plots.
 
 # References
 

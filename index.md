@@ -51,29 +51,40 @@ Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam
 
 ## October 29th
 
-* Discuss final project guidelines
-  * Template for project report: https://github.com/rweigel/stats/tree/main/project. You will update this every week based on my feedback.
-  * In the future, grades on the project part of HW assignments will be based on if you did what was asked during class.
+* Project guidelines, presentations, and grading
+* Project logistics
   * Creating a subdir in GitHub
   * Editing a Markdown file
+* Student presentations of data
 
-* Final Project presentations (10-20 minutes on final exam day)
-  * Guidelines:
-    1. Present exploratory data analysis results that are relevant to part 2.
-    2. Discuss question that you want to answer that requires statistical methods. Discuss related literature, if relevant.
-    3. Review theory
-    4. Present results related to question
-
-   You may use PPT or present from your README.md file.
-
-* Final Project grading
-  * All revisions discussed during previous class presentations addressed
-  * Theory correct
-  * Results correct
-
-* Project presentations
+If time
 * Cover collinearity
 * Cover Fisher's test for periodicity
+
+----
+----
+
+**Final Project**
+
+In the future, grades on the project part of HW assignments will be based on if you did what was asked during class.
+
+Your overall final project grade will largely depend on if you performed all of the analysis I requested and summarized the results appropriately.
+
+_Guidelines_
+* [Template for project report](https://github.com/rweigel/stats/blob/main/project/README.md). You will your README.md every week based on my feedback.
+
+_Presentations_ (10-20 minutes on final exam day)
+  1. Present exploratory data analysis results that are relevant to part 2.
+  2. Discuss question that you want to answer that requires statistical methods. Discuss related literature, if relevant.
+  3. Review theory
+  4. Present results related to question
+
+   You may use PPT or present from your README.md file. I strongly recommend that you ask for feedback on a draft.
+
+_Grading_
+  * All revisions discussed during previous class presentations addressed in README.md and final presentation.
+  * Theory correct
+  * Results correct
 
 ## October 24th
 
