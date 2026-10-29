@@ -35,18 +35,46 @@ Quizzes:
 [6](hw.html#quiz-6) |
 [7](hw.html#quiz-7) |
 
-[Notes](notes.html)
+[Partial Lecture Notes](notes.html)
 
 # Class Notes
 
 ## December 10th (Thursday)
+
 Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam Schedule](https://registrar.gmu.edu/fall-2026-final-exam-schedule/)
+
 
 ## December 3rd
 ## November 19th
 ## November 12th
 ## November 5th
+
 ## October 29th
+
+* Discuss final project guidelines
+  * Template for project report: https://github.com/rweigel/stats/tree/main/project. You will update this every week based on my feedback.
+  * In the future, grades on the project part of HW assignments will be based on if you did what was asked during class.
+  * Creating a subdir in GitHub
+  * Editing a Markdown file
+
+* Final Project presentations (10-20 minutes on final exam day)
+  * Guidelines:
+    1. Present exploratory data analysis results that are relevant to part 2.
+    2. Discuss question that you want to answer that requires statistical methods. Discuss related literature, if relevant.
+    3. Review theory
+    4. Present results related to question
+
+   You may use PPT or present from your README.md file.
+
+* Final Project grading
+  * All revisions discussed during previous class presentations addressed
+  * Theory correct
+  * Results correct
+
+* Project presentations
+* Cover collinearity
+* Cover Fisher's test for periodicity
+
 ## October 24th
 
 * Regression and Correlation

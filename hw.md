@@ -722,7 +722,7 @@ Save your code as `HW5_1.py` and plot as `HW5_1.png`.
 
 ## DFT Part I
 
-The Fourier series model for $y$ having an odd number $N$ time steps is
+The Fourier series model for $y$ having an odd number of time steps, $N$, is
 
 $$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t\thinspace,$$
 
@@ -1061,7 +1061,20 @@ _This is a graded quiz_
 
 You will be asked to derive the equations for $b_o$ and $b_1$ that minimize sum-squared error
 
-$$\text{SSE}(b_o,b_1)=\sum_{i=1}^n\large(y_i-(b_o+b_1x_i)\large)^2$$
+$$\text{SSE}(b_o,b_1)=\sum_{i=1}^n\big(y_i-(b_o+b_1x_i)\big)^2$$
+
+
+**Answer**
+
+$$b_0=\overline{y}-b_1\overline{x}$$
+
+and
+
+$$b_1 = \frac{\displaystyle\left(\sum_{i=1}^nx_iy_i\right) - n\overline{x}\overline{y}}{\displaystyle\left(\sum_{i=1}^nx_i^2\right)-n\overline{x}^2}$$
+
+Another way of expressing $b_1$ is
+
+$$b_1 = \frac{\displaystyle\sum_{i=1}^n(x_i-\overline{x})(y_i-\overline{y})}{\displaystyle\sum_{i=1}^n(x-x_i)^2}$$
 
 # Quiz 7
 

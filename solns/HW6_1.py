@@ -128,7 +128,8 @@ def part1():
   savefig('HW6_1_1.png')
 
 def part2():
-  y = [0, -1, 0, 1]
+  #y = [0, -1, 0, 1]
+  y = [1, 0, -1, 0]
   a0, a, b, i, f = dft(y, method='slow')
 
   print("--Part 2--")

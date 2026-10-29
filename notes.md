@@ -1936,9 +1936,11 @@ To see the problem with this, consider what would happen if experimenter 1 and e
 
 If both of them claim that there is a 95\% chance $\mu$ is in their CI, there is a contradiction.
 
-Another justification for why the quote is wrong is the true population parameter is a fixed, unknown constant, and a calculated CI either contains it (probability = 1) or does not contain it (probability = 0).
+Another justification for why the quote is wrong is when computing a CI, we assumed the true population parameter is a fixed, unknown constant, and a calculated CI either contains it (probability = 1) or does not contain it (probability = 0).
 
 Another misinterpretation is that "overlapping CIs mean no significant difference". (I did not cover this; determining if this conclusion is appropriate or not requires the hypothesis test methods covered in Chapter 9 of Devore.)
+
+Note that there is an alternative to a confidence interval called a credible interval. With a credible interval, one can make a claim about the probability that the population value is in the range of a credible interval. This is a topic in Bayesian inference that is covered later. In the Bayesian method, the population parameter is not regarded as a fixed unknown value but rather as a unknown value that has a probability distribution.
 
 ## Deriving
 
@@ -2259,3 +2261,191 @@ Thus far, the probability, $\alpha$, of a Type I error has been computed.
 The probability of a type II error requires more computation because $H_0$ can be false in many ways.
 
 For example $H_0$: $\mu=10$ can be false if $\mu$ has any other value than $10$, say $\mu_a$. So we need to find $\beta$ as a function of all possible values of $\mu_a$.
+
+# Regression
+
+This is well covered in Devore and Bulmer.
+
+## General Remarks
+
+See also Bulmer Chapter 12.
+
+The 1--D regression model is 
+
+$y_i = \beta_0 + \beta_1 x_{i} + \epsilon_i$
+
+This model is generally used for two purposes:
+1. Given that there is a theoretical explanation for why there is a linear dependence of $y$ on $x$, estimate the parameters $\beta_0$ and $\beta_1$. For example, suppose we are told an object is moving with a constant but unknown velocity. We take measurements of its position $y$ at various times $t$. Then we have a list of $(y,t)$ pairs. A scatter plot should show the points along a straight line, the slope of which is $v$. We can use regression to find $v$. (We could use only two $(y,t)$ pairs to estimate $v$, but regression gives us a way to use more values to get a more accurate estimate.)
+2. Give two variables $y$ and $x$, find how they co--vary. Here we may not have a physical equation that predicts the relationship between the variables, but seek to see how they are related (or associated). For example, we could measure eye color and height and ask if there is an association and characterize this by a linear fit. We don't have a physical equation that justifies the linear relationship and so the coefficients of the fit cannot be compared to theory. In this type of problem, we are more interested in if there is an association and this association is typically quantified by the correlation coefficients (or its square) and a confidence interval (or a hypothesis test that the correlation coefficient is not zero).
+
+## Derivation
+
+For reference, in class I derived the least squares estimate for
+
+$y=b_0 + b_1x$
+
+by minimizing the sum of squared errors
+
+$$\text{SSE}(b_0,b_1) = \sum_{i=1}^n\left[y_i-(b_0+b_1x_i)\right]^2$$
+
+by using (limits on sum dropped to simplify)
+
+$$\frac{\partial \text{SSE}}{\partial b_0} = 0 = -2\sum(y_i-b_0-b_1x_i)=-2\sum y_i + 2nb_0 + 2b_1\sum x_i=-2n\overline{y}+2nb_o + 2b_1n\overline{x}$$
+
+and
+
+$$\frac{\partial \text{SSE}}{\partial b_1} = 0 = -2\sum x_iy_i + 2b_0\sum x_i + 2b_1\sum x_i^2$$
+
+and finding $b_0$ and $b_1$.
+
+The first equation gives
+
+$$b_0=\overline{y}-b_1\overline{x}$$
+
+Substituting this into the second equation gives
+
+$$b_1 = \frac{\displaystyle\left(\sum_{i=1}^nx_iy_i\right) - n\overline{x}\overline{y}}{\displaystyle\left(\sum_{i=1}^nx_i^2\right)-n\overline{x}^2}=\frac{\displaystyle\sum_{i=1}^n(x_i-\overline{x})(y_i-\overline{y})}{\displaystyle\sum_{i=1}^n(x-x_i)^2}$$
+
+A faster way to get at the second form is to write
+
+$$\text{SSE}(b_0,b_1) = \sum_{i=1}^n\left[y_i-(b_0+b_1x_i)\right]^2 =  \sum_{i=1}^n\left[y_i-(\overline{y}-b_1\overline{x}+b_1x_i)\right]^2=\sum_{i=1}^n\left[(y_i-\overline{y})-b_1(x_i-\overline{x})\right]^2$$
+
+and then solve for $b_1$ in
+
+$$\frac{\partial \text{SSE}}{\partial b_1} = -2\sum\big[(y_i-\overline{y})-b_1(x_i-\overline{x})\big] (x_i-\overline{x})=0$$
+
+# Multicollinearity
+
+The 1--D regression model is 
+
+$y_i = \beta_0 + \beta_1 x_{i} + \epsilon_i$
+
+The 2--D regression model is
+
+$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \epsilon_i$
+
+Problems occur if $x_{1i}$ and $x_{2i}$ are correlated (called "multicollinearity").
+
+Suppose we take photos of an object moving at a constant velocity and write down a table of 
+
+```
+y      t     n (photo #)
+1.0   0.0       1
+2.1   0.1       2
+3.0   0.2       3
+4.1   0.3       4
+```
+
+Clearly $y$ depends on $t$ and $n$. So we may be tempted to try fitting
+
+$y = b_0 + b_1t  + b_2n$
+
+with the justification that the more information the better. Doing the regression gives
+
+$b_0=-0.1000$
+
+$b_1=-0.0000$
+
+$b_2=0.1000$
+
+According to this, $y$ does not depend on time, $t$, because $b_1\simeq 0$! 
+
+
+The problem is that $t$ and $n$ are related by $t=(n-1)/10$, so $n=10t+1$ and we can write
+
+$y = b_0 + b_2 + b_1t  + b_2(10t+1)=b_0+b_2+(b_1+10b_2)t$
+
+Defining $b'_0=b_0+b_2$ and $b'_1=b_1+10b_2$ gives a simplified, but equivalent, model
+
+$y = b'_0 + b'_1t$
+
+If we perform the regression, we get $b'_0\simeq -0.0996$ and $b'_1\simeq 0.0979$. Our interpretation is that the velocity is approximately $0.0976$.
+
+In this example, there was perfect colinearity and so we were able eliminate one of the variables.
+
+Consider next estimating 
+
+$y = b_0 + b_1t  + b_2n$
+
+by adding random noise to $y$ before fitting. In this case we get
+
+```
+b0 =    -0.1688
+b1 =     0.9298
+b2 =    -0.8140
+```
+
+for the first experiment and for the second experiment, we get
+
+```
+b0 =    -0.1022
+b1 =    -1.5282
+b2 =     1.6664
+```
+
+The values of $b_1$ and $b_2$ change significantly. This demonstrates that collinearly leads to estimates of parameters with significant variability. In contrast, when we fit only $y=b_0+b_1x_1$, we find that the estimates of $b_0$ and $b_1$ have much less variability from experiment to experiment.
+
+----
+
+
+On [this web page](https://statisticsbyjim.com/regression/multicollinearity-in-regression-analysis/), an example is given using real data. 
+
+The author, Jim, notes that the problems created by multicollinearity include:
+
+* The coefficient estimates can swing wildly based on which other independent variables are in the model.
+* The coefficients become very sensitive to small changes in the model.
+   
+Jim also notes that "Multicollinearity affects the coefficients and $p$-values, but it does not influence the predictions, precision of the predictions, and the goodness-of-fit statistics. If your primary goal is to make predictions, and you don’t need to understand the role of each independent variable, you don’t need to reduce severe multicollinearity."
+
+Devise a numerical experiment using data that you create that demonstrates the above statements by Jim.
+
+# DFT
+
+The Fourier series model for $y$ having uniformly spaced in time values $y_0, y_1, ..., y_{N-1}$ is
+
+----
+
+**For $N$ odd**:
+
+$$y_t = \alpha_0 + \sum_{i=1}^{q}\left[\alpha_i \mbox{cos}(2\pi f_i t) + \beta_i \mbox{sin}(2\pi f_i t)\right] + \epsilon_t\thinspace,$$
+
+The least-squares estimates for the $\alpha$ and $\beta$ values (the estimates for $\alpha_i$ are $a_i$ and the estimates of $\beta_i$ are $b_i$):
+
+$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+
+with $i=1,2,...,q$, $q=(N-1)/2$, and $\ds f_i = i/N$.
+
+There are a total of $N$ unknown parameters in the model equation. If $N$ is odd, for example $N=5$, then $q=2$ and the unknowns are $a_0$, $a_1$, $a_2$, $b_1$, $b_2$.
+
+----
+
+----
+
+**For $N$ even**:
+
+$$y_t = \alpha_0 + \sum_{i=1}^{q}\alpha_i \mbox{cos}(2\pi f_i t) + \sum_{i=1}^{q-1}\beta_i \mbox{sin}(2\pi f_i t) + \epsilon_t\thinspace,$$
+
+The least-squares estimates for the $\alpha$ and $\beta$ values (the estimates for $\alpha_i$ are $a_i$ and the estimates of $\beta_i$ are $b_i$):
+
+$\ds a_0 = \frac{1}{N}\sum_{t=0}^{N-1} y_t \equiv \overline{y}$ 
+$\quad$
+$\ds a_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds a_{q+1} = \frac{1}{N}\sum_{t=0}^{N-1}y_t\mbox{cos}(2\pi f_i t)$
+$\quad$
+$\ds b_i = \frac{2}{N}\sum_{t=0}^{N-1}y_t\mbox{sin}(2\pi f_i t)$
+
+with $i=1,2,...,q$, $q=N/2-1$, and $\ds f_i = i/N$.
+
+There are a total of $N$ unknown parameters in the model equation. If $N$ is even, for example $N=4$, then $q=1$ and the four unknowns based on the above are $a_0$, $a_1$, $a_2$, $b_1$, $b_2$.
+
+----
+
+The values of $a$ and $b$ are also called the discrete Fourier transform (DFT) coefficients.
+
+(The equations for the parameter estimates $a_i$ and $b_i$ are found by multiplying the Fourier series model equation by $\mbox{cos}(2\pi f_i t)$ and $\mbox{sin}(2\pi f_i t)$ and then summing both sides over $t=1$ to $N$. In the E&M book by Griffiths, he calls this "Fourier's trick".)
+
