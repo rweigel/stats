@@ -844,6 +844,20 @@ If you did not give project overview presentation, you will need to give your pr
 
 If you did give a project overview presentation, you do not have any additional work to do for this week.
 
+# HW 7
+
+## Project III
+
+1. Make sure to move all of your code into a subdirectory named `project` in your GitHub repository as I demonstrated in class.
+2. Copy the text at https://raw.githubusercontent.com/rweigel/stats/refs/heads/main/project/README.md into your project directory into a file named `README.md`.
+3. Add at least one reference to related work in your `README.md` file.
+4. Write a few paragraphs for the `Data/Source` section in your `README.md`.
+5. Perform the analysis that I requested following your presentation. If you are not sure of what the next step is, contact me. For most students, the next step is to identify a question that can be asked using a statistical method and to start work on answering it.
+
+If you want me to review anything before class, feel free to send me an email. Post anything that you want me to look at in the `projects/` directory.
+
+**During class, I will ask students to give a 2-minute review of what they presented last time and then a 5-minute presentation on what they have done since them. To simplify things, I will show files from your repository as you speak.**
+
 # Quiz 1
 
 Study the cab example in the [Bayes' rule section of the notes](notes.html).
