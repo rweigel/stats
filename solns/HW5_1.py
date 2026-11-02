@@ -58,12 +58,6 @@ print(f"95% confidence interval for b1 (scipy):   {ci_scipy}")
 
 ci_delta = t * b1_stderr
 
-"""
-True coefficients:               b0 =       1.00  b1 =       1.00
-Estimated coefficients (manual): b0 =       1.23  b1 =       0.76
-Estimated coefficients (scipy):  b0 =       1.23  b1 =       0.76
-Difference (scipy - manual):     b0 =  -2.22e-16  b1 =   3.33e-16
-"""
 
 scatter(x, y, b0, b1, ci_delta)
 
