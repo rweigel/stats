@@ -109,18 +109,26 @@ def fisher_g(y):
   i_max = i[f < 0.5][np.argmax(power)]
   return i_max, np.max(power) / total_power
 
-def fisher_g_threshold(m, alpha=0.05):
-  # Given the number of frequency components m and significance level alpha,
-  # return the threshold value for the Fisher's g statistic using the sum formula.
-  from math import comb, floor, fsum
-  from scipy.optimize import brentq
 
-  if not isinstance(m, (int, np.integer)) or m < 2:
-    raise ValueError("m must be an integer of at least 2.")
+def fisher_g_ppf(n, alpha=0.05):
+  # Given the number of time series values n and significance level alpha,
+  # return the threshold value for the Fisher's g statistic.
+
+  if not isinstance(n, (int, np.integer)) or n < 2:
+    raise ValueError("n must be an integer of at least 2.")
   if not 0 < alpha < 1:
     raise ValueError("alpha must be between 0 and 1, exclusively.")
 
+  if n % 2 == 0:
+    # Shimshoni 1971 p. 377 defines n = 2m + 2
+    m = (n - 2) // 2
+  else:
+    # Shimshoni 1971 p. 373 defined n = 2m + 1
+    m = (n - 1) // 2
+
   def tail_difference(g):
+    from math import comb, floor, fsum
+    from scipy.optimize import brentq
     if g <= 1 / m:
       return 1 - alpha
     terms = []
@@ -142,14 +150,14 @@ def fisher_g_test(y):
   i_max, g = fisher_g(y)
   m = (len(y) - 1) // 2
   if g <= 1 / m:
-    return i_max, 1.0
+    return i_max, 1.0, np.nan
 
   p = 0.0
   for index in range(1, floor(1 / g) + 1):
     term = (-1)**(index - 1) * comb(m, index) * (1 - index * g)**(m - 1)
     p += term
 
-  return i_max, float(np.clip(p, 0, 1))
+  return i_max, float(np.clip(p, 0, 1)), g
 
 
 def part1():
@@ -268,48 +276,51 @@ def part7():
   Later we will compare your visual assessment with a more quantitative measure.
   """
 
-  n = 40
+  n = 41
+
   y = np.full(n, np.nan)
   i = 5 # The frequency index for the sine wave. i = 1 means the sine wave
          # will have a frequency of i/n cycles per sample and a period of n/i samples.
-  sigma = 1.3 # Standard deviation of the noise
+  sigma = 1.0 # Standard deviation of the noise
   for t in range(n):
     epsilon = np.random.normal(loc=0, scale=sigma)
     y[t] = epsilon + np.sin(2 * np.pi * (i/n) * t )
 
   a0, a, b, i, f = dft(y, method='slow')
-  i_max, p = fisher_g_test(y)
+  i_max, p, g = fisher_g_test(y)
 
   print("--Part 7--")
   dft_plot(i, a, b, y, i_max=i_max, p=p)
-  print(f"Fisher's g test p-value: {p}")
+  print(f"Fisher's g test p-value: {p}, g: {g}")
 
   dft_print(a0, a, b, i, f, i_max=i_max, p=p)
   savefig('HW6_1_7.png')
 
-  return
-  n = 40
   y = np.full(n, np.nan)
   i = 5 # The frequency index for the sine wave. i = 1 means the sine wave
          # will have a frequency of i/n cycles per sample and a period of n/i samples.
   sigma = 1.0 # Standard deviation of the noise
 
   nc = 0
-  ne = 10
-  g_thresh = fisher_g_threshold(m=n//2, alpha=0.05)
+  ne = 1000
+  g_thresh = fisher_g_threshold(m=n//2, alpha=0.1)
   for exp in range(ne):
     for t in range(n):
       epsilon = np.random.normal(loc=0, scale=sigma)
-      y[t] = epsilon + np.sin(2 * np.pi * (i/n) * t )
+      y[t] = epsilon #+ np.sin(2 * np.pi * (i/n) * t )
 
-    a0, a, b, _, f = dft(y, method='slow')
-    i_max, p = fisher_g_test(y)
+    a0, a, b, _, f = dft(y, method='fast')
+    i_max, p, g = fisher_g_test(y)
 
-    g = fisher_g(y)[1]
 
-    if i_max == 5:
-      print(f"Experiment {exp}: i_max = {i_max}, p = {p}")
+    #if i_max == 5 and g > g_thresh:
+    #  nc += 1
+
+    star = ""
+    if g > g_thresh:
+      star = "*"
       nc += 1
+    print(f"Experiment {exp}: g_t = {g_thresh:.2f}, i_max = {i_max:2d}, p = {p:.2e}, g: {g:.2f} {star}")
 
   print(f"Number of times i_max = 5: {nc} out of {ne}")
 

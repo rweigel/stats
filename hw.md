@@ -851,7 +851,7 @@ If you did give a project overview presentation, you do not have any additional 
 1. Make sure to move all of your code into a subdirectory named `project` in your GitHub repository as I demonstrated in class.
 2. Copy the text at https://raw.githubusercontent.com/rweigel/stats/refs/heads/main/project/README.md into your project directory into a file named `README.md`.
 3. Add at least one reference to related work in your `README.md` file.
-4. Write a few paragraphs for the `Data/Source` section in your `README.md`.
+4. Write a few paragraphs for the `Data/Source` and `Data/Interpretation` sections in your `README.md`.
 5. Perform the analysis that I requested following your presentation. If you are not sure of what the next step is, contact me. For most students, the next step is to identify a question that can be asked using a statistical method and to start work on answering it.
 
 If you want me to review anything before class, feel free to send me an email. Post anything that you want me to look at in the `projects/` directory.
