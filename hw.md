@@ -720,6 +720,10 @@ Save your code as `HW5_1.py` and plot as `HW5_1.png`.
 
 5. (590 only) Suppose that you want to run a few tests to determine if the equation for the 95% confidence interval in Chapter 12 of Devore is correct. Create as simulation that uses repetition and trapping to test the confidence interval equation. Save your code as `HW5_1_test.py` and any plots as `HW5_1_test.png`. In code comments, state what you are testing.
 
+**Solution**
+
+[HW5_1.py](solns/HW5_1.py)
+
 ## DFT Part I
 
 The Fourier series model for $y$ having an odd number of time steps, $N$, is
@@ -790,6 +794,18 @@ There are a total of $N$ unknown parameters in the model equation. If $N$ is eve
 
 Save your answers in a file named `HW5_2.py`.
 
+**Solution**
+
+[HW5_2.py](solns/HW5_2.py)
+
+That $b_1 = 1$ and all other terms are zero is expected because the $\sin(2\pi t/4)$ fits $[0, -1, 0, 1]$ exactly.
+```
+  i          a_i          b_i          f_i
+  0       0.0000                    0.0000
+  1       0.0000       1.0000       0.2500
+  2       0.0000      -0.0000       0.5000
+```
+
 ## Project Part I
 
 Perform exploratory data analysis on your project data or one of the datasets listed below. The objective is find ways of presenting the data that "tells the story" of its key features. What you choose to plot will depend on the data and your creativity.
@@ -820,6 +836,10 @@ Due Friday, October 30th at 11:59 pm.
 In [HW6_1.py](solns/HW6_1.py), I provide example functions named `parts1()`, `part2()`, and `part3()` that use my `dft()` function based on HW5.
 
 For this homework, modify the `part4()`, `part5()`, `part6()`, and `part7()` functions as requested in the comments of those functions.
+
+**Solution**
+
+[HW6_1.py](solns/HW6_1.py)
 
 ## Regression Part II
 
