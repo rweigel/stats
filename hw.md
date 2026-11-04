@@ -858,6 +858,17 @@ Save your code as `HW6_2.py` and plot as `HW6_2.png`.
 
 Be prepared to discuss in class the interpretation of the $P$ value and the result of the hypothesis test.
 
+**Solution**
+[HW6_1.py](solns/HW6_1.py)
+
+<img src="solns/HW6_2.svg"/>
+
+Interpretation: Given the hypothesis test stated in title, the $P$ value represents the result from a hypothetical repetition experiment. If we repeated the experiment many times when the true correlation was $\rho_o=0.5$, we expect that $3.6\%$ of the time we would get a value of $r=0.76$ (a proxy for $\rho$) or larger. If we regard $3.6\%$ as being "unlikely enough" then we reject the claim $\rho_o$.
+
+Devore concludes 
+
+>  The null hypothesis can therefore be rejected at significance level $.05$ but not at level $.01$. This latter result is somewhat surprising in light of the magnitude of $r$, but when $n$ is small, a reasonably large $r$ may result even when $r$ is not all that substantial. At significance level $.01$, the evidence for a moderately positive correlation is not compelling.
+
 ## Project II
 
 If you did not give project overview presentation, you will need to give your presentation next week.
