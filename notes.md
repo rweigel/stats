@@ -2314,6 +2314,10 @@ and then solve for $b_1$ in
 
 $$\frac{\partial \text{SSE}}{\partial b_1} = -2\sum\big[(y_i-\overline{y})-b_1(x_i-\overline{x})\big] (x_i-\overline{x})=0$$
 
+## Visualizing Uncertainty
+
+https://blogs.sas.com/content/iml/2020/10/12/visualize-uncertainty-regression-predictions.html
+
 # Multicollinearity
 
 The 1--D regression model is 
