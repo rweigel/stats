@@ -1,5 +1,10 @@
 import numpy as np
 
+def periodogram(y):
+  _, a, b, _, f = dft(y, method='fast')
+  I = (len(y)/2) * (a**2 + b**2)
+  return I, f
+
 def dft(y, method='slow'):
 
   n = len(y)
@@ -54,10 +59,10 @@ def plot(i, a, b, y, sigma=None, title=None, i_max=None, p=None):
   axes[1].legend()
   axes[1].grid(True)
 
-  power = np.asarray(a)**2 + np.asarray(b)**2
+  power = (len(y)/2)*(np.asarray(a)**2 + np.asarray(b)**2)
   regular = np.asarray(i) != i_max
   axes[2].plot(np.asarray(i)[regular], power[regular], marker='o', ls='none', color='k')
-  axes[2].set(xlabel='DFT index ($i$)', ylabel='$a_i^2 + b_i^2$')
+  axes[2].set(xlabel='DFT index ($i$)', ylabel='$\\frac{n}{2}(a_i^2 + b_i^2)$')
   axes[2].grid(True)
   axes[2].sharex(axes[1])
   axes[2].grid(True)

@@ -129,14 +129,16 @@ def part7():
   y = np.full(n, np.nan)
   i5 = 5 # The frequency index for the sine wave. i = 1 means the sine wave
          # will have a frequency of i/n cycles per sample and a period of n/i samples.
-  sigma = 1.3 # Standard deviation of the noise
+  sigma = 1 # Standard deviation of the noise
+  A = 1 # Amplitude of the sine wave
   # At and below this sigma, every time I run this, the plot shows a spike in
   # a_i^2 + b_i^2 at i=5 that seems clearly higher than that for the other indices.
-  for t in range(n):
-    epsilon = np.random.normal(loc=0, scale=sigma)
-    y[t] = epsilon + np.sin(2 * np.pi * (i5/n) * t )
+  for exp in range(100):
+    for t in range(n):
+      epsilon = np.random.normal(loc=0, scale=sigma)
+      y[t] = epsilon + A*np.sin(2 * np.pi * (i5/n) * t )
 
-  a0, a, b, i, f = dft.dft(y, method='fast')
+    a0, a, b, i, f = dft.dft(y, method='fast')
 
   print("--Part 7--")
   title = f"$y_t=\\sin(2\\pi ({i5}/{n})t ) + \\epsilon_t;   \\epsilon \\sim \\mathcal{{N}}(0, \\sigma = {sigma:.1f})$"
@@ -144,10 +146,11 @@ def part7():
   dft.print(a0, a, b, i, f)
   savefig('HW6_1_7')
 
-part1()
-part2()
-part3()
-part4()
-part5()
-part6()
+if False:
+  part1()
+  part2()
+  part3()
+  part4()
+  part5()
+  part6()
 part7()
