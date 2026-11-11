@@ -26,6 +26,8 @@ HWs:
 [4](hw.html#hw-4) |
 [5](hw.html#hw-5) |
 [6](hw.html#hw-6) |
+[7](hw.html#hw-7) |
+[8](hw.html#hw-8) |
 Quizzes:
 [1](hw.html#quiz-1) |
 [2](hw.html#quiz-2) |
@@ -34,6 +36,7 @@ Quizzes:
 [5](hw.html#quiz-5) |
 [6](hw.html#quiz-6) |
 [7](hw.html#quiz-7) |
+[8](hw.html#quiz-8) |
 
 [Partial Lecture Notes](notes.html)
 
