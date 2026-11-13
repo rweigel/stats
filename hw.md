@@ -945,6 +945,98 @@ Save your code as `HW8_1.py` and plot as `HW8_1.png`.
 
 Continue work on your project based on my feedback.
 
+# HW 9
+
+Due Friday, November 20th at 11:59 pm.
+
+## Confidence Interval on a Proportion
+
+A coin is tossed $n=10$ times and the fraction of heads is $\hat{\theta} =4/10$.
+
+We want a confidence interval for $\theta$, the true probability of heads.
+
+Devore gives the following equations for the confidence interval for such a problem.
+
+<img src="notes/figures/proportion_ci.png" width="400px"/>
+
+Using a 99\% confidence level,
+
+1. Compute the _score CI_ for $\theta$
+2. Compute the large sample CI for $\theta$
+
+Save your code as `HW9_1.py`. You may put your answers in code comments.
+
+## Credible Interval on a Proportion
+
+To compute a credible interval (the Bayesian analog to a Frequentist confidence interval) for $\theta$, we must compute the posterior probability density function, $p(\theta|\mathcal{D})$ using
+
+$$p(\theta|\mathcal{D}) = \frac{P(\mathcal{D}|\theta)p(\theta) }{P(\mathcal{D})}$$
+
+$P(\mathcal{D}|\theta)$ was computed using the binomial formula. Also, we assumed that the probability of any valid value of $\theta$ was constant, so $p(\theta)=1$. Assume this value for all cases considered in this problem.
+
+In class, we found:
+
+1. for $\mathcal{D}=[H]$ (one toss, one head), $P(\mathcal{D}|\theta)=\theta$, so $p(\theta|\mathcal{D}) = \theta/P(\mathcal{D})$
+2. for $\mathcal{D}=[T]$ (one toss, one tail), $P(\mathcal{D}|\theta)=1-\theta$, so $p(\theta|\mathcal{D})=(1-\theta)/P(\mathcal{D})$
+3. $\mathcal{D}=[H,T]$ (two tosses, one head and one tail), $P(\mathcal{D}|\theta)=2\theta(1-\theta)$, so $p(\theta|\mathcal{D})=2\theta(1-\theta)/P(\mathcal{D})$.
+
+   Note that the result is the same for $\mathcal{D}=[T,H]$ because we are only considering the number of heads in the experiment. An alternative notation that emphasizes the fact that we are considering only the number of heads is $\mathcal{D}=[1H$ in two tosses$]$.
+
+Recall that in previous homeworks, the denominator in Bayes problems was a sum of terms. In a similar way, the denominator here is an integral:
+
+$$P(\mathcal{D})=\int_0^1 P(\mathcal{D}|\theta) p(\theta) d\theta$$
+
+For case 1., we have
+
+$$P(\mathcal{D})=\int_0^1 \theta d\theta = 1/2 \Rightarrow P(\theta|\mathcal{D}) = \theta/P(\mathcal{D}) = 2\theta$$
+
+$P(\mathcal{D}) = 1/2$ is expected because the possible outcomes of the experiment are $1H, 0H$. One half of these outcomes match the given outcome of one head.
+
+For case 2, we have 
+
+$$P(\mathcal{D})=\int_0^1 (1-\theta) d\theta = 1/2\Rightarrow P(\theta|\mathcal{D}) = (1-\theta)/P(\mathcal{D}) = 2(1-\theta)$$
+
+$P(\mathcal{D}) = 1/2$ is expected because the possible outcomes of the experiment are $1H, 0H$. One half of these outcomes match the given outcome of zero heads.
+
+For case 3, we have 
+
+$$P(\mathcal{D})=\int_0^1 2\theta(1-\theta) d\theta = 1/3\Rightarrow P(\theta|\mathcal{D}) = 2\theta(1-\theta)/P(\mathcal{D}) = 6\theta(1-\theta)$$
+
+$P(\mathcal{D}) = 1/3$ is expected because the possible outcomes of the experiment are $2H, 1H, 0H$. One third of these outcomes match the given outcome of one head.
+
+----
+
+In HW 9.1, we had 10 coin tosses and the fraction of heads was $4/10$. Thus, $\mathcal{D}=[H,H,H,H,T,T,T,T,T,T]$, or, equivalently, $\mathcal{D}=[4H$ in 10 tosses$]$.
+
+1. Find the likelihood, $P(\mathcal{D}|\theta)$, using the binomial formula.
+2. Find $P(\mathcal{D})$
+3. Plot $p(\theta|\mathcal{D})$ versus $\theta$.
+
+4. There are several ways to define a Bayesian Credible interval. One is that it is an interval where the area in each tail of the posterior distribution, $p(\theta|\mathcal{D})$, is equal to some value $\alpha/2$. This is called the "equal tail interval" credible interval, ETI.
+
+   To find a $100(1-\alpha)\%$ credible interval, we need to find $a$ such that
+    
+   $$\int_0^a p(\theta|\mathcal{D})d\theta = \alpha/2$$
+    
+   and $b$ such that
+    
+   $$\int_b^1 p(\theta|\mathcal{D})d\theta = \alpha/2$$
+
+   For this HW, we will only perform one step needed to compute the credible interval:
+
+   Compute
+
+   $$\int_{0}^{a} p(\theta|\mathcal{D})d\theta$$
+
+   using $a = 0.02, 0.04, ..., 0.1$. In class we'll discuss ideas for the next steps for finding the credible interval.
+
+
+Save your code as `HW9_2.py` and plot as `HW9_2.png`. Put your answers to 1., 2., and 4. in code comments and have them printed when `HW9_2.py` is executed.
+
+# Project
+
+Continue work on your project. Ideally meet with me before class.
+
 # Quiz 1
 
 Study the cab example in the [Bayes' rule section of the notes](notes.html).
@@ -1410,6 +1502,58 @@ Questions:
 3. How does the probability that we mistakenly rejected the claim depend on $\alpha$?
 
 \newpage
+
+# Activity 2
+
+## Frequentist CI for Fraction of Heads
+
+A coin is tossed $n=10$ times and the fraction of heads is $\hat{\theta}=4/10$.
+
+We want a confidence interval for $\hat{\theta}$, which is our estimate of the true probability of heads, $\theta$.
+
+Use the textbook or any other resource to find an equation that can be used to find a $99\%$ confidence interval $\theta$.
+
+Work on your own and write down your findings (you do not need to do the actual calculation - just find a formula). After 5 minutes, I'll ask you to work in groups to determine a group-sanctioned answer.
+
+\vspace{3in}
+
+## Bayesian Analysis Introduction
+
+In class, I computed the probability density function, $p(\theta|\mathcal{D})$, for a coin toss experiment in which $\theta$ if the probability of heads.
+
+In my example, the data, $\mathcal{D}=[H] \Rightarrow$ the coin was tossed once and the result was a head.
+
+Using this result and the assumption that the probability that $\theta$ is any value is constant for $0\le\theta\le 1$, I found
+
+$$p(\theta|\mathcal{D}) = \frac{\theta}{P(\mathcal{D})}$$
+
+where $P(\mathcal{D})$ is a constant that we'll compute later.
+
+In the next two problems, you are asked to repeat my example using different $\mathcal{D}$.
+
+\newpage
+
+### $\mathcal{D}=[T]$
+
+A coin was tossed once and the result was $\mathcal{D}=[T]$. As before, assume the unknown probability of heads, $\theta$, is constant for $0\le\theta\le 1$.
+
+1. Sketch a plot of what you expect for $p(\theta|\mathcal{D})$.
+2. Compute $p(\theta|\mathcal{D})$ in terms of $\theta$ and $P(\mathcal{D})$.
+3. What is $\displaystyle\frac{p(\theta=3/4|\mathcal{D})}{p(\theta=1/4|\mathcal{D})}$?
+
+### $\mathcal{D}=[H,T]$
+
+1. Sketch a plot of what you expect $p(\theta|\mathcal{D})$ for this case.
+2. Compute $p(\theta|\mathcal{D})$ in terms of $\theta$ and $P(\mathcal{D})$.
+3. A (frequentist) confidence interval represents a range of reasonable values for a parameter being estimated. For this $\mathcal{D}$, we have $\hat{\theta}=0.5$ and could use formulas found earlier to find a confidence interval for $\theta$.
+
+   Based on the plot of $p(\theta|\mathcal{D})$, what is a "reasonable" range of values for $\theta$ given the results of the experiment is $[H,T]$?
+
+### Numerically Estimating $\mathcal{D}$
+
+How you would numerically estimate $p(\mathcal{D}|\theta)$ for $\mathcal{D}=[H,T]$?
+
+Hint: Do a coin toss experiment with two tosses and some value of $\theta$, say $\theta=0.1$, $n_e$ times. The result of these $n_e$ experiments can be used to estimate $p(\mathcal{D}|\theta=0.1)$. How?
 
 # Midterm
 

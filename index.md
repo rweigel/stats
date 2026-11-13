@@ -28,6 +28,7 @@ HWs:
 [6](hw.html#hw-6) |
 [7](hw.html#hw-7) |
 [8](hw.html#hw-8) |
+[9](hw.html#hw-9) |
 Quizzes:
 [1](hw.html#quiz-1) |
 [2](hw.html#quiz-2) |
@@ -49,8 +50,16 @@ Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam
 
 ## December 3rd
 ## November 19th
+
 ## November 12th
+
+* Bayes Revisited
+* Project Discussions
+
 ## November 5th
+
+* Discussion of HW 7.
+* Activity related to HW 8.1
 
 ## October 29th
 
