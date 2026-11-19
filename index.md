@@ -51,6 +51,21 @@ Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam
 ## December 3rd
 ## November 19th
 
+* Go over Bayes credible interval problem on [HW 9](hw.html#hw-9)
+* Project updates
+* Midterm supplementary quiz
+
+* Plan for rest of the semester:
+  * No more HWs
+  * December 3rd I want a draft report and a 5-minute update presentation
+
+* Final presentations will be one-on-one. Select a time to meet:
+  * Friday, December 4th after 12:01 pm (in person or Teams)
+  * Saturday, December 5th between 9 am and 1 pm (in person or Teams)
+  * Monday-Thursday (December 7-11) 9 am - noon (on Teams)
+  * Monday-Tuesday (December 14-15) 9 am - 5 pm (in person or Teams)
+  * Other times are possible. Let me know.
+
 ## November 12th
 
 * Bayes Revisited
