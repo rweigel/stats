@@ -23,8 +23,10 @@ def periodograms(n, A, σ, i0, ne):
   return I, f
 
 
-def plot_pdfs(I_column):
+def plot_pdfs(I_column, i0, fraction_above):
   from matplotlib import pyplot as plt
+  from lib.savefig import savefig
+
   dx = 1
   e_pdf, bin_centers, _ = pdf.pdf(I_column, dx, a=0.5)
   plt.bar(bin_centers, e_pdf*dx, width=dx, align='center', label='Numerical (estimate)')
@@ -35,12 +37,21 @@ def plot_pdfs(I_column):
   plt.legend()
   plt.ylabel('PDF')
   plt.xlabel(f'$I_{{{i0}}} = \\frac{{n}}{{2}} (a_{{{i0}}}^2 + b_{{{i0}}}^2)$')
+  plt.xlim(left=0, right=12)
+  # Add an annotation for I(f_{i0}) on the plot created by plt_pdfs().
+  statement = f"If case B., prob. of observing $I(f_{{{i0}}})={I_y[i0-1]:.1f}$ or larger is {fraction_above:.3f}"
+  plt.title(f'Sampling Distribution of $I_{{{i0}}}$\n{statement}')
+  plt.axvline(I_y[i0-1], color='r', linestyle='--', label=f'I(f_{{{i0}}})')
+  text = f'Area under $\\chi^2_2$ \nabove $I(f_{{{i0}}})={I_y[i0-1]:.1f}$: {fraction_above:.3f} '
+  plt.text(I_y[i0-1], plt.ylim()[1]*0.4, text, color='r', ha='right')
+
+  savefig("HW8_1")
+
 
 # Plot the numerically estimated sampling distribution of I_5 and compare
 # with the exact sampling distribution of I_5, which is chi^2_2
 I, f = periodograms(n, A, σ, i0, ne)
 I5 = I[i0-1, :]
-plot_pdfs(I5)
 
 # Compute the periodogram of the given y and print I(f_{i0})
 y = [0.9286277042696437, 1.7045034622025108, 1.2050233168496631, 1.3845192085275169, 0.7431622214379727, -0.5679286290463883, -0.48302490734666614, -1.5114589444139053, -1.764577341185066, -1.418292052669948, 0.5691222893590951, 1.5289585406721782, -0.460701510623547, 1.2776882948506474, -2.6770015657394532, -0.08993270340891461, -1.3686260170604216, 0.41212214197362895, -1.8219485330400222, -0.9514020560144467, -0.2935061113992405, -1.248384532410733, 0.3339742830685172, 0.39336906362403434, -0.025834598877514714, -0.811666785526905, 0.6705521440034906, 0.2112093102712752, 0.6226097153544842, 0.1183604974191117, -0.05356324386643412, -0.6882896771055533, -0.48979126500005604, -0.09310013954981483, 0.28948660168776613, 2.162314587980623, 1.9419564408387695, 1.046727620184002, -1.03476056281878, -0.12472014892027071]
@@ -56,15 +67,7 @@ print(f"Fraction of area above I(f_{i0}): {fraction_above}")
 # I(f_5) = 9.176689137753517
 # Fraction of area above I(f_5): 0.010169679650502306
 
-# Add an annotation for I(f_{i0}) on the plot
-from matplotlib import pyplot as plt
-statement = f"If case B., prob. of observing I(f_{i0}) or larger is {fraction_above:.3f}"
-plt.title(f'Sampling Distribution of $I_{{{i0}}}$\n{statement}')
-plt.axvline(I_y[i0-1], color='r', linestyle='--', label=f'I(f_{{{i0}}})')
-text = f' Area under $\\chi^2_2$\n above $I(f_{{{i0}}})={I_y[i0-1]:.1f}$: {fraction_above:.3f}'
-plt.text(I_y[i0-1], plt.ylim()[1]*0.4, text, color='r', ha='left')
-
-plt.savefig("HW8_1.png")
+plot_pdfs(I5, i0, fraction_above)
 
 # Statistical statement:
 # The I_5 value for the given y is such that there is a ~1.02% chance of observing
@@ -86,11 +89,13 @@ plt.savefig("HW8_1.png")
 # Part 5.
 
 # The sampling distribution of I_5 is approximately chi^2_2, so we can construct a 95% confidence interval using the chi^2 distribution.
-# https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/20.pdf
 chi_upper = chi2.ppf(0.025, df=2)
 chi_lower = chi2.ppf(0.975, df=2)
 I5 = I_y[i0-1]
-# Because we used sigma^2 = 1, the factor of 2/f(v) = 1.
+# https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/20.pdf
+# Because we used sigma^2 = 1, the factor of 2/f(v) = 1 because the expectation of f(v) = 2.
+# That is, f(v) is the expectation of the periodogram at any frequency v (except 0 and 0.5).
+# Because sigma^2 = 1, f(v) ~ chi^2_2, which has expectation 2.
 ci_lower = I5/chi_lower
 ci_upper = I5/chi_upper
 CI = [I_y[i0-1] - ci_lower, I_y[i0-1] + ci_upper]  # Use the upper bound of the chi^2 interval for the margin

@@ -59,7 +59,7 @@ Final project presentations, 4:30-7:10 pm in the same room as class. [Final Exam
   * No more HWs
   * December 3rd I want a draft report and a 5-minute update presentation
 
-* Final presentations will be one-on-one. Select a time to meet:
+* Final presentations will be one-on-one. I will send a calendar for you to select times when you are available:
   * Friday, December 4th after 12:01 pm (in person or Teams)
   * Saturday, December 5th between 9 am and 1 pm (in person or Teams)
   * Monday-Thursday (December 7-11) 9 am - noon (on Teams)
