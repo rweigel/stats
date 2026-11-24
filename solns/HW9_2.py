@@ -12,7 +12,7 @@ def posterior_area(a, b):
   integral, _ = quad(lambda θ: θ**4*(1 - θ)**6, a, b)
   return integral/A
 
-# Find exact integral of 
+# Find exact integral of
 # Plot the posterior
 def plot_posterior(num_points=100):
   import matplotlib.pyplot as plt
@@ -20,7 +20,9 @@ def plot_posterior(num_points=100):
   posterior_values = [(θ**4*(1 - θ)**6)/A for θ in θ_values]
   plt.plot(θ_values, posterior_values)
   plt.xlabel('θ')
-  plt.ylabel('P(θ|𝒟)')
+  plt.ylabel('$P(θ|\\mathcal{D})$')
+  plt.title('$\\mathcal{D}=[4H, 6T]$')
+  plt.grid()
   savefig('HW9_2')
 
 plot_posterior()

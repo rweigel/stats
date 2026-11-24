@@ -963,6 +963,15 @@ Devore gives the following equations.
 
 Compute the _score CI_ and the large sample CI using a 99\% confidence level.
 
+**Solution**
+
+```
+"Score" CI:       0.32 -  0.56
+Large sample CI:  0.00 -  0.80
+```
+
+[HW9_1.py](solns/HW9_1.py)
+
 ## Credible Interval on a Proportion
 
 To compute a credible interval (the Bayesian analog to a Frequentist confidence interval) for $\theta$, we must compute the posterior probability distribution function, $p(\theta|\mathcal{D})$ using
@@ -1009,6 +1018,47 @@ In the previous problem, we had 10 coin tosses and the fraction of heads was $4/
 1. Find the likelihood $P(\mathcal{D}|\theta)$ using the binomial formula.
 2. Find $P(\mathcal{D})$
 3. Plot $p(\theta|\mathcal{D})$ versus $\theta$.
+
+4. There are several ways to define a Bayesian Credible interval. One is that it is an interval where the area in each tail of the posterior distribution, $p(\theta|\mathcal{D})$, is equal to some value $\alpha/2$. This is called the "equal tail interval" credible interval, ETI.
+
+   To find a $100(1-\alpha)\%$ credible interval, we need to find $a$ such that
+    
+   $$\int_0^a p(\theta|\mathcal{D})d\theta = \alpha/2$$
+    
+   and $b$ such that
+    
+   $$\int_b^1 p(\theta|\mathcal{D})d\theta = \alpha/2$$
+
+   For this HW, we will only perform one step needed to compute the credible interval:
+
+   Compute
+
+   $$\int_{0}^{a} p(\theta|\mathcal{D})d\theta$$
+
+   using $a = 0.02, 0.04, ..., 0.1$. In class we'll discuss ideas for the next steps for finding the credible interval.
+
+
+Save your code as `HW9_2.py` and plot as `HW9_2.png`. Put your answers to 1., 2., and 4. in code comments and have them printed when `HW9_2.py` is executed.
+
+**Solution**
+
+[HW9_2.py](solns/HW9_2.py)
+
+1. $$P(\mathcal{D}|\theta) = {10\choose 4}\theta^4(1-\theta)^6$$
+
+2. $$P(\mathcal{D}) = \int_0^1 p(\theta)P(\mathcal{D}|\theta)d\theta = \int_0^1 P(\mathcal{D}|\theta) d\theta= {10\choose 4}\int_0^1\theta^4(1-\theta)^6d\theta = {10\choose 4}/2310$$
+ 
+3. $$p(\theta|\mathcal{D}) = 2310\,\theta^4(1-\theta)^6$$
+
+  <img src="solns/HW9_2.svg"/>
+
+4. 99\% Credible Interval: $[0.12, 0.77]$. In summary:
+
+    ```
+    "Score" CI:       0.32 -  0.56
+    Large sample CI:  0.00 -  0.80
+    Credible Int.:    0.12 -  0.77
+    ```
 
 # Quiz 1
 
