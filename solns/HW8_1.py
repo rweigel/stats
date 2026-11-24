@@ -88,20 +88,27 @@ plot_pdfs(I5, i0, fraction_above)
 
 # Part 5.
 
-# The sampling distribution of I_5 is approximately chi^2_2, so we can construct a 95% confidence interval using the chi^2 distribution.
-chi_upper = chi2.ppf(0.025, df=2)
-chi_lower = chi2.ppf(0.975, df=2)
+chi_lower = chi2.ppf(0.025, df=2)
+chi_upper = chi2.ppf(0.975, df=2)
 I5 = I_y[i0-1]
+ci_lower = 2*I5/chi_upper
+ci_upper = 2*I5/chi_lower
 # https://www.stat.berkeley.edu/~bartlett/courses/153-fall2010/lectures/20.pdf
-# Because we used sigma^2 = 1, the factor of 2/f(v) = 1 because the expectation of f(v) = 2.
-# That is, f(v) is the expectation of the periodogram at any frequency v (except 0 and 0.5).
-# Because sigma^2 = 1, f(v) ~ chi^2_2, which has expectation 2.
-ci_lower = I5/chi_lower
-ci_upper = I5/chi_upper
-CI = [I_y[i0-1] - ci_lower, I_y[i0-1] + ci_upper]  # Use the upper bound of the chi^2 interval for the margin
-print(f"95% confidence interval for I_5: {CI}")
+# Since 2*I_5/E[I_5] ~ chi^2_2, these bounds estimate E[I_5].
+CI = [ci_lower, ci_upper]
+print(f"95% confidence interval for E[I_5]: {CI}")
+# 95% confidence interval for E[I_5]: [2.4876630564654074, 362.45986001030604]
 
-# To test that this CI is correct, we could simulate 10,000 y's using case B.
-# and compute the 10,0000 corresponding I_5 values. Then, we could compute the
-# fraction of the 10,0000 CIs that overlapped the expected I_5 value of 2
-# (when sigma^2= 1, I_5 is chi^2_2 distributed and the mean of chi^2_v is v).
+# Check trapping using 10,000 simulations of case B, where E[I_5] = 2.
+ne = 1000
+I_check, _ = periodograms(n, A=0, σ=1, i0=i0, ne=ne)
+I5s = I_check[i0-1, :]
+cis_lower = 2*I5s/chi_upper
+cis_upper = 2*I5s/chi_lower
+if False:
+  for i in range(ne):
+    trapped = (cis_lower[i] <= 2) & (cis_upper[i] >= 2)
+    print(f"CI {i+1}: [{cis_lower[i]:.2f}, {cis_upper[i]:.2f}] {trapped}")
+trapped = np.sum((cis_lower <= 2) & (cis_upper >= 2))/ne
+print(f"Percentage of {ne} CIs containing E[I_5] = 2: {trapped*100:.2f}%")
+# Percentage of 1000 CIs containing E[I_5] = 2: 94.70%
