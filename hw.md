@@ -961,12 +961,14 @@ We want a confidence interval for $\theta$, which is our estimate of the true pr
 
 Devore gives the following equations.
 
+<img src="../notes/figures/proportion_ci.png"/>
+
 Compute the _score CI_ and the large sample CI using a 99\% confidence level.
 
 **Solution**
 
 ```
-"Score" CI:       0.32 -  0.56
+"Score" CI:       0.13 -  0.75
 Large sample CI:  0.00 -  0.80
 ```
 
